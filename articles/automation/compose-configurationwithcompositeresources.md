@@ -5,17 +5,17 @@ keywords: powershell dsc, Desired State Configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b82457d8a7ce70ecfde32ba625ef610a3772213c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432192"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278623"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
@@ -32,11 +32,11 @@ Prima di poter assegnare una configurazione costituita da risorse composite nel 
 1. Nella pagina **Account di automazione** selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
 1. Nella pagina **Configurazione stato (DSC)** fare clic sulle schede **Configurazioni** o **Configurazioni compilate**, quindi selezionare **Crea configurazione** nel menu nella parte superiore della pagina.
 1. Nell passaggio **Informazioni di base** specificare il nome della configurazione (obbligatorio) e fare clic su un punto qualsiasi nella riga di ogni risorsa composita che si vuole includere nella nuova configurazione, quindi fare clic su **Avanti** oppure fare clic sul passaggio **Codice sorgente**. Per i passaggi seguenti, sono state selezionate le risorse **PSExecutionPolicy** e **RenameAndDomainJoin**.
-   ![Screenshot delle informazioni di base nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+   ![Screenshot del passaggio nozioni di base della pagina di configurazione di compose](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. Nel passaggio **Codice sorgente** viene visualizzato l'aspetto della configurazione creata con le risorse composite selezionate. È possibile notare che tutti parametri sono stati uniti e passati alla risorsa composita. Dopo aver esaminato il nuovo codice sorgente, fare clic su **Avanti** oppure fare clic sul passaggio **Parametri**.
-   ![Screenshot del codice sorgente nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+   ![Screenshot del passaggio del codice sorgente della pagina di configurazione di compose](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. Nel passaggio **Parametri** viene esposto il parametro di ogni risorsa composita in modo che sia possibile specificarli. Se per il parametro esiste una descrizione, questa viene visualizzata accanto al campo del parametro. Se un campo è un parametro di tipo **PSCredential**, l'elenco a discesa per la configurazione offre un elenco di oggetti **Credential** nell'account di Automazione corrente. È anche disponibile l'opzione **+Aggiungi credenziali**. Dopo aver specificato tutti i parametri necessari, fare clic su **Salva e compila**.
-   ![Screenshot dei parametri nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+   ![Screenshot del passaggio i parametri della pagina di configurazione di compose](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Dopo averla salvata, la configurazione viene inoltrata per essere compilata. Lo stato del processo di visualizzazione viene visualizzato come per una qualsiasi configurazione importata. Per altre informazioni, vedere [Visualizzazione di un processo di compilazione](automation-dsc-getting-started.md#viewing-a-compilation-job).
 

@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653096"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281982"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Gli scambi di self-servizi e rimborsi per le prenotazioni di Azure
 
 Le prenotazioni di Azure offrono flessibilità per soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un altro prenotazione dello stesso tipo. È possibile rimborsare una prenotazione, fino a 50.000 USD all'anno, anche se è non è più necessario.
+
+Funzionalità di exchange e Annulla self-service non è disponibile per i clienti US Government contratto Enterprise Agreement. Sono supportati altri tipi di sottoscrizione di US Government inclusi con pagamento a consumo e CSP.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Un'istanza riservata esistente di Exchange
 
 È possibile scambiare la prenotazione con tre passaggi veloci nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Selezionare le prenotazioni che si desidera rimborsare e fare clic su **Exchange**.  
-    ![Immagine di esempio che mostra le prenotazioni da restituire ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![Immagine di esempio che mostra le prenotazioni da restituire](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. Selezionare il prodotto della macchina virtuale che si desidera acquistare e digitare una quantità. Assicurarsi che il nuovo totale di acquisto è maggiore del totale restituito. [Determinare le dimensioni corrette prima di acquistare](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Immagine di esempio che illustra il prodotto della macchina virtuale per l'acquisto con uno scambio ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Immagine di esempio che illustra il prodotto della macchina virtuale per l'acquisto con uno scambio](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Esaminare e completare la transazione.  
-    ![Immagine di esempio che illustra il prodotto della macchina virtuale per l'acquisto con uno scambio, completare il valore restituito ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![Immagine di esempio che illustra il prodotto della macchina virtuale per l'acquisto con uno scambio, completare il valore restituito](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Per una prenotazione di rimborso, passare a **i dettagli della prenotazione** e fare clic su **rimborso**.
 
@@ -86,8 +88,8 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
     - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
     - [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
-    - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
-    - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-    - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-    - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
-    - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](/partner-center/azure-reservations)
+    - [Informazioni su come viene applicato lo sconto di prenotazione](billing-understand-vm-reservation-charges.md)
+    - [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
+    - [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+    - [Costi del software Windows non inclusi con le prenotazioni](billing-reserved-instance-windows-software-costs.md)
+    - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) di Partner Center](/partner-center/azure-reservations)

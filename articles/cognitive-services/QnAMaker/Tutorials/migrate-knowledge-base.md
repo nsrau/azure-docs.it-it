@@ -1,22 +1,22 @@
 ---
 title: Eseguire la migrazione delle knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Spostare una knowledge base creata con QnA Maker in una nuova knowledge base.
+description: Il processo di migrazione consiste nell'esportazione del contenuto di una knowledge base e nella relativa importazione in un'altra knowledge base.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245916"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264319"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
@@ -48,10 +48,10 @@ Il processo di migrazione consiste nell'esportazione del contenuto di una knowle
    ![Importare una knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. **Testare** la nuova knowledge base mediante il pannello di Test. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
-1. **Pubblicare** la knowledge base. Leggere le informazioni su come [pubblicare la knowledge base](../How-To/publish-knowledge-base.md).
+1. **Pubblicare** la knowledge base. Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 1. Usare l'endpoint nell'applicazione o nel codice bot. Vedere di seguito come [creare un bot QnA](../Tutorials/create-qna-bot.md).
 
-    ![Valori QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![Valori QnA Maker](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     A questo punto, tutti i contenuti della knowledge base, domande, risposte e metadati, insieme ai nomi dei file sorgente e agli URL, vengono importati nella nuova knowledge base. 
 
@@ -63,4 +63,4 @@ Non è possibile eseguire la migrazione dei chatlog, poiché la nuova knowledge 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Modificare una knowledge base](../How-To/edit-knowledge-base.md)
+> [Modificare una Knowledge Base](../How-To/edit-knowledge-base.md)

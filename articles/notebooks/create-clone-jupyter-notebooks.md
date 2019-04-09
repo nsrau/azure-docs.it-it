@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759086"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282322"
 ---
 # <a name="create-and-clone-projects"></a>Creare e clonare progetti
 
@@ -30,20 +30,20 @@ Un progetto gestisce anche i metadati e altre impostazioni di configurazione rel
 
 Nel dashboard **My Projects** (Progetti personali) all'indirizzo `https://notebooks.azure.com/<userID>/projects` è possibile visualizzare, gestire e creare progetti:
 
-[![Dashboard My Projects (Progetti personali) in Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Mdashboard di progetti y nei notebook di Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Le operazioni che è possibile eseguire in un dashboard variano a seconda che si sia eseguito o meno l'accesso con l'account proprietario dell'ID utente:
 
 | Comando | Disponibile per | DESCRIZIONE |
 | --- | --- | --- |
-| **Run** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
-| **Scaricare** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
-| **Share** (Condividi) | Chiunque | Visualizza la finestra popup di condivisione mediante la quale è possibile ottenere l'URL di un progetto, condividerlo sui social media, inviare un messaggio di posta elettronica con l'URL e ottenere il codice HTML o Markdown con un badge "notebook di avvio" (vedere [Ottenere un badge di avvio](#obtain-a-launch-badge)) con l'URL. |
-| **Elimina** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
+| **Esegui** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
+| **Download** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
+| **Condividi** | Chiunque | Visualizza la finestra popup di condivisione mediante la quale è possibile ottenere l'URL di un progetto, condividerlo sui social media, inviare un messaggio di posta elettronica con l'URL e ottenere il codice HTML o Markdown con un badge "notebook di avvio" (vedere [Ottenere un badge di avvio](#obtain-a-launch-badge)) con l'URL. |
+| **Delete** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
 | **Terminale** | Proprietario | Avvia il server del progetto e quindi apre una nuova finestra del browser con il terminale Bash per il server. |
-| **+ New Project** (Nuovo progetto) | Proprietario | Crea un nuovo progetto. Vedere [Creare un nuovo progetto](#create-a-new-project). |
-| **Upload GitHub Repo** (Carica repository GitHub) | Proprietario | Importa un progetto da GitHub. [Importare un progetto da GitHub](#import-a-project-from-github). |
-| **Clone** (Clona) | Chiunque | Copia un progetto selezionato nel proprio account. Se necessario, richiede di eseguire l'accesso. Vedere [Clonare un progetto](#clone-a-project). |
+| **+ Nuovo progetto** | Proprietario | Crea un nuovo progetto. Vedere [Creare un nuovo progetto](#create-a-new-project). |
+| **Caricare i repository di GitHub** | Proprietario | Importa un progetto da GitHub. [Importare un progetto da GitHub](#import-a-project-from-github). |
+| **Clone** | Chiunque | Copia un progetto selezionato nel proprio account. Se necessario, richiede di eseguire l'accesso. Vedere [Clonare un progetto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Ottenere un badge di avvio
 
@@ -120,7 +120,7 @@ Per clonare un progetto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Explore sample notebooks (Esplorare i notebook di esempio)](azure-notebooks-samples.md)
+- [Scopri i notebook di esempio](azure-notebooks-samples.md)
 - [Procedura: Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
 - [Procedura: Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
 - [Procedura: Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)

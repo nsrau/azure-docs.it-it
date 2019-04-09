@@ -16,16 +16,16 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: c9f43eb1623ec784bd960fb182dffec48e7b0833
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0fe5b055665ef5a770fba71fdefcfd13b9809e37
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481247"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282271"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
-*Si applica a: Sistemi integrati di Azure Stack*
+*Si applica a Sistemi integrati di Azure Stack*
 
 Questo articolo descrive il contenuto del pacchetto di aggiornamento 1811. Il pacchetto di aggiornamento include nuove funzionalità per questa versione di Azure Stack, correzioni e miglioramenti. Anche in questo articolo descrive i problemi noti in questa versione e include un collegamento in modo che è possibile scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -391,6 +391,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
+### <a name="syslog"></a>syslog 
+- La configurazione di syslog non è persistente tramite un ciclo di aggiornamento, risultante in client perde la relativa configurazione e i messaggi syslog per arrestare l'inoltro syslog. Questo problema si applica a tutte le versioni di Azure Stack dopo la disponibilità generale del client di syslog (1809).
+Per risolvere il problema è necessario riconfigurare il client di syslog dopo aver applicato un aggiornamento di Azure Stack.
 
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
 

@@ -16,11 +16,11 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
 ms.openlocfilehash: c635f228229a9afae8a7e325c4ead5a51a0767c8
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056368"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279330"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: Creare una macchina virtuale di server Linux con PowerShell in Azure Stack
 

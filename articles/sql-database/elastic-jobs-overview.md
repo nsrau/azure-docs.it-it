@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773580"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264421"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 
@@ -76,6 +76,8 @@ Attualmente, l'anteprima è limitata a 100 processi simultanei.
 
 Per garantire che le risorse non siano sovraccariche quando si eseguono processi sul database in un pool elastico SQL, è possibile configurare i processi in modo da limitare il numero di database in cui un processo può essere eseguito contemporaneamente.
 
+Impostare il numero di database simultanei, un processo viene eseguito, impostando il `sp_add_jobstep` stored della procedure `@max_parallelism` parametro in T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Procedure consigliate per la creazione di processi
 
 ### <a name="idempotent-scripts"></a>Script idempotenti
@@ -96,5 +98,5 @@ Analogamente, uno script deve poter essere eseguito correttamente verificando in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare e gestire processi elastici usando PowerShell](elastic-jobs-powershell.md)
-- [Creare e gestire processi elastici usando Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Creare e gestire processi elastici con PowerShell](elastic-jobs-powershell.md)
+- [Creare e gestire processi elastici con Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

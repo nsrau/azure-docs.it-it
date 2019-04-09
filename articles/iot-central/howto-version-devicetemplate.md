@@ -3,17 +3,17 @@ title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure I
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/19/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214283"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281778"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
@@ -68,4 +68,4 @@ I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcun
 Ora che si conosce la procedura per usare le versioni dei modelli di dispositivo nell'applicazione Azure IoT Central, il prossimo passaggio suggerito è:
 
 > [!div class="nextstepaction"]
-> [Come creare regole dei dati di telemetria](howto-create-telemetry-rules.md)
+> [Come creare regole di dati di telemetria](howto-create-telemetry-rules.md)

@@ -1,18 +1,18 @@
 ---
-title: Scalare orizzontalmente un cluster di Esplora dati di Azure per soddisfare la richiesta di modifica
+title: Scalare orizzontalmente un cluster di Esplora dati di Azure
 description: Questo articolo descrive i passaggi per scalare in orizzontale e scalabilità in un cluster di Azure Data Explorer base alle variazioni della domanda.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044235"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261599"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gestire l'aumento del numero di istanze di un cluster per rispondere al cambiamento della domanda
 
@@ -22,21 +22,23 @@ Un approccio migliore consiste nel *ridimensionare* il cluster, aumentandone o d
 
 Questo articolo illustra come gestire cluster di scalabilità orizzontale, detta anche scalabilità automatica. La scalabilità automatica consente di scalare orizzontalmente il numero di istanze automaticamente in base alle regole e pianificazioni predefinite. Specificare le impostazioni di scalabilità automatica per il cluster nel portale di Azure, come descritto in questo articolo.
 
-Passare al cluster. Sotto **le impostazioni**, selezionare **scalare in orizzontale**. In **Configura** selezionare **Abilita scalabilità automatica**.
+## <a name="steps-to-configure-autoscale"></a>Passaggi per configurare la scalabilità automatica
 
-![Abilitare il ridimensionamento automatico](media/manage-cluster-scaling/enable-autoscale.png)
+Nel portale di Azure, passare alla risorsa cluster di Esplora dati. Sotto il **le impostazioni** titolo, selezionare **scalare in orizzontale**. Nel **Configure** scheda, seleziona **Abilita scalabilità automatica**.
 
-La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli sono sotto il grafico.
+   ![Abilitare il ridimensionamento automatico](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Regola di ridimensionamento](media/manage-cluster-scaling/scale-rule.png)
+La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli seguono nel grafico.
 
-1. Nel **nome dell'impostazione di scalabilità automatica** immettere un nome, ad esempio *Scale-out: utilizzo di cache*.
+1. Nel **nome dell'impostazione di scalabilità automatica** immettere un nome, ad esempio *Scale-out: utilizzo di cache*. 
 
-1. Per la **modalità di ridimensionamento**, selezionare **scalabilità basata su una metrica**. Questa modalità assicura la scalabilità dinamica. È anche possibile selezionare **scala a un numero di istanze specifico**.
+   ![Regola di ridimensionamento](media/manage-cluster-scaling/scale-rule.png)
 
-1. Selezionare **+ Aggiungi una regola**.
+2. Per la **modalità di ridimensionamento**, selezionare **scalabilità basata su una metrica**. Questa modalità assicura la scalabilità dinamica. È anche possibile selezionare **scala a un numero di istanze specifico**.
 
-1. Nella sezione **Regola di ridimensionamento** sulla destra specificare i valori per ogni impostazione.
+3. Selezionare **+ Aggiungi una regola**.
+
+4. Nella sezione **Regola di ridimensionamento** sulla destra specificare i valori per ogni impostazione.
 
     **Criteri**
 
@@ -59,9 +61,9 @@ La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli sono
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |
 
-1. Selezionare **Aggiungi**.
+5. Selezionare **Aggiungi**.
 
-1. Nella sezione **Limiti per le istanze** a sinistra specificare i valori per ogni impostazione.
+6. Nella sezione **Limiti per le istanze** a sinistra specificare i valori per ogni impostazione.
 
     | Impostazione | Descrizione e valore |
     | --- | --- |
@@ -70,10 +72,14 @@ La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli sono
     | **Predefinito** | Il numero predefinito di istanze. Questa impostazione viene usata se si verificano problemi con la lettura delle metriche delle risorse. |
     |  |  |
 
-1. Selezionare **Salva**.
+7. Selezionare **Salva**.
 
 È stata configurata un'operazione per aumentare il numero di istanze del cluster di Esplora dati di Azure. Aggiungere un'altra regola per configurare un'operazione per ridurne il numero. Questa configurazione consente il cluster per la scalabilità dinamicamente in base alle metriche che preferisci.
 
 È anche possibile [gestire i cluster aumento](manage-cluster-scale-up.md) per il ridimensionamento appropriato di un cluster.
 
 Se occorre assistenza per problemi di ridimensionamento del cluster [aprire una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) nel portale di Azure.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Monitorare le prestazioni, integrità e sull'utilizzo con le metriche di Esplora dati di Azure](using-metrics.md)

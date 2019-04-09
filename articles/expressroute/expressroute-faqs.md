@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259823"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282866"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -144,7 +144,7 @@ Se il provider di servizi offre ExpressRoute in entrambe le località, è possib
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>È possibile avere più circuiti ExpressRoute nella stessa area metropolitana? È possibile collegarli alla stessa rete virtuale?
 
-Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se invece i circuiti vengono creati nella stessa località di peering, non è possibile collegarli alla stessa rete virtuale. Ogni nome posizione nel portale di Azure o nell'API di PowerShell/CLI rappresenta un'unica località di peering. Ad esempio, è possibile selezionare le località peer "Singapore" e "Singapore2" e connettersi circuiti da ciascuno di essi alla stessa rete virtuale. 
+Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se i circuiti vengono creati nella stessa località di peering, è possibile collegarli per la stessa rete virtuale, ma solo fino a 4 circuiti di ExpressRoute presso ogni località di peering. Ad esempio, è possibile selezionare le località peer "Singapore" e "Singapore2" e connettersi circuiti da ciascuno di essi alla stessa rete virtuale. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Come si connettono le reti virtuali a un circuito ExpressRoute?
 
