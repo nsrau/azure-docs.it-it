@@ -1,13 +1,18 @@
 ---
 title: Esempio - Progetto Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001 - Panoramica
 description: Panoramica e architettura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
+ms.openlocfilehash: b17b07124cf4491a6c58e9be2b10f958e29217ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264931"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 

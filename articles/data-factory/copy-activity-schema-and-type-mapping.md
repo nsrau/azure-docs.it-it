@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358712"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267124"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
 Questo articolo illustra come l'attività di copia di Azure Data Factory esegue il mapping dello schema e dei tipi di dati dall'origine al sink quando si copiano dati.
@@ -136,7 +136,7 @@ Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colo
 
 La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` per specificare il mapping di colonne è ancora supportata.
 
-**Flusso del mapping di colonne:**
+**Flusso del mapping delle colonne:**
 
 ![Flusso del mapping di colonne](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
 
@@ -144,13 +144,13 @@ La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyNam
 
 Il mapping dello schema si applica quando si esegue la copia tra dati in formato gerarchico e dati in formato tabulare, ad esempio quando si copiano dati da MongoDB/REST a file di testo e da SQL all'API di Azure Cosmos DB per MongoDB. Nella sezione `translator` dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Yes |
-| schemaMapping | Una raccolta di coppie chiave-valore, che rappresenta la relazione di mapping dai dati in formato tabulare a quelli in formato gerarchico.<br/>- **Chiave:** il nome della colonna di dati tabulari come definito nella struttura del set di dati.<br/>- **Valore:** l'espressione di percorso JSON per ogni campo da estrarre e sottoporre al mapping. Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `collectionReference`, iniziare dall'elemento matrice.  | Yes |
+| type | La proprietà type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì |
+| schemaMapping | Una raccolta di coppie chiave-valore, che rappresenta la relazione di mapping **dal lato di origine al sink lato**.<br/>- **Chiave:** origine rappresenta. Per la **origine tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **origine gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping.<br/>- **Valore:** rappresenta sink. Per la **sink tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **sink gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping. <br/> Nel caso i dati gerarchici, per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice.  | Sì |
 | collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No  |
 
-**Esempio: copiare da MongoDB a SQL**.
+**Esempio: copiare da MongoDB a SQL:**
 
 Se ad esempio si ha un il documento di MongoDB con il contenuto seguente: 
 
@@ -229,7 +229,7 @@ L'attività di copia esegue il mapping dei tipi di origine ai tipi sink con il m
 Data Factory supporta i tipi di dati provvisori seguenti: Quando si configurano le informazioni sui tipi nella configurazione della [struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure) è possibile specificare i valori seguenti:
 
 * Byte[]
-* boolean
+* Boolean
 * DateTime
 * Datetimeoffset
 * Decimal
@@ -268,5 +268,5 @@ Negli scenari seguenti è consigliabile specificare la "struttura" nel set di da
 Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md)
+- [Tolleranza di errore di attività di copia](copy-activity-fault-tolerance.md)
 - [Prestazioni dell'attività di copia](copy-activity-performance.md)

@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010669"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281217"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -121,7 +121,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Proprietario dell'account per gli ancoraggi spaziali](#spatial-anchors-account-owner) | Consente di gestire gli ancoraggi nello spazio nell'account, incluse operazioni di eliminazione |
 | [Ruolo Lettore dell'account per gli ancoraggi spaziali](#spatial-anchors-account-reader) | Consente di individuare e leggere le proprietà degli ancoraggi nello spazio nell'account |
 | [Collaboratore database SQL](#sql-db-contributor) | Consente di gestire i database SQL, ma non di accedervi né di gestirne i criteri relativi alla sicurezza o i rispettivi server SQL padre. |
-| [Collaboratore di istanza gestita di SQL](#sql-managed-instance-contributor) | Consente di gestire le istanze gestite di SQL, ma non è possibile concedere l'accesso ad altri utenti. |
 | [Gestione della sicurezza SQL](#sql-security-manager) | Consente di gestire i criteri relativi alla sicurezza di server e database SQL, ma non di accedervi. |
 | [Collaboratore SQL Server](#sql-server-contributor) | Consente di gestire i server e i database SQL, ma non di accedervi né di gestirne i criteri relativi alla sicurezza. |
 | [Collaboratore account di archiviazione](#storage-account-contributor) | Consente di gestire gli account di archiviazione, ma non di accedervi. |
@@ -2229,31 +2228,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *Nessuno* |  |
-> | **NotDataActions** |  |
-> | *Nessuno* |  |
-
-## <a name="sql-managed-instance-contributor"></a>Collaboratore di istanza gestita di SQL
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **DESCRIZIONE** | Consente di gestire le istanze gestite di SQL, ma non è possibile concedere l'accesso ad altri utenti. |
-> | **ID** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Azioni** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
-> | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
-> | Microsoft.Network/networkSecurityGroups/write | Crea un gruppo di sicurezza di rete o ne aggiorna uno esistente |
-> | Microsoft.Network/routeTables/write | Crea una tabella di route o ne aggiorna una esistente |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Creare e gestire ticket di supporto |
-> | Microsoft.Network/virtualNetworks/subnets/write | Crea una subnet della rete virtuale o ne aggiorna una esistente |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Aggiunge una rete virtuale. Non Alertable. |
-> | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
-> | **NotActions** |  |
-> | *Nessuno* |  |
 > | **DataActions** |  |
 > | *Nessuno* |  |
 > | **NotDataActions** |  |

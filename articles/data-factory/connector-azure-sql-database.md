@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875238"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266315"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -63,7 +63,7 @@ Per un servizio collegato al database SQL di Azure sono supportate queste propri
 
 Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
 
-- [Autenticazione SQL](#sql-authentication)
+- [Autenticazione in SQL](#sql-authentication)
 - [Autenticazione del token dell'applicazione Azure AD: Entità servizio](#service-principal-authentication)
 - [Autenticazione del token dell'applicazione Azure AD: Identità gestite per le risorse di Azure](#managed-identity)
 
@@ -277,7 +277,7 @@ Per copiare dati da un database SQL di Azure, impostare la proprietà **type** n
 ### <a name="points-to-note"></a>Punti da notare
 
 - Se la proprietà **sqlReaderQuery** è specificata per **SqlSource**, l'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati. In alternativa è possibile specificare una stored procedure. Indicare i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se accettati dalla stored procedure).
-- Se non si specifica né **sqlReaderQuery** né **sqlReaderStoredProcedureName**, le colonne definite nella sezione **struttura** del set di dati JSON vengono usate per creare una query. `select column1, column2 from mytable` viene eseguito nel database SQL di Azure. Se la definizione del set di dati non include la **struttura**, vengono selezionate tutte le colonne della tabella.
+- Se non si specifica né **sqlReaderQuery** né **sqlReaderStoredProcedureName**, le colonne definite nella sezione della **struttura** del set di dati JSON vengono usate per creare una query. `select column1, column2 from mytable` viene eseguito sul Database SQL di Azure. Se la definizione del set di dati non include la **struttura**, vengono selezionate tutte le colonne della tabella.
 
 #### <a name="sql-query-example"></a>Esempio di query SQL
 
@@ -373,7 +373,7 @@ Per copiare i dati in un database SQL di Azure, impostare la proprietà **type**
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlSink**. | Sì |
-| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge **writeBatchSize**.<br/> Il valore consentito è **integer** (numero di righe). |  No. Il valore predefinito è 10000. |
+| writeBatchSize | Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/> Il valore consentito è **integer** (numero di righe). |  No. Il valore predefinito è 10000. |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No  |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database SQL di Azure. Viene richiamata solo una volta per esecuzione della copia. Usare questa proprietà per pulire i dati precaricati. | No  |
 | sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. Un esempio è eseguire operazioni di upsert o trasformare usando la propria logica di business. <br/><br/>Questa stored procedure viene **richiamata per batch**. Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con dati di origine, usare la proprietà `preCopyScript`. Esempi di operazioni sono eliminazione e troncamento. | No  |
@@ -535,7 +535,7 @@ Quando si copiano dati in un database SQL di Azure, è anche possibile configura
 
 L'esempio seguente illustra come usare una stored procedure per eseguire un'operazione di upsert in una tabella del database SQL di Azure. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
-#### <a name="output-dataset"></a>Set di dati di output
+**Set di dati di output:** "tableName" deve essere lo stesso nome parametro di tipo tabella della stored procedure (vedere di seguito script di stored procedure).
 
 ```json
 {
@@ -554,7 +554,7 @@ L'esempio seguente illustra come usare una stored procedure per eseguire un'oper
 }
 ```
 
-Definire la sezione **SqlSink** nell'attività di copia:
+Definire le **sink SQL** sezione nell'attività di copia come indicato di seguito.
 
 ```json
 "sink": {

@@ -11,75 +11,84 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1926849c8ec63b4240d951e46b1341f31f7c5bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170347"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267209"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
-Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se il provisioning degli utenti è abilitato per un'applicazione SaaS di terze parti, il portale di Azure ne controlla i valori degli attributi tramite il mapping degli attributi.
+Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se si abilita il provisioning utenti per un'applicazione SaaS di terze parti, il portale di Azure controlla i relativi valori di attributo tramite i mapping degli attributi.
 
-Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti oltre agli oggetti utente, ad esempio gli oggetti gruppo. <br> 
- È possibile personalizzare i mapping degli attributi predefiniti in base alle esigenze aziendali. Questo significa che è possibile modificare o eliminare i mapping degli attributi esistenti oppure crearne di nuovi.
+È presente un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di ogni app SaaS e gli oggetti utente di Azure AD. Alcune App gestiscono altri tipi di oggetti insieme a utenti, ad esempio i gruppi.
+
+È possibile personalizzare i mapping degli attributi predefiniti in base alle esigenze aziendali. Pertanto, è possibile modificare eliminare mapping degli attributi esistenti o crearne di nuovi.
  
 ## <a name="editing-user-attribute-mappings"></a>Modifica dei mapping degli attributi utente
 
-Nel portale di Azure AD è possibile accedere a questa funzionalità facendo clic su una configurazione **Mapping** in **Provisioning** nella sezione **Gestione** di un'**applicazione aziendale**.
+Seguire questi passaggi per accedere la **mapping** funzionalità del provisioning degli utenti:
 
+1. Accedi per il [portale di Azure Active Directory](https://aad.portal.azure.com).
 
-![Salesforce](./media/customize-application-attributes/21.png) 
+1. Selezionare **applicazioni aziendali** nel riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate, incluse le app che sono state aggiunte dalla raccolta.
 
-Se si fa clic su una configurazione **Mapping**, viene visualizzata la schermata **Mapping attributi** corrispondente. Alcuni mapping di attributi sono obbligatori per il corretto funzionamento di un'applicazione SaaS. Per gli attributi obbligatori la funzionalità **Elimina** non è disponibile.
+1. Selezionare un'app per caricare il riquadro di gestione di app, in cui è possibile visualizzare i report e gestire le impostazioni dell'app.
 
+1. Selezionare **Provisioning** per gestire le impostazioni per l'app selezionata di provisioning dell'account utente.
 
-![Salesforce](./media/customize-application-attributes/22.png)
+1. Espandere **mapping** per visualizzare e modificare gli attributi utente trasmessi tra Azure AD e l'applicazione di destinazione. Se l'applicazione di destinazione lo supporta, in questa sezione consente, facoltativamente, configurare il provisioning di gruppi e account utente.
 
-Nell'esempio riportato sopra si può notare che l'attributo **Username** di un oggetto gestito in Salesforce è popolato con il valore **userPrincipalName** dell'oggetto di Azure Active Directory collegato.
+   ![Salesforce](./media/customize-application-attributes/21.png) 
 
-È possibile personalizzare i **mapping degli attributi** esistenti facendo clic su un mapping. Viene visualizzata la schermata **Modifica attributo**.
+1. Selezionare una **mapping** configuration per aprire i relativi **Mapping degli attributi** dello schermo. Alcuni mapping di attributi sono necessarie per una corretto funzionamento dell'applicazione SaaS. Per gli attributi obbligatori la funzionalità **Elimina** non è disponibile.
 
-![Salesforce](./media/customize-application-attributes/23.png)
+   ![Salesforce](./media/customize-application-attributes/22.png)
+
+   In questa schermata, è possibile osservare che il **nomeutente** attributo di un oggetto gestito in Salesforce è popolato con i **userPrincipalName** valore dell'oggetto Directory attiva di Azure collegato.
+
+1. Selezionare un oggetto esistente **Mapping attributi** per aprire il **Modifica attributo** dello schermo. Qui è possibile modificare gli attributi utente trasmessi tra Azure AD e l'applicazione di destinazione.
+
+   ![Salesforce](./media/customize-application-attributes/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Informazioni sui tipi di mapping degli attributi
 I mapping degli attributi permettono di controllare il modo in cui gli attribuiti vengono popolati in un'applicazione SaaS di terze parti. Sono supportati quattro diversi tipi di mapping:
 
 * **Diretto:** l'attributo di destinazione viene popolato con il valore di un attributo dell'oggetto collegato in Azure AD.
-* **Costante:** l'attributo di destinazione viene popolato con una stringa specificata.
+* **Costante** : l'attributo di destinazione viene popolato con una stringa specificata.
 * **Espressione:** l'attributo di destinazione viene popolato in base al risultato di un'espressione simile a uno script. 
   Per altre informazioni, vedere [Scrittura di espressioni per il mapping degli attributi in Azure Active Directory](functions-for-customizing-application-data.md).
-* **Nessuno:** l'attributo di destinazione viene lasciato invariato. Se l'attributo di destinazione viene lasciato vuoto, viene popolato con il valore predefinito specificato.
+* **Nessuno:** l'attributo di destinazione viene lasciato invariato. Tuttavia, se l'attributo di destinazione viene lasciato vuoto, viene popolato con il valore predefinito specificato.
 
-Oltre a questi quattro tipi base, i mapping degli attributi personalizzati supportano il concetto di assegnazione di un valore **predefinito** facoltativo. L'assegnazione di un valore predefinito garantisce che un attributo di destinazione venga popolato con un valore nel caso in cui non sia presente un valore né in Azure AD, né nell'oggetto di destinazione. Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
+Insieme a questi quattro tipi di base, mapping di attributi personalizzati supportano il concetto di facoltativo **predefinito** valore assegnazione. L'assegnazione del valore predefinito assicura che un attributo di destinazione viene popolato con un valore se non esiste un valore in Azure AD o nell'oggetto di destinazione. Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>Informazioni sulle proprietà di mapping degli attributi
 
-Nella sezione precedente è già stata presentata la proprietà del tipo di mapping degli attributi.
-Oltre a questa proprietà i mapping degli attributi supportano i seguenti attributi:
+Nella sezione precedente, già sono state introdotte per la proprietà type mapping degli attributi.
+Insieme a questa proprietà, i mapping degli attributi supportano anche gli attributi seguenti:
 
 - **Attributo di origine**: attributo utente nel sistema di origine, ad esempio Azure Active Directory.
 - **Attributo di destinazione**: attributo utente nel sistema di destinazione, ad esempio ServiceNow.
-- **Abbina gli oggetti in base a questo attributo**: specifica se questo mapping va usato per l'identificazione univoca degli utenti tra il sistema di origine e il sistema di destinazione. Questa opzione è in genere impostata sull'attributo userPrincipalName o mail in Azure AD, che a sua volta è in genere mappato su un campo username in un'applicazione di destinazione.
-- **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
+- **Associare gli oggetti di questo attributo** : indica se questo mapping deve essere usato per l'identificazione univoca degli utenti tra i sistemi di origine e destinazione. In genere è impostato sull'attributo userPrincipalName o mail in Azure AD, che solitamente è associato a un campo username in un'applicazione di destinazione.
+- **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Quando esistono più, questi si valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
 - **Applica questo mapping**
-    - **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
-    - **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
+    - **Sempre** : applica il mapping sia la creazione dell'utente e aggiornare azioni.
+    - **Solo durante la creazione** -applica il mapping solo alle azioni di creazione dell'utente.
 
 
 ## <a name="editing-group-attribute-mappings"></a>Modifica dei mapping degli attributi gruppo
 
-Un numero selezionato di applicazioni, tra cui ServiceNow, Box e Google Apps, supporta la possibilità di effettuare il provisioning di oggetti gruppo oltre che di oggetti utente. Oltre ai membri del gruppo, gli oggetti gruppo possono contenere proprietà di gruppo come i nomi visualizzati e gli alias di posta elettronica.
+Un numero selezionato di applicazioni, ad esempio ServiceNow, Box e Google Apps, supporta la possibilità di effettuare il provisioning di oggetti di gruppo e gli oggetti utente. Gli oggetti gruppo possono contenere proprietà di gruppo, ad esempio i nomi visualizzati e gli alias, insieme ai membri del gruppo di posta elettronica.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 
-Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **Mapping** e impostando **Enabled** (Abilitato) sul valore desiderato nella schermata **Mapping attributi**.
+Il provisioning di gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **mapping**e l'impostazione **Enabled** per l'opzione desiderata nel **Mappingdegliattributi** dello schermo.
 
 Gli attributi di cui viene effettuato il provisioning come parte di oggetti gruppo possono essere personalizzati allo stesso modo degli oggetti utente, descritto in precedenza. 
 
@@ -89,9 +98,9 @@ Gli attributi di cui viene effettuato il provisioning come parte di oggetti grup
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Modifica dell'elenco degli attributi supportati
 
-Gli attributi utente supportati per un'applicazione specifica sono preconfigurati. Poiché la maggior parte delle API di gestione degli utenti non supporta l'individuazione dello schema, il servizio di provisioning di Azure AD non è in grado di generare dinamicamente l'elenco degli attributi supportati effettuando chiamate all'applicazione. 
+Gli attributi utente supportati per un'applicazione specifica sono preconfigurati. Gestione degli utenti dell'applicazione la maggior parte delle API non supporta l'individuazione dello schema. Pertanto, il servizio di provisioning di Azure AD non è in grado di generare dinamicamente l'elenco degli attributi supportati effettuando chiamate all'applicazione. 
 
-Tuttavia, alcune applicazioni supportano gli attributi personalizzati. Perché il servizio di provisioning di Azure AD riesca a leggere e scrivere in attributi personalizzati, le definizioni degli attributi devono essere immesse nel portale di Azure usando la casella di controllo **Mostra opzioni avanzate** nella parte inferiore della schermata **Mapping attributi**.
+Tuttavia, alcune applicazioni supportano gli attributi personalizzati e il servizio di provisioning di Azure AD possono leggere e scrivere attributi personalizzati. Per immettere le relative definizioni nel portale di Azure, selezionare la **Mostra opzioni avanzate** nella parte inferiore della casella di controllo la **Mapping degli attributi** schermata e quindi selezionare **Modifica elenco attributi per** l'app.
 
 Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di attributi:
 
@@ -104,35 +113,33 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 >[!NOTE]
 >La modifica dell'elenco degli attributi supportati è consigliata solo agli amministratori che hanno personalizzato lo schema dei propri sistemi e applicazioni e che hanno una conoscenza diretta del modo in cui sono stati definiti gli attributi personalizzati. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema. 
 
-![Editor](./media/customize-application-attributes/25.png) 
-
 Quando si modifica l'elenco degli attributi supportati, vengono fornite le proprietà seguenti:
 
 * **Nome**: nome di sistema dell'attributo, definito nello schema dell'oggetto di destinazione. 
-* **Tipo**: tipo di dati archiviati dall'attributo, definito nello schema dell'oggetto di destinazione. Può essere uno dei valori seguenti:
+* **Tipo** -il tipo di dati archiviati dall'attributo, come definito nello schema dell'oggetto di destinazione, che può essere uno dei tipi seguenti:
    * *Binario*: l'attributo contiene dati binari.
    * *Booleano*: l'attributo contiene un valore True o False.
    * *DateTime*: l'attributo contiene una stringa di data.
    * *Integer*: l'attributo contiene un numero intero.
    * *Riferimento*: l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
    * *String*: l'attributo contiene una stringa di testo. 
-* **Chiave primaria?**: specifica se l'attributo è o meno definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
-* **Obbligatorio?** specifica se l'attributo deve o meno essere immesso nell'applicazione o nel sistema di destinazione.
-* **Multivalore?**: specifica se l'attributo supporta o meno più valori.
-* **Maiuscole/minuscole esatte?**: specifica se i valori degli attributi vengono o meno valutati facendo distinzione tra maiuscole e minuscole.
-* **API Expression** (Espressione API): non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
-* **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Chiave primaria?** : Indica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
+* **Obbligatorio?** : Indica se l'attributo è necessario popolare nel sistema o applicazione di destinazione.
+* **Con più valori?** : Indica se l'attributo supporta più valori.
+* **Maiuscole/minuscole esatte?** : Indica se i valori degli attributi vengono valutati in modo distinzione maiuscole/minuscole.
+* **Espressione API** -non usare, se non diversamente indicato a tale scopo, la documentazione relativa a un connettore di provisioning specifico (ad esempio Workday).
+* **Attributo oggetto di riferimento** : se è un attributo di tipo riferimento, quindi questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per una determinata applicazione sono preconfigurati e attualmente non può essere modificati usando il portale di Azure, ma possono essere modificati utilizzando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Per aggiungere un nuovo attributo, scorrere fino alla fine dell'elenco degli attributi supportati, completare i campi sopra con gli input indicati e quindi selezionare **Aggiungi attributo**. Selezionare **Salva** dopo aver aggiunto gli attributi. Sarà quindi necessario ricaricare la scheda **Provisioning** perché i nuovi attributi diventino disponibili nell'editor dei mapping degli attributi.
+Per aggiungere un nuovo attributo, scorrere fino alla fine dell'elenco degli attributi supportati, completare i campi sopra con gli input indicati e quindi selezionare **Aggiungi attributo**. Selezionare **Salva** dopo aver aggiunto gli attributi. È quindi necessario ricaricare la **Provisioning** scheda per i nuovi attributi diventino disponibili nell'editor di mapping degli attributi.
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Ripristino degli attributi e dei mapping degli attributi predefiniti
 
-Se è necessario ricominciare da capo e reimpostare i mapping esistenti sul rispettivo stato predefinito, è possibile selezionare la casella di controllo **Ripristina mapping predefiniti** e salvare la configurazione. Questa opzione imposterà tutti i mapping come se l'applicazione fosse stata appena aggiunta al tenant di Azure AD dalla raccolta di applicazioni. 
+È necessario ricominciare da capo e reimpostare i mapping esistenti sul rispettivo stato predefinito, è possibile selezionare i **Ripristina mapping predefiniti** casella di controllo e salvare la configurazione. Questa operazione imposta tutti i mapping come se l'applicazione è stata appena aggiunta al tenant di Azure AD dalla raccolta di applicazioni. 
 
-La selezione di questa opzione forza una nuova sincronizzazione di tutti gli utenti durante l'esecuzione del servizio di provisioning. 
+Se si seleziona questa opzione Forza una risincronizzazione forzata di tutti gli utenti durante l'esecuzione del servizio di provisioning. 
 
 >[!IMPORTANT]
->È assolutamente consigliabile impostare **Stato provisioning** su **No** prima di richiamare questa opzione.
+>Si consiglia vivamente **lo stato di Provisioning** essere impostata su **Off** prima di richiamare questa opzione.
 
 
 ## <a name="what-you-should-know"></a>Informazioni utili
@@ -141,15 +148,15 @@ La selezione di questa opzione forza una nuova sincronizzazione di tutti gli ute
 
 * L'aggiornamento dei mapping degli attributi influisce negativamente sulle prestazioni di un ciclo di sincronizzazione. Un aggiornamento della configurazione del mapping degli attributi richiede la rivalutazione di tutti gli oggetti gestiti. 
 
-* È consigliabile ridurre al minimo il numero di modifiche consecutive ai mapping degli attributi.
+* Una procedura consigliata è di mantenere il numero di modifiche consecutive ai mapping degli attributi come minimo.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
+* [Automatizzare utente Provisioning/Deprovisioning alle App SaaS](user-provisioning.md)
 * [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
-* [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Filtri di ambito per il Provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md)
-* [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS](../saas-apps/tutorial-list.md)
 
 

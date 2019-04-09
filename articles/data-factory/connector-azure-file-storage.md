@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404995"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267719"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiare dati da o ad Archiviazione file di Azure tramite Azure Data Factory
 
@@ -42,14 +42,17 @@ Per il servizio collegato Archiviazione file di Azure sono supportate le proprie
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **FileServer**. | Sì |
-| host | Specificare l'endpoint di Archiviazione file di Azure come: <br/>- Con l'interfaccia utente: specificare `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Con JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sì |
-| userid | Specificare l'utente con cui accedere ad Archiviazione file di Azure come: <br/>- Con l'interfaccia utente: specificare `AZURE\<storage name>`<br/>- Con JSON: `"userid": "AZURE\\<storage name>"`. | Sì |
+| host | Specificare l'endpoint di Archiviazione file di Azure come: <br/>-Uso dell'interfaccia utente: specificare `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Con JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sì |
+| userid | Specificare l'utente con cui accedere ad Archiviazione file di Azure come: <br/>-Uso dell'interfaccia utente: specificare `AZURE\<storage name>`<br/>- Con JSON: `"userid": "AZURE\\<storage name>"`. | Sì |
 | password | Specificare la chiave di accesso alle risorse di archiviazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No per l'origine, Sì per il sink |
 
 >[!IMPORTANT]
 > - Per copiare dati in Archiviazione file di Azure tramite Azure Integration Runtime, [creare un'istanza di Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Archiviazione file ed eseguire l'associazione nel servizio collegato come nell'esempio seguente.
 > - Per copiare dati da/ad Archiviazione file di Azure tramite Integration Runtime (self-hosted) all'esterno di Azure, è necessario aprire la porta TCP 445 in uscita nella rete locale.
+
+>[!TIP]
+>Quando si usa ADF UI per la creazione, è possibile trovare la voce specifica "File di archiviazione di Azure" per creare un servizio collegato, che genera tipo `FileServer` oggetto.
 
 **Esempio:**
 
@@ -84,7 +87,7 @@ Per copiare dati da/ad Archiviazione file di Azure, impostare la proprietà type
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **FileShare** |Sì |
 | folderPath | Percorso della cartella. <br/><br/>I filtri con caratteri jolly sono supportati, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per applicare una sequenza di escape se il nome effettivo della cartella include caratteri jolly o tale carattere di escape. <br/><br/>Esempi: cartellaradice/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |Sì |
-| fileName | **Filtro con nome o carattere jolly** per i file nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e non si specifica **preserveHierarchy** nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il criterio seguente: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", ad esempio "Dati.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; se si copia da un'origine tabulare usando il nome tabella anziché la query, il criterio del nome è "*[nome tabella].[formato].[compressione se configurata]*", per esempio "MyTable.csv". |No  |
+| fileName | **Filtro con nome o carattere jolly** per i file nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>-Esempio 1: `"fileName": "*.csv"`<br/>-Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e non si specifica **preserveHierarchy** nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il criterio seguente: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", ad esempio "Dati.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; se si copia da un'origine tabulare usando il nome tabella anziché la query, il criterio del nome è "*[nome tabella].[formato].[compressione se configurata]*", per esempio "MyTable.csv". |No  |
 | modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No  |
 | modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No  |
 | format | Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](supported-file-formats-and-compression-codecs.md#text-format), [JsonFormat](supported-file-formats-and-compression-codecs.md#json-format), [AvroFormat](supported-file-formats-and-compression-codecs.md#avro-format), [OrcFormat](supported-file-formats-and-compression-codecs.md#orc-format) e [ParquetFormat](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo per uno scenario di copia binaria) |

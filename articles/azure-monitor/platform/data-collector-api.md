@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883939"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264093"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -61,7 +61,8 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Authorization |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
 | Log-Type |Specificare il tipo di record dei dati inviati. Il limite di dimensione per questo parametro è di 100 caratteri. |
 | x-ms-date |Data di elaborazione della richiesta, in formato RFC 1123. |
-| time-generated-field |Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
+| x-ms-AzureResourceId | ID risorsa della risorsa di Azure i dati deve essere associato. Questo compilerà la [_ResourceId](log-standard-properties.md#_resourceid) proprietà, nonché i dati da includere nel [incentrato su risorse](manage-access.md#access-modes) le query. Se questo campo non è specificato, i dati non essere inclusi nelle query sugli elementi risorsa. |
+| time-generated-field | Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Authorization
 Qualsiasi richiesta inviata all'API di raccolta dati HTTP di Monitoraggio di Azure deve includere l'intestazione dell'autorizzazione. Per autenticare una richiesta è necessario firmarla con la chiave primaria o secondaria dell'area di lavoro che effettua la richiesta. Passare quindi la firma come parte della richiesta.   

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484288"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266206"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Quando si clona la configurazione da un altro slot di distribuzione, la configur
 * Impostazioni di monitoraggio e diagnostica
 * Certificati pubblici
 * Contenuto WebJobs
-* Connessioni ibride
+* Connessioni ibride *
+* Integrazione rete virtuale *
+* Endpoint di servizio *
+* Rete CDN di Azure *
+
+Funzionalità contrassegnate con un * è pianificata per essere reso permanente nello slot. 
 
 **Impostazioni che non vengono scambiate**:
 
@@ -93,10 +98,15 @@ Quando si clona la configurazione da un altro slot di distribuzione, la configur
 * Certificati privati e associazioni SSL
 * Impostazioni di scalabilità
 * Utilità di pianificazione WebJobs
+* Restrizioni IP
+* Always On
+* Le impostazioni del protocollo (HTTP**S**, versione di TLS, certificati client)
+* Impostazioni di log di diagnostica
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Per configurare un'impostazione app o una stringa di connessione in modo che rimanga associata a uno slot specifico (non inclusa nello scambio), passare alla pagina **Impostazioni applicazione** di uno slot specifico e quindi selezionare la casella **Impostazione slot** per gli elementi di configurazione che devono rimanere associati allo slot. Contrassegnando un elemento di configurazione come specifico dello slot si indica al Servizio app che non può essere incluso nello scambio.
+Per configurare un'impostazione app o una stringa di connessione in modo che rimanga associata a uno slot specifico (non inclusa nello scambio), passare alla pagina **Impostazioni applicazione** di uno slot specifico e quindi selezionare la casella **Impostazione slot** per gli elementi di configurazione che devono rimanere associati allo slot. Contrassegnando un elemento di configurazione come specifico dello slot si indica al Servizio app che non può essere incluso nello scambio. 
 
 ![Impostazione slot](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -329,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 Per i comandi dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) relativi agli slot di distribuzione, vedere [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Bloccare l'accesso a slot non di produzione](app-service-ip-restrictions.md)
+[Blocca l'accesso a slot non di produzione](app-service-ip-restrictions.md)

@@ -5,19 +5,19 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/4/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730325"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263571"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creare il bridge di dispositivi IoT Central per connettere altri cloud IoT a IoT Central
 
-*Questo argomento riguarda gli amministratori.*
+*Questo argomento si applica agli amministratori.*
 
 Il bridge di dispositivi IoT Central è una soluzione open source che connette Sigfox, Particle, The Things Network e altri cloud all'app IoT Central. Se si usano dispositivi di controllo degli asset connessi alla LPWAN (Low-Power-Wide Area Network) di Sigfox oppure dispositivi di monitoraggio della qualità dell'aria in Particle Device Cloud o dispositivi di monitoraggio dell'umidità del terreno in TTN, è possibile sfruttare direttamente le potenzialità di IoT Central usando il bridge di dispositivi IoT Central. Il bridge di dispositivi connette altri cloud IoT con IoT Central inoltrando i dati inviati dai dispositivi ad altri cloud tramite l'app IoT Central. Nell'app IoT Central è possibile creare regole ed eseguire analisi su tali dati, creare flussi di lavoro in Microsoft Flow e App per la logica di Azure, esportare i dati e molto altro ancora. Ottenere il [bridge di dispositivi IoT Central](https://aka.ms/iotcentralgithubdevicebridge) da GitHub
 

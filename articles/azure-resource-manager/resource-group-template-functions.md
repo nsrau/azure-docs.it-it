@@ -4,22 +4,20 @@ description: Vengono descritte le funzioni da utilizzare in un modello di gestio
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766751"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280316"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
 Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](resource-group-authoring-templates.md#syntax).
@@ -54,11 +52,11 @@ Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
-* [intersection](resource-group-template-functions-array.md#intersection)
+* [intersezione](resource-group-template-functions-array.md#intersection)
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
+* [Min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -87,8 +85,8 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
-* [deployment](resource-group-template-functions-deployment.md#deployment)
-* [parameters](resource-group-template-functions-deployment.md#parameters)
+* [distribuzione](resource-group-template-functions-deployment.md#deployment)
+* [Parametri](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
@@ -100,11 +98,11 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 ## <a name="logical-functions"></a>Funzioni logiche
 Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logiche:
 
-* [and](resource-group-template-functions-logical.md#and)
+* [e](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [oppure](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -125,7 +123,7 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [min](resource-group-template-functions-numeric.md#min)
+* [Min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
@@ -196,7 +194,8 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
-* [guid](resource-group-template-functions-string.md#guid)
+* [format](resource-group-template-functions-string.md#format)
+* [GUID](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
@@ -207,7 +206,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
+* [stringa](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)

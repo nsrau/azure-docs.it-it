@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089200"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265152"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Avvio rapido: Clonare un notebook
 
@@ -52,7 +52,7 @@ La clonazione consente invece di creare una copia di un notebook di GitHub nell'
 
 1. Al termine della clonazione, Azure Notebooks accede al nuovo progetto in cui è possibile visualizzare le copie di tutti i file.
 
-    [![](media/quickstarts/completed-clone.png "Vista di un clone completato")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "Visualizzazione di un clone completo")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Condividere un notebook
 
@@ -77,4 +77,4 @@ La clonazione consente invece di creare una copia di un notebook di GitHub nell'
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: creare un'esecuzione di un notebook di Jupyter per eseguire la regressione lineare](tutorial-create-run-jupyter-notebook.md)

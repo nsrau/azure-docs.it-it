@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0448f583743f9e5b3f8fd6de3a85b05e16bff126
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057054"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269147"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -208,6 +208,10 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+- La configurazione di syslog non è persistente tramite un ciclo di aggiornamento, risultante in client perde la relativa configurazione e i messaggi syslog per arrestare l'inoltro syslog. Questo problema si applica a tutte le versioni di Azure Stack dopo la disponibilità generale del client di syslog (1809).
+Per risolvere il problema è necessario riconfigurare il client di syslog dopo aver applicato un aggiornamento di Azure Stack.
 
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
 
