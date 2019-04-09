@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce1bb6df0a4c062ee41d2a58adf1b7fc93d9805
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286245"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010092"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -29,7 +29,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 ## <a name="bkmk_OSs"></a> Sistemi operativi supportati
 Crittografia dischi di Azure è supportato nei sistemi operativi seguenti:
 
-- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
+- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e versioni superiore di Windows trovano nella raccolta di Azure.
   - Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update tramite l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi Windows Server 2008 R2 basati su x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Versioni del Client Windows: Client Windows 8 e client Windows 10.
 - Crittografia dischi di Azure è supportato solo in distribuzioni e versioni specifiche della raccolta di Azure basata sul server Linux. Per l'elenco delle versioni attualmente supportate, vedere le [domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
@@ -301,8 +301,8 @@ Prima di usare lo script di PowerShell, è necessario conoscere i prerequisiti d
  
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Abilitare Crittografia dischi di Azure per Windows](azure-security-disk-encryption-windows.md)
+> [Abilitare la crittografia dischi di Azure per Windows](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Abilitare Crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md)
+> [Abilitare la crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md)
 

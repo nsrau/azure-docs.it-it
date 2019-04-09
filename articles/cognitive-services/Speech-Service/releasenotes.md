@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856091"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010159"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: Versione di aprile 2019
+
+**Nuove funzionalità** 
+
+* il SDK supporta ora il servizio di sintesi vocale come una versione beta. È supportata in Windows e Linux Desktop da C++, C#e Java. Per altre informazioni, vedere la [Panoramica di sintesi vocale](text-to-speech.md#get-started-with-text-to-speech).
+* il SDK supporta ora i file audio MP3 e sono state/Ogg come file di input di flusso. Questa funzionalità è disponibile solo in Linux da C++ e C# ed è attualmente in versione beta (ulteriori dettagli [qui](how-to-use-compressed-audio-input-streams.md)).
+* Speech SDK per Java, .NET core, Objective-C e C++ abbia avuto il supporto di macOS. Il supporto di Objective-C per macOS è attualmente in versione beta.
+* iOS: Speech SDK per iOS (Objective-C) è ora stata pubblicata anche un' CocoaPod.
+* JavaScript: Supporto per non predefinito microfono come dispositivo di input.
+* JavaScript: Supporto di proxy per Node. js.
+
+**Esempi**
+
+* Sono stati aggiunti esempi per l'uso di Speech SDK con C++ e Objective-C in macOS.
+* Sono stati aggiunti esempi che illustrano l'utilizzo del servizio di sintesi vocale.
+
+**Miglioramenti o modifiche**
+
+* Python: Proprietà aggiuntive dei risultati del riconoscimento vengono ora esposti tramite il `properties` proprietà.
+* Per ulteriore supporto di sviluppo e debug è possibile reindirizzare le informazioni di registrazione e diagnostica SDK in un file di log (altre informazioni [qui](how-to-use-logging.md)).
+* JavaScript: Migliorare le prestazioni di elaborazione audio.
+
+**Correzioni di bug**
+
+* Mac/iOS: È stato risolto un bug che ha portato a un tempo di attesa quando non è stato possibile stabilire una connessione al servizio riconoscimento vocale.
+* Python: migliorare la gestione degli errori per gli argomenti nei callback Python.
+* JavaScript: Stato errato fisso reporting per il riconoscimento vocale è terminato RequestSession.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Aggiornamento: febbraio 2019
 
@@ -47,7 +75,7 @@ I nuovi contenuti seguenti sono disponibili nel [repository di esempio](https://
 * Esempi aggiuntivi per Java per la traduzione con output audio.
 * Nuovo esempio per l'uso dell'[API REST di trascrizione batch](batch-transcription.md).
 
-**Miglioramenti/modifiche**
+**Miglioramenti o modifiche**
 
 * Python
   * Messaggi di errore e verifica dei parametri migliorati in SpeechConfig.
@@ -192,7 +220,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 * Sperimentale: supporto di Java 8 in Windows (64 bit) e Linux (Ubuntu 16.04 x64).
   Consultare la [Guida introduttiva di Java Runtime Environment](quickstart-java-jre.md).
 
-**Modifica funzionale**
+**Modifiche funzionali**
 
 * Informazioni aggiuntive dettagliate sull'errore in caso di errori di connessione.
 
@@ -221,7 +249,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 **Modifiche funzionali**
 
-* `StartContinuousRecognitionAsync()` supporta il riconoscimento a esecuzione prolungata.
+* `StartContinuousRecognitionAsync()` supporta il riconoscimento di lunga durata.
 * Il risultato del riconoscimento contiene più campi. Scostamento da inizio audio e durata (entrambi in tick) del testo riconosciuto, valori aggiuntivi che rappresentano lo stato di riconoscimento, ad esempio `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * Supporto del token di autorizzazione per la creazione di istanze di factory.
 

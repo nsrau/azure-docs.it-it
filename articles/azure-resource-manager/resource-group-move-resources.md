@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521093"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058765"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -133,6 +133,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Migrazione del database di Azure
 * Azure Databricks
 * Firewall di Azure
+* Servizio Azure Kubernetes
 * Azure Migrate
 * Azure NetApp Files
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
@@ -143,7 +144,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Lab Services - lab per le classi non possono essere spostati in un nuovo gruppo di risorse o sottoscrizione. DevTest Labs può essere spostato in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non per tutte le sottoscrizioni.
 * Applicazioni gestite
 * Genomica di Microsoft
@@ -161,7 +161,7 @@ Questa sezione illustra come gestire scenari complessi per lo spostamento di ris
 * [Limitazioni del servizio app](#app-service-limitations)
 * [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
 * [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-* [Limitazioni di Servizi di ripristino](#recovery-services-limitations)
+* [Limitazioni dei servizi di ripristino](#recovery-services-limitations)
 * [Limitazioni di HDInsight](#hdinsight-limitations)
 
 ### <a name="virtual-machines-limitations"></a>Limitazioni delle macchine virtuali
@@ -180,8 +180,8 @@ Per spostare le macchine virtuali configurate con Backup di Azure, usare la solu
 * Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1`, ad esempio AzureBackupRG_westus2_1
 * Nel portale di Azure selezionare quindi l'opzione "Mostra tipi nascosti"
 * In PowerShell usare il cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Trovare la risorsa di tipo `Microsoft.Compute/restorePointCollections` con modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Se nell'interfaccia della riga di comando, usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Trovare la risorsa con tipo `Microsoft.Compute/restorePointCollections` con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
 * Al termine dell'operazione, sarà possibile spostare la macchina virtuale. È possibile spostare l'insieme di credenziali e la macchina virtuale nella sottoscrizione di destinazione. Dopo lo spostamento è possibile continuare a eseguire i backup senza alcuna perdita di dati.
 * Per informazioni sullo spostamento degli insiemi di credenziali di Servizi di ripristino per il backup, vedere [Limitazioni di Servizi di ripristino](#recovery-services-limitations).

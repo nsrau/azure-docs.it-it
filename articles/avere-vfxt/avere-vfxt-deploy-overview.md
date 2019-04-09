@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991802"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056232"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT per Azure - Panoramica della distribuzione
 
@@ -32,14 +32,6 @@ Ecco una panoramica di tutti i passaggi.
 1. Configurazione dei prerequisiti 
 
    Prima di creare una macchina virtuale, è necessario creare una nuova sottoscrizione per il progetto Avere vFXT, configurare la proprietà della sottoscrizione, verificare le quote e richiedere un aumento, se necessario, oltre che accettare le condizioni per l'uso del software Avere vFXT. Per istruzioni dettagliate, vedere [Preparare la creazione di Avere vFXT](avere-vfxt-prereqs.md).
-
-1. Creare un ruolo di accesso per i nodi del cluster
-
-   Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) per autorizzare le macchine virtuali del nodo del cluster a eseguire determinate attività. Ad esempio, i nodi del cluster devono essere in grado di assegnare o riassegnare gli indirizzi IP ad altri nodi del cluster. Prima di creare il cluster, è necessario definire un ruolo che fornisca le autorizzazioni adeguate.
-
-   Per istruzioni, vedere [Creare il ruolo di accesso dei nodi del cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role).
-
-   Anche il controller del cluster usa un ruolo di accesso, ma è possibile accettare il ruolo predefinito, Proprietario, anziché crearne uno. Se si vuole creare un ruolo personalizzato per il controller del cluster, vedere [Ruolo di controllo degli accessi personalizzato](avere-vfxt-controller-role.md). 
 
 1. Creare il cluster Avere vFXT 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881042"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010618"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
 
@@ -95,8 +95,9 @@ Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos
 * Fino a tre raccolte per sottoscrizione per gli account MongoDB.
 * 10 GB di capacità di archiviazione.
 * La replica globale è attualmente disponibile nelle [aree di Azure](https://azure.microsoft.com/regions/) seguenti: Stati Uniti centrali, Europa settentrionale e Asia sud-orientale
-* Velocità effettiva massima di 5.000 UR/sec.
-* Le sottoscrizioni scadono dopo 24 ore e possono essere estese fino a un massimo di 48 ore totali.
+* Velocità effettiva massima di 5 K UR/s durante il provisioning a livello di contenitore.
+* Velocità effettiva di un massimo di 20 K UR/s durante il provisioning a livello di database.
+* Le sottoscrizioni scadono dopo 30 giorni e possono essere esteso a un massimo di 31 giorni totale.
 * Non è possibile creare ticket di supporto di Azure per gli account di prova di Azure Cosmos DB. È tuttavia previsto il supporto per i sottoscrittori con piani di supporto esistenti.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurazione di Azure Cosmos DB

@@ -4,16 +4,16 @@ description: Informazioni su come ottenere e controllare set di dati di grandi d
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889036"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058392"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -63,7 +63,7 @@ Nell'[API REST](/rest/api/azureresourcegraph/resources/resources) il controllo �
 
 ## <a name="paging-results"></a>Risultati di paging
 
-Se è necessario suddividere un set di risultati in set di record più piccoli ai fini dell'elaborazione o per evitare di superare il valore massimo consentito di _5000_ record restituiti, usare il paging. L'[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
+Quando è necessario suddividere un set di risultati in set più piccoli di record per l'elaborazione o perché un set di risultati comporterebbe il superamento del valore del massimo consentito _1000_ restituiti record, usare il paging. L'[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
 **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104404"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273669"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Avvio rapido: Creare e condividere un notebook
 
@@ -43,7 +43,7 @@ ms.locfileid: "58104404"
 
 1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+**) e quindi selezionare **Notebook**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nuovo progetto vuoto e il comando per aggiungere un notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nuovo progetto vuoto e aggiungere il comando notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. Nella finestra popup **Create New Notebook** (Crea nuovo notebook) visualizzata immettere un nome file per il notebook, ad esempio *HelloWorldInPython.ipynb* (*.ipynb* significa notebook IronPython - Jupyter) e selezionare **Python 3.6** per la lingua (chiamato anche il *kernel*):
 
@@ -106,4 +106,4 @@ Nella pagina del progetto è anche possibile usare il menu **Share** (Condividi)
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: creare un'esecuzione di un notebook di Jupyter per eseguire la regressione lineare](tutorial-create-run-jupyter-notebook.md)

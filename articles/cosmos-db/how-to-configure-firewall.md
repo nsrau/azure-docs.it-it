@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 308d4527c9ea56a408ddaf05532f5a0b36136262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451768"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281115"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
 
@@ -104,9 +104,10 @@ Per configurare il controllo di accesso al proprio account Azure Cosmos DB, assi
      "name": "[parameters('databaseAccountName')]",
      "location": "[resourceGroup().location]",
      "properties": {
-     "databaseAccountOfferType": "Standard",
-     "name": "[parameters('databaseAccountName')]",
-     "ipRangeFilter":"183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+       "databaseAccountOfferType": "Standard",
+       "name": "[parameters('databaseAccountName')]",
+       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+     }
    }
 ```
 
@@ -125,7 +126,7 @@ az cosmosdb create \
   --resource-group $resourceGroupName \
   --max-interval 10 \
   --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 Per aggiornare le impostazioni del firewall per un account esistente, eseguire il comando seguente:
@@ -134,7 +135,7 @@ Per aggiornare le impostazioni del firewall per un account esistente, eseguire i
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 ## <a id="troubleshoot-ip-firewall"></a>Risolvere i problemi con un criterio di controllo di accesso IP
@@ -158,7 +159,7 @@ Le richieste provenienti da una subnet nella rete virtuale che dispone di un end
 
 Per configurare l'endpoint del servizio di una rete virtuale per l'account Azure Cosmos DB, vedere gli articoli seguenti:
 
-* [Controllo di accesso di rete virtuale e subnet per l'account Azure Cosmos DB](vnet-service-endpoint.md)
-* [Configurare l'accesso basato su rete virtuale e subnet per l'account di Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
+* [Rete virtuale e subnet controllo di accesso per l'account Azure Cosmos DB](vnet-service-endpoint.md)
+* [Configurare l'accesso basato su rete virtuale e subnet per l'account Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
 
 

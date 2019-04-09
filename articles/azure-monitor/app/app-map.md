@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622111"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009196"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -36,7 +36,7 @@ I componenti sono parti dell'applicazione distribuita o di microservizi, distrib
 
 È possibile visualizzare la topologia completa dell'applicazione con più livelli di componenti dell'applicazione correlati. I componenti possono essere risorse di Application Insights diverse o ruoli diversi in una singola risorsa. La mappa delle app consente di trovare i componenti seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. 
 
-Questa esperienza inizia con la progressiva individuazione dei componenti. Quando si carica la mappa delle applicazioni per la prima volta, viene avviato un set di query per individuare i componenti correlati a questo componente. Un pulsante nell'angolo superiore sinistro viene aggiornato con il numero di componenti dell'applicazione individuati. 
+Questa esperienza inizia con la progressiva individuazione dei componenti. Quando si carica innanzitutto la mappa delle applicazioni, viene attivato un set di query per individuare i componenti correlati a questo componente. Un pulsante nell'angolo superiore sinistro viene aggiornato con il numero di componenti dell'applicazione individuati. 
 
 Quando si fa clic sul pulsante per aggiornare i componenti della mappa, la mappa viene aggiornata con tutti i componenti individuati fino a quel momento. A seconda della complessità dell'applicazione, l'operazione potrebbe richiedere un minuto per il caricamento.
 
@@ -50,7 +50,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esamina errori
+### <a name="investigate-failures"></a>Esaminare gli errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +58,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esamina prestazioni
+### <a name="investigate-performance"></a>Esaminare le prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -185,9 +186,35 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Understanding Cloud.RoleName all'interno del contesto di mappa delle applicazioni
+
+Nel quadro come pensare Cloud.RoleName può essere utile esaminare una mappa delle applicazioni con più Cloud.RoleNames presente:
+
+![Screenshot della mappa delle applicazioni](media/app-map/cloud-rolename.png)
+
+Nella mappa delle applicazioni di sopra di ognuno dei nomi nelle caselle di colore verde sono valori Cloud.RoleName/role per diversi aspetti di questa particolare applicazione distribuita. In modo che per questa app relativi ruoli costituiti da: `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+
+Nel caso di questa app ciascuna di tali `Cloud.RoleNames` rappresenta anche un'altra risorsa di Application Insights univoca con le proprie chiavi di strumentazione. Poiché il proprietario di questa applicazione può accedere a ognuno di questi quattro diverse risorse di Application Insights, mappa delle applicazioni è in grado di mettere insieme una mappa delle relazioni sottostante.
+
+Per il [definizioni ufficiali](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+In alternativa, possono essere utili per scenari in cui Cloud.RoleName indica il problema è posizionato all'interno di front-end web, ma si potrebbe essere in esecuzione il front-end web in più server con bilanciamento del carico, la possibilità di analizzare i dati di un livello più profondo Cloud.RoleInstance tramite query Kusto e sapere se il problema sta influenzando tutti i front-end server/istanze web o solo uno può essere estremamente importante.
+
+Uno scenario in cui è possibile sostituire il valore per Cloud.RoleInstance potrebbe essere se l'app è in esecuzione in un ambiente basato su contenitori in cui è sufficiente sapere il singolo server potrebbe non essere informazioni sufficienti per individuare un determinato problema.
+
 Per altre informazioni su come eseguire l'override della proprietà cloud_RoleName con gli inizializzatori di telemetria, vedere [Aggiungi proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 

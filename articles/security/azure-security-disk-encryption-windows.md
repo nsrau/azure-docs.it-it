@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010346"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277120"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Windows
 
@@ -223,8 +223,7 @@ Usare [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-
 Per crittografare o decrittografare set di scalabilità di macchine virtuali Windows, usare i modelli di Azure Resource Manager e istruzioni di seguito:
 
 - [Abilitare la crittografia in un set di scalabilità di macchine virtuali Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Distribuire un set di scalabilità di macchine virtuali Windows con un jumpbox e abilitare la crittografia nel set di scalabilità di macchine Virtuali Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Disabilitare la crittografia in un set di scalabilità di macchine Virtuali Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Disabilitare la crittografia in un set di scalabilità di macchine virtuali Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Fare clic su **Distribuzione in Azure**.
      2. Compilare i campi obbligatori quindi accettare i termini e le condizioni.

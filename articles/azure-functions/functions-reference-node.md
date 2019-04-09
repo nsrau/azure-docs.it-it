@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437578"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010117"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -116,7 +116,7 @@ In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'inp
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Come membri dell'oggetto [`context.bindings`](#contextbindings-property).** Ogni membro è denominato in base alla proprietà `name` definita in *function.json*.
+ - **Come membri del [ `context.bindings` ](#contextbindings-property) oggetto.** Ogni membro è denominato in base alla proprietà `name` definita in *function.json*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'inp
    };
    ```
    
- - **Come input tramite l'oggetto JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx).** Ciò equivale essenzialmente a passare gli input come parametri, ma consente di gestire in modo dinamico gli input.
+ - **Come input tramite JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) oggetto.** Ciò equivale essenzialmente a passare gli input come parametri, ma consente di gestire in modo dinamico gli input.
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
 
 È possibile assegnare i dati per le associazioni di output in uno dei modi seguenti (non combinare i due metodi):
 
-- **_[Consigliato per più output]_  Restituzione di un oggetto.** Se si usa una funzione asincrona o che restituisce oggetti Promise, è possibile restituire un oggetto con i dati di output assegnati. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json*.
+- **_[Consigliato per più output]_  Restituendo un oggetto.** Se si usa una restituzione funzione async/Promise, è possibile restituire un oggetto con i dati di output assegnato. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
   ```
 
   Se si usa una funzione sincrona, è possibile restituire questo oggetto usando [`context.done`](#contextdone-method) (vedere l'esempio).
-- **_[Consigliato per singolo output]_  Restituzione diretta di un valore e uso del nome di associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
+- **_[Consigliato per singolo output]_  Restituendo un valore direttamente e usando il nome dell'associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
 - **Assegnazione di valori a `context.bindings`** È possibile assegnare valori direttamente a context.bindings.
 
   ```javascript
@@ -273,10 +273,10 @@ Permette di scrivere nei log della console di streaming nel livello di traccia p
 
 | Metodo                 | DESCRIZIONE                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
-| **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
-| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
-| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+| **Errore (_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
+| **warn (_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
+| **Info (_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose(_message_)** | Scrive nella registrazione a livello dettagliato.           |
 
 L'esempio seguente scrive un log nel livello di traccia di avviso:
 
@@ -350,9 +350,9 @@ L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
 | Proprietà      | DESCRIZIONE                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Oggetto che contiene il corpo della richiesta.               |
+| _Corpo_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
-| _method_      | Metodo HTTP della richiesta.                                |
+| _statico_      | Metodo HTTP della richiesta.                                |
 | _originalUrl_ | URL della richiesta.                                        |
 | _params_      | Oggetto che contiene i parametri di routing della richiesta. |
 | _query_       | Oggetto che contiene i parametri di query della richiesta.                  |
@@ -365,16 +365,16 @@ L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 
 | Proprietà  | DESCRIZIONE                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Oggetto che contiene il corpo della risposta.         |
+| _Corpo_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
 | _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
-| _Stato_  | Codice di stato HTTP della risposta.                     |
+| _status_  | Codice di stato HTTP della risposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
 
 Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e risposta HTTP in diversi modi:
 
-+ **Dalle proprietà `req` e `res` per l'oggetto `context`.** In questo modo per accedere ai dati HTTP dall'oggetto di contesto è possibile usare il modello convenzionale anziché il modello `context.bindings.name` completo. L'esempio seguente illustra come accedere agli oggetti `req` e `res` nell'oggetto `context`:
++ **Dalle proprietà `req` e `res` sull'oggetto `context`.** In questo modo per accedere ai dati HTTP dall'oggetto di contesto è possibile usare il modello convenzionale anziché il modello `context.bindings.name` completo. L'esempio seguente illustra come accedere agli oggetti `req` e `res` nell'oggetto `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -395,7 +395,7 @@ Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e ris
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Solo risposta]_ Chiamando `context.res.send(body?: any)`.** Viene creata una risposta HTTP con input `body` come corpo della risposta. Viene chiamato `context.done()` in modo implicito.
++ **_[Solo risposta]_ Chiamando `context.res.send(body?: any)`.** Viene creata una risposta HTTP con input `body` come corpo della risposta. `context.done()` viene chiamato in modo implicito.
 
 + **_[Solo risposta]_ Chiamando `context.done()`.** Un tipo speciale di associazione HTTP restituisce la risposta che viene passata al metodo `context.done()`. L'associazione di output HTTP seguente definisce un parametro di output `$return`:
 
@@ -494,7 +494,7 @@ Per l'esecuzione in locale, le impostazioni dell'app vengono lette dal file di p
 
 Per impostazione predefinita, viene eseguita una funzione JavaScript da `index.js`, un file che condivide la stessa directory padre del file `function.json` corrispondente.
 
-È possibile usare `scriptFile` per ottenere una struttura di cartelle simile a quella nell'esempio seguente:
+`scriptFile` può essere utilizzato per ottenere una struttura di cartelle simile al seguente:
 
 ```
 FunctionApp
@@ -625,7 +625,7 @@ Quando si usa un client specifico del servizio in un'applicazione di funzioni di
 Per altre informazioni, vedere le seguenti risorse:
 
 + [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
-+ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
-+ [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
++ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
++ [Associazioni e trigger delle funzioni di azure](functions-triggers-bindings.md)
 
 [`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

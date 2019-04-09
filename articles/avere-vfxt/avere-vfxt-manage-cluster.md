@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745555"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058051"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
@@ -98,7 +98,7 @@ Specificare i valori seguenti:
 * Nome del gruppo di risorse per il cluster, oltre che per le risorse di rete e di archiviazione se non coincidono con il cluster
 * Percorso del cluster
 * Rete e subnet del cluster 
-* Ruolo di accesso dei nodi del cluster 
+* Ruolo di accesso del nodo cluster (usare il ruolo predefinito [operatore Avere](../role-based-access-control/built-in-roles.md#avere-operator))
 * Indirizzo IP e password amministrativa per la gestione del cluster 
 * Numero di nodi da aggiungere (1, 2 o 3)
 * Tipo di istanza dei nodi e valori delle dimensioni della cache 
@@ -113,7 +113,7 @@ Se non si usa il prototipo, è necessario creare un comando simile al seguente, 
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ Scegliere il pulsante **Elimina** nella parte superiore della pagina di panorami
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Eliminare le risorse aggiuntive del cluster dal portale di Azure
 
-Se sono state create risorse aggiuntive espressamente per il cluster vFXT, potrebbe essere necessario rimuoverle nell'ambito del processo di eliminazione definitiva del cluster. È consigliabile non eliminare definitivamente gli elementi che contengono dati necessari, né eventuali elementi condivisi con altri progetti.
+Se sono state create risorse aggiuntive espressamente per il cluster vFXT, potrebbe essere necessario rimuoverle nell'ambito del processo di eliminazione definitiva del cluster. Elimina definitivamente gli elementi che contengono dati che ti servono, o tutti gli elementi che vengono condivisi con altri progetti.
 
 Oltre a eliminare i nodi del cluster, considerare di rimuovere questi componenti: 
 

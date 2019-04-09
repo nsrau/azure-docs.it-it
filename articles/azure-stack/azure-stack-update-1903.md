@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048810"
+ms.locfileid: "59057054"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -156,6 +156,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    - Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 - Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. Come soluzione alternativa, usare l'accesso della macchina virtuale per l'estensione Linux per implementare le chiavi SSH dopo il provisioning o utilizzano l'autenticazione basata su password.
+
+- Azure Stack supporta ora superiore rispetto a quella 2.2.20 gli agenti di Linux di Microsoft Azure. Questo supporto è stata una parte di hotfix 1901 e 1902 e consente ai clienti di gestire le immagini linux coerente tra Azure e Azure Stack.
+
 
 - Se non è un Host di ciclo di vita dell'Hardware (HLH): prima compilazione 1902, era necessario impostare i criteri di gruppo **Configurazione computer\Impostazioni di Windows\Impostazioni sicurezza\Criteri Locali\opzioni di protezione** a **Invia LM e NTLM: usare la sicurezza della sessione NTLMv2 se negoziato**. Da compilazione 1902, è necessario lasciare l'impostazione **non definito** oppure impostare **Invia solo risposta NTLMv2** (ovvero il valore predefinito). In caso contrario, non sarà in grado di stabilire una sessione remota di PowerShell e verrà visualizzato un **l'accesso è negato** errore:
 

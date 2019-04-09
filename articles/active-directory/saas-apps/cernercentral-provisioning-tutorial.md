@@ -13,27 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102568"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058068"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
 
-Questa esercitazione descrive le procedure da eseguire in Cerner Central e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD in un elenco di utenti in Cerner Central. 
-
+Questa esercitazione descrive le procedure da eseguire in Cerner Central e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD in un elenco di utenti in Cerner Central.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Tenant di Azure Active Directory
-*   Tenant di Cerner Central 
+* Tenant di Azure Active Directory
+* Tenant di Cerner Central
 
 > [!NOTE]
 > Azure Active Directory si integra con Cerner Central usando il protocollo [SCIM](http://www.simplecloud.info/).
@@ -48,12 +47,11 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Suggerimenti importanti per l'assegnazione di utenti a Cerner Central
 
-*   È consigliabile assegnare un singolo utente di Azure AD a Cerner Central per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a Cerner Central per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
 * Al termine del test iniziale per un singolo utente, Cerner Central consiglia di assegnare l'intero elenco di utenti che devono accedere a qualsiasi soluzione Cerner (non solo Cerner Central) per effettuarne il provisioning nell'elenco di utenti di Cerner.  Altre soluzioni Cerner sfruttano questo elenco di utenti.
 
-*   Quando si assegna un utente a Cerner Central, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Gli utenti con il ruolo "Accesso predefinito" vengono esclusi dal provisioning.
-
+* Quando si assegna un utente a Cerner Central, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Gli utenti con il ruolo "Accesso predefinito" vengono esclusi dal provisioning.
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>Configurazione del provisioning utenti in Cerner Central
 
@@ -62,9 +60,7 @@ Questa sezione illustra la connessione di Azure AD all'elenco di utenti di Cerne
 > [!TIP]
 > Si può anche scegliere di abilitare basato su SAML Single Sign-On di Cerner Central, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari. Per altre informazioni, vedere l'[esercitazione sull'accesso Single Sign-On di Cerner Central](cernercentral-tutorial.md).
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Cerner Central con Azure AD:
-
 
 Per effettuare il provisioning degli account utente in Cerner Central, è necessario richiedere un account di sistema di Cerner Central e generare un token di connessione OAuth che possa essere usato da Azure AD per la connessione all'endpoint SCIM di Cerner. È consigliabile anche eseguire l'integrazione in un ambiente sandbox Cerner prima della distribuzione in produzione.
 
@@ -106,9 +102,9 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
    * Nel campo **URL tenant** immettere un URL nel formato seguente, sostituendo "ID-Area-Autenticazione-Roster-Utenti" con l'ID area autenticazione acquisito nel passaggio 4.
 
-> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> Produzione: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > Produzione: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * Nel campo **Token segreto** immettere il token di connessione OAuth generato nel passaggio 3 e fare clic su **Test connessione**.
 
@@ -116,13 +112,13 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
 1. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-1. Fare clic su **Save**. 
+1. Fare clic su **Save**.
 
 1. Nella sezione **Mapping attributi** esaminare gli attributi di utenti e gruppi che verranno sincronizzati da Azure AD a Cerner Central. Gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con gli account utente e i gruppi in Cerner Central per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
 
 1. Per abilitare il servizio di provisioning di Azure AD per Cerner Central, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-1. Fare clic su **Save**. 
+1. Fare clic su **Save**.
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Cerner Central nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Cerner Central.
 
@@ -130,10 +126,11 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Cerner Central: Publishing identity data using Azure AD (Cerner Central: Pubblicazione dei dati sull'identità con Azure AD)](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Esercitazione: Configurazione di Cerner Central per l'accesso Single Sign-On con Azure Active Directory](cernercentral-tutorial.md)
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Cerner Central: Pubblicazione dei dati di identità tramite Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Esercitazione: Configurazione di Cerner Central per single sign-on con Azure Active Directory](cernercentral-tutorial.md)
+* [Gestione di provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

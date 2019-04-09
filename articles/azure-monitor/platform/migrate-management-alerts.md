@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006803"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 
@@ -104,7 +104,7 @@ Per creare un nuovo avviso del log attività, è possibile:
 * Seguire le [istruzioni su come creare un avviso nel portale di Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Imparare a [creare un avviso usando un modello di Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
  
-Gli avvisi di eventi di gestione creati in precedenza non verranno automaticamente migrati in avvisi del log attività. Usando lo script di PowerShell precedente, è necessario invece elencare gli avvisi di eventi di gestione attualmente configurati e ricrearli manualmente come avvisi del log attività. Questa operazione deve essere eseguita entro il 1° ottobre. A partire da quella data, infatti, gli avvisi di eventi di gestione non saranno più visibili nella sottoscrizione di Azure. Altri tipi di avvisi di Azure, tra cui gli avvisi metrica di Monitoraggio di Azure, gli avvisi di Application Insights e gli avvisi di Log Analytics, non sono interessati da questa modifica. Per eventuali domande, aggiungerle ai commenti al termine dell'articolo.
+Gli avvisi di eventi di gestione creati in precedenza non verranno automaticamente migrati in avvisi del log attività. Usando lo script di PowerShell precedente, è necessario invece elencare gli avvisi di eventi di gestione attualmente configurati e ricrearli manualmente come avvisi del log attività. Questa operazione deve essere eseguita entro il 1° ottobre. A partire da quella data, infatti, gli avvisi di eventi di gestione non saranno più visibili nella sottoscrizione di Azure. Altri tipi di avvisi di Azure, inclusi gli avvisi delle metriche di monitoraggio di Azure, gli avvisi di Application Insights e avvisi di ricerca nei Log sono interessati da questa modifica. Per eventuali domande, aggiungerle ai commenti al termine dell'articolo.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

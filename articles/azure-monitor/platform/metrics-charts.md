@@ -1,6 +1,6 @@
 ---
-title: Esplora metriche di Monitoraggio di Azure
-description: Informazioni sulle nuove funzionalità aggiunte in Esplora metriche di Monitoraggio di Azure
+title: Funzionalità avanzate di Esplora metriche di Azure
+description: Informazioni sulle funzionalità avanzate di Esplora metriche di monitoraggio di Azure
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916343"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271680"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
-Esplora metriche di Monitoraggio di Azure è un componente del portale di Microsoft Azure che consente di tracciare grafici, correlare visivamente le tendenze ed esaminare i picchi e i cali nei valori delle metriche. Esplora metriche è uno strumento fondamentale da cui iniziare a esaminare le varie problematiche relative a prestazioni e disponibilità che si possono presentare con le applicazioni e l'infrastruttura ospitate in Azure o monitorate dai servizi Monitoraggio di Azure.
+> [!NOTE]
+> Questo articolo presuppone che abbia familiarità con le funzionalità di base di Esplora metriche. Se si è un nuovo utente e si vuole imparare a creare il primo grafico delle metriche, vedere [Introduzione a Esplora metriche di Azure](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
 [In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni che usano il [API di Application Insights per metriche ed eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [estensione diagnostica di Azure di Windows (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o da [Azure Monitorare l'API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-a-new-chart"></a>Creare un nuovo grafico
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e questi grafici
 
-1. Aprire il portale di Azure
-2. Passare alla nuova scheda **Monitoraggio** e selezionare **Metriche**.
+È possibile creare grafici che tracciare più righe di metriche o mostrano più grafici delle metriche in una sola volta. Questa funzionalità consente di:
 
-   ![Immagine metriche](./media/metrics-charts/00001.png)
+- correlare le metriche correlate nel grafico per vedere come un valore stesso sono correlata a un'altra
+- visualizzare le metriche con unità di misura in stretta vicinanza diverse
+- aggregare e confrontare le metriche da più risorse visivamente
 
-3. Il **selettore di metrica** verrà aperto automaticamente. Scegliere una risorsa dall'elenco per visualizzarne le risorse associate. Nell'elenco vengono visualizzate solo le risorse che dispongono di metriche.
+Ad esempio, se hai 5 account di archiviazione e si desidera conoscere la quantità di spazio totale viene consumato tra di essi, è possibile creare un grafico ad area (in pila) che mostra i singoli e la somma di tutti i valori in determinati punti nel tempo.
 
-   ![Immagine metriche](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>Più metriche nello stesso grafico
 
-   > [!NOTE]
-   >Se si dispone di più sottoscrizioni di Azure, Esplora metriche estrae le risorse da tutte le sottoscrizioni che sono selezionate nell'elenco Impostazioni del portale -> Filtra per sottoscrizioni. Per modificare l'elenco, fare clic sull'icona a forma di ingranaggio Impostazioni del portale in cima alla schermata e selezionare le sottoscrizioni che si desidera usare.
-
-4. Per alcuni tipi di risorse, ad esempio gli account di archiviazione e le macchine virtuali, prima di selezionare una metrica è necessario scegliere uno **Spazio dei nomi**. Ogni spazio dei nomi presenta un proprio set di metriche che sono pertinenti solo a quello spazio dei nomi e non ad atri spazi dei nomi.
-
-   Ogni Archiviazione di Azure, ad esempio, dispone di metriche per i sottoservizi "BLOB", "File", "Code" e "Tabelle", che fanno tutti parte dell'account di archiviazione. La metrica "Queue Message Count" (Numero di messaggi in coda) è peraltro ovviamente applicabile al sottoservizio "Code" e a nessun altro sottoservizio dell'account di archiviazione.
-
-   ![Immagine metriche](./media/metrics-charts/00003.png)
-
-5. Selezionare una metrica dall'elenco. Se si conosce solo in parte il nome della metrica desiderata, è possibile iniziare a digitare il nome per visualizzare un elenco filtrato di metriche disponibili:
-
-   ![Immagine metriche](./media/metrics-charts/00004.png)
-
-6. Dopo avere selezionato una metrica, verrà eseguito il rendering del grafico con l'aggregazione predefinita per la metrica selezionata. È possibile a questo punto fare semplicemente clic sul **selettore di metrica** per chiuderlo. Se lo si desidera, è possibile spostare il grafico in un'aggregazione diversa. Per alcune metriche, il passaggio di aggregazione consente di scegliere quale valore si desidera visualizzare nel grafico. È ad esempio possibile passare tra i valori medi, minimi e massimi. 
-
-7. Facendo clic su **Aggiungi metrica** e ripetendo i passaggi da 3 a 6, è possibile aggiungere altre metriche nello stesso grafico.
+Prima di tutto [creare un nuovo grafico](metrics-getting-started.md#create-your-first-metric-chart). Fare clic su **Aggiungi metrica** e ripetere i passaggi per aggiungere un'altra metrica nello stesso grafico.
 
    > [!NOTE]
    > È preferibile in genere non avere nello stesso grafico metriche con unità di misura diverse (ad esempio "millisecondi" e "KB") o con proporzioni molto diverse. Si può in questo caso considerare di usare più grafici. Fare clic sul pulsante Aggiungi grafico per creare più grafici in Esplora metriche.
+
+### <a name="multiple-charts"></a>Più grafici
+
+Scegliere il **Aggiungi grafico** e creare un altro grafico con una metrica diversa.
+
+### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
+
+Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **...**  ) per aprire il menu di grafico e scegliere la voce di menu appropriata del simbolo **spostare verso l'alto**, **Sposta giù**, o **eliminare**.
 
 ## <a name="apply-filters-to-charts"></a>Applicare filtri ai grafici
 
@@ -76,27 +71,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 5. È possibile ripetere i passaggi da 1 a 4 per applicare più filtri agli stessi grafici.
 
-## <a name="multiple-metrics-and-charts"></a>Più metriche e questi grafici
 
-È anche possibile creare grafici che tracciare più metriche o mostrano più grafici delle metriche in una sola volta. Questa funzionalità consente di:
-
-- correlare le metriche correlate nel grafico per vedere come un valore stesso sono correlata a un'altra
-- visualizzare le metriche con unità di misura in stretta vicinanza diverse
-- aggregare e confrontare le metriche da più risorse visivamente
-
-Ad esempio, se hai 5 account di archiviazione e si desidera conoscere la quantità di spazio totale viene consumato tra di essi, è possibile creare un grafico ad area (in pila) che mostra i singoli e la somma di tutti i valori in determinati punti nel tempo.
-
-### <a name="multiple-metrics-on-a-chart"></a>Più metriche in un grafico
-
-Prima di tutto [creare un nuovo grafico](#create-a-new-chart). Fare clic su **Aggiungi metrica** e ripetere i passaggi per aggiungere un'altra metrica nello stesso grafico.
-
-### <a name="multiple-charts"></a>Più grafici
-
-Scegliere il **Aggiungi grafico** e creare un altro grafico con una metrica diversa.
-
-### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
-
-Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **...**  ) per aprire il menu di grafico e scegliere la voce di menu appropriata del simbolo **spostare verso l'alto**, **Sposta giù**, o **eliminare**.
 
 ## <a name="apply-splitting-to-a-chart"></a>Applicare la suddivisione in un grafico
 

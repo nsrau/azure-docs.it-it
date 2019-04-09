@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990986"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056725"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
@@ -130,6 +130,17 @@ Quando si crea il cluster, è possibile scegliere se creare un indirizzo IP pubb
 
 * Se si crea una nuova rete virtuale o una nuova subnet, al controller del cluster verrà assegnato un indirizzo IP pubblico.
 * Se si seleziona una rete virtuale e una subnet esistenti, il controller del cluster avrà solo indirizzi IP privati. 
+
+## <a name="vm-access-roles"></a>Ruoli di accesso della macchina virtuale 
+
+Azure Usa [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) per autorizzare il cluster di macchine virtuali per eseguire determinate attività. Ad esempio, il controller del cluster, è necessario autorizzare per creare e configurare macchine virtuali del nodo cluster. I nodi del cluster devono essere in grado di assegnare o riassegnare indirizzi IP da altri nodi del cluster.
+
+Due ruoli predefiniti di Azure vengono usati per le macchine virtuali di vFXT Avere: 
+
+* Il controller di cluster Usa il ruolo predefinito [collaboratore Avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Nodi del cluster usare il ruolo predefinito [Avere operatore](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Se è necessario personalizzare i ruoli di accesso per Avere vFXT componenti, è necessario definire il proprio ruolo e quindi assegnarlo alle macchine virtuali al momento che della creazione. È possibile usare il modello di distribuzione in Azure Marketplace. Consultare il servizio clienti e supporto aprendo un ticket nel portale di Azure, come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Passaggio successivo: Informazioni sul processo di distribuzione
 

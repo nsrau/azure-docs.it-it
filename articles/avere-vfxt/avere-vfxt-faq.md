@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404638"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057150"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -200,6 +200,14 @@ Per gli ambienti sensibili alla latenza, è consigliabile usare una soluzione fi
 
 No, Avere vFXT è progettato per l'uso in un ambiente di rete protetto tramite procedure consigliate.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>È possibile limitare l'accesso a internet dalla rete virtuale del cluster? 
+
+In generale, è possibile configurare sicurezza aggiuntiva sulla rete virtuale in base alle necessità, ma alcune restrizioni possono interferire con l'operazione del cluster.
+
+Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere regole che consentono in modo esplicito l'accesso per AzureConnectors e AzureCloud. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Per informazioni sulla protezione personalizzate, contattare il supporto come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Tecnica: Archiviazione back-end (core filer)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Quanti core filer supporta un singolo ambiente Avere vFXT?
@@ -280,7 +288,7 @@ Per iniziare a usare Avere vFXT per Azure, vedere gli articoli seguenti per info
 
 * [Pianificare il sistema Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Panoramica della distribuzione](avere-vfxt-deploy-overview.md)
-* [Preparare la creazione di un cluster Avere vFXT](avere-vfxt-prereqs.md)
-* [Distribuire il cluster Avere vFXT](avere-vfxt-deploy.md)
+* [Prepararsi alla creazione di un cluster di vFXT Avere](avere-vfxt-prereqs.md)
+* [Distribuire il cluster vFXT Avere](avere-vfxt-deploy.md)
 
 Per altre informazioni sulle funzionalità e i casi d'uso per Avere vFXT, visitare il sito di [Avere vFXT per Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046787"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282985"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -31,8 +31,8 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 | **Azure Government** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Contratto Enterprise Agreement (EA)** | Sviluppo/test Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Contratto Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
+| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pagamento in base al consumo** | [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pagamento in base al consumo** | [Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi. Tutti i 
 | **Incluso** | **Non incluso** |
 | --- | --- |
 | Utilizzo del servizio Azure<sup>1</sup> | Acquisti di prenotazioni - Per altre informazioni, vedere [API per l'automazione delle prenotazioni di Azure](../billing/billing-reservation-apis.md). |
-| Utilizzo delle offerte del Marketplace | Acquisti del Marketplace - Per altre informazioni, vedere [Addebiti per servizi di terze parti](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Mercato, offrendo utilizzo<sup>2</sup> | Acquisti del Marketplace - Per altre informazioni, vedere [Addebiti per servizi di terze parti](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Addebiti per il supporto - Per altre informazioni, vedere [Spiegazioni delle condizioni di fatturazione](../billing/billing-understand-your-invoice.md). |
 |   | Imposte - Per altre informazioni, vedere [Spiegazioni delle condizioni di fatturazione](../billing/billing-understand-your-invoice.md). |
 |   | Crediti - Per altre informazioni, vedere [Spiegazioni delle condizioni di fatturazione](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> L'utilizzo del servizio di Azure è basato sulla prenotazione e sui prezzi negoziati.
+<sup>2</sup> marketplace offerta utilizzo non è disponibile per il pagamento a consumo, MSDN, e Visual Studio sono disponibili in questo momento.
 
 **Metadata**
 
 | **Incluso** | **Non incluso** |
 | --- | --- |
-| Tag delle risorse<sup>2</sup> | Tag dei gruppi di risorse |
+| I tag delle risorse<sup>3</sup> | Tag dei gruppi di risorse |
 
-<sup>2</sup> I tag delle risorse vengono applicati al momento della generazione dei dati sull'utilizzo da ogni servizio e non sono disponibili in modo retroattivo per l'utilizzo cronologico.
+<sup>3</sup> i tag delle risorse vengono applicati come utilizzo viene generato da ogni servizio e non sono disponibili in modo retroattivo a utilizzo cronologico.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Pianificazione dell'aggiornamento dei dati sull'utilizzo valutato
 

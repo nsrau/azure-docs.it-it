@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471012"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281268"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -44,7 +44,7 @@ La macchina virtuale data science, offerta da Microsoft sia in ambiente Windows 
 - Power BI Desktop per Windows
 - SQL Server 2016 Developer Edition in Windows e Postgres in Linux
 
-Sono inclusi inoltre **strumenti ML e AI**, come CNTK (un toolkit di apprendimento avanzato open source di Microsoft), xgboost, mxnet e Vowpal Wabbit.
+Include inoltre **strumenti di Machine Learning e intelligenza artificiale** come xgboost, mxnet e Vowpal Wabbit.
 
 La macchina virtuale data science è attualmente disponibile nei sistemi operativi **Windows** e **Linux CentOS**. Scegliere le dimensioni della macchina virtuale data science da usare (numero di core CPU e quantità di memoria) in base alle esigenze dei progetti di data science che si prevede di eseguirvi. 
 

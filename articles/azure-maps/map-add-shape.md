@@ -9,20 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579292"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057028"
 ---
 # <a name="add-a-shape-to-a-map"></a>Aggiungere una forma a una mappa
 
-Questo articolo illustra come aggiungere una [Forma](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) alla mappa e aggiornare le proprietà di una forma esistente sulla mappa.
+Questo articolo illustra come eseguire il rendering di geometrie sulla mappa utilizzando i livelli poligono e linea. Mappe di Azure SDK per Web supporta inoltre la creazione di geometrie cerchio come definito nel [estesa dello schema GeoJSON](extend-geojson.md#circle). Tutti gli oggetti Geometry funzionalità può essere facilmente aggiornato anche se è stato eseguito il wrapping con la [forma](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) classe.
 
 <a id="addALine"></a>
 
-## <a name="add-a-line"></a>Aggiungere una linea
+## <a name="add-lines-to-the-map"></a>Aggiungere righe alla mappa
+
+`LineString` e `MultiLineString` funzionalità vengono usate per rappresentare i percorsi e le strutture sulla mappa.
+
+## <a name="use-a-line"></a>Usare una riga
 
 <iframe height='500' scrolling='no' title='Aggiungere una linea a una mappa' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Aggiungere una linea a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -33,7 +37,7 @@ Nel secondo blocco di codice viene creato un oggetto origine dati usando la clas
 
 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) esegue il rendering degli oggetti linea sottoposti a wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). L'ultimo blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). L'origine dati e il livello linea vengono creati e aggiunti alla mappa nella funzione [listener eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per garantire che la linea venga visualizzata dopo il caricamento completo della mappa.
 
-## <a name="add-symbols-along-a-line"></a>Aggiungere simboli lungo una linea
+### <a name="add-symbols-along-a-line"></a>Aggiungere simboli lungo una linea
 
 In questo esempio viene illustrato come aggiungere le icone freccia lungo una linea sulla mappa. Quando tramite un livello di simboli, impostare l'opzione "posizione" a "riga", verrà rendering i simboli lungo la linea e ruotare le icone (0 gradi = right).
 
@@ -43,7 +47,17 @@ In questo esempio viene illustrato come aggiungere le icone freccia lungo una li
 Vedere la penna <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show freccia lungo line</a> dalle mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-line-layer"></a>Personalizzare un livello linea
+### <a name="line-stroke-gradient"></a> Aggiungere una sfumatura di traccia a una riga
+
+Oltre a essere in grado di applicare un colore tratto solo a una riga è inoltre possibile compilare una riga con sfumature di colore per mostrare transizione da un segmento di linea a quella successiva. Ad esempio, le sfumature di riga sono utilizzabile per rappresentare le modifiche nel tempo e distanza o le temperature diversi in una linea degli oggetti collegati. Per applicare questa funzionalità a una riga, è necessario che l'origine dati di `lineMetrics` impostata su true l'opzione e quindi un'espressione di sfumatura di colore può essere passata al `strokeColor` opzione della riga. L'espressione della sfumatura tratto è per riferimento il `['line-progress']` espressione di dati che espone le metriche di riga calcolata per l'espressione.
+
+<br/>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Riga con sfumatura tratto" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>riga con sfumatura tratto</a> da mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### <a name="customize-a-line-layer"></a>Personalizzare un livello linea
 
 Per il livello linea sono disponibili varie opzioni di stile. Lo strumento seguente consente di provarle.
 
@@ -52,26 +66,15 @@ Per il livello linea sono disponibili varie opzioni di stile. Lo strumento segue
 <iframe height='700' scrolling='no' title='Opzioni del livello linea' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opzioni del livello linea</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-<a id="addACircle"></a>
-
-## <a name="add-a-circle"></a>Aggiungere un cerchio
-
-<iframe height='500' scrolling='no' title='Aggiungere un cerchio a una mappa' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Aggiungere un cerchio a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Nel codice precedente il primo blocco di codice costruisce un oggetto Mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
-
-Nel secondo blocco di codice viene creato un oggetto origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un cerchio è un elemento [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) di [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) con proprietà `subType` impostata su "circle" e unità di misura per il valore della proprietà `radius`. Quando una funzionalità Point con subType circle viene aggiunta a un'origine dati, l'elemento viene convertito in un poligono circolare all'interno della mappa.
-
-Un [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) esegue il rendering dei dati sottoposti a wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sulla mappa. L'ultimo blocco di codice crea e aggiunge un livello poligono alla mappa. Vedere le proprietà di un livello poligono in [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). L'origine dati e il livello poligono vengono creati e aggiunti alla mappa nella funzione [listener eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per garantire che il cerchio venga visualizzato dopo il caricamento completo della mappa.
-
 <a id="addAPolygon"></a>
 
-## <a name="add-a-polygon"></a>Aggiungere un poligono
+## <a name="add-a-polygon-to-the-map"></a>Aggiungere un'istanza polygon alla mappa
 
-Esistono due modi diversi per aggiungere un poligono alla mappa. Entrambi vengono illustrati negli esempi seguenti.
+`Polygon` e `MultiPolygon` funzionalità vengono spesso usate per rappresentare un'area in una mappa. 
 
-### <a name="use-polygon-layer"></a>Usare il livello poligono 
+### <a name="use-a-polygon-layer"></a>Usare un livello poligono 
+
+Esegue il rendering di un livello poligono l'area di un poligono. 
 
 <iframe height='500' scrolling='no' title='Aggiungere un poligono a una mappa ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Aggiungere un poligono a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -82,7 +85,9 @@ Nel secondo blocco di codice viene creato un oggetto origine dati usando la clas
 
 Un [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) esegue il rendering dei dati sottoposti a wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sulla mappa. L'ultimo blocco di codice crea e aggiunge un livello poligono alla mappa. Vedere le proprietà di un livello poligono in [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). L'origine dati e il livello poligono vengono creati e aggiunti alla mappa nella funzione [listener eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per garantire che il poligono venga visualizzato dopo il caricamento completo della mappa.
 
-### <a name="use-polygon-and-line-layer"></a>Usare il livello poligono e linea
+### <a name="use-a-polygon-and-line-layer-together"></a>Usare un livello poligono e linea insieme
+
+Un livello di riga è utilizzabile per eseguire il rendering del contorno di un poligono. 
 
 <iframe height='500' scrolling='no' title='Livello poligono e linea per aggiungere un poligono' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> (Livello poligono e linea per aggiungere un poligono) con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -95,7 +100,10 @@ Un [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/a
 
 L'ultimo blocco di codice aggiunge i livelli poligono e linea alla mappa. L'origine dati e i livelli vengono creati e aggiunti alla mappa nella funzione [listener eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per garantire che il poligono venga visualizzato dopo il caricamento completo della mappa.
 
-## <a name="fill-a-polygon-with-a-pattern"></a>Riempimento di un poligono con un modello
+> [!TIP]
+> Livelli di riga per impostazione predefinita verranno eseguito il rendering le coordinate di poligoni, nonché le righe in un'origine dati. Per limitare il livello di modo che solo il rendering LineString funzionalità set il `filter` proprietà del livello `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se si desidera includere anche le funzionalità MultiLineString.
+
+### <a name="fill-a-polygon-with-a-pattern"></a>Riempimento di un poligono con un modello
 
 Oltre a riempire un poligono con un colore di un modello di immagine inoltre può essere usato. Un modello di immagine, caricare le risorse di sprite mappe immagine e quindi fare riferimento a questa immagine con il `fillPattern` proprietà del livello poligono.
 
@@ -105,7 +113,7 @@ Oltre a riempire un poligono con un colore di un modello di immagine inoltre pu�
 Vedere la penna <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>motivo di riempimento poligono</a> dalle mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-polygon-layer"></a>Personalizzare un livello poligono
+### <a name="customize-a-polygon-layer"></a>Personalizzare un livello poligono
 
 Il livello poligono include solo poche opzioni di stile. Lo strumento seguente consente di provarle.
 
@@ -114,10 +122,41 @@ Il livello poligono include solo poche opzioni di stile. Lo strumento seguente c
 <iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="update-a-shape"></a>Aggiornare una forma
+<a id="addACircle"></a>
 
-Una classe Shape (Forma) esegue il wrapping di una [Geometria](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o [Funzionalità](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) e facilita il loro aggiornamento e la loro gestione.
-`new Shape(data: Feature<data.Geometry, any>)` costruisce un oggetto forma e lo inizializza con la funzionalità specificata.
+## <a name="add-a-circle-to-the-map"></a>Aggiungere un cerchio alla mappa
+
+Mappe di Azure Usa una versione estesa dello schema che fornisce una definizione di un cerchio come indicato in GeoJSON [qui](extend-geojson.md#circle). Un cerchio può essere sottoposto a rendering sulla mappa mediante la creazione di un `Point` caratteristica che dispone di un `subType` proprietà con il valore `Circle` e un `radius` proprietà che ha un numero che rappresenta il raggio in metri. Ad esempio: 
+
+```javascript
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.126986, 47.639754]
+    },
+    "properties": {
+        "subType": "Circle",
+        "radius": 100
+    }
+}  
+```
+
+Mappe di Azure SDK per Web converte questi `Pooint` features in `Polygon` features dietro le quinte e può essere sottoposto a rendering sulla mappa utilizzando i livelli poligono e linea, come illustrato di seguito.
+
+<iframe height='500' scrolling='no' title='Aggiungere un cerchio a una mappa' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Aggiungere un cerchio a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Nel codice precedente il primo blocco di codice costruisce un oggetto Mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
+
+Nel secondo blocco di codice viene creato un oggetto origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un cerchio è un elemento [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) di [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) con proprietà `subType` impostata su "circle" e unità di misura per il valore della proprietà `radius`. Quando una funzionalità Point con subType circle viene aggiunta a un'origine dati, l'elemento viene convertito in un poligono circolare all'interno della mappa.
+
+Un [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) esegue il rendering dei dati sottoposti a wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sulla mappa. L'ultimo blocco di codice crea e aggiunge un livello poligono alla mappa. Vedere le proprietà di un livello poligono in [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). L'origine dati e il livello poligono vengono creati e aggiunti alla mappa nella funzione [listener eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per garantire che il cerchio venga visualizzato dopo il caricamento completo della mappa.
+
+## <a name="make-a-geometry-easy-to-update"></a>Rendere più semplici da aggiornare una geometria
+
+Oggetto `Shape` classe esegue il wrapping una [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o [funzionalità](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) e rende più semplice aggiornare e gestirle.
+`new Shape(data: Feature<data.Geometry, any>)` Costruisce un oggetto shape e la inizializza con la funzionalità specificata.
 
 <br/>
 
@@ -142,4 +181,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Marcatori di HTML](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello mappa termica](./map-add-heat-map-layer.md)
+> [Aggiungere un livello per le mappe termiche](./map-add-heat-map-layer.md)

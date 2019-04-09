@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814946"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009966"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -34,9 +34,9 @@ Con Live Metrics Stream, è possibile:
 * Monitorare ogni contatore delle prestazioni di Windows live.
 * Identificare facilmente un server che presenta problemi e filtrare tutti gli indicatori KPI o i feed live solo per tale server.
 
-[![Video di Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Lvideo di metriche Stream inque](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Le metriche attive sono attualmente supportate per ASP.NET, ASP.NET Core, Funzioni di Azure e app Java.
+Le metriche in tempo reale sono attualmente supportate per le app ASP.NET, ASP.NET Core, funzioni di Azure, Java e Node. js.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -208,6 +208,6 @@ Dati non visualizzati Se l'applicazione è in una rete protetta: Live Metrics St
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Monitoraggio dell'utilizzo con Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Uso di Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
+* [Utilizzare la ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
 * [Debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md)

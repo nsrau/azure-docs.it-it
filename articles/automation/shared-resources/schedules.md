@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623169"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008647"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 
@@ -156,6 +156,9 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 1. Dall'account di automazione nel portale di Azure, selezionare **Pianificazioni** nella sezione **Risorse condivise** a sinistra.
 2. Fare clic sul nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 3. Impostare **Abilitata** su **No**.
+
+> [!NOTE]
+> Se si desidera disabilitare una pianificazione che dispone di un'ora di inizio nel passato, è necessario modificare la data di inizio a un momento successivo prima di salvarlo.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Per disabilitare una pianificazione con PowerShell
 

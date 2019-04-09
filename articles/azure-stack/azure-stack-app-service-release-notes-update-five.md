@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500203"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260562"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Servizio App in note sulla versione di Azure Stack update 5
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Queste note sulla versione descrivono i miglioramenti e correzioni in servizio App di Azure in Azure Stack Update 5 e problemi noti. Problemi noti sono suddivisi in problemi correlati direttamente per la distribuzione, il processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -77,7 +77,7 @@ Servizio App di Azure in Azure Stack aggiornamento 5 include le correzioni e i m
 ### <a name="post-deployment-steps"></a>Passaggi di post-distribuzione
 
 > [!IMPORTANT]  
-> Se è stato specificato l'applicazione relying Party di servizio App con un'istanza SQL di sempre su devi [aggiungere i database appservice_hosting e appservice_metering a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizzare i database per evitare eventuali perdite di servizio nel evento di un failover del database.
+> Se è stato specificato il provider di risorse del servizio App con un'istanza SQL di sempre su devi [aggiungere i database appservice_hosting e appservice_metering a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizzare i database per evitare eventuali perdite di servizio in caso di failover del database.
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 

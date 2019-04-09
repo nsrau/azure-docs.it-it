@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668195"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057643"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Linux nel cluster di Service Fabric
 
@@ -76,7 +76,7 @@ I cluster Linux di Azure al livello di durabilità silver hanno il servizio di g
 
 ##### <a name="azure-portal"></a>Portale di Azure
 È possibile abilitare il servizio di gestione della riparazione dal portale di Azure al momento della configurazione del cluster. Selezionare l'opzione **Includi funzionalità di gestione ripristini** in **Aggiungi funzionalità** durante la configurazione del cluster.
-![Immagine dell'attivazione del servizio di gestione della riparazione dal portale di Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
+![Immagine di abilitare Repair Manager dal portale di Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Modello di distribuzione di Azure Resource Manager
 In alternativa, è possibile usare il [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio di gestione della riparazione nei cluster nuovi ed esistenti di Service Fabric. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di distribuzione Azure Resource Manager personalizzato. 
@@ -121,13 +121,13 @@ Per Ubuntu gli [aggiornamenti automatici](https://help.ubuntu.com/community/Auto
 
 L'applicazione e gli script di installazione possono essere scaricati dal [collegamento all'archivio](https://go.microsoft.com/fwlink/?linkid=867984).
 
-L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
+L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://aka.ms/POA/POA_v2.0.3.sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurare l'app
 
 Il comportamento di Patch Orchestration App può essere configurato per soddisfare le esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile fornire i parametri dell'applicazione specificando `ApplicationParameter` ai cmdlet `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`.
 
-|**Parametro**        |**Tipo**                          | **Dettagli**|
+|**Parametro**        |**Type**                          | **Dettagli**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di risultati dell'aggiornamento memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Gli aggiornamenti vengono installati un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Gli aggiornamenti vengono installati un dominio di aggiornamento alla volta. (Possono esser aggiornati al massimo tutti i nodi appartenenti a un dominio di aggiornamento).
@@ -173,7 +173,8 @@ Per comodità, insieme all'applicazione vengono forniti gli script powershell (U
 
 ## <a name="view-the-update-results"></a>Visualizzare i risultati dell'aggiornamento
 
-Patch Orchestration Application espone l'API REST per visualizzare i risultati cronologici all'utente. Di seguito è riportato un esempio di risultato: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+Patch Orchestration Application espone l'API REST per visualizzare i risultati cronologici all'utente. Seguito è riportato un esempio di risultato:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -271,7 +272,7 @@ Se il servizio di gestione della riparazione non viene individuato nel cluster, 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-D: **Perché il cluster è in uno stato di errore quando Patch Orchestration App è in esecuzione?**
+D: **Perché viene visualizzato il cluster è in uno stato di errore quando patch orchestration app è in esecuzione?**
 
 R. Durante il processo di installazione, Patch Orchestration App disabilita o riavvia i nodi. Questa operazione può determinare la temporanea indisponibilità dell'integrità del cluster.
 
@@ -285,15 +286,15 @@ Nell'esempio seguente il cluster è passato temporaneamente a uno stato di error
 
 Se il problema persiste, fare riferimento alla sezione relativa alla risoluzione dei problemi.
 
-D: **Patch Orchestration App è in stato di avviso**
+D: **Patch orchestration app è in stato di avviso**
 
 R. Verificare se la causa principale è un report sull'integrità inviato all'applicazione. L'avviso in genere contiene i dettagli del problema. Se il problema è temporaneo, è previsto il ripristino automatico dell'applicazione da questo stato.
 
-D: **Che cosa è possibile fare se il cluster non è integro ed è necessario eseguire un aggiornamento del sistema operativo?**
+D: **Cosa posso fare se il cluster è integro e devo eseguire un aggiornamento del sistema operativo?**
 
 R. Patch Orchestration App non installa gli aggiornamenti mentre il cluster non è in uno stato di integrità. Per sbloccare il flusso di lavoro di Patch Orchestration App, provare a portare il cluster in uno stato di integrità.
 
-D: **Perché l'applicazione di patch nei cluster richiede molto tempo?**
+D: **Perché l'applicazione di patch nei cluster richiede molto tempo per l'esecuzione?**
 
 R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai seguenti fattori:
 
@@ -303,7 +304,7 @@ R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai segu
 - Il tempo medio necessario per scaricare e installare un aggiornamento, che non deve superare un paio d'ore.
 - Le prestazioni della VM e la larghezza di banda della rete.
 
-D: **In che modo Patch Orchestration App decide quali aggiornamenti sono gli aggiornamenti della sicurezza.**
+D: **Come fa patch orchestration app decide quali aggiornamenti sono aggiornamenti della sicurezza.**
 
 R. Patch Orchestration App usa la logica specifica della distribuzione per determinare quali aggiornamenti tra quelli disponibili sono gli aggiornamenti della sicurezza. Ad esempio:  In ubuntu l'app ricerca di aggiornamenti dagli archivi $RELEASE-security, $RELEASE-aggiornamenti ($RELEASE = xenial o la versione di rilascio di base standard di linux). 
 
@@ -318,11 +319,11 @@ D: **Cosa accade agli aggiornamenti automatici abilitati in Ubuntu?**
 R. Non appena si installa Patch Orchestration App nel cluster, gli aggiornamenti automatici sul nodo del cluster verrebero disabilitati. Tutto il flusso di lavoro di aggiornamento periodico dipenderebbe da Patch Orchestration App.
 Per garantire la coerenza dell'ambiente nei cluster, è consigliabile installare gli aggiornamenti solo tramite Patch Orchestration App. 
  
-D: **Dopo l'aggiornamento Patch Orchestration App esegue la pulizia dei pacchetti inutilizzati?**
+D: **Dopo l'aggiornamento patch orchestration app esegue la pulizia dei pacchetti inutilizzati?**
 
 R. Sì, la pulizia viene eseguita durante i passaggi successivi all'installazione. 
 
-D: **È possibile usare Patch Orchestration App per applicare le patch al cluster di sviluppo (cluster con un solo nodo)?**
+D: **Patch Orchestration app può essere utilizzato per il cluster di sviluppo (un nodo del cluster) di patch?**
 
 R. No, non è possibile usare Patch Orchestration App per applicare le patch a un cluster con un solo nodo. Questa limitazione dipende dalla progettazione, perché i [servizi di sistema di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o le app dei clienti incorreranno in tempi di inattività, pertanto qualsiasi processo di ripristino per l'applicazione di patch non verrebbe mai approvato da Repair Manager.
 
@@ -373,5 +374,10 @@ Patch Orchestration App raccoglie i dati di telemetria per tenere traccia dell'u
 ### <a name="version-201"></a>Versione 2.0.1
 - L'app è stata ricompilata usando la versione più recente di Service Fabric SDK
 
-### <a name="version-202-latest"></a>Versione 2.0.2 (versione più recente)
+### <a name="version-202"></a>Versione 2.0.2 
 - Il problema relativo all'avviso di integrità annullato durante il riavvio è stato risolto.
+
+### <a name="version-203-latest"></a>Versione 2.0.3 (versione più recente)
+- Risoluzione del problema in cui utilizzo della CPU del servizio daemon dell'agente del nodo raggiunto con dimensioni fino a 99% nelle VM Standard_D1_v2.
+- Risoluzione del problema che effettua la cyle ciclo di vita dell'applicazione di patch su un nodo nel caso in cui sono presenti nodi con nome che sono subset del nome del nodo corrente. Per tali nodi, è possibile che l'applicazione di patch non sia stata eseguita o il riavvio sia in sospeso.
+- Risolto un bug a causa della quale daemon dell'agente del nodo mantiene in modo anomalo quando le impostazioni danneggiate vengono passate al servizio.

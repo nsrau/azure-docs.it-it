@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801267"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057439"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
 
@@ -41,7 +41,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 1. Compilare il campo ID del gruppo di gestione.
 
-   - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo.
+   - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. Il [gruppo di gestione radice](index.md#root-management-group-for-each-directory) viene creato automaticamente con un ID che è l'ID di Azure Active Directory. Per tutti gli altri gruppi di gestione, assegnare un ID univoco.
    - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
    ![Riquadro delle opzioni per la creazione di un nuovo gruppo di gestione](./media/create_context_menu.png)  
@@ -56,7 +56,7 @@ All'interno di PowerShell, utilizzare il cmdlet New-AzManagementGroup:
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** è un identificatore univoco creato. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in seguito.
+**GroupName** è un identificatore univoco creato. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
 
 Se si vuole visualizzare un nome diverso per il gruppo di gestione all'interno del portale di Azure, è necessario aggiungere il parametro **DisplayName** alla stringa. Se ad esempio si vuole creare un gruppo di gestione con GroupName Contoso e nome visualizzato "Contoso Group", usare il cmdlet seguente:
 
@@ -80,6 +80,6 @@ Per altre informazioni sui gruppi di gestione, vedere:
 
 - [Creare gruppi di gestione per organizzare le risorse di Azure](create.md)
 - [Come modificare, eliminare o gestire i gruppi di gestione](manage.md)
-- [Gruppi di gestione nel modulo Resources di Azure PowerShell](/powershell/module/az.resources#resources)
-- [Gruppi di gestione nell'API REST](/rest/api/resources/managementgroups)
-- [Gruppi di gestione nell'interfaccia della riga di comando di Azure](/cli/azure/account/management-group)
+- [Esaminare i gruppi di gestione nel modulo di risorse di Azure PowerShell](/powershell/module/az.resources#resources)
+- [Esaminare i gruppi di gestione nell'API REST](/rest/api/resources/managementgroups)
+- [Esaminare i gruppi di gestione nell'infrastruttura CLI di Azure](/cli/azure/account/management-group)

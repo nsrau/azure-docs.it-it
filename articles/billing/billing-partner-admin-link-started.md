@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904832"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270184"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -151,9 +151,9 @@ Il collegamento è associato a livello di account utente. Solo il titolare dell'
 
 Non è possibile visualizzare il cliente nei report a causa dei motivi seguenti
 
-1. L'utente collegato l'account non dispone [accesso basato su ruoli ](https://docs.microsoft.com/azure/role-based-access-control/overview) in qualsiasi sottoscrizione Azure del cliente o risorsa.
+1. L'utente collegato l'account non dispone [accesso basato su ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview) in qualsiasi sottoscrizione Azure del cliente o risorsa.
 
-2. La sottoscrizione di Azure in cui l'utente dispone [accesso basato su ruoli ](https://docs.microsoft.com/azure/role-based-access-control/overview) access non ha alcun utilizzo.
+2. La sottoscrizione di Azure in cui l'utente dispone [accesso basato su ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview) access non ha alcun utilizzo.
 
 **Offre collegamenti partner che ID funziona con Azure Stack?**
 

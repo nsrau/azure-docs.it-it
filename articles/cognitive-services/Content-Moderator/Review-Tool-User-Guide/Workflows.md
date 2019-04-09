@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757405"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056113"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definire e usare i flussi di lavoro di moderazione
 
@@ -65,9 +65,9 @@ Ora che sono stati definiti un flusso di lavoro personalizzato, testarlo con con
 
 ![Test del flusso di lavoro](images/image-workflow-execute.PNG)
 
-Salvare questo [immagine di esempio](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) nell'unità locale. Quindi selezionare **file scegliere** e caricare l'immagine al flusso di lavoro.
+Salvare questo [immagine di esempio](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) nell'unità locale. Quindi selezionare **file scegliere** e caricare l'immagine al flusso di lavoro.
 
-![una donna in un seme balneazione](images/sample-racy.PNG)
+![Uno strumento di esecuzione con un'offerta sovrapposta sull'immagine](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Monitorare l'avanzamento
 

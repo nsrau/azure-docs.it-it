@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203744"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058380"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Pingboard per il provisioning utenti automatico
 
@@ -32,11 +32,11 @@ Questa esercitazione descrive le procedure da eseguire per abilitare il provisio
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Un tenant di Azure AD
-*   Un [account Pro](https://pingboard.com/pricing) del tenant di Pingboard 
-*   Un account utente in Pingboard con autorizzazioni di amministratore 
+* Un tenant di Azure AD
+* Un [account Pro](https://pingboard.com/pricing) del tenant di Pingboard
+* Un account utente in Pingboard con autorizzazioni di amministratore
 
-> [!NOTE] 
+> [!NOTE]
 > L'integrazione del provisioning di Azure AD si basa sull'[API Pingboard](https://pingboard.docs.apiary.io/#), disponibile per l'account in uso.
 
 ## <a name="assign-users-to-pingboard"></a>Assegnare utenti a Pingboard
@@ -69,7 +69,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 1. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Provisioning in Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Nella sezione **Credenziali amministratore** seguire questa procedura:
 
     a. In **URL tenant**, immettere `https://your_domain.pingboard.com/scim/v2` e sostituire "your_domain" con il dominio effettivo.
@@ -86,7 +86,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Indirizzo di posta elettronica per le notifiche**. Selezionare la casella di controllo sottostante.
 
-1. Selezionare **Salva**. 
+1. Selezionare **Salva**.
 
 1. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Pingboard** (Sincronizza utenti di Azure Active Directory in Pingboard).
 
@@ -102,6 +102,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestire il provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configurare l'accesso Single Sign-On](pingboard-tutorial.md)
+* [Configura accesso Single Sign-On](pingboard-tutorial.md)

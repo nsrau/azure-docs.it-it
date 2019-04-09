@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878027"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59010573"
 ---
-# <a name="saas-fulfillment-api"></a>Evasione SaaS API
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione API versione 2 
 
 Questo articolo illustra in dettaglio le API che consente a fornitori di software indipendenti (ISV) di integrare le proprie applicazioni SaaS con Azure Marketplace. Questa API consente alle applicazioni di ISV di far parte di tutti i canali di commercio elettronico: diretto, a cura del partner (rivenditori) e a cura del campo.  Questa API è un requisito per l'elenco che SaaS transactable alle offerte in Azure Marketplace.
 
@@ -73,14 +73,34 @@ Questo stato indica che non è stato ricevuto il pagamento del cliente. Dai crit
 
 Le sottoscrizioni raggiungano questo stato in risposta a una richiesta esplicita di clienti o in risposta a mancato pagamento delle quote. L'aspettativa dal sito dell'ISV è che i dati dei clienti vengano mantenuti per il ripristino su richiesta per un minimo di X giorni e quindi eliminati. 
 
+
 ## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
-Questa sezione vengono illustrate le SaaS *API abbonamento* e *operazioni API*.
+Questa sezione vengono illustrate le SaaS *API abbonamento* e *operazioni API*.  Il valore della `api-version` parametro per la versione 2 sono API `2018-08-31`.  
+
+
+### <a name="parameter-and-entity-definitions"></a>Definizioni di parametro ed entità
+
+Nella tabella seguente sono elencate le definizioni per i parametri comuni e le entità utilizzate dalle API di evasione degli ordini.
+
+|     Entità/parametro     |     Definizione                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | Identificatore GUID per una risorsa di SaaS  |
+| `name`                   | Nome descrittivo fornito per questa risorsa da parte del cliente |
+| `publisherId`            | Identificatore di stringa univoco generato automaticamente per ogni server di pubblicazione, ad esempio "conotosocorporation" |
+| `offerId`                | Identificatore di stringa univoco generato automaticamente per ogni offerta, ad esempio "contosooffer1"  |
+| `planId`                 | Identificatore di stringa univoco generato automaticamente per ogni piano/sku, ad esempio "contosobasicplan" |
+| `operationId`            | Identificatore GUID per una determinata operazione  |
+|  `action`                | L'azione eseguita su una risorsa, ovvero `subscribe`, `unsubscribe`, `suspend`, `reinstate`, o `changePlan`  |
+|   |   |
+
+Gli identificatori univoci globali ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sono numeri (32 cifre esadecimali) a 128 bit che in genere vengono generati automaticamente. 
 
 
 ### <a name="subscription-api"></a>API della sottoscrizione
 
 La sottoscrizione API supporta le operazioni HTTPS seguenti: **Ottenere**, **Post**, **Patch**, e **eliminare**.
+
 
 #### <a name="list-subscriptions"></a>Elenca sottoscrizioni
 
@@ -106,34 +126,37 @@ Elenca tutte le sottoscrizioni di SaaS per un server di pubblicazione.
 *Codici di risposta:*
 
 Codice: 200<br>
-Server di pubblicazione e sottoscrizioni corrispondenti per le offerte dell'editore in base get token auth.<br> Payload della risposta:<br>
+Basata sul token authN, ottenere il server di pubblicazione e sottoscrizioni corrispondenti per le offerte dell'editore.<br> Payload della risposta:<br>
 
 ```json
 {
-  "subscriptions": [
+  [
       {
-          "id": "",
-          "name": "CloudEndure for Production use",
-          "publisherId": "cloudendure",
-          "offerId": "ce-dr-tier2",
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "cont-cld-tier2",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "status": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+
+Il token di continuazione saranno presente solo se sono presenti altre "pagine" di piani da recuperare. 
+
 
 Codice: 403 <br>
 Non autorizzato. Non è stato fornito il token di autenticazione, non è valido o la richiesta sta tentando di accedere a un'acquisizione che non appartiene all'utente corrente. 
@@ -174,22 +197,22 @@ Ottiene la sottoscrizione di SaaS specificata. Usare questa chiamata per ottener
 *Codici di risposta:*
 
 Codice: 200<br>
-Ottiene saas sottoscrizione dall'identificatore<br> Payload della risposta:<br>
+Ottiene SaaS sottoscrizione dall'identificatore<br> Payload della risposta:<br>
 
 ```json
 Response Body:
 { 
         "id":"",
-        "name":"CloudEndure for Production use",
-        "publisherId": "cloudendure",
-        "offerId": "ce-dr-tier2",
+        "name":"Contoso Cloud Solution",
+        "publisherId": "contoso",
+        "offerId": "cont-cld-tier2",
         "planId": "silver",
         "quantity": "10"",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
@@ -240,18 +263,16 @@ Usare questa chiamata per scoprire se esistono eventuali offerte pubblica/privat
 Codice: 200<br>
 Ottenere un elenco dei piani disponibili per un cliente.<br>
 
+Corpo della risposta:
+
 ```json
-Response Body:
-[{
-    "planId": "silver",
-    "displayName": "Silver",
-    "isPrivate": false
-},
 {
-    "planId": "silver-private",
-    "displayName": "Silver-private",
-    "isPrivate": true
-}]
+    "plans": [{
+        "planId": "Platinum001",
+        "displayName": "Private platinum plan for Contoso",
+        "isPrivate": true
+    }]
+}
 ```
 
 Codice: 404<br>
@@ -301,12 +322,12 @@ Consente di risolvere il token opaco a una sottoscrizione di SaaS.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",  
-    "subscriptionName": "My Saas application",
-    "offerId": "ce-dr-tier2",
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "cont-cld-tier2",
     "planId": "silver",
     "quantity": "20",
-    "operationId": " be750acb-00aa-4a02-86bc-476cbe66d7fa"  
+    "operationId": "<guid>"  
 }
 ```
 
@@ -348,7 +369,7 @@ Internal Server Error
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
-|  x-ms-correlationid  | Valore stringa univoco per l'operazione sul client. Mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se questo valore non è specificato, uno verrà generato e fornito nelle intestazioni della risposta.  |
+|  x-ms-correlationid  | Valore stringa univoco per l'operazione sul client. Questa stringa mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se questo valore non è specificato, uno verrà generato e fornito nelle intestazioni della risposta.  |
 |  authorization     |  Token JSON web token (JWT) bearer token |
 
 *Richiesta:*
@@ -511,7 +532,7 @@ L'API di operazioni supporta le seguenti operazioni Patch e Get.
 
 Aggiornare una sottoscrizione con i valori forniti.
 
-**benda:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**benda:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -534,15 +555,15 @@ Aggiornare una sottoscrizione con i valori forniti.
 
 ```json
 {
-    "planId": "",
-    "quantity": "",
+    "planId": "cont-cld-tier2",
+    "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
 ```
 
 *Codici di risposta:*
 
-Codice: 200<br> Chiamata a informare del completamento di un'operazione sul lato fornitore di software indipendente. Ad esempio, potrebbe trattarsi di cambiamento dei posti a sedere/piani.
+Codice: 200<br> Chiamata a informare del completamento di un'operazione sul lato fornitore di software indipendente. Ad esempio, questa risposta è stato possibile segnalare la modifica dei posti a sedere/piani.
 
 Codice: 404<br>
 Non trovato
@@ -597,11 +618,11 @@ Payload della risposta:
 
 ```json
 [{
-    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",  
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
@@ -634,7 +655,7 @@ Internal Server Error
 
 #### <a name="get-operation-status"></a>Ottieni stato dell'operazione
 
-Consente all'utente di tenere traccia dello stato di un'operazione asincrona attivate (piano di "Subscribe" / annullamento della sottoscrizione/modifica).
+Consente all'utente di tenere traccia dello stato dell'operazione asincrona di attivazione specificato (piano di "Subscribe" / annullamento della sottoscrizione/modifica).
 
 **Ottieni:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -653,23 +674,23 @@ Consente all'utente di tenere traccia dello stato di un'operazione asincrona att
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se questo valore non è specificato, uno verrà generato e fornito nelle intestazioni della risposta.  |
 |  authorization     | Il token di connessione JSON Web token (JWT).  |
 
-*Codici di risposta:* Codice: 200<br> Ottiene l'elenco di tutte le operazioni in sospeso di SaaS<br>
+*Codici di risposta:* Codice: 200<br> Ottiene l'oggetto specificato SaaS operazione in sospeso<br>
 Payload della risposta:
 
 ```json
 Response body:
-[{
-    "id  ": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
     "timeStamp": "2018-12-01T00:00:00",
     "status": "NotStarted"
-}]
+}
 
 ```
 
@@ -700,11 +721,11 @@ Il server di pubblicazione deve implementare un webhook nel servizio SaaS per ri
 
 ```json
 {
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
     "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
@@ -713,14 +734,12 @@ Il server di pubblicazione deve implementare un webhook nel servizio SaaS per ri
 
 ```
 
-<!-- Review following, might not be needed when this publishes -->
-
 
 ## <a name="mock-api"></a>API fittizia
 
-È possibile usare le nostre API fittizie che consentono di iniziare con lo sviluppo, in particolare la creazione di prototipi e progetti di test. 
+È possibile usare le nostre API fittizie che consentono di introduzione allo sviluppo, in particolare la creazione di prototipi e test di progetti. 
 
-Endpoint dell'host: https://marketplaceapi.microsoft.com/api Versione dell'API: 2018-09-15 Nessuna autenticazione obbligatorio Uri di esempio: https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15
+Endpoint dell'host: `https://marketplaceapi.microsoft.com/api` Versione dell'API: `2018-09-15` Uri di esempio è necessaria alcuna autenticazione: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
 
 Una delle chiamate API in questo articolo può accadere per l'endpoint host fittizio. È possibile prevedere ottenere dati fittizi nuovamente come risposta.
 

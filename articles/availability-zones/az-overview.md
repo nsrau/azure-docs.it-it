@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226573"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268722"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
 Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
@@ -45,6 +45,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 - Francia centrale
 - Europa settentrionale
 - Asia sud-orientale 
+- Regno Unito meridionale&#42;
 - Europa occidentale
 - Stati Uniti occidentali 2
 
@@ -57,8 +58,8 @@ I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti
 - Macchine virtuali Windows
 - Set di scalabilità di macchine virtuali
 - Managed Disks
-- Load Balancer
-- Indirizzo IP pubblico
+- Load Balancer standard&#42;
+- Indirizzo IP pubblico standard&#42;
 - Archiviazione con ridondanza della zona
 - Database SQL
 - Hub eventi
@@ -66,6 +67,8 @@ I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti
 - Gateway VPN
 - ExpressRoute
 - Gateway applicazione (anteprima)
+
+&#42;Per avere la ridondanza della zona verranno presto convertite le risorse create nel Regno Unito meridionale prima il 25 marzo 2019. Risorse create dopo il 25 marzo 2019 saranno ridondanza della zona immediatamente.
 
 ## <a name="services-resiliency"></a>Resilienza di servizi
 Tutti i servizi di gestione di Azure sono progettati per essere resilienti dagli errori a livello di area. Nello spettro di errori, uno o più errori di zona di disponibilità all'interno di un'area presentano un raggio di errore più piccolo rispetto a un errore all'intera area. Azure è possibile ripristinare da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure. Azure esegue una zona di manutenzione critiche in un momento all'interno di un'area per evitare eventuali errori delle conseguenze per le risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
@@ -77,9 +80,9 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 ## <a name="get-started-with-availability-zones"></a>Introduzione alle zone di disponibilità
 - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Creare un set di scalabilità di macchine virtuali con ridondanza della zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Bilanciare il carico le macchine virtuali tra zone usando un Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Bilanciare il carico le macchine virtuali entro una zona tramite un Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
 - [Database SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
@@ -88,4 +91,4 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Modelli di avvio rapido](https://aka.ms/azqs)
+- [Modelli di Guida introduttiva](https://aka.ms/azqs)

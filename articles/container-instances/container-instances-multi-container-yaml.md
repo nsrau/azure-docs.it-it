@@ -1,38 +1,51 @@
 ---
-title: Distribuire gruppi di più contenitori in Istanze di Azure Container con l'interfaccia della riga di comando di Azure e YAML
-description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di Azure Container con l'interfaccia della riga di comando di Azure e un file YAML.
+title: 'Esercitazione: distribuire un gruppo multicontenitore in istanze di contenitore di Azure - YAML'
+description: In questa esercitazione descrive come distribuire un gruppo di contenitori con più contenitori in istanze di contenitore di Azure usando un file YAML con la CLI di Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372438"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006176"
 ---
-# <a name="deploy-a-multi-container-container-group-with-yaml"></a>Distribuire un gruppo di contenitori con più contenitori con YAML
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Esercitazione: Distribuire un gruppo multicontenitore con un file YAML
 
-Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). I gruppi di contenitori con più contenitori sono utili quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Gestione risorse](container-instances-multi-container-group.md)
+>
 
-Esistono due metodi per la distribuzione di gruppi di contenitori con più contenitori usando l'interfaccia della riga di comando di Azure:
+Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Un gruppo di contenitori è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
-* Distribuzione con un file YAML (questo articolo)
-* [Distribuzione del modello di Resource Manager](container-instances-multi-container-group.md)
+In questa esercitazione è seguire questa procedura per eseguire una configurazione multicontenitore con due contenitori tramite la distribuzione di un file YAML tramite la CLI di Azure. Un file YAML fornisce un formato conciso per specificare le impostazioni dell'istanza. Si apprenderà come:
 
-A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è consigliata quando la distribuzione include *solo* istanze di contenitore. Se è necessario distribuire ulteriori risorse del servizio di Azure (ad esempio, una condivisione di File di Azure) al momento della distribuzione delle istanze di contenitore, è consigliabile la distribuzione del modello di Resource Manager.
+> [!div class="checklist"]
+> * Configurare un file YAML
+> * Distribuire il gruppo di contenitori
+> * Visualizzare i log dei contenitori
 
 > [!NOTE]
-> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
+> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux.
 
-## <a name="configure-the-yaml-file"></a>Configurare il file YAML
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per distribuire un gruppo di contenitori con più contenitori con il comando [az container create][az-container-create] nell'interfaccia della riga di comando di Azure, è necessario specificare la configurazione del gruppo di contenitori in un file YAML, quindi passare il file YAML come parametro per il comando.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Per iniziare, copiare il file YAML seguente in un nuovo file denominato **deploy-aci.yaml**.
+## <a name="configure-a-yaml-file"></a>Configurare un file YAML
+
+Distribuire un gruppo multicontenitore con il [crea contenitore di az] [ az-container-create] di comando di Azure, è necessario specificare la configurazione del gruppo di contenitori in un file YAML. Passare quindi il file YAML come parametro al comando.
+
+Per iniziare, copiare il file YAML seguente in un nuovo file denominato **deploy-aci.yaml**. In Azure Cloud Shell, è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
+
+```
+code deploy-aci.yaml
+```
 
 Questo file YAML definisce un gruppo di contenitori chiamato "myContainerGroup" con due contenitori, un indirizzo IP pubblico e due porte esposte. I contenitori vengono distribuiti da immagini pubbliche di Microsoft. Il primo contenitore nel gruppo esegue un'applicazione Web con connessione Internet. Il secondo contenitore, quello collaterale, esegue periodicamente le richieste HTTP per l'applicazione Web in esecuzione nel primo contenitore tramite la rete locale del gruppo di contenitori.
 
@@ -71,6 +84,15 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
+Per usare un registro di immagini del contenitore privato, aggiungere il `imageRegistryCredentials` proprietà al gruppo di contenitori, con i valori modificati per l'ambiente:
+
+```YAML
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
 ## <a name="deploy-the-container-group"></a>Distribuire il gruppo di contenitori
 
 Creare un gruppo di risorse con il comando [az group create][az-group-create]:
@@ -103,9 +125,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-logs"></a>Visualizzare i log
+## <a name="view-container-logs"></a>Visualizzare i log dei contenitori
 
-Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio viene specificato il primo contenitore.
+Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio, il `aci-tutorial-app` contenitore specificato.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -120,7 +142,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Per visualizzare i log per il contenitore collaterale, eseguire lo stesso comando specificando il nome del secondo contenitore.
+Per visualizzare i log per il contenitore collaterale, eseguire un comando simile che specifica il `aci-tutorial-sidecar` contenitore.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -146,92 +168,25 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. Questo esempio di contenitore collaterale può essere esteso per attivare un avviso se si riceve un codice di risposta HTTP diverso da 200 OK.
-
-## <a name="deploy-from-private-registry"></a>Eseguire la distribuzione da un registro privato
-
-Per usare un registro privato di immagini di contenitori, includere il file YAML seguente con i valori modificati per l'ambiente specifico:
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-Ad esempio, il file YAML seguente consente di distribuire un gruppo di contenitori con un singolo contenitore, la cui l'immagine viene recuperata tramite pull da un registro contenitori di Azure privato denominato "myregistry":
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## <a name="export-container-group-to-yaml"></a>Esportare un gruppo di contenitori in un file YAML
-
-È possibile esportare la configurazione di un gruppo di contenitori esistente in un file YAML usando il comando dell'interfaccia della riga di comando di Azure [az container export][az-container-export].
-
-Utile per mantenere la configurazione di un gruppo di contenitori, l'esportazione consente di archiviare le configurazioni dei gruppi di contenitori nel controllo della versione per la "configurazione come codice". In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
-
-Esportare la configurazione per il gruppo di contenitori creato in precedenza eseguendo il comando [az container export][az-container-export] seguente:
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-Se il comando ha esito positivo non genera output, ma è possibile visualizzare il contenuto del file per visualizzare il risultato. Ad esempio, le prime righe con `head`:
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
+Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. In questo esempio sidecar può essere ampliato per attivare un avviso se si riceve un codice di risposta HTTP diverso da `200 OK`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza completa di Istanze di Azure Container, incluse informazioni sull'uso di Registro Azure Container privato, vedere l'esercitazione su Istanze di Azure Container.
+In questa esercitazione, è usato un file YAML per distribuire un gruppo multicontenitore in istanze di contenitore di Azure. Si è appreso come:
 
-> [!div class="nextstepaction"]
-> [Esercitazione su Istanze di Azure Container][aci-tutorial]
+> [!div class="checklist"]
+> * Configurare un file YAML per un gruppo multicontenitore
+> * Distribuire il gruppo di contenitori
+> * Visualizzare i log dei contenitori
+
+È inoltre possibile specificare un gruppo multicontenitore con un [modello di Resource Manager](container-instances-multi-container-group.md). Un modello di Resource Manager può essere facilmente adattato a scenari quando occorre distribuire le risorse aggiuntive di Azure con il gruppo di contenitori.
 
 <!-- LINKS - External -->
-[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create
-[az-container-export]: /cli/azure/container#az-container-export
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create

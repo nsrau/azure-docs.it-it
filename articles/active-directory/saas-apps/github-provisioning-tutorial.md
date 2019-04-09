@@ -13,28 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888016"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057524"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Esercitazione: Configurare GitHub per il provisioning utenti automatico
 
-
-Questa esercitazione descrive le procedure da eseguire in GitHub e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a GitHub. 
+Questa esercitazione descrive le procedure da eseguire in GitHub e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Tenant di Azure Active Directory
-*   Un'organizzazione GitHub creata in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), che richiede il [piano di fatturazione GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-*   Un account utente in GitHub con autorizzazioni di amministratore per l'organizzazione
+* Tenant di Azure Active Directory
+* Un'organizzazione GitHub creata in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), che richiede il [piano di fatturazione GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+* Un account utente in GitHub con autorizzazioni di amministratore per l'organizzazione
 
 > [!NOTE]
 > Integrazione del provisioning di Azure AD si basa sul [API SCIM di GitHub](https://developer.github.com/v3/scim/), disponibile per il [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) i clienti con il [piano di fatturazione GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
@@ -49,21 +48,18 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Suggerimenti importanti per l'assegnazione di utenti a GitHub
 
-*   È consigliabile assegnare un singolo utente di Azure AD a GitHub per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a GitHub per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*   Quando si assegna un utente a GitHub, è necessario selezionare il ruolo **Utente** o un altro ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Poiché il ruolo **Accesso predefinito** non è applicabile per il provisioning, i relativi utenti vengono ignorati.
+* Quando si assegna un utente a GitHub, è necessario selezionare il ruolo **Utente** o un altro ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Poiché il ruolo **Accesso predefinito** non è applicabile per il provisioning, i relativi utenti vengono ignorati.
 
-
-## <a name="configuring-user-provisioning-to-github"></a>Configurazione del provisioning utenti in GitHub 
+## <a name="configuring-user-provisioning-to-github"></a>Configurazione del provisioning utenti in GitHub
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di GitHub e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in GitHub in base all'assegnazione di utenti e gruppi in Azure AD.
 
 > [!TIP]
 > Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per GitHub, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configurare il provisioning automatico degli account utente in GitHub in Azure AD
-
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
@@ -87,7 +83,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 8. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo "Invia una notifica di posta elettronica in caso di errore".
 
-9. Fare clic su **Save**. 
+9. Fare clic su **Save**.
 
 10. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to GitHub** (Sincronizza utenti di Azure Active Directory in GitHub).
 
@@ -95,16 +91,15 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 12. Per abilitare il servizio di provisioning di Azure AD per GitHub, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**
 
-13. Fare clic su **Save**. 
+13. Fare clic su **Save**.
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a GitHub nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning che descrivono tutte le azioni eseguite dal servizio di provisioning.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione di provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

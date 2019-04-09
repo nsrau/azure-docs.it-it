@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652298"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010414"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -60,9 +60,9 @@ La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunt
 
 | Risorsa | Usato per |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventi registrati e le metriche di query, in base uno gli schemi seguenti, correlati a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
-| [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati per un'area di lavoro di Log Analitica. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [iniziare con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. Usare un editor JSON per visualizzare il contenuto dei file.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Gli eventi registrati e le metriche di query, gli schemi seguenti, in base riconducibili a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
+| [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Gli eventi registrati e le metriche di query, basate su schemi riportato di seguito. Gli eventi vengono registrati per un'area di lavoro di Log Analitica. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [iniziare con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Gli eventi registrati e le metriche di query, basate su schemi riportato di seguito. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. Usare un editor JSON per visualizzare il contenuto dei file.|
 | [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
 Sia i log di monitoraggio di Azure e l'archiviazione Blob sono disponibili come un servizio condiviso Free in modo che è possibile provarlo senza alcun addebito per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
@@ -96,7 +96,7 @@ La registrazione viene abilitata dopo il salvataggio del profilo. I contenitori 
 * insights-logs-operationlogs: per i log relativi al traffico ricerca
 * insights-metrics-pt1m: per le metriche
 
-È richiesta un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB ogni ora per ciascun contenitore. 
+**È richiesta un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB ogni ora per ciascun contenitore.**
 
 È possibile usare [Visual Studio Code](#download-and-open-in-visual-studio-code) o un altro editor JSON per visualizzare i file. 
 
@@ -168,10 +168,10 @@ Dopo aver scaricato il file, aprirlo in un editor JSON per visualizzare il conte
 ## <a name="use-system-apis"></a>Usare le API del sistema
 Sia l'API REST di Ricerca di Azure che .NET SDK consentono l'accesso a livello di codice alle metriche del servizio, a informazioni su indice e indicizzatore e ai conteggi di documenti.
 
-* [Ottenere le statistiche del servizio](/rest/api/searchservice/get-service-statistics)
+* [Recupero statistiche dei servizi](/rest/api/searchservice/get-service-statistics)
 * [Ottenere le statistiche di un indice](/rest/api/searchservice/get-index-statistics)
-* [Conteggio documenti](/rest/api/searchservice/count-documents)
-* [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
+* [Contare i documenti](/rest/api/searchservice/count-documents)
+* [ottenere lo stato di un indicizzatore](/rest/api/searchservice/get-indexer-status)
 
 Per abilitare il monitoraggio tramite PowerShell o l'interfaccia della riga di comando di Azure, vedere la documentazione [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 
