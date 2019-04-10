@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277417"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426529"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, UDR e Nsg
 
@@ -396,7 +396,7 @@ Di seguito sono le specifiche di ogni regola necessaria per completare questo es
     > [!TIP]
     > Anche se questa regola di esempio utilizza `<explicit-dest>` riferimento, è consigliabile usare un approccio coerente in tutta la configurazione del firewall. Si consiglia di usare un oggetto di rete denominato per semplificare la leggibilità e al supporto. Il `<explicit-dest>` qui è solo per illustrare un metodo alternativo di riferimento. È in genere non consigliabile, in particolare per configurazioni complesse.
 
-* **Regola in uscita a internet**: Questa regola pass consente il traffico proveniente da qualsiasi rete di origine per passare a reti di destinazione selezionate. Barracuda NextGen firewall in genere ha questo questa regola di "on" per impostazione predefinita, ma in uno stato disabilitato. Fare clic su questa regola di accesso di **Activate Rule** comando. Modificare la regola illustrata nella schermata per aggiungere gli oggetti di rete per la subnet back-end e front-end per l'attributo di origine di questa regola. Questi oggetti di rete creata nella sezione dei prerequisiti di questo articolo.
+* **Regola in uscita a internet**: Questa regola pass consente il traffico proveniente da qualsiasi rete di origine per passare a reti di destinazione selezionate. Barracuda NextGen firewall ha in genere questa regola di "on" per impostazione predefinita, ma in uno stato disabilitato. Fare clic su questa regola di accesso di **Activate Rule** comando. Modificare la regola illustrata nella schermata per aggiungere gli oggetti di rete per la subnet back-end e front-end per l'attributo di origine di questa regola. Questi oggetti di rete creata nella sezione dei prerequisiti di questo articolo.
   
     ![Regola firewall in uscita][14]
 

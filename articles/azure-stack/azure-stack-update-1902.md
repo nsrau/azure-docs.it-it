@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361107"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471283"
 ---
 # <a name="azure-stack-1902-update"></a>Aggiornamento di Azure Stack 1902
 
@@ -197,6 +197,14 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 <!-- 1663805 - IS ASDK --> 
 - Non è possibile visualizzare le autorizzazioni per la sottoscrizione tramite il portale di Azure Stack. In alternativa, usare [PowerShell per verificare le autorizzazioni](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+
+<!-- Daniel 3/28 -->
+- Nel portale per gli utenti, quando si passa a un blob all'interno di un account di archiviazione e si tenta di aprire **criteri di accesso** dall'albero di navigazione, la finestra successiva non è possibile caricare. Per risolvere questo problema, i cmdlet di PowerShell seguenti abilita la creazione, recupero, l'impostazione e l'eliminazione di criteri di accesso, rispettivamente:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- ### Health and monitoring -->
 

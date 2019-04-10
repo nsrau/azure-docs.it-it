@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540046"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426190"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Monitoraggio di Azure tramite l'agente di Log Analytics per Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su 
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |*Avviso* |
-| SourceSystem |*Nagios* |
-| AlertName |Nome dell'avviso. |
-| AlertDescription | Descrizione dell'avviso. |
-| AlertState | Stato del servizio o dell'host.<br><br>OK<br>WARNING<br>UP<br>DOWN |
-| HostName | Nome dell'host che ha creato l'avviso. |
-| PriorityNumber | Livello di priorità dell'avviso. |
-| StateType | Tipo di stato dell'avviso.<br><br>SOFT: problema che non è stato ricontrollato.<br>HARD: problema che è stata ricontrollato un determinato numero di volte.  |
-| TimeGenerated |Data e ora in cui è stato creato l'avviso. |
+| `Type` |*Avviso* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Nome dell'avviso. |
+| `AlertDescription` | Descrizione dell'avviso. |
+| `AlertState` | Stato del servizio o dell'host.<br><br>OK<br>WARNING<br>UP<br>DOWN |
+| `HostName` | Nome dell'host che ha creato l'avviso. |
+| `PriorityNumber` | Livello di priorità dell'avviso. |
+| `StateType` | Tipo di stato dell'avviso.<br><br>SOFT: problema che non è stato ricontrollato.<br>HARD: problema che è stata ricontrollato un determinato numero di volte.  |
+| `TimeGenerated` |Data e ora in cui è stato creato l'avviso. |
 
 
 ### <a name="zabbix-alert-records"></a>Record di avvisi Zabbix
@@ -108,17 +108,17 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |*Avviso* |
-| SourceSystem |*Zabbix* |
-| AlertName | Nome dell'avviso. |
-| AlertPriority | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
-| AlertState | Stato dell'avviso.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.  |
-| AlertTypeNumber | Specifica se l'avviso può generare più eventi relativi a problemi.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.    |
-| Commenti | Commenti aggiuntivi per l'avviso. |
-| HostName | Nome dell'host che ha creato l'avviso. |
-| PriorityNumber | Valore che indica il livello di gravità dell'avviso.<br><br>0: non classificata<br>1: informazioni<br>2: avviso<br>3: media<br>4: elevata<br>5: emergenza |
-| TimeGenerated |Data e ora in cui è stato creato l'avviso. |
-| TimeLastModified |Data e ora in cui è stato modificato lo stato dell'avviso per l'ultima volta. |
+| `Type` |*Avviso* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Nome dell'avviso. |
+| `AlertPriority` | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
+| `AlertState` | Stato dell'avviso.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.  |
+| `AlertTypeNumber` | Specifica se l'avviso può generare più eventi relativi a problemi.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.    |
+| `Comments` | Commenti aggiuntivi per l'avviso. |
+| `HostName` | Nome dell'host che ha creato l'avviso. |
+| `PriorityNumber` | Valore che indica il livello di gravità dell'avviso.<br><br>0: non classificata<br>1: informazioni<br>2: avviso<br>3: media<br>4: elevata<br>5: emergenza |
+| `TimeGenerated` |Data e ora in cui è stato creato l'avviso. |
+| `TimeLastModified` |Data e ora in cui è stato modificato lo stato dell'avviso per l'ultima volta. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

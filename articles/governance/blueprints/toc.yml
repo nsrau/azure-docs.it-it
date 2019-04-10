@@ -1,9 +1,9 @@
 items:
-- name: Documentazione di Azure Blueprint
+- name: Documentazione di Azure Blueprints
   href: index.yml
 - name: Panoramica
   items:
-  - name: Panoramica di Azure Blueprint
+  - name: Panoramica di Azure Blueprints
     displayName: templates, policy, definition, assignment, rbac
     href: overview.md
   expanded: true
@@ -67,7 +67,7 @@ items:
   - name: Ordine sequenziale della distribuzione del progetto
     displayName: customize
     href: ./concepts/sequencing-order.md
-  - name: Blocco delle risorse In Azure Blueprint
+  - name: Blocco delle risorse in Azure Blueprints
     displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
   expanded: true
@@ -79,6 +79,8 @@ items:
   - name: Aggiornare le assegnazioni esistenti dal portale
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Gestire progetti come codice (community)
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
   expanded: true
 - name: Risolvere problemi
   displayName: errors, violation
@@ -98,6 +100,8 @@ items:
   expanded: true
 - name: Risorse
   items:
+  - name: GitHub - Esempi di Azure Blueprints
+    href: https://github.com/Azure/azure-blueprints
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
   - name: Calcolatore prezzi
@@ -108,9 +112,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Panoramica di Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: 2055a6cf630d8894deb04b730a65f2e143d686a8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f55ec759cac8ace468bc4216a30aef765f9d213a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498772"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358575"

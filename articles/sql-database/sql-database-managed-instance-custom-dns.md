@@ -9,36 +9,37 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 353df930b5769a585d7372716f33fe724a2a7594
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361698"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurazione di un DNS personalizzato per Istanza gestita di database SQL di Azure
 
-Istanza gestita di database SQL di Azure deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. In alcuni scenari, ad esempio Posta elettronica database e server collegati ad altre istanze SQL nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'istanza gestita. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Poiché Istanza gestita usa lo stesso DNS per i meccanismi interni, la configurazione del DNS della rete virtuale deve essere compatibile con Istanza gestita. 
+Istanza gestita di database SQL di Azure deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. In alcuni scenari, ad esempio Posta elettronica database e server collegati ad altre istanze SQL nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'istanza gestita. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Poiché Istanza gestita usa lo stesso DNS per i meccanismi interni, la configurazione del DNS della rete virtuale deve essere compatibile con Istanza gestita.
 
    > [!IMPORTANT]
    > Usare sempre nomi di dominio completi (FQDN) per i server di posta, le istanze di SQL Server e gli altri servizi, anche se sono nella zona DNS privata. Usare ad esempio `smtp.contoso.com` per il server di posta perché il semplice `smtp` non verrà risolto correttamente.
 
-Per rendere una configurazione DNS personalizzata compatibile con l'istanza gestita, è necessario: 
-- Configurare un server DNS personalizzato in modo che sia in grado di risolvere i nomi di dominio pubblico 
-- Inserire l'indirizzo IP DNS del resolver ricorsivo di Azure, 168.63.129.16, alla fine dell'elenco del DNS della rete virtuale 
- 
+Per rendere una configurazione DNS personalizzata compatibile con l'istanza gestita, è necessario:
+
+- Configurare un server DNS personalizzato in modo che sia in grado di risolvere i nomi di dominio pubblico
+- Inserire l'indirizzo IP DNS del resolver ricorsivo di Azure, 168.63.129.16, alla fine dell'elenco del DNS della rete virtuale
+
 ## <a name="setting-up-custom-dns-servers-configuration"></a>Definizione della configurazione dei server DNS personalizzati
 
 1. Nel portale di Azure, individuare l'opzione relativa al DNS personalizzato per la propria rete virtuale.
 
-   ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
+   ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
 
-2. Passare a Personalizzato e immettere l'indirizzo IP del server DNS personalizzato, l'indirizzo IP 168.63.129.16 del resolver ricorsivo di Azure. 
+2. Passare a Personalizzato e immettere l'indirizzo IP del server DNS personalizzato, l'indirizzo IP 168.63.129.16 del resolver ricorsivo di Azure.
 
-   ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
+   ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
 
    > [!IMPORTANT]
    > La mancata impostazione di un resolver ricorsivo di Azure nell'elenco DNS può causare uno stato difettoso di Istanza gestita quando per qualche motivo i server DNS personalizzati non dovessero essere disponibili. Per ripristinare una stato corretto potrebbe essere necessario creare una nuova istanza in una rete virtuale con i criteri di rete conformi, creare i dati a livello di istanza e ripristinare i database. L'impostazione del resolver ricorsivo di Azure come ultima voce dell'elenco DNS garantisce la risoluzione dei nomi pubblici anche in caso di errore di tutti i server DNS personalizzati.

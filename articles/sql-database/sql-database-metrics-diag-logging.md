@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426503"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -77,7 +77,7 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 > Le istanze gestite e pool elastici hanno la propria telemetria delle diagnostiche separate dai database che contengono. Questo è importante notare come dati di telemetria di diagnostica è configurata separatamente per ciascuna di queste risorse, come descritto di seguito.
 
 > [!NOTE]
-> Non è possibile abilitare i log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Impossibile abilitare il log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database (anche se visualizzati sullo schermo). Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -141,7 +141,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per i database sing
 1. Ripetere questi passaggi per ogni database che si desidera monitorare.
 
 > [!NOTE]
-> Non è possibile abilitare i log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Impossibile abilitare il log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database (anche se visualizzati sullo schermo). Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Ripetere questi passaggi per ogni database SQL di Azure che si desidera monitorare.
 

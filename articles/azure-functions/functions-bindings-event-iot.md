@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: e71e102a5a6df44e6bdd6a845540de3cbbef98f3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457496"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426104"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Associazioni di IoT Hub di Azure per funzioni di Azure
 
-Questo articolo illustra come operare con le associazioni di funzioni di Azure per l'IoT Hub. Il supporto dell'IoT Hub si basa sul [associazione di hub eventi Azure](link to event hub doc).
+Questo articolo illustra come operare con le associazioni di funzioni di Azure per l'IoT Hub. Il supporto dell'IoT Hub si basa sul [associazione di hub eventi Azure](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -44,4 +44,4 @@ Per Funzioni 2.x, usare il pacchetto [Microsoft.Azure.WebJobs.Extensions.EventHu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+> [Altre informazioni sulle associazioni e trigger di funzioni di Azure](functions-triggers-bindings.md)

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Vengono descritti i processi che spazi di sviluppo di Azure power e come vengono configurate nel file di configurazione azds.yaml
 keywords: azds.yaml, Azure Dev spazi Dev, Docker, Kubernetes, Azure, AKS, contenitori di Azure Kubernetes Service
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500560"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361488"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 
@@ -85,10 +85,10 @@ Preparazione del cluster AKS include:
 * L'abilitazione di spazi di sviluppo di Azure nel cluster usando `az aks use-dev-spaces`
 
 Per altre informazioni su come creare e configurare un cluster del servizio contenitore di AZURE per gli spazi di sviluppo di Azure, vedere uno del guide introduttive:
-* [Iniziare con spazi di sviluppo di Azure con Java](get-started-java.md)
-* [Iniziare con spazi di sviluppo di Azure con .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
-* [Iniziare con spazi di sviluppo di Azure con .NET Core](get-started-netcore.md)
-* [Iniziare con spazi di sviluppo di Azure con Node. js](get-started-nodejs.md)
+* [Guida introduttiva ad Azure Dev Spaces con Java](get-started-java.md)
+* [Guida introduttiva ad Azure Dev Spaces con .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
+* [Guida introduttiva ad Azure Dev Spaces con .NET Core](get-started-netcore.md)
+* [Guida introduttiva ad Azure Dev Spaces con Node.js](get-started-nodejs.md)
 
 Quando gli spazi di sviluppo di Azure è abilitato nel cluster AKS, viene installato il controller per il cluster. Il controller è una risorsa di Azure separata all'esterno del cluster ed esegue le operazioni seguenti per le risorse del cluster:
 

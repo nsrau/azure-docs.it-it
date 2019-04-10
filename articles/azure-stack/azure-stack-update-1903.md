@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360564"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471478"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -97,7 +97,8 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 
 - Quando si esegue [Test-AzureStack](azure-stack-diagnostic-test.md), viene visualizzato un messaggio di avviso da Baseboard Management Controller (BMC). È possibile ignorare questo avviso.
 
-- <!-- 2468613 - IS --> Durante l'installazione di questo aggiornamento, si potrebbero visualizzare avvisi con il titolo **Error: modello per FaultType UserAccounts.New è manca.** È possibile ignorare questi avvisi. Gli avvisi chiudono automaticamente al termine dell'installazione dell'aggiornamento.
+<!-- 2468613 - IS -->
+- Durante l'installazione di questo aggiornamento, si potrebbero visualizzare avvisi con il titolo **Error: modello per FaultType UserAccounts. Nuovo non è presente.** È possibile ignorare questi avvisi. Gli avvisi chiudono automaticamente al termine dell'installazione dell'aggiornamento.
 
 ## <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 
@@ -124,10 +125,15 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Eliminazione utente diverso, le sottoscrizioni le risorse orfane. In alternativa, prima di tutto eliminare l'intero gruppo di risorse o risorse utente e quindi eliminare le sottoscrizioni utente.
 
 <!-- 1663805 - IS ASDK --> 
-- Non è possibile visualizzare le autorizzazioni per la sottoscrizione tramite il portale di Azure Stack. In alternativa, usare [PowerShell per verificare le autorizzazioni](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- Non è possibile visualizzare le autorizzazioni per la sottoscrizione tramite il portale di Azure Stack. In alternativa, usare [PowerShell per verificare le autorizzazioni](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- Nel portale per gli utenti, quando si passa a un blob all'interno di un account di archiviazione e si tenta di aprire **criteri di accesso** dall'albero di navigazione, la finestra successiva non è possibile caricare.
+- Nel portale per gli utenti, quando si passa a un blob all'interno di un account di archiviazione e si tenta di aprire **criteri di accesso** dall'albero di navigazione, la finestra successiva non è possibile caricare. Per risolvere questo problema, i cmdlet di PowerShell seguenti abilita la creazione, recupero, l'impostazione e l'eliminazione di criteri di accesso, rispettivamente:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - Nel portale per gli utenti, quando si prova a caricare un blob utilizzando il **OAuth(preview)** opzione, l'attività ha esito negativo con un messaggio di errore. Per risolvere questo problema, caricare il blob usando il **SAS** opzione.
@@ -157,17 +163,16 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 - Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. Come soluzione alternativa, usare l'accesso della macchina virtuale per l'estensione Linux per implementare le chiavi SSH dopo il provisioning o utilizzano l'autenticazione basata su password.
 
-- Azure Stack supporta ora superiore rispetto a quella 2.2.20 gli agenti di Linux di Microsoft Azure. Questo supporto è stata una parte di hotfix 1901 e 1902 e consente ai clienti di gestire le immagini linux coerente tra Azure e Azure Stack.
-
+- Azure Stack supporta ora superiore rispetto a quella 2.2.20 gli agenti di Linux di Microsoft Azure. Questo supporto è stata una parte degli aggiornamenti rapidi 1901 e 1902 e consente ai clienti di gestire le immagini Linux coerente tra Azure e Azure Stack.
 
 - Se non è un Host di ciclo di vita dell'Hardware (HLH): prima compilazione 1902, era necessario impostare i criteri di gruppo **Configurazione computer\Impostazioni di Windows\Impostazioni sicurezza\Criteri Locali\opzioni di protezione** a **Invia LM e NTLM: usare la sicurezza della sessione NTLMv2 se negoziato**. Da compilazione 1902, è necessario lasciare l'impostazione **non definito** oppure impostare **Invia solo risposta NTLMv2** (ovvero il valore predefinito). In caso contrario, non sarà in grado di stabilire una sessione remota di PowerShell e verrà visualizzato un **l'accesso è negato** errore:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed

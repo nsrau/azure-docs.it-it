@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276525"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426444"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
 
@@ -85,7 +85,7 @@ Si noti che lo stack di rete virtuale non è intrinsecamente inefficiente, perch
 
 #### <a name="azure-and-fragmentation"></a>Azure e sulla frammentazione
 
-Stack di rete virtuale è configurato per eliminare "frammenti non in ordine," pacchetti frammentati, che non arrivano in base all'ordine originale frammentati. Questi pacchetti vengono eliminati principalmente a causa di una vulnerabilità di sicurezza di rete ha annunciata nel mese di novembre 2018 chiamato FragmentStack.
+Stack di rete virtuale è configurato per eliminare "frammenti non in ordine," pacchetti frammentati, che non arrivano in base all'ordine originale frammentati. Questi pacchetti vengono eliminati principalmente a causa di una vulnerabilità di sicurezza di rete ha annunciata nel mese di novembre 2018 chiamato FragmentSmack.
 
 FragmentSmack è un difetto in modo il kernel Linux gestiti del riassemblaggio dei pacchetti frammentati IPv4 e IPv6. Un utente malintenzionato remoto è stato possibile usare questo difetto alle operazioni riassemblaggio dei trigger frammento costosa, che potrebbe causare un attacco denial of service e un aumento della CPU nel sistema di destinazione.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757957"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426223"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Soluzione integrità agente in Monitoraggio di Azure
 La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente all'area di lavoro di Log Analitica in Monitoraggio di Azure o un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, che sono non risponde e invio dati operativi.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
@@ -51,7 +51,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | Gruppo di gestione di System Center Operations Manager | Sì | Gli eventi di heartbeat vengono raccolti da agenti che fanno riferimento al gruppo di gestione ogni 60 secondi e quindi inoltrati a monitoraggio di Azure. Non è necessaria una connessione diretta dall'agente Operations Manager a monitoraggio di Azure. I dati dell'evento heartbeat vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analitica.|
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Integrità agente all'area di lavoro di Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro della soluzione Integrità agente nel dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando si aggiunge la soluzione Integrità agente all'area di lavoro di Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro nel dashboard della soluzione integrità agente](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integrità agente**.  Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i primi dieci eventi per numero corrispondente ai criteri della colonna per l'intervallo di tempo specificato. È possibile eseguire una ricerca log che fornisce l'intero elenco selezionando **Visualizza tutto** nella parte inferiore destra di ogni colonna o facendo clic sull'intestazione di colonna.
 
@@ -76,21 +76,21 @@ Viene creato un record di tipo **Heartbeat**.  Questi record includono le propri
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| Type | *Heartbeat*|
-| Categoria | Il valore è *Agente diretto*, *SCOM Agent* (Agente SCOM) o *SCOM Management Server* (Server di gestione SCOM).|
-| Computer | Nome del computer.|
-| OSType | Sistema operativo Windows o Linux.|
-| OSMajorVersion | Versione principale del sistema operativo.|
-| OSMinorVersion | Versione secondaria del sistema operativo.|
-| Versione | Versione dell'agente di Log Analytics o dell'agente di Operations Manager.|
-| SCAgentChannel | Il valore è *Direct* e/o *SCManagementServer*.|
-| IsGatewayInstalled | Se il gateway Log Analytics è installato, il valore è *true*. In caso contrario, il valore è *false*.|
-| ComputerIP | Indirizzo IP del computer.|
-| RemoteIPCountry | Posizione geografica in cui è distribuito il computer.|
-| ManagementGroupName | Nome del gruppo di gestione di Operations Manager.|
-| SourceComputerId | ID univoco del computer.|
-| RemoteIPLongitude | Longitudine della posizione geografica del computer.|
-| RemoteIPLatitude | Latitudine della posizione geografica del computer.|
+| `Type` | *Heartbeat*|
+| `Category` | Il valore è *Agente diretto*, *SCOM Agent* (Agente SCOM) o *SCOM Management Server* (Server di gestione SCOM).|
+| `Computer` | Nome del computer.|
+| `OSType` | Sistema operativo Windows o Linux.|
+| `OSMajorVersion` | Versione principale del sistema operativo.|
+| `OSMinorVersion` | Versione secondaria del sistema operativo.|
+| `Version` | Versione dell'agente di Log Analytics o dell'agente di Operations Manager.|
+| `SCAgentChannel` | Il valore è *Direct* e/o *SCManagementServer*.|
+| `IsGatewayInstalled` | Se il gateway Log Analytics è installato, il valore è *true*. In caso contrario, il valore è *false*.|
+| `ComputerIP` | Indirizzo IP del computer.|
+| `RemoteIPCountry` | Posizione geografica in cui è distribuito il computer.|
+| `ManagementGroupName` | Nome del gruppo di gestione di Operations Manager.|
+| `SourceComputerId` | ID univoco del computer.|
+| `RemoteIPLongitude` | Longitudine della posizione geografica del computer.|
+| `RemoteIPLatitude` | Latitudine della posizione geografica del computer.|
 
 Ogni agente che invia report a un server di gestione di Operations Manager invierà due heartbeat e il valore della proprietà SCAgentChannel includerà entrambe **diretto** e **SCManagementServer** a seconda di ciò che origini dati e soluzioni di monitoraggio è stata abilitata nella sottoscrizione. Si ricorderà, i dati di soluzioni viene inviato direttamente da un server di gestione di Operations Manager a monitoraggio di Azure o a causa del volume di dati raccolti nell'agente, vengono inviati direttamente dall'agente di monitoraggio di Azure. Per gli eventi di heartbeat con valore **SCManagementServer**, il valore ComputerIP è l'indirizzo IP del server di gestione, perché i dati vengono effettivamente caricati da tale server.  Per gli heartbeat il cui valore SCAgentChannel è impostato su **Direct**, corrisponde all'indirizzo IP pubblico dell'agente.  
 

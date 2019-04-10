@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268212"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361550"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -407,11 +407,14 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AzureStorageMaxWorkerThreads | Int, valore predefinito: 25 |Dinamico|Il numero massimo di thread di ruoli di lavoro in parallelo. |
 |AzureStorageOperationTimeout | Tempo in secondi, valore predefinito: 6000 |Dinamico|Specificare l'intervallo di tempo in secondi. Timeout per il completamento dell'operazione xstore. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, valore predefinito: FALSE |Dinamico|Questa configurazione abilita o disabilita la pulizia automatica del pacchetto dell'applicazione quando il provisioning ha esito positivo. |
+|CleanupUnusedApplicationTypes|Bool, valore predefinito: false |Dinamico|Se abilitata, questa configurazione consente di annullare automaticamente la registrazione di versioni del tipo di applicazione inutilizzati ignorando le versioni inutilizzate tre più recenti, in tal modo trimming lo spazio su disco occupato dall'archivio immagini. La pulizia automatica verrà attivata la fine di eseguire il provisioning ha esito positivo per quel tipo di app specifici e viene eseguito anche periodicamente una volta al giorno per tutti i tipi di applicazione. Numero di versioni inutilizzate da ignorare è configurabile tramite il parametro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, valore predefinito: false |statico| Questa configurazione consente di abilitare o disabilitare la convalida di checksum durante il provisioning dell'applicazione. |
 |DisableServerSideCopy | Bool, valore predefinito: false |statico|Questa configurazione consente di abilitare o disabilitare la copia sul lato server del pacchetto dell'applicazione in ImageStore durante il provisioning dell'applicazione. |
 |ImageCachingEnabled | Bool, valore predefinito: true |statico|Questa configurazione consente di abilitare o disabilitare la memorizzazione nella cache. |
 |ImageStoreConnectionString |SecureString |statico|Stringa di connessione per la radice di ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, valore predefinito: 1024 |Dinamico|La velocità di trasferimento minima tra il cluster e ImageStore. Questo valore viene usato per determinare il timeout durante l'accesso a ImageStore esterno. Modificarlo solo in caso di latenza elevata tra il cluster e ImageStore per dare più tempo al cluster di scaricare da ImageStore esterno. |
+|MaxUnusedAppTypeVersionsToKeep | Int, valore predefinito: 3 |Dinamico|Questa configurazione definisce il numero di versioni del tipo di applicazione inutilizzati deve essere ignorato per la pulizia. Questo parametro è applicabile solo se parametro CleanupUnusedApplicationTypes è abilitata. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **Parametro** | **Valori consentiti** |**Criteri di aggiornamento**| **Indicazioni o breve descrizione** |

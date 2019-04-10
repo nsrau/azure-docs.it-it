@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120806"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425849"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
 
@@ -44,7 +44,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
-   > Queste modifiche non sono effettive fino al riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
+   > Queste modifiche non diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installare soluzione
    > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro di Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 
@@ -119,32 +119,32 @@ Il campo **HelpLink** indica l'URL di una pagina di TechNet con altre informazio
 ![errori di stato replica di Active Directory esportati in Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>Domande frequenti su Stato replica di Active Directory
-**D: Con quale frequenza vengono aggiornati i dati di stato della replica di Active Directory?**
+**D: Frequenza vengono aggiornati i dati di stato replica AD?**
 R: Le informazioni vengono aggiornate ogni cinque giorni.
 
-**D: È possibile configurare la frequenza di aggiornamento dei dati?**
+**D: È possibile configurare la frequenza di aggiornamento dati?**
 R: Attualmente non è possibile.
 
-**D: È necessario aggiungere tutti i controller di dominio all'area di lavoro di Log Analytics per visualizzare lo stato della replica?**
+**D: È necessario aggiungere tutti i controller di dominio per l'area di lavoro di Log Analitica per vedere lo stato della replica?**
 R: No, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro di Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
 
-**D: Non si vuole aggiungere controller di dominio all'area di lavoro di Log Analytics. È possibile usare comunque la soluzione Stato replica di Active Directory?**
+**D: Non si vuole aggiungere controller di dominio all'area di lavoro di Log Analytics. È possibile utilizzare la soluzione stato replica di Active Directory?**
 
 R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 
-**D: Qual è il nome del processo che esegue la raccolta di dati?**
+**D: Che cos'è il nome del processo che esegue la raccolta dei dati?**
 R: AdvisorAssessment.exe
 
-**D: Quanto tempo occorre per la raccolta di dati?**
+**D: Quanto tempo occorre per la raccolta dei dati?**
 R: Il tempo necessario per la raccolta di dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
 
-**D: Quali tipi di dati vengono raccolti?**
+**D: Che tipo di dati viene raccolto?**
 R: Le informazioni di replica vengono raccolte tramite LDAP.
 
-**D: È possibile definire l'orario per la raccolta di dati?**
+**D: È possibile configurare la raccolta di dati?**
 R: Attualmente non è possibile.
 
-**D: Quali autorizzazioni sono necessarie per raccogliere i dati?**
+**D: Quali autorizzazioni necessarie per raccogliere i dati?**
 R: Le normali autorizzazioni utente in Active Directory sono sufficienti.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Risolvere i problemi di raccolta dati

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275964"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426359"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#)
 
@@ -269,7 +269,7 @@ Per completare la procedura seguente è possibile usare Visual Studio Code. Per 
 
 ## <a name="run-your-net-application"></a>Eseguire l'applicazione .NET
 
-Aggiungere la stringa di connessione specifica del dispositivo al codice per il dispositivo per l'autenticazione con Azure IoT Central. Seguire queste istruzioni per [generare la stringa di connessione](concepts-connectivity.md#get-a-connection-string) usando la **ID ambito**, **ID dispositivo**, e **chiave primaria** apportate una Si noti in precedenza di.
+Aggiungere la stringa di connessione specifica del dispositivo al codice per il dispositivo per l'autenticazione con Azure IoT Central. Seguire queste istruzioni per [generare la stringa di connessione](howto-generate-connection-string.md) usando la **ID ambito**, **ID dispositivo**, e **chiave primaria** apportate una Si noti in precedenza di.
 
 1. Sostituire `{your device connection string}` nella **Program.cs** file con la stringa di connessione è stato generato.
 

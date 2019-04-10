@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1465f31c8b5eb15b6fe63ed61a946e3b32d550
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439961"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361857"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzate in Azure DevTest Labs
 Questo articolo illustra l'impostazione di criteri di conservazione, pulizia della factory e ritiro immagini precedenti da tutte le altre DevTest Labs nell'organizzazione. 
@@ -27,7 +27,7 @@ Assicurarsi che siano stati seguiti questi articoli prima di procedere:
 
 - [Creare una factory di immagini](image-factory-create.md)
 - [Eseguire una factory di immagini da Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Salvare le immagini personalizzate e la distribuzione a più lab](image-factory-save-distribute-custom-images.md)
+- [Salvare immagini personalizzate e distribuirle in più lab](image-factory-save-distribute-custom-images.md)
 
 Gli elementi seguenti devono essere già disponibili:
 
@@ -73,7 +73,7 @@ Ora si dispone di una factory di immagini in esecuzione che potrebbe generare e 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. [Pianificare la compilazione/versione](/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) consentono di eseguire periodicamente la factory di immagini. Aggiorna le immagini factory generati a intervalli regolari.
+1. [Pianificare la compilazione/versione](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) consentono di eseguire periodicamente la factory di immagini. Aggiorna le immagini factory generati a intervalli regolari.
 2. Rendere più immagini golden della factory. È anche possibile considerare [creazione di elementi](devtest-lab-artifact-author.md) parti aggiuntive delle attività di configurazione della macchina virtuale di script e includere gli elementi nelle immagini di factory.
-4. Creare un [separare compilazione/versione](/devops/pipelines/overview.md?view=azure-devops-2019) per eseguire il **DistributeImages** script separatamente. Quando si apportano modifiche a Labs.json e ottenere immagini copiate ai laboratori di destinazione senza dover ricreare tutte le immagini anche in questo caso, è possibile eseguire questo script.
+4. Creare un [separare compilazione/versione](/azure/devops/pipelines/overview.md?view=azure-devops-2019) per eseguire il **DistributeImages** script separatamente. Quando si apportano modifiche a Labs.json e ottenere immagini copiate ai laboratori di destinazione senza dover ricreare tutte le immagini anche in questo caso, è possibile eseguire questo script.
 

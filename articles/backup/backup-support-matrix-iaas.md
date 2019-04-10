@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649812"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361464"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -28,7 +28,7 @@ Altre matrici di supporto:
 
 Di seguito viene illustrato come è possibile eseguire il backup e il ripristino di macchine virtuali di Azure con il servizio Backup di Azure.
 
-**Scenario** | **Backup** | **Agent** |**Restore**
+**Scenario** | **Backup** | **Agente** |**Restore**
 --- | --- | --- | ---
 backup diretto di macchine virtuali di Azure  | Eseguire il backup dell'intera macchina virtuale.  | Non è necessario alcun agente nella macchina virtuale di Azure. Backup di Azure installa e usa un'estensione per il [agente di macchine Virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) che è in esecuzione nella macchina virtuale. | È possibile eseguire il ripristino nel modo seguente:<br/><br/> - **Creare una macchina virtuale di base**. Ciò è utile se la macchina virtuale non dispone di alcuna configurazione speciale, ad esempio più indirizzi IP.<br/><br/> - **Ripristinare il disco della macchina virtuale**. Ripristinare il disco Quindi collegarlo a una VM esistente o creare una nuova macchina virtuale dal disco tramite PowerShell.<br/><br/> - **Sostituire il disco della macchina virtuale**. Se è presente una macchina virtuale che usa dischi gestiti (non crittografati), è possibile ripristinare un disco e usarlo per sostituire un disco esistente nella macchina virtuale.<br/><br/> - **Ripristinare cartelle e file specifici**. È possibile ripristinare file e cartelle da una macchina virtuale anziché da dell'intera macchina virtuale.
 Eseguire direttamente backup di macchine virtuali di Azure (solo Windows)  | Eseguire il backup di file/cartelle/volumi specifico. | Installare il [agente di servizi di ripristino di Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> È possibile eseguire l'agente di Servizi di ripristino di Microsoft Azure insieme all'estensione di backup per l'agente di macchine virtuali di Azure per eseguire il backup della macchina virtuale a livello di file o di cartella. | Ripristino di cartelle e file specifici.
@@ -53,7 +53,7 @@ Backup al giorno (tramite l'agente di Servizi di ripristino di Microsoft Azure) 
 Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due backup pianificati al giorno.
 Backup mensile/annuale   | Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
 Regolazione automatica dell'orologio | Non supportati.<br/><br/> Backup di Azure non viene regolata automaticamente per l'ora legale durante il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
-[Funzionalità di sicurezza per il backup ibrido](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  La disabilitazione della funzionalità di sicurezza non è supportata.
+[Funzionalità di sicurezza per i backup ibridi](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  La disabilitazione della funzionalità di sicurezza non è supportata.
 
 ## <a name="operating-system-support-windows"></a>Supporto dei sistemi operativi (Windows)
 
@@ -100,7 +100,7 @@ Punti di ripristino su disco DPM/MABS | 64 per file server e 448 per i server ap
 
 ## <a name="supported-restore-methods"></a>Metodi di ripristino supportati
 
-**Metodo di ripristino** | **Dettagli**
+**Metodo Restore** | **Dettagli**
 --- | ---
 Creare una nuova VM | È possibile creare una macchina virtuale durante il processo di ripristino. <br/><br/> Questa opzione consente di avere in esecuzione una macchina virtuale di base. È possibile specificare il nome, il gruppo di risorse, la rete virtuale, la subnet e l'archiviazione della macchina virtuale.  
 Ripristinare un disco | È possibile ripristinare un disco e usarlo per creare una macchina virtuale.<br/><br/> Quando si seleziona questa opzione, il servizio Backup di Azure copia i dati dall'insieme di credenziali in un account di archiviazione selezionato dall'utente. Il processo di ripristino genera un modello. È possibile scaricare questo modello, utilizzata per specificare le impostazioni della macchina virtuale personalizzate e creare una macchina virtuale.<br/><br/> Questa opzione consente di specificare un numero di impostazioni maggiore rispetto all'opzione precedente per la creazione di una macchina virtuale.<br/><br/>
@@ -157,8 +157,8 @@ Eseguire il backup di macchine virtuali di coerenza | Non è supportato. <br/><b
 
 **Componente** | **Supporto**
 --- | ---
-Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati.
-Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/> Se gli insiemi di credenziali sono in esecuzione la versione più recente di Backup di Azure (noto come ripristino istantaneo), dischi di dimensioni fino a 4 TB sono supportati. [Altre informazioni](backup-instant-restore-capability.md)
+Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.
+Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/> Se gli insiemi di credenziali sono in esecuzione la versione più recente di Backup di Azure (noto come ripristino istantaneo), dischi di dimensioni fino a 4 TB sono supportati. [Altre informazioni](backup-instant-restore-capability.md)  
 Tipo di archiviazione | Premium a standard HDD, SSD standard, SSD. <br/><br/> SSD standard è supportata se gli insiemi di credenziali vengono aggiornati alla versione più recente di backup di macchine Virtuali di Azure (noto come ripristino immediato). [Altre informazioni](backup-instant-restore-capability.md)
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> Macchine virtuali di Azure abilitate con crittografia dischi di Azure possono eseguire il backup (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
@@ -168,8 +168,11 @@ Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Backup di macchine virtuali con estensione CSV o tipo Scale-Out File Server non è consigliato. I writer CSV potrebbero non essere eseguiti correttamente.
 
-## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
+> [!NOTE]
+> Backup di Azure non supporta dischi con striping. Il ridimensionamento del disco non è consigliato da Backup di Azure.
 
+
+## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
 
 **Componente** | **Supporto**
 --- | ---
@@ -210,7 +213,7 @@ Sicurezza dei dati:
 - Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
 
 
-**Computer** | **In movimento** | **Inattivi**
+**Machine** | **In transito** | **Inattivi**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
 Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
@@ -226,7 +229,7 @@ Backup supporta la compressione dei backup del traffico, come riepilogato nella 
 - Per le VM di Azure, l'estensione macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione. Non è necessario comprimere il traffico.
 - Se si usa DPM e MABS, è possibile risparmiare larghezza di banda con la compressione dei dati prima di cui viene eseguito il backup per DPM/MABS.
 
-**Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
+**Machine** | **Comprimere i backup di Microsoft AZURE/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
