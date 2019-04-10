@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117456"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277691"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure (ADE) in un'altra area di Azure
 
@@ -148,7 +148,7 @@ Nello scenari seguenti sarà necessario aggiornare le impostazioni di crittograf
 Se si seleziona un insieme di credenziali delle chiavi già creato nell'area di destinazione invece di crearlo automaticamente con Azure Site Recovery, assicurarsi che abbia le autorizzazioni necessarie come menzionato in precedenza.</br>
 *Ad esempio*: un utente cerca di replicare una macchina virtuale che ha un insieme di credenziali delle chiavi nell'area di origine denominato "ContososourceKeyvault".
 L'utente ha tutte le autorizzazioni sull'insieme di credenziali delle chiavi dell'area di origine, ma durante la protezione seleziona un insieme di credenziali delle chiavi già creato denominato "ContosotargetKeyvault", che non ha l'autorizzazione necessaria, quindi la protezione genera un errore.</br>
-**Come correggere:** Passare a "Home > Insiemi di credenziali delle chiavi > ContososourceKeyvault > Criteri di accesso" e aggiungere le autorizzazioni come illustrato sopra. 
+**Come correggere:** Passare a "Home > Insiemi di credenziali delle chiavi > ContososourceKeyvault > Criteri di accesso" e aggiungere le autorizzazioni come illustrato sopra.
 
 **Causa 2:** è possibile che sia stato selezionato dall'area di destinazione un insieme di credenziali delle chiavi già creato che non ha le autorizzazioni di decrittografia-crittografia.
 Se si seleziona un insieme di credenziali delle chiavi già creato nell'area di destinazione invece di crearlo automaticamente con Azure Site Recovery, assicurarsi che l'utente abbia le autorizzazioni di decrittografia-crittografia in caso si debbano crittografare le chiavi anche nell'area di origine.</br>

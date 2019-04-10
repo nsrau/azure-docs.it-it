@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275607"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361137"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -34,7 +34,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 |:--- |:--- |:--- |
 | Australia orientale |Disponibile |1 giugno 2019 |
 | Australia sud-orientale |Dal 15 aprile 2019 |1 maggio 2019 |
-| Brasile meridionale |15 maggio 2019 |\* |
+| Brasile meridionale |15 maggio 2019 |1 giugno 2019 |
 | Canada centrale |Disponibile |1 giugno 2019 |
 | Canada orientale |\* |\* |
 | Stati Uniti centrali |Disponibile |1 giugno 2019 |
@@ -44,8 +44,8 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Cina settentrionale 2 |\* |\* |
 | Asia orientale |Disponibile |1 giugno 2019 |
 | Stati Uniti orientali |Disponibile |1 giugno 2019 |
-| Stati Uniti orientali 2 |Disponibile |1 ° giugno. 2019 |
-| Francia centrale |\* |\* |
+| Stati Uniti orientali 2 |Disponibile |1 giugno 2019 |
+| Francia centrale |\* |1 giugno 2019 |
 | Germania centrale |\* |\* |
 | Germania centro-occidentale |1 settembre 2019|2 gennaio 2020 |
 | India centrale |Disponibile |1 giugno 2019 |

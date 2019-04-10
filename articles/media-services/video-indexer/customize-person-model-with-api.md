@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999352"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360514"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizzare un modello Persona con l'API Video Indexer
 
@@ -50,11 +50,11 @@ Di seguito è riportata la richiesta in Curl.
 curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
 ```
 
-[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>Parametri della richiesta 
 
-|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
+|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -95,11 +95,11 @@ Di seguito è riportata la richiesta in Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
 ```
 
-[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-PersonModel?).
+[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
+|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -132,11 +132,11 @@ Di seguito è riportata la richiesta in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
 ```
 
-[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-PersonModels?).
+[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
+|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -187,11 +187,11 @@ Di seguito è riportata la richiesta in Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
 ```
 
-[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-face?).
+[Vedere i parametri obbligatori e testare usando il portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
+|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -212,4 +212,4 @@ Non viene restituito alcun contenuto quando il viso viene aggiornato correttamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Personalizzare il modello Persona usando il sito Web di Video Indexer](customize-person-model-with-website.md)
+[Personalizzare il modello di persona usando il sito Web indicizzatore Video](customize-person-model-with-website.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877939"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283410"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiare dati da e in SQL Server usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Per il servizio collegato di SQL Server sono supportate le proprietà seguenti:
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
 
-**Esempio 1: uso dell'autenticazione di SQL**
+**Esempio 1: uso dell'autenticazione di SQL Server**
 
 ```json
 {
@@ -85,7 +85,7 @@ Per il servizio collegato di SQL Server sono supportate le proprietà seguenti:
 }
 ```
 
-**Esempio 2: uso dell'autenticazione di SQL con la password in Azure Key Vault**
+**Esempio 2: uso dell'autenticazione SQL con password in Azure Key Vault**
 
 ```json
 {
@@ -190,7 +190,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 - Se per SqlSource è specificata la proprietà **sqlReaderQuery**, l'attività di copia esegue questa query nell'origine SQL Server per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
 - Se non si specifica né "sqlReaderQuery" né "sqlReaderStoredProcedureName", le colonne definite nella sezione "struttura" del set di dati JSON vengono usate per creare una query, `select column1, column2 from mytable`, da eseguire in SQL Server. Se nella definizione del set di dati non è inclusa la "struttura", vengono selezionate tutte le colonne della tabella.
 
-**Esempio: uso della query SQL**
+**Esempio: uso di query SQL**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 ]
 ```
 
-**Esempio: uso della stored procedure**
+**Esempio: utilizzo di stored procedure**
 
 ```json
 "activities":[
@@ -284,7 +284,7 @@ Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copi
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su: **SqlSink** | Sì |
-| writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer, ovvero il numero di righe. |No (valore predefinito: 10.000) |
+| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer, ovvero il numero di righe. |No (valore predefinito: 10.000) |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Esempio: "00:30:00" (30 minuti). |No  |
 | preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Può essere richiamata solo una volta per esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No  |
 | sqlWriterStoredProcedureName |Nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione, ad esempio per eseguire upsert o trasformazioni usando logica di business personalizzata. <br/><br/>Si noti che questa stored procedure verrà **richiamata per batch**. Se si vuole eseguire una sola volta un'operazione che non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. |No  |
@@ -440,9 +440,9 @@ Quando si copiano dati in un database SQL Server, è possibile configurare e ric
 
 È possibile usare una stored procedure quando non è possibile usufruire dei meccanismi di copia predefiniti. Viene usata, in genere, quando un'operazione upsert (inserimento e aggiornamento) o un'operazione di elaborazione supplementare (unione colonne, ricerca di valori aggiuntivi, inserimento in più tabelle e così via) deve essere eseguita prima dell'inserimento finale dei dati di origine nella tabella di destinazione.
 
-Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si presuppone che i dati di input e la tabella "Marketing" del sink abbiano tre colonne: ProfileID, State e Category. Eseguire quindi l'operazione upsert nella colonna "ProfileID" e applicarla solo a una categoria specifica.
+Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
-**Set di dati di output**
+**Set di dati di output:** "tableName" deve essere lo stesso nome parametro di tipo tabella della stored procedure (vedere di seguito script di stored procedure).
 
 ```json
 {
@@ -461,7 +461,7 @@ Nell'esempio seguente viene illustrato come usare una stored procedure per esegu
 }
 ```
 
-Definire la sezione "SqlSink" nell'attività di copia come indicato di seguito.
+Definire le **sink SQL** sezione nell'attività di copia come indicato di seguito.
 
 ```json
 "sink": {
@@ -476,7 +476,7 @@ Definire la sezione "SqlSink" nell'attività di copia come indicato di seguito.
 }
 ```
 
-Nel database definire la stored procedure con lo stesso nome di SqlWriterStoredProcedureName, che gestisce i dati di input dell'origine specificata e li inserisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure deve essere identico al valore "tableName" definito nel set di dati.
+Nel database definire la stored procedure con lo stesso nome di **SqlWriterStoredProcedureName**, che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure deve essere identico al valore **tableName** definito nel set di dati.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

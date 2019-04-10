@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846988"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359022"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Informazioni su come usare il backup e ripristino in Azure SQL Data Warehouse. U
 
 Uno *snapshot del data warehouse* crea un punto di ripristino che è possibile usare per ripristinare o copiare il data warehouse a uno stato precedente.  Poiché SQL Data Warehouse è un sistema distribuito, uno snapshot del data warehouse è costituito da molti file che si trovano in Archiviazione di Azure. Gli snapshot acquisiscono le modifiche incrementali dai dati archiviati nel data warehouse.
 
-Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene creato da un punto di ripristino di un data warehouse esistente o eliminato. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale. Il data warehouse è anche un meccanismo molto utile per creare copie del data warehouse per scopi di sviluppo o test.  SQL Data Warehouse usa meccanismi di ripristino rapidi all'interno della stessa area che richiedono meno di 20 minuti per qualsiasi dimensione dei dati.
+Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene creato da un punto di ripristino di un data warehouse esistente o eliminato. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale. Il data warehouse è anche un meccanismo molto utile per creare copie del data warehouse per scopi di sviluppo o test.  Velocità di ripristino di SQL Data Warehouse può variare a seconda delle dimensioni del database e percorso del data warehouse di origine e di destinazione. In Media nella stessa area, frequenze di ripristino hanno in genere circa 20 minuti. 
 
 ## <a name="automatic-restore-points"></a>Punti di ripristino automatici
 

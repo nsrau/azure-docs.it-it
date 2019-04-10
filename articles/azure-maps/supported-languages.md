@@ -3,17 +3,17 @@ title: Lingue supportate in Mappe di Azure | Microsoft Docs
 description: Informazioni sulle lingue supportate per i servizi disponibili in Mappe di Azure
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849642"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358138"
 ---
 # <a name="azure-maps-supported-languages"></a>Lingue supportate in Mappe di Azure
 I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue.  Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
@@ -33,7 +33,10 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue.�
 | da-DK      | Danese                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Olandese                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Olandese (Belgio)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | Inglese                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | Inglese (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | Inglese (Nuova Zelanda)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | Inglese (Gran Bretagna) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Inglese (Stati Uniti)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estone               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finlandese                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Francese                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

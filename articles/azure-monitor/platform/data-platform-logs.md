@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904152"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360637"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -46,7 +46,7 @@ La tabella seguente elenca i diversi modi, che è possibile usare i log in Monit
 | Analizzare | Uso [Log Analitica](../log-query/get-started-portal.md) nel portale di Azure per scrivere [registrare query](../log-query/log-query-overview.md) e analizzare in modo interattivo i dati di log usando il motore di analisi avanzato di Esplora dati.<br>Usare la [console di Application Insights analitica](../app/analytics.md) nel portale di Azure per scrivere le query di log e analizzare in modo interattivo i dati di log da Application Insights. |
 | Visualizzazione | Aggiungere i risultati della query viene eseguito il rendering come tabelle o grafici a un [dashboard Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare un [cartella di lavoro](../app/usage-workbooks.md) da combinare con più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query sul [Grafana](grafana-plugin.md) per sfruttare la creazione di dashboard e si combina con altre origini dati.|
 | Avviso | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico.<br>Configurare un [regola di avviso metrica](alerts-metric-logs.md) su alcuni log i log dei dati estratti come metriche. |
-| Recupero | Accedere ai risultati della query di log da una riga di comando usando [CLI Azure](/azure/ext/log-analytics/monitor/log-analytics).<br>Accedere ai risultati della query di log da una riga di comando usando [i cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accedere ai risultati della query di log da un'applicazione personalizzata con [API REST](https://dev.loganalytics.io/). |
+| Recupero | Accedere ai risultati della query di log da una riga di comando usando [CLI Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accedere ai risultati della query di log da una riga di comando usando [i cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accedere ai risultati della query di log da un'applicazione personalizzata con [API REST](https://dev.loganalytics.io/). |
 | Esportazione | Creare un flusso di lavoro per recuperare i dati di log e copiarlo in una posizione esterna usando [App per la logica](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 |:---|:---|
 | Richieste ed eccezioni | Dati dettagliati sulle richieste di applicazioni e le eccezioni sono nel _richieste_, _pageViews_, e _eccezioni_ tabelle. Le chiamate a [componenti esterni](../app/asp-net-dependencies.md) nel _dipendenze_ tabella. |
 | Utilizzo e le prestazioni | Le prestazioni dell'applicazione sono disponibile nel _richieste_, _browserTimings_ e _performanceCounters_ tabelle. I dati per [metriche personalizzate](../app/api-custom-events-metrics.md#trackevent) è la _customMetrics_ tabella.|
-| I dati di traccia | È dovuta [analisi distribuita](/app/distributed-tracing) vengono archiviati nel _tracce_ tabella. |
-| Test della disponibilità | Dati di riepilogo [test di disponibilità](/app/monitor-web-app-availability) viene archiviato nel _availabilityResults_ tabella. Dati dettagliati da questi test sono in un archivio separato e accessibili da Application Insights nel portale di Azure. |
+| I dati di traccia | È dovuta [analisi distribuita](../app/distributed-tracing.md) vengono archiviati nel _tracce_ tabella. |
+| Test della disponibilità | Dati di riepilogo [test di disponibilità](../app/monitor-web-app-availability.md) viene archiviato nel _availabilityResults_ tabella. Dati dettagliati da questi test sono in un archivio separato e accessibili da Application Insights nel portale di Azure. |
 
 ### <a name="insights"></a>Informazioni dettagliate
 
@@ -127,7 +127,7 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 | Dati | DESCRIZIONE |
 |:---|:---|
 | Centro sicurezza di Azure | [Centro sicurezza di Azure](/azure/security-center/) archivia i dati raccolti in un'area di lavoro di Log Analitica dove possono essere analizzati con gli altri dati di log. Visualizzare [la raccolta dei dati nel Centro sicurezza Azure](../../security-center/security-center-enable-data-collection.md) per informazioni dettagliate sulla configurazione dell'area di lavoro. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) archivia i dati da origini dati in un'area di lavoro di Log Analitica. Vedere [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) archivia i dati da origini dati in un'area di lavoro di Log Analitica. Visualizzare [connettere origini dati](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

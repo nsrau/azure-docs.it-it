@@ -1,7 +1,6 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894428"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283104"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -75,12 +74,12 @@ Tutti gli esempi di Criteri di Azure sono disponibili in [Esempi di criteri](../
 
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
 
-- `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
-- `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
+- `all`: valuta tutti i tipi di risorse e gruppi di risorse
+- `indexed`: valutare solo i tipi di risorse che supportano tag e il percorso
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
+`indexed` deve essere utilizzato durante la creazione di criteri che applicano i tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -95,7 +94,7 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
 
 - **name**: nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
-- `type`: determina se il parametro è una **stringa** o una **matrice**.
+- `type`: determina se il parametro è una **stringa**o una**matrice.
 - `metadata`: definisce le sottoproprietà usate principalmente dal portale di Azure per visualizzare informazioni di tipo descrittivo:
   - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
@@ -259,7 +258,7 @@ Sono supportati i seguenti campi:
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags.
+> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` modi comunque accettabile di dichiarare un campo tag.
 > Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
 
 #### <a name="use-tags-with-parameters"></a>Usare tag con parametri
@@ -421,7 +420,7 @@ Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-mana
 - resourceId()
 - variables()
 
-Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
+Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene usato principalmente con **AuditIfNotExists** e **DeployIfNotExists** ai campi di riferimento sulla risorsa che vengono valutati. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 

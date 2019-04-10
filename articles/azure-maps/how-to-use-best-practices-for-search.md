@@ -2,17 +2,17 @@
 title: Come eseguire una ricerca in modo efficiente utilizzando il servizio di ricerca di mappe di Azure | Microsoft Docs
 description: Informazioni su come usare le procedure consigliate per la ricerca usando il servizio di ricerca di mappe di Azure
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3a9c5ad92494dd82500c4faee82c119e99346c7a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288157"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358162"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Le procedure consigliate per usare il servizio di ricerca mappe di Azure
 
@@ -83,7 +83,7 @@ Quando si esegue una ricerca di codifica geografica inversa con [API di ricerca 
 **Richiesta di esempio:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 **Risposta:**
@@ -240,14 +240,20 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="uri-encoding-to-handle-special-characters"></a>URI di codifica per gestire i caratteri speciali 
 
-Per trovare strada indirizzi, vale a dire 1 ° Viale & unione via e numero civico, Seattle, un carattere speciale ' &' deve essere codificata prima di inviare la richiesta. Si consiglia di codifica dei dati di tipo carattere in un URI, in cui tutti i caratteri vengono codificati usando un carattere '% s'e un valore esadecimale a due caratteri corrispondenti per i caratteri UTF-8.
+Per trovare tra indirizzi stradali, vale a dire, "1 ° Viale & unione via e numero civico, Seattle", un carattere speciale '&' deve essere codificata prima di inviare la richiesta. Si consiglia di codifica dei dati di tipo carattere in un URI, in cui tutti i caratteri vengono codificati usando un carattere '% s'e un valore esadecimale a due caratteri corrispondenti per i caratteri UTF-8.
 
 **Esempi di utilizzo**:
 
 Ottenere l'indirizzo di ricerca:
 
 ```
-query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
+query=1st Avenue & E 111th St, New York
+```
+
+ deve essere codificato come:
+
+```
+query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -315,7 +321,7 @@ Creiamo un [ricerca di categoria di punto di interesse](https://docs.microsoft.c
 **Esempio di query:**
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 **Risposta:**
@@ -402,72 +408,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                 }
             ]
         },
-        {
-            "type": "POI",
-            "id": "US/POI/p0/7728133",
-            "score": 5.663,
-            "dist": 1330.1278248163273,
-            "info": "search:ta:840539001100326-US",
-            "poi": {
-                "name": "76",
-                "phone": "+(1)-(425)-7472126",
-                "brands": [
-                    {
-                        "name": "76"
-                    }
-                ],
-                "url": "www.76.com/",
-                "classifications": [
-                    {
-                        "code": "PETROL_STATION",
-                        "names": [
-                            {
-                                "nameLocale": "en-US",
-                                "name": "petrol station"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "address": {
-                "streetNumber": "2421",
-                "streetName": "148th Ave NE",
-                "municipalitySubdivision": "Redmond, Bellevue",
-                "municipality": "Redmond, Bellevue",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "postalCode": "98007",
-                "countryCode": "US",
-                "country": "United States Of America",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "2421 148th Ave NE, Bellevue, WA 98007",
-                "countrySubdivisionName": "Washington"
-            },
-            "position": {
-                "lat": 47.63187,
-                "lon": -122.14365
-            },
-            "viewport": {
-                "topLeftPoint": {
-                    "lat": 47.63277,
-                    "lon": -122.14498
-                },
-                "btmRightPoint": {
-                    "lat": 47.63097,
-                    "lon": -122.14232
-                }
-            },
-            "entryPoints": [
-                {
-                    "type": "main",
-                    "position": {
-                        "lat": 47.63186,
-                        "lon": -122.14313
-                    }
-                }
-            ]
-        },
+        ...,
         {
             "type": "POI",
             "id": "US/POI/p0/7727106",
@@ -559,31 +500,31 @@ Per recuperare solo i risultati di punto di interesse in una posizione specifica
 **Esempio di query:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-Inoltre si guardi alla struttura risposta riportata di seguito. I tipi di risultato degli oggetti risultato nella risposta sono diversi. Se si osserva attentamente che può osservare, ci sono tre diversi tipi di oggetti risultato, che sono indirizzi puntuali, via e numero civico e strade. Si noti che ricerca di indirizzi non restituisce i punti di interesse. Il `Score` parametro per ogni oggetto di risposta indica il punteggio di corrispondenza relativo a numerosi altri oggetti nella stessa risposta. Visualizzare [Ottieni indirizzo ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) per altre informazioni sui parametri dell'oggetto risposta.
+Inoltre si guardi alla struttura risposta riportata di seguito. I tipi di risultato degli oggetti risultato nella risposta sono diversi. Se si osserva attentamente che può osservare, ci sono tre diversi tipi di oggetti risultato, che sono "Punto Address", "Street" e "Cross Street". Si noti che ricerca di indirizzi non restituisce i punti di interesse. Il `Score` parametro per ogni oggetto di risposta indica il punteggio di corrispondenza relativo a numerosi altri oggetti nella stessa risposta. Visualizzare [Ottieni indirizzo ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) per altre informazioni sui parametri dell'oggetto risposta.
 
 **Tipi di risultato supportati:**
 
-**Indirizzo del punto:** Punti su una mappa con un indirizzo specifico con un file e numero civico. Il massimo livello di accuratezza disponibile per gli indirizzi. 
+* **Indirizzo del punto:** Punti su una mappa con un indirizzo specifico con un file e numero civico. Il massimo livello di accuratezza disponibile per gli indirizzi. 
 
-**Intervallo di indirizzi:**  Per alcune strade, sono disponibili punti di indirizzo vengono interpolati all'inizio e alla fine della via; tali punti sono rappresentati come gli intervalli di indirizzi. 
+* **Intervallo di indirizzi:**  Per alcune strade, sono disponibili punti di indirizzo vengono interpolati all'inizio e alla fine della via; tali punti sono rappresentati come gli intervalli di indirizzi. 
 
-**Geografia:** Aree su una mappa che rappresentano divisione amministrativa della terra, vale a dire, paese, stato, città. 
+* **Geografia:** Aree su una mappa che rappresentano divisione amministrativa della terra, vale a dire, paese, stato, città. 
 
-**Punto di interesse - (i punti di interesse):** Punti su una mappa che vale la pena attenzione e potrebbero essere interessante.
+* **Punto di interesse - (i punti di interesse):** Punti su una mappa che vale la pena attenzione e potrebbero essere interessante.
 
-**via:** Rappresentazione di strade sulla mappa. Gli indirizzi vengono risolti per la coordinata di latitudine/longitudine della via che contiene l'indirizzo. Il numero civico può non essere elaborato. 
+* **via:** Rappresentazione di strade sulla mappa. Gli indirizzi vengono risolti per la coordinata di latitudine/longitudine della via che contiene l'indirizzo. Il numero civico può non essere elaborato. 
 
-**Cross Street:** Intersezioni. Rappresentazioni di congiunzioni; posizioni in cui si intersecano due vie.
+* **Cross Street:** Intersezioni. Rappresentazioni di congiunzioni; posizioni in cui si intersecano due vie.
 
 **Risposta:**
 
 ```JSON
 {
     "summary": {
-        "query": "400 broad st seattle wa",
+        "query": "400 broad street seattle wa",
         "queryType": "NON_NEAR",
         "queryTime": 129,
         "numResults": 6,

@@ -1,6 +1,6 @@
 ---
 title: Configurare l'accelerazione automatica dell'accesso usando criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
-description: Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory.
+description: Informazioni su come configurare i criteri Home Realm Discovery per l'autenticazione di Azure Active Directory per gli utenti federati, inclusi gli hint di dominio e l'accelerazione automatica.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190263"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360929"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
-In questo documento viene fornita un'introduzione alla configurazione del comportamento di autenticazione di Azure Active Directory per gli utenti federati.   Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
+Questo articolo fornisce un'introduzione alla configurazione del comportamento di autenticazione di Azure Active Directory per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
 
 ## <a name="home-realm-discovery"></a>Individuazione dell'area di autenticazione principale
 L'individuazione dell'area di autenticazione principale (HRD) è il processo che consente ad Azure Active Directory (Azure AD) di determinare, al momento dell'accesso, dove deve eseguire l'autenticazione l'utente.  Quando un utente effettua l'accesso a un tenant di Azure AD per accedere a una risorsa, o nella pagina di accesso comune di Azure AD, l'utente digita un nome utente (UPN). Azure AD lo usa per individuare dove l'utente deve effettuare l'accesso. 

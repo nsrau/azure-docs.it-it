@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010503"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360183"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
 
@@ -36,7 +36,7 @@ Nei modelli di distribuzione del database SQL di Azure sono disponibili modelli 
 
 La tabella e il grafico seguenti mettono a confronto questi due modelli.
 
-|**Modello di acquisto**|**Descrizione**|**Ideale per**|
+|**Modello di acquisto**|**DESCRIZIONE**|**Ideale per**|
 |---|---|---|
 |Modello basato su DTU|Questo modello è basato su una misura combinata di risorse di calcolo, archiviazione e I/O. Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed eDTU, vedere [Unità di transazione di database (DTU) e unità di transazione di database elastico (eDTU)](sql-database-purchase-models.md#dtu-based-purchasing-model).|Ideale per i clienti che desiderano opzioni di risorse semplici e preconfigurate.|
 |Modello basato su vCore|Questo modello consente di scegliere in modo indipendente le risorse di calcolo e archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere un risparmio sui costi.|Ideale per i clienti che danno valore alla trasparenza, al controllo e alla flessibilità.|
@@ -50,11 +50,11 @@ Il costo delle risorse di calcolo riflette la capacità di calcolo totale di cui
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
-I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza. 
+I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza.
 
 7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Una quantità di risorse di archiviazione minima equivalente al 100% delle dimensioni del database viene fornita senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
 
-Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
+Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
@@ -71,7 +71,7 @@ Il modello di acquisto basato su vCore consente di scegliere le risorse di calco
 > **Limitazioni di area:** per l'elenco aggiornato delle aree supportate, vedere i [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se si vuole creare un'istanza gestita in un'area attualmente non supportata, è possibile [inviare una richiesta di supporto tramite il portale di Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Se un database singolo o un pool elastico usa più di 300 DTU, la conversione in modello di acquisto basato su vCore può ridurre i costi. Se si sceglie questa opzione, è possibile usare l'API preferita o il portale di Azure, senza tempi di inattività. La conversione tuttavia non è obbligatoria e non viene eseguita automaticamente. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo. Se si decide di passare dal modello di acquisto basato su DTU al modello di acquisto basato su vCore, selezionare le dimensioni di calcolo usando le regole generali seguenti: 
+Se un database singolo o un pool elastico usa più di 300 DTU, la conversione in modello di acquisto basato su vCore può ridurre i costi. Se si sceglie questa opzione, è possibile usare l'API preferita o il portale di Azure, senza tempi di inattività. La conversione tuttavia non è obbligatoria e non viene eseguita automaticamente. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo. Se si decide di passare dal modello di acquisto basato su DTU al modello di acquisto basato su vCore, selezionare le dimensioni di calcolo usando le regole generali seguenti:
 
 - Per ogni 100 DTU nel livello Standard è necessario almeno 1 vCore nel livello di utilizzo generico
 - Per ogni 125 DTU nel livello Premium è necessario almeno 1 vCore nel livello Business Critical

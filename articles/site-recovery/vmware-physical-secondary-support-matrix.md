@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088928"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360152"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -120,5 +120,5 @@ Il servizio Mobility coordina la replica fra server VMware locali/server fisici 
 
 Scaricare il [Manuale dell'utente di InMage Scout](https://aka.ms/asr-scout-user-guide)
 
-- [Eseguire la replica di VM Hyper-V nel cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
+- [Replicare VM Hyper-V nei cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
 - [Replicare VM VMware e server fisici in un sito secondario](tutorial-vmware-to-vmware.md)

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046020"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359641"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio: Distribuzione e utilizzo
 
@@ -49,7 +49,7 @@ Il provider di risorse di Azure Machine Learning Studio per i servizi Web consen
 
 Il provider di risorse di Azure Machine Learning Studio per i servizi Web consente di distribuire e gestire i servizi Web tramite cmdlet di PowerShell.
 
-Per usare i cmdlet, è prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell usando il [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Se non si ha familiarità con la chiamata di comandi di PowerShell basati su Resource Manger, vedere [Uso di Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Per usare i cmdlet, è prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell usando il [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. Se non si ha familiarità con la chiamata di comandi di PowerShell basati su Resource Manger, vedere [Uso di Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Usare questo [codice di esempio](https://github.com/ritwik20/AzureML-WebServices)per esportare l'esperimento predittivo. Dopo aver creato il file .exe dal codice è possibile digitare:
 

@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567112"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358796"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizzare la configurazione di rete per il piano di hosting del servizio app di Azure
 
-Può succedere che, anche se si [integra l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md), non sia possibile stabilire una connessione all'istanza gestita. È possibile provare ad aggiornare la configurazione di rete per il piano di servizio. 
+Può succedere che, anche se si [integra l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md), non sia possibile stabilire una connessione all'istanza gestita. È possibile provare ad aggiornare la configurazione di rete per il piano di servizio.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Sincronizzare la configurazione di rete per il piano di hosting del servizio app
 
 A tale scopo, seguire questi passaggi:  
 
 1. Passare al piano del servizio app per le app Web.
- 
+
    ![piano servizio app](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Fare clic su **Rete** e quindi fare clic su **Fare clic qui per la gestione**.
- 
+
    ![gestire il piano del servizio](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Selezionare la **Rete virtuale** e fare clic su **Sincronizza rete**. 
- 
+3. Selezionare la **Rete virtuale** e fare clic su **Sincronizza rete**.
+
    ![sincronizza rete](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Attendere fino a quando la sincronizzazione non viene completata.

@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: SQL Server cloud, SQL Server nel cloud, database PaaS, cloud SQL Server, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835419"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360813"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Scegliere l'opzione SQL Server più adatta in Azure
 
@@ -66,7 +66,7 @@ In generale, queste due opzioni SQL sono ottimizzate per scopi diversi:
 
 È ottimizzato per ridurre al minimo i costi di gestione complessivi per il provisioning e la gestione di numerosi database. Riduce i costi amministrativi correnti perché non è necessario gestire le macchine virtuali, il sistema operativo o il software del database, E non è neanche necessario gestire gli aggiornamenti, la disponibilità elevata o i [backup](sql-database-automated-backups.md). In generale, il database SQL di Azure può aumentare significativamente il numero di database gestiti da una singola risorsa IT o di sviluppo. I [pool elastici](sql-database-elastic-pool.md) supportano inoltre le architetture di applicazioni multi-tenant SaaS, con funzionalità che includono l'isolamento dei tenant e la possibilità di ridimensionamento per ridurre i costi condividendo le risorse tra i database. Un'[istanza gestita](sql-database-managed-instance.md) offre supporto per funzionalità con ambito istanza consentendo una migrazione semplificata delle applicazioni esistenti, nonché la condivisione delle risorse tra i database.
 
-- **SQL Server in esecuzione in macchine virtuali di Azure**
+- **SQL Server in esecuzione nelle macchine virtuali di Azure**
 
 È ottimizzato per eseguire la migrazione di applicazioni esistenti in Azure o per estendere nel cloud le applicazioni locali esistenti in distribuzioni ibride. SQL Server in esecuzione in una macchina virtuale può essere usato anche per sviluppare e testare applicazioni SQL Server tradizionali. SQL Server nelle VM di Azure fornisce diritti amministrativi completi per un'istanza di SQL Server dedicata e una macchina virtuale basata sul cloud. È la scelta ideale quando un'organizzazione ha già delle risorse IT disponibili per mantenere le macchine virtuali. Queste funzionalità permettono di creare un sistema altamente personalizzato per soddisfare i requisiti specifici dell'applicazione in termini di prestazioni e disponibilità.
 
@@ -119,14 +119,14 @@ Con **SQL Server in macchine virtuali di Azure**è possibile usare un'immagine d
 
 Quando si inizia a usare una piattaforma cloud, il costo per l'esecuzione dell'applicazione include il costo per il nuovo sviluppo e i costi amministrativi correnti, oltre ai costi del servizio della piattaforma cloud pubblica.
 
-**Quando si usa il database SQL di Azure:**
+**Quando si usa Database SQL di Azure:**
 
 - Costi di amministrazione estremamente ridotti
 - Costi di sviluppo limitati per le applicazioni sottoposte a migrazione (istanze gestite)
 - Costi di servizio del database SQL
 - Nessun costo per l'acquisto di hardware
 
-**Quando si usa SQL Server nelle macchine virtuali di Azure:**
+**Quando si usa SQL Server in macchine virtuali di Azure:**
 
 - Costi di amministrazione più elevati
 - Costi di sviluppo limitati o assenti per le applicazioni sottoposte a migrazione
@@ -135,9 +135,9 @@ Quando si inizia a usare una piattaforma cloud, il costo per l'esecuzione dell'a
 
 Per altre informazioni sui prezzi, vedere le seguenti risorse:
 
-- [Prezzi di Database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) per [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administration
 

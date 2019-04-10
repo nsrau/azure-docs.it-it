@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320281"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359040"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -56,7 +56,7 @@ La prima sezione mostra il costo complessivo del ripristino di emergenza per com
 
 **Rete**: Il costo della connessione ExpressRoute e VPN da sito a sito per le esigenze del ripristino di emergenza. 
 
-**Licenza ASR**: Il costo della licenza di Azure Site Recovery per tutte le macchine virtuali compatibili. Se nella tabella dell'analisi dettagliata dei costi è stata immessa manualmente una VM, viene incluso anche il costo della licenza di Site Recovery per tale VM.
+**Licenza di Azure Site Recovery**: Il costo della licenza di Azure Site Recovery per tutte le macchine virtuali compatibili. Se nella tabella dell'analisi dettagliata dei costi è stata immessa manualmente una VM, viene incluso anche il costo della licenza di Site Recovery per tale VM.
 
 ### <a name="overall-dr-costs-by-states"></a>Costo complessivo del ripristino di emergenza per stato
 Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza).
@@ -107,21 +107,21 @@ Per aggiungere manualmente le VM:
 
 1. Compilare le colonne seguenti in base alle dimensioni approssimative delle VM e al numero di VM corrispondenti alla configurazione: 
 
-    a. **Number of VMs** (Numero di VM)
+    a. **Numero di macchine virtuali**
 
-    b. **IaaS size (Your selection)** (Dimensioni IaaS selezionate)
+    b. **IaaS size (la selezione)**
 
-    c. **Storage type - Standard/Premium** (Tipo di archiviazione - Standard/Premium)
+    c. **Tipo di archiviazione Standard o Premium**
 
-    d. **VM total storage size (GB)** (Spazio di archiviazione totale VM - GB)
+    d. **VM total storage size (GB) (Spazio di archiviazione totale VM - GB)**
 
-    e. **Number of DR-Drills in a year** (N. esercitazioni ripristino di emergenza in un anno)
+    e. **Numero di esercitazioni in un anno**
 
-    f. **Each DR-Drill duration (Days)** (Durata di ogni esercitazione sul ripristino di emergenza - giorni)
+    f. **Ogni DR-Drill duration (giorni)**
 
-    g. **OS Type** (Tipo di sistema operativo)
+    g. **OS Type (Tipo di sistema operativo)**
 
-    h. **Data redundancy** (Ridondanza dei dati)
+    h. **Ridondanza dei dati**
 
     i. **Vantaggio Azure Hybrid Use**
 
@@ -157,7 +157,7 @@ Per aggiungere manualmente le VM:
 
 **Costo totale esercitazioni sul ripristino di emergenza - media**: Costo di calcolo e di archiviazione per le esercitazioni sul ripristino di emergenza.
 
-**Costo licenza ASR**: Costo della licenza di Site Recovery.
+**Costo della licenza di Azure Site Recovery**: Costo della licenza di Site Recovery.
 
 ## <a name="supported-target-regions"></a>Aree di destinazione supportate
 Site Recovery Deployment Planner offre la stima dei costi per le aree di Azure riportate di seguito. Se la propria area non è inclusa nell'elenco, è possibile usare qualsiasi area elencata con i prezzi più simili a quelli della propria area:

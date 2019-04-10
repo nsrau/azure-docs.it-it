@@ -1,6 +1,6 @@
 ---
-title: Creare avvisi sulle prestazioni con Monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come creare avvisi personalizzati di Azure basati su query di log per l'utilizzo di memoria e CPU da Monitoraggio di Azure per i contenitori.
+title: Creare avvisi sulle prestazioni con monitoraggio di Azure per contenitori | Microsoft Docs
+description: Questo articolo descrive come usare monitoraggio di Azure per contenitori per creare avvisi personalizzati basati su query di log per l'utilizzo della CPU e memoria.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,31 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804825"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282288"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come impostare gli avvisi per problemi di prestazioni in Monitoraggio di Azure per contenitori
-Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro dei contenitori distribuiti in Istanze di Azure Container o in cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. 
+Monitoraggio di Azure per contenitori consente di monitorare le prestazioni dei carichi di lavoro contenitore che vengono distribuiti in istanze di contenitore di Azure o gestire i cluster Kubernetes che sono ospitati in Azure Kubernetes Service (AKS).
 
 Questo articolo descrive come abilitare gli avvisi per le situazioni seguenti:
 
-* Utilizzo della CPU o memoria nei nodi del cluster quando supera la soglia definita.
-* Utilizzo della CPU o memoria in uno qualsiasi dei contenitori all'interno di un controller quando supera la soglia definita rispetto al limite impostato sulla risorsa corrispondente.
-* **Non pronto** conta nodo stato
-* Conteggio della fase di POD di **Failed**, **in sospeso**, **sconosciuto**, **esecuzione**, o **Succeeded**
+* Quando l'utilizzo della CPU o memoria nei nodi cluster supera una soglia definita
+* Quando utilizzo della CPU o memoria in qualsiasi contenitore all'interno di un controller supera una soglia definita rispetto a un limite impostato sulla risorsa corrispondente
+* *Non pronto* conta nodo stato
+*  *Non è riuscita*, *in sospeso*, *sconosciuto*, *esecuzione*, o *Succeeded* conta pod-fase
 
-Per generare un avviso quando CPU o memoria utilizzo è elevato nei nodi del cluster, è possibile creare un avviso di metrica o una regola di avviso di misurazione delle metriche mediante le query di log specificate. Mentre gli avvisi delle metriche hanno una latenza più bassa rispetto agli avvisi di log, un avviso del log offre l'esecuzione di query avanzate e complessità rispetto a un avviso di metrica. Per gli avvisi del log, le query confrontare un valore datetime a quella attuale utilizzando l'operatore di ora e ritorna un'ora. Tutte le date archiviate da Monitoraggio di Azure per i contenitori sono in formato UTC.
+Per generare un avviso per l'utilizzo elevato della CPU o utilizzo della memoria nei nodi del cluster, usare le query che vengono fornite per creare un avviso di metrica o un avviso di misurazione delle metriche. Gli avvisi delle metriche hanno una latenza più bassa rispetto agli avvisi di log. Ma gli avvisi di log forniscono l'esecuzione di query avanzate e maggiore complessità. Le query confrontano un valore datetime a quella attuale utilizzando gli avvisi del log di *ora* operatore e l'inizio del backup di un'ora. (Monitoraggio di azure per contenitori archivia tutte le date nel formato Coordinated Universal Time (UTC)).
 
-Prima di iniziare, se non ha familiarità con gli avvisi in Monitoraggio di Azure, vedere [panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md). Per altre informazioni sugli avvisi usando le query di log, vedere [gli avvisi del Log in Monitoraggio di Azure](../platform/alerts-unified-log.md). Per altre informazioni sugli avvisi delle metriche, vedere [gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-overview.md).
+Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md) prima di iniziare. Per altre informazioni sugli avvisi che usano query di log, vedere [gli avvisi del Log in Monitoraggio di Azure](../platform/alerts-unified-log.md). Per altre informazioni su avvisi delle metriche, vedere [gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Query di ricerca log di utilizzo delle risorse
-Le query in questa sezione vengono fornite per supportare ogni scenario di avvisi. Le query sono necessari per il passaggio 7 nel [crea avviso](#create-alert-rule) sezione riportata di seguito.  
+Le query in questa sezione supportano ogni scenario avviso. Nel passaggio 7 di cui sono abituati i [crea avviso](#create-an-alert-rule) sezione di questo articolo.
 
-La query seguente calcola l'utilizzo medio della CPU come media dell'utilizzo di CPU dei nodi membro ogni minuto.  
+La query seguente calcola l'utilizzo della CPU medio come una media di utilizzo della CPU i nodi membro ogni minuto.  
 
 ```kusto
 let endDateTime = now();
@@ -72,7 +72,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-La query seguente calcola l'utilizzo medio di memoria come media dell'utilizzo di memoria dei nodi membro ogni minuto.
+La query seguente calcola l'utilizzo medio della memoria come una media di utilizzo della memoria dei nodi membri ogni minuto.
 
 ```kusto
 let endDateTime = now();
@@ -107,10 +107,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Le query riportato di seguito contengono valori di stringa segnaposto per i nomi dei cluster e il controller - < your-cluster-name > e < your-controller-name >. Sostituire i segnaposto con valori specifici dell'ambiente prima di configurare gli avvisi. 
+>Le query seguenti usano i valori segnaposto \<your-cluster-name > e \<your-controller-name > per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si impostano gli avvisi.
 
-
-La query seguente calcola l'utilizzo medio della CPU di tutti i contenitori in un controller come una media di utilizzo della CPU per ogni istanza del contenitore in un controller di ogni minuto come percentuale del limite impostato per un contenitore.
+La query seguente calcola l'utilizzo medio della CPU di tutti i contenitori in un controller come una media di utilizzo della CPU per ogni istanza del contenitore in un controller di ogni minuto. La misura è una percentuale del limite impostato per un contenitore.
 
 ```kusto
 let endDateTime = now();
@@ -150,7 +149,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-La query seguente calcola l'utilizzo della memoria medio di tutti i contenitori in un controller come una media di utilizzo della memoria di ogni istanza del contenitore in un controller di ogni minuto come percentuale del limite impostato per un contenitore.
+La query seguente calcola l'utilizzo della memoria medio di tutti i contenitori in un controller come una media di utilizzo della memoria di ogni istanza del contenitore in un controller di ogni minuto. La misura è una percentuale del limite impostato per un contenitore.
 
 ```kusto
 let endDateTime = now();
@@ -190,7 +189,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-La query seguente restituisce tutti i nodi e count con stato **pronti** e **non pronto**.
+La query seguente restituisce tutti i nodi e i conteggi che hanno lo stato *pronti* e *non pronto*.
 
 ```kusto
 let endDateTime = now();
@@ -217,7 +216,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-La query seguente restituisce fase pod conta basato su tutte le fasi - **Failed**, **in sospeso**, **sconosciuto**, **esecuzione**, o **Ha avuto esito positivo**.  
+La query seguente restituisce fase pod conta basato su tutte le fasi: *Non è riuscita*, *in sospeso*, *sconosciuto*, *esecuzione*, o *ha avuto esito positivo*.  
 
 ```kusto
 let endDateTime = now();
@@ -254,38 +253,37 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Per generare un avviso, ad esempio su alcune fasi di pod **in sospeso**, **Failed**, o **sconosciuto**, è necessario modificare l'ultima riga della query. Ad esempio per inviare avvisi sullo *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
+>Per generare un avviso su alcune fasi di pod, ad esempio *in sospeso*, *Failed*, o *sconosciuto*, modificare l'ultima riga della query. Ad esempio, per inviare avvisi sullo *FailedCount* usare: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-## <a name="create-alert-rule"></a>Creare la regola di avviso
-Eseguire la procedura seguente per creare un avviso di Log in Monitoraggio di Azure usando una delle regole di ricerca di log specificate in precedenza.  
+## <a name="create-an-alert-rule"></a>Creare una regola di avviso
+Seguire questi passaggi per creare un avviso di log in Monitoraggio di Azure usando una delle regole di ricerca log che è stato fornito in precedenza.  
 
 >[!NOTE]
->La procedura riportata di seguito è necessario passare alla nuova API di avvisi di Log come descritto in [preferenza API passare per gli avvisi del Log](../platform/alerts-log-api-switch.md) se si sta creando una regola di avviso per l'utilizzo della risorsa di contenitore. 
+>La procedura seguente per creare una regola di avviso per l'utilizzo delle risorse di contenitore richiede di passare a un nuovo log degli avvisi API come descritto in [preferenza API passare per gli avvisi del log](../platform/alerts-log-api-switch.md).
 >
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Monitoraggio** dal riquadro a sinistra nel portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.    
-3. Nella scheda **Cluster monitorati** selezionare un cluster dall'elenco facendo clic sul relativo nome.
-4. Nel riquadro a sinistra, sotto la sezione **Monitoraggio** selezionare **Log** per aprire la pagina dei log di Monitoraggio di Azure, che consente di scrivere ed eseguire query di Azure Log Analytics.
-5. Nella pagina **Log** fare clic su **+ Nuova regola di avviso**.
-6. Nella sezione **Condizione** fare clic sulla condizione predefinita per i log personalizzati **Ogni volta che l'operazione di ricerca log personalizzata è <logic undefined>** . Il tipo di segnale **ricerca log personalizzata** viene selezionato automaticamente, perché la creazione della regola di avviso è stata avviata direttamente dalla pagina dei log di Monitoraggio di Azure.  
-7. Incollare uno del [query](#resource-utilization-log-search-queries) fornito in precedenza il **query di ricerca** campo. 
+2. Selezionare **Monitor** dal riquadro a sinistra. Sotto **Insights**, selezionare **contenitori**.
+3. Nel **i cluster monitorati** scheda, selezionare un cluster dall'elenco.
+4. Nel riquadro a sinistra sotto **Monitoring**, selezionare **log** per aprire la pagina dei log di monitoraggio di Azure. Utilizzare questa pagina per scrivere ed eseguire query Analitica di Log di Azure.
+5. Nel **registri** pagina, selezionare **+ nuova regola di avviso**.
+6. Nel **condizione** selezionare la **ogni volta che il Registro ricerca personalizzata viene \<logica non definita >** predefiniti condizione del registro personalizzato. Il **ricerca log personalizzata** tipo di segnale viene selezionato automaticamente perché viene creata una regola di avviso direttamente dalla pagina dei log di monitoraggio di Azure.  
+7. Incollare uno del [query](#resource-utilization-log-search-queries) fornito in precedenza il **query di ricerca** campo.
+8. Configurare l'avviso come indicato di seguito:
 
-8. Configurare l'avviso con le informazioni seguenti:
+    1. Nell'elenco a discesa **In base a** selezionare **Unità di misura della metrica**. Una misura della metrica consente di creare un avviso per ogni oggetto nella query che ha il valore supera la soglia specificata.
+    1. Per **Condition**, selezionare **maggiore**, quindi immettere **75** come una linea di base iniziale **soglia**. Oppure immettere un valore diverso che soddisfi i criteri definiti.
+    1. Nel **Trigger degli avvisi in base** sezione, selezionare **violazioni Consecutive**. Nell'elenco a discesa, selezionare **maggiore**, quindi immettere **2**.
+    1. Per configurare un avviso per contenitore della CPU o utilizzo della memoria, in **Aggregate sulla**, selezionare **ContainerName**. 
+    1. Nel **valutati in base** sezione, impostare il **periodo** valore **60 minuti**. La regola verrà eseguita ogni 5 minuti e restituire i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un account di finestra temporale potenziale latenza dei dati. Inoltre, garantisce che la query restituisce i dati per evitare un falso negativo in cui l'avviso viene mai attivato.
 
-    a. Nell'elenco a discesa **In base a** selezionare **Unità di misura della metrica**. Un'unità di misura della metrica creerà un avviso per ogni oggetto nella query con un valore che supera la soglia specificata.  
-    b. Per **Condizione** selezionare **Maggiore di** e immettere **75** come **Soglia** baseline iniziale o immettere un valore che soddisfi i propri criteri.  
-    c. Nella sezione **Attiva l'avviso in base a** selezionare **Violazioni consecutive**, quindi nell'elenco a discesa selezionare **Maggiore di** e immettere il valore **2**.  
-    d. Se la configurazione di un avviso per contenitore della CPU o utilizzo della memoria, in **Aggregate sulla** selezionate **ContainerName** nell'elenco a discesa.  
-    e. Nella sezione **Valutata in base a** modificare il valore **Periodo** in 60 minuti. La regola verrà eseguita ogni cinque minuti e restituirà i record creati nell'ultima ora a partire dall'ora corrente. Se si imposta il periodo di tempo su una finestra più ampia, si tiene conto del potenziale di latenza dei dati e si garantisce che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai visualizzato. 
-
-9. Fare clic su **Fine** per completare la regola di avviso.
-10. Specificare un nome dell'avviso nel campo **Nome regola di avviso**. In **Descrizione** specificare i dettagli dell'avviso e selezionare una gravità appropriata nelle opzioni disponibili.
-11. Per attivare immediatamente la regola di avviso alla creazione, accettare il valore predefinito di **Abilita regola alla creazione**.
-12. Per l'ultimo passaggio occorre selezionare un nuovo **Gruppo di azioni**, che assicura che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso e che può essere usato per ogni regola definita. Configurare in base al modo in cui il reparto IT o DevOps gestisce gli eventi imprevisti. 
-13. Fare clic su **Crea regola di avviso** per completare la creazione della regola di avviso. L'esecuzione inizia immediatamente.
+9. Selezionare **per completare** la regola di avviso.
+10. Immettere un nome per il **nome regola di avviso** campo. Specificare una **descrizione** che fornisce i dettagli sull'avviso. Selezionare un livello di gravità adeguato tra le opzioni fornite.
+11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola alla creazione**.
+12. Selezionare un oggetto esistente **gruppo di azioni** o creare un nuovo gruppo. Questo passaggio assicura che le stesse azioni vengono eseguite ogni volta che viene attivato un avviso. Configurazione basata su come il reparto IT o DevOps operations team gestisce gli eventi imprevisti.
+13. Selezionare **Crea regola di avviso** per completare la regola di avviso. L'esecuzione inizia immediatamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare alcuni [esempi di query di log](container-insights-analyze.md#search-logs-to-analyze-data) per informazioni sulle query predefinite o esempi per valutare e usare o personalizzare per altri scenari di avviso. 
-* Per altre informazioni su come usare Monitoraggio di Azure e monitorare altri aspetti del cluster del servizio Azure Kubernetes, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](container-insights-analyze.md)
+* Vista [esempi di query di log](container-insights-analyze.md#search-logs-to-analyze-data) illustrate query predefinito e alcuni esempi per valutare o personalizzare per altri scenari di avviso.
+* Per altre informazioni sul monitoraggio di Azure e su come monitorare altri aspetti del cluster servizio contenitore di AZURE, vedere [integrità vista Azure Kubernetes Service](container-insights-analyze.md).

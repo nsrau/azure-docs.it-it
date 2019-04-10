@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 275907eed94f3165853ecf9adcb11fb62460d2e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649910"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282220"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -42,7 +42,7 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| Ubuntu | 14.04.5</br>[con Azure ottimizzati aggiornati a 4.15 o versione successiva di kernel](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
 | RHEL | 7.6 | Disco del sistema operativo e dati* |
 | RHEL | 7.5 | Disco del sistema operativo e dati* |
 | RHEL | 7.4 | Disco del sistema operativo e dati* |
@@ -72,7 +72,7 @@ Per iniziare, leggere l'articolo [Azure Disk Encryption overview](azure-security
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>È possibile crittografare sia i volumi di avvio che i volumi di dati con Crittografia dischi di Azure?
 
-Sì, è possibile crittografare volumi di avvio e volumi di dati per le macchine virtuali IaaS Windows e Linux. Per le macchine virtuali Windows, non è possibile crittografare i dati senza prima crittografare il volume del sistema operativo. Per le macchine virtuali Linux, è possibile crittografare il volume dei dati senza dover prima crittografare il volume del sistema operativo. Dopo che è stato crittografato il volume del sistema operativo per Linux, la disabilitazione della crittografia su un volume del sistema operativo per le macchine virtuali IaaS Linux non è supportata.
+Sì, è possibile crittografare volumi di avvio e volumi di dati per le macchine virtuali IaaS Windows e Linux. Per le macchine virtuali Windows, non è possibile crittografare i dati senza prima crittografare il volume del sistema operativo. Per le macchine virtuali Linux, è possibile crittografare il volume dei dati senza dover prima crittografare il volume del sistema operativo. Dopo che è stato crittografato il volume del sistema operativo per Linux, la disabilitazione della crittografia su un volume del sistema operativo per le macchine virtuali IaaS Linux non è supportata. Per le macchine virtuali Linux in un set di scalabilità, solo il volume di dati può essere crittografato.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>È possibile crittografare un volume smontato con crittografia dischi di Azure?
 
@@ -165,6 +165,6 @@ Backup di Azure fornisce un meccanismo per eseguire il backup e ripristinare VM 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento sono state fornite le risposte alle domande più frequenti relative a Crittografia dischi di Azure. Per altre informazioni sul servizio, vedere gli articoli seguenti:
 
-- [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md)
-- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Panoramica su crittografia dischi di Azure](azure-security-disk-encryption-overview.md)
+- [Applicare la crittografia del disco nel Centro sicurezza Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Crittografia dei dati di Azure quando sono inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

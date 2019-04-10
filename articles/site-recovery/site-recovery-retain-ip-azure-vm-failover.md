@@ -2,16 +2,16 @@
 title: Mantenere gli indirizzi IP durante il failover delle macchine virtuali di Azure con Azure Site Recovery | Microsoft Docs
 description: Viene descritto come mantenere gli indirizzi IP quando si effettua il failover di macchine virtuali di Azure per il ripristino di emergenza in un'area secondaria con Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090747"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357897"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
 
@@ -49,7 +49,7 @@ Di seguito viene indicata l'architettura prima del failover.
         - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
         - Asia sud-orientale dispone di una rete virtuale aggiuntiva (**Rete virtuale di Azure**) con spazio degli indirizzi 10.2.0.0/16.
         - La **rete virtuale di Azure** contiene una subnet (**Subnet 4**) con spazio degli indirizzi 10.2.4.0/24.
-        - I nodi di replica per Gruppi di disponibilità AlwaysOn di SQL Server, i controller di dominio e così via si trovano in **Subnet 4**.
+        - Nodi di replica per SQL Server Always On, a cui si trovano nel controller di dominio e così via **Subnet 4**.
     - La **rete virtuale di origine** e la **rete virtuale di Azure** sono connesse con una connessione VPN da sito a sito.
     - La **Rete virtuale di ripristino** non è connessa ad alcun'altra rete virtuale.
     - La **società A** assegna/verifica gli indirizzi IP di destinazione per gli elementi replicati. L'indirizzo IP di destinazione è lo stesso indirizzo IP di origine per ogni macchina virtuale.
@@ -92,7 +92,7 @@ Prima del failover, l'architettura è la seguente:
 - L'area secondaria (destinazione) è Asia sud-orientale di Azure - Asia sud-orientale di Azure dispone di reti virtuali di ripristino (**Rete virtuale di ripristino 1** e **Rete virtuale di Ripristino 2**) identiche a **Rete virtuale di origine 1** e **Rete virtuale di origine 2**.
         - La **rete virtuale di ripristino 1** e la **rete virtuale di ripristino 2** dispongono ognuna di due subnet che corrispondono alle subnet in **rete virtuale di origine 1** e **rete virtuale di origine 2**. Nell'area Asia sud-orientale è presente una rete orientale aggiuntiva (**Rete virtuale di Azure**) con spazio degli indirizzi 10.3.0.0/16.
         - La **rete virtuale di Azure** contiene una subnet (**Subnet 4**) con spazio degli indirizzi 10.3.4.0/24.
-        - I nodi di replica per Gruppi di disponibilità AlwaysOn di SQL Server, i controller di dominio e così via si trovano in **Subnet 4**.
+        -Nodi di replica per SQL Server Always On, a cui si trovano nel controller di dominio e così via **Subnet 4**.
 - Sono presenti alcune connessioni VPN da sito a sito: 
     - **Rete virtuale di origine 1** e **rete virtuale di Azure**
     - **Rete virtuale di origine 2** e **rete virtuale di Azure**

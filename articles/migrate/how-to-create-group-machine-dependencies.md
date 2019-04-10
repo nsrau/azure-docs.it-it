@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280911"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360345"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Raggruppare i computer usando il mapping delle dipendenze dei computer
 
@@ -121,21 +121,21 @@ Una volta creato il gruppo, è consigliabile installare gli agenti in tutti i co
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Eseguire query sui dati delle dipendenze dai log di monitoraggio di Azure
 
-I dati sulle dipendenze acquisiti da Mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analytics associata al progetto di Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle di dati di mapping dei servizi per eseguire una query in Monitoraggio di Azure Registra. 
+I dati sulle dipendenze acquisiti da mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analitica associato al progetto Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle di dati di mapping dei servizi per eseguire una query in Monitoraggio di Azure Registra. 
 
 Per eseguire la query Kusto:
 
 1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
 2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
 3. Nella pagina dell'area di lavoro di Log Analytics, fare clic su **Generale** > **Log**.
-4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Trovare le query di esempio nella sezione successiva.
 5. Eseguire la query facendo clic su Esegui. 
 
 [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sulla scrittura di query Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Monitoraggio di Azure di esempio registra le query
 
-Di seguito sono esempi di query è possibile usare per estrarre i dati sulle dipendenze. Si noti che le query possono essere modificate per estrarre i punti dati preferito. È disponibile un elenco completo dei campi nel record di dati delle dipendenze [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Di seguito sono esempi di query è possibile usare per estrarre i dati sulle dipendenze. È possibile modificare le query per estrarre i punti dati preferito. È disponibile un elenco completo dei campi nel record di dati delle dipendenze [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Trovare altri esempi di query [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Riepilogare le connessioni in ingresso in un set di computer
 

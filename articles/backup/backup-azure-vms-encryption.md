@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266445"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358237"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e ripristino della macchina virtuale crittografata di Azure
 
@@ -31,7 +31,7 @@ Backup di Azure supporta il backup delle macchine virtuali di Azure con i relati
 Backup di Azure può eseguire il backup e ripristino di macchine virtuali di Azure con ADE con e senza l'app di Azure AD, come riepilogato nella tabella seguente.
 
 **Tipo di disco della macchina virtuale** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
---- | --- | --- 
+--- | --- | ---
 **Unmanaged Disks** | Sì | Sì
 **Gestito**  | Sì | Sì
 
@@ -95,14 +95,14 @@ Inoltre, esistono un paio di cose che potrebbe essere necessario eseguire operaz
 8. Se si usa Azure Key Vault, nella pagina dell'insieme di credenziali, viene visualizzato un messaggio che Backup di Azure richiede l'accesso di sola lettura alle chiavi e segreti nell'insieme di credenziali chiave di.
 
     - Se si riceve questo messaggio, è necessaria alcuna azione.
-    
+
         ![Accesso OK](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Se si riceve questo messaggio, è necessario impostare le autorizzazioni come descritto nel [procedura riportata di seguito](#provide-permissions).
-    
+
         ![Avviso di accesso](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Fare clic su **Abilita Backup** per distribuire il criterio di backup nell'insieme di credenziali e abilitare il backup per macchine virtuali selezionate. 
+9. Fare clic su **Abilita Backup** per distribuire il criterio di backup nell'insieme di credenziali e abilitare il backup per macchine virtuali selezionate.
 
 
 ## <a name="trigger-a-backup-job"></a>Attivare un processo di backup
@@ -129,18 +129,18 @@ Per impostare le autorizzazioni:
 1. Nel portale di Azure, selezionare **tutti i servizi**e cercare **insiemi di credenziali della chiave**.
 2. Selezionare l'insieme di credenziali chiave associati alla macchina virtuale crittografata esegue il backup.
 3. Selezionare **criteri di accesso** > **Aggiungi nuovo**.
-4. Selezionare **selezionare un'entità**, quindi digitare **Gestione Backup**. 
+4. Selezionare **selezionare un'entità**, quindi digitare **Gestione Backup**.
 5. Selezionare **servizio di gestione di Backup** > **selezionare**.
 
     ![Selezione del servizio di backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. Nelle **criteri di accesso Add** > **Configura dal modello (facoltativo)**, selezionare **Backup di Azure**.
     - Le autorizzazioni necessarie sono precompilate per **Autorizzazioni chiave** e **Autorizzazioni segrete**.
-    - Se la macchina virtuale viene crittografata usando **solo con BEK**, rimuovere la selezione per **autorizzazioni chiave** poiché è necessario solo le autorizzazioni per i segreti. 
+    - Se la macchina virtuale viene crittografata usando **solo con BEK**, rimuovere la selezione per **autorizzazioni chiave** poiché è necessario solo le autorizzazioni per i segreti.
 
     ![Selezione di Backup di Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Fare clic su **OK**. **Servizio di gestione di backup** viene aggiunto alla **i criteri di accesso**. 
+6. Fare clic su **OK**. **Servizio di gestione di backup** viene aggiunto alla **i criteri di accesso**.
 
     ![Criteri di accesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ Le macchine virtuali crittografate è ripristinare come indicato di seguito:
 
 Se si verificano problemi, consultare
 
-- [Errori comuni](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) quando backup e ripristino crittografati macchine virtuali di Azure.
-- [Generale](backup-azure-vms-troubleshoot.md) problemi di macchine Virtuali di Azure.
+- [Errori comuni](backup-azure-vms-troubleshoot.md) quando backup e ripristino crittografati macchine virtuali di Azure.
 - [Estensione agente/backup VM Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problemi.

@@ -8,17 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010159"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359752"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
+
+Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalità. Sono state apportate le correzioni seguenti:
+
+* Impedisce il caricamento di https-proxy-agent di webpack.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: Versione di aprile 2019
 

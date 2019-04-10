@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905971"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359970"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905971"
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
 
 * Possibilità di usare snapshot acquisiti durante il processo di backup disponibili per il ripristino senza attendere il completamento del trasferimento dei dati all'insieme di credenziali. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino.
-* Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore predefinito può essere configurato su qualsiasi valore compreso tra 1 e 5 giorni.
-* Supporto di dischi con dimensioni fino a 4 TB.
+* Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore di conservazione predefinito dello snapshot è configurabile per qualsiasi valore compreso tra 1 e 5 giorni.
+* Supporto di dischi con dimensioni fino a 4 TB. Backup di Azure non supporta dischi con striping. Il ridimensionamento del disco non è consigliato da Backup di Azure.
 * Supporta i dischi SSD Standard insieme ai dischi Standard HDD e SSD Premium.
 *   Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Novità di questa funzionalità
 
@@ -75,9 +74,9 @@ Nel portale di Azure, è possibile visualizzare un campo aggiunto nel **criteri 
 > Da Az PowerShell versione 1.6.0 e versioni successive, è possibile aggiornare il periodo di conservazione snapshot di ripristino immediato nel criterio tramite PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 Il periodo di conservazione dello snapshot predefinita per ogni criterio è impostato su 2 giorni. Utente può modificare il valore minimo pari a 1 e un massimo di 5 giorni. Per i criteri ogni settimana, il periodo di conservazione dello snapshot è stato risolto per 5 giorni.
 

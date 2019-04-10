@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271833"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361107"
 ---
 # <a name="azure-stack-1902-update"></a>Aggiornamento di Azure Stack 1902
 
@@ -97,13 +97,14 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
   ```  
   
 - Per migliorare la disponibilità dei servizi di infrastruttura di base e l'affidabilità complessive durante il processo di aggiornamento, il provider di risorse native di aggiornamento come parte del piano di azione di aggiornamento rileverà e richiamare correzioni globale automatica secondo necessità. I flussi di lavoro di ripristino"correzione globale" includono:
-    - Verifica per le macchine virtuali dell'infrastruttura che sono in uno stato non ottimale e tenta di ripristinarli quando necessario 
-    - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare tali esigenze
-    - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare tali esigenze
-    - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze
-    - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze
-    - Controllare lo stato dei nodi XRP service fabric e ripristinarli in base alle esigenze
-    - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze
+
+  - Verifica per le macchine virtuali dell'infrastruttura che si trovano nello stato non ottimale e tentare di ripristinare tali esigenze.
+  - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare tali esigenze.
+  - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare tali esigenze.
+  - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze
+  - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze.
+  - Controllare lo stato del ruolo di infrastruttura e ripristinare in base alle esigenze.
+  - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -258,8 +259,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>syslog 
-- La configurazione di syslog non è persistente tramite un ciclo di aggiornamento, risultante in client perde la relativa configurazione e i messaggi syslog per arrestare l'inoltro syslog. Questo problema si applica a tutte le versioni di Azure Stack dopo la disponibilità generale del client di syslog (1809).
-Per risolvere il problema è necessario riconfigurare il client di syslog dopo aver applicato un aggiornamento di Azure Stack.
+
+- La configurazione di syslog non è persistente tramite un ciclo di aggiornamento, provocando client perde la sua configurazione e i messaggi syslog per arrestare l'inoltro syslog. Questo problema si applica a tutte le versioni di Azure Stack dopo la disponibilità generale del client di syslog (1809). Per risolvere questo problema, riconfigurare il client di syslog dopo aver applicato un aggiornamento di Azure Stack.
 
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
 

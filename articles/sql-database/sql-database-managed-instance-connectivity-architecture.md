@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651313"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358276"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
 
 Questo articolo illustra le comunicazioni in un'istanza gestita di Database SQL di Azure. Vengono inoltre descritte architettura della connettività e modo in cui i componenti di indirizzano il traffico all'istanza gestita.  
 
@@ -117,7 +117,6 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 > [!IMPORTANT]
 > Anche se le regole di sicurezza in ingresso necessario consentano il traffico dagli _qualsiasi_ sulle porte di origine 9000, 9003, 1438, 1440 e 1452, queste porte sono protette da un firewall incorporato. Per altre informazioni, vedere [determinare l'indirizzo dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Se si usa la replica transazionale in un'istanza gestita e se si usa qualsiasi database di istanza come server di pubblicazione o un server di distribuzione, aprire la porta 445 (TCP in uscita) nelle regole di sicurezza della subnet. Questa porta verrà concesso l'accesso alla condivisione file di Azure.
 

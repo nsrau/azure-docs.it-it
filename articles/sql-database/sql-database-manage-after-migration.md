@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216935"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358427"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -88,7 +88,7 @@ Nel database SQL sono disponibili [due metodi di autenticazione](sql-database-co
 
 L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/hybrid/how-to-connect-install-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server di database SQL. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
 
-|**Se…**|**Database SQL/SQL Data Warehouse**|
+|**Se si...**|**Database SQL o SQL Data Warehouse**|
 |---|---|
 |Si preferisce non usare Azure Active Directory (AD) in Azure|Usare l'[autenticazione in SQL](sql-database-security-overview.md)|
 |È stato usato Active Directory in SQL Server in locale|[Attuare la federazione di Active Directory con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md) e usare l'autenticazione di Azure AD. In questo caso è possibile usare Single Sign-On.|
@@ -152,9 +152,9 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |**Caratteristiche**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
-|**Il server di database può accedere ai dati sensibili**|No |Sì, poiché la crittografia è per i dati inattivi|
+|**Server di database può accedere ai dati sensibili**|No |Sì, poiché la crittografia è per i dati inattivi|
 |**Operazioni T-SQL consentite**|Confronto delle uguaglianze|L'intera superficie di attacco T-SQL è disponibile|
-|**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
+|**Modifiche all'App richieste per utilizzare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|
 ||||
 
@@ -195,19 +195,19 @@ Il diagramma seguente illustra le opzioni di archivio per le chiavi master di co
 
 Il traffico di rete tra l'organizzazione e il database SQL viene in genere instradato sulla rete pubblica. Se tuttavia si sceglie di ottimizzare questo percorso per renderlo più sicuro, è possibile valutare ExpressRoute. ExpressRoute consente di estendere la rete aziendale alla piattaforma Azure tramite una connessione privata. In questo modo si evita l'Internet pubblico. Si conseguono anche livelli superiori di sicurezza, affidabilità e ottimizzazione del routing, che si traducono in minori latenze di rete e velocità più elevata rispetto a quanto si verifica nell'Internet pubblico. Se si intende trasferire un blocco significativo di dati tra l'organizzazione e Azure, l'uso di ExpressRoute può risultare vantaggioso in termini economici. Sono disponibili tre modelli di connettività diversi per la connessione dall'organizzazione ad Azure:
 
-- [Condivisione percorso per Cloud Exchange](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Condivisione percorso per cloud Exchange](../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Any-to-any](../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Point-to-Point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 ExpressRoute consente anche di raddoppiare il limite di larghezza di banda acquistato senza alcun costo aggiuntivo. È anche possibile configurare la connettività tra più aree con ExpressRoute. Per visualizzare un elenco di provider di connettività ExpressRoute, vedere: [Partner e località di peering per ExpressRoute](../expressroute/expressroute-locations.md). Gli articoli seguenti descrivono ExpressRoute in modo più dettagliato:
 
-- [Introduzione a ExpressRoute](../expressroute/expressroute-introduction.md)
+- [Introduzione a Expressroute](../expressroute/expressroute-introduction.md)
 - [Prerequisiti](../expressroute/expressroute-prerequisites.md)
 - [Flussi di lavoro](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Il database SQL è conforme ai requisiti normativi e in che modo questo facilita la conformità dell'organizzazione
 
-Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità soddisfatte, visitare il [Centro protezione di Microsoft](https://microsoft.com/trustcenter/compliance/complianceofferings) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per capire se il database SQL sia incluso nei servizi conformi ad Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
+Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità siano stati soddisfatti dal Database SQL, visitare il [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e il drill-down nelle conformità importanti per l'organizzazione per capire se il Database SQL è incluso nella conformità Servizi di Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoraggio e manutenzione intelligenti del database dopo la migrazione
 
@@ -281,7 +281,7 @@ Per un set completo di elementi consigliati per la risoluzione dei problemi rela
 
 Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio si ottengono prestazioni prevedibili garantite a esso associate. A seconda del carico di lavoro, potrebbero verificarsi picchi di attività in cui l'uso delle risorse potrebbe raggiungere il limite massimo della quantità di calcolo corrente in cui si trova l'utente. In questi casi è utile valutare per prima cosa se eseguire o meno un'ottimizzazione (ad esempio, aggiungendo o modificando un indice e così via). Se i problemi di limite persistono, valutare la possibilità di passare a un livello di servizio o a una quantità di calcolo superiori.
 
-|**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
+|**Livello di servizio**|**Casi d'uso comuni**|
 |---|---|
 |**Basic**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
 |**Standard**|Applicazioni con requisiti elevati di concorrenza, scalabilità e prestazioni abbinati a richieste I/O medie o ridotte. |

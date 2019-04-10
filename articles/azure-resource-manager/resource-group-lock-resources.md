@@ -4,22 +4,20 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse critiche 
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649170"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360436"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste 
 
@@ -36,12 +34,32 @@ Quando si applica un blocco in un ambito padre, tutte le risorse in tale ambito 
 
 Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel Portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco di sola lettura in un Database SQL impedisce l'eliminazione o modifica del database, ma non impedisce la creazione, l'aggiornamento o eliminazione dei dati nel database. Transazioni dei dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
+I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco ReadOnly applicato a un database SQL impedisce l'eliminazione o la modifica del database. Non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nel database. Transazioni dei dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
 
 L'applicazione di **ReadOnly** può causare risultati imprevisti, perché alcune operazioni che sembrano operazioni di lettura richiedono in effetti azioni aggiuntive. Ad esempio, l'inserimento di un blocco **ReadOnly** in un account di archiviazione impedisce a tutti gli utenti di ottenere un elenco delle chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura. Per fare un altro esempio, l'inserimento di un blocco **ReadOnly** in una risorsa del servizio app impedisce a Esplora Server di Visual Studio di visualizzare i file relativi alla risorsa, perché tale interazione richiede l'accesso in scrittura.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Chi può creare o eliminare i blocchi nell'organizzazione
+## <a name="who-can-create-or-delete-locks"></a>Chi può creare o eliminare i blocchi
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
+
+## <a name="managed-applications-and-locks"></a>Le applicazioni e i blocchi
+
+Alcuni servizi di Azure, ad esempio Azure Databricks, usano [le applicazioni gestite](../managed-applications/overview.md) per implementare il servizio. In tal caso, il servizio crea due gruppi di risorse. Un gruppo di risorse contiene una panoramica del servizio e non sia bloccato. L'altro gruppo di risorse contiene l'infrastruttura per il servizio e viene bloccato.
+
+Se si prova a eliminare il gruppo di risorse di infrastruttura, è visualizzato un errore che informa che il gruppo di risorse viene bloccato. Se si prova a eliminare il blocco per il gruppo di risorse di infrastruttura, viene visualizzato un errore che informa che il blocco non può essere eliminato perché è di proprietà da un'applicazione di sistema.
+
+In alternativa, eliminare il servizio, eliminando così contemporaneamente anche il gruppo di risorse di infrastruttura.
+
+Per le applicazioni gestite, selezionare il servizio che è stato distribuito.
+
+![Selezionare il servizio](./media/resource-group-lock-resources/select-service.png)
+
+Si noti che il servizio include un collegamento per una **gruppo di risorse gestito**. Tale gruppo di risorse contiene l'infrastruttura e viene bloccato. Non può essere eliminato direttamente.
+
+![Mostra il gruppo gestito da](./media/resource-group-lock-resources/show-managed-group.png)
+
+Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse dell'infrastruttura bloccati, selezionare **eliminare** per il servizio.
+
+![Delete service](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portale
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -53,12 +71,12 @@ Quando si usa un modello di Resource Manager per distribuire un blocco, utilizza
 Quando si applica un blocco a un **risorsa**, usare i formati seguenti:
 
 * nome: `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* tipo: `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Quando si applica un blocco a un **gruppo di risorse** oppure **sottoscrizione**, usare i formati seguenti:
 
 * nome: `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* tipo: `Microsoft.Authorization/locks`
 
 L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. Il tipo di risorsa del blocco corrisponde al tipo di risorsa della risorsa da bloccare e a **/providers/locks**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco stesso.
 

@@ -181,232 +181,326 @@ items:
   - name: Eseguire il debug con il diagramma del processo
     href: stream-analytics-job-diagram-with-metrics.md
 - name: Linguaggio di query di Analisi di flusso
-  href: /stream-analytics-query/stream-analytics-query-language-reference
   items:
   - name: Funzioni predefinite
     items:
     - name: Panoramica delle funzioni predefinite
       href: /stream-analytics-query/built-in-functions-azure-stream-analytics
+      maintainContext: true
     - name: Funzioni di aggregazione
       items:
       - name: Panoramica delle funzioni di aggregazione
         href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
+        maintainContext: true
       - name: MEDIA
         href: /stream-analytics-query/avg-azure-stream-analytics
+        maintainContext: true
       - name: COUNT
         href: /stream-analytics-query/count-azure-stream-analytics
+        maintainContext: true
       - name: Collect
         href: /stream-analytics-query/collect-azure-stream-analytics
+        maintainContext: true
       - name: CollectTOP
         href: /stream-analytics-query/collecttop-azure-stream-analytics
+        maintainContext: true
       - name: MAX
         href: /stream-analytics-query/max-azure-stream-analytics
+        maintainContext: true
       - name: MIN
         href: /stream-analytics-query/min-azure-stream-analytics
+        maintainContext: true
       - name: Percentile_Cont
         href: /stream-analytics-query/percentile-cont-azure-stream-analytics
+        maintainContext: true
       - name: Percentile_Disc
         href: /stream-analytics-query/percentile-disc-azure-stream-analytics
+        maintainContext: true
       - name: STDEV
         href: /stream-analytics-query/stdev-azure-stream-analytics
+        maintainContext: true
       - name: STDEVP
         href: /stream-analytics-query/stdevp-azure-stream-analytics
+        maintainContext: true
       - name: SUM
         href: /stream-analytics-query/sum-azure-stream-analytics
+        maintainContext: true
       - name: TopOne
         href: /stream-analytics-query/topone-azure-stream-analytics
+        maintainContext: true
       - name: VAR
         href: /stream-analytics-query/var-azure-stream-analytics
+        maintainContext: true
       - name: VARP
         href: /stream-analytics-query/varp-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di analisi
       items:
       - name: Panoramica delle funzioni di analisi
         href: /stream-analytics-query/analytic-functions-azure-stream-analytics
+        maintainContext: true
       - name: AnomalyDetection_SpikeAndDip
         href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+        maintainContext: true
       - name: AnomalyDetection_ChangePoint
         href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
+        maintainContext: true
       - name: ISFIRST
         href: /stream-analytics-query/isfirst-azure-stream-analytics
+        maintainContext: true
       - name: LAG
         href: /stream-analytics-query/lag-azure-stream-analytics
+        maintainContext: true
       - name: LAST
         href: /stream-analytics-query/last-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di matrice
       items:
       - name: Panoramica delle funzioni di matrice
         href: /stream-analytics-query/array-functions-stream-analytics
+        maintainContext: true
       - name: GetArrayLength
         href: /stream-analytics-query/getarraylength-azure-stream-analytics
+        maintainContext: true
       - name: GetArrayElement
         href: /stream-analytics-query/getarrayelement-azure-stream-analytics
+        maintainContext: true
       - name: GetArrayElements
         href: /stream-analytics-query/getarrayelements-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di conversione
       items:
       - name: Panoramica delle funzioni di conversione
         href: /stream-analytics-query/conversion-functions-azure-stream-analytics
+        maintainContext: true
       - name: CAST
         href: /stream-analytics-query/cast-azure-stream-analytics
+        maintainContext: true
       - name: GetType
         href: /stream-analytics-query/gettype-azure-stream-analytics
+        maintainContext: true
       - name: TRY_CAST
         href: /stream-analytics-query/try-cast-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di data e ora
       items:
       - name: Panoramica delle funzioni di data e ora
         href: /stream-analytics-query/date-and-time-functions-azure-stream-analytics
+        maintainContext: true
       - name: DATEADD
         href: /stream-analytics-query/dateadd-azure-stream-analytics
+        maintainContext: true
       - name: DATEDIFF
         href: /stream-analytics-query/datediff-azure-stream-analytics
+        maintainContext: true
       - name: DATENAME
         href: /stream-analytics-query/datename-azure-stream-analytics
+        maintainContext: true
       - name: DATEPART
         href: /stream-analytics-query/datepart-azure-stream-analytics
+        maintainContext: true
       - name: DATETIMEFROMPARTS
         href: /stream-analytics-query/datetimefromparts-azure-stream-analytics
+        maintainContext: true
       - name: DAY
         href: /stream-analytics-query/day-azure-stream-analytics
+        maintainContext: true
       - name: MONTH
         href: /stream-analytics-query/month-azure-stream-analytics
+        maintainContext: true
       - name: YEAR
         href: /stream-analytics-query/year-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni geospaziali
       items:
       - name: Panoramica delle funzioni geospaziali
         href: /stream-analytics-query/geospatial-functions
+        maintainContext: true
       - name: CreateLineString
         href: /stream-analytics-query/createlinestring
+        maintainContext: true
       - name: CreatePoint
         href: /stream-analytics-query/createpoint
+        maintainContext: true
       - name: CreatePolygon
         href: /stream-analytics-query/createpolygon
+        maintainContext: true
       - name: ST_DISTANCE
         href: /stream-analytics-query/st-distance
+        maintainContext: true
       - name: ST_OVERLAPS
         href: /stream-analytics-query/st-overlaps
+        maintainContext: true
       - name: ST_INTERSECTS
         href: /stream-analytics-query/st-intersects
+        maintainContext: true
       - name: ST_WITHIN
         href: /stream-analytics-query/st-within
+        maintainContext: true
     - name: Funzioni per i metadati di input
       items:
       - name: Panoramica delle funzioni per i metadati di input
         href: /stream-analytics-query/input-metadata-functions
+        maintainContext: true
       - name: GetMetadataPropertyValue
         href: /stream-analytics-query/getmetadatapropertyvalue
+        maintainContext: true
     - name: Funzioni matematiche
       items:
       - name: Panoramica delle funzioni matematiche
         href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
+        maintainContext: true
       - name: abs
         href: /stream-analytics-query/abs-azure-stream-analytics
+        maintainContext: true
       - name: CEILING
         href: /stream-analytics-query/ceiling-azure-stream-analytics
+        maintainContext: true
       - name: EXP
         href: /stream-analytics-query/exp-azure-stream-analytics
+        maintainContext: true
       - name: FLOOR
         href: /stream-analytics-query/floor-azure-stream-analytics
+        maintainContext: true
       - name: POWER
         href: /stream-analytics-query/power-azure-stream-analytics
+        maintainContext: true
       - name: SIGN
         href: /stream-analytics-query/sign-azure-stream-analytics
+        maintainContext: true
       - name: SQUARE
         href: /stream-analytics-query/square-azure-stream-analytics
+        maintainContext: true
       - name: SQRT
         href: /stream-analytics-query/sqrt-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di record
       items:
       - name: Panoramica delle funzioni di record
         href: /stream-analytics-query/record-functions-azure-stream-analytics
+        maintainContext: true
       - name: GetRecordProperties
         href: /stream-analytics-query/getrecordproperties-azure-stream-analytics
+        maintainContext: true
       - name: GetRecordPropertyValue
         href: /stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di stringa
       items:
       - name: Panoramica delle funzioni di stringa
         href: /stream-analytics-query/string-functions-azure-stream-analytics
+        maintainContext: true
       - name: CHARINDEX
         href: /stream-analytics-query/charindex-azure-stream-analytics
+        maintainContext: true
       - name: CONCAT
         href: /stream-analytics-query/concat-azure-stream-analytics
+        maintainContext: true
       - name: LEN
         href: /stream-analytics-query/len-azure-stream-analytics
+        maintainContext: true
       - name: LOWER
         href: /stream-analytics-query/lower-azure-stream-analytics
+        maintainContext: true
       - name: PATINDEX
         href: /stream-analytics-query/patindex-azure-stream-analytics
+        maintainContext: true
       - name: REGEXMATCH
         href: /stream-analytics-query/regexmatch-azure-stream-analytics
+        maintainContext: true
       - name: SUBSTRING
         href: /stream-analytics-query/substring-azure-stream-analytics
+        maintainContext: true
       - name: UPPER
         href: /stream-analytics-query/upper-azure-stream-analytics
+        maintainContext: true
     - name: Funzioni di windowing
       items:
       - name: Panoramica delle funzioni di windowing
         href: /stream-analytics-query/windowing-azure-stream-analytics
+        maintainContext: true
       - name: Finestra di salto
         href: /stream-analytics-query/hopping-window-azure-stream-analytics
+        maintainContext: true
       - name: Finestra della sessione
         href: /stream-analytics-query/session-window-azure-stream-analytics
+        maintainContext: true
       - name: Finestra temporale scorrevole
         href: /stream-analytics-query/sliding-window-azure-stream-analytics
+        maintainContext: true
       - name: Finestra a cascata
         href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+        maintainContext: true
   - name: Tipi di dati
     items:
     - name: Panoramica dei tipi di dati
       href: /stream-analytics-query/data-types-azure-stream-analytics
+      maintainContext: true
     - name: Analisi dei dati JSON e AVRO
       href: stream-analytics-parsing-json.md
+      maintainContext: true
   - name: Eseguire query sugli elementi del linguaggio
     items:
     - name: Panoramica delle query sugli elementi del linguaggio
       href: /stream-analytics-query/query-language-elements-azure-stream-analytics
+      maintainContext: true
     - name: APPLY
       href: /stream-analytics-query/apply-azure-stream-analytics
+      maintainContext: true
     - name: CASE
       href: /stream-analytics-query/case-azure-stream-analytics
+      maintainContext: true
     - name: CREA TABELLA
       href: /stream-analytics-query/create-table-stream-analytics
+      maintainContext: true
     - name: FROM
       href: /stream-analytics-query/from-azure-stream-analytics
+      maintainContext: true
     - name: GROUP BY
       href: /stream-analytics-query/group-by-azure-stream-analytics
+      maintainContext: true
     - name: HAVING
       href: /stream-analytics-query/having-azure-stream-analytics
+      maintainContext: true
     - name: INTO
       href: /stream-analytics-query/into-azure-stream-analytics
+      maintainContext: true
     - name: JOIN
       href: /stream-analytics-query/join-azure-stream-analytics
+      maintainContext: true
     - name: JOIN per i dati di riferimento
       href: /stream-analytics-query/reference-data-join-azure-stream-analytics
+      maintainContext: true
     - name: SELECT
       href: /stream-analytics-query/select-azure-stream-analytics
+      maintainContext: true
     - name: UNION
       href: /stream-analytics-query/union-azure-stream-analytics
+      maintainContext: true
     - name: WHERE
       href: /stream-analytics-query/where-azure-stream-analytics
+      maintainContext: true
     - name: WITH
       href: /stream-analytics-query/with-azure-stream-analytics
+      maintainContext: true
   - name: Gestione del tempo
     items:
     - name: Panoramica della gestione del tempo
       href: /stream-analytics-query/time-management-azure-stream-analytics
+      maintainContext: true
     - name: System.Timestamp
       href: /stream-analytics-query/system-timestamp-stream-analytics
+      maintainContext: true
     - name: TIMESTAMP BY
       href: /stream-analytics-query/timestamp-by-azure-stream-analytics
+      maintainContext: true
     - name: Criteri dello sfasamento dell'ora
       href: /stream-analytics-query/time-skew-policies-azure-stream-analytics
+      maintainContext: true
   - name: Garanzie di recapito degli eventi
     href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
-  maintainContext: true
-- name: Informazioni di riferimento
+    maintainContext: true
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.streamanalytics
@@ -442,9 +536,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 0066db1ee56ada20527e468e689dde84a823f284
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b4b6bf1578e2e8b30e04b93717bfe679d86b25ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849534"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360140"

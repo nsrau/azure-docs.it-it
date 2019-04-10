@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896458"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358145"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -43,7 +43,8 @@ App per le funzioni possono essere ospitate in modi diversi.
 
 Le restrizioni IP consentono di definire un elenco consenti/nega basato sulle priorità di indirizzi IP a cui è consentito accedere all'app. L'elenco consenti può includere gli indirizzi IPv4 e IPv6. In presenza di una o più voci, alla fine dell'elenco è presente un nega tutto implicito. La funzionalità restrizioni IP può essere usata con funzione di tutte le opzioni di hosting.
 
-> ! [IMPORTANTE] Per poter usare l'editor del portale di Azure, il portale deve essere in grado di accedere direttamente alle app per le funzioni in esecuzione e il dispositivo che si usa per accedere al portale deve essere relativo inserito nella whitelist IP. Con restrizioni di rete, è comunque possibile accedere le caratteristiche di **funzionalità della piattaforma** scheda.
+> [!NOTE]
+> Per poter usare l'editor del portale di Azure, il portale deve essere in grado di accedere direttamente alle app per le funzioni in esecuzione e il dispositivo che si usa per accedere al portale deve essere relativo inserito nella whitelist IP. Con restrizioni di rete, è comunque possibile accedere le caratteristiche di **funzionalità della piattaforma** scheda.
 
 [Altre informazioni sono disponibili qui](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

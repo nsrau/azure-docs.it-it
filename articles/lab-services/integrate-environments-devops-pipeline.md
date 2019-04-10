@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887206"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357398"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrare ambienti nelle tue pipeline CI/CD DevOps di Azure
 È possibile usare l'estensione viene installata in servizi di DevOps di Azure (precedentemente noto come Visual Studio Team Services) per integrare facilmente l'integrazione continua (CI) per Azure DevTest Labs Tasks / recapito continuo (CD) compilazione e rilascio pipeline con Azure DevTest Labs. Queste estensioni rendono più semplice distribuire rapidamente un' [ambiente](devtest-lab-test-env.md) per una determinata attività di test e quindi eliminarlo al termine di test. 
@@ -56,7 +56,7 @@ La fase successiva della distribuzione consiste nel creare l'ambiente da utilizz
 
 1. Nella definizione di versione selezionare **Aggiungi attività**.
 2. Nel **attività** scheda, aggiungere un'attività di Azure DevTest Labs crea ambiente. Configurare le attività in questo modo:
-    1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
+    1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
 2. Per la **nome Lab**, selezionare il nome dell'istanza creata in precedenza *.
 3. Per la **nome del Repository**, selezionare il repository in cui è stato inserito il modello di Resource Manager (201) *.
 4. Per la **nome modello**, selezionare il nome dell'ambiente in cui è stato salvato per il repository di codice sorgente *. 
@@ -71,7 +71,7 @@ La fase finale consiste nell'eliminare l'ambiente che è stato distribuito nell'
 Nella definizione di versione, selezionare **aggiungere le attività**, quindi nel **Distribuisci** scheda, aggiungere un **Elimina ambiente di Azure DevTest Labs** attività. Configurare l'app come segue:
 
 1. Per eliminare la macchina virtuale, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
+    1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
     2. Per la **nome Lab**, selezionare il lab in cui si trova l'ambiente.
     3. Per la **nome dell'ambiente**, immettere il nome dell'ambiente da rimuovere.
 2. Immettere un nome per la definizione di versione e quindi salvarla.
@@ -80,5 +80,5 @@ Nella definizione di versione, selezionare **aggiungere le attività**, quindi n
 Vedere gli articoli seguenti: 
 - [Creare un ambiente di più macchine Virtuali con modelli di Resource Manager](devtest-lab-create-environment-from-arm.md).
 - I modelli di avvio rapido di Resource Manager per l'automazione DevTest Labs dal [DevTest Labs GitHub repository](https://github.com/Azure/azure-quickstart-templates).
-- [Pagina di risoluzione dei problemi relativi a Visual Studio Team Services](/devops/pipelines/troubleshooting)
+- [Pagina di risoluzione dei problemi relativi a Visual Studio Team Services](/azure/devops/pipelines/troubleshooting)
 

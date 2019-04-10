@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918264"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358242"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -205,7 +205,7 @@ Ecco un esempio per impostare la dimensione di ruolo su Standard_D2 per un'istan
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Modifica delle dimensioni di un ruolo esistente
 
-Man mano che la natura del carico di lavoro cambia o nuove dimensioni della VM diventano disponibili, è possibile che si desideri modificare la dimensione del ruolo. A tale scopo, è necessario modificare le dimensioni della macchina virtuale nel file di definizione del servizio, come illustrato in precedenza, ricreare il pacchetto del servizio cloud e distribuirlo. Non è possibile modificare le dimensioni delle macchine virtuali direttamente dal portale o da PowerShell.
+Man mano che la natura del carico di lavoro cambia o nuove dimensioni della VM diventano disponibili, è possibile che si desideri modificare la dimensione del ruolo. A tale scopo, è necessario modificare le dimensioni della macchina virtuale nel file di definizione del servizio, come illustrato in precedenza, ricreare il pacchetto del servizio cloud e distribuirlo.
 
 >[!TIP]
 > È possibile che si desideri usare dimensioni della VM differenti per il ruolo in ambienti diversi (ad esempio, test e produzione). A tal fine, è possibile creare più file di definizione del servizio (.csdef) nel progetto e successivamente creare pacchetti del servizio cloud differenti per ogni ambiente durante la compilazione automatica usano lo strumento CSPack. Per ulteriori informazioni sugli elementi di un pacchetto di servizi cloud e su come crearli, vedere [Cos'è il modello di servizi cloud e come è possibile crearne il pacchetto?](cloud-services-model-and-package.md)

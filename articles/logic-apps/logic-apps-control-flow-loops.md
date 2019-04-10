@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360757"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
 Per elaborare una matrice nell'app per la logica, è possibile creare un [ciclo "Foreach"](#foreach-loop). Questo ciclo ripete una o più azioni su ogni elemento della matrice. Per i limiti al numero massimo di elementi di una matrice che i cicli "Foreach" possono elaborare, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
-Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue tutte le azioni nel ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti al numero massimo di cicli "Until" in un'esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). Innanzitutto, app per la logica esegue tutte le azioni all'interno del ciclo e controlla quindi lo stato o una condizione. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti al numero massimo di cicli "Until" in un'esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Se si usa la definizione JSON dell'app per la logica, è possibile usare l'opzio
 
 ## <a name="until-loop"></a>Ciclo "Until"
   
-Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, inserire tali azioni in un ciclo "Until". Ecco alcuni scenari comuni in cui è possibile usare un ciclo "Until":
+Per eseguire e ripetere azioni fino a quando non ottiene soddisfatta una condizione o uno stato modificato, inserire tali azioni in un ciclo "Until". Innanzitutto, app per la logica esegue tutte le azioni all'interno del ciclo e controlla quindi lo stato o una condizione. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto.
+
+Ecco alcuni scenari comuni in cui è possibile usare un ciclo "Until":
 
 * Chiamare un endpoint finché non si ottiene la risposta desiderata.
 
@@ -193,8 +195,8 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    | Proprietà | Valore | DESCRIZIONE |
    | -------- | ----- | ----------- |
-   | **Nome** | Limite | Nome della variabile | 
-   | **Tipo** | Integer | Nome del tipo di dati della variabile | 
+   | **NOME** | Limite | Nome della variabile | 
+   | **Type** | Integer | Nome del tipo di dati della variabile | 
    | **Valore** | 0 | Valore iniziale della variabile | 
    |||| 
 
@@ -234,7 +236,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       | Proprietà | Valore | DESCRIZIONE |
       | -------- | ----- | ----------- | 
-      | **To** | *<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
+      | **A** | *<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
       | **Corpo** | <*contenuto del messaggio di posta elettronica*> | Specificare il contenuto del messaggio di posta elettronica da inviare. Per questo esempio, immettere il testo desiderato. | 
       |||| 
@@ -251,7 +253,7 @@ Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica
 
 | Proprietà | Valore predefinito | DESCRIZIONE | 
 | -------- | ------------- | ----------- | 
-| **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
+| **Conteggio** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
 | **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
 |||| 
 

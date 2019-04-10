@@ -1,0 +1,36 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure Data Catalog
+metadata:
+  title: Documentazione di Azure Data Catalog - Esercitazioni e informazioni di riferimento sulle API
+  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
+  services: data-catalog
+  author: markingmyname
+  ms.author: maghan
+  ms.service: data-catalog
+  ms.topic: landing-page
+  ms.date: 04/05/2019
+abstract:
+  description: 'Informazioni su come usare Catalogo dati per aiutare l''organizzazione e il team a trovare, comprendere e usare le origini dati. Esercitazioni, informazioni di riferimento sulle API REST e altri documenti mostrano come pianificare e configurare un repository di dati in cui gli utenti possono trovare le origini dati disponibili e acquisire conoscenze a cui hanno contribuito gli esperti di dominio.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: 'Informazioni su come distribuire la prima istanza di Azure Data Catalog:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/data-catalog.svg
+            text: Portale di Azure
+            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/datacatalog/">Informazioni di riferimento sulle API REST</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Informazioni di riferimento sulla sintassi di ricerca</a></p>
+          - title: Gestione risorse
+            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Modelli di Gestione risorse</a></p>

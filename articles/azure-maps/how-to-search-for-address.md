@@ -1,23 +1,30 @@
 ---
 title: Come cercare un indirizzo usando il servizio di ricerca di Mappe di Azure | Microsoft Docs
 description: Informazioni su come cercare un indirizzo usando il servizio di ricerca di Mappe di Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875787"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277324"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
 Il servizio di ricerca di Mappe è un set di API RESTful progettato per gli sviluppatori che consente di cercare indirizzi, località, punti di interesse, elenchi di aziende e altre informazioni geografiche. Il servizio assegna una coppia latitudine/longitudine a un indirizzo, una strada secondaria, una caratteristica geografica o un punto di interesse specifico. I valori di latitudine e longitudine restituiti dalla ricerca possono essere usati come parametri in altri servizi di Mappe come la pianificazione dell'itinerario e il flusso del traffico.
+
+In questo articolo si apprenderà come:
+
+* Cercare un indirizzo usando [API di ricerca Fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Cercare un indirizzo insieme a proprietà e coordinate
+* Creare un [ricerca di indirizzi inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per cercare un indirizzo stradale
+* Cercare un cross street usando [indirizzi inversa Cross Street API di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

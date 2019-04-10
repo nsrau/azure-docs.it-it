@@ -9,14 +9,14 @@ keywords: funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo din
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 030/25/2019
+ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283036"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357629"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 

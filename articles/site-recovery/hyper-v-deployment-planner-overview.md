@@ -1,18 +1,18 @@
 ---
 title: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure | Microsoft Docs
 description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
-author: nsoneji
+author: mayurigupta13
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.date: 4/9/2019
+ms.author: mayg
+ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207395"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360265"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
@@ -51,13 +51,13 @@ Lo strumento indica i dettagli seguenti:
 * Spazio di archiviazione libero necessario in ogni volume di archiviazione di Hyper-V per la replica iniziale e la replica delta corrette per assicurare che la replica delle VM non provochi tempi di inattività non desiderati per le applicazioni di produzione
 * Frequenza di copia massima da impostare per la replica Hyper-V
 
-**Linee guida sull'invio in batch della replica iniziale** 
+**Indicazioni per l'invio in batch della replica iniziale** 
 * Numero di batch di VM da usare per la protezione
 * Elenco delle VM in ogni batch
 * Ordine in cui ogni batch deve essere protetto
 * Tempo stimato per il completamento della replica iniziale di ogni batch
 
-**Stima dei costi del ripristino di emergenza in Azure**
+**Stima dei costi di ripristino di emergenza in Azure**
 * Stima dei costi totali del ripristino di emergenza in Azure: costi di calcolo, archiviazione, rete e licenza di Azure Site Recovery
 * Analisi dei costi dettagliata per ogni VM
 
@@ -70,9 +70,9 @@ Lo strumento indica i dettagli seguenti:
 
 ## <a name="support-matrix"></a>Matrice di supporto
 
-| | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
+| | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Hyper-V al sito secondario**|**VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Yes|Sì|No |Sì*|No 
+Scenari supportati |Sì|Sì|No |Sì*|No 
 Versione supportata | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Azure Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
@@ -133,7 +133,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 ## <a name="version-history"></a>Cronologia delle versioni
 La versione più recente di Azure Site Recovery Deployment Planner è 2.3.
-Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Cronologia delle versioni di Azure Site Recovery Deployment Planner).
+Fare riferimento a [cronologia delle versioni di Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pagina per le correzioni aggiunte in ogni aggiornamento.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

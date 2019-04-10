@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55e92632b43d365c4041c79f20e68a0a63477d6f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58114108"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59284910"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
 
@@ -70,7 +70,7 @@ Sì. Per il modello di distribuzione Resource Manager, è necessario un gateway 
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
-IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP o il protocollo OpenVPN.
+IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP o **OpenVPN® protocollo**.
 
 Per preparare Windows 10 o Server 2016 per IKEv2:
 

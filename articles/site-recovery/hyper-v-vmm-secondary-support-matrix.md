@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310609"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360802"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
-Questo articolo elenca i componenti supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per replicare in un sito secondario macchine virtuali Hyper-V gestite nei cloud di System Center Virtual Machine Manager (VMM). Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
+Questo articolo riepiloga ciò che è supportato quando si usa la [Azure Site Recovery](site-recovery-overview.md) gestita dal servizio per la replica di VM Hyper-V nei cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > È possibile eseguire la replica in un sito secondario solo quando gli host Hyper-V sono gestiti nei cloud VMM.
@@ -108,7 +108,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il provider coordina le comunicazioni tra server VMM. 
 
-**Più recente** | **Aggiornamenti**
+**Ultimo** | **Aggiornamenti**
 --- | --- 
 5.1.19 ([disponibile dal portale](https://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ Il provider coordina le comunicazioni tra server VMM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire la replica di VM Hyper-V nel cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
+[Replicare VM Hyper-V nei cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
 

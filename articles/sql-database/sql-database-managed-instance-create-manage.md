@@ -7,17 +7,17 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c4f8144c3e941c673da3ecc9be7ac7f091583d4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864662"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359145"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Riferimento all'API di gestione per Istanza gestita di database SQL di Azure
 
@@ -79,7 +79,7 @@ Per creare e gestire un database dell'istanza dopo la creazione dell'istanza ges
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database di Istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
+|[CREA DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database di Istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica un database di Istanza gestita di database SQL di Azure.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Creare e gestire istanze gestite
@@ -88,12 +88,12 @@ Per creare e gestire istanze gestite, usare queste richieste di API REST.
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crea o aggiorna Istanza gestita.|
-|[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Elimina Istanza gestita.|
-|[Managed Instances - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Ottiene Istanza gestita.|
-|[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Restituisce un elenco di istanze gestite in una sottoscrizione.|
-|[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Restituisce un elenco di istanze gestite in un gruppo di risorse.|
-|[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Aggiorna Istanza gestita.|
+|[-Istanze gestite di creare o aggiornare](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crea o aggiorna Istanza gestita.|
+|[Istanze gestite - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Elimina Istanza gestita.|
+|[Istanze gestite - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Ottiene Istanza gestita.|
+|[-Istanze gestite di elenco](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Restituisce un elenco di istanze gestite in una sottoscrizione.|
+|[Istanze - elenco in base al gruppo di risorse gestite](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Restituisce un elenco di istanze gestite in un gruppo di risorse.|
+|[Istanze gestite - aggiornamento](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Aggiorna Istanza gestita.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
