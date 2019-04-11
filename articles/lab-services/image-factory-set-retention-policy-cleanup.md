@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361857"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469371"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzate in Azure DevTest Labs
 Questo articolo illustra l'impostazione di criteri di conservazione, pulizia della factory e ritiro immagini precedenti da tutte le altre DevTest Labs nell'organizzazione. 
@@ -75,5 +75,5 @@ Ora si dispone di una factory di immagini in esecuzione che potrebbe generare e 
 ## <a name="next-steps"></a>Passaggi successivi
 1. [Pianificare la compilazione/versione](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) consentono di eseguire periodicamente la factory di immagini. Aggiorna le immagini factory generati a intervalli regolari.
 2. Rendere più immagini golden della factory. È anche possibile considerare [creazione di elementi](devtest-lab-artifact-author.md) parti aggiuntive delle attività di configurazione della macchina virtuale di script e includere gli elementi nelle immagini di factory.
-4. Creare un [separare compilazione/versione](/azure/devops/pipelines/overview.md?view=azure-devops-2019) per eseguire il **DistributeImages** script separatamente. Quando si apportano modifiche a Labs.json e ottenere immagini copiate ai laboratori di destinazione senza dover ricreare tutte le immagini anche in questo caso, è possibile eseguire questo script.
+4. Creare un [separare compilazione/versione](/azure/devops/pipelines/overview?view=azure-devops-2019) per eseguire il **DistributeImages** script separatamente. Quando si apportano modifiche a Labs.json e ottenere immagini copiate ai laboratori di destinazione senza dover ricreare tutte le immagini anche in questo caso, è possibile eseguire questo script.
 

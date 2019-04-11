@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: a86c3bd85f9d611787a41754f49ee2475ba33a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175778"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469132"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
 Esistono scenari in cui è necessario creare o modificare quantità elevate di registrazioni in un hub di notifica. Alcuni di questi scenari sono aggiornamenti di tag seguenti calcoli in batch o la migrazione di un'implementazione push esistente per usare hub di notifica.
@@ -34,7 +34,7 @@ In questa sezione si presuppone le entità seguenti:
 
 - Un hub di notifica sottoposto a provisioning.
 - Un contenitore blob di archiviazione di Azure.
-- Riferimenti ai pacchetti NuGet del Bus di servizio di Azure e archiviazione di Azure.
+- Fa riferimento per la [pacchetto NuGet di archiviazione di Azure](https://www.nuget.org/packages/windowsazure.storage/) e [pacchetto NuGet degli hub di notifica](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Creare il file di input e archiviarlo in un blob
 Un file di input contiene un elenco di registrazioni serializzate in XML, uno per ogni riga. Usa Azure SDK, il codice seguente viene illustrato come serializzare le registrazioni e caricarle nel contenitore blob.
@@ -132,7 +132,7 @@ Questi file contengono l'elenco delle operazioni riuscite e non riuscite del bat
 Esempio di codice seguente importa le registrazioni in un hub di notifica.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -290,4 +290,4 @@ Per altre informazioni sulle registrazioni, vedere gli articoli seguenti:
 
 - [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md)
 - [Tag per le registrazioni](notification-hubs-tags-segment-push-message.md)
-- [Registrazioni dei modelli](notification-hubs-templates-cross-platform-push-messages.md)
+- [Registrazioni modello](notification-hubs-templates-cross-platform-push-messages.md)

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273584"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469489"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -63,9 +63,9 @@ Fare clic su **Aggiungi**.
 
 ![Budget di Gestione costi nel portale di Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Nella finestra **Crea il budget** immettere un nome e l'importo per il budget. Quindi, scegliere un mensile, trimestrale o periodo di durata annuale<sup>1</sup>. Selezionare poi una data di fine. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
+Nella finestra **Crea il budget** immettere un nome e l'importo per il budget. Scegliere quindi il periodo di durata mensile, trimestrale o annuale. Selezionare poi una data di fine. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
 
-<sup>1</sup> se sei un cliente con pagamento a consumo, MSDN o Visual Studio il periodo di fatturazione di fatturazione per una sottoscrizione potrebbe non allinearsi al mese di calendario. Per le sottoscrizioni e gruppi di risorse che rientrano in questo bucket, è possibile creare un budget definito è allineato alla fattura o i mesi di calendario. Per creare un budget allineato alla fattura, selezionare un periodo di ripristino del mese di fatturazione, fatturazione trimestre o anno fatturazione al momento della creazione. Per creare un budget allineato al mese di calendario, selezionare un periodo di ripristino di mensile, trimestrale o annuale in fase di creazione.
+Se si dispone di una sottoscrizione con pagamento a consumo, MSDN o Visual Studio, il periodo di fatturazione della fattura non potrebbe allinearsi al mese di calendario. Per i tipi di sottoscrizioni e gruppi di risorse, è possibile creare un budget definito è allineato al periodo di fatturazione o i mesi di calendario. Per creare un budget allineato al periodo di fatturazione, selezionare un periodo di ripristino del mese di fatturazione, fatturazione trimestre o anno di fatturazione. Per creare un budget allineato al mese di calendario, selezionare un periodo di ripristino di ogni mese, trimestre o anno.
 
 Di seguito è riportato un esempio di creazione di un budget mensile di $ 4.500. Viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget.
 

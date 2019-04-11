@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872897"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469455"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure
-Le regole del firewall a livello di server consentono agli amministratori di accedere a Database di Azure per il server MySQL da un indirizzo IP specifico o da un intervallo di indirizzi IP. 
+Le regole del firewall a livello di server sono utilizzabile per gestire l'accesso a un Database di Azure per il MySQL Server da un indirizzo IP specificato o un intervallo di indirizzi IP. 
+
+Le regole della rete virtuale sono anche utilizzabile per proteggere l'accesso al server. Altre informazioni sulle [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
@@ -57,4 +59,5 @@ Ripetere i passaggi per gestire le regole del firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Analogamente, è possibile generare uno script per [creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
-- Per informazioni sulla connessione a un server di Database di Azure per MySQL, vedere [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md) (Raccolte di connessioni per Database di Azure per MySQL)
+- Proteggere ulteriormente l'accesso al server dal [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
+- Per informazioni sulla connessione a un Database di Azure per il server MySQL, vedere [raccolte di connessioni per Database di Azure per MySQL](./concepts-connection-libraries.md).

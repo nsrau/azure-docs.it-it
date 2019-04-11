@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904934"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470968"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
 
 Questo articolo descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
 
 Questo articolo è destinato agli utenti che hanno familiarità con i modelli di Resource Manager. Fornisce informazioni dettagliate sulla struttura e la sintassi del modello. Se si vuole un'introduzione alla creazione di un modello, vedere [creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Formato del modello
 
@@ -496,7 +493,7 @@ Le risorse vengono definite con la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--- |:--- |:--- |
-| condition | No  | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. |
+| condition | No  | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Visualizzare [condizione](#condition). |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i valori disponibili, vedere [riferimento a un modello](/azure/templates/). |
 | type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. Per determinare i valori disponibili, vedere [riferimento a un modello](/azure/templates/). |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
@@ -533,6 +530,8 @@ In genere, si usa questo valore quando si vuole creare una nuova risorsa o usarn
 ```
 
 Per un modello di esempio completo che usa l'elemento `condition`, vedere [Macchina virtuale con una Rete virtuale nuova o esistente, archiviazione e indirizzo IP pubblico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+Se si usa un' [riferimento](resource-group-template-functions-resource.md#reference) oppure [elenco](resource-group-template-functions-resource.md#list) funzione con una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita. Si verifica un errore se la funzione fa riferimento a una risorsa che non esiste. Usare la [se](resource-group-template-functions-logical.md#if) funzione per assicurarsi che la funzione viene valutata solo per le condizioni quando la risorsa viene distribuita. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e riferimento a una risorsa distribuita in modo condizionale.
 
 ### <a name="resource-names"></a>Nomi di risorse
 

@@ -6,41 +6,168 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259950"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361509"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente:
 
+## <a name="backup"></a>Backup
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-copiare i dati di backup dall'insieme di credenziali scaduta
+
+Codice errore: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Messaggio di errore: Copia i dati di backup dall'insieme di credenziali scaduta
+
+Questo problema può verificarsi a causa di errori di archiviazione temporaneo o account di archiviazione insufficiente per il servizio backup di IOPS per trasferire i dati nell'insieme di credenziali entro il periodo di timeout. Configurare backup di macchine Virtuali usando queste [procedure consigliate](backup-azure-vms-introduction.md#best-practices) e ripetere l'operazione di backup.
+
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - macchina virtuale non è in uno stato che consente i backup.
+
+Codice errore: UserErrorVmNotInDesirableState <br/>
+Messaggio di errore: Lo stato della macchina virtuale non consente i backup.<br/>
+
+L'operazione di backup non è riuscita perché la macchina virtuale è in stato di errore. Per la macchina virtuale di backup completato correttamente lo stato deve essere in esecuzione, interrotto o arrestato (deallocato).
+
+* Se la macchina virtuale si trova in uno stato temporaneo tra **In esecuzione** e **Arresto**, attendere che lo stato cambi. Quindi attivare il processo di backup.
+*  Se la macchina virtuale è Linux e usa il modulo del kernel Security Enhanced Linux, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dai criteri di sicurezza e assicurarsi che l'estensione di backup sia installata.
+
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con file system
+
+Codice errore: UserErrorFsFreezeFailed <br/>
+Messaggio di errore: Non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con file system.
+
+* Controllare lo stato del sistema di file di tutti i dispositivi montati tramite il **tune2fs** comando, ad esempio **tune2fs -l/DEV/sdb1 \\** .\| grep **Filesystem state**.
+* Smontare i dispositivi per cui lo stato del sistema di file non è stato eliminato, utilizzando il **umount** comando.
+* Eseguire una verifica di coerenza file system in questi dispositivi tramite il **fsck** comando.
+* Montare nuovamente i dispositivi e ripetere l'operazione di backup.</ol>
+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - estensione installazione/operazione non riuscita a causa un errore COM+
+
+Codice errore: ExtensionSnapshotFailedCOM <br/>
+Messaggio di errore: L'operazione di creazione snapshot non è riuscita a causa di un errore COM+
+
+Codice errore: ExtensionInstallationFailedCOM  <br/>
+Messaggio di errore: Estensione installazione/operazione non riuscita a causa di un errore COM+
+
+Codice errore: Messaggio di errore ExtensionInstallationFailedMDTC: L'installazione dell'estensione non è riuscita con un errore che indica che il servizio COM+ non può comunicare con Microsoft Distributed Transaction Coordinator
+
+L'operazione di Backup non è riuscita a causa di un problema con il servizio di Windows **COM+ sistema** dell'applicazione.  Per risolvere il problema, seguire questa procedura:
+
+* Provare a avviare o riavviare il servizio di Windows **applicazione di sistema COM+** (da un prompt dei comandi con privilegi elevati **-net start COMSysApp**).
+* Assicurarsi **Distributed Transaction Coordinator** è in esecuzione come servizi **servizio di rete** account. In caso contrario, modificarlo per l'esecuzione come **servizio di rete** dell'account e riavviare **applicazione di sistema COM+**.
+* Se non è stato possibile riavviare il servizio, quindi reinstallare **Distributed Transaction Coordinator** servizio seguendo i passaggi seguenti:
+    * Arrestare il servizio MSDTC
+    * Aprire un prompt dei comandi (cmd)
+    * Esegui comando "msdtc-disinstallazione"
+    * comando di annullamento "msdtc-installare"
+    * Avviare il servizio MSDTC
+* Avviare il servizio di Windows **Applicazione di sistema COM+**. Dopo che il servizio **Applicazione sistema COM+** è stato avviato, attivare un processo di backup dal portale di Azure.</ol>
+
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - operazione di creazione Snapshot non è riuscita perché sono stati i writer VSS in uno stato non valido
+
+Codice errore: ExtensionFailedVssWriterInBadState <br/>
+Messaggio di errore: Operazione di creazione snapshot non riuscita perché sono stati i writer VSS in uno stato non valido.
+
+Riavviare i writer VSS in uno stato non valido. Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```. L'output contiene tutti i writer VSS con lo stato. Riavviare ogni VSS writer con stato diverso da **[1] Stable** eseguendo i comandi seguenti da un prompt dei comandi con privilegi elevati:
+
+  * ```net stop serviceName```
+  * ```net start serviceName```
+
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - errore nell'analisi del file di configurazione per l'estensione di backup
+
+Codice errore: ExtensionConfigParsingFailure<br/>
+Messaggio di errore: Si è verificato un errore durante l'analisi della configurazione per l'estensione del backup.
+
+Questo errore si verifica a causa della modifica delle autorizzazioni nella directory **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Eseguire il comando seguente e verificare che le autorizzazioni per il **MachineKeys** directory sono quelli predefiniti:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+Le autorizzazioni predefinite sono:
+* Everyone: (R,W)
+* BUILTIN\Administrators: (F)
+
+Se nella directory **MachineKeys** vengono visualizzate autorizzazioni diverse da quelle predefinite, seguire la procedura riportata di seguito per correggere le autorizzazioni, eliminare il certificato e attivare il backup:
+
+1. Correggere le autorizzazioni nella directory **MachineKeys**. Usando le impostazioni di sicurezza avanzate e le proprietà di sicurezza di Explorer nella directory, ripristinare le autorizzazioni ai valori predefiniti. Rimuovere tutti gli oggetti utente tranne quelli predefiniti dalla directory e assicurarsi che l'autorizzazione **Everyone** abbia accesso speciale per:
+
+    * Visualizzazione cartella/lettura dati
+    * Lettura attributi
+    * Lettura attributi estesi
+    * Creazione file/scrittura dati
+    * Creazione cartelle/aggiunta dati
+    * Scrittura attributi
+    * Scrittura attributi estesi
+    * Autorizzazioni di lettura
+2. Eliminare tutti i certificati in cui **Rilasciato a** è il modello di distribuzione classica o **Windows Azure CRP Certificate Generator**:
+    * [Aprire i certificati in una console del computer locale](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+    * In **Personale** > **Certificati** eliminare tutti i certificati in cui **Rilasciato a** o **Windows Azure CRP Certificate Generator** è il modello di distribuzione classica.
+3. Attivare un processo di backup della macchina virtuale.
+
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - lo stato dell'estensione non è supportato dall'operazione di backup
+
+Codice errore: ExtensionStuckInDeletionState <br/>
+Messaggio di errore: Lo stato dell'estensione non è supportato dall'operazione di backup
+
+L'operazione di Backup non è riuscita a causa dello stato non coerente dell'estensione di Backup. Per risolvere il problema, seguire questa procedura:
+
+* Verificare che l'agente Guest sia installato e reattivo
+* Nel portale di Azure passare a **Macchina virtuale** > **Tutte le impostazioni** > **Estensioni**
+* Selezionare l'estensione di backup VmSnapshot o VmSnapshotLinux e fare clic su **Disinstalla**
+* Dopo aver eliminato l'estensione di backup, ripetere l'operazione di backup
+* L'operazione di backup successiva installerà la nuova estensione nello stato desiderato
+
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - operazione di creazione Snapshot non riuscita poiché il limite di snapshot è stato superato per alcuni dei dischi collegati
+
+Codice errore: ExtensionFailedSnapshotLimitReachedError  <br/>
+Messaggio di errore: Operazione di creazione snapshot non riuscita poiché il limite di snapshot è stato superato per alcuni dei dischi collegati
+
+L'operazione di creazione snapshot non è riuscita perché il limite di snapshot ha superato alcuni dei dischi collegati. Completare i passaggi e quindi ripetere l'operazione la risoluzione dei problemi.
+
+* Eliminare i blob gli snapshot dei dischi che non sono necessari. Prestare attenzione a non eliminare il blob del disco, solo i BLOB di snapshot devono essere eliminati.
+* Se l'eliminazione temporanea è abilitata sul disco di macchina virtuale gli account di archiviazione, configurare la conservazione di eliminazione temporanea in modo che gli snapshot esistenti siano inferiore al valore massimo consentito in qualsiasi momento.
+* Se Azure Site Recovery è abilitata nella macchina virtuale sottoposta a backup, quindi eseguire il seguente:
+
+    * Verificare che il valore di **isanysnapshotfailed** è impostata su false in /etc/azure/vmbackup.conf
+    * Pianificare Azure Site Recovery in un momento diverso, in modo che l'operazione di backup non è in conflitto.
+
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - operazione di creazione Snapshot non riuscita a causa di risorse della macchina virtuale non adeguate.
+
+Codice errore: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Messaggio di errore: Operazione di creazione snapshot non riuscita a causa di risorse della macchina virtuale non adeguate.
+
+Operazione di backup nella macchina virtuale non è riuscita a causa di ritardo nelle chiamate di rete durante l'operazione snapshot. Per risolvere il problema, seguire il passaggio 1. Se il problema persiste, provare i passaggi 2 e 3.
+
+**Passaggio 1**: Creare uno snapshot tramite host
+
+Da un prompt dei comandi elevato (amministratore) eseguire il comando seguente:
+
+```
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
+```
+
+Questo garantirà che gli snapshot vengano creati tramite host invece che guest. Ripetere l'operazione di backup.
+
+**Passaggio 2**: Provare a modificare la pianificazione del backup in un tempo quando la macchina virtuale è sotto carico inferiore (meno CPU/IOps e così via.)
+
+**Passaggio 3**: Provare [aumentando le dimensioni della VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e ripetere l'operazione
+
+### <a name="common-vm-backup-errors"></a>Errori di backup della macchina virtuale comuni
+
 | Dettagli errore | Soluzione alternativa |
 | ------ | --- |
-| Non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più. <br>Arrestare la protezione della macchina virtuale senza eliminare i dati di backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](https://go.microsoft.com/fwlink/?LinkId=808124). |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue: <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>**oppure**</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| L'agente di macchine virtuali di Azure non può comunicare con il servizio Backup di Azure. <br>Verificare la connettività di rete della macchina virtuale e che l'agente di macchine virtuali sia in esecuzione con la versione più recente. Per altre informazioni, vedere [Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione](https://go.microsoft.com/fwlink/?LinkId=800034). |Questo errore viene generato se si verifica un problema con l'agente di macchine virtuali o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Altre informazioni sul [debug dei problemi delle macchine virtuali relativi agli snapshot](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup). <br><br>Se l'agente di macchine virtuali non causa problemi, riavviare la macchina virtuale. Uno stato della macchina virtuale non corretto può causare problemi; per reimpostarlo, riavviare la macchina virtuale. |
+| Codice errore: 320001<br/> Messaggio di errore: Impossibile eseguire l'operazione perché la VM non esiste più. <br/> <br/> Codice errore: 400094 <br/> Messaggio di errore: La macchina virtuale non esiste <br/> <br/>  La macchina virtuale di Azure non è stata trovata.  |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue: <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>**oppure**</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | Lo stato di provisioning della macchina virtuale è Non riuscito. <br>Riavviare la macchina virtuale e assicurarsi che lo stato della macchina virtuale sia In esecuzione o Arresto. | Questo errore si verifica quando gli errori di una delle estensioni provocano lo stato non riuscito del provisioning della macchina virtuale. Passare all'elenco di estensioni, verificare se è presente un'estensione con errore, rimuoverla e provare a riavviare la macchina virtuale. Se tutte le estensioni sono in stato di esecuzione, verificare se è in esecuzione il servizio agente di macchine virtuali. In caso contrario, riavviare il servizio agente di macchine virtuali. |
-| Non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione. <br>Assicurarsi che lo spazio disponibile nell'account di archiviazione sia equivalente ai dati presenti nei dischi di archiviazione Premium collegati alla macchina virtuale. | Per le macchine virtuali Premium nello stack V1 di backup di macchine virtuali, lo snapshot viene copiato nell'account di archiviazione, in modo da assicurare che il traffico di gestione dei backup, che funziona sullo snapshot, non limiti il numero di IOPS disponibili all'applicazione che usa i dischi Premium. <br><br>Si consiglia di allocare solo il 50%, 17,5 TB, dello spazio totale dell'account di archiviazione. In questo modo il servizio Backup di Azure può copiare lo snapshot nell'account di archiviazione e trasferire i dati da questa posizione copiata nell'account di archiviazione all'insieme di credenziali. |
-| Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde. |Questo errore viene generato se si verifica un problema con l'agente di macchine virtuali o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Per le macchine virtuali di Windows, controllare lo stato del servizio agente di macchine virtuali nella sezione dei servizi e verificare che l'agente venga visualizzato tra i programmi nel pannello di controllo. <br><br>Provare a rimuovere il programma dal pannello di controllo e a reinstallare l'agente come descritto in [Agente di macchine virtuali](#vm-agent). Dopo aver reinstallato l'agente, attivare un backup ad-hoc per verificare. |
-| Operazione di estensione dei servizi di ripristino non riuscita. <br>Verificare che nella macchina virtuale sia presente l'agente della macchina virtuale più recente e che il servizio dell'agente sia in esecuzione. Ripetere l'operazione di backup. In caso di esito negativo, contattare il supporto tecnico Microsoft. |Questo errore si verifica generato quando l'agente di macchine virtuali non è aggiornato. Vedere Risolvere i problemi relativi al backup delle macchine virtuali di Azure per aggiornare l'agente di macchine virtuali. |
-| La macchina virtuale non esiste. <br>Assicurarsi che la macchina virtuale esista o selezionare una macchina virtuale diversa. |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue: <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>**oppure**<br></li><li>Interrompere la protezione della macchina virtuale senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Il comando non riuscito: <br>In questo elemento è attualmente in corso un'altra operazione. Attendere il completamento dell'operazione precedente, quindi riprovare. |È in esecuzione un processo di backup esistente e non è possibile avviare un nuovo processo fino al termine di quello corrente. |
-| Si è verificato il timeout della copia dei dischi rigidi virtuali dall'insieme di credenziali di Servizi di ripristino. <br>Ripetere l'operazione tra qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore si verifica in presenza di un errore temporaneo sul lato dell'archiviazione o se il servizio Backup non riceve operazioni di I/O al secondo dell'account di archiviazione sufficienti a trasferire i dati nell'insieme di credenziali entro il periodo di timeout. Assicurarsi di seguire le [procedure consigliate quando si configurano le macchine virtuali](backup-azure-vms-introduction.md#best-practices). Spostare la macchina virtuale in un account di archiviazione diverso non caricato e ripetere il processo di backup.|
-| Eseguire il backup non è riuscita con errore interno: <br>Ripetere l'operazione tra qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft. |È possibile ricevere questo errore per due motivi: <ul><li> È stato riscontrato un problema temporaneo nell'accesso all'archiviazione della macchina virtuale. Consultare il [sito Stato di Azure](https://azure.microsoft.com/status/) per vedere se nell'area geografica ci sono problemi di calcolo, archiviazione o rete. Dopo aver risolto il problema, ripetere il processo di backup. <li> La macchina virtuale originale è stata eliminata e non è possibile ricorrere al punto di ripristino. Per mantenere i dati di backup per una macchina virtuale eliminata, rimuovendo gli errori di backup, interrompere la protezione della macchina virtuale e selezionare l'opzione di conservazione dei dati. Questa operazione interrompe il processo di backup pianificato e i messaggi di errore ricorrenti. |
-| Eseguire il backup non è riuscito a installare l'estensione servizi di ripristino di Azure nell'elemento selezionato: <br>L'agente VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente VM di Azure e riavviare l'operazione di registrazione. |<ol> <li>Controllare se l'agente di macchine virtuali è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della macchina virtuale sia impostato correttamente.</ol> Altre informazioni sull'installazione dell'agente di macchine virtuali e su come convalidarlo. |
-| L'installazione dell'estensione non è riuscita con l'errore **COM+ non è stato in grado di comunicare con Microsoft Distributed Transaction Coordinator**. |Questo errore in genere indica che il servizio COM+ non è in esecuzione. Per informazioni su come correggere l'errore, contattare il supporto tecnico Microsoft. |
+|Codice errore: UserErrorBCMPremiumStorageQuotaError<br/> Messaggio di errore: Non è stato possibile copiare lo snapshot della macchina virtuale, a causa di spazio sufficiente nell'account di archiviazione | Per le macchine virtuali Premium nello stack V1 di backup di macchine virtuali, lo snapshot viene copiato nell'account di archiviazione, in modo da assicurare che il traffico di gestione dei backup, che funziona sullo snapshot, non limiti il numero di IOPS disponibili all'applicazione che usa i dischi Premium. <br><br>Si consiglia di allocare solo il 50%, 17,5 TB, dello spazio totale dell'account di archiviazione. In questo modo il servizio Backup di Azure può copiare lo snapshot nell'account di archiviazione e trasferire i dati da questa posizione copiata nell'account di archiviazione all'insieme di credenziali. |
+| Non è stato possibile installare l'estensione servizi di ripristino di Microsoft come macchina virtuale non è in esecuzione <br>L'agente VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente VM di Azure e riavviare l'operazione di registrazione. |<ol> <li>Controllare se l'agente di macchine virtuali è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della macchina virtuale sia impostato correttamente.</ol> Altre informazioni sull'installazione dell'agente di macchine virtuali e su come convalidarlo. |
 | L'operazione di creazione snapshot non è riuscita con l'errore dell'operazione del Servizio Copia Shadow del volume **Unità bloccata da Crittografia unità BitLocker. Sbloccare l'unità dal Pannello di controllo.** |Disattivare BitLocker per tutte le unità della macchina virtuale e verificare se il problema relativo al Servizio Copia Shadow del volume è stato risolto. |
-| Lo stato della macchina virtuale non consente i backup. |<ul><li>Se la macchina virtuale si trova in uno stato temporaneo tra **In esecuzione** e **Arresto**, attendere che lo stato cambi. Quindi attivare il processo di backup. <li> Se la macchina virtuale è una VM Linux e Usa il modulo del kernel Linux sicurezza avanzata, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dal criterio di sicurezza e assicurarsi che sia installato l'estensione di Backup di Azure.  |
-| La macchina virtuale di Azure non è stata trovata. |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercarla. Correggere l'errore come indicato di seguito: <ol><li>Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**, <br>**oppure** <li> Disabilitare la protezione per questa macchina virtuale affinché i processi di backup non vengano creati. </ol> |
+| Lo stato della macchina virtuale non consente i backup. |<ul><li>Se la macchina virtuale si trova in uno stato temporaneo tra **In esecuzione** e **Arresto**, attendere che lo stato cambi. Quindi attivare il processo di backup. <li> Se la macchina virtuale è Linux e usa il modulo del kernel Security Enhanced Linux, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dai criteri di sicurezza e assicurarsi che l'estensione di backup sia installata.  |
 | L'agente di macchine virtuali non è presente nella macchina virtuale. <br>Installare i prerequisiti necessari e l'agente di macchine virtuali. Quindi ripetere l'operazione. |Altre informazioni sull'[installazione dell'agente di macchine virtuali e su come convalidarla](#vm-agent). |
-| L'operazione di creazione snapshot non è riuscita perché lo stato dei writer VSS non è valido. |Riavviare i writer VSS in uno stato non valido. Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```. L'output contiene tutti i writer VSS con lo stato. Riavviare ogni VSS writer con stato diverso da **[1] Stable** eseguendo i comandi seguenti da un prompt dei comandi con privilegi elevati: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
-| L'operazione di snapshot non è riuscita a causa di un errore di analisi della configurazione. |Questo errore si verifica a causa della modifica delle autorizzazioni nella directory **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Eseguire il comando seguente e verificare che le autorizzazioni nella directory **MachineKeys** siano quelle predefinite:<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>Le autorizzazioni predefinite sono: <ul><li>Everyone: (R,W) <li>BUILTIN\Administrators: (F)</ul> Se nella directory **MachineKeys** vengono visualizzate autorizzazioni diverse da quelle predefinite, seguire la procedura riportata di seguito per correggere le autorizzazioni, eliminare il certificato e attivare il backup: <ol><li>Correggere le autorizzazioni nella directory **MachineKeys**. Usando le impostazioni di sicurezza avanzate e le proprietà di sicurezza di Explorer nella directory, ripristinare le autorizzazioni ai valori predefiniti. Rimuovere tutti gli oggetti utente tranne quelli predefiniti dalla directory e assicurarsi che l'autorizzazione **Everyone** abbia accesso speciale per: <ul><li>Visualizzazione cartella/lettura dati <li>Lettura attributi <li>Lettura attributi estesi <li>Creazione file/scrittura dati <li>Creazione cartelle/aggiunta dati<li>Scrittura attributi<li>Scrittura attributi estesi<li>Autorizzazioni di lettura </ul><li>Eliminare tutti i certificati in cui **Rilasciato a** è il modello di distribuzione classica o **Windows Azure CRP Certificate Generator**:<ol><li>[Aprire i certificati in una console del computer locale](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>In **Personale** > **Certificati** eliminare tutti i certificati in cui **Rilasciato a** o **Windows Azure CRP Certificate Generator** è il modello di distribuzione classica.</ol> <li>Attivare un processo di backup della macchina virtuale. </ol>|
-| Il servizio Backup di Azure non ha autorizzazioni sufficienti nell'insieme di credenziali delle chiavi per il backup delle macchine virtuali crittografate. |Fornire al servizio Backup queste autorizzazioni in PowerShell usando i passaggi descritti in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md). |
-|L'installazione dell'estensione dello snapshot non è riuscita con l'errore **COM+ non è stato in grado di comunicare con Microsoft Distributed Transaction Coordinator**. | Da un prompt dei comandi con privilegi elevati avviare il servizio di Windows **Applicazione di sistema COM+**. Ad esempio **net start COMSysApp**. Se il servizio non si avvia, procedere come segue:<ol><li> Assicurarsi che l'account di accesso del servizio **Distributed Transaction Coordinator** sia **Servizio di rete**. In caso contrario, modificare l'account di accesso in **Servizio di rete** e riavviare il servizio. Quindi provare ad avviare **Applicazione di sistema COM+**.<li>Se il servizio **Applicazione di sistema COM+** non si avvia, usare la procedura seguente per disinstallare e installare il servizio **Distributed Transaction Coordinator**: <ol><li>Arrestare il servizio MSDTC. <li>Aprire un prompt dei comandi, **cmd**. <li>Eseguire il comando ```msdtc -uninstall```. <li>Eseguire il comando ```msdtc -install```. <li>Avviare il servizio MSDTC. </ol> <li>Avviare il servizio di Windows **Applicazione di sistema COM+**. Dopo che il servizio **Applicazione sistema COM+** è stato avviato, attivare un processo di backup dal portale di Azure.</ol> |
-|  L'operazione di creazione snapshot non è riuscita a causa di un errore COM+. | L'azione consigliata è riavviare il servizio di Windows **Applicazione di sistema COM+** da un prompt dei comandi con privilegi elevati, **net start COMSysApp**. Se il problema persiste, riavviare la macchina virtuale. Se anche il riavvio della macchina virtuale non consente di risolvere il problema, provare a [rimuovere l'estensione VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) e ad attivare il backup manualmente. |
 | Non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system. | Eseguire questa procedura: <ul><li>Controllare lo stato del file system di tutti i dispositivi montati tramite il comando **'tune2fs'**. Ad esempio **tune2fs -l/DEV/sdb1 \\** .\| grep **Filesystem state**. <li>Smontare i dispositivi con lo stato del file system modificato ma non salvato tramite il comando **'umount'**. <li> Eseguire una verifica di coerenza del file system in questi dispositivi usando il comando **'fsck'**. <li> Montare di nuovo i dispositivi e provare a eseguire il backup.</ol> |
 | L'operazione di creazione snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta. | <ol><li> Aprire l'editor del Registro di sistema eseguendo **regedit.exe** con privilegi elevati. <li> Identificare tutte le versioni di .NET Framework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Per ogni versione di .NET Framework presente nella chiave del Registro di sistema, aggiungere la chiave seguente: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | L'operazione di creazione snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012. | Andare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2012_x64. Assicurarsi che il valore della chiave del Registro di sistema che consente l'installazione del servizio sia impostato sul valore corretto. Il valore della chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** deve essere impostato su **3** e non su **4**. <br><br>Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo **MSIEXEC /UNREGISTER** e quindi **MSIEXEC /REGISTER** da un prompt dei comandi con privilegi elevati.  |
@@ -124,30 +251,8 @@ Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapsho
 - **Se più di quattro macchine virtuali condividono il servizio cloud, distribuirle tra più criteri di backup**. Distribuire gli orari del backup in modo che non più di quattro backup delle macchine virtuali vengano avviati nello stesso momento. Provare a separare di almeno un'ora gli orari di inizio dei criteri.
 - **L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria**. Se la macchina virtuale è in esecuzione con un uso elevato della memoria o della CPU, superiore al 90%, l'attività di snapshot viene messa in coda e ritardata. Infine, raggiunge il timeout. In questo caso, provare a eseguire un backup su richiesta.
 
-## <a name="troubleshoot-backup-of-encrypted-vms"></a>Risolvere i problemi di backup di macchine virtuali crittografate
-
-### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Backup di Azure non ha le autorizzazioni per l'accesso di Key Vault
-- **Codice errore**: UserErrorKeyVaultPermissionsNotConfigured
-- **Messaggio di errore**: Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate.
-- **Risoluzione**: Assegnare le autorizzazioni di Backup di Azure per Key Vault nel [portal](backup-azure-vms-encryption.md#provide-permissions), o con [PowerShell](backup-azure-vms-automation.md#enable-protection)
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>Impossibile ripristinare la macchina virtuale perché l'insieme di credenziali chiave associato non esiste
-- **Risoluzione**: Verificare di avere [creata un'istanza di Key Vault](../key-vault/quick-create-portal.md#create-a-vault).
-- **Risoluzione**: Seguire [queste istruzioni](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, anche se non sono presenti in Azure Key Vault.
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>Impossibile ripristinare la macchina virtuale perché non esiste la chiave associata
-- **Codice errore**: UserErrorKeyVaultKeyDoesNotExist
-- **Messaggio di errore**: non è possibile ripristinare questa macchina virtuale crittografata perché la chiave associata alla macchina in questione non esiste.
-- **Risoluzione**: Seguire [queste istruzioni](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, anche se non sono presenti in Azure Key Vault.
-
-### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>Non è possibile ripristinare la macchina virtuale perché Backup di Azure non dispone delle autorizzazioni
-- **Codice errore**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
-- **Messaggio di errore**: Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione.
-- **Risoluzione**: Ripristinare i dischi come consigliato. [Altre informazioni](backup-azure-vms-encryption.md#restore-an-encrypted-vm) 
-
-
 ## <a name="networking"></a>Rete
-Ad esempio tutte le estensioni, l'estensione di Backup di Azure deve avere accesso a internet pubblico per funzionare. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
+Analogamente a tutte le estensioni, per il funzionamento delle estensioni di Backup è necessario l'accesso a Internet pubblico. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
 
 * Possono verificarsi errori di installazione dell'estensione.
 * Possono verificarsi errori delle operazioni di backup, ad esempio lo snapshot del disco.

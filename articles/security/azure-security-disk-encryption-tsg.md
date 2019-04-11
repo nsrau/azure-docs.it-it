@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838273"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470696"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -49,6 +49,14 @@ Dopo aver riavviato la macchina virtuale nel nuovo kernel, la nuova versione del
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Aggiornare l'agente di macchine virtuali di Azure e le versioni dell'estensione
+
+Operazioni di crittografia dischi di Azure potrebbero non riuscire nelle immagini di macchine virtuali con le versioni non supportate dell'agente di macchine virtuali di Azure. Per altre informazioni, consultare [supporto della versione minima per gli agenti di macchina virtuale in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+La versione corretta dell'estensione dell'agente guest Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux è anche necessaria. Le versioni dell'estensione vengono mantenute e aggiornate automaticamente dalla piattaforma quando sono soddisfatti i prerequisiti di agente di macchine virtuali di Azure e viene utilizzata una versione supportata dell'agente di macchine virtuali.
+
+L'estensione Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux è stato deprecato e non è più supportata.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Impossibile crittografare i dischi Linux
 
@@ -148,5 +156,5 @@ Per disabilitare correttamente la crittografia dischi di Azure, iniziare da uno 
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
-- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Crittografia dei dati inattivi in Azure](azure-security-encryption-atrest.md)
+- [Applicare la crittografia del disco nel Centro sicurezza Azure](../security-center/security-center-apply-disk-encryption.md)
+- [Crittografia dei dati di Azure quando sono inattivi](azure-security-encryption-atrest.md)

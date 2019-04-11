@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895482"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470832"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilare i servizi cloud di Azure attivi con Application Insights
 
 È anche possibile distribuire Application Insights Profiler in questi servizi:
 * [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Applicazioni Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Applicazioni di Service Fabric Azure](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler viene installato con l'estensione Diagnostica di Microsoft Azure. È sufficiente configurare Diagnostica di Azure per installare Profiler e inviare i profili alla risorsa di Application Insights.
@@ -33,7 +33,7 @@ Application Insights Profiler viene installato con l'estensione Diagnostica di M
 
 1. Aggiungere [Application Insights SDK ai servizi cloud di Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**È presente un bug nel profiler fornito con la versione più recente di diagnostica di Microsoft AZURE per i servizi Cloud.** Per usare profiler con un servizio cloud, supporta solo AI SDK fino alla versione 2.7.2. Se si usa una versione più recente del SDK di intelligenza artificiale, è possibile tornare a 2.7.2 per poter usare il profiler. Se si usa Visual Studio per effettuare il downgrade la versione del SDK di App Insights, è possibile ottenere un errore di reindirizzamento di associazione in fase di esecuzione. Questo avviene perché "newVersion" nel file Web. config per Microsoft. applicationinsights deve essere impostato su "2.7.2.0" dopo il downgrade a SDK di intelligenza artificiale, ma non vengono aggiornato automaticamente.
+    **È stato risolto il bug nel profiler fornito con la diagnostica di Microsoft AZURE per i servizi Cloud.** La versione più recente di WAD (1.12.2.0) per i servizi Cloud funziona con tutte le versioni recenti di App Insights SDK. Gli host del servizio cloud verranno aggiornato automaticamente WAD, ma non è immediato. Per forzare un aggiornamento, è possibile ridistribuire il servizio o riavviare il nodo.
 
 1. Tenere traccia delle richieste con Application Insights:
 

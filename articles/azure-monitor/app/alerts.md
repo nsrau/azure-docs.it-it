@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257162"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469795"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
@@ -144,6 +144,24 @@ In questa sezione verranno esaminate come impostare un avviso di eccezione basat
 10. Infine aggiungere i dettagli dell'avviso (nome della regola, la descrizione, livello di gravità avviso). Al termine, fare clic su **Crea regola di avviso** nella parte inferiore.
 
     ![In dettaglio avviso digitare il nome della regola di avviso, scrivere una descrizione e scegliere un livello di gravità](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Come annullare la sottoscrizione a notifiche di posta elettronica di avviso di classico
+
+In questa sezione si applica a **avvisi classici di disponibilità**, **avvisi delle metriche in Application Insights**e di ottenere **gli avvisi di anomalie errori classico**.
+
+Si ricevono notifiche tramite posta elettronica per questi avvisi classici se applica gli elementi seguenti:
+
+* Indirizzo di posta elettronica è elencato nel campo di destinatari della notifica tramite posta elettronica nelle impostazioni di regola di avviso.
+
+* L'opzione per inviare notifiche tramite posta elettronica agli utenti che contiene determinati ruoli per la sottoscrizione viene attivato e si mantiene un ruolo corrispondente per tale sottoscrizione Azure.
+
+![Schermata di notifica di avviso](./media/alerts/alert-notification.png)
+
+Per controllare meglio la sicurezza e privacy a livello generale, è consigliabile specificare in modo esplicito i destinatari delle notifiche per gli avvisi classici nel **destinatari di posta elettronica di notifica** campo. L'opzione per informare tutti gli utenti che contiene determinati ruoli viene fornito per compatibilità con le versioni precedenti.
+
+Per annullare la sottoscrizione di notifiche tramite posta elettronica generate da una determinata regola di avviso, rimuovere il tuo indirizzo di posta elettronica dal **destinatari di posta elettronica di notifica** campo.
+
+Se l'indirizzo di posta elettronica non è elencato in modo esplicito, è consigliabile disabilitare l'opzione per notificare automaticamente tutti i membri di determinati ruoli e invece elencare tutti i messaggi e-mail di utente che devono ricevere le notifiche per tale regola di avviso tramite posta elettronica di notifica campo di destinatari.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
 

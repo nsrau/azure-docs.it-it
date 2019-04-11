@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311731"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470356"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -60,7 +60,7 @@ Windows Server 2008 R2 SP1 o versione successiva.
 Queste librerie vengono installate automaticamente con l'estensione.
 
 - [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Microsoft modulo Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
@@ -207,6 +207,8 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha come nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
 
+I certificati autofirmati generati dal *AzureMfaNpsExtnConfigSetup.ps1* script anche avere una durata di validità di due anni. Quando si verifica che il certificato è installato, controllare anche che il certificato non sia scaduto.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Come verificare che il certificato client sia associato al tenant in Azure Active Directory?
@@ -262,6 +264,14 @@ Verificare che AD Connect sia in esecuzione e che l'utente sia presente sia in A
 
 Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal server che esegue l'estensione del server dei criteri di rete.
 
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Il motivo per cui l'autenticazione non funziona, nonostante un certificato valido presenziando?
+
+Se è scaduto il certificato del computer precedente e un nuovo certificato è stato generato, è necessario eliminare eventuali certificati scaduti. Con i certificati scaduti possono causare problemi con l'estensione NPS avvio.
+
+Per controllare se si dispone di un certificato valido, controllare Store certificato dell'Account Computer locale mediante la console MMC e assicurarsi che il certificato non ha superato la data di scadenza. Per generare un certificato appena valido, eseguire di nuovo i passaggi nella sezione "[eseguire lo script di PowerShell](#run-the-powershell-script)"
+
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
 È consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
@@ -272,4 +282,4 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 
 - Informazioni su come integrare [Gateway Desktop remoto](howto-mfa-nps-extension-rdg.md) e [server VPN](howto-mfa-nps-extension-vpn.md) usando l'estensione NPS
 
-- [Risolvere i messaggi di errore dall'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+- [Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure](howto-mfa-nps-extension-errors.md)

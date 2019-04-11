@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275907eed94f3165853ecf9adcb11fb62460d2e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282220"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470050"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -37,7 +37,11 @@ Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui
 
 ## <a name="bkmk_LinuxOSSupport"></a> Quali distribuzioni di Linux sono supportate da Crittografia dischi di Azure?
 
-Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del server Linux seguenti:
+Crittografia dischi di Azure è supportata su un subset dei [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un sottoinsieme di tutte le distribuzioni possibili.
+
+ ![Diagramma di Venn di server distribuzioni Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Le distribuzioni non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e distribuzioni di server Linux seguenti supportano crittografia dischi di Azure:
 
 | Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
@@ -64,7 +68,8 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | SLES | 12-SP4 | Disco dati |
 | SLES | 12-SP3 | Disco dati |
 
-*__La nuova implementazione di Crittografia dischi di Azure è supportata per il disco dati e il sistema operativo RHEL per le immagini RHEL7 con pagamento a consumo. Crittografia dischi di Azure non è attualmente supportata per le immagini RHEL di tipo BYOS (Bring-Your-Own-Subscription). È anche possibile vedere l'articolo [Crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md) per altre informazioni.__
+> [!NOTE]
+> Nuova implementazione ADE è supportato per RHEL del sistema operativo e dischi dati per le immagini con pagamento a consumo RHEL7. Crittografia dischi di Azure non è attualmente supportata per le immagini RHEL di tipo BYOS (Bring-Your-Own-Subscription). È inoltre possibile consultare il [crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md) per altre informazioni. _
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Come si può iniziare a usare Crittografia dischi di Azure?
 

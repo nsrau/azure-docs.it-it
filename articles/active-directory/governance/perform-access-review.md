@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579683"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470611"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -46,7 +46,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
 1. Fare clic sul simbolo utente nell'angolo superiore destro della pagina, che indica il proprio nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
 
-1. Sul lato destro della pagina, scegliere il **verifiche di accesso** riquadro per visualizzare un elenco delle verifiche di accesso in sospeso.
+1. Scegliere il **verifiche di accesso** riquadro per visualizzare un elenco delle verifiche di accesso in sospeso.
 
     Se il riquadro non è visibile, non esistono verifiche di accesso da eseguire per tale organizzazione e al momento non è necessaria alcuna azione.
 
@@ -71,11 +71,13 @@ Esistono due modi, che è possibile approvare o negare l'accesso:
 
 1. Esaminare l'elenco di utenti di decidere se approvare o negare l'accesso continuo.
 
-1. Per approvare o rifiutare ogni richiesta, fare clic sulla riga per aprire la finestra per specificare l'azione da intraprendere.
+1. Per approvare o rifiutare ogni richiesta, fare clic sulla riga per aprire una finestra per specificare l'azione da intraprendere.
 
 1. Fare clic su **approvare** oppure **negare**. Se si è certi, è possibile fare clic su **Don ' t know**. Questa operazione comporterà l'utente di mantenere l'accesso, ma la selezione si rifletteranno nel log di controllo.
 
     ![Eseguire una verifica di accesso](./media/perform-access-review/approve-deny.png)
+
+1. Se necessario, immettere un motivo nel **motivo** casella.
 
     L'amministratore di verifica di accesso potrebbe richiedere che si specifichino un motivo per l'approvazione dell'accesso continuo o l'appartenenza al gruppo.
 
@@ -94,7 +96,7 @@ Per rendere più facile e veloce le verifiche di accesso per te, offriamo anche 
 
 1. Nella barra blu nella parte inferiore della pagina, fare clic su **accettare le raccomandazioni**.
 
-    ![Accettare le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Accetta le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 

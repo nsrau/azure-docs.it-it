@@ -1,5 +1,5 @@
 ---
-title: Guida per la pubblicazione SEO di Microsoft Azure Marketplace | Microsoft Docs
+title: Informazioni aggiuntive su Azure Marketplace SEO | Microsoft Docs
 description: Fornisce indicazioni sull'ottimizzazione dell'uso del motore di ricerca (SEO).
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834337"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469659"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Guida alla pubblicazione SEO per Microsoft Azure Marketplace
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO guidance
 
-### <a name="general-explanation-of-algorithm"></a>Descrizione generale dell'algoritmo
+Questo articolo illustra come ottimizzare l'individuabilità dell'offerta tramite la funzionalità di ricerca nel [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). 
 
-Il marketplace usa Ricerca di Azure per potenziare le funzionalità di ricerca del sito. L'algoritmo si basa sulla frequenza del termine/frequenza inversa del documento ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). Viene usato [l'analizzatore Lucene](https://lucene.apache.org/core/) standard.
+
+## <a name="general-explanation-of-algorithm"></a>Descrizione generale dell'algoritmo
+
+Marketplace Microsoft usano ricerca di Azure per potenziare le funzionalità di ricerca del sito. L'algoritmo si basa sulla frequenza del termine/frequenza inversa del documento ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). Viene usato [l'analizzatore Lucene](https://lucene.apache.org/core/) standard.
 
 In generale, tutto i campi di testo, le categorie e i settori sono inclusi nella ponderazione della pertinenza. Termini specifici che vengono utilizzati raramente dalle app generiche, ma di frequente nella propria app genereranno un punteggio di corrispondenza maggiore nella ricerca. Ad esempio, termini come "VM" offriranno pochi vantaggi, mentre "Ricerca di Azure" potrebbe essere molto più specifico.
 Di seguito, sono elencati i campi più importanti da considerare.
@@ -42,7 +44,7 @@ Di seguito, sono elencati i campi più importanti da considerare.
 |  |  |  |
 
 
-### <a name="other-tips"></a>Altri suggerimenti
+## <a name="other-tips"></a>Altri suggerimenti
 
 -   I suggerimenti di Ricerca sono ampiamente usati dall'utente. Assegnano la priorità alle corrispondenze rispetto a quella nome app/server di pubblicazione. Una breve descrizione diventa il campo fondamentale quando il termine di ricerca non corrisponde esattamente con il nome di server di pubblicazione/app.
 -   I documenti per il download non sono inclusi nella ponderazione di ricerca.
