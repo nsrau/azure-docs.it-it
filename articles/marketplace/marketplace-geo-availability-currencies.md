@@ -98,7 +98,7 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Lituania                           | LT        | EUR          |
 | Lussemburgo                          | LU        | EUR          |
 | RAS di Macao                           | MO        | USD          |
-| Macedonia FYRO                      | MK        | USD          |
+| Macedonia del Nord                      | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |

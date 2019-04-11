@@ -99,7 +99,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - ME (Montenegro)
 
-        - MK (F.Y.R.O. Macedonia)
+        - MK (Macedonia del Nord)
 
         - MT (Malta)
 
@@ -484,7 +484,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - CG (Congo)
 
-        - CI (Costa d'Avorio)
+        - CI Côte d’Ivoire (Costa d'Avorio)
 
         - CM (Camerun)
 

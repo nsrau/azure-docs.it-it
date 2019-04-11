@@ -16,7 +16,7 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
 ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48807868"
@@ -149,7 +149,7 @@ La tabella seguente illustra le diverse aree che è possibile specificare per i 
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituania            | EUR               |
 | LU         | Lussemburgo           | EUR               |
-| MK         | Macedonia FYRO       | MKD               |
+| MK         | Macedonia del Nord       | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Messico               | MXN               |

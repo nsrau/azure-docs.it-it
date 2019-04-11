@@ -136,7 +136,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | MA | Marocco|
 | MD | Moldova, Repubblica|
 | MG | Madagascar|
-| MK | Macedonia, ex Repubblica Jugoslava di|
+| MK | Macedonia del Nord|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolia|

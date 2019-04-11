@@ -276,7 +276,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Liechtenstein             | ✓ | ✓ |
 | Lituania                 | ✓ | ✓ |
 | Lussemburgo                | ✓ | ✓ |
-| Macedonia, ex Repubblica Jugoslava di                 | ✓ | ✓ |
+| Macedonia del Nord                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Principato di Monaco                    | ✓ | ✓ |

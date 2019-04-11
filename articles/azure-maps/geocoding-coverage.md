@@ -189,7 +189,7 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituania                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lussemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonia, ex Repubblica Jugoslava di                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macedonia del Nord                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Principato di Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

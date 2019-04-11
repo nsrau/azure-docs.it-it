@@ -51,7 +51,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo - Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo - Kinshasa                |        ✓       |                       |             |
-| Costa d'Avorio                  |        ✓       |                       |             |
+| Côte d’Ivoire (Costa d'Avorio)                  |        ✓       |                       |             |
 | Egitto                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
 | Gambia                         |        ✓       |                       |             |
@@ -190,7 +190,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lituania                      |        ✓       |         ✓            |     ✓      | 
 | Lussemburgo                     |        ✓       |         ✓            |     ✓      | 
-| Macedonia, ex Repubblica Jugoslava di                      |        ✓       |                      |             |
+| Macedonia del Nord                      |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Principato di Monaco                         |        ✓       |         ✓            |             |
