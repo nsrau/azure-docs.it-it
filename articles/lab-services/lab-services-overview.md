@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 5c53c64c337cb2992b002ee02ceb9aab36e16de4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958746"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257621"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introduzione ad Azure Lab Services
 Azure Lab Services consente di configurare rapidamente nel cloud un ambiente per il team, ad esempio un ambiente di sviluppo, un ambiente di test o un ambiente di lab per le classi. Il proprietario di un lab crea un lab, esegue il provisioning delle macchine virtuali Windows o Linux, installa il software e gli strumenti necessari e li rende disponibili per gli utenti del lab. Gli utenti del lab si connettono alle macchine virtuali del lab e le usano per le attività giornaliere, per i progetti a breve termine o per svolgere i compiti scolastici. Quando gli utenti iniziano a usare le risorse nel lab, un amministratore del lab può analizzare il costo e l'utilizzo in più lab e impostare criteri omnicomprensivi per ottimizzare i costi del team o dell'organizzazione.
@@ -45,9 +45,9 @@ Azure Lab Services supporta le caratteristiche e funzionalità principali seguen
 
 Ecco alcuni degli scenari supportati da Azure Lab Services:
 
-### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configurare un computer lab ridimensionabile nel cloud per le classi  
+### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configurare un computer lab ridimensionabile nel cloud per la classe  
 
-- Creare un lab per le classi gestito. È sufficiente indicare esattamente le caratteristiche richieste e il servizio creerà e gestirà automaticamente l'infrastruttura del lab in modo che l'utente possa concentrarsi sull'insegnamento, senza doversi occupare dei dettagli tecnici del lab.
+- Crea un lab per la classe È sufficiente indicare esattamente le caratteristiche richieste e il servizio creerà e gestirà automaticamente l'infrastruttura del lab in modo che l'utente possa concentrarsi sull'insegnamento, senza doversi occupare dei dettagli tecnici del lab.
 - Fornire agli studenti un lab di macchine virtuali configurate con tutto il necessario per una classe. Assegnare a ogni studente un numero limitato di ore per l'uso delle macchine virtuali per i compiti scolastici.  
 - Spostare il lab del computer fisico della scuola nel cloud. Ridimensionare automaticamente il numero di macchine virtuali in base all'utilizzo massimo e alla soglia di costo impostati nel lab.
 - Al termine dell'operazione, eliminare il lab con un solo clic.
