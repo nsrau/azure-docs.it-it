@@ -10,24 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 04/09/2019
 ms.author: juliako
-ms.openlocfilehash: 882f4650c0a3d558ee06c96658b779f9f0c76f76
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322484"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471172"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Ottenere una chiave di firma dai criteri esistenti
 
-Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. Le API della versione 3 non restituiscono segreti o credenziali per un'operazione **Get** o **List**. Le chiavi sono sempre Null, vuote o purificate dalla risposta. È necessario chiamare un metodo di azione separato per ottenere i segreti o le credenziali. Azioni distinte consentono di impostare autorizzazioni di sicurezza di controllo degli accessi in base al ruolo diverse, nel caso alcune API recuperino o visualizzino i segreti, mentre altre non lo fanno. Per informazioni su come gestire l'accesso con il controllo degli accessi in base al ruolo, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. API v3 non restituiscono i segreti o le credenziali sul **ottenere** oppure **elenco** operazioni. Le chiavi sono sempre Null, vuote o purificate dalla risposta. L'utente deve chiamare un metodo di azione separata per ottenere i segreti o le credenziali. Il **lettore** ruolo non è possibile chiamare le operazioni in modo che non è possibile chiamare operazioni come ContentKeyPolicies.GetPolicyPropertiesWithSecrets Asset.ListContainerSas, StreamingLocator.ListContentKeys,. Con azioni separate consente di impostare le autorizzazioni di sicurezza più granulari RBAC in un ruolo personalizzato, se lo si desidera.
 
-Alcuni esempi sono 
-
-* non restituire valori ContentKey in Get per StreamingLocator, 
-* non restituire le chiavi di restrizione in Get per ContentKeyPolicy, 
-* non restituire la parte della stringa di query dell'URL (per rimuovere la firma) negli URL di input HTTP per i processi.
+Per altre informazioni, vedere [account RBAC e servizi multimediali](rbac-overview.md)
 
 L'esempio di questo articolo mostra come usare .NET per ottenere una chiave di firma dai criteri esistenti. 
  

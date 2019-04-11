@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091495"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471240"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemi noti e limitazioni per le migrazioni online al database SQL di Azure
 
 Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle migrazioni online da SQL Server al database SQL di Azure.
+
+> [!IMPORTANT]
+> Con le migrazioni online di SQL Server per Database SQL di Azure, migrazione dei tipi di dati SQL_variant non è supportata.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migrazione delle tabelle temporali non supportata
 
@@ -62,17 +65,20 @@ Può verificarsi un'eccezione SQL in cui è indicato che "ntext non è compatibi
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. Escludere queste tabelle dal pannello **Configura le impostazioni di migrazione** in cui si specificano le tabelle per la migrazione.
+2. Escludere queste tabelle dal pannello **Configura le impostazioni di migrazione** in cui si specificano le tabelle per la migrazione.
 
-   1. Eseguire di nuovo l'attività di migrazione.
+3. Eseguire di nuovo l'attività di migrazione.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Errori di migrazione con varie violazioni di integrità relativi ai trigger attivi nello schema durante il caricamento completo o la sincronizzazione incrementale dei dati
 
 **Soluzione alternativa**
+
 1. Trovare i trigger che sono attualmente attivi nel database di origine usando la query seguente:
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Disabilitare i trigger nel database di origine eseguendo i passaggi illustrati nell'articolo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Eseguire di nuovo l'attività di migrazione.
@@ -101,11 +107,11 @@ Il Servizio Migrazione del database non esegue la migrazione del valore di times
 
 Servizio migrazione del database per eseguire la migrazione il valore di timestamp esatto archiviato nella tabella di origine, contattare il team di progettazione al [porre le migrazioni del Database Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Dettagli aggiuntivi non disponibili per gli errori di migrazione dei dati nel pannello di informazioni dettagliate sullo stato del database
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Errori di migrazione dei dati non forniscono dettagli aggiuntivi nel Pannello di informazioni dettagliate sullo stato del Database.
 
 **Sintomo**
 
-In caso di errori di migrazione visualizzati nel pannello di informazioni dettagliate sullo stato del database, il collegamento **Errori di migrazione dati** sulla barra multifunzione superiore potrebbe non mostrare dettagli aggiuntivi relativi a tali errori.
+Quando si riscontra errori durante la migrazione nella visualizzazione di stato dettagli del database, selezionare la **errori di migrazione dati** collegamento sulla barra multifunzione superiore potrebbe non fornire dettagli aggiuntivi specifici per gli errori di migrazione.
 
 ![Esempio di errori di migrazione dei dati senza dettagli](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010092"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470291"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
- Questo articolo illustra i prerequisiti per l'uso di Crittografia dischi di Azure. Crittografia dischi di Azure è integrata con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) per consentire la gestione delle chiavi di crittografia. È possibile usare [Azure PowerShell](/powershell/azure/overview), [Interfaccia della riga di comando di Azure](/cli/azure/) o il [portale di Azure](https://portal.azure.com) per configurare Crittografia dischi di Azure.
+Questo articolo illustra i prerequisiti per l'uso di Crittografia dischi di Azure. Crittografia dischi di Azure è integrata con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) per consentire la gestione delle chiavi di crittografia. È possibile usare [Azure PowerShell](/powershell/azure/overview), [Interfaccia della riga di comando di Azure](/cli/azure/) o il [portale di Azure](https://portal.azure.com) per configurare Crittografia dischi di Azure.
 
 Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di Azure per gli scenari supportati illustrati nella sezione "Panoramica" dell'articolo [Crittografia dischi di Azure per le macchine virtuali IaaS](azure-security-disk-encryption-overview.md), assicurarsi che i prerequisiti siano soddisfatti. 
 
@@ -29,10 +29,11 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 ## <a name="bkmk_OSs"></a> Sistemi operativi supportati
 Crittografia dischi di Azure è supportato nei sistemi operativi seguenti:
 
-- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e versioni superiore di Windows trovano nella raccolta di Azure.
-  - Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update tramite l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi Windows Server 2008 R2 basati su x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core e Windows Server 2016 Server core.
+Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update con l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per sistemi basati su x64 di Windows Server 2008 R2 (KB2901983).
+- Componenti di base di Windows Server 2012 R2 e Windows Server 2016 Core sono supportate da crittografia dischi di Azure dopo la componente bdehdcfg viene installata nella macchina virtuale.
 - Versioni del Client Windows: Client Windows 8 e client Windows 10.
-- Crittografia dischi di Azure è supportato solo in distribuzioni e versioni specifiche della raccolta di Azure basata sul server Linux. Per l'elenco delle versioni attualmente supportate, vedere le [domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+- Crittografia dischi di Azure è supportato solo in distribuzioni e versioni specifiche della raccolta di Azure basata sul server Linux. Per l'elenco delle versioni attualmente supportate, vedere le [domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Fare riferimento al [distribuzioni Linux approvate in Azure](../virtual-machines/linux/endorsed-distros.md) per l'elenco delle immagini supportate da Microsoft e di ottenere il [quali distribuzioni di Linux sono supportati da crittografia dischi di Azure?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) nel [Azure Domande frequenti su crittografia del disco](azure-security-disk-encryption-faq.md) per un elenco delle versioni attualmente supportate le distribuzioni di immagini approvate in base.
 - Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e sottoscrizione di Azure. La configurazione delle risorse in aree separate causa un errore nell'attivazione della funzionalità Crittografia dischi di Azure.
 
 ## <a name="bkmk_LinuxPrereq"></a> Prerequisiti aggiuntivi per le macchine virtuali Iaas Linux 

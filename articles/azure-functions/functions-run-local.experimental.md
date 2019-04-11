@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009547"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471279"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -478,6 +478,15 @@ Sono disponibili le opzioni di distribuzione del contenitore personalizzato segu
 | **`--min`**  | Facoltativamente, imposta il numero minimo di istanze di app per le funzioni su cui eseguire la distribuzione. |
 | **`--config`** | Imposta un file di configurazione della distribuzione opzionale. |
 
+## <a name="monitoring-functions"></a>Monitoraggio delle funzioni
+
+È consigliabile monitorare l'esecuzione delle funzioni grazie all'integrazione con Azure Application Insights. Quando si crea un'app per le funzioni nel portale di Azure, questa integrazione avviene automaticamente per impostazione predefinita. Tuttavia, quando si crea l'app per le funzioni usando il comando di Azure, non viene eseguita l'integrazione in app per le funzioni in Azure.
+
+Per abilitare Application Insights per app per le funzioni:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 ## <a name="next-steps"></a>Passaggi successivi
 
 Strumenti di base di Funzioni di Azure è [open source ed è ospitato su GitHub](https://github.com/azure/azure-functions-cli).  

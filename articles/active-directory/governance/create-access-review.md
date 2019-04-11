@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576200"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471631"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -35,13 +35,13 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
 ## <a name="create-one-or-more-access-reviews"></a>Creare uno o più verifiche di accesso
 
-1. Accedi al portale di Azure e aprire il [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Accedere al portale di Azure e aprire il [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Fare clic su **Controlli**.
+1. Nel menu a sinistra, fare clic su **verifiche di accesso**.
 
 1. Fare clic su **Nuova verifica di accesso** per creare una nuova verifica di accesso.
 
-    ![Verifica di accesso - Controlli](./media/create-access-review/controls.png)
+    ![Verifica di accesso - Controlli](./media/create-access-review/access-reviews.png)
 
 1. Assegnare un nome alla verifica di accesso. Facoltativamente è possibile assegnare una descrizione alla verifica. Il nome e la descrizione vengono visualizzati dai revisori.
 
@@ -51,15 +51,15 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
     ![Creare una verifica di accesso - Date di inizio e di fine](./media/create-access-review/start-end-dates.png)
 
-1. Per impostare la verifica di accesso come ricorrente, modificare l'impostazione **Frequenza** da **Singola occorrenza** a **Settimanale**, **Mensile**, **Trimestrale** o **Ogni anno** e usare il dispositivo di scorrimento **Durata** o la casella di testo per indicare per quanti giorni ogni verifica della serie ricorrente rimarrà aperta per l'input dei revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
+1. Per rendere la revisione di accesso ricorrente, modificare il **frequenza** impostazione dal **una volta** al **settimanale**, **mensile**,  **Trimestrale** oppure **annualmente**. Usare la **durata** casella di testo o dispositivo di scorrimento per definire il numero di giorni ogni revisione della serie di ricorrenti sarà apre per l'input dei revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
 
 1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. È, un altro utente amministratore o un altro amministratore globale può interrompere la serie dopo la creazione modificando la data nel **impostazioni**, in modo che lo termina in tale data.
 
-1. Nella sezione **Utenti** specificare gli utenti a cui si applica la verifica di accesso. Le verifiche di accesso possono essere relative ai membri di un gruppo o agli utenti assegnati a un'applicazione. È possibile definire ulteriormente l'ambito della verifica di accesso in modo da controllare solo gli utenti guest che sono membri o che sono stati assegnati all'applicazione invece di controllare tutti gli utenti che sono membri o che hanno accesso all'applicazione.
+1. Nel **utenti** sezione, specificare gli utenti a cui si applica la verifica di accesso. Le verifiche di accesso possono essere relative ai membri di un gruppo o agli utenti assegnati a un'applicazione. È possibile definire ulteriormente l'ambito della verifica di accesso in modo da controllare solo gli utenti guest che sono membri o che sono stati assegnati all'applicazione invece di controllare tutti gli utenti che sono membri o che hanno accesso all'applicazione.
 
     ![Creare una verifica di accesso - Utenti](./media/create-access-review/users.png)
 
-1. Nel **gruppi** , selezionare uno o più gruppi che si desidera verificare l'appartenenza di.
+1. Nel **gruppo** , selezionare uno o più gruppi che si desidera verificare l'appartenenza di.
 
     > [!NOTE]
     > Selezione di più di un gruppo creerà più verifiche di accesso. Ad esempio, la selezione di cinque gruppi creerà cinque le verifiche di accesso separato.
@@ -112,7 +112,9 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
 ## <a name="start-the-access-review"></a>Avviare la verifica di accesso
 
-Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**.
+Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**. La verifica di accesso verrà visualizzato nell'elenco con un indicatore di stato.
+
+![Elenco delle verifiche di accesso](./media/create-access-review/access-reviews-list.png)
 
 Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica ai revisori poco tempo dopo l'inizio della verifica. Se si imposta Azure AD in modo che non invii un messaggio di posta elettronica, assicurarsi di informare i revisori che vi è una verifica di accesso in attesa di completamento. È possibile mostrare ai membri le istruzioni per la procedura [verificare l'accesso a gruppi o applicazioni](perform-access-review.md). Se la verifica prevede che i guest a verificare il proprio accesso, mostrare le istruzioni per la procedura [verifica di accesso personali a gruppi o applicazioni](review-your-access.md).
 
@@ -120,13 +122,15 @@ Se alcuni revisori sono guest, i guest riceveranno la notifica tramite posta ele
 
 ## <a name="manage-the-access-review"></a>Gestire la verifica di accesso
 
-È possibile tenere traccia dello stato di avanzamento i revisori delle verifiche nel dashboard di Azure AD nel **verifiche di accesso** sezione. Nessun diritto di accesso viene modificato nella directory fino al [completamento della verifica](complete-access-review.md).
+È possibile tenere traccia dello stato di avanzamento i revisori delle verifiche nel **Panoramica** pagina della verifica di accesso. Nessun diritto di accesso viene modificato nella directory fino al [completamento della verifica](complete-access-review.md).
+
+![Lo stato di avanzamento delle verifiche di accesso](./media/create-access-review/overview-progress.png)
 
 Se si tratta di una singola revisione, dopo il periodo della verifica l'accesso o l'amministratore ha interrotto la verifica di accesso, seguire i passaggi descritti in [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md) per esaminare e applicare i risultati.  
 
-Per gestire una serie di verifiche di accesso, passare alla verifica di accesso da **Controlli** per trovare le occorrenze future nelle verifiche programmate e modificare la data di fine o aggiungere/rimuovere i revisori di conseguenza. 
+Per gestire una serie di accesso recensioni, passare alla verifica di accesso e si verrà trovare le ricorrenze future in revisioni pianificato e modificare la data di fine o aggiungere o rimuovere i revisori di conseguenza.
 
-A seconda delle selezioni in Impostazioni al completamento, l'applicazione automatica verrà eseguita dopo la data di fine della verifica o quando si arresta manualmente la verifica. Lo stato della verifica passerà da Completata a stati intermedi, ad esempio Applicazione in corso, e infine allo stato Applicata. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
+Sulla base delle selezioni nel **impostazioni al completamento**, applicazione automatica verrà da eseguire dopo la data di fine dell'analisi o quando si arresta manualmente la revisione. Lo stato della verifica passerà da **Completed** attraverso alcuni stati intermedi, ad esempio **applicazione** e infine allo stato **applicato**. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 

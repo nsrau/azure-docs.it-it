@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092719"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471716"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -147,7 +147,7 @@ La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i mode
 | `Dependency`                          | `Span` con `span.kind = client`                  |
 | `Id` di `Request` e `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (l'intervallo padre)   |
+| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (intervallo padre)   |
 
 Per altre informazioni, vedere [Modello di dati di Application Insights Telemetry](../../azure-monitor/app/data-model.md). 
 
@@ -157,18 +157,18 @@ Per le definizioni dei concetti di OpenTracing, vedere la [specifica](https://gi
 
 Il linguaggio .NET ha definito nel corso del tempo diversi modi per correlare i log di diagnostica e di telemetria:
 
-- `System.Diagnostics.CorrelationManager` consente il monitoraggio di [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
-- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono il metodo [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
-- `ILogger` usa gli [ambiti dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
+- `System.Diagnostics.CorrelationManager` Consente di eseguire verifiche della [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
+- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono i [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) (metodo).
+- `ILogger` viene utilizzato [ambiti dei Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
 - Windows Communication Foundation (WCF) e HTTP creano la propagazione del contesto "corrente".
 
-Queste soluzioni non consentono tuttavia il supporto automatico della traccia distribuita. `DiagnosticSource` rappresenta un modo per supportare la correlazione automatica tra computer. Le librerie .NET supportano "DiagnosticSource" e consentono la propagazione automatica tra computer del contesto di correlazione tramite il protocollo di trasporto, ad esempio HTTP.
+Queste soluzioni non consentono tuttavia il supporto automatico della traccia distribuita. `DiagnosticSource` è un modo per supportare correlazione automatica tra computer. Le librerie .NET supportano "DiagnosticSource" e consentono la propagazione automatica tra computer del contesto di correlazione tramite il protocollo di trasporto, ad esempio HTTP.
 
 La [guida alle attività](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) di `DiagnosticSource` fornisce le nozioni fondamentali delle attività di monitoraggio.
 
 ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio di una nuova attività.
 
-`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
+`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni di correlazione HTTP e rilevamento delle chiamate HTTP come attività.
 
 È disponibile un nuovo modulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando `DiagnosticSource`. Avvia un'attività in base alle intestazioni di richiesta in ingresso. Correla anche i dati di telemetria dalle diverse fasi dell'elaborazione delle richieste, anche quando ogni fase dell'elaborazione di Internet Information Services (IIS) viene eseguita in un thread gestito diverso.
 
@@ -183,6 +183,11 @@ Application Insights SDK, a partire dalla versione 2.4.0-beta1, usa `DiagnosticS
 > Per la funzionalità di correlazione sono supportate solo le chiamate effettuate tramite Apache HTTPClient. Se si usa Spring RestTemplate o Feign, entrambi possono essere usati con Apache HTTPClient in background.
 
 La propagazione automatica del contesto attraverso tecnologie di messaggistica (ad esempio, Kafka, RabbitMQ o il bus di servizio di Azure) non è attualmente supportata. È tuttavia possibile scrivere manualmente il codice per tali scenari usando le API `trackDependency` e `trackRequest`. In queste API i dati di telemetria di una dipendenza rappresentano un messaggio che viene accodato da un producer e la richiesta rappresenta un messaggio che viene elaborato da un consumer. In questo caso sia `operation_id` che `operation_parentId` devono essere propagati nelle proprietà del messaggio.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlazione di dati di telemetria nell'applicazione Java asincrona
+
+Per correlare i dati di telemetria all'applicazione Spring Boot asincrona, seguire [ciò](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) articolo approfondito. Vengono fornite informazioni aggiuntive per la strumentazione di Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) nonché [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Nome del ruolo

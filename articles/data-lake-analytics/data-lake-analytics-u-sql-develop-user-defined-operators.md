@@ -5,23 +5,22 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623856"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469625"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Sviluppare operatori U-SQL definiti dall'utente (UDO)
 Questo articolo descrive come sviluppare operatori definiti dall'utente per elaborare i dati in un processo U-SQL.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definire e usare un operatore definito dall'utente in U-SQL
-**Per creare e inviare un processo di U-SQL**
+**Per creare e inviare un processo U-SQL**
 
 1. In Visual Studio selezionare **File > Nuovo > Progetto > U-SQL Project** (Progetto U-SQL).
 2. Fare clic su **OK**. Visual Studio crea una soluzione con un file Script.usql.
@@ -125,5 +124,5 @@ Questo articolo descrive come sviluppare operatori definiti dall'utente per elab
 2. Espandere esempi, espandere gli output e quindi fare doppio clic su **Drivers.csv**.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/library/azure/mt621316.aspx) (Estensione delle espressioni U-SQL con il codice utente)
-* [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+* [Estensione delle espressioni U-SQL con codice utente](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Usare strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

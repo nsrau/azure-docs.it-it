@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b5f7c472c8ebd60d8e7f928534834c9672fe3b14
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360351"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471308"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key per Apache Kafka in Azure HDInsight (anteprima)
 
@@ -25,101 +25,114 @@ La crittografia BYOK è un processo costituito da un singolo passaggio gestito d
 
 Tutti i messaggi inviati al cluster Kafka (incluse le repliche gestite da Kafka) vengono crittografati con una chiave DEK simmetrica. La chiave DEK viene protetta con la chiave di crittografia della chiave dall'insieme di credenziali delle chiavi. I processi di crittografia e decrittografia vengono gestiti interamente da Azure HDInsight. 
 
-È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per ruotare in modo sicuro le chiavi nell'insieme di credenziali delle chiavi. Quando una chiave ruota, il cluster HDInsight Kafka inizia a usare la nuova chiave entro pochi minuti. Abilitare le funzionalità di protezione dall'eliminazione e di eliminazione temporanea delle chiavi per proteggersi da scenari di ransomware e dall'eliminazione accidentale. Le chiavi senza queste funzionalità di protezione non sono supportate.
+È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per ruotare in modo sicuro le chiavi nell'insieme di credenziali delle chiavi. Quando una chiave ruota, il cluster HDInsight Kafka inizia a usare la nuova chiave entro pochi minuti. Abilitare le funzionalità di protezione con chiave "Eliminazione temporanea" per la protezione da ransomware scenari e l'eliminazione accidentale. Insiemi di credenziali delle chiavi senza questa funzionalità di protezione non sono supportati.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Introduzione a BYOK
+Per creare una modalità BYOK abilitato cluster Kafka, verranno esaminati i passaggi seguenti:
+1. Creare identità gestita per le risorse di Azure
+2. Configurare Azure Key Vault e chiavi
+3. Creare cluster HDInsight Kafka con BYOK abilitata
 
-1. Creare identità gestite per le risorse di Azure.
+## <a name="create-managed-identities-for-azure-resources"></a>Creare identità gestita per le risorse di Azure
 
    Per eseguire l'autenticazione in Key Vault, creare un'identità gestito assegnata dall'utente usando il [portale di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), o [ Interfaccia della riga di comando Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Per altre informazioni sulle attività di identità come gestito in Azure HDInsight, vedere [gestite le identità in Azure HDInsight](../hdinsight-managed-identities.md). Mentre Azure Active Directory è necessario per le identità gestite e BYOK per Kafka, Enterprise Security Package (ESP) non è un requisito. Assicurarsi di salvare l'ID risorsa dell'identità gestita da usare quando lo si aggiungerà ai criteri di accesso di Key Vault.
 
    ![Creare l'identità gestita assegnata dall'utente nel portale di Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-2. Importare un insieme di credenziali delle chiavi esistente o crearne uno nuovo.
+## <a name="setup-the-key-vault-and-keys"></a>Configurare l'insieme di credenziali delle chiavi e chiavi
 
-   In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di credenziali delle chiavi, è possibile importare le chiavi in Azure Key Vault. Ricordare che le chiavi devono avere le funzionalità di protezione dall'eliminazione e di eliminazione temporanea abilitate. Le funzionalità di eliminazione temporanea e di protezione dall'eliminazione sono disponibili attraverso le interfacce REST, .NET/C#, PowerShell e della riga di comando di Azure.
+   In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di credenziali delle chiavi, è possibile importare le chiavi in Azure Key Vault. Tenere presente che le chiavi devono disporre di "Eliminazione temporanea". La funzionalità di "Eliminazione temporanea" è disponibile attraverso il resto, .NET /C#, interfacce di PowerShell e CLI di Azure.
 
-   Per creare un nuovo insieme di credenziali delle chiavi, seguire la guida introduttiva [Azure Key Vault](../../key-vault/key-vault-overview.md). Per altre informazioni sull'importazione delle chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md).
+   1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la guida introduttiva [Azure Key Vault](../../key-vault/key-vault-overview.md). Per altre informazioni sull'importazione delle chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md).
 
-   Per creare una nuova chiave, selezionare **Genera/Importa** nel menu **Chiavi** in **Impostazioni**.
+   2. Abilitare "eliminazione temporanea" nell'insieme di credenziali chiave tramite il [aggiornamento di az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) riga di comando.
+        ' ' Aggiornamento di az CLI azure Key Vault-- nome <Key Vault Name> -enable-soft-delete
+        ```
 
-   ![Generare una nuova chiave in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+   3. Create keys
 
-   Impostare **Opzioni** su **Genera** e assegnare un nome alla chiave.
+        a. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
 
-   ![Generare una nuova chiave in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
 
-   Selezionare la chiave creata nell'elenco di chiavi.
+        b. Set **Options** to **Generate** and give the key a name.
 
-   ![Elenco di chiavi di Azure Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
 
-   Quando si usa la propria chiave per la crittografia di cluster Kafka, è necessario specificare l'URI della chiave. Copiare l'**identificatore di chiave** e salvarlo in qualunque posizione fino a quando non si è pronti per creare il cluster.
+        c. Select the key you created from the list of keys.
 
-   ![Copiare l'identificatore di chiave](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+        ![Azure Key Vault key list](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+
+        d. When you use your own key for Kafka cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
+
+        ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
    
-3. Aggiungere l'identità gestita al criterio di accesso dell'insieme di credenziali delle chiavi.
+    4. Add managed identity to the key vault access policy.
+        a. Create a new Azure Key Vault access policy.
 
-   Creare un nuovo criterio di accesso di Azure Key Vault.
+        ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
 
-   ![Creare il nuovo criterio di accesso di Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+        b. Under **Select Principal**, choose the user-assigned managed identity you created.
 
-   In **Selezionare un'entità** scegliere l'identità gestita assegnata dall'utente creata.
+        ![Set Select Principal for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
-   ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
+        c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
-   Impostare **Autorizzazioni chiave** su **Recupera**, **Annulla il wrapping della chiave** ed **Esegui il wrapping della chiave**.
+        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
 
-   ![Impostare Autorizzazioni chiave per il criterio di accesso di Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+        d. Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
 
-   Impostare **Autorizzazioni segrete** su **Recupera**, **Imposta** ed **Elimina**.
+        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-   ![Impostare Autorizzazioni chiave per il criterio di accesso di Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+        e. Click on **Save** 
 
-4. Creare un cluster HDInsight
+        ![Save Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
-   È ora possibile creare un nuovo cluster HDInsight. BYOK è applicabile solo ai nuovi cluster durante la creazione di un cluster. La crittografia non può essere rimossa dai cluster BYOK e la modalità BYOK non può essere aggiunta ai cluster esistenti.
+## Create HDInsight cluster
 
-   ![Crittografia dei dischi Kafka nel portale di Azure](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
+   You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
 
-   Durante la creazione del cluster, specificare l'URL della chiave completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+   ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-## <a name="faq-for-byok-to-apache-kafka"></a>Domande frequenti su BYOK per Apache Kafka
+   During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
 
-**Come accede il cluster Kafka all'insieme di credenziali delle chiavi?**
+## FAQ for BYOK to Apache Kafka
 
-   Associare un'identità gestita al cluster HDInsight Kafka durante la creazione del cluster. È possibile creare questa identità gestita prima o durante la creazione del cluster. È anche necessario concedere all'identità gestita l'accesso all'insieme di credenziali delle chiavi in cui viene archiviata la chiave.
+**How does the Kafka cluster access my key vault?**
 
-**Questa funzionalità è disponibile per tutti i cluster Kafka in HDInsight?**
+   Associate a managed identity with the HDInsight Kafka cluster during cluster creation. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
 
-   La crittografia BYOK è possibile solo per i cluster Kafka 1.1 e versioni successive.
+**Is this feature available for all Kafka clusters on HDInsight?**
 
-**È possibile avere chiavi diverse a seconda degli argomenti o delle partizioni?**
+   BYOK encryption is only possible for Kafka 1.1 and above clusters.
 
-   No, tutti i dischi gestiti nel cluster vengono crittografati dalla stessa chiave.
+**Can I have different keys for different topics/partitions?**
 
-**Come è possibile recuperare il cluster se le chiavi vengono eliminate?**
+   No, all managed disks in the cluster are encrypted by the same key.
 
-   Poiché sono supportate solo le chiavi abilitate per l'eliminazione temporanea, se le chiavi vengono ripristinate nell'insieme di credenziali delle chiavi, il cluster dovrebbe ottenere nuovamente l'accesso alle chiavi. Per ripristinare una chiave di Azure Key Vault, vedere [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
+**How can I recover the cluster if the keys are deleted?**
 
-**È possibile avere applicazioni producer/consumer che usano contemporaneamente un cluster BYOK e un cluster non BYOK?**
+   Since only “Soft Delete” enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
 
-   Sì. L'uso di BYOK è trasparente per le applicazioni producer/consumer. La crittografia avviene a livello di sistema operativo. Non è necessario apportare modifiche alle applicazioni Kafka producer/consumer esistenti.
+**Can I have producer/consumer applications working with a BYOK cluster and a non-BYOK cluster simultaneously?**
 
-**Vengono crittografati anche i dischi del sistema operativo/dischi delle risorse?**
+   Yes. The use of BYOK is transparent to producer/consumer applications. Encryption happens at the OS layer. No changes need to be made to existing producer/consumer Kafka applications.
 
-    No. I dischi del sistema operativo e i dischi delle risorse non vengono crittografati.
+**Are OS disks/Resource disks also encrypted?**
 
-**Se un cluster passa a un piano superiore, i nuovi broker supporteranno BYOK senza problemi?**
+   No. OS disks and Resource disks are not encrypted.
 
-   Sì. Il cluster deve avere accesso alla chiave nell'insieme di credenziali delle chiavi durante il passaggio a un piano superiore. La stessa chiave viene usata per crittografare tutti i dischi gestiti nel cluster.
+**If a cluster is scaled up, will the new brokers support BYOK seamlessly?**
 
-**Come è possibile sapere se BYOK è disponibile nella propria località?**
+   Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt all managed disks in the cluster.
 
-   BYOK per Kafka è disponibile in tutti i cloud pubblici.
+**Is BYOK available in my location?**
 
-## <a name="next-steps"></a>Passaggi successivi
+   Kafka BYOK is available in all public clouds.
 
-* Per altre informazioni su Azure Key Vault, vedere [Informazioni su Azure Key Vault](../../key-vault/key-vault-whatis.md).
-* Per iniziare a usare Azure Key Vault, vedere [Introduzione ad Azure Key Vault](../../key-vault/key-vault-overview.md).
+## Next steps
+
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
+* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).

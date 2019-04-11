@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510324"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471665"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -27,12 +27,12 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 
 | Funzioni di Azure                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.7.2**         |
+| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Raccolta automatica di**        |                 |                   |               
 | &bull; Richieste                     | Sì             | Sì               | 
 | &bull; Eccezioni                   | Sì             | Sì               | 
-| &bull; Contatori delle prestazioni         | Sì             |                   |
+| &bull; Contatori delle prestazioni         | Sì             | Sì               |
 | &bull; Dipendenze                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sì               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sì               | 
@@ -65,3 +65,30 @@ I criteri di filtri personalizzati specificati dall'utente vengono inviati al co
 ## <a name="sampling"></a>campionamento
 
 Per impostazione predefinita, Funzioni di Azure abilita il campionamento durante la configurazione. Per altre informazioni, vedere [Configurare il campionamento](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+
+Se il progetto abbia una dipendenza da Application Insights SDK per eseguire operazioni manuali dati di telemetria di rilevamento, se la configurazione di campionamento è diversa rispetto alla configurazione di campionamento di funzioni potrebbe verificarsi un comportamento anomalo. 
+
+È consigliabile usare la stessa configurazione come funzioni. Con **funzioni v2**, è possibile ottenere la stessa configurazione usando l'inserimento delle dipendenze nel costruttore:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```
