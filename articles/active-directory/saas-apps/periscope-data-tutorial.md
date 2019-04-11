@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880974"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Esercitazione: Integrazione di Azure Active Directory con Periscope Data
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Periscope Data, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Periscope Data](#configure-periscope-data-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Periscope Data](#configure-periscope-data-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Periscope Data](#create-periscope-data-test-user)**: per avere una controparte di Britta Simon in Periscope Data collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -111,16 +111,16 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://app.periscopedata.com/<SITENAME>/sso`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
-    > Il valore dell'URL di accesso non è reale. Aggiornarlo con quello effettivo. Contattare il [team di supporto clienti di Periscope Data](mailto:support@periscopedata.com) per ottenere questo valore e il valore dell'identificatore ottenuto nella sezione **Configurare l'accesso Single Sign-On di Periscope Data** , come spiegato più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore dell'URL di accesso non è reale. Aggiornarlo con quello effettivo. Contattare il [team di supporto clienti di Periscope Data](mailto:support@periscopedata.com) per ottenere questo valore e il valore dell'identificatore ottenuto nella sezione **Configurare l'accesso Single Sign-On per Periscope Data** , come spiegato più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-### <a name="configure-periscope-data-single-sign-on"></a>Configurare l'accesso Single Sign-On di Periscope Data
+### <a name="configure-periscope-data-single-sign-on"></a>Configurare l'accesso Single Sign-On per Periscope Data
 
 1. In un'altra finestra del Web browser accedere a Periscope Data come amministratore.
 
@@ -148,9 +148,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
 
     ![Informazioni per la configurazione di Periscope Data](./media/periscope-data-tutorial/configure02.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Periscope Data.
 
@@ -231,9 +231,9 @@ Quando si fa clic sul riquadro di Periscope Data nel pannello di accesso, si dov
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

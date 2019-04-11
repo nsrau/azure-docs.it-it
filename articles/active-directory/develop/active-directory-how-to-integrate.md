@@ -1,6 +1,6 @@
 ---
 title: L'integrazione con Azure Active Directory | Microsoft Docs
-description: Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory.
+description: Scopri i vantaggi dell'integrazione dell'applicazione con Azure Active Directory e Ottieni risorse per le funzionalità, ad esempio semplificato effettuato l'accesso, gestione delle identità, multi-factor authentication e controllo di accesso.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b2848dc4bcf4e0c8935795eb66e07c3a5a7bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 726d70c46dca712deaf4846c24976cdabcc49be9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894628"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359892"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) consente alle organizzazioni di gestione delle identità di livello aziendale per le applicazioni cloud. L'integrazione di Azure AD offre agli utenti un'esperienza di accesso semplificata e favorisce la conformità delle applicazioni ai criteri IT.
+In questo articolo si Scopri i vantaggi dell'integrazione dell'applicazione con Azure Active Directory (Azure AD) e ottenere risorse per l'integrazione. Azure AD consente alle organizzazioni di gestione delle identità di livello aziendale per le applicazioni cloud. L'integrazione di Azure AD offre agli utenti un'esperienza di accesso semplificata e favorisce la conformità delle applicazioni ai criteri IT.
 
 ## <a name="how-to-integrate"></a>Come integrare
 

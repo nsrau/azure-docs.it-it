@@ -1,20 +1,18 @@
 ---
 title: Creare un ambiente da un esempio di progetto
 description: Usare un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 68bd6e3942d2b2e2c8bcf39bfcff10540e564315
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411172"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277773"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Creare un ambiente da un esempio di progetto
 
@@ -31,7 +29,7 @@ L'esercitazione seguente usa l'esempio di progetto **Gruppi di risorse con Contr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per completare questa esercitazione, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-blueprint-definition-from-sample"></a>Creare la definizione di progetto dall'esempio
 
@@ -98,7 +96,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Identità gestita
 
-     Lasciare l'impostazione predefinita _Assegnata dal sistema_. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Lasciare l'opzione predefinita _Assegnata dal sistema_. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - Parametri dell'elemento
 
