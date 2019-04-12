@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262568"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489194"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Risoluzione dei problemi di combinare la registrazione di informazioni di sicurezza (anteprima)
 
@@ -154,7 +154,7 @@ In una finestra di PowerShell, eseguire il comando seguente, che fornisce i perc
 
 Per disabilitare l'esperienza di anteprima per gli utenti, completare questi passaggi:
 
-1. Accedere al portale di Azure come amministratore globale o amministratore utenti.
+1. Accedere al portale di Azure come un utente come amministratore.
 2. Passare a **Azure Active Directory** > **impostazioni utente** > **gestire le impostazioni per le funzionalità di anteprima di Pannello di accesso**.
 3. Sotto **gli utenti possono usare le funzionalità di anteprima per la registrazione e la gestione delle tue info di sicurezza**, impostare il selettore **None**e quindi selezionare **Salva**.
 

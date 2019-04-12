@@ -10,21 +10,18 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337572"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492788"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure SQL Data Warehouse
 Azure SQL Data Warehouse offre una ricca esperienza di monitoraggio nel portale di Azure per esplorare informazioni dettagliate sul carico di lavoro del data warehouse. Il portale di Azure è lo strumento consigliato per il monitoraggio del data warehouse, in quanto fornisce periodi di conservazione, avvisi, raccomandazioni, grafici personalizzabili, nonché dashboard di metriche e registri configurabili. Il portale consente inoltre di integrare con altri servizi di monitoraggio di Azure, ad esempio Operations Management Suite (OMS) e il monitoraggio di Azure (log) per fornire un'esperienza olistica di monitoraggio non solo il data warehouse, ma anche l'intero analitica di Azure piattaforma per un'esperienza di monitoraggio integrata. Questa documentazione descrive le funzionalità di monitoraggio disponibili per ottimizzare e gestire la piattaforma analitica con SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilizzo delle risorse 
 Le metriche seguenti sono disponibili nel portale di Azure per SQL Data Warehouse. Tali metriche vengono rilevate tramite il [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
-
-> [!NOTE]
-> Da novembre 2018, il team di progettazione sta affrontando un problema a causa del quale la percentuale CPU e la percentuale di I/O di dati risultano inferiori al valore indicato. Ciò comporta che anche le DWU usate e la percentuale DWU risultino inferiori al valore indicato. 
 
 | Nome della metrica                           | DESCRIZIONE     | Tipo di aggregazione |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -52,5 +49,5 @@ Log e metriche possono essere esportati in modo specifico per il monitoraggio di
 ## <a name="next-steps"></a>Passaggi successivi
 Le seguenti guide introduttive descrivono scenari e casi d'uso comuni in cui avviene il monitoraggio e la gestione del data warehouse:
 
-- [Monitorare il carico di lavoro del data warehouse con viste a gestione dinamica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [Monitorare il carico di lavoro data warehouse con viste a gestione dinamica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

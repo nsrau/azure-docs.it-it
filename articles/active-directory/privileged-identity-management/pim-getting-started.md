@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576742"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488633"
 ---
 # <a name="start-using-pim"></a>Iniziare a usare PIM
 
@@ -31,7 +31,7 @@ Questo articolo descrive come abilitare e iniziare a usare PIM.
 
 Per usare PIM, è necessario avere una delle licenze seguenti:
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
 Per altre informazioni, vedere [Requisiti della licenza per usare PIM](subscription-requirements.md).
@@ -68,7 +68,7 @@ Per iniziare a usare PIM nella directory, è prima di tutto necessario abilitare
 
     Ad esempio, potrebbe venire chiesto di fornire la verifica telefonica.
 
-    ![Verifica di sicurezza aggiuntiva](./media/pim-getting-started/additional-security-verification.png)
+    ![Verifica aggiuntiva di sicurezza](./media/pim-getting-started/additional-security-verification.png)
 
 1. Dopo aver completato il processo di verifica, fare clic sul pulsante **Consenso**.
 

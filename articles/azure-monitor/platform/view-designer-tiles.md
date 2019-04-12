@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470261"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495329"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento per i riquadri di Progettazione viste in Monitoraggio di Azure
 Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
@@ -52,7 +52,7 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
@@ -70,7 +70,7 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Primo riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
@@ -91,7 +91,7 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Anello** | |
 | Query |Query eseguita per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. |
@@ -115,7 +115,7 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -136,7 +136,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -161,7 +161,7 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Attività |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | Primo grafico | |
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |

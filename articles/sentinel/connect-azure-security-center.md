@@ -1,6 +1,6 @@
 ---
-title: La raccolta di dati del Centro sicurezza di Azure nell'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come raccogliere i dati di Centro sicurezza di Azure in Azure Sentinel.
+title: La connessione dati del Centro sicurezza di Azure a Azure Sentinel Preview | Microsoft Docs
+description: Informazioni su come connettere i dati del Centro sicurezza di Azure a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242274"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490672"
 ---
-# <a name="collect-data-from-azure-security-center"></a>Raccogliere dati dal Centro sicurezza di Azure
+# <a name="connect-data-from-azure-security-center"></a>Connetti dati dal Centro sicurezza di Azure
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Sentinel Azure puoi raccogliere avvisi da [Centro sicurezza di Azure](../security-center/security-center-intro.md) e trasmetterli in Sentinel di Azure. 
+Sentinel Azure ti permette di connettere gli avvisi da [Centro sicurezza di Azure](../security-center/security-center-intro.md) e trasmetterli in Sentinel di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,7 +42,7 @@ Sentinel Azure puoi raccogliere avvisi da [Centro sicurezza di Azure](../securit
 
 ## <a name="connect-to-azure-security-center"></a>Connettersi al Centro sicurezza di Azure
 
-1. In Azure Sentinel, selezionare **raccolta di dati** e quindi fare clic sui **Centro sicurezza di Azure** riquadro.
+1. In Azure Sentinel, selezionare **connettori di dati** e quindi fare clic sui **Centro sicurezza di Azure** riquadro.
 1. Nella finestra di destra, fare clic su **Connect** accanto a ogni sottoscrizione di cui si vuole trasmettere in Azure Sentinel gli avvisi. Assicurarsi di eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per gli avvisi di flusso di Azure Sentinel ogni sottoscrizione.
 
 3. Fare clic su **Connetti**.

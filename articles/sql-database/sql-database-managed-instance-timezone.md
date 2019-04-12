@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471882"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489691"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Fuso orario in istanza gestita di Database SQL di Azure
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuso orario in istanza gestita di Database SQL di Azure (anteprima)
 
 Mentre tramite Coordinated Universal Time (UTC) è una procedura consigliata per il livello di dati di soluzioni cloud, istanza gestita di Azure SQL Database offre una scelta del fuso orario per soddisfare le esigenze delle applicazioni esistenti che archiviano i valori di data e ora e data chiamante e funzioni di ora con un contesto implicita di un fuso orario specifico.
 
@@ -72,7 +72,7 @@ Se non specificato, fuso orario verrà impostato su UTC.
 
 ## <a name="checking-the-time-zone-of-instance"></a>Verifica il fuso orario dell'istanza
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) funzione restituisce un nome visualizzato del fuso orario dell'istanza.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) funzione restituisce un nome visualizzato del fuso orario dell'istanza.
 
 ## <a name="cross-feature-considerations"></a>Considerazioni sulla tra funzionalità
 

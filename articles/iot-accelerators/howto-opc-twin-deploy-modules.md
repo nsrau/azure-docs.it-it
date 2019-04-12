@@ -1,5 +1,5 @@
 ---
-title: Come distribuire un modulo di gestione di dispositivi Azure IoT OPC UA da zero | Microsoft Docs
+title: Come distribuire il modulo gemello OPC per Azure da zero | Microsoft Docs
 description: Come distribuire gemello OPC da zero.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759478"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491357"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuire modulo gemello OPC e le dipendenze da zero
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuire il modulo gemello OPC e le dipendenze da zero
 
-Il modulo gemello dispositivo OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge ai servizi del Registro di sistema e OPC dispositivo gemello. 
+Il modulo gemello OPC eseguito in IoT Edge e fornisce diversi servizi di edge per il dispositivo gemello OPC e servizi del Registro di sistema. 
 
 Sono disponibili diverse opzioni per distribuire i moduli per il [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, tra cui
 
@@ -109,7 +109,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Distribuire la gestione dei dispositivi di OPC UA [dipendenze](howto-opc-twin-deploy-dependencies.md) e ottenuto l'oggetto risultante `.env` file. Si noti il distribuito `hub name` del `PCS_IOTHUBREACT_HUB_NAME` variabili nella finestra di `.env` file.
+1. Distribuire il dispositivo gemello OPC [dipendenze](howto-opc-twin-deploy-dependencies.md) e ottenuto l'oggetto risultante `.env` file. Si noti il distribuito `hub name` del `PCS_IOTHUBREACT_HUB_NAME` variabili nella finestra di `.env` file.
 
 2. Registrare e avviare un [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) oppure [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) gateway IoT Edge e nota relativa `device id`.
 
@@ -189,7 +189,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    ```
 
    Il `device id` parametro è tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![output di set di moduli di IoT Edge AZ](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti con il comando seguente:
 
@@ -205,7 +205,7 @@ Per problemi relativi ai ripresa ed eseguirne il debug è utile per eseguire i m
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Distribuire la gestione dei dispositivi di OPC UA [dipendenze](howto-opc-twin-deploy-dependencies.md).
+1. Distribuire il dispositivo gemello OPC [dipendenze](howto-opc-twin-deploy-dependencies.md).
 
 2. Installare [Docker CE (18.02.0+)](https://www.docker.com/community-edition) sul [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) oppure [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

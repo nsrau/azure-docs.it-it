@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144913"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489812"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -40,7 +40,7 @@ Per un ambiente di produzione, è consigliabile acquistare un certificato della 
 
 È anche possibile creare un certificato della CA X.509 autofirmato come prova o per l'uso in reti IoT chiuse.
 
-Indipendentemente dalla modalità di acquisizione del certificato della CA X.509, assicurarsi di non divulgare mai la corrispondente chiave privata.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509. 
+Indipendentemente dalla modalità di acquisizione del certificato della CA X.509, assicurarsi di non divulgare mai la corrispondente chiave privata.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509.
 
 Informazioni su come [creare un certificato della CA autofirmato](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) da usare come esempio nella descrizione di questa funzionalità.
 
@@ -49,6 +49,8 @@ Informazioni su come [creare un certificato della CA autofirmato](https://github
 Il proprietario di un certificato della CA X.509 può firmare a livello di crittografia una CA intermedia, che a sua volta firma un'altra CA intermedia e così via, finché l'ultima CA intermedia conclude il processo firmando un dispositivo. Il risultato è una catena di certificati a cascata definita "catena di certificati". In uno scenario reale questo processo equivale alla delega dell'attendibilità dei dispositivi di firma. Questa delega è importante perché definisce una catena variabile di protezione a livello di crittografia che impedisce la condivisione delle chiavi di firma.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+Il certificato del dispositivo (detto anche un certificato foglia) deve avere il *nome soggetto* impostato sulle **ID dispositivo** usato durante la registrazione del dispositivo IoT nell'IoT Hub di Azure. Questa impostazione è necessaria per l'autenticazione.
 
 Informazioni su come [creare una catena di certificati](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) simile a quella creata durante il processo di firma dei dispositivi.
 
@@ -76,7 +78,7 @@ Una connessione riuscita del dispositivo all'hub IoT completa il processo di aut
 
 Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Informazioni sul [significato dell'autenticazione con il certificato della CA X.509](iot-hub-x509ca-concept.md) in IoT.
 

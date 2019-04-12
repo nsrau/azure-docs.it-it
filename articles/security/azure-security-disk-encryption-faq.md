@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470050"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493145"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -37,11 +37,11 @@ Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui
 
 ## <a name="bkmk_LinuxOSSupport"></a> Quali distribuzioni di Linux sono supportate da Crittografia dischi di Azure?
 
-Crittografia dischi di Azure è supportata su un subset dei [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un sottoinsieme di tutte le distribuzioni possibili.
+Crittografia dischi di Azure è supportata in un subset del [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un subset di tutti i server possibili delle distribuzioni di Linux.
 
  ![Diagramma di Venn di server distribuzioni Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Le distribuzioni non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e distribuzioni di server Linux seguenti supportano crittografia dischi di Azure:
+Distribuzioni di server Linux non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e le distribuzioni seguenti supportano crittografia dischi di Azure:
 
 | Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |

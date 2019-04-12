@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369531"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493060"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -118,7 +118,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity description** (Descrizione attività): indica che un amministratore ha eseguito una reimpostazione della password dal portale di Azure per conto di un utente.
-* **Activity actor** (Attore attività): amministratore che ha eseguito la reimpostazione della password per conto di un altro utente finale o amministratore. Deve essere un amministratore globale, un amministratore di password, un amministratore utenti o un amministratore supporto tecnico.
+* **Activity actor** (Attore attività): amministratore che ha eseguito la reimpostazione della password per conto di un altro utente finale o amministratore. Deve essere un amministratore password, l'utente amministratore o amministratore supporto tecnico.
 * **Activity target** (Destinatario attività): utente la cui password è stata reimpostata. L'utente può essere un utente finale o un amministratore diverso.
 * **Stati attività**:
   * _Operazione riuscita_: indica che un amministratore ha reimpostato la password di un utente.
@@ -176,16 +176,16 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
+* [Come completare una distribuzione di SSPR eseguita correttamente?](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
-* [Domande sulle licenze](concept-sspr-licensing.md)
-* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
-* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
-* [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
-* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
-* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+* [Hai una domanda di gestione delle licenze?](concept-sspr-licensing.md)
+* [Dati usati da SSPR e quali dati da immettere per gli utenti?](howto-sspr-authenticationdata.md)
+* [I metodi di autenticazione sono disponibili per gli utenti?](concept-sspr-howitworks.md#authentication-methods)
+* [Quali sono le opzioni dei criteri con SSPR?](concept-sspr-policy.md)
+* [Che cos'è il writeback delle password e il motivo per cui mi preoccupo su di esso?](howto-sspr-writeback.md)
+* [Quali sono tutte le opzioni in SSPR e cosa il loro significato?](concept-sspr-howitworks.md)
+* [Ritengo che qualcosa è interrotto. Come si risolvono SSPR?](active-directory-passwords-troubleshoot.md)
+* [Ho una domanda che informazioni non illustrata altrove else](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

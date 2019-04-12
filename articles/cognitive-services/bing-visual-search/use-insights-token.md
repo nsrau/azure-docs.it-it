@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469115"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493876"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di insights per ottenere informazioni dettagliate per un'immagine
 

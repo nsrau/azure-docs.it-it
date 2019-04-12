@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577153"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494868"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli delle risorse di Azure in PIM
 
@@ -62,14 +62,14 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 | | |
 | --- | --- |
-| **Consenti le assegnazioni idonee permanenti** | Gli amministratori delle risorse possono assegnare l'appartenenza idonea permanente. |
-| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
+| **Allow permanent eligible assignment (Consenti assegnazione idonea permanente)** | Gli amministratori delle risorse possono assegnare l'appartenenza idonea permanente. |
+| **Scadenza delle assegnazioni idonee dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
 
 L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
 
 | | |
 | --- | --- |
-| **Consenti l'assegnazione permanente attiva** | Gli amministratori delle risorse possono assegnare l'appartenenza attiva permanente. |
+| **Allow permanent active assignment (Consenti assegnazione attiva permanente)** | Gli amministratori delle risorse possono assegnare l'appartenenza attiva permanente. |
 | **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine. |
 
 > [!NOTE] 
@@ -120,4 +120,4 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
-- [Configurare gli avvisi di sicurezza per i ruoli delle risorse in PIM](pim-resource-roles-configure-alerts.md)
+- [Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-alerts.md)

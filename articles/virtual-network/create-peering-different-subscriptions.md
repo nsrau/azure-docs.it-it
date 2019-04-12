@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Informazioni su come creare un peering di rete virtuale tra reti virtuali distribuite tramite Resource Manager e incluse in sottoscrizioni di Azure diverse.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403463"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492295"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -27,9 +27,9 @@ I passaggi per creare un peering di rete virtuale sono diversi a seconda che le 
 
 |Modello di distribuzione di Azure  | Sottoscrizione di Azure  |
 |--------- |---------|
-|[Entrambi con Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
-|[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models.md) |Uguale|
-|[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models-subscriptions.md) |Diversa|
+|[Entrambi Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
+|[Uno di Resource Manager, uno della versione classica](create-peering-different-deployment-models.md) |Uguale|
+|[Uno di Resource Manager, uno della versione classica](create-peering-different-deployment-models-subscriptions.md) |Diversa|
 
 Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Se è necessario connettere due reti virtuali, entrambe create tramite il modello di distribuzione classica, è possibile usare un [gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
 
@@ -39,7 +39,9 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
 
 ## <a name="portal"></a>Creare un peering - Portale di Azure
 
-Se le reti virtuali di cui si vuole eseguire il peering si trovano in sottoscrizioni associate a tenant di Azure Active Directory diversi, seguire la procedura nella sezione relativa all'interfaccia della riga di comando e a PowerShell di questo articolo. Il portale non supporta il peering di reti virtuali appartenenti a sottoscrizioni di tenant di Active Directory diversi.
+Se le reti virtuali di cui si vuole eseguire il peering si trovano in sottoscrizioni associate a tenant di Azure Active Directory diversi, seguire la procedura nella sezione relativa all'interfaccia della riga di comando e a PowerShell di questo articolo. Il portale non supporta il peering di reti virtuali appartenenti a sottoscrizioni di tenant di Active Directory diversi. 
+
+Si noti che Cloud Shell esistono limiti per la commutazione tra sottoscrizioni e i tenant a causa della quale il peering reti virtuali o Peering reti virtuali tra reti virtuali appartenenti a sottoscrizioni di Azure diversi di tenant di Active Directory non funzionerà. Usare PowerShell o CLI.
 
 La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione dal portale e quelli per l'assegnazione a un altro utente delle autorizzazioni per le reti virtuali.
 

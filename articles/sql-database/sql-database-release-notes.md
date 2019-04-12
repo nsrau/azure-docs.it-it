@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360078"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495106"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione di Database SQL
 
@@ -42,6 +42,8 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 |Modalità batch a Rowstore (con il livello di compatibilità 150)|Per informazioni, vedere [la modalità Batch a Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |Feedback delle concessioni di memoria (modalità riga) (con il livello di compatibilità 150)|Per informazioni, vedere [Feedback delle concessioni di memoria (modalità riga)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Tabella variabili posticipata compilazione (con il livello di compatibilità 150)|Per informazioni, vedere [compilazione posticipata variabili tabella](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|Analitica SQL|Per informazioni, vedere [Analitica SQL di Azure](../azure-monitor/insights/azure-sql.md)|
+| Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>Marzo 2019
@@ -57,6 +59,7 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 
 | Miglioramenti alla documentazione | Dettagli |
 | --- | --- |
+| Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
 | Aggiunta log limiti per i database singoli|Per altre informazioni, vedere [limiti delle risorse di Vcore per database singolo](sql-database-vcore-resource-limits-single-databases.md).|
 | Aggiunta log limiti dei pool elastici e i database in pool|Per altre informazioni, vedere [dei limiti delle risorse di Vcore per pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Governance delle velocità di log delle transazioni aggiunto| Aggiunto nuovo contenuto per [governance delle velocità di log delle transazioni](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

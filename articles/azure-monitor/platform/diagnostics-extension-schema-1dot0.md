@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811529"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492720"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.0
 > [!NOTE]
 > Diagnostica di Azure è il componente usato per raccogliere i contatori delle prestazioni e altre statistiche da Macchine virtuali, set di scalabilità di macchine virtuali, Service Fabric e Servizi cloud di Azure.  Questa pagina è utile solo se si usa uno di questi servizi.
 >
 
-Lo strumento Diagnostica di Azure viene usato con altri prodotti di diagnostica Microsoft, quali Monitoraggio di Azure, Application Insights e Log Analytics.
+Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, ad esempio monitoraggio di Azure, che include Application Insights e Log Analitica.
 
 Il file di configurazione di Diagnostica di Azure definisce i valori usati per inizializzare il monitor di diagnostica. Il file viene usato per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica.  
 
@@ -101,7 +101,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 Attributi:
 
-|Attributo  |Type   |Obbligatoria| Predefinito | DESCRIZIONE|  
+|Attributo  |Type   |Obbligatorio| Predefinito | DESCRIZIONE|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Facoltativo | PT1M| Specifica l'intervallo con cui il monitor di diagnostica esegue il polling per le modifiche della configurazione di diagnostica.|  
 |**overallQuotaInMB**|unsignedInt|Facoltativo| 4000 MB. Se si specifica un valore, non deve superare la quantità |Spazio totale di archiviazione del file system allocato per tutti i buffer di registrazione.|  
@@ -154,7 +154,7 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**Contenitore**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
@@ -166,7 +166,7 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**Contenitore**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
@@ -178,7 +178,7 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**Contenitore**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="datasources-element"></a>Elemento DataSources  
@@ -195,7 +195,7 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**Contenitore**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
 |**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="absolute-element"></a>Elemento Absolute  
@@ -219,7 +219,7 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**nome**|stringa|Richiesto. Nome della risorsa locale che contiene la directory da monitorare.|  
+|**name**|stringa|Richiesto. Nome della risorsa locale che contiene la directory da monitorare.|  
 |**relativePath**|stringa|Richiesto. Percorso relativo della risorsa locale da monitorare.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
@@ -269,5 +269,5 @@ Attributi:
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**nome**|stringa|Richiesto. Espressione XPath che specifica il log da raccogliere.|  
+|**name**|stringa|Richiesto. Espressione XPath che specifica il log da raccogliere.|  
 

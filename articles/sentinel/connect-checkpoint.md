@@ -1,6 +1,6 @@
 ---
-title: Raccogli Check Point dati nell'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come raccogliere i dati di Check Point in Sentinel di Azure.
+title: Connetti i dati di Check Point all'anteprima di Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere i dati di Check Point a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876497"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489177"
 ---
 # <a name="connect-your-check-point-appliance"></a>Connettersi all'appliance di Check Point
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876497"
 È possibile connettere Azure Sentinel per le appliance di Check Point salvando i file di log di CEF Syslog. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log dal punto di controllo. Per altre informazioni sul modo in cui Azure Sentinel CEF inserisce dati di tipo, vedere [Appliance connettersi CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
+> I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance di Check Point usando un agente
 
@@ -42,7 +42,7 @@ Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuire l'agente di Azure
 
-1. Nel portale di Azure Sentinel, fare clic su **la raccolta dei dati** e selezionare il tipo di dispositivo. 
+1. Nel portale di Azure Sentinel, fare clic su **connettori dati** e selezionare il tipo di dispositivo. 
 
 1. Sotto **configurazione dell'agente Linux Syslog**:
    - Scegli **distribuzione automatica** se si desidera creare una nuova macchina è pre-installata con l'agente Azure Sentinel e include tutte le necessarie di configurazione, come descritto in precedenza. Selezionare **distribuzione automatica** e fare clic su **distribuzione automatica dell'agente**. Consente di andare alla pagina di acquisto per una macchina virtuale dedicata che viene connesso automaticamente all'area di lavoro. La macchina virtuale è una **v3 D2s standard (2 vcpu, 8 GB di memoria)** e ha un indirizzo IP pubblico.

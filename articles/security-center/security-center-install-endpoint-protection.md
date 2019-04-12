@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579326"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494031"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
@@ -47,7 +47,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installare l'antimalware sulle macchine virtuali di Azure
 
-1. Selezionare **Calcolo** nel menu principale del Centro sicurezza oppure **Panoramica**.
+1. Selezionare **app & calcolo** nel menu principale del Centro sicurezza oppure **Panoramica**.
 
    ![Selezionare Calcolo][1]
 

@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 61871ada0679a68b7f9d872a0df36d22cfb1f0de
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906107"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491203"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -390,7 +390,7 @@ Ogni cmdlet richiede una conferma se la variabile di preferenza PowerShell `$Con
 
 Per eseguire l'override dell'impostazione `$ConfirmPreference` corrente è possibile usare il parametro `-Confirm`. Se si specifica `-Confirm` o `-Confirm:$True`, il cmdlet chiede conferma prima dell'esecuzione. Se si specifica `-Confirm:$False`, il cmdlet non chiede alcuna conferma. 
 
-Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables) (Informazioni sulle variabili di preferenza).
+Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1) (Informazioni sulle variabili di preferenza).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358276"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497067"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
 
@@ -40,9 +40,9 @@ Un'istanza gestita è una piattaforma come un'offerta di servizio (PaaS). Micros
 
 Alcune operazioni avviate da applicazioni o gli utenti finali potrebbero richiedere di SQL Server gestito le istanze per interagire con la piattaforma. Un caso è la creazione di un database in istanza gestita. Questa risorsa viene esposta tramite il portale di Azure, PowerShell, CLI di Azure e l'API REST.
 
-Le istanze gestite dipendono da servizi di Azure, ad esempio archiviazione di Azure per i backup, il Bus di servizio di Azure per i dati di telemetria, Azure Active Directory per l'autenticazione e Azure Key Vault per Transparent Data Encryption (TDE). Le istanze gestite di stabilire connessioni a tali servizi.
+Le istanze gestite dipendono da servizi di Azure come archiviazione di Azure per i backup, hub eventi di Azure per i dati di telemetria, Azure Active Directory per l'autenticazione, Azure Key Vault per Transparent Data Encryption (TDE) e un paio di servizi della piattaforma Azure che forniscono funzionalità di sicurezza e al supporto. Le istanze gestite stabilisce le connessioni a tali servizi.
 
-Tutte le comunicazioni utilizzano i certificati per la crittografia e firma. Per verificare l'attendibilità delle parti, gestite in comunicazione istanze verificare costantemente questi certificati contattando un'autorità di certificazione. Se i certificati vengono revocati o non possono essere verificati, l'istanza gestita chiude le connessioni per proteggere i dati.
+Tutte le comunicazioni vengono crittografate e firmati mediante certificati. Per verificare l'attendibilità delle parti, gestite in comunicazione istanze verificare costantemente questi certificati tramite gli elenchi di revoche di certificati. Se i certificati vengono revocati, l'istanza gestita chiude le connessioni per proteggere i dati.
 
 ## <a name="high-level-connectivity-architecture"></a>Architettura generale della connettività
 
@@ -50,7 +50,7 @@ A livello generale, un'istanza gestita è un set di componenti del servizio. Que
 
 Un cluster virtuale può ospitare più istanze gestite. Se necessario, il cluster viene automaticamente espande o comprime quando il cliente modifica il numero di istanze sottoposte a provisioning nella subnet.
 
-Le applicazioni dei clienti possono connettersi a istanze gestite e possono eseguire query e aggiornamento database solo se vengono eseguite all'interno della rete virtuale, virtuale con peering rete o connesso tramite VPN o ExpressRoute di Azure. Questa rete deve utilizzare un endpoint e un indirizzo IP privato.  
+Le applicazioni dei clienti possono connettersi a istanze gestite e possono eseguire una query e aggiornare i database all'interno della rete virtuale, rete virtuale con peering, o una rete connessa tramite VPN o ExpressRoute di Azure. Questa rete deve utilizzare un endpoint e un indirizzo IP privato.  
 
 ![Diagramma dell'architettura della connettività](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
@@ -80,14 +80,14 @@ Microsoft gestisce l'istanza gestita usando un endpoint di gestione. Questo endp
 Quando avviare le connessioni all'interno dell'istanza gestita (come con i backup e i log di controllo), il traffico viene visualizzata per l'avvio dall'indirizzo IP pubblico dell'endpoint di gestione. È possibile limitare l'accesso a servizi pubblici da un'istanza gestita impostando le regole del firewall per consentire solo indirizzo IP dell'istanza gestita. Per altre informazioni, vedere [firewall incorporato dell'istanza gestita di verificare](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> A differenza del firewall per le connessioni che iniziano all'interno dell'istanza gestita, i servizi di Azure che si trovano all'interno di aree dell'istanza gestita dispone di un firewall che è ottimizzato per il traffico che passa tra questi servizi.
+> Traffice destinati a servizi di Azure che si trovano all'interno di aree dell'istanza gestita è ottimizzata e per tale motivo non fornisca all'indirizzo IP pubblico di istanza possono Gestione endpoint. Per questo motivo se è necessario usare le regole del firewall basato su IP, più comunemente per l'archiviazione del servizio deve essere in un'area diversa dall'istanza gestita.
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
 Distribuire un'istanza gestita in una subnet dedicata all'interno della rete virtuale. La subnet deve avere le seguenti caratteristiche:
 
 - **Subnet dedicata:** Subnet dell'istanza gestita non può contenere qualsiasi altro servizio cloud che è associato, e non può essere una subnet del gateway. La subnet non può contenere qualsiasi risorsa, ma l'istanza gestita e non è possibile aggiungere in un secondo momento le risorse nella subnet.
-- **Gruppo di sicurezza di rete**: È necessario definire un gruppo di sicurezza che è associati con la rete virtuale [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint di dati dell'istanza gestita filtrando il traffico sulla porta 1433.
+- **Gruppo di sicurezza di rete**: È necessario definire un gruppo di sicurezza che è associati con la rete virtuale [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint di dati dell'istanza gestita filtrando il traffico sulla porta 1433 e le porte 11000-11999 quando l'istanza gestita è configurata per reindirizzare le connessioni.
 - **Tabella di route definita (UDR) utente:** Una tabella di route definita dall'utente che ha associato con la rete virtuale deve includere specifiche [voci](#user-defined-routes).
 - **Nessun endpoint di servizio:** Nessun endpoint di servizio deve essere associato a subnet dell'istanza gestita. Assicurarsi che l'opzione endpoint di servizio viene disabilitato quando si crea la rete virtuale.
 - **Indirizzi IP sufficienti:** Subnet dell'istanza gestita deve avere almeno 16 indirizzi IP. Il valore minimo consigliato è 32 indirizzi IP. Per altre informazioni, vedere [determinare le dimensioni della subnet per le istanze gestite](sql-database-managed-instance-determine-size-vnet-subnet.md). È possibile distribuire le istanze gestite nel [della rete esistente](sql-database-managed-instance-configure-vnet-subnet.md) dopo la configurazione per soddisfare [requisiti di rete per le istanze gestite](#network-requirements). In caso contrario, creare un [nuova rete e subnet](sql-database-managed-instance-create-vnet-subnet.md).
@@ -97,21 +97,21 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| NOME       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
+| Attività       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
-|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |Qualsiasi        |CONSENTI |
-|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|Qualsiasi        |CONSENTI |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
+|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |CONSENTI |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| NOME       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
+| Attività       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Qualsiasi              |AzureCloud  |CONSENTI |
-|mi_subnet   |Qualsiasi           |Qualsiasi     |Qualsiasi              |MI SUBNET *  |CONSENTI |
+|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
 
 > [!IMPORTANT]
-> Assicurarsi che ci sia solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Provisioning dell'istanza gestita tramite distribuzioni ARM avrà esito negativo se le regole in ingresso e di output vengono configurate separatamente per ogni porta. Se queste porte sono regole distinte, la distribuzione avrà esito negativo con codice di errore `VnetSubnetConflictWithIntendedPolicy`
+> Assicurarsi che ci sia solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Gestito tramite Azure Resource Manager, le distribuzioni avrà esito negativo se le regole in ingresso e di output vengono configurate separatamente per ogni porta di provisioning dell'istanza. Se queste porte sono regole distinte, la distribuzione avrà esito negativo con codice di errore `VnetSubnetConflictWithIntendedPolicy`
 
 \* SUBNET MI fa riferimento all'intervallo di indirizzi IP per la subnet in 10.x.x.x/y il form. È possibile trovare queste informazioni nel portale di Azure, nelle proprietà di subnet.
 
@@ -122,45 +122,113 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|NOME|Prefisso indirizzo|Hop successivo|
+|Attività|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
-|subnet_to_vnetlocal|[mi_subnet]|Rete virtuale|
-|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
-|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
-|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
-|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
-|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
-|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
-|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
-|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
-|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
-|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
-|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
-|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
-|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
-|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
-|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
-|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
-|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
-|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
-|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
-|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
-|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+|subnet_to_vnetlocal|MI SUBNET|Rete virtuale|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
 Inoltre, è possibile aggiungere voci alla tabella di route per instradare il traffico con gli intervalli IP privati in locale come destinazione tramite il gateway di rete virtuale o appliance di rete virtuale (NVA).
 
-Se la rete virtuale include un DNS personalizzato, aggiungere una voce per l'indirizzo IP del resolver ricorsivo di Azure (ad esempio 168.63.129.16). Per altre informazioni, vedere [configurare un DNS personalizzato](sql-database-managed-instance-custom-dns.md). Il server DNS personalizzato deve essere in grado di risolvere i nomi host in questi domini e i sottodomini: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-errore*.
+Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato deve essere in grado di risolvere i nomi host in \*. core.windows.net zona. Usando le funzionalità aggiuntive, ad esempio autenticazione di Azure AD potrebbe richiedere la risoluzione di altri nomi di dominio completi. Per altre informazioni, vedere [configurare un DNS personalizzato](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -171,4 +239,4 @@ Se la rete virtuale include un DNS personalizzato, aggiungere una voce per l'ind
   - Nel [portale di Azure](sql-database-managed-instance-get-started.md).
   - Usando [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [un modello Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [un modello di Azure Resource Manager (tramite JumpBox, con SQL Server Management Studio incluso)](https://portal.azure.com/).
+  - Usando [un modello di Azure Resource Manager (tramite JumpBox, con SQL Server Management Studio incluso)](https://portal.azure.com/). 

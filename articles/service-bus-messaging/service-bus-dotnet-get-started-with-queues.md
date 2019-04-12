@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778009"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500686"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Questa esercitazione illustra i passaggi seguenti:
-
-1. Creare uno spazio dei nomi del bus di servizio usando il portale di Azure.
-2. Creare una coda del bus di servizio usando il portale di Azure.
-3. Scrivere un'applicazione console .NET Core per inviare un set di messaggi alla coda.
-4. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla coda.
+In questa esercitazione creare applicazioni console .NET Core per inviare e ricevere messaggi da una coda del Bus di servizio. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
-2. Una sottoscrizione di Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
+    1. Leggere la rapida **overview** del Bus di servizio **code**. 
+    2. Creare un Bus di servizio **dello spazio dei nomi**. 
+    3. Ottenere il **stringa di connessione**. 
+    4. Creare un Bus di servizio **coda**. 
 
 ## <a name="send-messages-to-the-queue"></a>Inviare messaggi alla coda
 
@@ -206,7 +197,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
 
 ## <a name="receive-messages-from-the-queue"></a>Ricezione di messaggi dalla coda
 
-Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft.Azure.ServiceBus**, come per l'applicazione mittente precedente.
+Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il **Microsoft.Azure.ServiceBus** pacchetto NuGet, come per l'applicazione mittente precedente.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Scrivere il codice per ricevere messaggi dalla coda
 

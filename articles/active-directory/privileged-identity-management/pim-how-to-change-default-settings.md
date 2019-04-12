@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576863"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492278"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Configurare le impostazioni di ruolo di Azure AD in PIM
 
@@ -55,7 +55,7 @@ Usare il parametro **Notifiche** per determinare se gli amministratori riceveran
 
 Se impostato su **Abilita**, le notifiche sono inviate a:
 
-- Amministratore del ruolo con privilegi
+- Amministratore dei ruoli con privilegi
 - Amministratore della sicurezza
 - Amministratore globale
 
@@ -78,15 +78,15 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   * Amministratore di accesso condizionale
   * Amministratore del servizio CRM
   * Responsabile approvazione per l'accesso a Customer Lockbox
-  * Ruoli con autorizzazioni di scrittura nella directory
+  * Writer di directory
   * Amministratore di Exchange
   * Amministratore globale
   * Amministratore di Information Protection
   * Amministratore del servizio Intune
   * Amministratore del servizio Power BI
-  * Amministratore del ruolo con privilegi
+  * Amministratore dei ruoli con privilegi
   * Amministratore della sicurezza
-  * Amministratore di SharePoint Services
+  * Amministratore del servizio SharePoint
   * Amministratore di Skype for Business
   * Amministratore utenti
 

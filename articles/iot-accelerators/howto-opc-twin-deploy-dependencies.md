@@ -1,5 +1,5 @@
 ---
-title: Come distribuire le dipendenze cloud di gestione dispositivi Azure IoT OPC UA | Microsoft Docs
+title: Come distribuire le dipendenze cloud OPC gemello in Azure | Microsoft Docs
 description: Come distribuire le dipendenze OPC dei dispositivi gemelli di Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759553"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491987"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Distribuzione di dipendenze per lo sviluppo locale
 
@@ -52,7 +52,7 @@ Lo script di distribuzione tenta di registrare le applicazioni di AAD in Azure A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che servizi di gestione dei dispositivi OPC è stata distribuita in un progetto esistente, ecco il passaggio successivo consigliato:
+Ora che sono stati distribuiti servizi OPC gemello correttamente a un progetto esistente, ecco il passaggio successivo consigliato:
 
 > [!div class="nextstepaction"]
-> [Informazioni su come distribuire i moduli di gestione dei dispositivi OPC](howto-opc-twin-deploy-modules.md)
+> [Informazioni su come distribuire i moduli gemelli OPC](howto-opc-twin-deploy-modules.md)

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841107"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492805"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
@@ -41,8 +41,9 @@ L'agente per Linux e Windows non serve solo per la connessione a Log Analytics, 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
 
-* Windows Server 2008 R2 o versione successiva
-* Windows 7 SP1 e versioni successive.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016, versione 1709 e 1803
+* Windows 7 SP1 e versioni successive
 
 ## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
 Questa sezione fornisce informazioni dettagliate sulle distribuzioni Linux supportate.    
@@ -104,7 +105,8 @@ Per l'agente di Linux, è possibile specificare il server proxy durante l'instal
 |proxyhost | Indirizzo o FQDN del server proxy/gateway Log Analytics |
 |port | Numero di porta facoltativo del server proxy/gateway Log Analytics |
 
-Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
+Ad esempio: 
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Se si usano caratteri speciali nella password, ad esempio "\@", viene visualizzato un errore di connessione proxy perché il valore viene analizzato in modo non corretto.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  
@@ -117,7 +119,7 @@ La connessione dei computer nella sottoscrizione di Azure o nell'ambiente ibrido
 |Macchina virtuale di Azure| - Estensione della macchina virtuale di Log Analytics per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) tramite l'interfaccia della riga di comando di Azure oppure con un modello di Azure Resource Manager<br>- [Manualmente dal portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | L'estensione installa l'agente di Log Analytics nelle macchine virtuali di Azure e le registra in un'area di lavoro di Log Analytics esistente.|
 | Computer Windows ibrido|- [Installazione manuale](agent-windows.md)<br>- [Automation DSC per Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modello di Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installare Microsoft Monitoring Agent dalla riga di comando o usando un metodo automatizzato, ad esempio Automation DSC per Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) oppure con un modello di Azure Resource Manager se nel data center è stato distribuito Microsoft Azure Stack.| 
 | Computer Linux ibrido| [Installazione manuale](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installare l'agente per Linux chiamando uno script wrapper ospitato in GitHub. | 
-| System Center Operations Manager|[Integrare Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configurare l'integrazione tra Operations Manager e Log Analytics per inoltrare i dati raccolti dai computer Linux e Windows che inviano report a un gruppo di gestione.|  
+| System Center Operations Manager|[Integrare Operations Manager con Log Analitica](../../azure-monitor/platform/om-agents.md) | Configurare l'integrazione tra Operations Manager e Log Analytics per inoltrare i dati raccolti dai computer Linux e Windows che inviano report a un gruppo di gestione.|  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

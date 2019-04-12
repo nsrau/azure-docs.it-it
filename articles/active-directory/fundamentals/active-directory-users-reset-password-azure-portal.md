@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204900"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492703"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Reimpostare la password di un utente con Azure Active Directory
+
 Se un utente dimentica la propria password, non riesce ad accedere a un dispositivo o non ha mai ricevuto una password, un amministratore può reimpostarne la password.
 
 >[!Note]
@@ -32,7 +33,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
 ## <a name="to-reset-a-password"></a>Per reimpostare la password
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale, amministratore utenti o amministratore password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
+1. Accedi per il [portale di Azure](https://portal.azure.com/) come utente amministratore o amministratore password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 2. Selezionare **Azure Active Directory**, selezionare **Utenti**, cercare e selezionare l'utente che richiede la reimpostazione e quindi selezionare **Reimposta password**.
 
@@ -50,6 +51,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
     >La password temporanea non scade mai. All'accesso successivo dell'utente, la password funzionerà indipendentemente dal tempo trascorso da quando è stata generata.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver reimpostato la password dell'utente, è possibile eseguire i processi di base seguenti:
 
 - [Aggiungere o eliminare utenti](add-users-azure-active-directory.md)

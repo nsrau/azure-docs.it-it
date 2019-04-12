@@ -1,6 +1,6 @@
 ---
-title: Raccogliere i dati DNS nell'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come raccogliere i dati DNS in Azure Sentinel.
+title: Connetti i dati DNS nell'anteprima di Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere i dati DNS in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530417"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489743"
 ---
 # <a name="connect-your-domain-name-server"></a>Connettere il server di nome di dominio
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettersi a qualsiasi Server DNS (Domain Name) in esecuzione su Windows in Azure Sentinel. Questa operazione viene eseguita installando un agente nel computer DNS. Uso di DNS di log, è possibile ottenere sicurezza, prestazioni e informazioni dettagliate relative a operazioni nell'infrastruttura DNS dell'organizzazione tramite la raccolta, l'analisi, e correlare analisi e i log di controllo e altri dati correlati dai server DNS.
 
-Quando si abilita la raccolta di log DNS è possibile:
+Quando si abilita la connessione al log DNS è possibile:
 - Identificare i client che tentano di risolvere nomi di dominio dannosi
 - Identificare i record di risorse non aggiornati
 - Identificare i nomi di dominio sottoposti frequentemente a query e i client DNS loquaci
@@ -38,11 +38,11 @@ Quando si abilita la raccolta di log DNS è possibile:
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Raccolta di DNS è possibile installare un agente nel computer di DNS. L'agente effettua il pull degli eventi dal DNS e li passa al Log Analitica.
+Connessione DNS viene eseguita installando un agente nel computer DNS. L'agente effettua il pull degli eventi dal DNS e li passa al Log Analitica.
 
 ## <a name="connect-your-dns-appliance"></a>Connettersi all'appliance DNS
 
-1. Nel portale di Azure Sentinel, selezionare **raccolta di dati** e scegliere il **DNS** riquadro.
+1. Nel portale di Azure Sentinel, selezionare **connettori di dati** e scegliere il **DNS** riquadro.
 1. Se le macchine DNS sono in Azure:
     1. Fare clic su **scaricare e installare l'agente per le macchine virtuali Windows**.
     1. Nel **macchine virtuali** elencare, selezionare la macchina DNS si vuole trasmettere in Sentinel di Azure. Assicurarsi che si tratta di una VM Windows.

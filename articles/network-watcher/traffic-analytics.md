@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051887"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490997"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 1. Per *Stato* selezionare **Sì**
-2. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione.
-3. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
-4. Selezionare *Sì* per **Stato di Analisi del traffico**.
-5. Selezionare un'area di lavoro di Log Analitica esistente oppure selezionare **Crea nuova area di lavoro** per crearne uno nuovo. Un'area di lavoro Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, questa deve esistere in una delle aree supportate ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Selezionare *versione 2* per **versione i log di flusso**. La versione 2 contiene le statistiche di sessione dei flussi (byte e pacchetti).
+3. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione.
+4. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
+5. Selezionare *Sì* per **Stato di Analisi del traffico**.
+6. Selezionare un'area di lavoro di Log Analytics (OMS) esistente oppure selezionare **Crea una nuova area di lavoro** per crearne una nuova. Un'area di lavoro Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, deve esistere in una delle [aree supportate](#supported-regions) ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    L'area di lavoro di Log Analitica che ospita la soluzione analitica di traffico e il Nsg non è necessario trovarsi nella stessa area. È ad esempio possibile avere Analisi del traffico in un'area di lavoro nell'area Europa occidentale e i gruppi di sicurezza di rete in Stati Uniti orientali e Stati Uniti occidentali. È possibile configurare più gruppi di sicurezza di rete nella stessa area di lavoro.
-6. Selezionare **Salva**.
+    Non è necessario che l'area di lavoro Log Analytics che ospita la soluzione Analisi del traffico e i gruppi di sicurezza di rete si trovino nella stessa area. È ad esempio possibile avere Analisi del traffico in un'area di lavoro nell'area Europa occidentale e i gruppi di sicurezza di rete in Stati Uniti orientali e Stati Uniti occidentali. È possibile configurare più gruppi di sicurezza di rete nella stessa area di lavoro.
+7. Selezionare **Salva**.
 
-    ![Selezione dell'account di archiviazione, dell'area di lavoro Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Selezione dell'account di archiviazione, dell'area di lavoro Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro.
 
@@ -300,7 +301,7 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
     ![Dashboard che presenta la distribuzione delle reti virtuali](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologia delle reti virtuali mostra la barra multifunzione in alto per selezionare parametri come le connessioni esterne, i flussi attivi e i flussi dannosi di una rete virtuale (connessioni tra reti virtuali/attive/inattive).
-- È possibile filtrare la topologia di rete virtuale basata su sottoscrizioni, aree di lavoro, gruppi di risorse e intervallo di tempo. Filtri aggiuntivi che consentono di comprendere il flusso sono: Tipo di flusso (tra reti virtuali, IntraVNET e così via), la direzione del flusso (In ingresso, In uscita), lo stato del flusso (Consentito, Bloccato), le reti virtuali (Assegnate e Connesse), il tipo di connessione (Peering o Gateway: connessione da punto a sito e S2S) e gruppo di sicurezza di rete (NSG). Usare questi filtri per concentrarsi sulle reti virtuali che si desidera esaminare in dettaglio.
+- È possibile filtrare la topologia di rete virtuale basata su sottoscrizioni, aree di lavoro, gruppi di risorse e intervallo di tempo. Filtri aggiuntivi che consentono di comprendere il flusso sono: Flusso di tipo (tra reti virtuali, IntraVNET e così via), la direzione di flusso (in ingresso, in uscita), lo stato del flusso (consentite, bloccate), le reti virtuali (di destinazione e collegato), il tipo di connessione (Peering o Gateway: S2S e P2S) e il gruppo NSG. Usare questi filtri per concentrarsi sulle reti virtuali che si desidera esaminare in dettaglio.
 - La topologia delle reti virtuali illustra la distribuzione del traffico verso una rete virtuale per quanto concerne i flussi (consentiti/bloccati/in ingresso/in uscita/non dannosi/dannosi), il protocollo applicativo e i gruppi di sicurezza di rete, ad esempio:
 
     ![Topologia delle reti virtuali che presenta i dettagli della distribuzione e dei flussi di traffico](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

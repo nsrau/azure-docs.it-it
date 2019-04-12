@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181487"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494766"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere il traffico tra i POD usando i criteri di rete in Azure Kubernetes Service (AKS)
 
 Quando si eseguono applicazioni moderne basate su microservizi in Kubernetes, spesso è necessario controllare quali componenti possono comunicare tra loro. Il principio del privilegio minimo deve essere applicato al modo in cui il traffico tra i POD in un cluster Azure Kubernetes Service (AKS). Si supponga che probabile che si desidera bloccare il traffico direttamente alle applicazioni back-end. Il *criteri di rete* funzionalità in Kubernetes ti permette di definire le regole per il traffico in ingresso e in uscita tra i POD in un cluster.
 
-Tigrato e una soluzione di sicurezza di rete fondata da Tigera, di rete open source offre un motore di criteri di rete che può implementare le regole dei criteri di rete di Kubernetes. Questo articolo illustra come installare il motore dei criteri di rete Tigrato e creare i criteri di rete Kubernetes per controllare il flusso del traffico tra i POD nel servizio contenitore di AZURE.
+Questo articolo illustra come installare il modulo criteri di rete e creare i criteri di rete Kubernetes per controllare il flusso del traffico tra i POD nel servizio contenitore di AZURE. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
 > Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
@@ -27,7 +27,7 @@ Tigrato e una soluzione di sicurezza di rete fondata da Tigera, di rete open sou
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessaria l'interfaccia della riga di comando di Azure 2.0.56 o versioni successive installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 Per creare un cluster AKS che è possibile usare i criteri di rete, è necessario attivare un flag funzionalità per la sottoscrizione. Per registrare il flag funzionalità *EnableNetworkPolicy*, usare il comando [az feature register][az-feature-register] come mostrato nell'esempio seguente:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Tutti i POD in un cluster AKS possono inviare e ricevere traffico senza limitazioni, per impostazione predefinita. Per migliorare la sicurezza, è possibile definire regole per il controllo del flusso del traffico. Applicazioni back-end vengono esposte spesso solo per i servizi front-end necessari, ad esempio. In alternativa, i componenti database accessibili solo per i livelli di applicazione che si connettono a essi.
 
-I criteri di rete sono risorse di Kubernetes che consentono di controllare il flusso del traffico tra i pod. È possibile scegliere di consentire o negare il traffico in base alle impostazioni, ad esempio etichette assegnate, lo spazio dei nomi o la porta del traffico. I criteri di rete siano definiti come YAML manifesti. Questi criteri possono essere inclusi come parte di un manifesto più ampio che crea anche un servizio o distribuzione.
+Criteri di rete sono una specifica di Kubernetes che definisce i criteri di accesso per la comunicazione tra i POD. Usando i criteri di rete, si definisce un set ordinato di regole per inviare e ricevere il traffico e applicarli a una raccolta di POD che corrispondono a uno o più selettori di etichetta.
+
+Queste regole di criteri di rete siano definite come YAML manifesti. I criteri di rete possono essere inclusi come parte di un manifesto più ampio che crea anche un servizio o distribuzione.
+
+### <a name="network-policy-options-in-aks"></a>Opzioni dei criteri di rete nel servizio contenitore di AZURE
+
+Azure offre due modi per implementare criteri di rete. Scegliere un'opzione di criteri di rete quando si crea un cluster AKS. L'opzione dei criteri non può essere modificato dopo la creazione del cluster:
+
+* Implementazione di Azure, chiamato *i criteri di rete di Azure*.
+* *I criteri di rete Tigrato*, una rete di open source e una soluzione di sicurezza di rete fondata da [Tigera][tigera].
+
+Entrambe le implementazioni usano Linux *IPTables* per applicare i criteri specificati. I criteri vengono convertiti in set di coppie IP consentiti e non consentiti. Queste coppie quindi vengono programmate come regole di Iptables filtro.
+
+Criteri di rete funzionano solo con l'opzione Azure CNI (avanzate). Implementazione è diversa per le due opzioni:
+
+* *Criteri di rete di Azure* -CNI Azure consente di impostare un bridge nell'host della macchina virtuale di rete tra nodi. Le regole di filtro vengono applicate quando i pacchetti passano attraverso il bridge.
+* *I criteri di rete Tigrato* -CNI Azure Configura le route di kernel locale per il traffico tra nodi. I criteri vengono applicati nell'interfaccia di rete del pod.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra i criteri di Azure e Tigrato e le relative funzionalità
+
+| Funzionalità                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Piattaforme supportate                      | Linux                      | Linux                       |
+| Opzioni di rete supportate             | Azure CNI                  | Azure CNI                   |
+| Conformità con la specifica di Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
+| Funzionalità aggiuntive                      | Nessuna                       | Esteso al modello dei criteri costituita da criteri di rete globali, impostare rete globale e Host Endpoint. Per altre informazioni sull'uso di `calicoctl` CLI per gestire tali estese le funzionalità, vedere [riferimenti relativi all'utente calicoctl][calicoctl]. |
+| Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community Tigrato. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [opzioni di supporto di progetto Tigrato][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
 
 Per visualizzare i criteri di rete in azione, è possibile creare e quindi espandere un criterio che definisce il flusso del traffico:
 
@@ -59,9 +87,7 @@ Per visualizzare i criteri di rete in azione, è possibile creare e quindi espan
 * Consentire il traffico in base alle etichette del pod.
 * Consentire il traffico in base allo spazio dei nomi.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
-
-I criteri di rete possono essere abilitati solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. 
+In primo luogo, è possibile creare un cluster del servizio contenitore di AZURE che supporta i criteri di rete. La funzionalità di criteri di rete può essere abilitata solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes.
 
 Per usare i criteri di rete con un cluster AKS, è necessario usare il [plug-in CNI Azure] [ azure-cni] e definire la propria rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking].
 
@@ -71,6 +97,7 @@ Lo script di esempio seguente:
 * Crea entità servizio per l'uso di Azure Active Directory (Azure AD) con il cluster AKS.
 * Assegna autorizzazioni di *Collaboratore* per l'entità servizio del cluster del servizio Azure Kubernetes nella rete virtuale.
 * Crea un cluster AKS nella rete virtuale definita e abilita i criteri di rete.
+    * Il *azure* viene utilizzata l'opzione dei criteri di rete. Per usare invece Tigrato come l'opzione dei criteri di rete, usare il `--network-policy calico` parametro.
 
 Specificare la propria *SP_PASSWORD* protetta. È possibile sostituire il *nome_gruppo_di_risorse* e *CLUSTER_NAME* variabili:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 La creazione del cluster richiede alcuni minuti. Quando il cluster è pronto, configurare `kubectl` per connettersi al cluster Kubernetes usando il [az aks get-credentials] [ az-aks-get-credentials] comando. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle:
@@ -454,6 +481,9 @@ Per altre informazioni sui criteri, vedere [i criteri di rete Kubernetes][kubern
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

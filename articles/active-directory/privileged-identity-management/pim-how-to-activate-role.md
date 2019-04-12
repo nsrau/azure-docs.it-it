@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/05/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576813"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488440"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attiva il mio ruolo di Azure AD in PIM
 
@@ -55,7 +55,7 @@ Quando è necessario usare un ruolo di Azure AD, è possibile richiedere l'attiv
 
 1. Fare clic su **Verifica la mia identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
 
-    ![Verifica di sicurezza aggiuntiva](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Verifica aggiuntiva di sicurezza](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro di attivazione.
 
@@ -125,7 +125,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Annullare una richiesta in sospeso](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
 

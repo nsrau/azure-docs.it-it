@@ -1,10 +1,10 @@
 ---
 title: Metriche del database SQL di Azure e registrazione diagnostica | Microsoft Docs
-description: Informazioni sulla configurazione del database SQL di Azure per archiviare le statistiche sull'uso delle risorse e sull'esecuzione delle query.
+description: Informazioni su come abilitare la diagnostica nel Database SQL di Azure per archiviare le informazioni sull'utilizzo delle risorse e le statistiche di esecuzione di query.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426503"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490069"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
+
+In questo argomento si apprenderà come configurare la registrazione dei dati di telemetria di diagnostica per il Database SQL di Azure tramite il portale di Azure, PowerShell, CLI di Azure, API REST di monitoraggio di Azure e il modello di Azure Resource Manager. Questi dati diagnostici sono utilizzabile per valutare l'utilizzo delle risorse e le statistiche di esecuzione di query. 
 
 I database singoli, i database in pool elastici e i database di istanza in un'istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
 

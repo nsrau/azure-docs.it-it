@@ -1,5 +1,5 @@
 ---
-title: Condizioni per l'utilizzo del servizio e informativa sulla privacy per app di Azure AD | Microsoft Docs
+title: Le condizioni del servizio e informativa sulla privacy per le app | Azure
 description: Informazioni su come configurare le condizioni per l'utilizzo del servizio e l'informativa sulla privacy per le app registrate per l'uso di Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193510"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500298"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condizioni per l'utilizzo del servizio e informativa sulla privacy per le app di Azure Active Directory registrate
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
 
 Gli sviluppatori che creano e gestiscono app integrate con Azure Active Directory (Azure AD) e account Microsoft devono includere collegamenti alle condizioni per l'utilizzo del servizio e all'informativa sulla privacy dell'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy vengono presentate agli utenti tramite l'esperienza di consenso dell'utente e consentono agli utenti di sapere che possono considerare attendibile l'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono particolarmente importanti per le app multi-tenant rivolte all'utente, ovvero le app che vengono usate da più directory o sono disponibili per qualsiasi account Microsoft.
 
@@ -47,7 +47,7 @@ Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo de
 | Linee guida     | DESCRIZIONE                           |
 |---------------|---------------------------------------|
 | Format        | URL valido                             |
-| Schemi validi | HTTP e HTTPS</br>Si consiglia HTTPS |
+| Schemi validi | HTTP e HTTPS<br/>Si consiglia HTTPS |
 | Lunghezza massima    | 2048 caratteri                       |
 
 Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statement`
@@ -57,9 +57,9 @@ Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statem
 Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono pronte, è possibile aggiungere collegamenti a questi documenti nell'app con uno dei metodi seguenti:
 
 * [Tramite il portale di Azure](#registered-in-azure-portal)
-* [Nel portale di registrazione delle applicazioni, o Dev Center](#registered-in-app-reg-portal)
-* [Con il codice JSON dell'oggetto app](#app-object-json)
-* [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
+* [Nel portale di registrazione dell'applicazione o Dev Center](#registered-in-app-reg-portal)
+* [Uso dell'app oggetto JSON](#app-object-json)
+* [Utilizza la versione beta di Microsoft Graph API REST](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se l'app è stata registrata nel portale di Azure
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Prestare attenzione a non sovrascrivere eventuali valori pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl` e `logoUrl`
+> * Prestare attenzione a non sovrascrivere eventuali valori Pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl`, e `logoUrl`
 > * La versione beta dell'API REST MSGraph funzionerà solo quando si accede con un account Azure AD. Gli account Microsoft personali non sono supportati.

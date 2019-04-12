@@ -1,6 +1,6 @@
 ---
-title: Raccolta dei dati nell'anteprima di Azure Sentinel Fortinet | Microsoft Docs
-description: Informazioni su come raccogliere dati di Fortinet Sentinel di Azure.
+title: Connetti i dati Fortinet all'anteprima di Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere dati Fortinet Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883217"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492123"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Connettersi all'appliance Fortinet 
 
@@ -42,7 +42,7 @@ Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuire l'agente di Azure
 
-1. Nel portale di Azure Sentinel, fare clic su **la raccolta dei dati** e selezionare il tipo di dispositivo. 
+1. Nel portale di Azure Sentinel, fare clic su **connettori dati** e selezionare il tipo di dispositivo. 
 
 1. Sotto **configurazione dell'agente Linux Syslog**:
    - Scegli **distribuzione automatica** se si desidera creare una nuova macchina è pre-installata con l'agente Azure Sentinel e include tutte le necessarie di configurazione, come descritto in precedenza. Selezionare **distribuzione automatica** e fare clic su **distribuzione automatica dell'agente**. Consente di andare alla pagina di acquisto per una macchina virtuale dedicata che viene connesso automaticamente all'area di lavoro, è. La macchina virtuale è una **v3 D2s standard (2 vcpu, 8 GB di memoria)** e ha un indirizzo IP pubblico.
@@ -79,7 +79,7 @@ Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere
 Se non si usa Azure, è necessario distribuire manualmente l'agente Azure Sentinel per l'esecuzione in un server Linux dedicato.
 
 
-1. Nel portale di Azure Sentinel, fare clic su **la raccolta dei dati** e selezionare il tipo di dispositivo.
+1. Nel portale di Azure Sentinel, fare clic su **connettori dati** e selezionare il tipo di dispositivo.
 1. Per creare una VM Linux dedicata, in **configurazione dell'agente Linux Syslog** sceglie **distribuzione manuale**.
    1. Sotto **scaricare e installare l'agente di Syslog**, selezionare **computer Non Azure Linux**. 
    1. Nel **degli agenti diretti** schermata che si apre selezionare **Agent per Linux** per scaricare l'agente o eseguire questo comando per scaricarlo nel computer Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

@@ -1,5 +1,5 @@
 ---
-title: Come distribuire modulo di gestione di dispositivi Azure IoT OPC UA in un progetto esistente | Microsoft Docs
+title: Come distribuire un modulo gemello OPC a un progetto Azure esistente | Microsoft Docs
 description: Come distribuire gemello OPC a un progetto esistente.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255887"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493247"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire OPC dei dispositivi gemelli in un progetto esistente
 
-Il modulo gemello dispositivo OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge ai servizi del Registro di sistema e OPC dispositivo gemello. 
+Il modulo gemello OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge per i servizi del Registro di sistema e il gemello OPC. 
 
-Il servizio di micro OPC dispositivo gemello facilita la comunicazione tra gli operatori di factory e i dispositivi server OPC UA nell'ambiente di produzione tramite un modulo IoT Edge gemello di OPC. Il servizio micro espone servizi OPC UA (Sfoglia, lettura, scrittura ed Execute) tramite l'API REST. 
+Il servizio di micro OPC gemello facilita la comunicazione tra gli operatori di factory e i dispositivi server OPC UA nell'ambiente di produzione tramite un modulo IoT Edge gemello di OPC. Il servizio micro espone servizi OPC UA (Sfoglia, lettura, scrittura ed Execute) tramite l'API REST. 
 
-Il servizio di registro del dispositivo OPC UA micro fornisce accesso alle applicazioni registrate OPC UA e i relativi endpoint. Gli operatori e gli amministratori possono registrare e annullare la registrazione di nuove applicazioni OPC UA e individuare quelle esistenti, inclusi i relativi endpoint. Oltre all'applicazione e la gestione di endpoint, il servizio Registro di sistema cataloga anche registrati i moduli di IoT Edge di OPC dispositivo gemello. L'API del servizio ti offre controllo della funzionalità modulo edge, ad esempio, avviare o arrestare l'individuazione server (servizi di analisi) o attivazione nuovi dispositivi gemelli di endpoint che è possibile accedere tramite il servizio di micro gemello OPC.
+Il microservizio del Registro di sistema del dispositivo OPC UA fornisce accesso alle applicazioni registrate OPC UA e i relativi endpoint. Gli operatori e gli amministratori possono registrare e annullare la registrazione di nuove applicazioni OPC UA e individuare quelle esistenti, inclusi i relativi endpoint. Oltre all'applicazione e la gestione di endpoint, il servizio Registro di sistema possono essere visualizzate i moduli di IoT Edge gemello di OPC registrati. L'API del servizio ti offre controllo della funzionalità modulo edge, ad esempio, avviare o arrestare l'individuazione server (servizi di analisi) o attivazione nuovi dispositivi gemelli di endpoint che è possibile accedere tramite il servizio di micro gemello OPC.
 
-Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gemello endpoint, che corrisponde agli endpoint del server OPC UA che vengono attivati mediante l'API di registro OPC UA corrispondente. Dispositivi gemelli questo endpoint traducono OPC UA JSON ricevuto dal servizio micro gemello OPC in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato per l'endpoint gestito. Il Supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione di dispositivi al servizio di Onboarding di dispositivo OPC UA per l'elaborazione, in cui questi eventi che gli aggiornamenti al Registro di sistema OPC UA.  Questo articolo illustra come distribuire il modulo gemello OPC a un progetto esistente. 
+Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gemello endpoint, che corrisponde agli endpoint del server OPC UA che vengono attivati mediante l'API di registro OPC UA corrispondente. Dispositivi gemelli questo endpoint traducono OPC UA JSON ricevuto dal servizio micro gemello OPC in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato per l'endpoint gestito. Il Supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione di dispositivi per il servizio di onboarding dispositivo OPC UA per l'elaborazione, in cui questi eventi che gli aggiornamenti al Registro di sistema OPC UA.  Questo articolo illustra come distribuire il modulo gemello OPC a un progetto esistente. 
 
 > [!NOTE]
 > Per altre informazioni sui dettagli di distribuzione e istruzioni, vedere GitHub [repository](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ Lo script di distribuzione tenta di registrare due applicazioni AAD in Azure Act
 2. In alternativa, distribuire un tenant AAD privato in un'altra sottoscrizione, riavviare lo script e selezionare questa opzione per usarlo.
 
 > [!WARNING]
-> Non continuano mai senza autenticazione.  Se si sceglie di eseguire questa operazione, chiunque può accedere gli endpoint di gestione dei dispositivi OPC da Internet non autenticati.   È sempre possibile scegliere il [opzione di distribuzione "local"](howto-opc-twin-deploy-dependencies.md) per provarla prima del.
+> Non continuano mai senza autenticazione.  Se si sceglie di eseguire questa operazione, tutti gli utenti possono accedere agli endpoint OPC gemello da Internet non autenticati.   È sempre possibile scegliere il [opzione di distribuzione "local"](howto-opc-twin-deploy-dependencies.md) per provarla prima del.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Distribuire una demo di servizi IoT industriale all-in-one
 

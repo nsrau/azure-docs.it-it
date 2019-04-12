@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265250"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490638"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -39,20 +39,11 @@ Azure Migrate deve avere accesso ai server VMware per l'individuazione automatic
 - Dettagli: L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
 - Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to Child Object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
 
-Se si esegue la distribuzione in un ambiente tenant, ecco un modo per impostare questa funzionalità:
+Se si distribuisce in un ambiente multi-tenant e si vuole ambito dalla cartella delle macchine virtuali per un singolo tenant, è possibile selezionare direttamente la cartella della macchina virtuale quando all'ambito di raccolta in Azure Migrate. Di seguito sono istruzioni sull'individuazione di ambito in base alla cartella delle macchine virtuali:
 
-1. Creare un utente per ogni tenant e, tramite [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assegnare autorizzazioni di sola lettura a tutte le macchine virtuali appartenenti a un particolare tenant. Usare quindi queste credenziali per l'individuazione. RBAC assicura che l'utente vCenter corrispondente possa accedere solo al tenant della macchina virtuale specifica.
-2. È possibile impostare RBAC per utenti tenant diversi, come descritto nell'esempio seguente per l'Utente n. 1 e l'Utente n. 2:
-
-    - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali in
-    - Datacenter1 - assegnare autorizzazioni di sola lettura all'Utente n. 1 e all'Utente n. 2. Non propagare tali autorizzazioni a tutti gli oggetti figlio, perché le autorizzazioni verranno impostate in macchine virtuali singole.
-
-      - VM1 (Tenant n. 1) (autorizzazione di sola lettura all'Utente n. 1)
-      - VM2 (Tenant n. 1) (autorizzazione di sola lettura all'Utente n. 1)
-      - VM3 (Tenant n. 2) (autorizzazione di sola lettura all'Utente n. 2)
-      - VM4 (Tenant n. 2) (autorizzazione di sola lettura all'Utente n. 2)
-
-   - Se si esegue l'individuazione usando le credenziali dell'Utente n. 1, verranno individuate solo VM1 e VM2.
+1. Creare un utente per ogni tenant e assegnare le autorizzazioni di sola lettura a tutte le macchine virtuali che appartengono a un tenant specifico. 
+2. Concedere questo accesso utente di sola lettura a tutti gli oggetti padre in cui sono ospitate le macchine virtuali. Tutti gli oggetti padre - host, cartella di host, cluster, cartella di cluster - in della gerarchia fino al data center devono essere incluse. Non è necessaria propagare le autorizzazioni per tutti gli oggetti figlio.
+3. Usare le credenziali per l'individuazione del Data Center come selezionando *ambito raccolta*. Il RBAC configurare assicura che l'utente di vCenter corrispondente avrà accesso alle macchine virtuali solo specifico del tenant.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Pianificare i progetti di migrazione e le individuazioni
 
@@ -97,7 +88,7 @@ Se si dispone di più server vCenter con meno di 1500 macchine virtuali per cias
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Più di 1500 macchine in un singolo server vCenter
 
-Se si hanno più di 1500 macchine virtuali in un singolo server vCenter, è necessario suddividere l'individuazione in più progetti di migrazione. Per suddividere le individuazioni, è possibile sfruttare il campo Ambito nell'appliance e specificare l'host, il cluster, la cartella o il data center che si desidera individuare. Ad esempio, se si dispone di due cartelle nel server vCenter, una con 1000 macchine virtuali (Cartella1) e l'altra con 800 macchine virtuali (Cartella2), è possibile usare il campo ambito per suddividere le individuazioni tra le cartelle.
+Se si hanno più di 1500 macchine virtuali in un singolo server vCenter, è necessario suddividere l'individuazione in più progetti di migrazione. Per suddividere le individuazioni, è possibile sfruttare il campo dell'ambito nell'appliance e specificare l'host, cluster, la cartella degli host, la cartella di cluster o Data Center che si desidera individuare. Ad esempio, se si dispone di due cartelle nel server vCenter, una con 1000 macchine virtuali (Cartella1) e l'altra con 800 macchine virtuali (Cartella2), è possibile usare il campo ambito per suddividere le individuazioni tra le cartelle.
 
 **Individuazione continua:** in questo caso, è necessario creare due appliance dell'agente di raccolta, per il primo agente di raccolta, specificare l'ambito come Cartella1 e connetterla al primo progetto di migrazione. È possibile avviare in parallelo l'individuazione della Cartella2 usando l'appliance del secondo agente di raccolta e connetterla al secondo progetto di migrazione.
 

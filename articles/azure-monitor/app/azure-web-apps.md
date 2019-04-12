@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262500"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489623"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
-Attivare il monitoraggio delle applicazioni web basati su in esecuzione in servizi App di Azure in .NET e .NET Core è ora più facile che mai. Mentre in precedenza è necessario installare manualmente un'estensione del sito, l'estensione/agente più recente è ora incorporato nell'immagine del servizio app per impostazione predefinita. Questo articolo verrà consentono di eseguire l'abilitazione del monitoraggio di Application Insights, nonché fornire linee guida introduttive per l'automatizzazione del processo per le distribuzioni su larga scala.
+Abilitazione del monitoraggio in .NET e .NET Core basati su applicazioni web in esecuzione su [servizi App di Azure](https://docs.microsoft.com/azure/app-service/) è ora più facile che mai. Mentre in precedenza è necessario installare manualmente un'estensione del sito, l'estensione/agente più recente è ora incorporato nell'immagine del servizio app per impostazione predefinita. Questo articolo verrà consentono di eseguire l'abilitazione del monitoraggio di Application Insights, nonché fornire linee guida introduttive per l'automatizzazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
 > Aggiunta manuale di un'estensione del sito Application Insights tramite **strumenti di sviluppo** > **estensioni** è deprecata. Questo metodo di installazione dell'estensione dipendeva aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora [preinstallato](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio App. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate su agenti per abilitare il monitoraggio di seguito rimuoverà automaticamente l'estensione deprecata per l'utente.

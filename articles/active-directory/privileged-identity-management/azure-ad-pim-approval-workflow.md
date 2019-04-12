@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576795"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493570"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM
 
@@ -29,7 +29,7 @@ Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è p
 
 Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per ruoli di Azure AD.
 
-## <a name="view-pending-requests"></a>Visualizza richieste in sospeso
+## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
 
 Come responsabile approvazione con delega, si riceverà una notifica e-mail quando una richiesta di ruolo di Azure AD è in attesa di approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
 
@@ -45,7 +45,7 @@ Come responsabile approvazione con delega, si riceverà una notifica e-mail quan
 
     È possibile visualizzare un elenco delle richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approva richieste
+## <a name="approve-requests"></a>Approvare le richieste
 
 1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
 

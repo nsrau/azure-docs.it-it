@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188969"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492089"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali consente prestazioni e metriche relative alla connessione, computer e i dati di inventario di processo e le informazioni sullo stato di integrità e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure.  Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
@@ -125,7 +125,12 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 ### <a name="ports"></a>Porte 
 Porte in un computer che attivamente accettano il traffico in ingresso o potenzialmente può accettare il traffico, ma sono inattive durante l'intervallo di tempo di creazione di report, vengono scritte nella tabella VMBoundPort.  
 
-Per impostazione predefinita, i dati non vengono scritti in questa tabella. Per ottenere i dati scritti in questa tabella, inviare un messaggio di posta elettronica vminsights@microsoft.com con l'ID area di lavoro e l'area dell'area di lavoro.   
+>[!NOTE]
+>Monitoraggio di Azure per le macchine virtuali non supporta la raccolta e la registrazione di trasferire i dati in un'area di lavoro di Log Analitica nelle aree seguenti:  
+>- Stati Uniti orientali  
+>- Europa occidentale
+>
+> Raccolta dei dati è abilitata in altro [aree supportate](vminsights-onboard.md#log-analytics) per monitoraggio di Azure per le macchine virtuali. 
 
 Ogni record presente nel VMBoundPort è identificato dai campi seguenti: 
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180603"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490360"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procedura dettagliata dell'acceleratore di soluzioni di connected factory
 
@@ -73,7 +73,7 @@ Il modulo di pubblicazione OPC si connette ai server OPC UA della postazione ed 
 
 1. Converte i dati del nodo in formato JSON.
 1. Consente di codificare il JSON.
-1. Invia il JSON all'hub IoT sotto forma di messaggi OPC UA Pub/Sub.
+1. Invia il codice JSON all'IoT Hub come OPC UA pub/sub messaggi.
 
 Il modulo di pubblicazione OPC richiede solo una porta HTTPS in uscita (443) e può funzionare con l'infrastruttura aziendale esistente.
 
@@ -230,7 +230,7 @@ L'app Web distribuita nell'ambito dell'acceleratore di soluzioni include un clie
 È possibile proseguire con l'introduzione agli acceleratori di soluzioni IoT leggendo gli articoli seguenti:
 
 * [Autorizzazioni per il sito azureiotsolutions.com][lnk-permissions]
-* [Distribuire un gateway in Windows o Linux per gli acceleratori di soluzioni di connected factory](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Distribuire un gateway in Windows o Linux per l'acceleratore di soluzione di Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation (Implementazione di riferimento del modulo di pubblicazione OPC)](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652587"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494170"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
 
@@ -24,7 +24,7 @@ I criteri degli endpoint di servizio di rete virtuale permettono di filtrare il 
 
 Questa funzionalità è disponibile in __anteprima__ per i servizi e le aree di Azure seguenti:
 
-__Archiviazione di Azure__: WestCentralUS, WestUS2.
+__Archiviazione di Azure__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -35,13 +35,13 @@ Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornament
 
 I criteri degli endpoint di servizio di rete virtuale offrono i vantaggi seguenti:
 
-- __Maggiore sicurezza per il traffico di rete virtuale per i servizi di Azure__
+- __Migliorare la sicurezza per il traffico di rete virtuale ai servizi di Azure__
 
   I [tag dei servizi di Azure per i gruppi di sicurezza di rete](https://aka.ms/servicetags) consentono di limitare il traffico in uscita dalla rete virtuale a servizi di Azure specifici. Tuttavia, in questo modo si consente il traffico verso qualsiasi risorsa di tale servizio di Azure. 
   
   Con i criteri degli endpoint, è ora possibile limitare l'accesso in uscita dalla rete virtuale solo a risorse di Azure specifiche. Ciò offre un controllo della sicurezza molto più granulare, per la protezione dei dati a cui viene eseguito l'accesso in una rete virtuale. 
 
-- __Criteri scalabili a disponibilità elevata per filtrare il traffico dei servizi di Azure__
+- __Scalabili a elevata disponibili dei criteri per filtrare il traffico del servizio di Azure__
 
    I criteri degli endpoint forniscono una soluzione a disponibilità elevata e con scalabilità orizzontale per filtrare il traffico dei servizi di Azure dalle reti virtuali sugli endpoint di servizio. Non è richiesto alcun sovraccarico aggiuntivo per la gestione di appliance di rete centrali per il traffico nelle reti virtuali.
 

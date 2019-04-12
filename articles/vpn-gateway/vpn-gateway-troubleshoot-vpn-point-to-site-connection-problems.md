@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630461"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492380"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -31,7 +31,7 @@ Questo articolo elenca i problemi comuni di connessione da punto a sito che l'ut
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Impossibile trovare un certificato utilizzabile con il protocollo EAP (Extensible Authentication Protocol). (Errore 798)**
+**Non è stato possibile trovare un certificato che può essere utilizzato con questo Extensible Authentication Protocol. (Errore 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -57,6 +57,35 @@ Per altre informazioni su come installare il certificato client, vedere [Generar
 
 > [!NOTE]
 > Quando si importa il certificato client, non selezionare l'opzione **Abilita protezione avanzata chiave privata**.
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connessione di rete tra il computer e il server VPN non è stato possibile stabilire perché il server remoto non risponde
+
+### <a name="symptom"></a>Sintomo
+
+Quando si prova a connettersi a una rete virtuale di Azure di gteway utilizzando IKEv2 in Windows, è visualizzato il messaggio di errore seguente:
+
+**La connessione di rete tra il computer e il server VPN non è stato possibile stabilire perché il server remoto non risponde**
+
+### <a name="cause"></a>Causa
+ 
+ Il problema si verifica se la versione di Windows non include il supporto per la frammentazione IKE
+ 
+### <a name="solution"></a>Soluzione
+
+IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP.
+
+Per preparare Windows 10 o Server 2016 per IKEv2:
+
+1. Installare l'aggiornamento.
+
+   | Versione del sistema operativo | Data | Numero/collegamento |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 versione 1607 | 17 gennaio 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 versione 1703 | 17 gennaio 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 versione 1709 | 22 marzo 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Impostare il valore della chiave del Registro di sistema. Creare o impostare su 1 la chiave REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" del Registro di sistema.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Errore del client VPN: Messaggio imprevisto o in formato non corretto
 
@@ -87,7 +116,7 @@ Per risolvere il problema, seguire questa procedura:
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Una catena di certificati è stata elaborata correttamente, ma termina con un certificato radice considerato non attendibile dal provider di attendibilità.**
+**Una catena di certificati elaborata, ma termina con un certificato radice non considerato attendibile dal provider di attendibilità.**
 
 ### <a name="solution"></a>Soluzione
 
@@ -107,7 +136,7 @@ Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN,
 
 Viene visualizzato il messaggio di errore seguente:
 
-**Errore di download del file. L'URI di destinazione non è specificato.**
+**Errore di download di file. L'URI di destinazione non è specificato.**
 
 ### <a name="cause"></a>Causa 
 
@@ -123,7 +152,7 @@ Il tipo di gateway VPN deve essere **VPN** e il tipo di VPN deve essere **RouteB
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Custom script (to update your routing table) failed. (Impossibile eseguire lo script personalizzato per aggiornare la tabella di routing). (Errore 8007026f)**
+**Lo script personalizzato (per aggiornare la tabella di routing) non è riuscita. (Errore 8007026f)**
 
 ### <a name="cause"></a>Causa
 
@@ -156,7 +185,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile salvare il gateway di rete virtuale &lt;*nome gateway*&gt;. I dati per il certificato &lt;*ID certificato*&gt; non sono validi.**
+**Non è stato possibile salvare il gateway di rete virtuale &lt; *nome del gateway*&gt;. Dati certificato &lt; *ID certificato* &gt; non è valido.**
 
 ### <a name="cause"></a>Causa 
 
@@ -203,7 +232,7 @@ Questo problema si verifica perché il nome del certificato contiene caratteri n
 
 Quando si prova a scaricare il pacchetto di configurazione del client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
+**Non è possibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
  
 ### <a name="solution"></a>Soluzione
 

@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: KyleStorck
 ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471829"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495276"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Progetto acustica Bake risoluzione
 Questa panoramica concettuale descrive la differenza tra le soluzioni grossolane e fine durante creare con bake acustica. Si sceglie questa impostazione durante il passaggio di probe del salvataggio dei flusso di lavoro.

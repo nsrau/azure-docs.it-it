@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882904"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491288"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -113,7 +113,7 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
 - <a name="cross-region"></a>È possibile eseguire il peering di reti virtuali nella stessa area o in aree differenti. Peering di reti virtuali in aree diverse è detta anche *Peering reti virtuali globale*. 
 - Quando si crea un peering globale, le reti virtuali con peering possono esistere in qualsiasi area di cloud pubblico di Azure o aree del cloud della Cina o aree del cloud per enti pubblici. È possibile eseguire il peering tra cloud. Non è possibile, ad esempio, eseguire il peering di una rete virtuale nel cloud pubblico di Azure a una rete virtuale in Azure China cloud.
 - Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di base in una rete virtuale con peering globale. Supporto per Load Balancer Basic esiste solo nella stessa area. Supporto per Load Balancer Standard esiste per entrambi, il peering reti virtuali e Peering reti virtuali.
-- È possibile usare gateway remoti o consentire il transito del gateway nelle reti virtuali con peering globale in anteprima. L'anteprima è disponibile in tutte le aree di Azure, aree del cloud della Cina e aree del cloud per enti pubblici. Nessun inserimento nella whitelist è obbligatorio. È possibile testare in versione di anteprima tramite API, modelli, PowerShell o CLI. Portale non è supportato nell'anteprima.
+- È possibile usare gateway remoti o consentire il transito del gateway nelle reti virtuali con peering globale e in locale con peering reti virtuali.
 - Le reti virtuali possono trovarsi in sottoscrizioni uguali o diverse. Quando il peering delle reti virtuali viene eseguito in sottoscrizioni diverse, entrambe le sottoscrizioni possono essere associate allo stesso tenant di Azure Active Directory o a uno diverso. Se si ha già un tenant di AD, è possibile [crearne uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Il supporto per il peering tra reti virtuali delle sottoscrizioni associate a diversi tenant di Azure Active Directory non è disponibile nel portale. È possibile usare Interfaccia della riga di comando, PowerShell o Modelli.
 - Le reti virtuali di cui si esegue il peering non devono avere spazi di indirizzi IP sovrapposti.
 - Non è possibile aggiungere o eliminare intervalli di indirizzi nello spazio indirizzi di una rete virtuale dopo che ne è stato eseguito il peering con un'altra rete virtuale. Per aggiungere o rimuovere intervalli di indirizzi, eliminare il peering, aggiungere o rimuovere gli intervalli di indirizzi e quindi ricreare il peering. Per aggiungere o rimuovere intervalli di indirizzi in reti virtuali, vedere [Creare, modificare o eliminare una rete virtuale](manage-virtual-network.md).
@@ -142,7 +142,7 @@ L'account usato per il peering della rete virtuale deve essere assegnato ai ruol
 
 Se l'account non è assegnato a uno dei ruoli precedenti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) al quale vengono assegnate le azioni richieste indicate nella tabella seguente:
 
-| Azione                                                          | NOME |
+| Azione                                                          | Attività |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessaria per creare un peering dalla rete virtuale A alla rete virtuale B. La rete virtuale A deve essere una rete virtuale (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessaria per creare un peering dalla rete virtuale B (Resource Manager) alla rete virtuale A                                                       |

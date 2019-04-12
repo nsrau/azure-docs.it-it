@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620820"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491339"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
 Ecco un elenco delle opzioni di supporto per Marketplace.  
@@ -36,11 +36,10 @@ Aprire un ticket con Microsoft [supporto di server di pubblicazione di marketpla
 |:--- |:--- |:--- |  
 | Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 
-## <a name="technical"></a>Tecnico  
+## <a name="technical"></a>Tecnici  
 
 | Canale di supporto | DESCRIZIONE |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Ambiente Slack per il supporto tecnico dei partner. Attualmente più di 350 partner usano questo ambiente. |  
 | Forum MSDN: Marketplace disponibile all'indirizzo [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum di Microsoft Developer Network. |  
 | Stack Overflow: Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: macchine virtuali in Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: contenitori in Azure disponibile all'indirizzo [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 | Supporto per AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Supportare la pubblicazione di app Dynamics |

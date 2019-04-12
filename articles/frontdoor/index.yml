@@ -33,7 +33,7 @@ sections:
         items:
           - html: <a href="front-door-custom-domain.md">Aggiungere un dominio personalizzato alla frontdoor</a>
           - html: <a href="front-door-custom-domain-https.md">Abilitare HTTPS per un dominio personalizzato</a>
-  - title: Informazioni di riferimento
+  - title: riferimento
     items:
       - type: list
         style: cards

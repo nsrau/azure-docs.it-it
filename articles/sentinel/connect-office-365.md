@@ -1,6 +1,6 @@
 ---
-title: Raccogliere i dati di Office 365 nell'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come raccogliere i dati di Office 365 in Azure Sentinel.
+title: Connetti i dati di Office 365 all'anteprima di Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere i dati di Office 365 a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574859"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495191"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Raccogliere dati dai log di Office 365
+# <a name="connect-data-from-office-365-logs"></a>Connetti i dati dai log di Office 365
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.
@@ -33,11 +33,11 @@ ms.locfileid: "58574859"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario essere un amministratore globale o amministratore della sicurezza nel tenant
-- Nel computer da cui è registrato in Azure Sentinel per creare la connessione, assicurarsi suretha porta 4433 è aperta al traffico web.
+- Nel computer da cui è registrato in Azure Sentinel per creare la connessione, assicurarsi che la porta 4433 sia aperta per il traffico web.
 
 ## <a name="connect-to-office-365"></a>Connettersi a Office 365
 
-1. In Azure Sentinel, selezionare **raccolta di dati** e quindi fare clic sui **Office 365** riquadro.
+1. In Azure Sentinel, selezionare **connettori di dati** e quindi fare clic sui **Office 365** riquadro.
 
 2. Se non è già abilitata, in **Connection** usare i **abilitare** pulsante per abilitare la soluzione Office 365. Se è già stata abilitata, verrà identificata nella schermata di connessione come già abilitata.
 1. Office 365 consente di trasmettere dati da più tenant per Azure Sentinel. Per ogni tenant che si desidera connettersi, aggiungere il tenant sotto **connettono i tenant per Azure Sentinel**. 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199631"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492346"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 
@@ -37,9 +37,6 @@ In questo documento sono descritti due scenari:
 1. Entrambe le reti virtuali usano il modello di distribuzione di Resource Manager
 2. La rete virtuale spoke è classica e la rete virtuale hub con gateway è in Resource Manager
 
-> [!IMPORTANT]  
-> Il transito gateway è attualmente supportato con il peering di reti virtuali globale disponibile in anteprima. L'anteprima è disponibile in tutte le aree di Azure, aree del cloud della Cina e aree del cloud per enti pubblici, ma non tra cloud. Nessun inserimento nella whitelist è obbligatorio. È possibile testare in versione di anteprima tramite API, modelli, PowerShell o CLI. Portale non è supportato nell'anteprima. 
-
 ## <a name="requirements"></a>Requisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -54,8 +51,8 @@ L'esempio riportato in questo documento richiede la creazione delle risorse segu
 Per istruzioni, fare riferimento ai documenti seguenti:
 
 1. [Creare un gateway VPN in una rete virtuale](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Creare un peering di rete virtuale con lo stesso modello di distribuzione](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Creare un peering di rete virtuale con modelli di distribuzione diversi](../virtual-network/create-peering-different-deployment-models.md)
+2. [Creare il peering reti virtuali con lo stesso modello di distribuzione](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Creare il peering reti virtuali con modelli di distribuzione diversi](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Autorizzazioni
 

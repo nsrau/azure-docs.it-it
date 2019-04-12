@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c7d8414fdc1070204ef02cf6d88b238575d0817a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472423"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495618"
 ---
 # <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
@@ -75,11 +75,12 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         print miss_num
 7. Se si dispongono di valori mancanti per una colonna specifica nei dati, è possibile eliminarli come indicato di seguito:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
    
    È possibile sostituire i valori mancanti anche con la funzione modalità:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Creare un grafico istogramma utilizzando un numero variabile di contenitori per tracciare la distribuzione di una variabile    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

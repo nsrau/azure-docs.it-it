@@ -1,6 +1,6 @@
 ---
-title: Esempi di Azure Log Analytics PowerShell | Microsoft Docs
-description: Esempi di Azure Log Analytics PowerShell
+title: Esempi di PowerShell di monitoraggio di Azure | Microsoft Docs
+description: Esempi di PowerShell di monitoraggio di Azure
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 642aa385f52e3757f1f872d47d6dd2de80f36d2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5aac1f7e1ded700b9bec38c358ea0049df93fd3e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111360"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492618"
 ---
-# <a name="azure-log-analytics-powershell-samples"></a>Esempi di Azure Log Analytics PowerShell
+# <a name="azure-monitor-powershell-samples"></a>Esempi di PowerShell per monitoraggio di Azure
 
-La tabella seguente include collegamenti a esempi di script di PowerShell per eseguire varie funzioni in Log Analytics.
+Nella tabella seguente include collegamenti a esempi di script di PowerShell per eseguire varie funzioni in Monitoraggio di Azure.
 
 | | |
 |---|---|
 |**Creare un'area di lavoro**||
-| [Creare un'area di lavoro di Log Analytics](../scripts/powershell-sample-create-workspace.md) | Crea un'area di lavoro in Log Analytics.|
+| [Creare un'area di lavoro Log Analytics](../scripts/powershell-sample-create-workspace.md) | Crea un'area di lavoro di Log Analitica in Monitoraggio di Azure.|
 | | |
 

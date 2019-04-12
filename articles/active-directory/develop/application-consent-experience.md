@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: zawad
+ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86424a7c797dfd7e73ad5f0e56929616d9653b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170976"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500482"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -85,4 +85,5 @@ Di seguito sono illustrate le esperienze di consenso che un utente può visualiz
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
+- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](active-directory-devhowto-multi-tenant-overview.md) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
+- Scopri [come configurare il dominio di pubblicazione dell'app](howto-configure-publisher-domain.md).

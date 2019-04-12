@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471651"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493315"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
@@ -29,7 +29,7 @@ Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di 
 >
 > Questa pagina è utile solo se si usa uno di questi servizi.
 
-L'estensione di Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, come Monitoraggio di Azure, Application Insights e Log Analytics. Per altre informazioni, vedere [Panoramica degli strumenti di monitoraggio Microsoft](../../azure-monitor/overview.md).
+L'estensione diagnostica di Azure viene usato con altri prodotti di diagnostica Microsoft, ad esempio monitoraggio di Azure, che include Application Insights e Log Analitica. Per altre informazioni, vedere [Panoramica degli strumenti di monitoraggio Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Grafico delle versioni fornite per Azure SDK e Diagnostica  
 
@@ -56,11 +56,11 @@ L'estensione di Diagnostica di Azure viene usata con altri prodotti di diagnosti
 ## <a name="schemas-index"></a>Indice degli schemi  
 Versioni diverse di Diagnostica di Azure usano schemi di configurazione diversi.
 
-[Schema di configurazione di Diagnostica 1.0](diagnostics-extension-schema-1dot0.md)  
+[Schema di configurazione di diagnostica 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Schema di configurazione di Diagnostica 1.2](diagnostics-extension-schema-1dot2.md)  
+[Schema di configurazione di diagnostica 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Schema di configurazione di Diagnostica 1.3 e versioni successive](diagnostics-extension-schema-1dot3.md)  
+[Diagnostica 1.3 e versioni successive lo Schema di configurazione](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Cronologia delle versioni
 
@@ -207,7 +207,7 @@ Ad esempio, si supponga di selezionare questa casella di controllo e che la stri
 Se si aggiorna il progetto da Azure SDK 2.4 ad Azure SDK 2.5 o versioni successive, è consigliabile ricordare le differenze seguenti a livello di funzionalità di diagnostica.
 
 * **Le API di configurazione sono deprecate** : la configurazione a livello di codice della diagnostica è disponibile in Azure SDK 2.4 o versioni precedenti, ma è deprecata in Azure SDK 2.5 e versioni successive. Se la configurazione di diagnostica è attualmente definita nel codice, sarà necessario riconfigurare completamente tali impostazioni nel progetto sottoposto a migrazione, in modo da mantenere il funzionamento della diagnostica. Il file di configurazione della diagnostica per Azure SDK 2.4 è diagnostics.wadcfg, mentre è diagnostics.wadcfgx per Azure SDK 2.5 e versioni successive.
-* **La diagnostica per le applicazioni del servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
+* **La diagnostica per le applicazioni di servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
 * **Ogni volta che si distribuisce l'app, le configurazioni di diagnostica vengono aggiornate** : ciò può provocare problemi di parità se si modifica la configurazione di diagnostica da Esplora server e quindi si ridistribuisce l'app.
 * **In Azure SDK 2.5 e versioni successive i dump di arresto anomalo del sistema sono configurati nel file di configurazione, non nel codice** : se i dump di arresto anomalo del sistema sono configurati nel codice, sarà necessario trasferire manualmente la configurazione dal codice al file di configurazione, perché i dump di arresto anomalo del sistema non vengono trasferiti durante la migrazione in Azure SDK 2.6.
 

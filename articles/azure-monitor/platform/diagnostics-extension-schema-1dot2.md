@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486156"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496489"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema di configurazione di Diagnostica Azure 1.2
 > [!NOTE]
 > Diagnostica di Azure è il componente usato per raccogliere i contatori delle prestazioni e altre statistiche da Macchine virtuali, set di scalabilità di macchine virtuali, Service Fabric e Servizi cloud di Azure.  Questa pagina è utile solo se si usa uno di questi servizi.
 >
 
-Lo strumento Diagnostica di Azure viene usato con altri prodotti di diagnostica Microsoft, quali Monitoraggio di Azure, Application Insights e Log Analytics.
+Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, ad esempio monitoraggio di Azure, che include Application Insights e Log Analitica.
 
 Lo schema definisce i possibili valori da utilizzare per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica.  
 
@@ -100,7 +100,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Richiesto. Impostazioni di configurazione per i dati di telemetria da raccogliere.|  
 |**StorageAccount**|Nome dell'account di archiviazione di Azure in cui archiviare i dati. Può anche essere specificato come parametro quando si esegue il cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|Directory nella macchina virtuale che l'agente di monitoraggio dovrà usare per archiviare i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo di lavoro/Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> -                      **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> -                      **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
+|**LocalResourceDirectory**|Directory nella macchina virtuale che l'agente di monitoraggio dovrà usare per archiviare i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo web/di lavoro: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> -                      **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> -                      **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
 Definisce le impostazioni di configurazione per i dati di telemetria da raccogliere. La tabella seguente descrive gli elementi figlio:  
@@ -110,7 +110,7 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 |**DiagnosticMonitorConfiguration**|Richiesto. Gli attributi facoltativi sono i seguenti:<br /><br /> -                     **overallQuotaInMB**: spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 5120 MB.<br /><br /> -                     **useProxyServer**: configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|  
 |**CrashDumps**|Abilitare la raccolta di dump di arresto anomalo del sistema. Gli attributi facoltativi sono i seguenti:<br /><br /> -                     **containerName**: nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.<br /><br /> -                     **crashDumpType**: configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.<br /><br /> -                     **directoryQuotaPercentage**: configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
 |**DiagnosticInfrastructureLogs**|Abilita la raccolta dei log generati da Diagnostica di Azure. I log dell'infrastruttura di diagnostica sono utili per la risoluzione dei problemi del sistema di diagnostica stesso. Gli attributi facoltativi sono i seguenti:<br /><br /> -                     **scheduledTransferLogLevelFilter**: consente di configurare il livello di gravità minimo dei log raccolti.<br /><br /> -                     **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
-|**Directories**|Abilita la raccolta del contenuto di una directory, dei log delle richieste di accesso IIS non riuscite e/o dei log IIS. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**Directory**|Abilita la raccolta del contenuto di una directory, dei log delle richieste di accesso IIS non riuscite e/o dei log IIS. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwProviders**|Configura la raccolta di eventi ETW da EventSource e/o da provider basati su manifesti ETW.|  
 |**Metriche**|Questo elemento consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni. Attributo obbligatorio:<br /><br /> **resourceId**: si tratta dell'ID risorsa della macchina virtuale nella quale si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Esplora** -> **Gruppi di risorse** -> **<Nome\>**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.|  
 |**PerformanceCounters**|Abilita la raccolta dei contatori delle prestazioni. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
@@ -146,7 +146,7 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 
 |Nome dell'elemento|DESCRIZIONE|  
 |------------------|-----------------|  
-|**Absolute**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> -                     **Path**: percorso assoluto della directory da monitorare.<br /><br /> -                      **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
+|**Assoluto**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> -                     **Path**: percorso assoluto della directory da monitorare.<br /><br /> -                      **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
 |**LocalResource**|Percorso relativo di una risorsa locale da monitorare. Gli attributi obbligatori sono i seguenti:<br /><br /> -                     **Name**: nome della risorsa locale che contiene la directory da monitorare<br /><br /> -                     **relativePath**: percorso relativo del nome che contiene la directory da monitorare|  
 
 ## <a name="etwproviders-element"></a>Elemento EtwProviders  
@@ -192,7 +192,7 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 
 |Nome dell'elemento|DESCRIZIONE|  
 |------------------|-----------------|  
-|**annotation**|Attributo obbligatorio:<br /><br /> **displayName**: nome visualizzato per il contatore<br /><br /> Attributo facoltativo:<br /><br /> **locale**: impostazioni locali da usare quando si visualizza il nome del contatore|  
+|**Annotazione**|Attributo obbligatorio:<br /><br /> **displayName**: nome visualizzato per il contatore<br /><br /> Attributo facoltativo:<br /><br /> **locale**: impostazioni locali da usare quando si visualizza il nome del contatore|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  La tabella seguente descrive gli elementi figlio:  

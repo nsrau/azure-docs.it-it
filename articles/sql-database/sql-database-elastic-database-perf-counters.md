@@ -1,10 +1,10 @@
 ---
-title: Contatori delle prestazioni per Gestore mappe partizioni
+title: Creare contatori delle prestazioni per monitorare le prestazioni del gestore delle mappe partizioni
 description: La classe ShardMapManager e i contatori delle prestazioni con routing dipendente dai dati
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,18 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895177"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494919"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Contatori delle prestazioni per Gestore mappe partizioni
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creare contatori delle prestazioni per monitorare le prestazioni del gestore delle mappe partizioni
+
+I contatori delle prestazioni consentono di tenere traccia delle prestazioni [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) operazioni. Questi contatori sono accessibili in Performance Monitor, sotto la categoria "Database elastico: Gestione di partizioni".
 
 È possibile acquisire le prestazioni di un [gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md), soprattutto quando si usa il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md). Per creare i contatori si usano i metodi della classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-I contatori vengono usati per tenere traccia delle prestazioni delle operazioni di [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) . Questi contatori sono accessibili in Performance Monitor, sotto la categoria "Database elastico: Gestione di partizioni".
 
 **Per la versione più recente:** passare a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Vedere anche [Aggiornare un'app in modo da usare la libreria client dei database elastici più recente](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -67,7 +68,7 @@ I contatori delle prestazioni verranno aggiornati da tutte le operazioni della c
 
 ### <a name="see-also"></a>Vedere anche 
 
-[Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md)  
+[Panoramica sulle funzionalità di Database elastico](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

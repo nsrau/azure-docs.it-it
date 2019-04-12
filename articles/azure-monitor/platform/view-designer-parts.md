@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470730"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493026"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento sulle parti della visualizzazione Progettazione viste in Monitoraggio di Azure
 Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -88,7 +88,7 @@ L'intestazione presenta un singolo numero che visualizza il numero di record res
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -119,7 +119,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -160,7 +160,7 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -192,7 +192,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -253,7 +253,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -289,7 +289,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**> Le soglie** |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
@@ -359,7 +359,7 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | Abilitare le soglie |Selezionare questo collegamento per visualizzare un'icona colorata a sinistra di ogni valore. L'icona indica l'integrità del valore in relazione alle soglie specificate. |
-| NOME |Nome del valore di soglia. |
+| Attività |Nome del valore di soglia. |
 | Soglia |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
 | Colore |Colore che indica il valore di soglia. |
 

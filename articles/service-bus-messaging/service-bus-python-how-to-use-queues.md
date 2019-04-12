@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242599"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500499"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Come usare le code del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package]. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
+In questa esercitazione descrive come creare applicazioni Python per inviare e ricevere messaggi da una coda del Bus di servizio. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Prerequisiti
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo.
+    1. Leggere la rapida **overview** del Bus di servizio **code**. 
+    2. Creare un Bus di servizio **dello spazio dei nomi**. 
+    3. Ottenere il **stringa di connessione**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Per installare Python oppure il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la [guida all'installazione di Python](../python-how-to-install.md).
-> 
-> Vedere la documentazione completa di Service Bus SDK Python [qui](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Python in questa esercitazione. 
+1. Installare Python o il [pacchetto di Python Azure Service Bus][Python Azure Service Bus package], vedere il [Guida all'installazione di Python](../python-how-to-install.md). Vedere la documentazione completa di Service Bus Python SDK [qui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Creare una coda
 Il **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:

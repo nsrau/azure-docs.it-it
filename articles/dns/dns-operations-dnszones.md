@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: victorh
-ms.openlocfilehash: 2cdf6ea0a992c996f4aeeb117c440e94b55ff8a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2d3bb37998a037dcb878a988d4aa01245584ca82
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961961"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496421"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Come gestire le zone DNS utilizzando PowerShell
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](dns-operations-dnszones-portal.md)
+> * [Portale](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Interfaccia della riga di comando classica di Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
@@ -166,7 +166,7 @@ Poiché il valore predefinito per `$ConfirmPreference` è `High`, solo `Remove-A
 
 Per eseguire l'override dell'impostazione `$ConfirmPreference` corrente è possibile usare il parametro `-Confirm`. Se si specifica `-Confirm` o `-Confirm:$True`, il cmdlet chiede conferma prima dell'esecuzione. Se si specifica `-Confirm:$False`, il cmdlet non chiede alcuna conferma.
 
-Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables) (Informazioni sulle variabili di preferenza).
+Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1) (Informazioni sulle variabili di preferenza).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

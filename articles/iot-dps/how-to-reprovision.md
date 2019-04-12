@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046838"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499853"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
@@ -27,7 +27,7 @@ Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi 
 
 * **Quarantine**: Simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
 
-Per una panoramica più dettagliata sul come rieffettuare il provisioning, vedere [Concetti per rieffettuare il provisoning del dispositivo in hub IoT](concepts-device-reprovision.md).
+Per più di una panoramica più dettagliata di un nuovo provisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurare i criteri di allocazione di registrazione
@@ -93,7 +93,7 @@ Per un esempio di codice di invio per le richieste di provisioning da un disposi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisoning di dispositivo in hub IoT](concepts-device-reprovision.md) 
+- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
 - Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 
