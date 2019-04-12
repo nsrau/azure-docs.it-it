@@ -63,11 +63,11 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
     ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro di Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**.
+2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**.
 
     ![Impostare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Quando viene avviato il processo di Analisi di flusso, i log di diagnostica vengono indirizzati all'area di lavoro di Log Analytics. Passare all'area di lavoro di Log Analytics e scegliere **Log** all'interno della sezione **Generale**.
+3. Quando viene avviato il processo di Analisi di flusso, i log di diagnostica vengono indirizzati all'area di lavoro Log Analytics. Passare all'area di lavoro Log Analytics e scegliere **Log** all'interno della sezione **Generale**.
 
    ![Log di monitoraggio di Azure nella sezione generale](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
@@ -79,7 +79,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
    ![Query di ricerca dei log di diagnostica](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-6. Scegliere il gruppo di azioni e specificare i dettagli dell'avviso, ad esempio nome e descrizione, prima di poter creare la regola di avviso. È possibile indirizzare i log di diagnostica dei diversi processi per la stessa area di lavoro di Log Analytics. In questo modo è possibile impostare gli avvisi una sola volta per tutti i processi.  
+6. Scegliere il gruppo di azioni e specificare i dettagli dell'avviso, ad esempio nome e descrizione, prima di poter creare la regola di avviso. È possibile indirizzare i log di diagnostica dei diversi processi per la stessa area di lavoro Log Analytics. In questo modo è possibile impostare gli avvisi una sola volta per tutti i processi.  
 
 ## <a name="diagnostics-log-categories"></a>Categorie del log di diagnostica
 

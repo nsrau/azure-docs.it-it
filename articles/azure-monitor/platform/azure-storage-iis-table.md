@@ -130,7 +130,7 @@ Dopo la configurazione della diagnostica aggiornata è stata applicata al serviz
 * Macchine virtuali
 * Ruoli di lavoro/Web
 
-Nel portale di Azure passare all'area di lavoro di Log Analytics ed eseguire queste attività:
+Nel portale di Azure passare all'area di lavoro Log Analytics ed eseguire queste attività:
 
 1. Fare clic su *Log account di archiviazione*
 2. Fare clic sull'attività *Aggiungi*

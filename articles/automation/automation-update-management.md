@@ -108,7 +108,7 @@ La soluzione è costituita dalle risorse seguenti. Le risorse vengono aggiunte a
 
 ### <a name="hybrid-worker-groups"></a>Gruppi di ruoli di lavoro ibridi
 
-Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente connesso all'area di lavoro di Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.
+Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente connesso all'area di lavoro Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.
 
 Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gruppi di ruoli di lavoro ibridi** come **gruppo di ruoli di lavoro ibridi per il sistema** per l'account di Automazione. Le soluzioni usano la convenzione di denominazione *Hostname FQDN_GUID*. Non è possibile applicare runbook a questi gruppi nell'account. In caso contrario avranno esito negativo. Questi gruppi sono destinati solo al supporto della soluzione di gestione.
 
@@ -116,7 +116,7 @@ Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gru
 
 ### <a name="management-packs"></a>Management Pack
 
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Operations Manager verranno installati i Management Pack seguenti. Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta della soluzione. Non è necessario configurare o gestire questi Management Pack.
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro Log Analytics, in Operations Manager verranno installati i Management Pack seguenti. Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta della soluzione. Non è necessario configurare o gestire questi Management Pack.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -160,7 +160,7 @@ Heartbeat
 In un computer Windows, è possibile esaminare le informazioni seguenti per verificare la connettività dell'agente con i log di monitoraggio di Azure:
 
 1. Aprire **Microsoft Monitoring Agent** nel Pannello di controllo. Nella scheda **Log Analytics di Azure**, l'agente visualizza il messaggio per indicare che: **Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics**.
-2. Aprire il registro eventi di Windows. Passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del **connettore del servizio** di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro di Log Analytics e sta ricevendo la configurazione.
+2. Aprire il registro eventi di Windows. Passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del **connettore del servizio** di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro Log Analytics e sta ricevendo la configurazione.
 
 Se l'agente non può comunicare con i log di monitoraggio di Azure e l'agente è configurato per comunicare con internet tramite un server proxy o firewall, verificare che il firewall o server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../azure-monitor/platform/agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../log-analytics/log-analytics-agent-linux.md).
 
@@ -184,7 +184,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | --- | --- | --- |
 | Agenti di Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/>Una connessione diretta dall'agente di Operations Manager a log di monitoraggio di Azure non è obbligatoria. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
+| Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/>Una connessione diretta dall'agente di Operations Manager a log di monitoraggio di Azure non è obbligatoria. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
@@ -620,7 +620,7 @@ La distribuzione degli aggiornamenti in base alla classificazione di aggiornamen
 
 Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 
-* Nell'area di lavoro di Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
+* Nell'area di lavoro Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
 * Rimuovere [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o l'[agente di Log Analytics per Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi

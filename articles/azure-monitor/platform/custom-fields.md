@@ -73,7 +73,7 @@ Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultat
 7. Il campo personalizzato può essere usato come le altre proprietà del record,  ad esempio per aggregare e raggruppare dati, ma anche per produrre nuove informazioni dettagliate.
 
 ## <a name="viewing-custom-fields"></a>Visualizzazione di campi personalizzati
-È possibile visualizzare un elenco di tutti i campi personalizzati nel gruppo di gestione dal menu **Impostazioni avanzate** dell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Dati** e quindi **Campi personalizzati** per visualizzare un elenco di tutti i campi personalizzati nell'area di lavoro.  
+È possibile visualizzare un elenco di tutti i campi personalizzati nel gruppo di gestione dal menu **Impostazioni avanzate** dell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Dati** e quindi **Campi personalizzati** per visualizzare un elenco di tutti i campi personalizzati nell'area di lavoro.  
 
 ![Campi personalizzati](media/custom-fields/list.png)
 

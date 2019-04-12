@@ -32,7 +32,7 @@ Attualmente, è possibile indirizzare i log a:
 
 - Un account di archiviazione di Azure.
 - Un hub eventi di Azure, in modo da poterli integrare con le istanze di Splunk e Sumologic.
-- Un'area di lavoro di Azure Log Analytics, in cui è possibile analizzare i dati, creare dashboard e generare avvisi per eventi specifici.
+- Un'area di lavoro Azure Log Analytics, in cui è possibile analizzare i dati, creare dashboard e generare avvisi per eventi specifici.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 

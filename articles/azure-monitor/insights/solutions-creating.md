@@ -1,6 +1,6 @@
 ---
 title: Creare una soluzione di gestione in Azure | Microsoft Docs
-description: Le soluzioni di gestione includono scenari di gestione in pacchetto in Azure che i clienti possono aggiungere alla propria area di lavoro di Log Analytics.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
+description: Le soluzioni di gestione includono scenari di gestione in pacchetto in Azure che i clienti possono aggiungere alla propria area di lavoro Log Analytics.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
 services: monitoring
 documentationcenter: ''
 author: bwren

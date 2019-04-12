@@ -47,7 +47,7 @@ I passaggi di base per aggiungere una vista a una soluzione sono i seguenti.  Og
 ## <a name="export-the-view-to-a-file"></a>Esportare la vista in un file
 Seguire le istruzioni in [Progettazione viste di Log Analytics](../../azure-monitor/platform/view-designer.md) per esportare una vista in un file.  Il file esportato sarà nel formato JSON con gli stessi [elementi del file di soluzione](solutions-solution-file.md).  
 
-L'elemento **resources** del file della vista avrà una risorsa di tipo **Microsoft.OperationalInsights/workspaces** che rappresenta l'area di lavoro di Log Analytics.  Questo elemento avrà un sottoelemento di tipo **views** che rappresenta la vista e contiene la configurazione dettagliata.  Sarà necessario copiare i dettagli di questo elemento e incollarli nella soluzione.
+L'elemento **resources** del file della vista avrà una risorsa di tipo **Microsoft.OperationalInsights/workspaces** che rappresenta l'area di lavoro Log Analytics.  Questo elemento avrà un sottoelemento di tipo **views** che rappresenta la vista e contiene la configurazione dettagliata.  Sarà necessario copiare i dettagli di questo elemento e incollarli nella soluzione.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Creare la risorsa vista nella soluzione
 Aggiungere la risorsa vista seguente nell'elemento **resources** del file di soluzione.  Vengono usate le variabili descritte di seguito, che è necessario aggiungere.  Si noti che le proprietà **Dashboard** e **OverviewTile** sono segnaposto che verranno sovrascritti con le proprietà corrispondenti del file della vista esportato.

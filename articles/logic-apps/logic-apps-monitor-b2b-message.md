@@ -29,7 +29,7 @@ Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account 
 
 * Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come creare un'app per la logica](quickstart-create-first-logic-app-workflow.md) e [come configurare la registrazione per tale app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Una volta soddisfatti i requisiti precedenti, è necessario anche un'area di lavoro di Log Analitica, utilizzabile per il monitoraggio e rilevamento delle comunicazioni B2B tramite i log di monitoraggio di Azure. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Una volta soddisfatti i requisiti precedenti, è necessario anche un'area di lavoro di Log Analitica, utilizzabile per il monitoraggio e rilevamento delle comunicazioni B2B tramite i log di monitoraggio di Azure. Se non si dispone di un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 * Un account di integrazione collegato all'app per la logica. Informazioni su [come creare un account di integrazione con un collegamento all'app per la logica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -58,13 +58,13 @@ Al termine, scegliere **Aggiungi l'impostazione di diagnostica**.
 
    ![Configurare la diagnostica per l'account di integrazione](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-1. Specificare un nome per la nuova impostazione di diagnostica e selezionare l'area di lavoro di Log Analytics e i dati che si desiderano registrare.
+1. Specificare un nome per la nuova impostazione di diagnostica e selezionare l'area di lavoro Log Analytics e i dati che si desiderano registrare.
 
    1. Selezionare **Invia a Log Analytics**. 
 
    1. In **Log Analytics** selezionare **Configura**. 
 
-   1. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics che si desidera usare per la registrazione. 
+   1. In **Aree di lavoro OMS** selezionare l'area di lavoro Log Analytics che si desidera usare per la registrazione. 
 
       > [!NOTE]
       > Le aree di lavoro OMS vengono sostituite da aree di lavoro di Log Analytics. 
@@ -100,13 +100,13 @@ Al termine, scegliere **Aggiungi l'impostazione di diagnostica**.
 
    ![Configurare la diagnostica per l'account di integrazione](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-1. Specificare un nome per la nuova impostazione di diagnostica e selezionare l'area di lavoro di Log Analytics e i dati che si desiderano registrare.
+1. Specificare un nome per la nuova impostazione di diagnostica e selezionare l'area di lavoro Log Analytics e i dati che si desiderano registrare.
 
    1. Selezionare **Invia a Log Analytics**. 
 
    1. In **Log Analytics** selezionare **Configura**. 
 
-   1. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics che si desidera usare per la registrazione. 
+   1. In **Aree di lavoro OMS** selezionare l'area di lavoro Log Analytics che si desidera usare per la registrazione. 
 
       > [!NOTE]
       > Le aree di lavoro OMS vengono sostituite da aree di lavoro di Log Analytics. 

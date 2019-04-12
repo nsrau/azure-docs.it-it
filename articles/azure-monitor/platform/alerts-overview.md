@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56003313"
@@ -39,7 +39,7 @@ Le regole di avviso sono separate dagli avvisi e dalle azioni che vengono intrap
 
 Gli attributi chiave di una regola di avviso sono:
 
-**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per la generazione di avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro di Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio Macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
+**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per la generazione di avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio Macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
 
 **Segnale**: i segnali vengono emessi dalla risorsa di destinazione e possono essere di vari tipi: Metrica, Log attività, Application Insights e Log.
 

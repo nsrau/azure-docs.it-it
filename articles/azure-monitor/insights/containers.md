@@ -150,7 +150,7 @@ Se in precedenza veniva usato l'agente installato direttamente e si vuole usare 
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Configurare un agente di Log Analytics per Docker Swarm
 
-È possibile eseguire l'agente di Log Analytics come un servizio globale in Docker Swarm. Usare le informazioni seguenti per creare un servizio dell'agente di Log Analytics. È necessario fornire l'ID dell'area di lavoro di Log Analytics e la chiave primaria.
+È possibile eseguire l'agente di Log Analytics come un servizio globale in Docker Swarm. Usare le informazioni seguenti per creare un servizio dell'agente di Log Analytics. È necessario fornire l'ID dell'area di lavoro Log Analytics e la chiave primaria.
 
 - Eseguire quanto segue sul nodo principale.
 
@@ -196,7 +196,7 @@ Sono disponibili tre modi per aggiungere l'agente di Log Analytics a Red Hat Ope
 
 In questa sezione viene illustrata la procedura necessaria per installare l'agente di Log Analytics come un DaemonSet OpenShift.  
 
-1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) da GitHub nel nodo principale e modificare il valore con l'ID dell'area di lavoro di Log Analytics la chiave primaria.
+1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) da GitHub nel nodo principale e modificare il valore con l'ID dell'area di lavoro Log Analytics la chiave primaria.
 2. Eseguire i comandi seguenti per creare un progetto per monitoraggio di Azure e impostare l'account utente.
 
     ```
@@ -233,10 +233,10 @@ In questa sezione viene illustrata la procedura necessaria per installare l'agen
     No events.  
     ```
 
-Se si intende usare i segreti per proteggere l'ID e la chiave primaria dell'area di lavoro di Log Analytics quando si usa il file yaml DaemonSet dell'agente di Log Analytics, seguire questa procedura.
+Se si intende usare i segreti per proteggere l'ID e la chiave primaria dell'area di lavoro Log Analytics quando si usa il file yaml DaemonSet dell'agente di Log Analytics, seguire questa procedura.
 
-1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e il segreto che genera lo script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) da GitHub.  Questo script genererà il file yaml dei segreti per l'ID e la chiave primaria dell'area di lavoro di Log Analytics per proteggere le informazioni segrete.  
-2. Eseguire i comandi seguenti per creare un progetto per monitoraggio di Azure e impostare l'account utente. Il segreto che genera lo script chiede di specificare l'ID <WSID> e la chiave primaria <KEY> dell'area di lavoro di Log Analytics e, al completamento, crea il file ocp-secret.yaml.  
+1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e il segreto che genera lo script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) da GitHub.  Questo script genererà il file yaml dei segreti per l'ID e la chiave primaria dell'area di lavoro Log Analytics per proteggere le informazioni segrete.  
+2. Eseguire i comandi seguenti per creare un progetto per monitoraggio di Azure e impostare l'account utente. Il segreto che genera lo script chiede di specificare l'ID <WSID> e la chiave primaria <KEY> dell'area di lavoro Log Analytics e, al completamento, crea il file ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -320,7 +320,7 @@ Per Kubernetes è possibile usare uno script per generare il file yaml dei segre
     1. Copiare lo script e il file modello dei segreti e assicurarsi che siano nella stessa directory.
         - Script per la generazione di segreti: secret-gen.sh
         - Modello di segreto: secret-template.yaml
-    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro di Log Analytics. Dopo aver specificato queste credenziali, lo script crea un file yaml dei segreti che può essere eseguito.   
+    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro Log Analytics. Dopo aver specificato queste credenziali, lo script crea un file yaml dei segreti che può essere eseguito.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -404,7 +404,7 @@ Per Windows Kubernetes è possibile usare uno script per generare il file yaml d
         - Script per la generazione di segreti: secret-gen.sh
         - Modello di segreto: secret-template.yaml
 
-    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro di Log Analytics. Dopo aver specificato queste credenziali, lo script crea un file yaml dei segreti che può essere eseguito.   
+    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro Log Analytics. Dopo aver specificato queste credenziali, lo script crea un file yaml dei segreti che può essere eseguito.   
 
         ```
         #> sudo bash ./secret-gen.sh

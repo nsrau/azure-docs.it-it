@@ -10,7 +10,7 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464222"
@@ -61,12 +61,12 @@ Per l'elaborazione del flusso la soluzione di monitoraggio remoto usa Analisi di
 
 ### <a name="storage"></a>Archiviazione
 
-Per l'archiviazione, l'acceleratore di soluzioni per il monitoraggio remoto usa sia Azure Time Series Insights sia Azure Cosmos DB. Azure Time Series Insights archivia i messaggi in arrivo dai dispositivi connessi tramite l'Hub IoT. L'acceleratore di soluzioni usa Azure Cosmos DB per tutte le altre attività connesse all'archiviazione, ad esempio l'archiviazione offline sicura, la definizione delle regole, gli avvisi e le impostazioni di configurazione.
+Per l'archiviazione, l'acceleratore di soluzioni di monitoraggio remoto usa sia Azure Time Series Insights sia Azure Cosmos DB. Azure Time Series Insights archivia i messaggi in arrivo dai dispositivi connessi tramite l'Hub IoT. L'acceleratore di soluzioni usa Azure Cosmos DB per tutte le altre attività connesse all'archiviazione, ad esempio l'archiviazione offline sicura, la definizione delle regole, gli avvisi e le impostazioni di configurazione.
 
 Azure Cosmos DB è la soluzione consigliata per l'archiviazione ad accesso frequente per utilizzo generico per le applicazioni IoT. Tuttavia, per molti casi d'uso possono essere appropriate soluzioni come Azure Time Series Insights e Azure Data Lake. Con Azure Time Series Insights è possibile ottenere informazioni più dettagliate sui dati dei sensori delle serie temporali individuando rapidamente tendenze e anomalie, Questa funzionalità consente di eseguire analisi delle cause radice ed evitare costosi tempi di inattività.
 
 > [!NOTE]
-> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni per il monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
+> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni di monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
 
 ### <a name="business-integration"></a>Integrazione aziendale
 

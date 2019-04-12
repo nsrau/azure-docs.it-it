@@ -189,6 +189,6 @@ A questo punto è possibile eseguire le applicazioni.
 
 In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
-Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[Acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).

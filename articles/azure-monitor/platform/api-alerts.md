@@ -404,7 +404,7 @@ Le correzioni includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| RunbookName |Nome del runbook. Deve corrispondere a un runbook pubblicato nell'account di automazione configurato nella soluzione di automazione nell'area di lavoro di Log Analytics. |
+| RunbookName |Nome del runbook. Deve corrispondere a un runbook pubblicato nell'account di automazione configurato nella soluzione di automazione nell'area di lavoro Log Analytics. |
 | WebhookUri |URL del webhook. |
 | Expiry |La data e l’ora di scadenza del webhook.  Se il webhook non ha una scadenza, questo può essere una data futura valida. |
 

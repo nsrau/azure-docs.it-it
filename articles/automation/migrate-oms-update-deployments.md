@@ -27,7 +27,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 ## <a name="access-the-azure-portal"></a>Accedere al portale di Azure
 
-Dall'area di lavoro OMS fare clic su **Apri in Azure**. Si passerà così all'area di lavoro di Log Analytics usata in precedenza da OMS.
+Dall'area di lavoro OMS fare clic su **Apri in Azure**. Si passerà così all'area di lavoro Log Analytics usata in precedenza da OMS.
 
 ![Apri in Azure -Portale di OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 

@@ -114,7 +114,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 Per modificare o eliminare un avviso esistente:
 
-1. Aprire l'area di lavoro di Log Analytics dal portale di Azure.
+1. Aprire l'area di lavoro Log Analytics dal portale di Azure.
 2. Nel menu a sinistra selezionare **Avviso**.
 3. Selezionare l'avviso da modificare o eliminare.
 4. L'utente ha a disposizione le seguenti opzioni: **Salva**, **Disabilita**, **Disattiva**, e **Elimina**.

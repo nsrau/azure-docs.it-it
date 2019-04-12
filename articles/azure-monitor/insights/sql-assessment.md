@@ -42,7 +42,7 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 
 * La soluzione Controllo integrità SQL richiede l'installazione di una versione supportata di .NET Framework 4 in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, nonché da Monitoraggio di Azure.  
 * La soluzione supporta SQL Server versioni 2012, 2014 e 2016.
-* Area di lavoro di Log Analytics per aggiungere la soluzione Controllo integrità SQL da Azure Marketplace al portale di Azure.  Per installare la soluzione, l'utente deve essere amministratore o collaboratore per la sottoscrizione di Azure.
+* area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità SQL da Azure Marketplace al portale di Azure.  Per installare la soluzione, l'utente deve essere amministratore o collaboratore per la sottoscrizione di Azure.
 
   > [!NOTE]
   > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati a Monitoraggio di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.

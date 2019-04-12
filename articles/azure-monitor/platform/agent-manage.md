@@ -34,7 +34,7 @@ Dopo la distribuzione iniziale del Log Analitica Windows o Linux l'agente in Mon
 2. Aprire il **Pannello di controllo**.
 3. Selezionare **Microsoft Monitoring Agent** e quindi fare clic sulla scheda **Azure Log Analytics**.
 4. Per rimuovere un'area di lavoro, selezionarla e quindi fare clic su **Rimuovi**. Ripetere questo passaggio per ogni altra area di lavoro per cui si vuole che l'agente interrompa l'invio di report.
-5. Per aggiungere un'area di lavoro, fare clic su **Aggiungi** e, nella finestra di dialogo **Add a Log Analytics Workspace** (Aggiungere un'area di lavoro di Log Analytics), incollare l'ID dell'area di lavoro e la chiave dell'area di lavoro (chiave primaria). Se il computer deve inviare report a un'area di lavoro di Log Analytics nel cloud Azure per enti pubblici, selezionare Azure per enti pubblici degli Stati Uniti nell'elenco a discesa Cloud di Azure.
+5. Per aggiungere un'area di lavoro, fare clic su **Aggiungi** e, nella finestra di dialogo **Add a Log Analytics Workspace** (Aggiungere un'area di lavoro Log Analytics), incollare l'ID dell'area di lavoro e la chiave dell'area di lavoro (chiave primaria). Se il computer deve inviare report a un'area di lavoro Log Analytics nel cloud Azure per enti pubblici, selezionare Azure per enti pubblici degli Stati Uniti nell'elenco a discesa Cloud di Azure.
 6. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Rimuovere un'area di lavoro usando PowerShell

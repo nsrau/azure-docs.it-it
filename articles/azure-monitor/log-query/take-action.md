@@ -15,7 +15,7 @@ ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56005353"
@@ -37,7 +37,7 @@ Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezion
 Per intervenire su un evento e avviare un runbook dai risultati della ricerca log, è necessario prima creare una ricerca log, dai cui risultati è possibile richiamare un runbook on demand. A questo scopo, è possibile usare la funzionalità di ricerca log classica disponibile nel [portale di Azure](../../azure-monitor/log-query/log-query-overview.md). In questo esempio si eseguirà una ricerca log dal portale di Azure con una dimostrazione di base di questa funzionalità.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e selezionare **Log Analytics**.  
-2. Selezionare l'area di lavoro di Log Analytics.
+2. Selezionare l'area di lavoro Log Analytics.
 3. Nell'area di lavoro selezionare **Log (versione classica)**.  
 4. Nella pagina Ricerca log eseguire una ricerca log.  
 5. Nei risultati della ricerca log fare clic sui puntini di sospensione a sinistra di uno dei campi disponibili e nella finestra popup visualizzata selezionare **Take action on** (Intervieni su).<br><br> ![Selezione dell'azione di intervento dai risultati della ricerca](./media/take-action/log-search-takeaction-menuoption.png) 

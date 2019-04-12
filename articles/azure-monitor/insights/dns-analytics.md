@@ -44,7 +44,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | --- | --- | --- |
 | [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
+| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 | [Account di archiviazione di Azure](../platform/collect-azure-metrics-logs.md) | No  | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
@@ -56,7 +56,7 @@ La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai serv
 Per configurare la soluzione, usare le informazioni seguenti:
 
 - È necessario un agente [Windows](../platform/agent-windows.md) o [Operations Manager](../platform/om-agents.md) in ogni server DNS che si vuole monitorare.
-- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro di Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](solutions.md).
+- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](solutions.md).
 
 La soluzione avvia la raccolta dati senza che siano necessarie operazioni di configurazione aggiuntive. È tuttavia possibile usare la configurazione seguente per personalizzare la raccolta.
 
@@ -74,11 +74,11 @@ Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagi
 
 ## <a name="management-packs"></a>Management Pack
 
-Se per la connessione all'area di lavoro di Log Analytics si usa Microsoft Monitoring Agent, viene installato il Management Pack seguente:
+Se per la connessione all'area di lavoro Log Analytics si usa Microsoft Monitoring Agent, viene installato il Management Pack seguente:
 
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 
-Se il gruppo di gestione di Operations Manager è connesso all'area di lavoro di Log Analytics, quando si aggiunge questa soluzione in Operations Manager vengono installati i Management Pack seguenti. Per i Management Pack seguenti non è necessaria alcuna configurazione o manutenzione:
+Se il gruppo di gestione di Operations Manager è connesso all'area di lavoro Log Analytics, quando si aggiunge questa soluzione in Operations Manager vengono installati i Management Pack seguenti. Per i Management Pack seguenti non è necessaria alcuna configurazione o manutenzione:
 
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)

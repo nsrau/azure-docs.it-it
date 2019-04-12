@@ -269,7 +269,7 @@ Spesso i gruppi di risorse vengono usati per stabilire i limiti dei costi. Insie
 
 ## <a name="best-practice-optimize-azure-monitor-retention"></a>Procedura consigliata: Ottimizzare il periodo di conservazione dei dati di Monitoraggio di Azure
 
-Quando si spostano le risorse in Azure e si abilita la registrazione diagnostica, vengono generati un gran numero di dati di log. In genere tali dati di log vengono inviati a un account di archiviazione su cui è stato eseguito il mapping a un'area di lavoro di Log Analytics.
+Quando si spostano le risorse in Azure e si abilita la registrazione diagnostica, vengono generati un gran numero di dati di log. In genere tali dati di log vengono inviati a un account di archiviazione su cui è stato eseguito il mapping a un'area di lavoro Log Analytics.
 
 - Più è esteso il periodo di conservazione dei dati di log, maggiore sarà il numero di dati a disposizione.
 - Non tutti i dati di log sono uguali. Alcune risorse genereranno più dati di log rispetto ad altre.

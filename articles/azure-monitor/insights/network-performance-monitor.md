@@ -15,7 +15,7 @@ ms.date: 02/20/2018
 ms.author: abshamsft
 ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
 ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/04/2019
 ms.locfileid: "59006759"
@@ -102,7 +102,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 ### <a name="configure-the-solution"></a>Configurare la soluzione 
 
 1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta nel [soluzioni di monitoraggio di Azure aggiungere dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md). 
-2. Aprire l'area di lavoro di Log Analytics e selezionare il riquadro **Panoramica**. 
+2. Aprire l'area di lavoro Log Analytics e selezionare il riquadro **Panoramica**. 
 3. Selezionare il riquadro **Monitoraggio prestazioni rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*.
 
    ![Riquadro Monitoraggio delle prestazioni di rete](media/network-performance-monitor/npm-config.png)
@@ -117,7 +117,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
    ![Visualizzazione Monitoraggio endpoint di servizio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Monitoraggio di ExpressRoute**: Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro di Log Analytics. 
+   **Monitoraggio di ExpressRoute**: Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro Log Analytics. 
 
    ![Visualizzazione Monitoraggio di ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 

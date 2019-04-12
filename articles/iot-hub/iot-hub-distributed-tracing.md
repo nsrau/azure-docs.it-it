@@ -10,7 +10,7 @@ ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
 ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58439297"
@@ -60,7 +60,7 @@ In questa sezione si configurerà un hub IoT per registrare gli attributi della 
 
     - **Archivia in un account di archiviazione**: configurare un account di archiviazione che deve contenere le informazioni di registrazione.
     - **Streaming in un hub eventi** : configurare un hub eventi che deve contenere le informazioni di registrazione.
-    - **Invia a Log Analytics**: configurare un'area di lavoro di Log Analytics che deve contenere le informazioni di registrazione.
+    - **Invia a Log Analytics**: configurare un'area di lavoro Log Analytics che deve contenere le informazioni di registrazione.
 
 1. Nella sezione **Log** selezionare le operazioni per le quali devono essere registrate le informazioni.
 

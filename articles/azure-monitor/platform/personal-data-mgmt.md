@@ -25,7 +25,7 @@ ms.locfileid: "58121350"
 Log Analytics è un archivio dati in cui sono disponibili i dati personali. Application Insights archivia questi dati in una partizione di Log Analytics. Questo articolo illustrerà dove trovare questo tipo di dati in Log Analytics e Application Insights, oltre alle funzionalità disponibili per gestire tali dati.
 
 > [!NOTE]
-> Ai fini di questo articolo i _dati di log_ fanno riferimento ai dati inviati a un'area di lavoro di Log Analytics, mentre i _dati dell'applicazione_ fanno riferimento ai dati raccolti da Application Insights.
+> Ai fini di questo articolo i _dati di log_ fanno riferimento ai dati inviati a un'area di lavoro Log Analytics, mentre i _dati dell'applicazione_ fanno riferimento ai dati raccolti da Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 

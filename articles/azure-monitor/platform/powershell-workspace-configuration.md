@@ -1,5 +1,5 @@
 ---
-title: Usare PowerShell per creare e configurare un'area di lavoro di Log Analytics | Documentazione Microsoft
+title: Usare PowerShell per creare e configurare un'area di lavoro Log Analytics | Documentazione Microsoft
 description: Le aree di lavoro di log Analitica in Monitoraggio di Azure archiviano i dati dai server in locale o cloud dell'infrastruttura. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure.
 services: log-analytics
 author: richrundmsft
@@ -42,7 +42,7 @@ Questo articolo presenta due codici di esempio con cui vengono illustrate alcune
 Questi esempi funzionano con la versione 1.0.0 o versione successiva del modulo Az.OperationalInsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro di Log Analytics
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro Log Analytics
 Lo script di esempio seguente illustra come:
 
 1. Creare un'area di lavoro
@@ -195,7 +195,7 @@ Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova
 | `yyyy-MM-ddTHH:mm:ss` <br> T è una valore letterale per la lettera T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurazione di Log Analitica per l'invio della diagnostica di Azure
-Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro di Log Analytics. Questo approccio invia i dati direttamente all'area di lavoro e non richiede dati da scrivere in un account di archiviazione. Le risorse supportate includono:
+Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro Log Analytics. Questo approccio invia i dati direttamente all'area di lavoro e non richiede dati da scrivere in un account di archiviazione. Le risorse supportate includono:
 
 | Tipo di risorsa | Log | Metriche |
 | --- | --- | --- |

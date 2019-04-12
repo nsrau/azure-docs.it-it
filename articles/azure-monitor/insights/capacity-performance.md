@@ -62,11 +62,11 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 Eseguire questo passaggio per aggiungere la soluzione Capacity and Performance all'area di lavoro.
 
-- Aggiungere la soluzione Capacità e prestazioni all'area di lavoro di Log Analytics usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+- Aggiungere la soluzione Capacità e prestazioni all'area di lavoro Log Analytics usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Management Pack
 
-Se il gruppo di gestione SCOM è connesso all'area di lavoro di Log Analytics, i Management Pack seguenti verranno installati in SCOM quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
+Se il gruppo di gestione SCOM è connesso all'area di lavoro Log Analytics, i Management Pack seguenti verranno installati in SCOM quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

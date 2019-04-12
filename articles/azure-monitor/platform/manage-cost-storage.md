@@ -1,6 +1,6 @@
 ---
 title: Gestire l'utilizzo e i costi per Azure Log Analytics | Microsoft Docs
-description: Informazioni su come modificare il piano tariffario e gestire il volume e i criteri di conservazione dei dati per l'area di lavoro di Log Analytics in Azure.
+description: Informazioni su come modificare il piano tariffario e gestire il volume e i criteri di conservazione dei dati per l'area di lavoro Log Analytics in Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -28,7 +28,7 @@ ms.locfileid: "58878146"
 > - [Analizzare l'utilizzo dei dati in Log Analytics](manage-cost-storage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati.
 > - [Monitorare l'utilizzo e i costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati relativi a più funzionalità di monitoraggio di Azure per diversi modelli di prezzi. Illustra inoltre come modificare il modello di prezzi.
 
-Log Analitica in Monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
+Log Analitica in Monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
 In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 
 
@@ -49,14 +49,14 @@ Per esplorare i dati in maggiore dettaglio, fare clic sull'icona nell'angolo sup
 
 ![Visualizzazione dei log](media/manage-cost-storage/logs.png)
 
-Dalla pagina **Utilizzo e costi stimati** è possibile rivedere il volume dei dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro di Log Analytics.  Fare clic su **Dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard di utilizzo con informazioni sulle tendenze del volume di dati in base a origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.
+Dalla pagina **Utilizzo e costi stimati** è possibile rivedere il volume dei dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro Log Analytics.  Fare clic su **Dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard di utilizzo con informazioni sulle tendenze del volume di dati in base a origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.
  
 I costi di Log Analytics vengono addebitati nella fattura di Azure. È possibile visualizzare i dettagli della fattura di Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Limite giornaliero
 È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite giornaliero è finalizzato a gestire l'aumento imprevisto nel volume di dati dalle risorse gestite e rimanere entro il limite prefissato oppure quando si vuole semplicemente limitare gli addebiti non pianificati per l'area di lavoro.  
 
-Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. Nella parte superiore della pagina per l'area di lavoro di Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
+Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. Nella parte superiore della pagina per l'area di lavoro Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire 
 Vedere [Utilizzo e costi stimati di Log Analytics](usage-estimated-costs.md) per informazioni sulla tendenza nell'inserimento dati e sul limite di volume giornaliero da definire. Fare attenzione nella scelta del limite, in quanto non sarà possibile monitorare le risorse una volta raggiunto il limite. 
@@ -96,14 +96,14 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-I clienti con un contratto Enterprise sottoscritto prima del 1 luglio 2018 o che hanno già creato un'area di lavoro di Log Analytics in una sottoscrizione potranno comunque accedere al piano *Gratuito*. Se la sottoscrizione non è associata a una registrazione EA esistente, il livello *Gratuito* non è disponibile quando si crea un'area di lavoro in una nuova sottoscrizione dopo il 2 aprile 2018.  I dati possono essere conservati per un massimo di 7 giorni per il livello *Gratuito*.  Per i livelli legacy *Autonomo* o *Per nodo*, nonché per il piano tariffario unico 2018 corrente, i dati raccolti sono disponibili per gli ultimi 31 giorni. Il livello *Gratuito* prevede un limite di inserimento giornaliero di 500 MB. Se si supera costantemente il volume consentito, è possibile convertire l'area di lavoro in un altro piano per raccogliere dati oltre questo limite. 
+I clienti con un contratto Enterprise sottoscritto prima del 1 luglio 2018 o che hanno già creato un'area di lavoro Log Analytics in una sottoscrizione potranno comunque accedere al piano *Gratuito*. Se la sottoscrizione non è associata a una registrazione EA esistente, il livello *Gratuito* non è disponibile quando si crea un'area di lavoro in una nuova sottoscrizione dopo il 2 aprile 2018.  I dati possono essere conservati per un massimo di 7 giorni per il livello *Gratuito*.  Per i livelli legacy *Autonomo* o *Per nodo*, nonché per il piano tariffario unico 2018 corrente, i dati raccolti sono disponibili per gli ultimi 31 giorni. Il livello *Gratuito* prevede un limite di inserimento giornaliero di 500 MB. Se si supera costantemente il volume consentito, è possibile convertire l'area di lavoro in un altro piano per raccogliere dati oltre questo limite. 
 
 > [!NOTE]
 > Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
 
 ## <a name="changing-pricing-tier"></a>Modifica del piano tariffario
 
-Se l'area di lavoro di Log Analytics ha accesso ai piani tariffari esistenti, modificare i piani tariffari esistenti:
+Se l'area di lavoro Log Analytics ha accesso ai piani tariffari esistenti, modificare i piani tariffari esistenti:
 
 1. Nel riquadro delle sottoscrizioni di Log Analytics del portale di Azure selezionare un'area di lavoro.
 

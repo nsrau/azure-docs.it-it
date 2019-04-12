@@ -15,7 +15,7 @@ ms.date: 06/15/2018
 ms.author: yagup;jdial
 ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
 ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2019
 ms.locfileid: "59051887"
@@ -50,7 +50,7 @@ Le reti virtuali di Azure hanno i log dei flussi dei gruppi di sicurezza di rete
 
 ## <a name="how-traffic-analytics-works"></a>Come funziona Analisi del traffico
 
-Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e acquisisce log ridotti aggregando i flussi comuni tra lo stesso indirizzo IP di origine, indirizzo IP di destinazione, porta di destinazione e protocollo, Ad esempio Host 1 (indirizzo IP: 10.10.10.10) che comunica con Host 2 (indirizzo IP: 10.10.20.10), 100 volte in un periodo di 1 ora usando la porta (ad esempio, 80) e il protocollo (ad esempio, http). Il log ridotto ha una voce, indicante che Host 1 e Host 2 hanno comunicato 100 volte nell'arco di 1 ora usando la porta *80* e il protocollo *HTTP*, invece di 100 voci. I log ridotti vengono migliorati con informazioni su geografia, sicurezza e topologia e quindi archiviati in un'area di lavoro di Log Analytics. L'immagine seguente illustra il flusso di dati:
+Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e acquisisce log ridotti aggregando i flussi comuni tra lo stesso indirizzo IP di origine, indirizzo IP di destinazione, porta di destinazione e protocollo, Ad esempio Host 1 (indirizzo IP: 10.10.10.10) che comunica con Host 2 (indirizzo IP: 10.10.20.10), 100 volte in un periodo di 1 ora usando la porta (ad esempio, 80) e il protocollo (ad esempio, http). Il log ridotto ha una voce, indicante che Host 1 e Host 2 hanno comunicato 100 volte nell'arco di 1 ora usando la porta *80* e il protocollo *HTTP*, invece di 100 voci. I log ridotti vengono migliorati con informazioni su geografia, sicurezza e topologia e quindi archiviati in un'area di lavoro Log Analytics. L'immagine seguente illustra il flusso di dati:
 
 ![Flusso di dati per l'elaborazione dei log dei flussi dei gruppi di sicurezza di rete](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -84,7 +84,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Giappone occidentale
 * US Gov Virginia
 
-L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
+L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Canada centrale
 * Stati Uniti centro-occidentali
 * Stati Uniti occidentali 2
@@ -176,12 +176,12 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 2. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione.
 3. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
 4. Selezionare *Sì* per **Stato di Analisi del traffico**.
-5. Selezionare un'area di lavoro di Log Analitica esistente oppure selezionare **Crea nuova area di lavoro** per crearne uno nuovo. Un'area di lavoro di Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, questa deve esistere in una delle aree supportate ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selezionare un'area di lavoro di Log Analitica esistente oppure selezionare **Crea nuova area di lavoro** per crearne uno nuovo. Un'area di lavoro Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, questa deve esistere in una delle aree supportate ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     L'area di lavoro di Log Analitica che ospita la soluzione analitica di traffico e il Nsg non è necessario trovarsi nella stessa area. È ad esempio possibile avere Analisi del traffico in un'area di lavoro nell'area Europa occidentale e i gruppi di sicurezza di rete in Stati Uniti orientali e Stati Uniti occidentali. È possibile configurare più gruppi di sicurezza di rete nella stessa area di lavoro.
 6. Selezionare **Salva**.
 
-    ![Selezione dell'account di archiviazione, dell'area di lavoro di Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Selezione dell'account di archiviazione, dell'area di lavoro Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
 Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro.
 

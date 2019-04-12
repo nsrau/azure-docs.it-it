@@ -52,7 +52,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
    | **Gruppo di risorse** | *nome-gruppo-di-risorse-di-Azure* | Creare o selezionare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) per questa app per la logica e per organizzare tutte le risorse associate a questa app. | 
    | **Posizione** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
-   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Accendere [la registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica attraverso [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro di Log Analytics. | 
+   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Accendere [la registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica attraverso [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
    |||| 
 
 4. Al termine, selezionare **Aggiungi al dashboard**. L'app per la logica verrà così visualizzata nel dashboard di Azure e aperta dopo la distribuzione. Scegliere **Create**.

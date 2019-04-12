@@ -15,14 +15,14 @@ ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57841107"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
-L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti per Windows e Linux si collegano a un'area di lavoro di Log Analytics per raccogliere dati da origini diverse, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. 
+L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti per Windows e Linux si collegano a un'area di lavoro Log Analytics per raccogliere dati da origini diverse, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. 
 
 Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.   
 
@@ -125,4 +125,4 @@ La connessione dei computer nella sottoscrizione di Azure o nell'ambiente ibrido
 
 * Altre informazioni sulle [query di log](../../azure-monitor/log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 
-* Altre informazioni sulle [soluzioni di monitoraggio](../../azure-monitor/insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro di Log Analytics.
+* Altre informazioni sulle [soluzioni di monitoraggio](../../azure-monitor/insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro Log Analytics.

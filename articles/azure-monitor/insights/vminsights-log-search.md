@@ -15,7 +15,7 @@ ms.date: 03/15/2019
 ms.author: magoedte
 ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
 ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58188969"
@@ -28,8 +28,8 @@ Ogni ora viene generato un record per ogni computer e processo univoco, in aggiu
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
-- Computer: usare *ResourceId* o *ResourceName_s* per identificare in modo univoco un computer in un'area di lavoro di Log Analytics.
-- Processo: usare *ResourceId* per identificare in modo univoco un processo in un'area di lavoro di Log Analytics. Il valore di *ResourceName_s* è univoco nel contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
+- Computer: usare *ResourceId* o *ResourceName_s* per identificare in modo univoco un computer in un'area di lavoro Log Analytics.
+- Processo: usare *ResourceId* per identificare in modo univoco un processo in un'area di lavoro Log Analytics. Il valore di *ResourceName_s* è univoco nel contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 

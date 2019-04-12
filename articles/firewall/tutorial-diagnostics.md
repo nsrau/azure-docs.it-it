@@ -57,7 +57,7 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 6. Fare clic su **Invia a Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
 7. In **Log Analytics** fare clic su **Configura**.
 8. Nella pagina delle aree di lavoro di Log Analytics fare clic su **Crea nuova area di lavoro**.
-9. Nella pagina **Area di lavoro di Log Analytics** immettere **firewall-oms** come nome della nuova **Area di lavoro di Log Analytics**.
+9. Nella pagina **area di lavoro Log Analytics** immettere **firewall-oms** come nome della nuova **area di lavoro Log Analytics**.
 10. Selezionare la sottoscrizione, usare il gruppo di risorse del firewall esistente (**Test-FW-RG**), selezionare **Stati Uniti orientali** per la località e selezionare il piano tariffario **Gratuito**.
 11. Fare clic su **OK**.
    ![Avvio del processo di configurazione][1] Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  

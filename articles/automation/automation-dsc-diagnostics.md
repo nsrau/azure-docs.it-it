@@ -52,7 +52,7 @@ Per avviare l'importazione di dati da Azure Automation DSC nei registri di monit
    Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
-1. Ottenere il valore _ResourceId_ dell'area di lavoro di Log Analytics eseguendo questo comando di PowerShell. Se sono presenti più aree di lavoro, scegliere il valore _ResourceID_ per l'area di lavoro da configurare.
+1. Ottenere il valore _ResourceId_ dell'area di lavoro Log Analytics eseguendo questo comando di PowerShell. Se sono presenti più aree di lavoro, scegliere il valore _ResourceID_ per l'area di lavoro da configurare.
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace

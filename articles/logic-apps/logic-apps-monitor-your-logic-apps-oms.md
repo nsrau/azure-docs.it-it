@@ -29,7 +29,7 @@ Per abilitare i log di monitoraggio di Azure per le App per la logica esistenti,
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
+Prima di iniziare, è necessaria un'area di lavoro Log Analytics. Informazioni su [come creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Attivare la registrazione della diagnostica durante la creazione di app per la logica
 
@@ -45,11 +45,11 @@ Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazion
 
    1. Impostare **Log Analytics** su **On**. 
 
-   1. Nell'elenco delle aree di lavoro di Log Analytics selezionare l'area di lavoro in cui si vuole inviare i dati per le esecuzioni dell'app per la logica. 
+   1. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro in cui si vuole inviare i dati per le esecuzioni dell'app per la logica. 
 
       ![Creare l'app per la logica](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      Al termine di questo passaggio, Azure crea l'app per la logica, che ora è associata all'area di lavoro di Log Analytics personale. 
+      Al termine di questo passaggio, Azure crea l'app per la logica, che ora è associata all'area di lavoro Log Analytics personale. 
       Con questo passaggio, nell'area di lavoro viene anche installata automaticamente la soluzione di gestione delle app per la logica.
 
    1. Al termine dell'operazione, scegliere **Crea**.
@@ -64,9 +64,9 @@ Se è già attivato i log di monitoraggio di Azure al momento della creazione di
 
    ![Selezionare "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-1. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
+1. In **Log Analytics** trovare e selezionare l'area di lavoro Log Analytics. 
 
-   ![Selezionare l'area di lavoro di Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
+   ![Selezionare l'area di lavoro Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
 1. In **Introduzione a Log Analytics** > **Configura soluzioni di monitoraggio** scegliere **Visualizza soluzioni**.
 
@@ -78,7 +78,7 @@ Se è già attivato i log di monitoraggio di Azure al momento della creazione di
 
    Se non si riesce a trovare la soluzione, nella parte inferiore dell'elenco scegliere **Carica altro** finché non viene visualizzata la soluzione.
 
-1. Scegliere **Crea**, confermare l'area di lavoro di Log Analytics in cui si vuole installare la soluzione e quindi scegliere di nuovo **Crea**.   
+1. Scegliere **Crea**, confermare l'area di lavoro Log Analytics in cui si desidera installare la soluzione e quindi scegliere di nuovo **Crea**.   
 
    ![Scegliere "Crea" per "Gestione app per la logica"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
@@ -92,7 +92,7 @@ Se è già attivato i log di monitoraggio di Azure al momento della creazione di
 
 Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e il numero delle esecuzioni nel riquadro **Gestione app per la logica**. 
 
-1. Passare all'area di lavoro di Log Analytics e aprire la pagina Panoramica. Scegliere **Gestione app per la logica**. 
+1. Passare all'area di lavoro Log Analytics e aprire la pagina Panoramica. Scegliere **Gestione app per la logica**. 
 
    ![Stato e numero di esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 

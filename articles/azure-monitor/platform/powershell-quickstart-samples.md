@@ -333,7 +333,7 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
 Molti servizi di Azure offrono log e dati di telemetria aggiuntivi che possono eseguire una o più delle operazioni seguenti: 
  - essere configurati per il salvataggio dei dati nell'account di Archiviazione di Azure
  - essere inviati a Hub eventi
- - essere inviati a un'area di lavoro di Log Analytics. 
+ - essere inviati a un'area di lavoro Log Analytics. 
 
 L'operazione può essere eseguita solo a livello di risorse. L'account di archiviazione o l'hub eventi deve essere presente nella stessa area come risorsa di destinazione in cui viene configurata l'impostazione di diagnostica.
 
@@ -379,7 +379,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-La proprietà WorkspaceId accetta il valore dell'*ID risorsa* dell'area di lavoro. È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
+La proprietà WorkspaceId accetta il valore dell'*ID risorsa* dell'area di lavoro. È possibile ottenere l'ID risorsa dell'area di lavoro Log Analytics usando il comando seguente:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

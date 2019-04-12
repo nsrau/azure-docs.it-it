@@ -30,7 +30,7 @@ Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gesti
 
 Per abilitare la soluzione solo per la macchina virtuale, assicurarsi che sia selezionata l'opzione **Enable for this VM** (Abilita per questa macchina virtuale). Per eseguire l'onboarding di più macchine virtuali nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le macchine virtuali in questa sottoscrizione) e quindi selezionare **Click to select machines to enable** (Fare clic per selezionare le macchine virtuali da abilitare). Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
 
-Selezionare l'area di lavoro di Azure Log Analytics e l'account di Automazione, quindi selezionare **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+Selezionare l'area di lavoro Azure Log Analytics e l'account di Automazione, quindi selezionare **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Eseguire l'onboarding della soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
@@ -70,7 +70,7 @@ Selezionare una delle ricerche salvate per visualizzare la query usata per popol
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
 
-Le soluzioni seguenti sono dipendenti da un'area di lavoro di Log Analytics:
+Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
 * [Rilevamento delle modifiche](automation-change-tracking.md)
@@ -91,7 +91,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
    Verrà richiesto di confermare l'operazione.
 
-3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 

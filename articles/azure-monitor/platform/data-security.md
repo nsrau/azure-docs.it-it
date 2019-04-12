@@ -149,7 +149,7 @@ Per permettere all'organizzazione di inviare dati a Log Analytics, configurare u
 * [ID aziendale](../../active-directory/fundamentals/sign-up-organization.md)
 * [Account Microsoft - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Un'area di lavoro di Log Analytics viene usata per raccogliere, aggregare, analizzare e presentare i dati. Un'area di lavoro è univoca e viene usata principalmente per eseguire la partizione dei dati. Si possono ad esempio gestire i dati di produzione con un'area di lavoro e i dati di test con un'altra area di lavoro. Le aree di lavoro vengono anche usate da un amministratore per controllare l'accesso ai dati ad opera degli utenti. A ogni area di lavoro possono essere associati più account utente, ognuno dei quali può accedere a più aree di lavoro di Log Analytics. Creare le aree di lavoro in base all'area data center.
+Un'area di lavoro Log Analytics viene usata per raccogliere, aggregare, analizzare e presentare i dati. Un'area di lavoro è univoca e viene usata principalmente per eseguire la partizione dei dati. Si possono ad esempio gestire i dati di produzione con un'area di lavoro e i dati di test con un'altra area di lavoro. Le aree di lavoro vengono anche usate da un amministratore per controllare l'accesso ai dati ad opera degli utenti. A ogni area di lavoro possono essere associati più account utente, ognuno dei quali può accedere a più aree di lavoro di Log Analytics. Creare le aree di lavoro in base all'area data center.
 
 Per Operations Manager, il gruppo di gestione di Operations Manager stabilisce una connessione con il servizio Log Analytics. Quindi si specificano i sistemi gestiti tramite agente del gruppo di gestione a cui è consentito raccogliere e inviare dati al servizio. A seconda della soluzione abilitata, i dati di queste soluzioni vengono inviati direttamente da un server di gestione di Operations Manager al servizio Log Analytics oppure, a causa del volume dei dati raccolti dal sistema gestito dall'agente, vengono inviati direttamente dall'agente al servizio. Per i sistemi non monitorati da Operations Manager, ognuno si connette in modo sicuro direttamente al servizio Log Analytics.
 
@@ -160,7 +160,7 @@ Ogni tipo di agente raccoglie dati per Log Analytics. Il tipo di dati raccolti d
 ## <a name="2-send-data-from-agents"></a>2. Invio dei dati dagli agenti
 Si registrano tutti i tipi di agente con una chiave di registrazione e viene stabilita una connessione sicura tra l'agente e il servizio Log Analytics usando l'autenticazione basata su certificati e SSL con la porta 443. Log Analytics usa un archivio segreto per generare e gestire le chiavi. Le chiavi private sono soggette a rotazione ogni 90 giorni, vengono archiviate in Azure e sono gestite dalle operazioni di Azure in ottemperanza alle procedure consigliate in materia di conformità e normative.
 
-Con Operations Manager, il gruppo di gestione registrato con un'area di lavoro di Log Analytics stabilisce una connessione HTTPS protetta con un server di gestione di Operations Manager.
+Con Operations Manager, il gruppo di gestione registrato con un'area di lavoro Log Analytics stabilisce una connessione HTTPS protetta con un server di gestione di Operations Manager.
 
 Per gli agenti Windows o Linux in esecuzione su macchine virtuali di Azure, viene usata una chiave di archiviazione di sola lettura per leggere gli eventi di diagnostica nelle tabelle di Azure.  
 

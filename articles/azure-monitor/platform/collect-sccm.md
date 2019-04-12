@@ -41,7 +41,7 @@ I passaggi seguenti riepilogano la procedura per configurare l'integrazione di C
 Altre informazioni sulla connessione tra Configuration Manager per il monitoraggio di Azure in [Sincronizza i dati da Configuration Manager all'area di lavoro di Microsoft Log Analitica](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Fornire a Configuration Manager le autorizzazioni per Log Analytics
-Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro di Log Analytics all'applicazione AD e all'entità servizio creata in precedenza per Configuration Manager.  Se si dispone già di un'area di lavoro, vedere [creare un'area di lavoro in Monitoraggio di Azure](../../azure-monitor/learn/quick-create-workspace.md) prima di procedere.  In questo modo, si consente a Configuration Manager di eseguire l'autenticazione e connettersi all'area di lavoro di Log Analytics.  
+Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro Log Analytics all'applicazione AD e all'entità servizio creata in precedenza per Configuration Manager.  Se si dispone già di un'area di lavoro, vedere [creare un'area di lavoro in Monitoraggio di Azure](../../azure-monitor/learn/quick-create-workspace.md) prima di procedere.  In questo modo, si consente a Configuration Manager di eseguire l'autenticazione e connettersi all'area di lavoro Log Analytics.  
 
 > [!NOTE]
 > È necessario specificare le autorizzazioni dell'area di lavoro di Log Analitica per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.

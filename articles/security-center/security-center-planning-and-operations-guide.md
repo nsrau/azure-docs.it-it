@@ -157,7 +157,7 @@ Per disabilitare successivamente la raccolta dati, è possibile usare i criteri 
 
 Un'area di lavoro di Azure è una risorsa usata come contenitore per i dati. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
-I dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza di Azure) verranno archiviati in una o più aree di lavoro di Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale.
+I dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza di Azure) verranno archiviati in una o più aree di lavoro Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale.
 
 Nel portale di Azure è possibile visualizzare un elenco delle aree di lavoro di Log Analytics, incluse quelle create dal Centro sicurezza di Azure. Per le nuove aree di lavoro verrà creato un gruppo di risorse correlato. Entrambi seguiranno questa convenzione di denominazione:
 

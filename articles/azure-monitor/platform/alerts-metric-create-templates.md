@@ -22,7 +22,7 @@ ms.locfileid: "57541317"
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: Area di lavoro di Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: area di lavoro Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 I passaggi di base sono i seguenti:
 

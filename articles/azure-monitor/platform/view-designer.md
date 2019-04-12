@@ -42,7 +42,7 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 |:--- |:--- |
 | Riquadri | Vengono visualizzati in Monitoraggio di Azure **Panoramica** pagina. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analitica basato su uno o più [registrare query](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una query di log che restituisca record dettagliati. |
+| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analitica basato su uno o più [registrare query](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Selezionare gli elementi della parte per eseguire una query di log che restituisca record dettagliati. |
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 Richiesto almeno [le autorizzazioni a livello di collaboratore](manage-access.md#manage-accounts-and-users) nell'area di lavoro di Log Analitica per creare o modificare le visualizzazioni. Se non si ha questa autorizzazione, l'opzione di Progettazione viste non verranno visualizzata nel menu di scelta.
@@ -66,7 +66,7 @@ Le opzioni sono descritte nella tabella seguente:
 
 
 ## <a name="create-a-new-view"></a>Creazione di una nuova vista
-È possibile creare una nuova vista in Progettazione visualizzazioni selezionando **Progettazione visualizzazioni** nel menu dell'area di lavoro di Log Analytics.
+È possibile creare una nuova vista in Progettazione visualizzazioni selezionando **Progettazione visualizzazioni** nel menu dell'area di lavoro Log Analytics.
 
 ![Riquadro Progettazione viste](media/view-designer/view-designer-tile.png)
 

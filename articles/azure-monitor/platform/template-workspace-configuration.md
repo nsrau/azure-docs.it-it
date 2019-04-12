@@ -1,5 +1,5 @@
 ---
-title: Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro di Log Analytics | Microsoft Docs
+title: Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro Log Analytics | Microsoft Docs
 description: È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -49,7 +49,7 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
-## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro di Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso.  
 
 I parametri seguenti impostano un valore predefinito:
@@ -58,7 +58,7 @@ I parametri seguenti impostano un valore predefinito:
 * SKU: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018.
 
 > [!NOTE]
->Se si crea o si configura un'area di lavoro di Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.  
+>Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.  
 >Se si hanno sottoscrizioni nel [modello di prezzi applicato prima di aprile 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), è possibile specificare il piano tariffario **Standalone** che sarà valido sia per la sottoscrizione nel modello di prezzi anteriore ad aprile 2018 sia per le sottoscrizioni nel nuovo modello di prezzi. Per le aree di lavoro nelle sottoscrizioni che hanno adottato il nuovo modello di prezzi, il piano tariffario verrà impostato su **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
@@ -137,7 +137,7 @@ I parametri seguenti impostano un valore predefinito:
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:<br><br> ![Esempio di risultato al termine della distribuzione](./media/template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Configurare un'area di lavoro di Log Analytics
+## <a name="configure-a-log-analytics-workspace"></a>Configurare un'area di lavoro Log Analytics
 Il modello di esempio seguente illustra come:
 
 1. Aggiungere soluzioni all'area di lavoro

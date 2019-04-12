@@ -96,7 +96,7 @@ Qui ci sono le modifiche da richiamare
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Monitoraggio di Azure log integration
-È possibile leggere questi eventi Syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un’area di lavoro di Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
+È possibile leggere questi eventi Syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un’area di lavoro Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
 
 1. Passare al pannello `Advanced Settings`
 

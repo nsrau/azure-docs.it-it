@@ -21,7 +21,7 @@ ms.lasthandoff: 04/08/2019
 ms.locfileid: "59276412"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
-Monitoraggio di Azure archivia i dati di log in un'area di lavoro di Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
+Monitoraggio di Azure archivia i dati di log in un'area di lavoro Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
 Questo articolo illustra come gestire l'accesso ai log e per amministrare le aree di lavoro che li contengono. 
 
@@ -35,14 +35,14 @@ Per creare un'area di lavoro di Log Analitica, è necessario:
 
 Vedere gli articoli seguenti per informazioni dettagliate sulla creazione di un'area di lavoro:
 
-- [Creare un'area di lavoro di Log Analytics nel portale di Azure](../learn/quick-create-workspace.md)
-- [Creare un'area di lavoro di Log Analytics con l'interfaccia della riga di comando di Azure 2.0](../learn/quick-create-workspace-cli.md)
-- [Creare un'area di lavoro di Log Analytics con Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Creare un'area di lavoro Log Analytics nel portale di Azure](../learn/quick-create-workspace.md)
+- [Creare un'area di lavoro Log Analytics con l'interfaccia della riga di comando di Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Creare un'area di lavoro Log Analytics con Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinare il numero di aree di lavoro necessarie
-Un'area di lavoro di Log Analytics è una risorsa di Azure e rappresenta un contenitore in cui i dati vengono raccolti, analizzati e presentati in Monitoraggio di Azure. È possibile disporre di più aree di lavoro per ogni sottoscrizione di Azure e avere accesso a più di un'area di lavoro, con la possibilità di eseguire facilmente query su di esse. Questa sezione descrive quando può essere utile creare più aree di lavoro.
+Un'area di lavoro Log Analytics è una risorsa di Azure e rappresenta un contenitore in cui i dati vengono raccolti, analizzati e presentati in Monitoraggio di Azure. È possibile disporre di più aree di lavoro per ogni sottoscrizione di Azure e avere accesso a più di un'area di lavoro, con la possibilità di eseguire facilmente query su di esse. Questa sezione descrive quando può essere utile creare più aree di lavoro.
 
-Un'area di lavoro di Log Analytics offre:
+Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per archiviare i dati.
 * Isolamento dei dati per definire i diritti di accesso utente diverso nella modalità incentrata su area di lavoro. Non è rilevante quando si lavora in modalità incentrata su risorse.
@@ -58,7 +58,7 @@ Dal punto di vista del consumo, è consigliabile creare meno aree di lavoro poss
 
 Quando si usano agenti Windows per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](../../azure-monitor/platform/agent-windows.md).
 
-Se si usa System Center Operations Manager, ogni gruppo di gestione di Operations Manager può essere connesso con una sola area di lavoro. È possibile installare Microsoft Monitoring Agent nei computer gestiti da Operations Manager e fare sì che l’agente faccia riferimento sia a Operations Manager che a un'altra area di lavoro di Log Analytics.
+Se si usa System Center Operations Manager, ogni gruppo di gestione di Operations Manager può essere connesso con una sola area di lavoro. È possibile installare Microsoft Monitoring Agent nei computer gestiti da Operations Manager e fare sì che l’agente faccia riferimento sia a Operations Manager che a un'altra area di lavoro Log Analytics.
 
 Una volta definito l'architettura dell'area di lavoro, è necessario applicare questi criteri sulle risorse di Azure con [criteri di Azure](../../governance/policy/overview.md). Questo può fornire una definizione predefinita che verrà applicata automaticamente a tutte le risorse di Azure. Ad esempio, è possibile impostare un criterio per assicurarsi che tutte le risorse di Azure in una determinata area inviati tutti i log di diagnostica a un'area di lavoro specifico.
 
@@ -201,7 +201,7 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 
 #### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Gestire l'accesso all'area di lavoro di Analitica Log usando le autorizzazioni di Azure 
-Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per concedere l'accesso all'area di lavoro Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Azure offre due ruoli utente predefiniti per le aree di lavoro di Log Analytics:
 - Lettore di Log Analytics

@@ -75,7 +75,7 @@ Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application In
 
 Altri punti da considerare:
 
-- È possibile collegare app di Application Insights solo a un'area di lavoro di Log Analytics.
+- È possibile collegare app di Application Insights solo a un'area di lavoro Log Analytics.
 - È possibile collegare solo [risorse di Application Insights Basic o Enterprise](https://azure.microsoft.com/pricing/details/application-insights) a Log Analytics. È tuttavia possibile usare il livello gratuito di Log Analytics.
 
 ## <a name="management-packs"></a>Management Pack

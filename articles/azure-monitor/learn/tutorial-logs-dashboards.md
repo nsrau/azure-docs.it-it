@@ -31,7 +31,7 @@ I dashboard di Log Analytics visualizzano tutte le ricerche log salvate, offrend
 > * Aggiungere una ricerca log a un dashboard condiviso 
 > * Personalizzare un riquadro in un dashboard condiviso
 
-Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
  
 ## <a name="log-in-to-azure-portal"></a>Accedere al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 

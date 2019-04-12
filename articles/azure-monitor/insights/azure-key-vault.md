@@ -28,7 +28,7 @@ ms.locfileid: "58629280"
 
 È possibile usare la soluzione Azure Key Vault in Monitoraggio di Azure per esaminare i log AuditEvent dell'insieme di credenziali chiave di Azure.
 
-Per usare la soluzione, è necessario abilitare la registrazione diagnostica di Azure Key Vault e indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
+Per usare la soluzione, è necessario abilitare la registrazione diagnostica di Azure Key Vault e indirizzare la diagnostica a un'area di lavoro Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 
 > [!NOTE]
 > Nel gennaio 2017, il metodo supportato per l'invio dei log da Key Vault a Log Analytics è cambiato. Se per la soluzione Key Vault in uso è indicato *(obsoleto)* nel titolo, fare riferimento alla sezione [Migrazione dalla soluzione Key Vault precedente](#migrating-from-the-old-key-vault-solution) per i passaggi da seguire.

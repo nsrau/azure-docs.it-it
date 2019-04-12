@@ -51,7 +51,7 @@ Monitoraggio per le macchine virtuali di Azure supporta un'area di lavoro di Log
 <sup>1</sup> Quest'area attualmente non supporta la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
 
 >[!NOTE]
->Le macchine virtuali di Azure possono essere distribuite da qualsiasi area e non solo dalle aree supportate per l'area di lavoro di Log Analytics.
+>Le macchine virtuali di Azure possono essere distribuite da qualsiasi area e non solo dalle aree supportate per l'area di lavoro Log Analytics.
 >
 
 Se non si ha un'area di lavoro, è possibile crearne una con uno dei metodi seguenti:
@@ -62,12 +62,12 @@ Se non si ha un'area di lavoro, è possibile crearne una con uno dei metodi segu
 
 Se si abilita il monitoraggio per una singola macchina virtuale di Azure nel portale di Azure, è possibile creare un'area di lavoro durante questo processo.
 
-Per abilitare la soluzione per lo scenario su larga scala, prima di tutto configurare quanto segue nell'area di lavoro di Log Analytics:
+Per abilitare la soluzione per lo scenario su larga scala, prima di tutto configurare quanto segue nell'area di lavoro Log Analytics:
 
 * Installare le soluzioni ServiceMap e InfrastructureInsights. È possibile completare l'installazione solo usando un modello di Azure Resource Manager fornito in questo articolo.
-* Configurare l'area di lavoro di Log Analytics per raccogliere i contatori delle prestazioni.
+* Configurare l'area di lavoro Log Analytics per raccogliere i contatori delle prestazioni.
 
-Per configurare l'area di lavoro per lo scenario su larga scala, consultare Configurare l'area di lavoro di Log Analytics per la distribuzione su larga scala.
+Per configurare l'area di lavoro per lo scenario su larga scala, consultare Configurare l'area di lavoro Log Analytics per la distribuzione su larga scala.
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -166,9 +166,9 @@ Per abilitare e accedere alle funzionalità in Monitoraggio di Azure per le macc
 
 - Per abilitare la soluzione, è necessario essere membri del ruolo *Collaboratore di Log Analytics*.
 
-- Per visualizzare i dati su prestazioni, integrità e mappe, è necessario avere il ruolo con autorizzazioni di *lettura dei dati di monitoraggio* per la macchina virtuale di Azure. L'area di lavoro di Log Analytics deve essere configurata per Monitoraggio di Azure per le macchine virtuali.
+- Per visualizzare i dati su prestazioni, integrità e mappe, è necessario avere il ruolo con autorizzazioni di *lettura dei dati di monitoraggio* per la macchina virtuale di Azure. L'area di lavoro Log Analytics deve essere configurata per Monitoraggio di Azure per le macchine virtuali.
 
-Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../../azure-monitor/platform/manage-access.md).
+Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Analytics, vedere [Gestire le aree di lavoro](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-monitoring-in-the-azure-portal"></a>Abilitare il monitoraggio nel portale di Azure
 Per abilitare il monitoraggio della macchina virtuale di Azure nel portale di Azure, seguire questa procedura:
@@ -184,11 +184,11 @@ Per abilitare il monitoraggio della macchina virtuale di Azure nel portale di Az
 1. Nella pagina **Insights (anteprima)** selezionare **Prova adesso**.
 
     ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
-1. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro di Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  
+1. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  
     Nell'elenco sono preselezionate l'area di lavoro e la località predefinite in cui è distribuita la macchina virtuale nella sottoscrizione. 
 
     >[!NOTE]
-    >Se si vuole creare una nuova area di lavoro di Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, seguire le istruzioni in [Creare un'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) in una delle aree supportate elencate in precedenza.
+    >Se si vuole creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, seguire le istruzioni in [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) in una delle aree supportate elencate in precedenza.
 
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare le metriche relative all'integrità per la macchina virtuale.
 
@@ -198,7 +198,7 @@ Dopo aver abilitato il monitoraggio, possono essere necessari circa 10 minuti pr
 ## <a name="deploy-at-scale"></a>Distribuire su larga scala
 In questa sezione si distribuisce Monitoraggio di Azure per le macchine virtuali su larga scala tramite Criteri di Azure o Azure PowerShell.
 
-Prima di distribuire le macchine virtuali, preconfigurare l'area di lavoro di Log Analytics eseguendo queste operazioni:
+Prima di distribuire le macchine virtuali, preconfigurare l'area di lavoro Log Analytics eseguendo queste operazioni:
 
 1. Se non si ha un'area di lavoro, crearne una in grado di supportare Monitoraggio di Azure per le macchine virtuali.  
     Prima di procedere, vedere [Gestire le aree di lavoro](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) per comprendere le considerazioni relative a costi, gestione e conformità.
@@ -209,16 +209,16 @@ Prima di distribuire le macchine virtuali, preconfigurare l'area di lavoro di Lo
 
 1. Installare e abilitare le soluzioni ServiceMap e InfrastructureInsights nell'area di lavoro.
 
-### <a name="set-up-a-log-analytics-workspace"></a>Configurare un'area di lavoro di Log Analytics
-Se non si ha un'area di lavoro di Log Analytics, crearla esaminando i metodi suggeriti nella sezione ["Prerequisiti"](#log-analytics).
+### <a name="set-up-a-log-analytics-workspace"></a>Configurare un'area di lavoro Log Analytics
+Se non si ha un'area di lavoro Log Analytics, crearla esaminando i metodi suggeriti nella sezione ["Prerequisiti"](#log-analytics).
 
 #### <a name="enable-performance-counters"></a>Abilitare i contatori delle prestazioni
-Se l'area di lavoro di Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, sarà necessario abilitare i contatori. È possibile farlo in due modi:
+Se l'area di lavoro Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, sarà necessario abilitare i contatori. È possibile farlo in due modi:
 * Manualmente, come descritto in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Scaricando ed eseguendo uno script di PowerShell disponibile in [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installare le soluzioni ServiceMap e InfrastructureInsights
-Questo metodo include un modello JSON che specifica la configurazione per abilitare i componenti della soluzione nell'area di lavoro di Log Analytics.
+Questo metodo include un modello JSON che specifica la configurazione per abilitare i componenti della soluzione nell'area di lavoro Log Analytics.
 
 Se non si ha familiarità con la distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -631,12 +631,12 @@ I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 | File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Abilitare i contatori delle prestazioni
-Se l'area di lavoro di Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, è necessario abilitare i contatori. È possibile farlo in due modi:
+Se l'area di lavoro Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, è necessario abilitare i contatori. È possibile farlo in due modi:
 * Manualmente, come descritto in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Scaricando ed eseguendo uno script di PowerShell disponibile in [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ### <a name="deploy-azure-monitor-for-vms"></a>Distribuire Monitoraggio di Azure per le macchine virtuali
-Questo metodo include un modello JSON che specifica la configurazione per abilitare i componenti della soluzione nell'area di lavoro di Log Analytics.
+Questo metodo include un modello JSON che specifica la configurazione per abilitare i componenti della soluzione nell'area di lavoro Log Analytics.
 
 Se non si ha familiarità con la distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -712,7 +712,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
 1. Salvare il file come *installsolutionsforvminsights.json* in una cartella locale.
 
-1. Modificare i valori di *WorkspaceName*, *ResourceGroupName* e *WorkspaceLocation*. Il valore per *WorkspaceName* è l'ID risorsa completo dell'area di lavoro di Log Analytics, che include il nome dell'area di lavoro. Il valore per *WorkspaceLocation* è l'area in cui è definita l'area di lavoro.
+1. Modificare i valori di *WorkspaceName*, *ResourceGroupName* e *WorkspaceLocation*. Il valore per *WorkspaceName* è l'ID risorsa completo dell'area di lavoro Log Analytics, che include il nome dell'area di lavoro. Il valore per *WorkspaceLocation* è l'area in cui è definita l'area di lavoro.
 
 1. È possibile distribuire il modello usando il comando di PowerShell seguente:
 
@@ -728,7 +728,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
    Dopo avere abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare lo stato di integrità e le metriche per il computer ibrido.
 
 ## <a name="performance-counters-enabled"></a>Contatori delle prestazioni abilitati
-Monitoraggio di Azure per le macchine virtuali configura un'area di lavoro di Log Analytics per raccogliere i contatori delle prestazioni usati dalla soluzione. La tabella seguente elenca gli oggetti e i contatori configurati dalla soluzione che vengono raccolti ogni 60 secondi.
+Monitoraggio di Azure per le macchine virtuali configura un'area di lavoro Log Analytics per raccogliere i contatori delle prestazioni usati dalla soluzione. La tabella seguente elenca gli oggetti e i contatori configurati dalla soluzione che vengono raccolti ogni 60 secondi.
 
 ### <a name="windows-performance-counters"></a>Contatori delle prestazioni di Windows
 

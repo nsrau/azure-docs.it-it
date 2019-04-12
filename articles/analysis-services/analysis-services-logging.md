@@ -83,7 +83,7 @@ Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [met
 
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
-    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro di Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
+    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
 
     * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
@@ -121,13 +121,13 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
+- Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
+- È possibile ottenere l'ID risorsa dell'area di lavoro Log Analytics usando il comando seguente:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -151,15 +151,15 @@ I log sono in genere disponibili entro due ore dall'impostazione della registraz
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 * Assicurarsi di impostare un periodo di conservazione dopo il quale i log obsoleti vengono eliminati dall'account di archiviazione.
 
-## <a name="view-logs-in-log-analytics-workspace"></a>Visualizzare i log nell'area di lavoro di Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Visualizzare i log nell'area di lavoro Log Analytics
 
-Le metriche e gli eventi del server sono integrati con gli eventi estesi nell'area personale di Log Analytics per consentirne l'analisi affiancata. L'area di lavoro di Log Analytics può anche essere configurata in modo da ricevere gli eventi da altri servizi di Azure e offrire una vista olistica dei dati della registrazione diagnostica in tutta l'architettura.
+Le metriche e gli eventi del server sono integrati con gli eventi estesi nell'area personale di Log Analytics per consentirne l'analisi affiancata. L'area di lavoro Log Analytics può anche essere configurata in modo da ricevere gli eventi da altri servizi di Azure e offrire una vista olistica dei dati della registrazione diagnostica in tutta l'architettura.
 
-Per visualizzare i dati di diagnostica, nell'area di lavoro di Log Analytics aprire **Log** nel menu a sinistra.
+Per visualizzare i dati di diagnostica, nell'area di lavoro Log Analytics aprire **Log** nel menu a sinistra.
 
 ![Opzioni di Ricerca log nel portale di Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Nel generatore di query espandere **LogManagement** > **AzureDiagnostics**. AzureDiagnostics include eventi del motore e del servizio. Viene immediatamente creata una query. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale. Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire all'area di lavoro di Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
+Nel generatore di query espandere **LogManagement** > **AzureDiagnostics**. AzureDiagnostics include eventi del motore e del servizio. Viene immediatamente creata una query. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale. Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire all'area di lavoro Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
 
 ### <a name="example-query"></a>Query di esempio
 Questa query calcola e restituisce la CPU per ogni evento di fine query/fine aggiornamento per un database modello e un server:

@@ -14,7 +14,7 @@ ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
 ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56429517"
@@ -93,10 +93,10 @@ applicationsScoping //this brings data from Application Insights resources
 | project timestamp , duration , name , resultCode 
 ```
 
-## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Differenze tra gli schemi dell'area di lavoro di Log Analytics e delle risorse di Application Insights
+## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Differenze tra gli schemi dell'area di lavoro Log Analytics e delle risorse di Application Insights
 La tabella seguente illustra le differenze tra gli schemi di Log Analytics e Application Insights.  
 
-| Proprietà dell'area di lavoro di Log Analytics| Proprietà delle risorse di Application Insights|
+| Proprietà dell'area di lavoro Log Analytics| Proprietà delle risorse di Application Insights|
 |------------|------------| 
 | AnonUserId | user_id|
 | ApplicationId | appId|

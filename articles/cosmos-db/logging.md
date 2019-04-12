@@ -84,7 +84,7 @@ Per abilitare la registrazione diagnostica nel portale di Azure, eseguire le ope
 
     * **Archivia in un account di archiviazione**: Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Azure Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi** : per usare questa opzione, sono necessari uno spazio dei nomi di Hub eventi e un hub eventi a cui connettersi. Per creare uno spazio dei nomi di Hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare quindi a questa pagina del portale per selezionare lo spazio dei nomi di Hub eventi e il nome dei criteri.
-    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in log di monitoraggio di Azure, vedere che visualizzare i log in log di monitoraggio di Azure.
+    * **Invia a Log Analytics**: per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in log di monitoraggio di Azure, vedere che visualizzare i log in log di monitoraggio di Azure.
     * **Log DataPlaneRequests**: selezionare questa opzione per registrare le richieste back-end dalla piattaforma distribuita di Azure Cosmos DB sottostante per gli account SQL, Graph, MongoDB, Cassandra e API Tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Log MongoRequests**: selezionare questa opzione per registrare le richieste avviate dall'utente dal front-end di Azure Cosmos DB per gestire gli account Cosmos configurati con l'API di Azure Cosmos DB per MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrica Richieste**: selezionare questa opzione per archiviare i dati dettagliati nelle [metriche di Azure](../azure-monitor/platform/metrics-supported.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
@@ -115,7 +115,7 @@ Per abilitare le metriche e la registrazione diagnostica con l'interfaccia della
 
    `resource` è il nome dell'account del database Azure Cosmos DB. Il `event-hub-rule` è l'ID regola dell'hub eventi. 
 
-- Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
+- Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 
    ```azurecli-interactive
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
@@ -354,14 +354,14 @@ I log di diagnostica vengono resi disponibili nell'account due ore dopo avere es
 
 Se è stata selezionata la **Invia a Log Analitica** opzione quando è attivata la registrazione diagnostica, diagnostica dei dati dal contenitore viene inoltrati ai log di monitoraggio di Azure entro due ore. Quando esaminano i log di monitoraggio di Azure immediatamente dopo l'attivazione della registrazione, si non sono visualizzati dati. È sufficiente attendere due ore e riprovare. 
 
-Prima di visualizzare i log, controllare e determinare se l'area di lavoro di Log Analitica è stato aggiornato per usare il nuovo linguaggio di query Kusto. Per verificare, aprire il [portale di Azure](https://portal.azure.com), selezionare **aree di lavoro di Log Analitica** all'estrema sinistra, quindi selezionare il nome dell'area di lavoro come illustrato nella figura seguente. Viene visualizzata la pagina **Area di lavoro di Log Analytics**:
+Prima di visualizzare i log, controllare e determinare se l'area di lavoro di Log Analitica è stato aggiornato per usare il nuovo linguaggio di query Kusto. Per verificare, aprire il [portale di Azure](https://portal.azure.com), selezionare **aree di lavoro di Log Analitica** all'estrema sinistra, quindi selezionare il nome dell'area di lavoro come illustrato nella figura seguente. Viene visualizzata la pagina **area di lavoro Log Analytics**:
 
 ![Log di monitoraggio di Azure nel portale di Azure](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
 
-Se nella pagina **Area di lavoro di Log Analytics** viene visualizzato il messaggio seguente, l'area di lavoro non è stata aggiornata per l'uso del nuovo linguaggio. Per altre informazioni su come eseguire l'aggiornamento al nuovo linguaggio di query, vedere [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md). 
+Se nella pagina **area di lavoro Log Analytics** viene visualizzato il messaggio seguente, l'area di lavoro non è stata aggiornata per l'uso del nuovo linguaggio. Per altre informazioni su come eseguire l'aggiornamento al nuovo linguaggio di query, vedere [Aggiornare l'area di lavoro Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Messaggio dell'aggiornamento di log di monitoraggio di Azure](./media/logging/upgrade-notification.png)
 

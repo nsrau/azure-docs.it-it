@@ -41,9 +41,9 @@ Per trovare i messaggi in base a proprietà o valori specifici, è possibile cre
 
    ![Selezionare Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
+1. In **Log Analytics** trovare e selezionare l'area di lavoro Log Analytics. 
 
-   ![Selezionare un'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Selezionare un'area di lavoro Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
 1. Nel menu dell'area di lavoro in **Generale** selezionare **Log (versione classica)** oppure **Log**. 
 
@@ -114,9 +114,9 @@ Per salvare la query nella vista **Log (versione classica)**, seguire questa pro
 
    ![Selezionare Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
+1. In **Log Analytics** trovare e selezionare l'area di lavoro Log Analytics. 
 
-   ![Selezionare un'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Selezionare un'area di lavoro Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
 1. Nel menu dell'area di lavoro in **Generale** selezionare **Log (versione classica)** oppure **Log**. 
 

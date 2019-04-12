@@ -127,7 +127,7 @@ I processi Analisi di flusso di Azure recapitano i dati di telemetria provenient
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) archivia i dati di telemetria provenienti dai dispositivi connessi all'acceleratore di soluzioni. Consente inoltre di visualizzare e interrogare i dati di telemetria del dispositivo nell'interfaccia utente Web della soluzione.
 
 > [!NOTE]
-> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni per il monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
+> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni di monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
 
 ### <a name="configuration-microservice"></a>Microservizio configurazione
 

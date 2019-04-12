@@ -174,7 +174,7 @@ Se si desidera impostare nuovi set di scalabilità affinché installino automati
 1. Passare a Criteri di Azure e fare clic su **Definizioni**.
 2. Cercare il criterio **agente di distribuzione Log Analitica per set di scalabilità di macchine virtuali Windows** e fare clic su di esso.
 3. Fare clic su **Assegna**.
-4. Impostare l'**ambito** e l'**area di lavoro di Log Analytics** e fare clic su **Assegna**.
+4. Impostare l'**ambito** e l'**area di lavoro Log Analytics** e fare clic su **Assegna**.
 
 Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
 

@@ -221,7 +221,7 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
    ![Pannello Registrazione e traccia per la creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-monitor-logs"></a>Log di monitoraggio di Microsoft Azure
-Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Con i log di monitoraggio di Azure è possibile,
+Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro Log Analytics. Con i log di monitoraggio di Azure è possibile,
 
 * Ottenere informazioni dettagliate sui processi di Automazione. 
 * Attivare un messaggio e-mail o un avviso in base allo stato del processo del runbook, ad esempio non riuscito o sospeso. 

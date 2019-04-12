@@ -228,7 +228,7 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics usa per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Per identificare le raccomandazioni da ignorare
-1. Nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sulla voce di menu **Ricerca log**.
+1. Nella pagina dell'area di lavoro Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sulla voce di menu **Ricerca log**.
 2. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
 
     ```

@@ -110,7 +110,7 @@ Nella tabella seguente sono riportati esempi di campi di dati raccolti dalla sol
 | StorageLatency_s |latenza di archiviazione (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>Panoramica della soluzione di monitoraggio VMware
-Il riquadro VMware viene visualizzato nell'area di lavoro di Log Analytics. che fornisce una visualizzazione dettagliata degli errori. Quando si fa clic sul riquadro, si accede alla vista dashboard.
+Il riquadro VMware viene visualizzato nell'area di lavoro Log Analytics. che fornisce una visualizzazione dettagliata degli errori. Quando si fa clic sul riquadro, si accede alla vista dashboard.
 
 ![riquadro](./media/vmware/tile.png)
 

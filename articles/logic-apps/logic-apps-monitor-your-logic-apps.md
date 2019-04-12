@@ -76,7 +76,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 Per ottimizzare il debug con i dettagli di runtime e gli eventi, è possibile configurare la registrazione con diagnostica [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). Monitoraggio di Azure è un servizio di Azure che consente di monitorare il cloud e negli ambienti che consentono di mantenerne la disponibilità e prestazioni locali. 
 
-Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Prima di iniziare, è necessario avere un'area di lavoro Log Analytics. Informazioni su [come creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
@@ -88,7 +88,7 @@ Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Infor
 
    ![Attivare i log di diagnostica](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Selezionare ora l'area di lavoro di Log Analytics e la categoria di eventi per la registrazione, come indicato:
+4. Selezionare ora l'area di lavoro Log Analytics e la categoria di eventi per la registrazione, come indicato:
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
@@ -99,7 +99,7 @@ Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Infor
    5. Scegliere l'intervallo di metrica.
    6. Al termine dell'operazione, scegliere **Salva**.
 
-   ![Selezionare l'area di lavoro di Log Analytics e i dati per la registrazione](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Selezionare l'area di lavoro Log Analytics e i dati per la registrazione](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 È ora possibile trovare eventi e altri dati per eventi di attivazione, eventi di esecuzione ed eventi di azione.
 
@@ -113,9 +113,9 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Scegliere "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
+2. In **Log Analytics** trovare e selezionare l'area di lavoro Log Analytics. 
 
-   ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Selezionare l'area di lavoro Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. In **Gestione** scegliere **Ricerca log**.
 

@@ -38,7 +38,7 @@ Connettore di Gestione dei servizi IT supporta le connessioni con gli strumenti 
 Con Connettore di Gestione dei servizi IT, è possibile
 
 -  Creare elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure (avvisi relativi alle metriche, avvisi del log attività e avvisi di Log Analytics).
--  Facoltativamente, è possibile sincronizzare i dati degli eventi imprevisti e delle richieste di modifica dallo strumento di Gestione dei servizi IT a un'area di lavoro di Azure Log Analytics.
+-  Facoltativamente, è possibile sincronizzare i dati degli eventi imprevisti e delle richieste di modifica dallo strumento di Gestione dei servizi IT a un'area di lavoro Azure Log Analytics.
 
 
 È possibile iniziare a usare Connettore di Gestione dei servizi IT seguendo questa procedura:
@@ -60,7 +60,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 
    ![Aggiungere la soluzione Connettore di Gestione dei servizi IT](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro di Azure Log Analytics dove si vuole installare la soluzione.
+3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
@@ -128,7 +128,7 @@ Utilizzare la procedura seguente:
     ![Dettagli dei gruppi di azioni](media/itsmc-overview/action-groups-details.png)
 
 4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
-5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro di Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
+5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
     ![Informazioni dettagliate sulle azioni ITSM](media/itsmc-overview/itsm-action-details.png)
 
@@ -167,7 +167,7 @@ Altre informazioni: [Elenco dei servizi](../../azure-monitor/insights/service-ma
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 ### <a name="data-synced-from-itsm-product"></a>Dati sincronizzati dal prodotto ITSM
-Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodotto di Gestione dei servizi IT all'area di lavoro di Log Analytics in base alla configurazione della connessione.
+Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodotto di Gestione dei servizi IT all'area di lavoro Log Analytics in base alla configurazione della connessione.
 
 Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gestione dei servizi IT:
 

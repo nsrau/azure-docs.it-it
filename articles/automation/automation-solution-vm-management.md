@@ -32,7 +32,7 @@ Questa soluzione fornisce un'opzione di automazione decentralizzata a basso cost
 La soluzione corrente presenta le limitazioni di seguito:
 
 - Questa soluzione gestisce macchine virtuali in qualsiasi area, ma può essere usata solo nella stessa sottoscrizione dell'account di Automazione di Azure.
-- Questa soluzione è disponibile in Azure e Azure per enti pubblici per tutte le aree che supportano un'area di lavoro di Log Analytics, un account di Automazione di Azure e Avvisi. Le aree di Azure per enti pubblici attualmente non supportano funzionalità di posta elettronica.
+- Questa soluzione è disponibile in Azure e Azure per enti pubblici per tutte le aree che supportano un'area di lavoro Log Analytics, un account di Automazione di Azure e Avvisi. Le aree di Azure per enti pubblici attualmente non supportano funzionalità di posta elettronica.
 
 > [!NOTE]
 > Se si usa la soluzione per le macchine virtuali classiche, tutte le macchine virtuali verranno elaborate in sequenza per ogni servizio cloud. Le macchine virtuali vengono comunque elaborate in parallelo tra servizi cloud diversi.
@@ -65,18 +65,18 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
    ![Pagina Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nel **dell'area di lavoro di Log Analitica** seguire i passaggi seguenti:
+4. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nel **dell'area di lavoro di Log Analitica** seguire i passaggi seguenti:
    - Specificare un nome per il nuovo **dell'area di lavoro di Log Analitica**, ad esempio "ContosoLAWorkspace".
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare un **percorso**. Attualmente le uniche località disponibili sono: **Australia sud-orientale**, **Canada centrale**, **India centrale**, **Stati Uniti orientali**, **Giappone orientale**, **Asia sud-orientale**, **Regno Unito meridionale**, **Europa occidentale** e **Stati Uniti occidentali 2**.
    - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. Log di monitoraggio di Azure è aggiornato [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e livello Per GB è l'unica opzione.
 
-5. Dopo aver specificato le informazioni necessarie nella pagina **Area di lavoro di Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
-6. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro di Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro di Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
+5. Dopo aver specificato le informazioni necessarie nella pagina **area di lavoro Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
+6. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
    - Nel campo **Nome** immettere il nome dell'account di Automazione.
 
-     Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro di Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
+     Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 7. Nella pagina **Aggiungi soluzione** selezionare infine **Configurazione**. Viene visualizzata la pagina **Parametri**.
 
@@ -242,7 +242,7 @@ Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verific
 
 ## <a name="azure-monitor-logs-records"></a>I record di log di monitoraggio di Azure
 
-Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di processo e flussi di processo.
+Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di processo e flussi di processo.
 
 ### <a name="job-logs"></a>Log di processo
 
@@ -299,7 +299,7 @@ La tabella seguente contiene esempi di ricerche nei log per i record dei process
 
 Per accedere alla soluzione, passare all'account di Automazione e selezionare **Area di lavoro** in **RISORSE CORRELATE**. Nella pagina log analitica, selezionare **Solutions** sotto **generali**. Nella pagina **Soluzioni** selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]) dall'elenco.
 
-Selezionando la soluzione, viene visualizzata la pagina della soluzione **Start-Stop-VM[workspace]** (Avvio-Arresto-VM[Area di lavoro]), dove è possibile esaminare importanti dettagli, ad esempio il riquadro **StartStopVM** (Avvio e arresto di VM). Come nell'area di lavoro di Log Analytics, questo riquadro mostra un conteggio e una rappresentazione grafica dei processi di runbook della soluzione che sono stati avviati e completati.
+Selezionando la soluzione, viene visualizzata la pagina della soluzione **Start-Stop-VM[workspace]** (Avvio-Arresto-VM[Area di lavoro]), dove è possibile esaminare importanti dettagli, ad esempio il riquadro **StartStopVM** (Avvio e arresto di VM). Come nell'area di lavoro Log Analytics, questo riquadro mostra un conteggio e una rappresentazione grafica dei processi di runbook della soluzione che sono stati avviati e completati.
 
 ![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -369,7 +369,7 @@ Per eliminare la soluzione, attenersi alla procedura seguente:
 1. Nella finestra **Elimina soluzione** confermare di voler eliminare la soluzione.
 1. Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della rimozione della soluzione, è possibile usare la voce **Notifiche** nel menu. Quando il processo di rimozione della soluzione inizia, l'utente viene rimandato alla pagina **Soluzioni**.
 
-L'account di Automazione e l'area di lavoro di Log Analytics non vengono eliminati come parte del processo. Se non si vuole conservare l'area di lavoro di Log Analytics, è necessario eliminarla manualmente. Tale operazione può essere eseguita dal portale di Azure:
+L'account di Automazione e l'area di lavoro Log Analytics non vengono eliminati come parte del processo. Se non si vuole conservare l'area di lavoro Log Analytics, è necessario eliminarla manualmente. Tale operazione può essere eseguita dal portale di Azure:
 
 1. Schermata iniziale del portale Azure, selezionare **aree di lavoro di Log Analitica**.
 1. Nel **aree di lavoro di Log Analitica** pagina, selezionare l'area di lavoro.

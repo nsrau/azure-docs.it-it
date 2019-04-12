@@ -65,7 +65,7 @@ Ora è necessario installare il file scaricato nel computer di destinazione.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi scegliere **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi selezionare **Avanti**.
 6. Nella pagina **Azure Log Analytics** incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
-7. Se il computer deve fare riferimento a un'area di lavoro di Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco a discesa **Cloud di Azure**.  Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
+7. Se il computer deve fare riferimento a un'area di lavoro Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco a discesa **Cloud di Azure**.  Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
 8. Scegliere **Avanti** dopo aver specificato le impostazioni di configurazione necessarie.
 
    ![Installare l'agente][5]

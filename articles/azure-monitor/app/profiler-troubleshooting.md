@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855674"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471529"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -67,9 +67,15 @@ Inviare un ticket di supporto nel portale. Verificare di includere l'ID di corre
 Per il corretto funzionamento di Profiler:
 * Il piano di servizio dell'app Web deve essere di livello Basic o superiore.
 * Application Insights deve essere abilitato per l'app Web.
-* L'impostazione **APPINSIGHTS_INSTRUMENTATIONKEY** nell'app Web deve essere configurata con la stessa chiave di strumentazione usata da Application Insights SDK.
-* L'impostazione **APPINSIGHTS_PROFILERFEATURE_VERSION** nell'app Web deve essere definita e impostata su 1.0.0.
-* L'impostazione **DiagnosticServices_EXTENSION_VERSION** dell'app Web deve essere definita e il suo valore deve essere impostato su ~3.
+* L'app web deve avere le impostazioni seguenti:
+
+    |Impostazione app    | Valore    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights è    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * Il processo Web **ApplicationInsightsProfiler3** deve essere in esecuzione. Per controllare il processo Web:
    1. Passare a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. Scegliere **WebJobs Dashboard** (Dashboard processi Web) dal menu **Tools** (Strumenti).  
@@ -93,12 +99,13 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Impostare **versione di .NET Framework** al **v4.6**.
 
 1. Attivare **Always On**.
+1. Creare le impostazioni dell'app:
 
-1. Aggiungere l'impostazione dell'app **APPINSIGHTS_INSTRUMENTATIONKEY** e impostare il valore sulla stessa chiave di strumentazione usata dall'SDK.
-
-1. Aggiungere l'impostazione dell'app **APPINSIGHTS_PROFILERFEATURE_VERSION** e impostare il valore su 1.0.0.
-
-1. Aggiungere l'impostazione dell'app **DiagnosticServices_EXTENSION_VERSION** e impostare il valore su ~3.
+    |Impostazione app    | Valore    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights è    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Troppe sessioni di profilatura attive
 
@@ -124,7 +131,7 @@ Profiler viene eseguito come processo Web continuo nell'app Web. È possibile ap
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Risolvere i problemi di Profiler e Diagnostica di Azure
 
-  >**È presente un bug nel profiler fornito con la versione più recente di diagnostica di Microsoft AZURE per i servizi Cloud.** Per usare profiler con un servizio cloud, supporta solo AI SDK fino alla versione 2.7.2. Se si usa una versione più recente del SDK di intelligenza artificiale, è possibile tornare a 2.7.2 per poter usare il profiler. Se si usa Visual Studio per effettuare il downgrade la versione del SDK di App Insights, è possibile ottenere un errore di reindirizzamento di associazione in fase di esecuzione. Questo avviene perché "newVersion" nel file Web. config per Microsoft. applicationinsights deve essere impostato su "2.7.2.0" dopo il downgrade a SDK di intelligenza artificiale, ma non vengono aggiornato automaticamente.
+>**È stato risolto il bug nel profiler fornito con la diagnostica di Microsoft AZURE per i servizi Cloud.** La versione più recente di WAD (1.12.2.0) per i servizi Cloud funziona con tutte le versioni recenti di App Insights SDK. Gli host del servizio cloud verranno aggiornato automaticamente WAD, ma non è immediato. Per forzare un aggiornamento, è possibile ridistribuire il servizio o riavviare il nodo.
 
 Per verificare se Profiler è stato configurato correttamente da Diagnostica di Azure, eseguire le tre operazioni seguenti: 
 1. Prima di tutto controllare che i contenuti della configurazione di Diagnostica di Azure distribuiti siano quelli previsti. 

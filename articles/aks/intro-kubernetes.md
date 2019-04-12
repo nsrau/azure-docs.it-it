@@ -39,7 +39,7 @@ Per proteggere i cluster servizio Azure Kubernetes, vedere [Integrare Azure Acti
 
 ### <a name="integrated-logging-and-monitoring"></a>Registrazione e monitoraggio integrati
 
-Per capire come sono le prestazioni del cluster servizio Azure Kubernetes e delle applicazioni distribuite, Monitoraggio di Azure per l'integrità dei contenitori raccoglie le metriche di memoria e processore da contenitori, nodi e controller. Sono disponibili i log dei contenitori ed è anche possibile [esaminare i log master di Kubernetes][aks-master-logs]. Questi dati di monitoraggio sono archiviati in un'area di lavoro di Azure Log Analytics e sono disponibili tramite il portale di Azure, l'interfaccia della riga di comando di Azure o un endpoint REST.
+Per capire come sono le prestazioni del cluster servizio Azure Kubernetes e delle applicazioni distribuite, Monitoraggio di Azure per l'integrità dei contenitori raccoglie le metriche di memoria e processore da contenitori, nodi e controller. Sono disponibili i log dei contenitori ed è anche possibile [esaminare i log master di Kubernetes][aks-master-logs]. Questi dati di monitoraggio sono archiviati in un'area di lavoro Azure Log Analytics e sono disponibili tramite il portale di Azure, l'interfaccia della riga di comando di Azure o un endpoint REST.
 
 Per altre informazioni, vedere [Monitorare l'integrità dei contenitori del servizio Azure Kubernetes][container-health].
 

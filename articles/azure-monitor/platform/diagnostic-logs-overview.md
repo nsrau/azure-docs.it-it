@@ -128,13 +128,13 @@ Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your S
 
 L'ID regola del bus di servizio è una stringa nel formato seguente: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
+Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
+È possibile ottenere l'ID risorsa dell'area di lavoro Log Analytics usando il comando seguente:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -185,7 +185,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 L'ID regola è una stringa nel formato seguente: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics:
+Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -220,7 +220,7 @@ Verificare che tutte le risorse siano configurate con le impostazioni di diagnos
 
 Potrebbe essere necessario fare clic su "Tutti i servizi" per individuare la sezione Monitoraggio.
 
-Qui è possibile visualizzare e filtrare tutte le risorse che supportano le impostazioni di diagnostica per verificare se la diagnostica è abilitata. È possibile anche eseguire il drill-down per verificare se sono definite più impostazioni per una risorsa e controllare in quale account di archiviazione, spazio dei nomi di Hub eventi e/o area di lavoro di Log Analytics vengono trasmessi i dati.
+Qui è possibile visualizzare e filtrare tutte le risorse che supportano le impostazioni di diagnostica per verificare se la diagnostica è abilitata. È possibile anche eseguire il drill-down per verificare se sono definite più impostazioni per una risorsa e controllare in quale account di archiviazione, spazio dei nomi di Hub eventi e/o area di lavoro Log Analytics vengono trasmessi i dati.
 
 ![Risultati di Log di diagnostica nel portale](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

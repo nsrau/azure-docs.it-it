@@ -25,7 +25,7 @@ I clienti che hanno investito in System Center Configuration Manager per gestire
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario aver aggiunto la [soluzione Gestione aggiornamenti](automation-update-management.md) al proprio account di Automazione.
-* I server Windows attualmente gestiti dall'ambiente System Center Configuration Manager devono inoltre fare riferimento all'area di lavoro di Log Analytics in cui è abilitata la soluzione Gestione aggiornamenti.
+* I server Windows attualmente gestiti dall'ambiente System Center Configuration Manager devono inoltre fare riferimento all'area di lavoro Log Analytics in cui è abilitata la soluzione Gestione aggiornamenti.
 * Questa funzionalità è abilitata in System Center Configuration Manager, versione attuale branch 1606 e successive. Per integrare il sito di amministrazione centrale di Configuration Manager o un sito primario autonomo con i log di monitoraggio di Azure e importare le raccolte, esaminare [connettere Configuration Manager a monitoraggio di Azure registra](../azure-monitor/platform/collect-sccm.md).  
 * Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update, se non ricevono gli aggiornamenti della sicurezza da Configuration Manager.   
 
@@ -35,7 +35,7 @@ Le modalità di gestione dei client ospitati nella soluzione IaaS di Azure con l
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Gestire gli aggiornamenti software da Configuration Manager 
 
-Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Configuration Manager, eseguire la procedura illustrata di seguito. Automazione di Azure si connette a Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro di Log Analytics. Il contenuto degli aggiornamenti è disponibile dalla cache del computer client, come se la distribuzione fosse stata gestita da Configuration Manager.
+Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Configuration Manager, eseguire la procedura illustrata di seguito. Automazione di Azure si connette a Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro Log Analytics. Il contenuto degli aggiornamenti è disponibile dalla cache del computer client, come se la distribuzione fosse stata gestita da Configuration Manager.
 
 1. Creare una distribuzione di aggiornamenti software dal sito principale della gerarchia di Configuration Manager usando il processo descritto in [Distribuire gli aggiornamenti software](/sccm/sum/deploy-use/deploy-software-updates). L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito dalla soluzione Gestione aggiornamenti creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.
 

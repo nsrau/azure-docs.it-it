@@ -35,7 +35,7 @@ Questo articolo illustra come abilitare l'anteprima del servizio Centro sicurezz
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Prerequisiti per l'abilitazione del servizio
 
-- Area di lavoro di Log Analytics
+- Area di lavoro Log Analytics
   - Per impostazione predefinita, nell'area di lavoro Log Analytics vengono archiviati due tipi di informazioni dal Centro sicurezza di Azure per IoT: gli **avvisi di sicurezza** e le **raccomandazioni**. 
   - È possibile scegliere di archiviare un altro tipo di informazioni, gli **eventi non elaborati**. L'archiviazione degli **eventi non elaborati** in Log Analytics comporta costi aggiuntivi. 
 - Hub IoT (livello standard o superiore)

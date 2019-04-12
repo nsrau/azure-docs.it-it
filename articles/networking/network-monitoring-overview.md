@@ -28,7 +28,7 @@ Azure offre una vasta gamma di soluzioni per il monitoraggio delle risorse di re
 
 ## <a name="network-performance-monitor-npm"></a>Monitoraggio delle prestazioni di rete
 
-Monitoraggio prestazioni rete è una suite di funzionalità che congiuntamente consentono di monitorare lo stato di integrità della rete, la connettività a livello di rete con le applicazioni, nonché analizzare in dettaglio le prestazioni della rete in uso. Monitoraggio prestazioni rete è una soluzione ibrida basata sul cloud per il monitoraggio della rete e della connettività tra gli elementi seguenti:
+Monitoraggio prestazioni rete è una suite di funzionalità che congiuntamente consentono di monitorare lo stato di integrità della rete, la connettività a livello di rete con le applicazioni, nonché analizzare in dettaglio le prestazioni della rete in uso. Monitoraggio prestazioni rete è una soluzione ibrida basata sul cloud di monitoraggio della rete e della connettività tra gli elementi seguenti:
  
 * Distribuzioni cloud e percorsi locali
 * Più data center e succursali

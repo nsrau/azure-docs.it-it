@@ -28,7 +28,7 @@ ms.locfileid: "58436808"
 
 Dopo aver [integrato i log attività di Azure AD con i log di Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md), è possibile usare le funzionalità dei log di Monitoraggio di Azure per ottenere informazioni dettagliate sull'ambiente. È anche possibile installare le [viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md) per ottenere l'accesso a report predefiniti sugli eventi di controllo e di accesso nell'ambiente in uso.
 
-Questo articolo descrive come analizzare i log attività di Azure AD nell'area di lavoro di Log Analytics. 
+Questo articolo descrive come analizzare i log attività di Azure AD nell'area di lavoro Log Analytics. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,14 +36,14 @@ Questo articolo descrive come analizzare i log attività di Azure AD nell'area d
 
 Per seguire la procedura, è necessario:
 
-* Disporre di un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
-* Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro di Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 
-## <a name="navigate-to-the-log-analytics-workspace"></a>Passare all'area di lavoro di Log Analytics
+## <a name="navigate-to-the-log-analytics-workspace"></a>Passare all'area di lavoro Log Analytics
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 
-2. Selezionare **Azure Active Directory** e quindi selezionare **Log** nella sezione **Monitoraggio** per aprire l'area di lavoro di Log Analytics. L'area di lavoro verrà aperta con una query predefinita.
+2. Selezionare **Azure Active Directory** e quindi selezionare **Log** nella sezione **Monitoraggio** per aprire l'area di lavoro Log Analytics. L'area di lavoro verrà aperta con una query predefinita.
 
     ![Query predefinita](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 

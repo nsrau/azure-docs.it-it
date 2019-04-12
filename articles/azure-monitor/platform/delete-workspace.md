@@ -1,6 +1,6 @@
 ---
-title: Eliminare un'area di lavoro di Azure Log Analytics | Microsoft Docs
-description: Informazioni su come eliminare l'area di lavoro di Log Analytics, se ne è stata creata una in una sottoscrizione personale, o come ristrutturare il modello dell'area di lavoro.
+title: Eliminare un'area di lavoro Azure Log Analytics | Microsoft Docs
+description: Informazioni su come eliminare l'area di lavoro Log Analytics, se ne è stata creata una in una sottoscrizione personale, o come ristrutturare il modello dell'area di lavoro.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -15,16 +15,16 @@ ms.date: 05/07/2018
 ms.author: magoedte
 ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55989135"
 ---
-# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminare un'area di lavoro di Azure Log Analytics con il portale di Azure
-Questo articolo descrive come usare il portale di Azure per eliminare un'area di lavoro di Log Analytics non più necessaria. 
+# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure
+Questo articolo descrive come usare il portale di Azure per eliminare un'area di lavoro Log Analytics non più necessaria. 
 
 ## <a name="to-delete-a-workspace"></a>Per eliminare un'area di lavoro 
-Quando si elimina un'area di lavoro di Log Analytics, tutti i dati relativi a tale area vengono eliminati dal servizio entro 30 giorni.  Prestare particolare attenzione quando si elimina un'area di lavoro perché potrebbero essere presenti dati e configurazioni importanti che possono influire negativamente sulle operazioni del servizio. Prendere in considerazione gli altri servizi e origini di Azure che archiviano i dati in Log Analytics, ad esempio:
+Quando si elimina un'area di lavoro Log Analytics, tutti i dati relativi a tale area vengono eliminati dal servizio entro 30 giorni.  Prestare particolare attenzione quando si elimina un'area di lavoro perché potrebbero essere presenti dati e configurazioni importanti che possono influire negativamente sulle operazioni del servizio. Prendere in considerazione gli altri servizi e origini di Azure che archiviano i dati in Log Analytics, ad esempio:
 
 * Application Insights
 * Centro sicurezza di Azure

@@ -26,7 +26,7 @@ Questo articolo descrive come usare il portale di Azure per monitorare il carico
 - Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Azure SQL Data Warehouse: Si vogliono raccogliere i log per un SQL data warehouse. Se non si dispone di un SQL data warehouse il provisioning, vedere le istruzioni in [creare un SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
-## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro di Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
 Passare al pannello di esplorazione per le aree di lavoro di Log Analitica e creare un'area di lavoro 
 

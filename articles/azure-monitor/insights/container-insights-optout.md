@@ -112,7 +112,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
     ![Pagina delle proprietà del contenitore](media/container-insights-optout/container-properties-page.png)
 
-    Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**. Questo valore è necessario se si decide di eliminare l'area di lavoro di Log Analytics in un secondo momento. Questa operazione che non viene eseguita nell'ambito di questo processo. 
+    Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**. Questo valore è necessario se si decide di eliminare l'area di lavoro Log Analytics in un secondo momento. Questa operazione che non viene eseguita nell'ambito di questo processo. 
 
 5. Salvare il file con il nome **OptOutParam.json** in una cartella locale.
 6. A questo punto è possibile distribuire il modello. 
@@ -150,5 +150,5 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 ProvisioningState       : Succeeded
 ```
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro di Azure Log Analytics con il portale di Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Non dimenticare il valore di **ID risorsa dell'area di lavoro** che è stato copiato in precedenza nel passaggio 4, perché sarà necessario in seguito. 
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Non dimenticare il valore di **ID risorsa dell'area di lavoro** che è stato copiato in precedenza nel passaggio 4, perché sarà necessario in seguito. 
 

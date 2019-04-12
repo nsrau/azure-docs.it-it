@@ -70,7 +70,7 @@ In entrambi i casi, l'amministratore deve assegnare manualmente il ruolo appropr
  
 
 ## <a name="new-workspaces"></a>Nuove aree di lavoro
-Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per creare una nuova area di lavoro nel portale di Azure, seguire le indicazioni riportate nell'articolo [Creare un'area di lavoro di Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
+Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per creare una nuova area di lavoro nel portale di Azure, seguire le indicazioni riportate nell'articolo [Creare un'area di lavoro Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
 
 ## <a name="changes-to-alerts"></a>Modifiche apportate agli avvisi
 

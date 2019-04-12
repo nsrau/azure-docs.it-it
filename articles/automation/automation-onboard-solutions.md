@@ -56,7 +56,7 @@ Quando si riceve la notifica di completamento del caricamento della soluzione di
 La soluzione di gestione degli aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure. È possibile valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente alla macchina virtuale. In questo passaggio si abilita la soluzione per la macchina virtuale.
 
 1. Con il proprio account di Automazione, selezionare **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
-1. L'area di lavoro di Log Analytics è la stessa usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione di gestione degli aggiornamenti.
+1. L'area di lavoro Log Analytics è la stessa usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione di gestione degli aggiornamenti.
 
 ![Caricare la soluzione per gli aggiornamenti](media/automation-onboard-solutions/update-onboard.png)
 

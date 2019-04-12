@@ -92,7 +92,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Giappone occidentale
 - US Gov Virginia
 
-L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
+L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali 2
@@ -109,7 +109,7 @@ L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro?
 
-Sì, questi NSG possono trovarsi in regioni diverse dall'area di lavoro di Log Analytics.
+Sì, questi NSG possono trovarsi in regioni diverse dall'area di lavoro Log Analytics.
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>È possibile configurare più gruppi di sicurezza di rete in una singola area di lavoro?
 
@@ -119,9 +119,9 @@ Sì.
 
 Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro di Log Analytics?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics?
 
-Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro di Log Analytics.
+Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
@@ -154,7 +154,7 @@ La prima visualizzazione del dashboard può richiedere fino a 30 minuti. La solu
 
 Provare le opzioni seguenti:
 - Modificare l'intervallo di tempo nella barra superiore.
-- Selezionare una diversa area di lavoro di Log Analytics nella barra superiore.
+- Selezionare una diversa area di lavoro Log Analytics nella barra superiore.
 - Provare ad accedere ad Analisi del traffico dopo 30 minuti, se è stata abilitata di recente.
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -163,7 +163,7 @@ Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli
 
 È possibile che venga visualizzato questo messaggio perché:
 - Analisi del traffico è stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.
-- Si sta usando la versione gratuita dell'area di lavoro di Log Analytics, che ha superato i limiti di quota. Potrebbe essere necessario utilizzare un'area di lavoro con una capacità maggiore.
+- Si sta usando la versione gratuita dell'area di lavoro Log Analytics, che ha superato i limiti di quota. Potrebbe essere necessario utilizzare un'area di lavoro con una capacità maggiore.
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
@@ -244,7 +244,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
-Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro di Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
+Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 

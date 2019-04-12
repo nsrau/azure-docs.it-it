@@ -12,4 +12,4 @@ ms.lasthandoff: 02/23/2019
 ms.locfileid: "56741075"
 ---
 >[!NOTE]
->Nelle versioni precedenti di questo articolo si fa riferimento a Log Analytics come servizio a parte. La funzionalità non è cambiata, ma il servizio è stato rinominato come funzionalità di log di Monitoraggio di Azure. Con questo nuovo nome, nell'articolo viene indicato che i relativi dati vengono archiviati in un'area di lavoro di Log Analytics in Monitoraggio di Azure. Per altre informazioni, vedere [Modifiche dei marchi di Monitoraggio di Azure](../articles/azure-monitor/azure-monitor-rebrand.md).
+>Nelle versioni precedenti di questo articolo si fa riferimento a Log Analytics come servizio a parte. La funzionalità non è cambiata, ma il servizio è stato rinominato come funzionalità di log di Monitoraggio di Azure. Con questo nuovo nome, nell'articolo viene indicato che i relativi dati vengono archiviati in un'area di lavoro Log Analytics in Monitoraggio di Azure. Per altre informazioni, vedere [Modifiche dei marchi di Monitoraggio di Azure](../articles/azure-monitor/azure-monitor-rebrand.md).

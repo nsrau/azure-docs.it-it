@@ -1,6 +1,6 @@
 ---
 title: API di raccolta dati HTTP di Monitoraggio di Azure | Microsoft Docs
-description: È possibile usare l'API di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST a un'area di lavoro di Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo illustra come usare l'API e descrive esempi di come pubblicare i dati con diversi linguaggi di programmazione.
+description: È possibile usare l'API di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST a un'area di lavoro Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo illustra come usare l'API e descrive esempi di come pubblicare i dati con diversi linguaggi di programmazione.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -29,9 +29,9 @@ Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati
 > L'API di raccolta dati HTTP di Monitoraggio di Azure è in anteprima pubblica.
 
 ## <a name="concepts"></a>Concetti
-È possibile usare l'API di raccolta dati HTTP per inviare dati di log a un'area di lavoro di Log Analytics in Monitoraggio di Azure da qualsiasi client in grado di chiamare un'API REST.  Può trattarsi di un runbook in Automazione di Azure che raccoglie dati di gestione da Azure o da un altro cloud oppure di un sistema di gestione alternativo che usa Monitoraggio di Azure per consolidare e analizzare i dati di log.
+È possibile usare l'API di raccolta dati HTTP per inviare dati di log a un'area di lavoro Log Analytics in Monitoraggio di Azure da qualsiasi client in grado di chiamare un'API REST.  Può trattarsi di un runbook in Automazione di Azure che raccoglie dati di gestione da Azure o da un altro cloud oppure di un sistema di gestione alternativo che usa Monitoraggio di Azure per consolidare e analizzare i dati di log.
 
-Tutti i dati nell'area di lavoro di Log Analytics vengono archiviati come record con un tipo specifico.  I dati da inviare all'API dell'agente di raccolta dati HTTP devono essere formattati come più record in JSON.  Quando si inviano i dati, nel repository viene creato un record singolo per ogni record presente nel payload della richiesta.
+Tutti i dati nell'area di lavoro Log Analytics vengono archiviati come record con un tipo specifico.  I dati da inviare all'API dell'agente di raccolta dati HTTP devono essere formattati come più record in JSON.  Quando si inviano i dati, nel repository viene creato un record singolo per ogni record presente nel payload della richiesta.
 
 
 ![Panoramica dell'agente di raccolta dati HTTP](media/data-collector-api/overview.png)
@@ -51,7 +51,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
 | Parametro | DESCRIZIONE |
 |:--- |:--- |
-| CustomerID |Identificatore univoco per l'area di lavoro di Log Analytics. |
+| CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
 | Risorsa |Nome della risorsa API: /api/logs. |
 | Versione dell'API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
@@ -179,7 +179,7 @@ Esistono alcune limitazioni riguardo ai dati pubblicati nell'API per la raccolta
 * Limite di 30 MB per post nell'API per la raccolta dei dati di Monitoraggio di Azure. Questo limite riguarda le dimensioni di ogni messaggio. Se i dati di un singolo post superano i 30 MB, è necessario suddividerli in blocchi di dimensioni inferiori, che andranno inviati contemporaneamente.
 * Limite di 32 KB per i valori dei campi. Se il valore di un campo è superiore a 32 KB, i dati verranno troncati.
 * Il numero massimo di campi consigliato per un determinato tipo è 50. Si tratta di un limite pratico dal punto di vista dell'usabilità e dell'esperienza di ricerca.  
-* Una tabella in un'area di lavoro di Log Analytics supporta solo un massimo di 500 colonne, indicate in questo articolo come campi. 
+* Una tabella in un'area di lavoro Log Analytics supporta solo un massimo di 500 colonne, indicate in questo articolo come campi. 
 * Il numero massimo di caratteri per il nome della colonna è 500.
 
 ## <a name="return-codes"></a>Codici restituiti
@@ -213,7 +213,7 @@ Nelle sezioni successive sono disponibili esempi di come inviare dati all'API di
 
 Per ogni esempio, seguire questa procedura per impostare le variabili per l'intestazione dell'autorizzazione:
 
-1. Nel portale di Azure individuare l'area di lavoro di Log Analytics.
+1. Nel portale di Azure individuare l'area di lavoro Log Analytics.
 2. Selezionare **Impostazioni avanzate** e quindi **Origini connesse**.
 2. A destra di **ID area di lavoro** selezionare l'icona di copia e quindi incollare l'ID come valore della variabile **ID cliente**.
 3. A destra di **Chiave primaria** selezionare l'icona di copia e quindi incollare l'ID come valore della variabile **Chiave condivisa**.
@@ -482,6 +482,6 @@ Mentre l'API di raccolta dei dati dovrebbe coprire la maggior parte delle esigen
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Usare l'[API di ricerca log](../log-query/log-query-overview.md) per recuperare dati dall'area di lavoro di Log Analytics.
+- Usare l'[API di ricerca log](../log-query/log-query-overview.md) per recuperare dati dall'area di lavoro Log Analytics.
 
 - Vedere altre informazioni su come [creare una pipeline di dati con l'API dell'Agente di raccolta dati](create-pipeline-datacollector-api.md) usando il flusso di lavoro di App per la logica in Monitoraggio di Azure.

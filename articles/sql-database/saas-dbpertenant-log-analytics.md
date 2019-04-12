@@ -67,12 +67,12 @@ Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS
 
 ## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Installare e configurare l'area di lavoro di Log Analitica e la soluzione Analitica SQL di Azure
 
-Monitoraggio di Azure è un servizio separato che deve essere configurato. Monitoraggio di Azure registra raccoglie i dati, i dati di telemetria e metriche in un'area di lavoro di Log Analitica. Come per altre risorse in Azure, è necessario creare un'area di lavoro di Log Analytics. L'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, anche se spesso questa è la scelta più sensata. Per l'app Wingtip Tickets, usare un unico gruppo di risorse per garantire che l'area di lavoro venga eliminata con l'applicazione.
+Monitoraggio di Azure è un servizio separato che deve essere configurato. Monitoraggio di Azure registra raccoglie i dati, i dati di telemetria e metriche in un'area di lavoro di Log Analitica. Come per altre risorse in Azure, è necessario creare un'area di lavoro Log Analytics. L'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, anche se spesso questa è la scelta più sensata. Per l'app Wingtip Tickets, usare un unico gruppo di risorse per garantire che l'area di lavoro venga eliminata con l'applicazione.
 
 1. In PowerShell ISE aprire *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Per eseguire lo script, premere F5.
 
-A questo punto è possibile aprire Monitoraggio di Azure log nel portale di Azure. Per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro di Log Analytics è necessario qualche minuto. Maggiore il tempo concesso al sistema per la raccolta di dati di diagnostica, più interessante sarà l'esperienza. 
+A questo punto è possibile aprire Monitoraggio di Azure log nel portale di Azure. Per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro Log Analytics è necessario qualche minuto. Maggiore il tempo concesso al sistema per la raccolta di dati di diagnostica, più interessante sarà l'esperienza. 
 
 ## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Usare la soluzione Analitica SQL e dell'area di lavoro di Log Analitica per monitorare i pool e database
 
@@ -127,11 +127,11 @@ In questo esercizio, aprire l'area di lavoro di Log Analitica nel portale di Azu
     ![Metriche del pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Tornare all'area di lavoro di Log Analytics e selezionare **Portale di OMS** per aprire l'area di lavoro.
+1. Tornare all'area di lavoro Log Analytics e selezionare **Portale di OMS** per aprire l'area di lavoro.
 
-    ![Area di lavoro di Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Area di lavoro Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Nell'area di lavoro di Log Analytics è possibile esplorare ulteriormente i dati di log e delle metriche. 
+Nell'area di lavoro Log Analytics è possibile esplorare ulteriormente i dati di log e delle metriche. 
 
 Monitoraggio e avviso in Monitoraggio di Azure i log si basano sulle query sui dati nell'area di lavoro, diversamente dagli avvisi definiti per ogni risorsa nel portale di Azure. Basando gli avvisi sulle query, è possibile definire un singolo avviso per monitorare tutti i database, invece di definirne uno per ogni database. Le query sono limitate solo dai dati disponibili nell'area di lavoro.
 

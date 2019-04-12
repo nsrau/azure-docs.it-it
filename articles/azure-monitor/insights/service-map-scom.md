@@ -28,9 +28,9 @@ Con questa integrazione tra Elenco dei servizi e System Center Operations Manage
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Gruppo di gestione di Operations Manager (2012 R2 o successiva) che gestisce un set di server.
-* Area di lavoro di Log Analytics con la soluzione Mapping dei servizi abilitata.
+* area di lavoro Log Analytics con la soluzione Mapping dei servizi abilitata.
 * Set di server (almeno uno) che vengono gestiti da Operations Manager e inviano dati a Elenco dei servizi. Sono supportati server Windows e Linux.
-* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#create-a-service-principal).
+* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#create-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installare il management pack di Elenco dei servizi
 L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata importando il bundle di management pack Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). È possibile scaricare il bundle del Management Pack da [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Il bundle contiene i management pack seguenti:
@@ -55,7 +55,7 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Finestra di configurazione della connessione](media/service-map-scom/scom-config-spn.png)
 
-3. Nella finestra **Selezione sottoscrizione**, selezionare la sottoscrizione di Azure, il gruppo di risorse di Azure contenente l'area di lavoro di Log Analytics e infine l'area di lavoro stessa, quindi fare clic su **Avanti**.
+3. Nella finestra **Selezione sottoscrizione**, selezionare la sottoscrizione di Azure, il gruppo di risorse di Azure contenente l'area di lavoro Log Analytics e infine l'area di lavoro stessa, quindi fare clic su **Avanti**.
 
     ![Area di lavoro di configurazione di Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
@@ -77,13 +77,13 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Pool di risorse di configurazione di Operations Manager](media/service-map-scom/scom-config-pool.png)
 
-    Per configurare e registrare l'area di lavoro di Log Analytics potrebbero essere necessari alcuni minuti. Dopo averlo configurato, Operations Manager avvia la prima sincronizzazione di Mapping dei servizi.
+    Per configurare e registrare l'area di lavoro Log Analytics potrebbero essere necessari alcuni minuti. Dopo averlo configurato, Operations Manager avvia la prima sincronizzazione di Mapping dei servizi.
 
     ![Pool di risorse di configurazione di Operations Manager](media/service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitorare le metriche del servizio
-Dopo aver connesso l'area di lavoro di Log Analytics, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Mapping dei servizi.
+Dopo aver connesso l'area di lavoro Log Analytics, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Mapping dei servizi.
 
 ![Riquadro Monitoraggio di Operations Manager](media/service-map-scom/scom-monitoring.png)
 
@@ -108,7 +108,7 @@ La cartella Mapping dei servizi ha quattro nodi:
 >[!NOTE]
 >[Operations Management Suite era una raccolta di servizi](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) che includeva Log Analytics, ora incluso in [Monitoraggio di Azure](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
 
-Per il momento è possibile configurare una sola area di lavoro di Log Analytics.
+Per il momento è possibile configurare una sola area di lavoro Log Analytics.
 
 ![Riquadro Modifica area di lavoro di Operations Manager](media/service-map-scom/scom-edit-workspace.png)
 
@@ -125,7 +125,7 @@ Viene creata una regola _Microsoft.SystemCenter.ServiceMapImport.Rule_ per recup
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
-* È possibile connettersi a una sola area di lavoro di Log Analytics.
+* È possibile connettersi a una sola area di lavoro Log Analytics.
 * Anche se è possibile aggiungere manualmente server al gruppo di server di Mapping dei servizi tramite il riquadro **Creazione e modifica**, le mappe di tali server non vengono sincronizzate immediatamente.  Verranno sincronizzate da Mapping dei servizi durante il ciclo di sincronizzazione successivo.
 * Se si apportano modifiche ai diagrammi applicazioni distribuite creati dal Management Pack, tali modifiche verranno probabilmente sovrascritte durante la sincronizzazione successiva con Mapping dei servizi.
 

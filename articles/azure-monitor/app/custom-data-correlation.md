@@ -38,7 +38,7 @@ Poiché Application Insights è supportato dalla potente piattaforma di log di M
 
 In questa sezione viene esaminata anche la procedura per ottenere i dati nei log di Monitoraggio di Azure.
 
-Se non se ne possiede già una, effettuare il provisioning di una nuova area di lavoro di Log Analytics seguendo [queste istruzioni](../learn/quick-collect-azurevm.md) fino al passaggio "creare un'area di lavoro" incluso.
+Se non se ne possiede già una, effettuare il provisioning di una nuova area di lavoro Log Analytics seguendo [queste istruzioni](../learn/quick-collect-azurevm.md) fino al passaggio "creare un'area di lavoro" incluso.
 
 Per iniziare a inviare i dati di log in Monitoraggio di Azure. Sono disponibili diverse opzioni:
 
@@ -52,7 +52,7 @@ Per iniziare a inviare i dati di log in Monitoraggio di Azure. Sono disponibili 
 
 Application Insights si basa sulla piattaforma di log di Monitoraggio di Azure. Di conseguenza verranno usati [join tra risorse](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) per correlare i dati inseriti in Monitoraggio di Azure con i dati di Application Insights.
 
-Ad esempio, è possibile inserire l'inventario e i percorsi lab in una tabella denominata "LabLocations_CL" in un'area di lavoro di Log Analytics denominata "myLA". Per esaminare le richieste registrate nell'app di Application Insights denominata "myAI" e correlare i nomi di computer che hanno servito le richieste ai percorsi di tali computer archiviati nella tabella personalizzata menzionata in precedenza, è quindi possibile eseguire la query seguente dal contesto di Application Insights o di Monitoraggio di Azure:
+Ad esempio, è possibile inserire l'inventario e i percorsi lab in una tabella denominata "LabLocations_CL" in un'area di lavoro Log Analytics denominata "myLA". Per esaminare le richieste registrate nell'app di Application Insights denominata "myAI" e correlare i nomi di computer che hanno servito le richieste ai percorsi di tali computer archiviati nella tabella personalizzata menzionata in precedenza, è quindi possibile eseguire la query seguente dal contesto di Application Insights o di Monitoraggio di Azure:
 
 ```
 app('myAI').requests

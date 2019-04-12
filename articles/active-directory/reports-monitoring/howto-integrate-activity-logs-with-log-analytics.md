@@ -58,7 +58,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Disporre di un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Inviare log ai log di Monitoraggio di Azure
 
@@ -66,19 +66,19 @@ Per usare questa funzionalità, sono necessari:
 
 2. Selezionare **Azure Active Directory** > **Impostazioni di diagnostica** -> **Aggiungi impostazioni di diagnostica**. È anche possibile selezionare **Esporta impostazioni** dalla pagina **Log di controllo** o **Accessi** per visualizzare la pagina di configurazione delle impostazioni di diagnostica.  
     
-3. Nel menu **Impostazioni di diagnostica** selezionare la casella di controllo **Send to Log Analytics workspace** (Invia ad area di lavoro di Log Analytics) e quindi selezionare **Configura**.
+3. Nel menu **Impostazioni di diagnostica** selezionare la casella di controllo **Send to Log Analytics workspace** (Invia ad area di lavoro Log Analytics) e quindi selezionare **Configura**.
 
-4. Selezionare l'area di lavoro di Log Analytics a cui si vogliono inviare i log oppure creare una nuova area di lavoro nella finestra di dialogo visualizzata.  
+4. Selezionare l'area di lavoro Log Analytics a cui si vogliono inviare i log oppure creare una nuova area di lavoro nella finestra di dialogo visualizzata.  
 
 5. Eseguire una di queste operazioni o entrambe:
-    * Per inviare i log di controllo all'area di lavoro di Log Analytics, selezionare la casella di controllo **AuditLogs**. 
-    * Per inviare i log di accesso all'area di lavoro di Log Analytics, selezionare la casella di controllo **SignInLogs**.
+    * Per inviare i log di controllo all'area di lavoro Log Analytics, selezionare la casella di controllo **AuditLogs**. 
+    * Per inviare i log di accesso all'area di lavoro Log Analytics, selezionare la casella di controllo **SignInLogs**.
 
 6. Selezionare **Salva** per salvare l'impostazione.
 
     ![Impostazioni di diagnostica](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
-7. Dopo circa 15 minuti, verificare che gli eventi vengano trasmessi all'area di lavoro di Log Analytics.
+7. Dopo circa 15 minuti, verificare che gli eventi vengano trasmessi all'area di lavoro Log Analytics.
 
 ## <a name="next-steps"></a>Fasi successive
 

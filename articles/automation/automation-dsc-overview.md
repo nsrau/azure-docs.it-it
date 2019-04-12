@@ -39,7 +39,7 @@ Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazion
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importare i dati di segnalazione dei log di monitoraggio di Azure
 
-I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro di Log Analytics. Per informazioni su come inviare i dati dello stato di configurazione dello stato nell'area di lavoro di Log Analitica, vedere [inoltrare Azure Automation configurazione dello stato i dati dei report per i log di monitoraggio di Azure](automation-dsc-diagnostics.md).
+I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Per informazioni su come inviare i dati dello stato di configurazione dello stato nell'area di lavoro di Log Analitica, vedere [inoltrare Azure Automation configurazione dello stato i dati dei report per i log di monitoraggio di Azure](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

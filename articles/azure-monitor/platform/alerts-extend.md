@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55099329"
@@ -35,7 +35,7 @@ La creazione e la gestione degli avvisi nel portale di Azure offre diversi vanta
 ## <a name="process-of-extending-your-alerts"></a>Processo di estensione degli avvisi
 Il processo di estensione degli avvisi da Log Analytics in Azure non comporta la modifica della definizione, della query o della configurazione degli avvisi. L'unica modifica necessaria è che in Azure tutte le azioni vengono eseguite usando un gruppo di azioni. Se i gruppi di azioni sono già associati con l'avviso, questi vengono inclusi durante l'estensione in Azure.
 
-Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'area di lavoro di Log Analytics continuano a funzionare, senza compromettere in alcun modo la configurazione. Se pianificati, gli avvisi possono risultare temporaneamente non disponibili per la modifica, ma in questo intervallo è possibile continuare a creare nuovi avvisi in Azure. Se si tenta di modificare o creare avvisi dal portale di OMS, è possibile continuare la loro creazione dall'area di lavoro di Log Analytics. È anche possibile crearli da Avvisi di Azure nel portale di Azure.
+Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'area di lavoro Log Analytics continuano a funzionare, senza compromettere in alcun modo la configurazione. Se pianificati, gli avvisi possono risultare temporaneamente non disponibili per la modifica, ma in questo intervallo è possibile continuare a creare nuovi avvisi in Azure. Se si tenta di modificare o creare avvisi dal portale di OMS, è possibile continuare la loro creazione dall'area di lavoro Log Analytics. È anche possibile crearli da Avvisi di Azure nel portale di Azure.
 
  ![Schermata dell'opzione per creare avvisi da Log Analytics o da Avvisi di Azure](media/alerts-extend/ScheduledDirection.png)
 

@@ -53,7 +53,7 @@ La struttura di base di un file di una soluzione di gestione corrisponde a quell
 ## <a name="parameters"></a>Parametri
 I [parametri](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) sono valori richiesti all'utente al momento dell'installazione della soluzione di gestione.  Ci sono parametri standard comuni a tutte le soluzioni ed è possibile aggiungere altri parametri in base a quanto necessario per la soluzione specifica.  Il modo in cui gli utenti forniranno i valori dei parametri quando installano la soluzione dipende dal parametro specifico e dalla modalità di installazione della soluzione.
 
-Quando un utente [installa la soluzione di gestione](solutions.md#install-a-monitoring-solution) tramite Azure Marketplace o i modelli di avvio rapido di Azure, viene chiesto di selezionare un'[area di lavoro di Log Analytics e un account di Automazione](solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
+Quando un utente [installa la soluzione di gestione](solutions.md#install-a-monitoring-solution) tramite Azure Marketplace o i modelli di avvio rapido di Azure, viene chiesto di selezionare un'[area di lavoro Log Analytics e un account di Automazione](solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
 
 
 Di seguito è illustrato un parametro di esempio.  
@@ -86,11 +86,11 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 | Parametro | Type | DESCRIZIONE |
 |:--- |:--- |:--- |
 | accountName |stringa |Nome dell'account di Automazione di Azure. |
-| pricingTier |stringa |Piano tariffario dell'area di lavoro di Log Analytics e dell'account di Automazione di Azure. |
+| pricingTier |stringa |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
 | regionId |stringa |Area dell'account di Automazione di Azure. |
 | solutionName |stringa |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
-| workspaceName |stringa |Nome dell'area di lavoro di Log Analytics. |
-| workspaceRegionId |stringa |Area dell'area di lavoro di Log Analytics. |
+| workspaceName |stringa |Nome dell'area di lavoro Log Analytics. |
+| workspaceRegionId |stringa |Area dell'area di lavoro Log Analytics. |
 
 
 Di seguito viene mostrata la struttura dei parametri standard, che è possibile copiare e incollare nel file della soluzione.  
@@ -167,8 +167,8 @@ Le [risorse](../../azure-resource-manager/resource-group-authoring-templates.md#
 ### <a name="dependencies"></a>Dependencies
 L'elemento **dependsOn** specifica una [dipendenza](../../azure-resource-manager/resource-group-define-dependencies.md) da un'altra risorsa.  Quando si installa la soluzione, una risorsa viene creata solo dopo che sono state create tutte le relative dipendenze.  La soluzione potrebbe ad esempio [avviare un runbook](solutions-resources-automation.md#runbooks) quando viene installata usando una [risorsa processo](solutions-resources-automation.md#automation-jobs).  La risorsa processo dipenderà dalla risorsa runbook, per assicurarsi che il runbook venga creato prima del processo.
 
-### <a name="log-analytics-workspace-and-automation-account"></a>Area di lavoro di Log Analytics e account di Automazione
-Le soluzioni di gestione richiedono un'[area di lavoro di Log Analytics](../../azure-monitor/platform/manage-access.md) per contenere le viste e un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le risorse correlate.  Questi elementi devono essere disponibili prima della creazione delle risorse nella soluzione e non devono essere definiti nella soluzione stessa.  L'utente [specificherà un'area di lavoro e un account](solutions.md#log-analytics-workspace-and-automation-account) quando distribuisce la soluzione, ma l'autore della soluzione deve tenere presente quanto segue.
+### <a name="log-analytics-workspace-and-automation-account"></a>area di lavoro Log Analytics e account di Automazione
+Le soluzioni di gestione richiedono un'[area di lavoro Log Analytics](../../azure-monitor/platform/manage-access.md) per contenere le viste e un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le risorse correlate.  Questi elementi devono essere disponibili prima della creazione delle risorse nella soluzione e non devono essere definiti nella soluzione stessa.  L'utente [specificherà un'area di lavoro e un account](solutions.md#log-analytics-workspace-and-automation-account) quando distribuisce la soluzione, ma l'autore della soluzione deve tenere presente quanto segue.
 
 
 ## <a name="solution-resource"></a>Risorse della soluzione

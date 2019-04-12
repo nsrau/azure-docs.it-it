@@ -59,7 +59,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | Gruppo di risorse | Sì | test-integration-account-rg | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome specificato. | 
    | Piano tariffario | Sì | Gratuito | Piano tariffario che si vuole usare. Per questo esempio, selezionare **Gratuito**, ma per altre informazioni, vedere [Limiti e configurazione di App per la logica](../logic-apps/logic-apps-limits-and-config.md) e [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Località | Sì | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di integrazione. Selezionare la stessa posizione dell'app per la logica oppure creare un'app per la logica nella stessa posizione dell'account di integrazione. | 
-   | Area di lavoro di Log Analytics | No  | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | Area di lavoro Log Analytics | No  | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    ||||| 
 
 4. Selezionare quindi **Aggiungi al dashboard** e scegliere **Crea**.

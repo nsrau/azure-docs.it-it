@@ -106,14 +106,14 @@ Per usare monitoraggio di Azure per archiviare i log, seguire questa procedura:
 
 3. Selezionare **Crea una nuova area di lavoro**.
 
-    Viene visualizzata la pagina **Area di lavoro di Log Analytics**.
+    Viene visualizzata la pagina **area di lavoro Log Analytics**.
 
     >[!NOTE] 
     >Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. In **Area di lavoro di Log Analytics** immettere un nome per l'area di lavoro di Log Analytics. Il nome dell'area di lavoro di Log Analytics deve essere univoco e contenere solo lettere, numeri e segni meno. Non sono consentiti spazi e caratteri di sottolineatura. 
+4. In **area di lavoro Log Analytics** immettere un nome per l'area di lavoro Log Analytics. Il nome dell'area di lavoro Log Analytics deve essere univoco e contenere solo lettere, numeri e segni meno. Non sono consentiti spazi e caratteri di sottolineatura. 
 
 5. In **Sottoscrizione** selezionare una sottoscrizione esistente nell'elenco a discesa. 
 
@@ -125,17 +125,17 @@ Per usare monitoraggio di Azure per archiviare i log, seguire questa procedura:
 
 9. Selezionare **OK** per completare la configurazione.
 
-10. Dopo aver creato l'area di lavoro si ritorna alla pagina **Log di diagnostica**. Confermare il nome della nuova area di lavoro di Log Analytics.
+10. Dopo aver creato l'area di lavoro si ritorna alla pagina **Log di diagnostica**. Confermare il nome della nuova area di lavoro Log Analytics.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
 11. Selezionare **CoreAnalytics** e quindi selezionare **Salva**.
 
-12. Per visualizzare la nuova area di lavoro di Log Analytics, selezionare **Analisi principale** dalla pagina dell'endpoint della rete CDN.
+12. Per visualizzare la nuova area di lavoro Log Analytics, selezionare **Analisi principale** dalla pagina dell'endpoint della rete CDN.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    L'area di lavoro di Log Analytics è ora pronta per la registrazione dei dati. Per utilizzare i dati, è necessario usare una [monitoraggio di Azure registra soluzione](#consuming-diagnostics-logs-from-a-log-analytics-workspace), descritta più avanti in questo articolo.
+    L'area di lavoro Log Analytics è ora pronta per la registrazione dei dati. Per utilizzare i dati, è necessario usare una [monitoraggio di Azure registra soluzione](#consuming-diagnostics-logs-from-a-log-analytics-workspace), descritta più avanti in questo articolo.
 
 Per altre informazioni sui ritardi dei dati di log, vedere [Ritardi dei dati di log](#log-data-delays).
 
@@ -159,7 +159,7 @@ L'esempio seguente mostra come abilitare i log di diagnostica tramite i cmdlet d
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Per abilitare i log di diagnostica in un'area di lavoro di Log Analytics, immettere questo comando:
+3. Per abilitare i log di diagnostica in un'area di lavoro Log Analytics, immettere questo comando:
 
     ```powershell
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -212,16 +212,16 @@ Di seguito è illustrato come è possibile usare lo strumento:
 4.  Eseguire lo strumento.
 5.  Il file CSV risultate mostra i dati di analisi in una semplice gerarchia.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Utilizzo dei log di diagnostica da un'area di lavoro di Log Analytics
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Utilizzo dei log di diagnostica da un'area di lavoro Log Analytics
 Monitoraggio di Azure è un servizio di Azure che consente di monitorare il cloud e in ambienti locali per mantenerne la disponibilità e prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. 
 
 Per usare monitoraggio di Azure, è necessario [abilitare la registrazione](#enable-logging-with-azure-storage) all'area di lavoro di Analitica di Log di Azure, come descritto in precedenza in questo articolo.
 
-### <a name="using-the-log-analytics-workspace"></a>Uso dell'area di lavoro di Log Analytics
+### <a name="using-the-log-analytics-workspace"></a>Uso dell'area di lavoro Log Analytics
 
  Il diagramma seguente mostra l'architettura degli input e output del repository:
 
-![Area di lavoro di Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Area di lavoro Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 - Repository di Log Analytics*
 
@@ -252,7 +252,7 @@ Seguire questi passaggi per aggiungere un monitoraggio di Azure soluzione di mon
 
     ![Visualizzare tutto](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. Dopo aver selezionato **Crea**, verrà richiesto se creare una nuova area di lavoro di Log Analytics o usarne una esistente. 
+6. Dopo aver selezionato **Crea**, verrà richiesto se creare una nuova area di lavoro Log Analytics o usarne una esistente. 
 
     ![Visualizzare tutto](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -272,7 +272,7 @@ Seguire questi passaggi per aggiungere un monitoraggio di Azure soluzione di mon
 
     ![Visualizzare tutto](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Fare clic sull'area di lavoro di Log Analytics creata per passare all'area di lavoro. 
+    Fare clic sull'area di lavoro Log Analytics creata per passare all'area di lavoro. 
 
 11. Selezionare il riquadro **Portale di OMS** per visualizzare la nuova soluzione.
 
@@ -298,7 +298,7 @@ Le offerte e i piani tariffari per le soluzioni di gestione sono disponibili [qu
 
 ### <a name="customizing-views"></a>Personalizzazione delle visualizzazioni
 
-È possibile personalizzare la visualizzazione dei dati usando **Progettazione viste**. Per iniziare con la progettazione, passare all'area di lavoro di Log Analytics e fare clic sul riquadro **Progettazione viste**.
+È possibile personalizzare la visualizzazione dei dati usando **Progettazione viste**. Per iniziare con la progettazione, passare all'area di lavoro Log Analytics e fare clic sul riquadro **Progettazione viste**.
 
 ![Progettazione viste](./media/cdn-diagnostics-log/27_Designer.png)
 

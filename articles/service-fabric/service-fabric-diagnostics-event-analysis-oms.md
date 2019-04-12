@@ -33,7 +33,7 @@ ms.locfileid: "58662160"
 ## <a name="overview-of-the-log-analytics-workspace"></a>Panoramica dell'area di lavoro di Log Analitica
 
 >[!NOTE] 
->Mentre l'archiviazione di diagnostica è abilitata per impostazione predefinita al momento della creazione del cluster, è tuttavia necessario configurare l'area di lavoro di Log Analytics per la lettura dall'archiviazione di diagnostica.
+>Mentre l'archiviazione di diagnostica è abilitata per impostazione predefinita al momento della creazione del cluster, è tuttavia necessario configurare l'area di lavoro Log Analytics per la lettura dall'archiviazione di diagnostica.
 
 Monitoraggio di Azure vengono registrati i dati raccolti dalle risorse gestite, tra cui una tabella di archiviazione di Azure o un agente e li gestisce in un repository centrale. I dati possono essere quindi usati per analisi, avvisi e visualizzazioni o altre esportazioni. Monitoraggio di Azure Registra eventi supporta, i dati sulle prestazioni o altri dati personalizzati. Consulta [passaggi per configurare l'estensione diagnostica di aggregazione di eventi](service-fabric-diagnostics-event-aggregation-wad.md) e [passaggi per creare un'area di lavoro di Log Analitica per la lettura degli eventi nell'archiviazione](service-fabric-diagnostics-oms-setup.md) per assicurarsi che i dati vengono trasmessi a monitoraggio di Azure log.
 

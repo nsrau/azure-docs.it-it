@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
 ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2019
 ms.locfileid: "59426503"
@@ -233,13 +233,13 @@ Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio databas
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
+- Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
+- È possibile ottenere l'ID risorsa dell'area di lavoro Log Analytics usando il comando seguente:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -288,7 +288,7 @@ Specificare l'ID risorsa dell'area di lavoro \<$WSID\> come parametro quando si 
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
+- Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -361,7 +361,7 @@ Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possib
 
 - **Visualizzare l'integrità del servizio mediante la trasmissione di dati sul "percorso critico" a Power BI**. Con Hub eventi, Analisi di flusso e Power BI è possibile trasformare facilmente i dati di metriche e diagnostica in informazioni quasi in tempo reale sui servizi di Azure. Per una panoramica della configurazione di un hub eventi, dell'elaborazione dei dati con Analisi di flusso e dell'uso di Power BI come output, vedere [Analisi di flusso e Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-- **Eseguire lo streaming dei log in stream di registrazione e telemetria di terze parti**. Usando lo streaming di Hub eventi è possibile trasmettere le metriche e i log di diagnostica a diverse soluzioni di monitoraggio e analisi di log di terze parti.
+- **Eseguire lo streaming dei log in stream di registrazione e telemetria di terze parti**. Usando lo streaming di Hub eventi è possibile trasmettere le metriche e i log di diagnostica a diverse soluzioni di monitoraggio e analisi dei log di terze parti.
 
 - **Compilare una piattaforma di registrazione e telemetria personalizzata**. Si dispone già di una piattaforma di telemetria personalizzata o si intende crearne una? La natura altamente scalabile di pubblicazione-sottoscrizione dell'hub eventi offre flessibilità nell'inserimento dei log di diagnostica. [Vedere la guida all'uso dell'hub eventi in una piattaforma di telemetria su scala globale di Dan Rosanova](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 

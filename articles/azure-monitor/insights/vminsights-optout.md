@@ -15,7 +15,7 @@ ms.date: 11/05/2018
 ms.author: magoedte
 ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54263357"
@@ -24,26 +24,26 @@ ms.locfileid: "54263357"
 
 Se dopo averlo abilitato, si decide che il monitoraggio con Monitoraggio di Azure per le macchine virtuali non è più necessario, è possibile disabilitarlo. Questo articolo illustra come eseguire questa operazione per una o più macchine virtuali.  
 
-Attualmente Monitoraggio di Azure per le macchine virtuali non supporta la disabilitazione selettiva del monitoraggio delle macchine virtuali. Se l'area di lavoro di Log Analytics è configurata per supportare questa e altre soluzioni e per a raccogliere altri dati di monitoraggio, è importante comprendere l'impatto e i metodi descritti di seguito prima di procedere.
+Attualmente Monitoraggio di Azure per le macchine virtuali non supporta la disabilitazione selettiva del monitoraggio delle macchine virtuali. Se l'area di lavoro Log Analytics è configurata per supportare questa e altre soluzioni e per a raccogliere altri dati di monitoraggio, è importante comprendere l'impatto e i metodi descritti di seguito prima di procedere.
 
 Monitoraggio di Azure per le macchine virtuali si basa sui componenti seguenti per offrire:
 
-* Un'area di lavoro di Log Analytics nella quale vengono archiviati i dati di monitoraggio raccolti dalle macchine virtuali e da altre origini.
+* Un'area di lavoro Log Analytics nella quale vengono archiviati i dati di monitoraggio raccolti dalle macchine virtuali e da altre origini.
 * Una raccolta dei contatori delle prestazioni configurati nell'area di lavoro, che aggiorna la configurazione di monitoraggio su tutte le macchine virtuali connesse all'area di lavoro.
 * Due soluzioni di monitoraggio configurate nell'area di lavoro - **InfrastructureInsights** e **ServiceMap**, che aggiornano la configurazione di monitoraggio su tutte le macchine virtuali connesse all'area di lavoro.
 * Due estensioni macchina virtuale di Azure, **MicrosoftMonitoringAgent** e il **DepenendencyAgent**, che raccolgono e inviano i dati all'area di lavoro.
 
 Quando ci si prepara a disabilitare il monitoraggio delle macchine virtuali con Monitoraggio di Azure per le macchine virtuali è bene tenere conto dei seguenti aspetti:
 
-* Se la valutazione avviene con una singola macchina virtuale ed è stata accettata l'area di lavoro di Log Analytics predefinita pre-selezionata, è possibile disabilitare il monitoraggio disinstallando Dependency Agent dalla macchina virtuale e disconnettendo l'agente Log Analytics dall'area di lavoro. Questo approccio è appropriato se si intende usare la macchina virtuale per altri scopi e si decide in un secondo momento di riconnetterla a un'altra area di lavoro.
-* Se si usa l'area di lavoro di Log Analytics per supportare altre soluzioni di monitoraggio e raccolta dei dati da altre origini, è possibile rimuovere i componenti della soluzione Monitoraggio di Azure per le macchine virtuali dall'area di lavoro senza interruzioni né conseguenze sull'area di lavoro.  
+* Se la valutazione avviene con una singola macchina virtuale ed è stata accettata l'area di lavoro Log Analytics predefinita pre-selezionata, è possibile disabilitare il monitoraggio disinstallando Dependency Agent dalla macchina virtuale e disconnettendo l'agente Log Analytics dall'area di lavoro. Questo approccio è appropriato se si intende usare la macchina virtuale per altri scopi e si decide in un secondo momento di riconnetterla a un'altra area di lavoro.
+* Se si usa l'area di lavoro Log Analytics per supportare altre soluzioni di monitoraggio e raccolta dei dati da altre origini, è possibile rimuovere i componenti della soluzione Monitoraggio di Azure per le macchine virtuali dall'area di lavoro senza interruzioni né conseguenze sull'area di lavoro.  
 
 >[!NOTE]
 > Dopo aver rimosso i componenti della soluzione dall'area di lavoro, è possibile continuare a visualizzare lo stato di integrità dalle macchine virtuali di Azure, in particolare dati sulle prestazioni e mappa, quando si passa a qualsiasi altra visualizzazione nel portale. Dopo qualche istante, i dati non verranno più visualizzati nella visualizzazione delle prestazioni e della mappa; la visualizzazione dell'integrità continua a mostrare lo stato di integrità delle macchine virtuali. L'opzione **Prova adesso** disponibile nella macchina virtuale di Azure selezionata consente di riattivare il monitoraggio in un secondo momento.  
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>Rimozione completa di Monitoraggio di Azure per le macchine virtuali
 
-I passaggi seguenti descrivono come rimuovere completamente Monitoraggio di Azure per le macchine virtuali qualora l'area di lavoro di Log Analytics sia ancora necessaria. Le soluzioni **InfastructureInsights** e **ServiceMap** verranno rimosse dall'area di lavoro.  
+I passaggi seguenti descrivono come rimuovere completamente Monitoraggio di Azure per le macchine virtuali qualora l'area di lavoro Log Analytics sia ancora necessaria. Le soluzioni **InfastructureInsights** e **ServiceMap** verranno rimosse dall'area di lavoro.  
 
 >[!NOTE]
 >Se la soluzione di monitoraggio Mapping dei servizi era usata prima di abilitare Monitoraggio di Azure per le macchine virtuali e si ha ancora intenzione di usarla, non rimuoverla come descritto nel passaggio 6 riportato di seguito.  
@@ -60,7 +60,7 @@ Se prima della registrazione di Monitoraggio di Azure per le macchine virtuali n
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Disabilitare il monitoraggio per una macchina virtuale di Azure e conservare l'area di lavoro  
 
-I passaggi seguenti indicano come disabilitare il monitoraggio per una macchina virtuale che è stata abilitata per la valutazione di Monitoraggio di Azure per le macchine virtuali, ma l'area di lavoro di Log Analytics è ancora necessaria per supportare il monitoraggio da altre origini. Se si tratta di una macchina virtuale di Azure, vengono rimosse l'estensione Dependency Agent della macchina virtuale e Log Analytics per Windows/Linux direttamente dalla macchina virtuale. 
+I passaggi seguenti indicano come disabilitare il monitoraggio per una macchina virtuale che è stata abilitata per la valutazione di Monitoraggio di Azure per le macchine virtuali, ma l'area di lavoro Log Analytics è ancora necessaria per supportare il monitoraggio da altre origini. Se si tratta di una macchina virtuale di Azure, vengono rimosse l'estensione Dependency Agent della macchina virtuale e Log Analytics per Windows/Linux direttamente dalla macchina virtuale. 
 
 >[!NOTE]
 >Se la macchina virtuale è gestita da Automazione di Azure per le attività di orchestrazione dei processi, gestione della configurazione o degli aggiornamenti oppure è gestita dal Centro sicurezza di Azure per le attività di protezione della gestione e rilevamento delle minacce, l'agente Log Analytics non deve essere rimosso. In caso contrario, si impedisce a tali servizi e soluzioni di gestire in modo proattivo la macchina virtuale. 

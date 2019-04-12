@@ -129,7 +129,7 @@ Questo nuovo formato abilita il Monitoraggio di Azure per eseguire il push di fi
 
 ## <a name="how-to-update"></a>Come eseguire l'aggiornamento
 
-È necessario eseguire gli aggiornamenti se si dispone di strumenti personalizzati che inseriscono questi file di log per un'ulteriore elaborazione. Se si usa un'analisi di log esterna o uno strumento SIEM, è consigliabile [usare invece hub eventi per inserire i dati](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). L'integrazione di hub eventi è più semplice in termini di log di elaborazione da molti servizi e posizioni segnalibro in un log specifico.
+È necessario eseguire gli aggiornamenti se si dispone di strumenti personalizzati che inseriscono questi file di log per un'ulteriore elaborazione. Se si usa un'analisi dei log esterna o uno strumento SIEM, è consigliabile [usare invece hub eventi per inserire i dati](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). L'integrazione di hub eventi è più semplice in termini di log di elaborazione da molti servizi e posizioni segnalibro in un log specifico.
 
 Gli strumenti personalizzati devono essere aggiornati per gestire il formato corrente e il formato righe JSON descritto in precedenza. Ciò impedirà agli strumenti di interrompere l'esecuzione quando i dati saranno visualizzati nel nuovo formato.
 

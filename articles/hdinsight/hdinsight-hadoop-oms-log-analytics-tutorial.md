@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un'area di lavoro di Log Analytics**. È possibile considerare questa area di lavoro come un ambiente di log univoco di monitoraggio di Azure con il proprio repository dei dati, origini dati e soluzioni. Per istruzioni, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Un'area di lavoro di Log Analytics**. È possibile considerare questa area di lavoro come un ambiente di log univoco di monitoraggio di Azure con il proprio repository dei dati, origini dati e soluzioni. Per istruzioni, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **Un cluster HDInsight di Azure**. Attualmente, è possibile usare i log di monitoraggio di Azure con i tipi di cluster HDInsight seguenti:
 
@@ -44,11 +44,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 * **Modulo Azure PowerShell Az**.  Visualizzare [introdurre il nuovo modulo Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
-> È consigliabile posizionare sia il cluster HDInsight che l'area di lavoro di Log Analytics nella stessa area per ottenere prestazioni migliori. Log di monitoraggio di Azure non è disponibile in tutte le aree di Azure.
+> È consigliabile posizionare sia il cluster HDInsight che l'area di lavoro Log Analytics nella stessa area per ottenere prestazioni migliori. Log di monitoraggio di Azure non è disponibile in tutte le aree di Azure.
 
 ## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Abilitare i log di monitoraggio di Azure usando il portale
 
-In questa sezione si configura un cluster Hadoop HDInsight esistente per usare un'area di lavoro di Azure Log Analytics per monitorare i processi, i log di debug e così via.
+In questa sezione si configura un cluster Hadoop HDInsight esistente per usare un'area di lavoro Azure Log Analytics per monitorare i processi, i log di debug e così via.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -62,7 +62,7 @@ In questa sezione si configura un cluster Hadoop HDInsight esistente per usare u
 
 6. Dalla vista principale, sotto **Monitoraggio di OMS**, selezionare **Abilita**.
 
-7. Nell'elenco a discesa **Selezionare un'area di lavoro**, selezionare un'area di lavoro di Log Analytics esistente.
+7. Nell'elenco a discesa **Selezionare un'area di lavoro**, selezionare un'area di lavoro Log Analytics esistente.
 
 8. Selezionare **Salva**.  Sono necessari alcuni minuti per salvare l'impostazione.
 

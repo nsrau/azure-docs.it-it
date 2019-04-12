@@ -183,7 +183,7 @@ Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monit
 |Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gestire i pacchetti di soluzione di monitoraggio di Azure i log.|
 |Microsoft.OperationalInsights/workspaces/savedSearches/*|Gestire le ricerche log salvate di monitoraggio di Azure.|
 |Microsoft.OperationalInsights/workspaces/search/action|Cercare aree di lavoro di Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Elencare chiavi per un'area di lavoro di Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Elencare chiavi per un'area di lavoro Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gestire le configurazioni di monitoraggio di Azure log archiviazione insight.|
 |Microsoft.Support/*|Crea e gestisce ticket di supporto.|
 |Microsoft.WorkloadMonitor/workloads/*|Gestisce i carichi di lavoro.|
@@ -264,8 +264,8 @@ La gestione degli aggiornamenti copre più servizi per fornire il proprio serviz
 |---------|---------|---------|
 |Account di Automazione     | Collaboratore di Log Analytics       | Account di Automazione        |
 |Account di Automazione    | Collaboratore macchine virtuali        | Gruppo di risorse per l'account        |
-|Area di lavoro di Log Analytics     | Collaboratore di Log Analytics| Area di lavoro di Log Analytics        |
-|Area di lavoro di Log Analytics |Lettore di Log Analytics| Sottoscrizione|
+|Area di lavoro Log Analytics     | Collaboratore di Log Analytics| Area di lavoro Log Analytics        |
+|Area di lavoro Log Analytics |Lettore di Log Analytics| Sottoscrizione|
 |Soluzione     |Collaboratore di Log Analytics         | Soluzione|
 |Macchina virtuale     | Collaboratore macchine virtuali        | Macchina virtuale        |
 

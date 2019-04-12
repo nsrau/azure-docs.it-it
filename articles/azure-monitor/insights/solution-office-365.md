@@ -55,7 +55,7 @@ Per iniziare, aggiungere la [soluzione di Office 365 alla sottoscrizione](soluti
 
 Prima di iniziare questa procedura, raccogliere le informazioni seguenti.
 
-Dall'area di lavoro di Log Analytics:
+Dall'area di lavoro Log Analytics:
 
 - Nome dell'area di lavoro: area di lavoro in cui verranno raccolti i dati di Office 365.
 - Nome gruppo di risorse: Gruppo di risorse che contiene il gruppo di risorse.
@@ -167,7 +167,7 @@ Per abilitare l'account amministrativo per la prima volta, è necessario fornire
     AdminConsent -ErrorAction Stop
     ```
 
-2. Eseguire lo script con il comando seguente. Verranno richieste due volte le credenziali. Specificare prima di tutto le credenziali per l'area di lavoro di Log Analytics e quindi le credenziali di amministratore globale per il tenant di Office 365.
+2. Eseguire lo script con il comando seguente. Verranno richieste due volte le credenziali. Specificare prima di tutto le credenziali per l'area di lavoro Log Analytics e quindi le credenziali di amministratore globale per il tenant di Office 365.
 
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
@@ -183,9 +183,9 @@ Per abilitare l'account amministrativo per la prima volta, è necessario fornire
     
     ![Consenso dell'amministratore](media/solution-office-365/admin-consent.png)
 
-### <a name="subscribe-to-log-analytics-workspace"></a>Creare una sottoscrizione all'area di lavoro di Log Analytics
+### <a name="subscribe-to-log-analytics-workspace"></a>Creare una sottoscrizione all'area di lavoro Log Analytics
 
-L'ultimo passaggio consiste nel creare la sottoscrizione dell'applicazione all'area di lavoro di Log Analytics. Anche questa operazione può essere eseguita tramite uno script di PowerShell.
+L'ultimo passaggio consiste nel creare la sottoscrizione dell'applicazione all'area di lavoro Log Analytics. Anche questa operazione può essere eseguita tramite uno script di PowerShell.
 
 1. Salvare lo script seguente come *office365_subscription.ps1*.
 
@@ -503,7 +503,7 @@ L'operazione iniziale di raccolta dei dati può richiedere alcune ore. Dopo l'av
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Quando si aggiunge la soluzione Office 365 all'area di lavoro di Log Analytics, il riquadro **Office 365** verrà aggiunto al dashboard. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente con la relativa conformità degli aggiornamenti.<br><br>
+Quando si aggiunge la soluzione Office 365 all'area di lavoro Log Analytics, il riquadro **Office 365** verrà aggiunto al dashboard. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente con la relativa conformità degli aggiornamenti.<br><br>
 ![Riquadro di riepilogo di Office 365](media/solution-office-365/tile.png)  
 
 Fare clic sul riquadro **Office 365** per aprire la dashboard di **Office 365**.
@@ -524,7 +524,7 @@ Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i pr
 
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 
-Tutti i record creati nell'area di lavoro di Log Analytics in Monitoraggio di Azure dalla soluzione Office 365 dispongono di un tipo (**Type**) di **OfficeActivity**.  La proprietà **OfficeWorkload** determina a quale servizio di Office 365 fa riferimento il record: Exchange, AzureActiveDirectory, SharePoint o OneDrive.  La proprietà **RecordType** specifica il tipo di operazione.  Le proprietà variano per ogni tipo di operazione e vengono visualizzate nelle tabelle seguenti.
+Tutti i record creati nell'area di lavoro Log Analytics in Monitoraggio di Azure dalla soluzione Office 365 dispongono di un tipo (**Type**) di **OfficeActivity**.  La proprietà **OfficeWorkload** determina a quale servizio di Office 365 fa riferimento il record: Exchange, AzureActiveDirectory, SharePoint o OneDrive.  La proprietà **RecordType** specifica il tipo di operazione.  Le proprietà variano per ogni tipo di operazione e vengono visualizzate nelle tabelle seguenti.
 
 ### <a name="common-properties"></a>Proprietà comuni
 

@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Creare una regola di avviso
 > * Configurare un gruppo di azioni per l'invio di notifiche tramite posta elettronica
 
-Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
@@ -42,7 +42,7 @@ Nell'esempio seguente viene creata una regola di avviso Unità di misura della m
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nel riquadro sinistro selezionare **Avvisi** e quindi fare clic su **Nuova regola di avviso** all'inizio della pagina per creare un nuovo avviso.<br><br> ![Creazione di una nuova regola di avviso](./media/tutorial-response/alert-rule-02.png)<br>
-3. Per il primo passaggio, nella sezione **Crea avviso** occorre selezionare l'area di lavoro di Log Analytics come risorsa, poiché di tratta di un segnale di avviso basato su log.  Filtrare i risultati scegliendo nell'elenco a discesa la **sottoscrizione** specifica (se ne esiste più di una) che contiene la macchina virtuale e l'area di lavoro di Log Analytics create in precedenza.  Filtrare **Tipo di risorsa** selezionando **Log Analytics** nell'elenco a discesa.  Infine, selezionare la **risorsa** **DefaultLAWorkspace** e fare clic su **Fine**.<br><br> ![Passaggio 1 della creazione di un avviso](./media/tutorial-response/alert-rule-03.png)<br>
+3. Per il primo passaggio, nella sezione **Crea avviso** occorre selezionare l'area di lavoro Log Analytics come risorsa, poiché di tratta di un segnale di avviso basato su log.  Filtrare i risultati scegliendo nell'elenco a discesa la **sottoscrizione** specifica (se ne esiste più di una) che contiene la macchina virtuale e l'area di lavoro Log Analytics create in precedenza.  Filtrare **Tipo di risorsa** selezionando **Log Analytics** nell'elenco a discesa.  Infine, selezionare la **risorsa** **DefaultLAWorkspace** e fare clic su **Fine**.<br><br> ![Passaggio 1 della creazione di un avviso](./media/tutorial-response/alert-rule-03.png)<br>
 4. Nella sezione **Criteri di avviso** fare clic su **Aggiungi criteri** per selezionare la query salvata e quindi specificare la logica seguita dalla regola di avviso.  Nel riquadro **Configura logica dei segnali** selezionare *Macchine virtuali di Azure - Utilizzo del processore* dall'elenco.  Il riquadro viene aggiornato in modo da presentare le impostazioni di configurazione dell'avviso.  Nella parte alta vengono visualizzati i risultati degli ultimi 30 minuti del segnale selezionato e la query di ricerca stessa.  
 5. Configurare l'avviso con le informazioni seguenti:  
    a. Nell'elenco a discesa **In base a** selezionare **Unità di misura della metrica**.  Un'unità di misura della metrica creerà un avviso per ogni oggetto nella query con un valore che supera la soglia specificata.  

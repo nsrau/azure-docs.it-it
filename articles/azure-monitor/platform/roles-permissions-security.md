@@ -56,7 +56,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Impostare il [profilo di log](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
-* Elencare le chiavi condivise dell'area di lavoro di Log Analytics.
+* Elencare le chiavi condivise dell'area di lavoro Log Analytics.
 * Abilitare o disabilitare i monitoring Pack nell'area di lavoro di Log Analitica.
 * Creare ed eliminare e di eseguire le ricerche salvate nell'area di lavoro di Log Analitica.
 * Creare ed eliminare la configurazione di archiviazione dell'area di lavoro di Log Analitica.

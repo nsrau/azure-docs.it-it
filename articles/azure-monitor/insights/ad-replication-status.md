@@ -46,7 +46,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
    > [!NOTE]
    > Queste modifiche non diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installare soluzione
-   > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro di Log Analytics. Non è richiesta alcuna ulteriore configurazione.
+   > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Dettagli sulla raccolta dati di Stato replica di Active Directory
@@ -126,9 +126,9 @@ R: Le informazioni vengono aggiornate ogni cinque giorni.
 R: Attualmente non è possibile.
 
 **D: È necessario aggiungere tutti i controller di dominio per l'area di lavoro di Log Analitica per vedere lo stato della replica?**
-R: No, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro di Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
+R: No, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
 
-**D: Non si vuole aggiungere controller di dominio all'area di lavoro di Log Analytics. È possibile utilizzare la soluzione stato replica di Active Directory?**
+**D: Non si vuole aggiungere controller di dominio all'area di lavoro Log Analytics. È possibile utilizzare la soluzione stato replica di Active Directory?**
 
 R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 
@@ -148,7 +148,7 @@ R: Attualmente non è possibile.
 R: Le normali autorizzazioni utente in Active Directory sono sufficienti.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Risolvere i problemi di raccolta dati
-Per raccogliere i dati, il pacchetto della soluzione Stato replica di Active Directory richiede la connessione di almeno un controller di dominio all'area di lavoro di Log Analytics. Fino a quando non ci si connette a un controller di dominio, viene visualizzato un messaggio che indica che **la raccolta di dati è ancora in corso**.
+Per raccogliere i dati, il pacchetto della soluzione Stato replica di Active Directory richiede la connessione di almeno un controller di dominio all'area di lavoro Log Analytics. Fino a quando non ci si connette a un controller di dominio, viene visualizzato un messaggio che indica che **la raccolta di dati è ancora in corso**.
 
 Se occorre assistenza per la connessione di uno dei controller di dominio è possibile vedere il documento [Connettere computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md). In alternativa, se il controller di dominio è già connesso a un ambiente System Center Operations Manager esistente, è possibile vedere il documento [Connettere System Center Operations Manager a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md).
 

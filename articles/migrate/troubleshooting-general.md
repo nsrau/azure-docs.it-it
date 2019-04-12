@@ -29,11 +29,11 @@ L'appliance per l'individuazione continua si limita a raccogliere i dati sulle p
 
 - Eliminazione di macchine virtuali: a causa del modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
-### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Eliminazione dei progetti Azure Migrate e dell'area di lavoro di Log Analytics associata
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Eliminazione dei progetti Azure Migrate e dell'area di lavoro Log Analytics associata
 
-Quando si elimina un progetto Azure Migrate, questo viene eliminato insieme a tutti i gruppi e a tutte le valutazioni. Se tuttavia si è collegata un'area di lavoro di Log Analytics al progetto, l'area di lavoro non viene eliminata automaticamente. Questo avviene perché la stessa area di lavoro di Log Analytics è applicabile a più casi d'uso. Se si vuole eliminare anche l'area di lavoro di Log Analytics, è necessario eseguire questa operazione manualmente.
+Quando si elimina un progetto Azure Migrate, questo viene eliminato insieme a tutti i gruppi e a tutte le valutazioni. Se tuttavia si è collegata un'area di lavoro Log Analytics al progetto, l'area di lavoro non viene eliminata automaticamente. Questo avviene perché la stessa area di lavoro Log Analytics è applicabile a più casi d'uso. Se si vuole eliminare anche l'area di lavoro Log Analytics, è necessario eseguire questa operazione manualmente.
 
-1. Passare all'area di lavoro di Log Analytics collegata al progetto.
+1. Passare all'area di lavoro Log Analytics collegata al progetto.
    a. Se non si è ancora eliminato il progetto di migrazione, è possibile trovare il collegamento all'area di lavoro dalla pagina di panoramica del progetto nella sezione Informazioni di base.
 
    ![Area di lavoro di Log Analytics](./media/troubleshooting-general/LA-workspace.png)
@@ -129,7 +129,7 @@ Verificare di aver copiato e incollato le informazioni corrette. Per risolvere i
 3. Nella pagina di **benvenuto** della procedura di configurazione fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 4. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
-6. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro di Log Analytics. Incollare l'ID progetto e la chiave copiata in precedenza. Quindi fare clic su **Next**.
+6. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID progetto e la chiave copiata in precedenza. Quindi fare clic su **Next**.
 7. Verificare che l'agente riesca a connettersi al progetto. In caso contrario, verificare le impostazioni. Se l'agente riesce a connettersi, ma non l'agente di raccolta, contattare il supporto tecnico.
 
 

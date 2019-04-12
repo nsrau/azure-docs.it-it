@@ -101,9 +101,9 @@ Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri pe
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Come monitorare i contatori delle prestazioni
 
-1. Dopo aver aggiunto l'agente di Log Analytics al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro di Log Analytics nel portale. Nella pagina della soluzione la scheda dell'area di lavoro è nel menu a sinistra.
+1. Dopo aver aggiunto l'agente di Log Analytics al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro Log Analytics nel portale. Nella pagina della soluzione la scheda dell'area di lavoro è nel menu a sinistra.
 
-    ![Scheda dell'area di lavoro di Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Scheda dell'area di lavoro Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
 2. Nella pagina dell'area di lavoro fare clic su "Impostazioni avanzate" nello stesso menu a sinistra.
 

@@ -45,13 +45,13 @@ L'elenco di macchine virtuali viene filtrato per visualizzare solo le macchine v
 
 ### <a name="resource-group-limit"></a> Limitazioni dell'onboarding
 
-Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Le distribuzioni di Resource Manager, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro di Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione.
+Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Le distribuzioni di Resource Manager, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione.
 
 Usare i controlli dei filtri per selezionare macchine virtuali da sottoscrizioni, località e gruppi di risorse diversi.
 
 ![Caricare la soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Rivedere le scelte per l'area di lavoro di Log Analitica e l'account di automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro di Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro di Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
+Rivedere le scelte per l'area di lavoro di Log Analitica e l'account di automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
 
 ![Selezionare un'area di lavoro e un account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -88,7 +88,7 @@ Fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della so
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
 
-Le soluzioni seguenti sono dipendenti da un'area di lavoro di Log Analytics:
+Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
 * [Rilevamento delle modifiche](automation-change-tracking.md)
@@ -109,7 +109,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
    Verrà richiesto di confermare l'operazione.
 
-3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
@@ -131,7 +131,7 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 **Causa**: questo errore indica che la macchina che si sta provando a caricare segnala i dati a un'altra area di lavoro.
 
-**Soluzione**: fare clic su **Usa come configurazione** per modificare l'account di Automazione e l'area di lavoro di Log Analytics di destinazione.
+**Soluzione**: fare clic su **Usa come configurazione** per modificare l'account di Automazione e l'area di lavoro Log Analytics di destinazione.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La VM invia report a un'area di lavoro che non è disponibile in questa sottoscrizione
 

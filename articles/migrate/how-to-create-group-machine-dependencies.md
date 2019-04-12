@@ -23,12 +23,12 @@ Questo articolo descrive come creare un gruppo di computer per eseguire la valut
 ## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
 Azure Migrate Usa mapping dei servizi nei log di monitoraggio di Azure per abilitare la visualizzazione delle dipendenze delle macchine.
 
-### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro di Log Analytics
-Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
+### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro Log Analytics
+Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
 
-- Per collegare un'area di lavoro di Log Analytics a un progetto, in **Panoramica** passare alla sezione **Essentials** del progetto e fare clic su **Configurazione richiesta**
+- Per collegare un'area di lavoro Log Analytics a un progetto, in **Panoramica** passare alla sezione **Essentials** del progetto e fare clic su **Configurazione richiesta**
 
-    ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+    ![Associare un'area di lavoro Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
   - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
@@ -58,7 +58,7 @@ Per installare l'agente in un computer Windows:
 2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
-5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro di Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
+5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
 È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio System Center Configuration Manager. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA.
 
@@ -127,7 +127,7 @@ Per eseguire la query Kusto:
 
 1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
 2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
-3. Nella pagina dell'area di lavoro di Log Analytics, fare clic su **Generale** > **Log**.
+3. Nella pagina dell'area di lavoro Log Analytics, fare clic su **Generale** > **Log**.
 4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Trovare le query di esempio nella sezione successiva.
 5. Eseguire la query facendo clic su Esegui. 
 

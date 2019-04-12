@@ -106,7 +106,7 @@ In Monitoraggio di Azure la funzionalità Mappa offre una visualizzazione global
 
 ![Panoramica delle mappe di più macchine virtuali in Monitoraggio di Azure](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro di Log Analytics scegliere l'area abilitata con la soluzione e con macchine virtuali collegate. Il selettore **Gruppo** restituisce le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../../azure-monitor/platform/computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata. La selezione è valida solo per la funzionalità Mappa e non si applica alla funzionalità Prestazioni.
+Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro Log Analytics scegliere l'area abilitata con la soluzione e con macchine virtuali collegate. Il selettore **Gruppo** restituisce le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../../azure-monitor/platform/computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata. La selezione è valida solo per la funzionalità Mappa e non si applica alla funzionalità Prestazioni.
 
 Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Grazie al selettore **TimeRange**, è possibile cercare intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.   
 

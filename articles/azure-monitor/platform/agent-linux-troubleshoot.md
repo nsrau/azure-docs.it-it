@@ -87,7 +87,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 | 5 | Errore HTTP 403 ricevuto da monitoraggio di Azure. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 6 | Errore HTTP 200 non ricevuto da monitoraggio di Azure. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 7 | Impossibile connettersi a monitoraggio di Azure. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
-| 8 | Si è verificato un errore durante l'onboarding all'area di lavoro di Log Analytics. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
+| 8 | Si è verificato un errore durante l'onboarding all'area di lavoro Log Analytics. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 30 | Si è verificato un errore interno di script. Segnalare il [problema in GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) con i dettagli dell'output. |
 | 31 | Si è verificato un errore durante la generazione dell'ID agente. Segnalare il [problema in GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) con i dettagli dell'output. |
 | 32 | Si è verificato un errore durante la generazione dei certificati. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
@@ -186,7 +186,7 @@ Al di sotto del plug-in dell'output, rimuovere il carattere di commento `#` all'
 3. Eseguire di nuovo l'onboarding usando valori corretti per ID e chiave dell'area di lavoro seguendo le istruzioni di installazione illustrate in precedenza in questo articolo.
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Viene visualizzato un errore 404 o 500 nel file di log subito dopo l'onboarding
-Si tratta di un problema noto che si verifica durante il primo caricamento dei dati di Linux in un'area di lavoro di Log Analytics. Questo non influisce sui dati inviati o sull'esperienza d'uso del servizio.
+Si tratta di un problema noto che si verifica durante il primo caricamento dei dati di Linux in un'area di lavoro Log Analytics. Questo non influisce sui dati inviati o sull'esperienza d'uso del servizio.
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problema: Non vengono visualizzati dati nel portale di Azure
 
@@ -214,7 +214,7 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 * Il numero di messaggi inoltrati al secondo è troppo elevato e pertanto la configurazione di base dell'agente di Log Analytics per Linux non può gestirli
 
 ### <a name="resolution"></a>Risoluzione
-* Verificare che la configurazione nell'area di lavoro di Log Analytics per Syslog disponga di tutte le strutture e dei livelli di log corretti. Rivedere [Configurare Syslog nel portale di Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
+* Verificare che la configurazione nell'area di lavoro Log Analytics per Syslog disponga di tutte le strutture e dei livelli di log corretti. Rivedere [Configurare Syslog nel portale di Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
 * Verificare che i daemon di messaggistica syslog nativi (`rsyslog`, `syslog-ng`) siano in grado di ricevere i messaggi inoltrati
 * Controllare le impostazioni del firewall sul server Syslog per verificare che i messaggi non vengano bloccati
 * Simulare un messaggio di Syslog a Log Analytics usando il comando `logger`.

@@ -36,7 +36,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
 
-   * Specificare un nome per la nuova **area di lavoro di Log Analytics**, ad esempio *DefaultLAWorkspace*. Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
+   * Specificare un nome per la nuova **area di lavoro Log Analytics**, ad esempio *DefaultLAWorkspace*. Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
    * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    * Per **Gruppo di risorse**, selezionare un gruppo di risorse esistente contenente una o più macchine virtuali di Azure.  
    * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
   
         ![Creare il pannello della risorsa di Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, fare clic su **OK**.  
+3. Dopo aver specificato le informazioni necessarie nel riquadro **area di lavoro Log Analytics**, fare clic su **OK**.  
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della creazione dell'area di lavoro, è possibile usare la voce **Notifiche** nel menu. 
 
@@ -52,16 +52,16 @@ Per tenere traccia dello stato di avanzamento della verifica delle informazioni 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa l'agente di Log Analytics con l'estensione VM di Log Analytics. L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti. Prima di procedere, verificare che la macchina virtuale sia in esecuzione, in caso contrario il processo non verrà completato correttamente.  
+Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa l'agente di Log Analytics con l'estensione VM di Log Analytics. L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti. Prima di procedere, verificare che la macchina virtuale sia in esecuzione, in caso contrario il processo non verrà completato correttamente.  
 
 >[!NOTE]
->L'agente di Log Analytics per Linux non può essere configurato per inviare report a più di un'area di lavoro di Log Analytics. 
+>L'agente di Log Analytics per Linux non può essere configurato per inviare report a più di un'area di lavoro Log Analytics. 
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare *DefaultLAWorkspace* creata prima.
 3. Nel menu a sinistra fare clic su **Macchine virtuali** in Origini dati dell'area di lavoro.  
 4. Nell'elenco **Macchine virtuali** selezionare una macchina virtuale in cui si vuole installare l'agente. Si noti che lo **stato della connessione di Log Analytics** per la macchina virtuale sarà **Non connesso**.
-5. Nei dettagli relativi alla macchina virtuale selezionare **Connetti**. L'agente viene automaticamente installato e configurato per l'area di lavoro di Log Analytics. Il processo richiede alcuni minuti, durante i quali lo **stato** è **Connessione**.
+5. Nei dettagli relativi alla macchina virtuale selezionare **Connetti**. L'agente viene automaticamente installato e configurato per l'area di lavoro Log Analytics. Il processo richiede alcuni minuti, durante i quali lo **stato** è **Connessione**.
 6. Al termine dell'installazione e della connessione dell'agente, lo **stato della connessione di Log Analytics** verrà aggiornato in **Questa area di lavoro**.
 
 ## <a name="collect-event-and-performance-data"></a>Raccogliere dati su eventi e prestazioni
@@ -77,7 +77,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
 6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 7. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
-8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
+8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
     ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
@@ -92,7 +92,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 3. Nella tabella deselezionare i livelli di gravità **Informativo**, **Avviso** e **Debug**. 
 4. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 5. Selezionare **Linux Performance Data** (Dati di prestazione di Linux) per abilitare la raccolta di contatori delle prestazioni in un computer Linux. 
-6. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
+6. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
     ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/linux-perfcounters-default.png)
 
@@ -113,7 +113,7 @@ La query nella figura seguente, ad esempio, ha restituito 735 record relativi al
 ![Risultato della ricerca log di Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'area di lavoro di Log Analytics. A questo scopo, selezionare l'area di lavoro di Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.
+Quando non è più necessaria, eliminare l'area di lavoro Log Analytics. A questo scopo, selezionare l'area di lavoro Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.
 
 
 ![Eliminare la risorsa Log Analytics](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)

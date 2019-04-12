@@ -169,13 +169,13 @@ R. I diversi tipi di traffico di ExpressRoute vengono descritti nella [Documenta
 
 Il traffico verso Log Analytics usa il circuito ExpressRoute di peer pubblico.
 
-### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>D: Esiste un modo semplice per spostare un'area di lavoro di Log Analytics esistente in un'altra area di lavoro di Log Analytics/della sottoscrizione di Azure?
+### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>D: Esiste un modo semplice per spostare un'area di lavoro Log Analytics esistente in un'altra area di lavoro Log Analytics/della sottoscrizione di Azure?
 
-R. Il cmdlet `Move-AzResource` consente di spostare un'area di lavoro di Log Analytics e anche un account di Automazione da una sottoscrizione di Azure a un'altra. Per altre informazioni, vedere [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
+R. Il cmdlet `Move-AzResource` consente di spostare un'area di lavoro Log Analytics e anche un account di Automazione da una sottoscrizione di Azure a un'altra. Per altre informazioni, vedere [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Questa modifica può essere apportata anche nel portale di Azure.
 
-Non è possibile spostare dati da un'area di lavoro di Log Analytics a un'altra o cambiare l'area in cui sono archiviati i dati di Log Analytics.
+Non è possibile spostare dati da un'area di lavoro Log Analytics a un'altra o cambiare l'area in cui sono archiviati i dati di Log Analytics.
 
 ### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>D: Come aggiungere Log Analytics a System Center Operations Manager?
 

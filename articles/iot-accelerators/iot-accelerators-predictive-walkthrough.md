@@ -31,7 +31,7 @@ Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning n
 
 L'elemento verde rappresenta un motore di aereo simulato. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione [Dispositivi simulati](#simulated-devices).
 
-Gli elementi grigi rappresentano i componenti che implementano le funzionalità di *gestione del dispositivo*. La versione corrente dell'acceleratore di soluzioni di manutenzione predittiva non effettua il provisioning di queste risorse. Per altre informazioni sulla gestione del dispositivo, fare riferimento all'[acceleratore di soluzioni per il monitoraggio remoto][lnk-remote-monitoring].
+Gli elementi grigi rappresentano i componenti che implementano le funzionalità di *gestione del dispositivo*. La versione corrente dell'acceleratore di soluzioni di manutenzione predittiva non effettua il provisioning di queste risorse. Per altre informazioni sulla gestione del dispositivo, fare riferimento all'[acceleratore di soluzioni di monitoraggio remoto][lnk-remote-monitoring].
 
 ## <a name="azure-resources"></a>Risorse di Azure
 

@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
 ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54382958"
@@ -39,10 +39,10 @@ La soluzione funziona con i record presenti nel repository di Log Analytics con 
 - Per gli avvisi SCOM, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](../../azure-monitor/platform/om-agents.md).  Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.  
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../../azure-monitor/insights/solutions.md). Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Gestione avvisi all'area di lavoro Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../../azure-monitor/insights/solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 ## <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 * Alert Management di Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -64,7 +64,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 - I dati degli avvisi vengono inviati dal gruppo di gestione di Operation Manager a Log Analytics ogni tre minuti.  
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Gestione avvisi all'area di lavoro di Log Analytics, il riquadro **Gestione avvisi** viene aggiunto al dashboard.  Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di avvisi attivi generati nelle ultime 24 ore.  Non è possibile modificare questo intervallo di tempo.
+Quando si aggiunge la soluzione Gestione avvisi all'area di lavoro Log Analytics, il riquadro **Gestione avvisi** viene aggiunto al dashboard.  Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di avvisi attivi generati nelle ultime 24 ore.  Non è possibile modificare questo intervallo di tempo.
 
 ![Riquadro di Alert Management](media/alert-management-solution/tile.png)
 

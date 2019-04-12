@@ -67,7 +67,7 @@ Le [variabili di Automazione](../../automation/automation-variables.md) contengo
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
 | Type | string | string |
-| Valore | Incollare l'ID dell'area di lavoro di Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro di Log Analytics. |
+| Valore | Incollare l'ID dell'area di lavoro Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro Log Analytics. |
 | Crittografato | No  | Sì |
 
 ## <a name="3-create-runbook"></a>3. Creare un runbook
@@ -146,7 +146,7 @@ Dopo aver completato il test del runbook e aver verificato che l'output sia stat
 
 ![Output del log](media/runbook-datacollect/log-output.png)
 
-1. Nel portale di Azure selezionare l'area di lavoro di Log Analytics.
+1. Nel portale di Azure selezionare l'area di lavoro Log Analytics.
 2. Fare clic su **Ricerca log**.
 3. Digitare il comando `Type=AutomationJob_CL` e fare clic sul pulsante di ricerca. Si noti che il tipo di record include _CL, non specificato nello script. Tale suffisso viene aggiunto automaticamente al tipo di log per indicare che si tratta di un tipo di log personalizzato.
 4. Verranno restituiti uno o più record, a indicare che il runbook funziona come previsto.

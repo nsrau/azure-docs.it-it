@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234797"
@@ -43,7 +43,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 >
 
 >[!NOTE]
-> Un'area di lavoro di Log Analytics supporta i limiti seguenti:
+> Un'area di lavoro Log Analytics supporta i limiti seguenti:
 > 
 > * È possibile creare solo 500 log personalizzati.
 > * Una tabella supporta al massimo 500 colonne. 

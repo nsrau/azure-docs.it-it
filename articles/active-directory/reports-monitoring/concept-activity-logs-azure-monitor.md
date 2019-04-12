@@ -62,7 +62,7 @@ A seconda del punto in cui si desidera instradare i dati dei log di controllo, Ã
 
 * Un account di archiviazione di Azure, con autorizzazioni *ListKeys*. Ãˆ consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi per l'archiviazione, vedere il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Uno spazio dei nomi di Hub eventi di Azure, per l'integrazione con soluzioni di terze parti.
-* Un'area di lavoro di Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
+* Un'area di lavoro Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
 
 ## <a name="cost-considerations"></a>Considerazioni sul costo
 

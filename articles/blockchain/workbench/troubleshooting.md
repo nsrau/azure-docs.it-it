@@ -54,7 +54,7 @@ Questo script accetta i parametri seguenti:
 | LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No  |
 | OmsSubscriptionId | L'ID sottoscrizione in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No  |
 | OmsResourceGroup |Il gruppo di risorse in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No  |
-| OmsWorkspaceName | Nome dell'area di lavoro di Log Analytics. Questo parametro verrà passato solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench | No  |
+| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Questo parametro verrà passato solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench | No  |
 
 ## <a name="what-is-collected"></a>Quali dati vengono raccolti?
 

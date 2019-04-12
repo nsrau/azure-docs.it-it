@@ -63,7 +63,7 @@ Fare clic sul nome di una soluzione per aprire la relativa pagina di riepilogo. 
 
 
 ## <a name="install-a-monitoring-solution"></a>Installare una soluzione di monitoraggio
-Le soluzioni di monitoraggio di Microsoft e dei partner sono disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile cercare e installare le soluzioni disponibili usando la procedura seguente. Quando si installa una soluzione, è necessario selezionare un'[area di lavoro di Log Analytics](../platform/manage-access.md) in cui la soluzione verrà installata e in cui verranno raccolti i dati.
+Le soluzioni di monitoraggio di Microsoft e dei partner sono disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile cercare e installare le soluzioni disponibili usando la procedura seguente. Quando si installa una soluzione, è necessario selezionare un'[area di lavoro Log Analytics](../platform/manage-access.md) in cui la soluzione verrà installata e in cui verranno raccolti i dati.
 
 1. Nell'[elenco delle soluzioni per la sottoscrizione ](#list-installed-monitoring-solutions) fare clic su **Aggiungi**. 
 1. A destra di **Soluzioni di gestione** fare clic su **Altro**. 
@@ -76,7 +76,7 @@ Le soluzioni di monitoraggio di Microsoft e dei partner sono disponibili in [Azu
 ### <a name="install-a-solution-from-the-community"></a>Installare una soluzione dalla community
 I membri della community possono inviare le soluzioni di gestione come modelli di avvio rapido di Azure. È possibile installare direttamente queste soluzioni o scaricarle per installarle in un secondo momento.
 
-1. Seguire la procedura descritta in [Area di lavoro di Log Analytics e account di Automazione](#log-analytics-workspace-and-automation-account) per collegare un'area di lavoro e un account.
+1. Seguire la procedura descritta in [area di lavoro Log Analytics e account di Automazione](#log-analytics-workspace-and-automation-account) per collegare un'area di lavoro e un account.
 2. Passare a [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). 
 3. Cercare una soluzione adatta alle proprie esigenze.
 4. Selezionare la soluzione nei risultati per visualizzarne i dettagli.
@@ -85,25 +85,25 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
 7. Fare clic su **Acquista** per installare la soluzione.
 
 
-## <a name="log-analytics-workspace-and-automation-account"></a>Area di lavoro di Log Analytics e account di Automazione
-Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro di Log Analytics](../platform/manage-access.md) per archiviare i dati raccolti dalla soluzione e per ospitare le ricerche nei log e le visualizzazioni. Alcune soluzioni richiedono anche un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le relative risorse. L'area di lavoro e l'account devono soddisfare i requisiti indicati di seguito.
+## <a name="log-analytics-workspace-and-automation-account"></a>area di lavoro Log Analytics e account di Automazione
+Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro Log Analytics](../platform/manage-access.md) per archiviare i dati raccolti dalla soluzione e per ospitare le ricerche nei log e le visualizzazioni. Alcune soluzioni richiedono anche un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le relative risorse. L'area di lavoro e l'account devono soddisfare i requisiti indicati di seguito.
 
-* Ogni installazione di una soluzione può usare solo un'area di lavoro di Log Analytics e un account di Automazione. È possibile installare la soluzione separatamente in più aree di lavoro.
-* Se una soluzione richiede un account di Automazione, l'area di lavoro di Log Analytics e l'account di Automazione devono essere collegati tra loro. Un'area di lavoro di Log Analytics può essere collegata a un solo account di Automazione e un account di Automazione può essere collegato a una sola area di lavoro di Log Analytics.
-* Per essere collegati, l'area di lavoro di Log Analytics e l'account di Automazione devono trovarsi nello stesso gruppo di risorse e nella stessa area. L'eccezione è rappresentata da un'area di lavoro nell'area Stati Uniti orientali e un account di Automazione nell'area Stati Uniti orientali 2.
+* Ogni installazione di una soluzione può usare solo un'area di lavoro Log Analytics e un account di Automazione. È possibile installare la soluzione separatamente in più aree di lavoro.
+* Se una soluzione richiede un account di Automazione, l'area di lavoro Log Analytics e l'account di Automazione devono essere collegati tra loro. Un'area di lavoro Log Analytics può essere collegata a un solo account di Automazione e un account di Automazione può essere collegato a una sola area di lavoro Log Analytics.
+* Per essere collegati, l'area di lavoro Log Analytics e l'account di Automazione devono trovarsi nello stesso gruppo di risorse e nella stessa area. L'eccezione è rappresentata da un'area di lavoro nell'area Stati Uniti orientali e un account di Automazione nell'area Stati Uniti orientali 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Creare un collegamento tra un'area di lavoro di Log Analytics e un account di Automazione
-La modalità con cui si specificano l'area di lavoro di Log Analytics e l'account di Automazione dipende dal metodo di installazione per la soluzione.
+### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Creare un collegamento tra un'area di lavoro Log Analytics e un account di Automazione
+La modalità con cui si specificano l'area di lavoro Log Analytics e l'account di Automazione dipende dal metodo di installazione per la soluzione.
 
 * Quando si installa una soluzione tramite Azure Marketplace, vengono richiesti un'area di lavoro e un account di Automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
-* Per le soluzioni esterne ad Azure Marketplace, è necessario collegare l'area di lavoro di Log Analytics e l'account di Automazione prima di installare la soluzione. A tale scopo, è possibile selezionare qualsiasi soluzione in Azure Marketplace e quindi selezionare l'area di lavoro di Log Analytics e l'account di Automazione. Non è necessario installare effettivamente la soluzione, perché il collegamento viene creato non appena si selezionano l'area di lavoro di Log Analytics e l'account di Automazione. Una volta creato il collegamento, è possibile usare l'area di lavoro di Log Analytics e l'account di Automazione per qualsiasi soluzione.
+* Per le soluzioni esterne ad Azure Marketplace, è necessario collegare l'area di lavoro Log Analytics e l'account di Automazione prima di installare la soluzione. A tale scopo, è possibile selezionare qualsiasi soluzione in Azure Marketplace e quindi selezionare l'area di lavoro Log Analytics e l'account di Automazione. Non è necessario installare effettivamente la soluzione, perché il collegamento viene creato non appena si selezionano l'area di lavoro Log Analytics e l'account di Automazione. Una volta creato il collegamento, è possibile usare l'area di lavoro Log Analytics e l'account di Automazione per qualsiasi soluzione.
 
-### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificare il collegamento tra un'area di lavoro di Log Analytics e un account di Automazione
-È possibile verificare il collegamento tra un'area di lavoro di Log Analytics e un account Automazione mediante la procedura seguente.
+### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificare il collegamento tra un'area di lavoro Log Analytics e un account di Automazione
+È possibile verificare il collegamento tra un'area di lavoro Log Analytics e un account Automazione mediante la procedura seguente.
 
 1. Selezionare l'account di Automazione nel portale di Azure.
 1. Scorrere fino alla sezione **Risorse correlate** del menu.
-1. Se l'impostazione **Area di lavoro** è abilitata, questo account viene collegato a un'area di lavoro di Log Analytics. È possibile fare clic su **Area di lavoro** per visualizzare i dettagli dell'area di lavoro.
+1. Se l'impostazione **Area di lavoro** è abilitata, questo account viene collegato a un'area di lavoro Log Analytics. È possibile fare clic su **Area di lavoro** per visualizzare i dettagli dell'area di lavoro.
 
 ## <a name="remove-a-monitoring-solution"></a>Rimuovere una soluzione di monitoraggio
 Per rimuovere una soluzione installata, individuarla nell'[elenco delle soluzioni installate](#list-installed-monitoring-solutions). Fare clic sul nome della soluzione per aprire la pagina di riepilogo e quindi fare clic su **Elimina**.

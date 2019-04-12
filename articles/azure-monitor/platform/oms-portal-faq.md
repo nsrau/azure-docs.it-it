@@ -14,7 +14,7 @@ ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55990429"
@@ -30,13 +30,13 @@ In questo articolo vengono offerte risposte alle domande frequenti degli utenti 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Come trovare Log Analytics in Azure?
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).  Fare clic su **Tutti i servizi** e nell'elenco di risorse digitare **Log Analytics**. Selezionare **Log Analytics** e selezionare l'area di lavoro. Viene visualizzata la pagina di riepilogo dell'area di lavoro.
 
-![Area di lavoro di Log Analytics](media/oms-portal-faq/log-analytics.png)
+![Area di lavoro Log Analytics](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Come si gestiscono le autorizzazioni?
 Se non si ha accesso all'area di lavoro Log Analytics nel portale di Azure, è necessario configurare le autorizzazioni usando l'[accesso in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md). Per informazioni dettagliate sulla gestione delle autorizzazioni dell'area di lavoro, vedere [Gestire le aree di lavoro](manage-access.md#manage-accounts-and-users). Per informazioni sulla gestione delle autorizzazioni per gli avvisi, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Come si crea una nuova area di lavoro? 
-Dall'elenco delle aree di lavoro nel portale di Azure fare clic su **Aggiungi**.  Per informazioni più complete, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
+Dall'elenco delle aree di lavoro nel portale di Azure fare clic su **Aggiungi**.  Per informazioni più complete, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../learn/quick-create-workspace.md).
 
 ![Pagina di panoramica](media/oms-portal-faq/new-workspace.png)
 

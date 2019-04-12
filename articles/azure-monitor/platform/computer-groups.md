@@ -66,7 +66,7 @@ Quando si configura Monitoraggio di Azure per importare le appartenenze ai grupp
 > [!NOTE]
 > I gruppi di Active Directory importati contengono solo computer Windows.
 
-È possibile configurare Monitoraggio di Azure per l'importazione dei gruppi di sicurezza di Active Directory in **Impostazioni avanzate** nell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **Active Directory** e quindi **Importa le appartenenze a gruppi di Active Directory dai computer**.  Non è richiesta alcuna ulteriore configurazione.
+È possibile configurare Monitoraggio di Azure per l'importazione dei gruppi di sicurezza di Active Directory in **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **Active Directory** e quindi **Importa le appartenenze a gruppi di Active Directory dai computer**.  Non è richiesta alcuna ulteriore configurazione.
 
 ![Gruppi di computer da Active Directory](media/computer-groups/configure-activedirectory.png)
 
@@ -75,7 +75,7 @@ Al termine dell'importazione dei gruppi, nel menu vengono elencati il numero dei
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
 Quando si configura Monitoraggio di Azure per importare le appartenenze a gruppi WSUS, viene analizzata l'appartenenza a gruppi di destinazione di tutti i computer con l'agente Log Analytics.  Se si usa la destinazione lato client, vengono importate in Monitoraggio di Azure le appartenenze a gruppi di tutti i computer connessi a Monitoraggio di Azure che fanno parte di qualsiasi gruppo di destinazione di WSUS. Se si usa la destinazione lato server, per poter importare le informazioni relative all'appartenenza a gruppi in Monitoraggio di Azure è necessario che l'agente Log Analytics sia installato nel server WSUS.  L'appartenenza viene aggiornata continuamente ogni 4 ore. 
 
-È possibile configurare Monitoraggio di Azure per l'importazione di gruppi WSUS in **Impostazioni avanzate** nell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **WSUS** e quindi **Importa appartenenze a gruppi WSUS**.  Non è richiesta alcuna ulteriore configurazione.
+È possibile configurare Monitoraggio di Azure per l'importazione di gruppi WSUS in **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **WSUS** e quindi **Importa appartenenze a gruppi WSUS**.  Non è richiesta alcuna ulteriore configurazione.
 
 ![Gruppi di computer da WSUS](media/computer-groups/configure-wsus.png)
 
@@ -84,14 +84,14 @@ Al termine dell'importazione dei gruppi, nel menu vengono elencati il numero dei
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Quando si configura Monitoraggio di Azure per l'importazione delle appartenenze a raccolte di Configuration Manager, viene creato un gruppo di computer per ogni raccolta.  Le informazioni di appartenenza delle raccolte vengono recuperate ogni 3 ore per mantenere aggiornati i gruppi di computer. 
 
-Prima di importare raccolte di Configuration Manager è necessario [connettere Configuration Manager a Monitoraggio di Azure](collect-sccm.md).  È quindi possibile configurare l'importazione da **Impostazioni avanzate** nell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **SCCM** e quindi **Importa appartenenze alla raccolta di Configuration Manager**.  Non è richiesta alcuna ulteriore configurazione.
+Prima di importare raccolte di Configuration Manager è necessario [connettere Configuration Manager a Monitoraggio di Azure](collect-sccm.md).  È quindi possibile configurare l'importazione da **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **SCCM** e quindi **Importa appartenenze alla raccolta di Configuration Manager**.  Non è richiesta alcuna ulteriore configurazione.
 
 ![Gruppi di computer da SCCM](media/computer-groups/configure-sccm.png)
 
 Dopo l'importazione delle raccolte, nel menu sono elencati il numero dei computer per i quali sono state rilevate appartenenze a gruppi e il numero dei gruppi importati.  È possibile fare clic su uno di questi collegamenti per ottenere i record **ComputerGroup** con tali informazioni.
 
 ## <a name="managing-computer-groups"></a>Gestione dei gruppi di computer
-È possibile visualizzare i gruppi di computer creati tramite una query di log o tramite l'API di ricerca log dalle **Impostazioni avanzate** nell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer** e quindi **Gruppi salvati**.  
+È possibile visualizzare i gruppi di computer creati tramite una query di log o tramite l'API di ricerca log dalle **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer** e quindi **Gruppi salvati**.  
 
 Fare clic sulla **x** nella colonna **Rimuovi** per eliminare il gruppo di computer.  Fare clic sull'icona **Visualizza membri** in corrispondenza di un gruppo per eseguire la ricerca nei log del gruppo che ne restituisce i membri.  Non è possibile modificare un gruppo di computer. È necessario eliminarlo e quindi ricrearlo con le impostazioni modificate.
 

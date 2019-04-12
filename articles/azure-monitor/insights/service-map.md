@@ -36,12 +36,12 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 1. Nel portale di Azure fare clic su **+Crea una risorsa**.
 2. Nella barra di ricerca digitare **Mapping dei servizi** e premere **INVIO**.
 3. Nella pagina dei risultati della ricerca nel marketplace selezionare **Mapping dei servizi** dall'elenco.<br><br> ![Selezionare la soluzione Mapping dei servizi dai risultati della ricerca di Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
-4. Nel riquadro della panoramica di **Mapping dei servizi** esaminare i dettagli della soluzione e quindi fare clic su **Crea** per avviare il processo di onboarding all'area di lavoro di Log Analytics.<br><br> ![Onboarding della soluzione Mapping dei servizi](./media/service-map/service-map-onboard.png).
-5. Nel riquadro **Configure a solution** (Configura soluzione) selezionare un oggetto esistente o creare una nuova area di lavoro di Log Analytics.  Per altre informazioni su come creare una nuova area di lavoro, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Immettere le informazioni necessarie e quindi fare clic su **Crea**.  
+4. Nel riquadro della panoramica di **Mapping dei servizi** esaminare i dettagli della soluzione e quindi fare clic su **Crea** per avviare il processo di onboarding all'area di lavoro Log Analytics.<br><br> ![Onboarding della soluzione Mapping dei servizi](./media/service-map/service-map-onboard.png).
+5. Nel riquadro **Configure a solution** (Configura soluzione) selezionare un oggetto esistente o creare una nuova area di lavoro Log Analytics.  Per altre informazioni su come creare una nuova area di lavoro, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Immettere le informazioni necessarie e quindi fare clic su **Crea**.  
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della distribuzione della soluzione, è possibile usare la voce **Notifiche** nel menu. 
 
-È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro di Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/service-map/service-map-summary-tile.png).
+È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi d'uso: Riconoscimento delle dipendenze nei processi IT
 
@@ -218,7 +218,7 @@ Mapping dei servizi si integra con ricerca di log per visualizzare un conteggio 
 ![Riquadro degli eventi del registro del computer](media/service-map/log-events.png)
 
 ## <a name="service-desk-integration"></a>Integrazione di Service Desk
-L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 Il riquadro del **Service Desk del computer** elenca tutti gli eventi di gestione dei servizi IT per il server selezionato nell'intervallo di tempo selezionato. Se ci sono elementi correnti, viene visualizzata un'icona per il server e il riquadro del Service Desk del computer elenca gli elementi.
 
@@ -230,7 +230,7 @@ Fare clic su **Mostra in Ricerca log** per visualizzare i dettagli dell'elemento
 Le metriche relative alla connessione vengono scritte in due nuove tabelle in Log Analytics 
 
 ## <a name="change-tracking-integration"></a>Integrazione con Rilevamento modifiche
-L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
+L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics.
 
 Il riquadro di **rilevamento modifiche del computer** elenca tutte le modifiche a partire dalla più recente e un collegamento per eseguire una ricerca nel log per ulteriori dettagli.
 
@@ -262,14 +262,14 @@ Linux:
 Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 nell'area di lavoro.
  
 ## <a name="security-integration"></a>Integrazione della sicurezza
-L'integrazione di sicurezza e controllo in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
+L'integrazione di sicurezza e controllo in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics.
 
 Il pannello relativo alla **sicurezza del computer** mostra i dati provenienti dalla soluzione di sicurezza e controllo relativi al server selezionato. Il riquadro elenca un riepilogo dei problemi di sicurezza del server non risolti durante l'intervallo di tempo selezionato. Facendo clic su uno dei problemi di sicurezza, verrà eseguito il drill-down in una ricerca log per ottenerne i dettagli.
 
 ![Riquadro relativo alla sicurezza dei computer](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integrazione degli aggiornamenti
-L'integrazione di Mapping dei servizi con Gestione aggiornamenti è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
+L'integrazione di Mapping dei servizi con Gestione aggiornamenti è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Log Analytics.
 
 Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti relativi al server selezionato. Il riquadro elenca un riepilogo degli aggiornamenti mancanti per il server durante l'intervallo di tempo selezionato.
 
@@ -285,8 +285,8 @@ Ogni ora viene generato un record per ogni computer e processo univoco che si ag
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
-- Computer: usare *ResourceId* o *ResourceName_s* per identificare in modo univoco un computer in un'area di lavoro di Log Analytics.
-- Processo: usare *ResourceId* per identificare in modo univoco un processo in un'area di lavoro di Log Analytics. Il valore di *ResourceName_s* è univoco nel contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
+- Computer: usare *ResourceId* o *ResourceName_s* per identificare in modo univoco un computer in un'area di lavoro Log Analytics.
+- Processo: usare *ResourceId* per identificare in modo univoco un processo in un'area di lavoro Log Analytics. Il valore di *ResourceName_s* è univoco nel contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 

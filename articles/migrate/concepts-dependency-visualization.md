@@ -27,11 +27,11 @@ La visualizzazione delle dipendenze in Azure Migrate consente di creare gruppi c
 ## <a name="how-does-it-work"></a>Come funziona?
 
 Azure Migrate Usa la [Service Map](../operations-management-suite/operations-management-suite-service-map.md) soluzioni in [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md) per visualizzare le dipendenze.
-- Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate.
+- Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro Log Analytics, nuova o esistente, a un progetto di Azure Migrate.
 - È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
-- Per collegare un'area di lavoro di Log Analytics a un progetto, passare alla sezione **Essentials** della pagina **Panoramica** del progetto e fare clic su **Configurazione richiesta**
+- Per collegare un'area di lavoro Log Analytics a un progetto, passare alla sezione **Essentials** della pagina **Panoramica** del progetto e fare clic su **Configurazione richiesta**
 
-    ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+    ![Associare un'area di lavoro Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
   - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
@@ -43,7 +43,7 @@ Azure Migrate Usa la [Service Map](../operations-management-suite/operations-man
 - L'area di lavoro associata è contrassegnata con la chiave **Progetto di migrazione** e con il valore **Nome progetto**, che è possibile usare per eseguire la ricerca nel portale di Azure.
 - Per passare all'area di lavoro associata al progetto è possibile passare alla sezione **Essentials** della pagina **Panoramica** del progetto e accedere all'area di lavoro
 
-    ![Navigare nell'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Navigare nell'area di lavoro Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Per usare la visualizzazione delle dipendenze, è necessario scaricare e installare gli agenti in ogni computer locale che si vuole analizzare.  
 
@@ -55,23 +55,23 @@ Questi agenti non sono necessari sui computer da valutare, a meno che non si usi
 
 ## <a name="do-i-need-to-pay-for-it"></a>Il servizio è a pagamento?
 
-Azure Migrate è disponibile senza costi aggiuntivi. L'uso della funzionalità di visualizzazione delle dipendenze in Azure Migrate richiede il Mapping dei servizi e di associare un'area di lavoro di Log Analytics, nuova o esistente, al progetto di Azure Migrate. La funzionalità di visualizzazione delle dipendenze in Azure Migrate è gratuita per i primi 180 giorni in Azure Migrate.
+Azure Migrate è disponibile senza costi aggiuntivi. L'uso della funzionalità di visualizzazione delle dipendenze in Azure Migrate richiede il Mapping dei servizi e di associare un'area di lavoro Log Analytics, nuova o esistente, al progetto di Azure Migrate. La funzionalità di visualizzazione delle dipendenze in Azure Migrate è gratuita per i primi 180 giorni in Azure Migrate.
 
-1. Per usare una soluzione diversa da Mapping dei servizi in questa area di lavoro di Log Analytics verranno applicati gli addebiti [standard di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
-2. Per supportare scenari di migrazione senza costi aggiuntivi, la soluzione Mapping dei servizi non genererà addebiti per i primi 180 giorni a partire dal giorno dell'associazione dell'area di lavoro di Log Analytics al progetto di Azure Migrate. Dopo 180 giorni verranno applicati gli addebiti standard di Log Analytics.
+1. Per usare una soluzione diversa da Mapping dei servizi in questa area di lavoro Log Analytics verranno applicati gli addebiti [standard di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+2. Per supportare scenari di migrazione senza costi aggiuntivi, la soluzione Mapping dei servizi non genererà addebiti per i primi 180 giorni a partire dal giorno dell'associazione dell'area di lavoro Log Analytics al progetto di Azure Migrate. Dopo 180 giorni verranno applicati gli addebiti standard di Log Analytics.
 
 Quando si registrano agenti nell'area di lavoro, usare l'ID e la chiave specificati dal progetto nella pagina della procedura di installazione dell'agente.
 
-All'eliminazione del progetto di Azure Migrate, l'area di lavoro non viene eliminata con il progetto. A seguito dell'eliminazione del progetto, l'utilizzo di Mapping dei servizi non sarà gratuito e ogni nodo verrà addebitato in base al livello a pagamento dell'area di lavoro di Log Analytics.
+All'eliminazione del progetto di Azure Migrate, l'area di lavoro non viene eliminata con il progetto. A seguito dell'eliminazione del progetto, l'utilizzo di Mapping dei servizi non sarà gratuito e ogni nodo verrà addebitato in base al livello a pagamento dell'area di lavoro Log Analytics.
 
 > [!NOTE]
-> La funzionalità di visualizzazione delle dipendenze usa Mapping dei servizi tramite un'area di lavoro di Log Analytics. Dal 28 febbraio 2018, con l'annuncio della disponibilità generale di Azure Migrate, la funzionalità è disponibile senza costi aggiuntivi. È necessario creare un nuovo progetto per poter usufruire dell'area di lavoro utilizzabile gratuitamente. Le aree di lavoro esistenti prima della disponibilità generale sono ancora addebitabili, pertanto è consigliabile passare a un nuovo progetto.
+> La funzionalità di visualizzazione delle dipendenze usa Mapping dei servizi tramite un'area di lavoro Log Analytics. Dal 28 febbraio 2018, con l'annuncio della disponibilità generale di Azure Migrate, la funzionalità è disponibile senza costi aggiuntivi. È necessario creare un nuovo progetto per poter usufruire dell'area di lavoro utilizzabile gratuitamente. Le aree di lavoro esistenti prima della disponibilità generale sono ancora addebitabili, pertanto è consigliabile passare a un nuovo progetto.
 
 Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ## <a name="how-do-i-manage-the-workspace"></a>Come si gestisce l'area di lavoro?
 
-È possibile usare l'area di lavoro di Log Analytics all'esterno di Azure Migrate. L'area di lavoro non viene eliminata se si rimuove il progetto di migrazione in cui è stata creata. Se non è più necessaria, [eliminarla](../azure-monitor/platform/manage-access.md) manualmente.
+È possibile usare l'area di lavoro Log Analytics all'esterno di Azure Migrate. L'area di lavoro non viene eliminata se si rimuove il progetto di migrazione in cui è stata creata. Se non è più necessaria, [eliminarla](../azure-monitor/platform/manage-access.md) manualmente.
 
 Non eliminare l'area di lavoro creata da Azure Migrate a meno che non si rimuova il progetto di migrazione. In caso contrario, la funzionalità di visualizzazione delle dipendenze non funzionerà come previsto.
 

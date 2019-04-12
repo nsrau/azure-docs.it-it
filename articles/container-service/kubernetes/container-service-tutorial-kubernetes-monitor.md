@@ -30,7 +30,7 @@ Il monitoraggio del cluster e dei contenitori Kubernetes è critico, soprattutto
 Questa esercitazione, parte sette di sette, illustra le attività seguenti:
 
 > [!div class="checklist"]
-> * Ottenere le impostazioni dell'area di lavoro di Log Analytics
+> * Ottenere le impostazioni dell'area di lavoro Log Analytics
 > * Configurare gli agenti di Log Analytics nei nodi Kubernetes
 > * Accedere alle informazioni di monitoraggio nel portale di Log Analytics o nel portale di Azure
 
@@ -46,7 +46,7 @@ Quando è possibile accedere al [portale di Log Analytics](https://mms.microsoft
 
 ## <a name="create-kubernetes-secret"></a>Creare un segreto Kubernetes
 
-Archiviare le impostazioni dell'area di lavoro di Log Analytics in un segreto Kubernetes denominato `omsagent-secret` usando il comando [kubectl create secret][kubectl-create-secret]. Aggiornare `WORKSPACE_ID` con l'ID dell'area di lavoro di Log Analytics e `WORKSPACE_KEY` con la chiave dell'area di lavoro.
+Archiviare le impostazioni dell'area di lavoro Log Analytics in un segreto Kubernetes denominato `omsagent-secret` usando il comando [kubectl create secret][kubectl-create-secret]. Aggiornare `WORKSPACE_ID` con l'ID dell'area di lavoro Log Analytics e `WORKSPACE_KEY` con la chiave dell'area di lavoro.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -163,7 +163,7 @@ Vedere la [Documentazione su Log Analytics](../../azure-monitor/log-query/log-qu
 In questa esercitazione è stato monitorato il cluster Kubernetes con Log Analytics. Le attività descritte includevano:
 
 > [!div class="checklist"]
-> * Ottenere le impostazioni dell'area di lavoro di Log Analytics
+> * Ottenere le impostazioni dell'area di lavoro Log Analytics
 > * Configurare gli agenti di Log Analytics nei nodi Kubernetes
 > * Accedere alle informazioni di monitoraggio nel portale di Log Analytics o nel portale di Azure
 

@@ -24,13 +24,13 @@ ms.locfileid: "59426223"
 La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente all'area di lavoro di Log Analitica in Monitoraggio di Azure o un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, che sono non risponde e invio dati operativi.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.
+Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.
 
 ## <a name="solution-components"></a>Componenti della soluzione
 Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'area di lavoro e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager.
 
 ### <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Operations Manager verranno installati i Management Pack seguenti.  Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta di questa soluzione. Non sono richieste attività di configurazione o gestione con questi Management Pack.
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro Log Analytics, in Operations Manager verranno installati i Management Pack seguenti.  Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta di questa soluzione. Non sono richieste attività di configurazione o gestione con questi Management Pack.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
@@ -38,7 +38,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Integrità agente all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](solutions.md). Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Integrità agente all'area di lavoro Log Analytics usando la procedura descritta in [Aggiungere soluzioni](solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
@@ -51,7 +51,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | Gruppo di gestione di System Center Operations Manager | Sì | Gli eventi di heartbeat vengono raccolti da agenti che fanno riferimento al gruppo di gestione ogni 60 secondi e quindi inoltrati a monitoraggio di Azure. Non è necessaria una connessione diretta dall'agente Operations Manager a monitoraggio di Azure. I dati dell'evento heartbeat vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analitica.|
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Integrità agente all'area di lavoro di Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro nel dashboard della soluzione integrità agente](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando si aggiunge la soluzione Integrità agente all'area di lavoro Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro nel dashboard della soluzione integrità agente](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integrità agente**.  Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i primi dieci eventi per numero corrispondente ai criteri della colonna per l'intervallo di tempo specificato. È possibile eseguire una ricerca log che fornisce l'intero elenco selezionando **Visualizza tutto** nella parte inferiore destra di ogni colonna o facendo clic sull'intestazione di colonna.
 
@@ -69,7 +69,7 @@ Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integr
 ![Esempio di dashboard della soluzione Integrità agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
-La soluzione crea un tipo di record nell'area di lavoro di Log Analytics.  
+La soluzione crea un tipo di record nell'area di lavoro Log Analytics.  
 
 ### <a name="heartbeat-records"></a>Record di heartbeat
 Viene creato un record di tipo **Heartbeat**.  Questi record includono le proprietà elencate nella tabella seguente.  

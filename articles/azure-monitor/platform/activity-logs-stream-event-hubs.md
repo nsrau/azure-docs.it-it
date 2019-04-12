@@ -24,7 +24,7 @@ ms.locfileid: "57309690"
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Che cosa si può fare con il log attività e Hub eventi
 Di seguito sono riportati due esempi di come è possibile usare la funzionalità di trasmissione per il log attività:
 
-* **Trasmettere a sistemi di telemetria e registrazione di terze parti**: in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi di log e SIEM di terze parti.
+* **Trasmettere a sistemi di telemetria e registrazione di terze parti**: in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi dei log e SIEM di terze parti.
 * **Creare una piattaforma di telemetria e registrazione personalizzata**: se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità. Per altre informazioni, guardare il [video di Dan Rosanova sull'uso di Hub eventi in una piattaforma di telemetria su scala globale](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Abilitare la trasmissione del log attività

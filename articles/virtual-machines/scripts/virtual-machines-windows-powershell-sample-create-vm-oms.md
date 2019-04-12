@@ -25,7 +25,7 @@ ms.locfileid: "57541520"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Creare una macchina virtuale di Monitoraggio di Azure con PowerShell 
 
-Questo script consente di creare una macchina virtuale di Azure, installare l'agente Log Analytics e registrare il sistema in un'area di lavoro di Log Analytics. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nel Monitoraggio di Azure. È anche necessario aggiornare la chiave dell'area di lavoro e l'ID area di lavoro di Log Analytics.
+Questo script consente di creare una macchina virtuale di Azure, installare l'agente Log Analytics e registrare il sistema in un'area di lavoro Log Analytics. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nel Monitoraggio di Azure. È anche necessario aggiornare la chiave dell'area di lavoro e l'ID area di lavoro Log Analytics.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

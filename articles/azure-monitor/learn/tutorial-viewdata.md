@@ -28,7 +28,7 @@ In Log Analytics è possibile usare ricerche log creando query per analizzare i 
 > * Eseguire una semplice ricerca di dati di eventi e usare le funzionalità per modificare e filtrare i risultati 
 > * Usare i dati sulle prestazioni
 
-Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 Oltre a usare in modo interattivo i dati restituiti, è possibile creare e modificare le query in due modi.  Per le query di base, usare la pagina Ricerca log nel portale di Azure. Per le query avanzate, è possibile usare il portale Advanced Analytics. Per altre informazioni sulla differenze di funzionalità tra i due portali, vedere [Portali per la creazione e la modifica di query di log in Azure Log Analytics](../../azure-monitor/log-query/portals.md)
 
@@ -112,7 +112,7 @@ Per raggruppare i risultati in base a una colonna, trascinare l'intestazione del
 
 
 ## <a name="work-with-performance-data"></a>Utilizzare i dati sulle prestazioni
-I dati sulle delle prestazioni per gli agenti Windows e Linux sono archiviati nell'area di lavoro di Log Analytics nella tabella **Perf**.  I record sulle prestazioni hanno lo stesso aspetto di qualsiasi altro record; scrivere una query semplice che restituisce tutti i record sulle prestazioni esattamente come per gli eventi.
+I dati sulle delle prestazioni per gli agenti Windows e Linux sono archiviati nell'area di lavoro Log Analytics nella tabella **Perf**.  I record sulle prestazioni hanno lo stesso aspetto di qualsiasi altro record; scrivere una query semplice che restituisce tutti i record sulle prestazioni esattamente come per gli eventi.
 
 ```
 Perf

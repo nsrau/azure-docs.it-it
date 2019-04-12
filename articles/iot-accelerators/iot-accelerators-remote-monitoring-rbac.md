@@ -245,7 +245,7 @@ public async Task DeleteAsync(string id)
 
 In questo articolo si è appreso come viene implementato il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto.
 
-Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni per il monitoraggio remoto.
+Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

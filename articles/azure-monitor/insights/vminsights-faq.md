@@ -12,7 +12,7 @@ ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56243774"
@@ -21,19 +21,19 @@ ms.locfileid: "56243774"
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>È possibile eseguire l'onboarding in un'area di lavoro esistente?
-Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare tale area di lavoro quando si esegue l'onboarding per Monitoraggio di Azure per le macchine virtuali, purché si trovi in una delle aree supportate elencate [qui](vminsights-onboard.md#prerequisites).
+Se le macchine virtuali sono già connesse a un'area di lavoro Log Analytics, è possibile continuare a usare tale area di lavoro quando si esegue l'onboarding per Monitoraggio di Azure per le macchine virtuali, purché si trovi in una delle aree supportate elencate [qui](vminsights-onboard.md#prerequisites).
 
 Quando si esegue l'onboarding, si configurano i contatori delle prestazioni per l'area di lavoro in modo che tutte le macchine virtuali che inviano dati all'area di lavoro inizino a raccogliere queste informazioni per la visualizzazione e l'analisi in Monitoraggio di Azure per le macchine virtuali.  Di conseguenza, verranno visualizzati i dati sulle prestazioni di tutte le macchine virtuali connesse all'area di lavoro selezionata.  Le funzionalità di integrità e mappa sono abilitate solo per le macchine virtuali specificate per l'onboarding.
 
 Per altre informazioni sui contatori delle prestazioni abilitati, vedere il nostro articolo sull'[onboarding](vminsights-onboard.md).
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>È possibile eseguire l'onboarding in una nuova area di lavoro? 
-Se le macchine virtuali non attualmente connesse a un'area di lavoro di Log Analytics esistente, è necessario crearne una nuova per archiviare i dati.  La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
+Se le macchine virtuali non attualmente connesse a un'area di lavoro Log Analytics esistente, è necessario crearne una nuova per archiviare i dati.  La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
 
 Se si sceglie di usare il metodo basato su script, i passaggi sono illustrati nell'articolo sull'[onboarding](vminsights-onboard.md). 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
-Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro di Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
+Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
 
 >[!NOTE]
 >Microsoft configura i contatori delle prestazioni per l'area di lavoro con effetto su tutte le macchine virtuali che inviano informazioni all'area di lavoro, anche se non si è scelto di eseguirne l'onboarding per Monitoraggio di Azure per le macchine virtuali. Per altre informazioni sulla configurazione dei contatori delle prestazioni per l'area di lavoro, vedere la [documentazione](../../azure-monitor/platform/data-sources-performance-counters.md). Per informazioni sui contatori configurati per Monitoraggio di Azure per le macchine virtuali, vedere la [documentazione sull'onboarding](vminsights-onboard.md#performance-counters-enabled).  
@@ -41,7 +41,7 @@ Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già st
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Perché la macchina virtuale non è riuscita a eseguire l'onboarding?
 Quando si esegue l'onboarding di una macchina virtuale di Azure dal portale di Azure, si verificano i passaggi seguenti:
 
-* Viene creata un'area di lavoro di Log Analytics predefinita, se tale opzione è stata selezionata.
+* Viene creata un'area di lavoro Log Analytics predefinita, se tale opzione è stata selezionata.
 * I contatori delle prestazioni vengono configurati per l'area di lavoro selezionata. Se questo passaggio non riesce, si noterà che alcuni grafici delle prestazioni e alcune tabelle non contengono i dati relativi alla macchina virtuale di cui è stato eseguito l'onboarding. Per risolvere il problema, è possibile eseguire lo script di PowerShell documentato [qui](vminsights-onboard.md#enable-with-powershell).
 * L'agente di Log Analytics viene installato nelle macchine virtuali di Azure mediante un'estensione VM, se necessario.  
 * Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali viene installato nelle macchine virtuali di Azure mediante un'estensione, se necessario.  
@@ -52,7 +52,7 @@ Durante il processo di onboarding, viene controllato lo stato di ciascun passagg
 Se l'onboarding è stato avviato e vengono visualizzati dei messaggi che indicano che occorre eseguire l'onboarding della macchina virtuale, attendere 30 minuti affinché la macchina virtuale completi il processo. 
 
 ## <a name="i-only-enabled-azure-monitor-for-vms-why-do-i-see-all-my-vms-monitored-by-the-health-feature"></a>Anche se è stato abilitato solo Monitoraggio di Azure per le macchine virtuali, perché vengono visualizzate tutte le macchine virtuali monitorate dalla funzionalità di integrità?
-La funzionalità di integrità è abilitata per tutte le macchine virtuali connesse all'area di lavoro di Log Analytics, anche quando l'operazione viene avviata per una singola macchina virtuale.
+La funzionalità di integrità è abilitata per tutte le macchine virtuali connesse all'area di lavoro Log Analytics, anche quando l'operazione viene avviata per una singola macchina virtuale.
 
 ## <a name="can-i-modify-the-schedule-for-when-health-criteria-evaluates-a-condition"></a>È possibile modificare il tempo pianificato per la valutazione di una condizione da parte dei criteri di integrità?
 No, in questa versione non è possibile modificare il periodo di tempo e la frequenza dei criteri di integrità. 
@@ -127,7 +127,7 @@ Anche se sono stati apportati miglioramenti alla mappa per gestire le configuraz
 La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla VM guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale VM, incluso quello tra reti virtuali.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Sono previste limitazioni se è in vigore il piano tariffario Gratuito di Log Analytics?
-Se Monitoraggio di Azure è stato configurato con un'area di lavoro di Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
+Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
 
 In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Insights (preview)** (Insights - Anteprima) nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Non vengono tuttavia visualizzate le normali opzioni come avverrebbe normalmente se non fosse stato eseguito l'onboarding di questa macchina virtuale in Monitoraggio di Azure per le macchine virtuali. 
 

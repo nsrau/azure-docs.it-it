@@ -1,6 +1,6 @@
 ---
-title: Creare un'area di lavoro di Log Analytics usando Azure PowerShell | Microsoft Docs
-description: Informazioni su come creare un'area di lavoro di Log Analytics per abilitare soluzioni di gestione e la raccolta dei dati dagli ambienti cloud e locali con Azure PowerShell.
+title: Creare un'area di lavoro Log Analytics usando Azure PowerShell | Microsoft Docs
+description: Informazioni su come creare un'area di lavoro Log Analytics per abilitare soluzioni di gestione e la raccolta dei dati dagli ambienti cloud e locali con Azure PowerShell.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -20,9 +20,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58905733"
 ---
-# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro di Log Analytics con Azure PowerShell
+# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro Log Analytics con Azure PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questo argomento di avvio rapido illustra come usare il modulo Azure PowerShell per distribuire un'area di lavoro di Log Analytics in Monitoraggio di Azure. Un'area di lavoro di Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro di Log Analytics se si intende raccogliere dati dalle origini seguenti:
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questo argomento di avvio rapido illustra come usare il modulo Azure PowerShell per distribuire un'area di lavoro Log Analytics in Monitoraggio di Azure. Un'area di lavoro Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro Log Analytics se si intende raccogliere dati dalle origini seguenti:
 
 * Risorse di Azure nella sottoscrizione  
 * Computer locali monitorati tramite System Center Operations Manager  
@@ -54,7 +54,7 @@ I parametri seguenti impostano un valore predefinito:
 * sku: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018
 
 >[!WARNING]
->Se si crea o si configura un'area di lavoro di Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**. 
+>Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**. 
 >
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
@@ -131,6 +131,6 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 Dopo aver creato un'area di lavoro, è possibile configurare la raccolta di dati di telemetria di monitoraggio, eseguire ricerche nei log per analizzare i dati e aggiungere una soluzione di gestione per fornire informazioni analitiche dettagliate e dati aggiuntivi.  
 
 * Per abilitare la raccolta dati dalle risorse di Azure con Diagnostica di Azure o Archiviazione di Azure, vedere [Raccolta di log e metriche per i servizi di Azure da usare in Monitoraggio di Azure](../platform/collect-azure-metrics-logs.md).  
-* Aggiungere [System Center Operations Manager come origine dati](../platform/om-agents.md) per raccogliere i dati da agenti di creazione report per il gruppo di gestione Operations Manager e archiviarli nell'area di lavoro di Log Analytics.  
+* Aggiungere [System Center Operations Manager come origine dati](../platform/om-agents.md) per raccogliere i dati da agenti di creazione report per il gruppo di gestione Operations Manager e archiviarli nell'area di lavoro Log Analytics.  
 * Connettere [Configuration Manager](../platform/collect-sccm.md) per importare computer che sono membri di raccolte nella gerarchia.  
 * Esaminare le [soluzioni di monitoraggio](../insights/solutions.md) disponibili e verificare come aggiungere o rimuovere una soluzione dall'area di lavoro.

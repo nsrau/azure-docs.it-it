@@ -6,7 +6,7 @@ ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55985446"
@@ -64,9 +64,9 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-- [Monitoraggio di Azure](../articles/azure-monitor/overview.md) è un servizio che effettua il monitoraggio degli ambienti cloud e locali per consentire la gestione della disponibilità e delle prestazioni. Offre una soluzione completa per la raccolta, l'analisi e l'esecuzione di operazioni sui dati di telemetria dal cloud e dagli ambienti locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o in una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics per raccogliere i dati di log e archiviarli in un'area di lavoro di Log Analytics.
+- [Monitoraggio di Azure](../articles/azure-monitor/overview.md) è un servizio che effettua il monitoraggio degli ambienti cloud e locali per consentire la gestione della disponibilità e delle prestazioni. Offre una soluzione completa per la raccolta, l'analisi e l'esecuzione di operazioni sui dati di telemetria dal cloud e dagli ambienti locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o in una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics per raccogliere i dati di log e archiviarli in un'area di lavoro Log Analytics.
 
-    Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
+    Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) permette di monitorare la macchina virtuale e le risorse associate in relazione alla rete in cui si trovano. È possibile installare l'estensione dell'agente Network Watcher in una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-nwa.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-nwa.md).
 

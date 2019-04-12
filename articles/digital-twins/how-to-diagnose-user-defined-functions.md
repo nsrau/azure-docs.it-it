@@ -39,7 +39,7 @@ Per configurare il monitoraggio e la registrazione delle risorse di Gemelli digi
 Leggere l'articolo [Raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per configurare le impostazioni dei log di diagnostica in Gemelli digitali di Azure tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
 
 >[!IMPORTANT]
-> Assicurarsi di selezionare tutte le categorie di log, le metriche e l'area di lavoro di Azure Log Analytics.
+> Assicurarsi di selezionare tutte le categorie di log, le metriche e l'area di lavoro Azure Log Analytics.
 
 ### <a name="trace-sensor-telemetry"></a>Tracciare i dati di telemetria del sensore
 

@@ -31,8 +31,8 @@ I log di Monitoraggio di Azure sono abilitati e gestiti nel portale di Azure. Pe
 1. Selezionare il gruppo di risorse per il cluster servizio Azure Kubernetes, ad esempio *myResourceGroup*. Non selezionare il gruppo di risorse che contiene le singole risorse del cluster servizio Azure Kubernetes, ad esempio *MC_myResourceGroup_myservizio Azure KubernetesCluster_eastus*.
 1. Sul lato sinistro, scegliere **Impostazioni di diagnostica**.
 1. Selezionare il cluster servizio Azure Kubernetes, ad esempio *myservizio Azure KubernetesCluster*, quindi scegliere **Abilita diagnostica**.
-1. Immettere un nome, ad esempio *myAKSClusterLogs*, quindi selezionare l'opzione **Send to Log Analytics workspace** (Invia ad area di lavoro di Log Analytics).
-    * Scegliere *Configura* per l'area di lavoro di Log Analytics, quindi selezionare un'area di lavoro esistente o **Crea una nuova area di lavoro**.
+1. Immettere un nome, ad esempio *myAKSClusterLogs*, quindi selezionare l'opzione **Send to Log Analytics workspace** (Invia ad area di lavoro Log Analytics).
+    * Scegliere *Configura* per l'area di lavoro Log Analytics, quindi selezionare un'area di lavoro esistente o **Crea una nuova area di lavoro**.
     * Se è necessario creare un'area di lavoro, specificare un nome, un gruppo di risorse e un percorso.
 1. Nell'elenco dei log disponibili selezionare i log che si desidera abilitare. Per impostazione predefinita, sono abilitati i log *kube-apiserver*, *kube-controller-manager* e *kube-utilità di pianificazione*. È possibile abilitare ulteriori log, ad esempio *kube-audit* e *cluster-autoscaler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione delle aree di lavoro di Log Analytics.
 1. Quando si è pronti, selezionare **Salva** per abilitare la raccolta dei log selezionati.
@@ -50,9 +50,9 @@ I log di Monitoraggio di Azure sono abilitati e gestiti nel portale di Azure. Pe
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-Lo screenshot di esempio del portale seguente mostra la finestra *Impostazioni di diagnostica* e l'opzione per creare un'area di lavoro di Log Analytics:
+Lo screenshot di esempio del portale seguente mostra la finestra *Impostazioni di diagnostica* e l'opzione per creare un'area di lavoro Log Analytics:
 
-![Abilitare l'area di lavoro di Log Analytics per i log di Monitoraggio di Azure del cluster del servizio Azure Kubernetes](media/view-master-logs/enable-oms-log-analytics.png)
+![Abilitare l'area di lavoro Log Analytics per i log di Monitoraggio di Azure del cluster del servizio Azure Kubernetes](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Pianificare un pod di test nel cluster servizio Azure Kubernetes
 
@@ -88,9 +88,9 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualizzare i log raccolti
 
-Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitati e vengano visualizzati nell'area di lavoro di Log Analytics. Nel portale di Azure, selezionare il gruppo di risorse per l'area di lavoro di Log Analitica, ad esempio *myResourceGroup*, quindi scegliere la risorsa di analitica di log, ad esempio *myAKSLogs*.
+Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitati e vengano visualizzati nell'area di lavoro Log Analytics. Nel portale di Azure, selezionare il gruppo di risorse per l'area di lavoro di Log Analitica, ad esempio *myResourceGroup*, quindi scegliere la risorsa di analitica di log, ad esempio *myAKSLogs*.
 
-![Selezionare l'area di lavoro di Log Analytics per il cluster servizio Azure Kubernetes](media/view-master-logs/select-log-analytics-workspace.png)
+![Selezionare l'area di lavoro Log Analytics per il cluster servizio Azure Kubernetes](media/view-master-logs/select-log-analytics-workspace.png)
 
 Sul lato sinistro scegliere **Log**. Per visualizzare *kube-apiserver*, immettere la query seguente nella casella di testo:
 

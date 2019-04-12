@@ -34,7 +34,7 @@ In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con I
 
 1. Impostare il [livello di protezione standard ASC](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Impostare l'area di lavoro di Log Analytics a cui Microsoft Monitoring Agent invierà i dati che raccolti nelle VM associate alla sottoscrizione. In questo esempio si tratta di un'area di lavoro esistente definita dall'utente (myWorkspace).
+2. Impostare l'area di lavoro Log Analytics a cui Microsoft Monitoring Agent invierà i dati che raccolti nelle VM associate alla sottoscrizione. In questo esempio si tratta di un'area di lavoro esistente definita dall'utente (myWorkspace).
 
 3. Attivare il provisioning automatico dell'agente del Centro sicurezza, che consente di [distribuire Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
@@ -64,7 +64,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
-3.  Configurare un'area di lavoro di Log Analytics a cui gli agenti invieranno i report. È necessario avere già creato un'area di lavoro di Log Analytics a cui le VM della sottoscrizione invieranno i report. È possibile definire l'invio di report alla stessa area di lavoro da più sottoscrizioni. Se non è specificata, verrà usata l'area di lavoro predefinita.
+3.  Configurare un'area di lavoro Log Analytics a cui gli agenti invieranno i report. È necessario avere già creato un'area di lavoro Log Analytics a cui le VM della sottoscrizione invieranno i report. È possibile definire l'invio di report alla stessa area di lavoro da più sottoscrizioni. Se non è specificata, verrà usata l'area di lavoro predefinita.
 
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"

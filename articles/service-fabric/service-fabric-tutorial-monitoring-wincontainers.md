@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare i log di Monitoraggio di Azure per il cluster di Service Fabric
-> * Usare un'area di lavoro di Log Analytics per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
+> * Usare un'area di lavoro Log Analytics per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
 > * Configurare l'agente di Log Analytics per raccogliere le metriche relative ai contenitori e ai nodi
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -53,7 +53,7 @@ Nel caso in cui sia stato usato il [modello fornito](https://github.com/Azure-Sa
 
 Apportare le modifiche seguenti nel file *template.json*:
 
-1. Aggiungere il nome e il percorso dell'area di lavoro di Log Analytics nella sezione *parameters*:
+1. Aggiungere il nome e il percorso dell'area di lavoro Log Analytics nella sezione *parameters*:
 
     ```json
     "omsWorkspacename": {
@@ -106,7 +106,7 @@ Apportare le modifiche seguenti nel file *template.json*:
     },
     ```
 
-4. Aggiungere l'area di lavoro di Log Analytics come singola risorsa. In *resources*, dopo la risorsa set di scalabilità di macchine virtuali, aggiungere quanto segue:
+4. Aggiungere l'area di lavoro Log Analytics come singola risorsa. In *resources*, dopo la risorsa set di scalabilità di macchine virtuali, aggiungere quanto segue:
 
     ```json
     {
@@ -186,11 +186,11 @@ Apportare le modifiche seguenti nel file *template.json*:
     },
     ```
 
-[Qui](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) è disponibile un modello di esempio (usato nella prima parte dell'esercitazione) che include tutte queste modifiche che può essere usato se necessario come riferimento. Queste modifiche determinano l'aggiunta di un'area di lavoro di Log Analytics al gruppo di risorse. L'area di lavoro viene quindi configurata per raccogliere gli eventi della piattaforma Service Fabric dalle tabelle di archiviazione configurate con l'agente di [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). È stato aggiunto anche l'agente Log Analytics (Microsoft Monitoring Agent) a ogni nodo nel cluster come estensione macchina virtuale. Questo significa che ridimensionando il cluster, l'agente viene automaticamente configurato in ogni computer e collegato alla stessa area di lavoro.
+[Qui](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) è disponibile un modello di esempio (usato nella prima parte dell'esercitazione) che include tutte queste modifiche che può essere usato se necessario come riferimento. Queste modifiche determinano l'aggiunta di un'area di lavoro Log Analytics al gruppo di risorse. L'area di lavoro viene quindi configurata per raccogliere gli eventi della piattaforma Service Fabric dalle tabelle di archiviazione configurate con l'agente di [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). È stato aggiunto anche l'agente Log Analytics (Microsoft Monitoring Agent) a ogni nodo nel cluster come estensione macchina virtuale. Questo significa che ridimensionando il cluster, l'agente viene automaticamente configurato in ogni computer e collegato alla stessa area di lavoro.
 
 Distribuire il modello con le nuove modifiche per aggiornare il cluster attuale. Al termine, le risorse di Log Analytics saranno visibili nel gruppo di risorse. Quando il cluster è pronto, distribuirvi l'applicazione nei contenitori. Nel passaggio successivo si imposterà il monitoraggio dei contenitori.
 
-## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Aggiungere la soluzione Monitoraggio contenitori all'area di lavoro di Log Analytics
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Aggiungere la soluzione Monitoraggio contenitori all'area di lavoro Log Analytics
 
 Per configurare la soluzione Contenitori nell'area di lavoro, cercare *Soluzione Monitoraggio contenitori* e creare una risorsa Contenitori (nella categoria Monitoraggio e gestione).
 
@@ -220,7 +220,7 @@ Se si fa clic in uno qualsiasi di questi pannelli, viene visualizzata la query d
 
 Un altro vantaggio dell'uso dell'agente Log Analytics è la possibilità di modificare i contatori delle prestazioni che si vogliono acquisire attraverso l'interfaccia utente di Log Analytics, anziché dover configurare l'agente di diagnostica di Azure ed eseguire un aggiornamento basato su modelli di Resource Manager ogni volta. A tale scopo, fare clic sull'**area di lavoro di OMS** nella pagina di destinazione della Soluzione Monitoraggio contenitori (o Service Fabric).
 
-Verrà visualizzata l'area di lavoro di Log Analytics, in cui è possibile visualizzare le proprie soluzioni, creare dashboard personalizzati e configurare l'agente Log Analytics. 
+Verrà visualizzata l'area di lavoro Log Analytics, in cui è possibile visualizzare le proprie soluzioni, creare dashboard personalizzati e configurare l'agente Log Analytics. 
 * Per aprire il menu Impostazioni avanzate, fare clic su **Impostazioni avanzate**.
 * Fare clic su **Origini connesse** > **Server Windows** e verificare che siano presenti *5 computer Windows connessi*.
 * Fare clic su **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati dai log di Monitoraggio di Azure da cui è possibile raccogliere dati. È anche possibile cercare altri contatori. Verificare che i contatori **Processor(_Total)\% Processor Time** e **Memory(*)\Available MBytes** vengano raccolti.
@@ -237,7 +237,7 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare i log di Monitoraggio di Azure per il cluster di Service Fabric
-> * Usare un'area di lavoro di Log Analytics per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
+> * Usare un'area di lavoro Log Analytics per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
 > * Configurare l'agente di Log Analytics per raccogliere le metriche relative ai contenitori e ai nodi
 
 Il monitoraggio dell'applicazione in contenitori è ora impostato ed è quindi possibile eseguire le operazioni seguenti:

@@ -36,7 +36,7 @@ La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni se
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installazione di un ruolo di lavoro ibrido per runbook di Linux
 
-La procedura per installare e configurare manualmente un ruolo di lavoro ibrido per runbook in un computer Linux è semplice. È necessario abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** nell'area di lavoro di Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
+La procedura per installare e configurare manualmente un ruolo di lavoro ibrido per runbook in un computer Linux è semplice. È necessario abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** nell'area di lavoro Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
 
 I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seguenti:
 
@@ -58,7 +58,7 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 
 ### <a name="installation"></a>Installazione
 
-Prima di procedere, prendere nota dell'area di lavoro di Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
+Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
 1. Abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** in Azure usando uno dei metodi seguenti:
 

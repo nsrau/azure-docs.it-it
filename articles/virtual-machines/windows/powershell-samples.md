@@ -49,5 +49,5 @@ La tabella seguente include collegamenti a esempi di script di PowerShell che cr
 |**Proteggere le macchine virtuali**||
 | [Crittografare una macchina virtuale e i relativi dischi dati](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un'istanza di Azure Key Vault, una chiave di crittografia e un'entità servizio, quindi crittografa una macchina virtuale. |
 |**Monitorare le macchine virtuali**||
-| [Monitorare una macchina virtuale con monitoraggio di Azure](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una macchina virtuale, installa l'agente di Azure Log Analytics e registra la macchina virtuale in un'area di lavoro di Log Analytics.  |
+| [Monitorare una macchina virtuale con monitoraggio di Azure](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una macchina virtuale, installa l'agente di Azure Log Analytics e registra la macchina virtuale in un'area di lavoro Log Analytics.  |
 | | |

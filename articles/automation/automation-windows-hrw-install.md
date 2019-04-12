@@ -39,7 +39,7 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Windows sono i s
 Per altri requisiti di rete per il ruolo di lavoro ibrido per runbook, vedere la sezione [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
 Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
-Se si abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro di Azure Log Analytics viene automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione. Non viene però eseguita la registrazione con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. 
+Se si abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro Azure Log Analytics viene automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione. Non viene però eseguita la registrazione con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. 
 
 È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -55,13 +55,13 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
 
    * *AutomationAccountName* (obbligatorio): nome dell'account di Automazione.
    * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di Automazione.
-   * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro di Log Analytics. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
+   * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro Log Analytics. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
    * *HybridGroupName* (obbligatorio): nome di un gruppo di ruoli di lavoro ibridi per runbook specificato come destinazione per i runbook che supportano questo scenario.
    * *SubscriptionID* (obbligatorio): ID sottoscrizione di Azure in cui si trova l'account di Automazione.
-   * *WorkspaceName* (facoltativo): Nome dell'area di lavoro di Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, lo script ne crea e configura una.
+   * *WorkspaceName* (facoltativo): Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una.
 
      > [!NOTE]
-     > Non sono attualmente le uniche aree di automazione supportate per l'integrazione con i log di monitoraggio di Azure **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale**e **Europa occidentale**. Se l'account di automazione non si trova in una di queste aree, lo script crea un'area di lavoro di Log Analytics ma avvisa l'utente che non sarà possibile eseguire il collegamento.
+     > Non sono attualmente le uniche aree di automazione supportate per l'integrazione con i log di monitoraggio di Azure **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale**e **Europa occidentale**. Se l'account di automazione non si trova in una di queste aree, lo script crea un'area di lavoro Log Analytics ma avvisa l'utente che non sarà possibile eseguire il collegamento.
 
 2. Nel computer in uso aprire **Windows PowerShell** dalla schermata **Start** in modalità amministratore.
 3. Dalla shell della riga di comando di PowerShell, passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*. Quindi, eseguire lo script.
@@ -85,15 +85,15 @@ Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi r
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Creare un'area di lavoro di Log Analytics
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Creare un'area di lavoro Log Analytics
 
-Se non si ha ancora un'area di lavoro di Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../azure-monitor/platform/manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
+Se non si ha ancora un'area di lavoro Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../azure-monitor/platform/manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Aggiungere la soluzione Automazione all'area di lavoro di Log Analytics
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Aggiungere la soluzione Automazione all'area di lavoro Log Analytics
 
 Le soluzioni aggiungono funzionalità a log di monitoraggio di Azure. La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
 
-Per aggiungere la soluzione [Automazione](../log-analytics/log-analytics-add-solutions.md) all'area di lavoro di Log Analytics, seguire le istruzioni su **come aggiungere una soluzione tramite la raccolta soluzioni**.
+Per aggiungere la soluzione [Automazione](../log-analytics/log-analytics-add-solutions.md) all'area di lavoro Log Analytics, seguire le istruzioni su **come aggiungere una soluzione tramite la raccolta soluzioni**.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installare Microsoft Monitoring Agent
 

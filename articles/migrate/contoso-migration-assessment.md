@@ -405,7 +405,7 @@ Contoso esegue l'installazione in ogni macchina virtuale.
 3. Contoso installa MMA:
    - Contoso immette l'ID e la chiave dell'area di lavoro nel comando.
    - I comandi sono per la versione a 64 bit.
-   - La chiave primaria e l'ID dell'area di lavoro si trovano nell'area di lavoro di Log Analytics nel portale di Azure. Selezionare **Impostazioni** e quindi selezionare la scheda **Origini connesse**.
+   - La chiave primaria e l'ID dell'area di lavoro si trovano nell'area di lavoro Log Analytics nel portale di Azure. Selezionare **Impostazioni** e quindi selezionare la scheda **Origini connesse**.
    - Eseguire i comandi seguenti per scaricare l'agente di Log Analytics, convalidare il checksum e installare e caricare l'agente:
 
      ```

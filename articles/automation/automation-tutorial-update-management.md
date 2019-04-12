@@ -50,7 +50,7 @@ Prima di tutto, abilitare Gestione aggiornamenti nella macchina virtuale per que
 1. Nel menu sinistro del portale di Azure selezionare **Macchine virtuali**. Selezionare una VM dall'elenco.
 2. Nella pagina della macchina virtuale, in **OPERAZIONI**, selezionare **Gestione aggiornamenti**. Verrà aperto il riquadro **Abilita Gestione aggiornamenti**.
 
-Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitato per la macchina virtuale. La convalida include controlli per un'area di lavoro di Log Analytics di Azure e un account di Automazione collegato e verifica se la soluzione Gestione aggiornamenti è presente nell'area di lavoro.
+Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitato per la macchina virtuale. La convalida include controlli per un'area di lavoro Log Analytics di Azure e un account di Automazione collegato e verifica se la soluzione Gestione aggiornamenti è presente nell'area di lavoro.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi come Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
@@ -62,7 +62,7 @@ Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggi
 * [Account di Automazione](./automation-offering-get-started.md)
 * [Ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md) (abilitato nella macchina virtuale)
 
-In **Gestione aggiornamenti** configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare. Selezionare quindi **Abilita**. Se queste opzioni non sono disponibili, un'altra soluzione di automazione è abilitata per la macchina virtuale. In tal caso, è necessario usare lo stesso account di Automazione e la stessa area di lavoro.
+In **Gestione aggiornamenti** configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare. Selezionare quindi **Abilita**. Se queste opzioni non sono disponibili, un'altra soluzione di automazione è abilitata per la macchina virtuale. In tal caso, è necessario usare lo stesso account di Automazione e la stessa area di lavoro.
 
 ![Finestra di abilitazione della soluzione Gestione aggiornamenti](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 

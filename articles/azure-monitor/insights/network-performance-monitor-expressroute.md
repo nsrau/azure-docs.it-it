@@ -45,13 +45,13 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sic
 ### <a name="discover-expressroute-peering-connections"></a>Individuare le connessioni peering di ExpressRoute 
  
 1. Selezionare la visualizzazione **Peering ExpressRoute**.
-2. Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro di Log Analytics.
+2. Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro Log Analytics.
 
     >[!NOTE]
     > La soluzione attualmente individua solo peering ExpressRoute privati 
 
     >[!NOTE]
-    > Vengono individuati solo i peering privati connessi alle reti virtuali associate alla sottoscrizione collegata all'area di lavoro di Log Analytics. Se ExpressRoute è connesso a reti virtuali all'esterno della sottoscrizione collegata a questa area di lavoro, creare un'area di lavoro di Log Analytics in queste sottoscrizioni. Usare quindi Monitoraggio prestazioni rete per monitorare i peering. 
+    > Vengono individuati solo i peering privati connessi alle reti virtuali associate alla sottoscrizione collegata all'area di lavoro Log Analytics. Se ExpressRoute è connesso a reti virtuali esterne alla sottoscrizione collegata a questa area di lavoro, creare un'area di lavoro Log Analytics in queste sottoscrizioni. Usare quindi Monitoraggio prestazioni rete per monitorare i peering. 
 
     ![Configurazione del monitoraggio di ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  

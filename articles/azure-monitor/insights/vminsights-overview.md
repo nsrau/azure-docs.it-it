@@ -46,7 +46,7 @@ L'integrazione con i log di Monitoraggio di Azure offre efficaci caratteristiche
 È possibile visualizzare questi dati in una singola macchina virtuale direttamente dalla macchina virtuale oppure si può usare Monitoraggio di Azure per una visualizzazione aggregata delle macchine virtuali. Questa visualizzazione è basata sulla prospettiva di ogni funzionalità:
 
 * **Integrità**: le macchine virtuali correlate a un gruppo di risorse.
-* **Mappa** e **Prestazioni**: le macchine virtuali configurate per inviare report a una specifica area di lavoro di Log Analytics.
+* **Mappa** e **Prestazioni**: le macchine virtuali configurate per inviare report a una specifica area di lavoro Log Analytics.
 
 ![Prospettiva di informazioni dettagliate della macchina virtuale nel portale di Azure](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

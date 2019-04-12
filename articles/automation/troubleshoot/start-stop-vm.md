@@ -51,7 +51,7 @@ Gli errori delle distribuzioni possono essere causati da uno dei motivi seguenti
 1. Esiste già un account di Automazione con lo stesso nome nell'area selezionata.
 2. È applicato un criterio che non consente la distribuzione della soluzione Avvio/Arresto di macchine virtuali.
 3. I tipi di risorse `Microsoft.OperationsManagement`, `Microsoft.Insights` o `Microsoft.Automation` non sono registrati.
-4. Esiste un blocco per l'area di lavoro di Log Analytics.
+4. Esiste un blocco per l'area di lavoro Log Analytics.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -65,7 +65,7 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
     * `Microsoft.Automation`
 
    Per altre informazioni sugli errori di registrazione dei provider, vedere[Risolvere gli errori di registrazione del provider di risorse](../../azure-resource-manager/resource-manager-register-provider-errors.md).
-4. Se è presente un blocco sull'area di lavoro di Log Analytics, passare all'area di lavoro nel portale di Azure e rimuovere tutti i blocchi sulla risorsa.
+4. Se è presente un blocco sull'area di lavoro Log Analytics, passare all'area di lavoro nel portale di Azure e rimuovere tutti i blocchi sulla risorsa.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: non è possibile avviare o arrestare tutte le macchine virtuali
 

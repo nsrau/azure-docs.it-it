@@ -169,7 +169,7 @@ Abilitare Gestione aggiornamenti per la macchina virtuale:
 3. Nella schermata della macchina virtuale nella sezione **Operazioni** selezionare **Gestione aggiornamenti**. Viene visualizzata la schermata **Abilita Gestione aggiornamenti**.
 
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitata per la macchina virtuale.
-La convalida include controlli per un'area di lavoro di Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
+La convalida include controlli per un'area di lavoro Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
 
 L'area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
@@ -294,7 +294,7 @@ Per il monitoraggio più avanzato della macchina virtuale è possibile usare una
 
 Dall'area di lavoro Log Analytics a cui è connessa la macchina virtuale, è anche possibile recuperare, consolidare e analizzare i dati raccolti con il [linguaggio di query avanzato](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Area di lavoro di Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Area di lavoro Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

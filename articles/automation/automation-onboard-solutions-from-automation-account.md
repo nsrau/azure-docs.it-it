@@ -128,7 +128,7 @@ Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei co
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
 
-Le soluzioni seguenti sono dipendenti da un'area di lavoro di Log Analytics:
+Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
 * [Rilevamento delle modifiche](automation-change-tracking.md)
@@ -149,7 +149,7 @@ Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguent
 
    Verrà richiesto di confermare l'operazione.
 
-3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 

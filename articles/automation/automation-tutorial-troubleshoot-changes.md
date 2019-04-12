@@ -53,7 +53,7 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 1. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare una macchina virtuale dall'elenco
 1. Nel menu a sinistra fare clic su **Inventario** nella sezione **OPERAZIONI**. Verrà visualizzata la pagina **Rilevamento modifiche**.
 
-![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Verrà visualizzata la schermata **Rilevamento modifiche**. Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
+![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Verrà visualizzata la schermata **Rilevamento modifiche**. Configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
@@ -179,7 +179,7 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
 Per aggiungere un avviso per un arresto del servizio, nel portale di Azure passare a **Monitoraggio**. In **Servizi condivisi** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**
 
-Fare clic su **Seleziona** per scegliere una risorsa. Nella pagina **Seleziona risorsa**, selezionare **Log Analytics** nell'elenco a discesa **Filter by resource type** (Filter by resource type). Selezionare l'area di lavoro di Log Analytics e quindi selezionare **Fine**.
+Fare clic su **Seleziona** per scegliere una risorsa. Nella pagina **Seleziona risorsa**, selezionare **Log Analytics** nell'elenco a discesa **Filter by resource type** (Filter by resource type). Selezionare l'area di lavoro Log Analytics e quindi selezionare **Fine**.
 
 ![Selezionare una risorsa](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 

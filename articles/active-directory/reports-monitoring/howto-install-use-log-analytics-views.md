@@ -35,19 +35,19 @@ Le viste di analisi dei log per Azure Active Directory consentono di analizzare 
 
 Per usare le viste di analisi dei log, è necessario:
 
-* Disporre di un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
-* Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro di Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Scaricare le viste dal [repository GitHub](https://aka.ms/AADLogAnalyticsviews) nel computer locale.
 
 ## <a name="install-the-log-analytics-views"></a>Installare le viste di analisi dei log
 
-1. Passare all'area di lavoro di Log Analytics. A tale scopo, passare innanzitutto al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**. Digitare **Log Analytics** nella casella di testo e selezionare **Aree di lavoro di Log Analytics**. Selezionare l'area di lavoro a cui sono stati indirizzati i log attività, come parte dei prerequisiti.
+1. Passare all'area di lavoro Log Analytics. A tale scopo, passare innanzitutto al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**. Digitare **Log Analytics** nella casella di testo e selezionare **Aree di lavoro di Log Analytics**. Selezionare l'area di lavoro a cui sono stati indirizzati i log attività, come parte dei prerequisiti.
 2. Selezionare **Visualizza finestra di progettazione**, selezionare **Importa** e quindi selezionare **Scegli file** per importare le viste dal computer locale.
 3. Selezionare le viste scaricate dai prerequisiti e selezionare **Salva** per salvare l'importazione. Eseguire questa operazione per la vista **Azure AD Account Provisioning Events** (Eventi di provisioning account Azure AD) e la vista **Sign-ins Events** (Eventi di accesso).
 
 ## <a name="use-the-views"></a>Usare le viste
 
-1. Passare all'area di lavoro di Log Analytics. A tale scopo, passare innanzitutto al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**. Digitare **Log Analytics** nella casella di testo e selezionare **Aree di lavoro di Log Analytics**. Selezionare l'area di lavoro a cui sono stati indirizzati i log attività, come parte dei prerequisiti.
+1. Passare all'area di lavoro Log Analytics. A tale scopo, passare innanzitutto al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**. Digitare **Log Analytics** nella casella di testo e selezionare **Aree di lavoro di Log Analytics**. Selezionare l'area di lavoro a cui sono stati indirizzati i log attività, come parte dei prerequisiti.
 
 2. Nell'area di lavoro selezionare **Riepilogo dell'area di lavoro**. Dovrebbero essere visualizzate le tre viste seguenti:
 

@@ -33,7 +33,7 @@ Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Azu
 
 - Livello Standard dell'Hub IoT
     - Ruolo RBAC **proprietario** i privilegi di livello 
-- [Area di lavoro di Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Centro sicurezza di Azure (scelta consigliata)
     - Durante l'uso del Centro sicurezza di Azure è solo un'indicazione e non un requisito, in caso contrario, sarà possibile visualizzare le altre risorse di Azure all'interno dell'IoT Hub. 
  

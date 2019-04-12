@@ -49,7 +49,7 @@ In primo luogo, è necessario creare un insieme di credenziali delle chiavi e co
 3. Individuare l'insieme di credenziali delle chiavi nella stessa sottoscrizione e nello stesso gruppo di risorse della macchina virtuale creata in precedenza. 
 4. Selezionare **Criteri di accesso** condiviso e fare clic su **Aggiungi nuovo**. 
 5. In Configura dal modello selezionare **Gestione dei segreti**. 
-6. Scegliere **Selezionare un'entità** e nel campo di ricerca immettere il nome della macchina virtuale creata in precedenza.  Selezionare la macchina virtuale nell'elenco dei risultati e fare clic su **Seleziona**. 
+6. Scegliere **Selezionare un'entità** e nel campo di ricerca immettere il nome della macchina virtuale creata in precedenza.  Selezionare la macchina virtuale nell'elenco dei risultati e fare clic su **Seleziona** . 
 7. Fare clic su **OK** per terminare l'aggiunta dei nuovi criteri di accesso e su **OK** per completare la selezione dei criteri di accesso. 
 8. Fare clic su **Crea** per completare la creazione dell'insieme di credenziali delle chiavi. 
 

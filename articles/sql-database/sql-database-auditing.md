@@ -95,9 +95,9 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Per configurare la scrittura dei log di controllo in un'area di lavoro di Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
+7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
-    ![Area di lavoro di Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Area di lavoro Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
@@ -124,7 +124,7 @@ Se si sceglie di scrivere i log di controllo per i log di monitoraggio di Azure:
 
     ![aprire in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- In alternativa, è possibile accedere anche i log di controllo dal pannello Log Analytics. Aprire l'area di lavoro di Log Analytics e nella sezione **generale** fare clic su **log**. È possibile iniziare con una query semplice, ad esempio: *cercare "SQLSecurityAuditEvents"* per visualizzare i log di controllo.
+- In alternativa, è possibile accedere anche i log di controllo dal pannello Log Analytics. Aprire l'area di lavoro Log Analytics e nella sezione **generale** fare clic su **log**. È possibile iniziare con una query semplice, ad esempio: *cercare "SQLSecurityAuditEvents"* per visualizzare i log di controllo.
     A questo punto, è anche possibile usare [monitoraggio di Azure registra](../log-analytics/log-analytics-log-search.md) per eseguire ricerche avanzate sui dati di log di controllo. Log di monitoraggio di Azure ti offre informazioni operative in tempo reale usando ricerca integrata e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca log di monitoraggio di Azure e i comandi, vedere [riferimento alla ricerca nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-search.md).
 
 Se si sceglie di scrivere i log di controllo su Hub eventi:

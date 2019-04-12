@@ -49,11 +49,11 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 
 Passare all'account di Automazione e selezionare **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**.
 
-Scegliere l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Banner di configurazione di caricamento di Inventario](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Per abilitare la soluzione, configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
+Per abilitare la soluzione, configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
@@ -68,11 +68,11 @@ Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere
 
 Nell'account di Automazione passare a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**.
 
-Selezionare **+ Aggiungi macchina virtuale di Azure** per visualizzare la pagina **Macchine virtuali** che consente di selezionare una macchina virtuale esistente dall'elenco. Selezionare la macchina virtuale di cui si vuole eseguire l'onboarding. Nella pagina visualizzata fare clic su **Abilita** per abilitare la soluzione sulla macchina virtuale. L'agente di gestione Microsoft viene distribuito nella macchina virtuale e configura l'agente in modo che comunichi con l'area di lavoro di Log Analytics configurata durante l'abilitazione della soluzione. L'onboarding potrebbe richiedere alcuni minuti. A questo punto è possibile selezionare una nuova macchina virtuale dall'elenco ed eseguire l'onboarding di un'altra macchina virtuale.
+Selezionare **+ Aggiungi macchina virtuale di Azure** per visualizzare la pagina **Macchine virtuali** che consente di selezionare una macchina virtuale esistente dall'elenco. Selezionare la macchina virtuale di cui si vuole eseguire l'onboarding. Nella pagina visualizzata fare clic su **Abilita** per abilitare la soluzione sulla macchina virtuale. L'agente di gestione Microsoft viene distribuito nella macchina virtuale e configura l'agente in modo che comunichi con l'area di lavoro Log Analytics configurata durante l'abilitazione della soluzione. L'onboarding potrebbe richiedere alcuni minuti. A questo punto è possibile selezionare una nuova macchina virtuale dall'elenco ed eseguire l'onboarding di un'altra macchina virtuale.
 
 ## <a name="onboard-a-non-azure-machine"></a>Eseguire l'onboarding di un computer non di Azure
 
-Per aggiungere computer non Azure, installare l'agente per [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. Dopo l'installazione dell'agente, passare all'account di Automazione e quindi a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**. Quando si fa clic su **Gestisci computer**, viene visualizzato un elenco di computer che inviano report all'area di lavoro di Log Analytics in cui non è abilitata la soluzione. Selezionare l'opzione appropriata per l'ambiente.
+Per aggiungere computer non Azure, installare l'agente per [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. Dopo l'installazione dell'agente, passare all'account di Automazione e quindi a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**. Quando si fa clic su **Gestisci computer**, viene visualizzato un elenco di computer che inviano report all'area di lavoro Log Analytics in cui non è abilitata la soluzione. Selezionare l'opzione appropriata per l'ambiente.
 
 * **Abilita in tutti i computer disponibili**: questa opzione abilita la soluzione su tutti i computer che attualmente inviano report all'area di lavoro di Log Analytics.
 * **Abilita in tutti i computer disponibili e futuri**: questa opzione abilita la soluzione su tutti i computer che inviano report all'area di lavoro di Log Analytics e successivamente su tutti i computer futuri aggiunti all'area di lavoro.

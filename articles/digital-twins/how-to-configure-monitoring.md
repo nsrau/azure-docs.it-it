@@ -50,7 +50,7 @@ Per la registrazione avanzata delle attività:
 
 1. **Panoramica di Analisi log attività** fornisce un riepilogo dei dati fondamentali dei log attività:
 
-    ![Panoramica di Analisi log attività][3]
+    ![Panoramica di analisi dei log di attività][3]
 
 >[!TIP]
 >Usare i **log attività** per visualizzare informazioni rapide sugli eventi a livello di sottoscrizione.

@@ -133,7 +133,7 @@ Abilitare Gestione aggiornamenti per la macchina virtuale:
 3. Nella schermata della macchina virtuale nella sezione **Operazioni** fare clic su **Gestione aggiornamenti**. Viene visualizzata la schermata **Abilita Gestione aggiornamenti**.
 
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitata per la macchina virtuale.
-La convalida include controlli per un'area di lavoro di Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
+La convalida include controlli per un'area di lavoro Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
 
 L'area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
@@ -263,7 +263,7 @@ Il grafico mostra le modifiche nel tempo. Dopo aver aggiunto una connessione al 
 
 È possibile eseguire un monitoraggio più avanzato della macchina virtuale usando soluzioni quali Gestione aggiornamenti e Modifiche e inventario, disponibili in [Automazione di Azure](../../automation/automation-intro.md).
 
-Quando si ha accesso all'area di lavoro di Log Analytics, è possibile trovare la chiave e l'identificatore dell'area di lavoro selezionando **Impostazioni avanzate** in **IMPOSTAZIONI**. Usare il comando [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) per aggiungere l'estensione Microsoft Monitoring Agent alla VM. Aggiornare i valori della variabile nell'esempio seguente in base alla chiave e all'ID dell'area di lavoro di Log Analytics.
+Quando si ha accesso all'area di lavoro Log Analytics, è possibile trovare la chiave e l'identificatore dell'area di lavoro selezionando **Impostazioni avanzate** in **IMPOSTAZIONI**. Usare il comando [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) per aggiungere l'estensione Microsoft Monitoring Agent alla VM. Aggiornare i valori della variabile nell'esempio seguente in base alla chiave e all'ID dell'area di lavoro Log Analytics.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
@@ -280,7 +280,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -Location "East US"
 ```
 
-Dopo alcuni minuti, la nuova macchina virtuale sarà visualizzata nell'area di lavoro di Log Analytics.
+Dopo alcuni minuti, la nuova macchina virtuale sarà visualizzata nell'area di lavoro Log Analytics.
 
 ![Pannello dell'area di lavoro di Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
