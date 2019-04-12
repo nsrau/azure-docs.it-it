@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: Esercitazioni
   items:
-  - name: Flusso di lavoro della progettazione Unity
-    href: unity-workflow.md
-  - name: Flusso di lavoro della progettazione Unreal/Wwise
-    href: unreal-workflow.md
-  - name: Effettuare il bake dell'acustica con Unity
-    href: unity-baking.md
-  - name: Effettuare il bake dell'acustica con Unreal/Wwise
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: Effettuare il bake dell'acustica con Unity
+      href: unity-baking.md
+    - name: Flusso di lavoro della progettazione Unity
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: Effettuare il bake dell'acustica con Unreal/Wwise
+      href: unreal-baking.md
+    - name: Flusso di lavoro della progettazione Unreal/Wwise
+      href: unreal-workflow.md
 - name: Concetti
   items:
   - name: Concetti relativi alla progettazione con simulazione dell'acustica
     href: design-process.md
+  - name: Risoluzione del bake
+    href: bake-resolution.md
 - name: Procedure
   items:
   - name: Creare un account Azure Batch
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: Problemi noti
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138220"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495635"

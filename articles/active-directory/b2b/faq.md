@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260392"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496302"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -54,7 +54,7 @@ Sì. Oggetti guest non sono visibili nell'elenco di indirizzi globale dell'organ
 Certo. Per altre informazioni, vedere [Aggiunta di utenti guest a un ruolo](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Collaborazione B2B di Azure AD consente agli utenti di B2B di accedere al portale di Azure?
-A meno che a un utente non sia assegnato il ruolo di amministratore con limitazioni o amministratore globale, gli utenti di Collaborazione B2B non avranno bisogno di accedere al portale di Azure. Tuttavia, gli utenti di Collaborazione B2B a cui è stato assegnato il ruolo di amministratore globale o di amministratori con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe riuscire ad accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
+A meno che un utente è assegnato il ruolo di amministratore con limitazioni, gli utenti di collaborazione B2B non richiedono l'accesso al portale di Azure. Tuttavia, gli utenti di collaborazione B2B che vengono assegnati il ruolo di amministratore con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe riuscire ad accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>È possibile bloccare l'accesso al portale di Azure per gli utenti guest?
  Sì. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.

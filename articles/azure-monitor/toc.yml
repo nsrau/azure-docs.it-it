@@ -581,8 +581,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: Monitoraggio delle prestazioni
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Endpoint servizio
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Monitoraggio connettività servizio
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Prezzi
@@ -658,8 +658,9 @@ items:
   - name: Visualizzare i dati
     items:
     - name: Visualizzazioni
-      href: platform/view-designer.md
       items:
+      - name: Progettazione viste
+        href: platform/view-designer.md
       - name: Informazioni di riferimento sui riquadri
         href: platform/view-designer-tiles.md
       - name: Informazioni di riferimento sulla parte di visualizzazione
@@ -864,9 +865,9 @@ items:
         href: platform/autoscale-common-scale-patterns.md
       - name: Scalabilità automatica con metriche personalizzate
         href: platform/autoscale-custom-metric.md
-      - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuali con i modelli di Gestione risorse
+      - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuali con i modelli di Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Ridimensionare automaticamente le macchine virtuali in un di set di scalabilità di macchine virtuali
+      - name: Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configurare webhook e notifiche di posta elettronica per la scalabilità automatica
         href: platform/autoscale-webhook-email.md
@@ -1071,9 +1072,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261157"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491101"

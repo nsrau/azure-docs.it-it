@@ -1,18 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0d4968c0cfbc49f990eebbd84c8bd4d8ecac5fe7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434739"
 documentType: LandingData
 title: Documentazione di Hub di notifica di Azure
 metadata:
   title: Documentazione di Hub di notifica di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: Informazioni su come inviare notifiche push da qualsiasi back-end per tutti i dispositivi mobili con hub di notifica. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+  description: 'Informazioni su come inviare notifiche push da qualsiasi back-end per tutti i dispositivi mobili con hub di notifica. Esercitazioni, informazioni di riferimento sulle API e altri documenti.'
   services: notification-hubs
   author: spelluru
-  manager: 
+  manager: null
   ms.service: notification-hubs
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -20,46 +14,47 @@ metadata:
   ms.date: 03/01/2017
   ms.author: spelluru
 abstract:
-  description: Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile, per inviare rapidamente milioni di messaggi ad applicazioni eseguite in diversi tipi di dispositivi, ovvero Android, iOS, Windows, Windows Phone, Baidu, Kindle. <p>Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile.</p>
+  description: 'Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile, per inviare rapidamente milioni di messaggi ad applicazioni eseguite in diversi tipi di dispositivi, ovvero Android, iOS, Windows, Windows Phone, Baidu, Kindle. <p>Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile.</p>'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
     title: Eseguire il push di notifiche ad applicazioni Android
-    href: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application'
     width: 250
 sections:
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come eseguire il push di notifiche con Hub di notifica:'
-  - type: list
-    style: ordered
+  - title: Esercitazioni dettagliate
     items:
-    - html: Eseguire il push di notifiche a tutti i dispositivi registrati - <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">Android</a> | <a href="/azure/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">Baidu</a> | <a href="/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started">Chrome</a> | <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">Kindle</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns">Windows Phone</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm">Xamarin.Android</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started">Xamarin.iOS</a>
-    - html: Eseguire il push di notifiche a dispositivi specifici - <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-ios-xplat-segmented-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification">Windows Phone</a>
-    - html: Eseguire il push di notifiche a utenti specifici - <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification">Windows</a>
-    - html: Eseguire il push di notifiche basate sulla posizione - <a href="/azure/notification-hubs/notification-hubs-push-bing-spatial-data-geofencing-notification">Windows</a>
-    - html: Eseguire il push di notifiche personalizzate e localizzate - <a href="/azure/notification-hubs/notification-hubs-ios-xplat-localized-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification">Windows</a>
-- title: Esempi
-  items:
-  - type: paragraph
-    text: Sono disponibili app di esempio dell'hub di notifica di Azure da più origini. Gli esempi specifici della piattaforma sono abbinati ai singoli SDK (collegamenti di seguito) e il repository autonomo include esempi per altre piattaforme.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come eseguire il push di notifiche con Hub di notifica:'
+      - type: list
+        style: ordered
+        items:
+          - html: Eseguire il push di notifiche a tutti i dispositivi registrati - <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">Android</a> | <a href="/azure/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">Baidu</a> | <a href="/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started">Chrome</a> | <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">Kindle</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns">Windows Phone</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm">Xamarin.Android</a> | <a href="/azure/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started">Xamarin.iOS</a>
+          - html: Eseguire il push di notifiche a dispositivi specifici - <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-ios-xplat-segmented-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns">Windows</a> | <a href="/azure/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification">Windows Phone</a>
+          - html: Eseguire il push di notifiche a utenti specifici - <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification">Android</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification">Windows</a>
+          - html: Eseguire il push di notifiche basate sulla posizione - <a href="/azure/notification-hubs/notification-hubs-push-bing-spatial-data-geofencing-notification">Windows</a>
+          - html: Eseguire il push di notifiche personalizzate e localizzate - <a href="/azure/notification-hubs/notification-hubs-ios-xplat-localized-apns-push-notification">iOS</a> | <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification">Windows</a>
+  - title: Esempi
     items:
-    - html: <a href="https://github.com/Azure/azure-notificationhubs-android">Android SDK</a>
-    - html: <a href="https://github.com/Azure/azure-notificationhubs-ios">iOS SDK</a>
-    - html: <a href="https://github.com/Azure/azure-notificationhubs-dotnet">.NET SDK</a>
-    - html: <a href="https://github.com/Azure/azure-notificationhubs-samples">Repository di esempi (altre piattaforme)</a>
-    - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
-- title: riferimento
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Sono disponibili app di esempio dell'hub di notifica di Azure da più origini. Gli esempi specifici della piattaforma sono abbinati ai singoli SDK (collegamenti di seguito) e il repository autonomo include esempi per altre piattaforme.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://github.com/Azure/azure-notificationhubs-android">Android SDK</a>'
+          - html: '<a href="https://github.com/Azure/azure-notificationhubs-ios">iOS SDK</a>'
+          - html: '<a href="https://github.com/Azure/azure-notificationhubs-dotnet">.NET SDK</a>'
+          - html: '<a href="https://github.com/Azure/azure-notificationhubs-samples">Repository di esempi (altre piattaforme)</a>'
+          - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
+  - title: riferimento
     items:
-    - html: <a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a>
-    - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">.NET SDK</a>
-    - html: <a href="/rest/api/notificationhubs">API REST</a>
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a>'
+          - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">.NET SDK</a>
+          - html: <a href="/rest/api/notificationhubs">API REST di gestione </a>
+          - html: '<a href="https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)">API REST del servizio Hub di notifica</a>'
