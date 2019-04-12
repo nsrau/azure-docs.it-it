@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259865"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501145"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
 I token di accesso consentono ai client di chiamare in modo sicuro le API protette da Azure. I token di accesso di Azure Active Directory (Azure AD) sono [token JWT](https://tools.ietf.org/html/rfc7519) JSON con codifica Base64 firmati da Azure. I client devono trattare i token di accesso come stringhe opache, in quanto i contenuti dei token sono destinati solo alla risorsa. A scopo di convalida e debug, gli sviluppatori possono decodificare i token JWT usando un sito come [jwt.ms](https://jwt.ms). Il client può ottenere un token di accesso da un endpoint (v1.0 o v2.0) tramite un'ampia gamma di protocolli.
 
-Quando si richiede un token di accesso, Azure AD restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per i quali è valido. Questi dati consentono all'app di eseguire la memorizzazione intelligente nella cache dei token di accesso senza la necessità di analizzare il token di accesso stesso.
+Quando la richiesta del client un token di accesso, Azure AD restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per i quali è valido. Questi dati consentono all'app di eseguire la memorizzazione intelligente nella cache dei token di accesso senza la necessità di analizzare il token di accesso stesso.
 
 Se l'applicazione è una risorsa (API Web) a cui i client possono richiedere l'accesso, i token di accesso forniscono informazioni utili per l'autenticazione e l'autorizzazione, ad esempio utente, client, autorità emittente, autorizzazioni e molto altro. 
 
 Vedere le sezioni seguenti per informazioni su come una risorsa può convalidare e usare le attestazioni all'interno di un token di accesso.
 
-> [!NOTE]
-> Quando si testa un'applicazione client con un account personale (ad esempio hotmail.com o outlook.com), è possibile notare che il token di accesso ricevuto dal client è una stringa opaca. Ciò avviene perché la risorsa a cui si accede ha richiesto ticket dell'account del servizio gestito (account Microsoft) legacy che sono crittografati e non possono essere riconosciuti dal client.
+> [!Important]
+> I token di accesso vengono creati sulla basati di *audience* del token, vale a dire l'applicazione che possiede l'ambito nel token.  Questa è la modalità di impostazione di una risorsa `accessTokenAcceptedVersion` nella [manifesto dell'app](reference-app-manifest.md#manifest-reference) a `2` consente al client di chiamare l'endpoint v1.0 ricevere un token di accesso v2.0.  Analogamente, ecco perché il token di accesso a cambiare [attestazioni facoltative](active-directory-optional-claims.md) per eseguire il client non modifica il token di accesso ricevuto quando viene richiesto un token per `user.read`, che è di proprietà della risorsa di Microsoft Graph.  
+> Per lo stesso motivo, durante il test dell'applicazione client con un account personale (ad esempio hotmail.com o outlook.com), è probabile che il token di accesso ricevuto dal client è una stringa opaca. Ciò avviene perché la risorsa a cui si accede ha richiesto ticket dell'account del servizio gestito (account Microsoft) legacy che sono crittografati e non possono essere riconosciuti dal client.
 
 ## <a name="sample-tokens"></a>Token di esempio
 

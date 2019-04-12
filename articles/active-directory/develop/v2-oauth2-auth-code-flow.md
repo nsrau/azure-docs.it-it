@@ -1,6 +1,6 @@
 ---
 title: Piattaforma delle identità Microsoft e flusso del codice di autorizzazione OAuth | Azure
-description: Creazione di applicazioni web utilizzando l'implementazione della piattaforma delle identità Microsoft del protocollo di autenticazione OAuth 2.0.
+description: Creazione di applicazioni web tramite l'implementazione di piattaforma di identità di Microsoft del protocollo di autenticazione OAuth 2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,34 +13,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470263"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500958"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Flusso del codice di piattaforma delle identità Microsoft e l'autorizzazione di OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Usando l'implementazione di OAuth 2.0 definita in Modello app 2.0, è possibile aggiungere i criteri e l'API di accesso alle applicazioni desktop e mobili. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](active-directory-authentication-libraries.md).
+La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Tramite l'implementazione di piattaforma di identità di Microsoft di OAuth 2.0, è possibile aggiungere l'accesso e l'API di accesso alle App per dispositivi mobili e desktop. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](active-directory-authentication-libraries.md).
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari di Azure Active Directory e le funzionalità sono supportate dall'endpoint della piattaforma Microsoft identity. Per determinare se è necessario usare l'endpoint di piattaforma Microsoft identity, a conoscenza [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md).
 
-Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui [app Web](v2-app-types.md#web-apps) e [app native](v2-app-types.md#mobile-and-native-apps). Tale flusso consente alle app di acquisire in modo sicuro i token di accesso che possono essere usati per accedere alle risorse protette tramite endpoint v2.0.
+Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e autorizzazione nella maggior parte dei tipi di app, tra cui [App web](v2-app-types.md#web-apps) e [le app installate in modo nativo](v2-app-types.md#mobile-and-native-apps). Tale flusso consente alle app di acquisire in modo sicuro i token di accesso che può essere utilizzato per accedere alle risorse protette dall'endpoint della piattaforma Microsoft identity.
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
 In generale, l'intero flusso di autenticazione per un'applicazione nativa/mobile ha un aspetto analogo al seguente:
 
-![Flusso del codice di autenticazione di OAuth](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
+![Flusso del codice di autenticazione di OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
 ## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
 
@@ -61,8 +61,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Fare clic sul collegamento seguente per eseguire questa richiesta. Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `code` nella barra degli indirizzi.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parametro    | Obbligatorio/Facoltativo | DESCRIZIONE |
 |--------------|-------------|--------------|
@@ -71,17 +69,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_type` | Obbligatoria    | Deve includere `code` per il flusso del codice di autorizzazione.       |
 | `redirect_uri`  | Obbligatoria | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | Obbligatoria    | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso. |
-| `response_mode`   | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere uno dei valori seguenti:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fornisce il codice come un parametro di stringa query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile usare `query` come indicato nella [specifica OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue una richiesta POST contenente il codice per l'URI di reindirizzamento. Per altre informazioni, vedere [Protocollo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
+| `response_mode`   | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere uno dei valori seguenti:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fornisce il codice come un parametro di stringa query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile utilizzare `query` come specificato nella [specifica di OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue una richiesta POST contenente il codice per l'URI di reindirizzamento. Per altre informazioni, vedere [Protocollo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Questo valore può essere usato anche per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| `prompt`  | Facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-On, l'endpoint 2.0 restituirà un errore `interaction_required`.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
+| `prompt`  | Facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che l'utente non riceve alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite single sign-on, l'endpoint di Microsoft identity platform restituirà un `interaction_required` errore.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
 | `login_hint`  | Facoltativo    | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.   |
-| `domain_hint`  | Facoltativo    | Può essere uno di `consumers` o `organizations`.<br/><br/>Se incluso, non verrà eseguito il processo di individuazione basato sulla posta elettronica a cui viene sottoposto l'utente nella pagina di accesso della versione 2.0. Questo comporta un'esperienza utente leggermente semplificata. Le app usano spesso questo parametro durante la riautenticazione, estraendo `tid` da un accesso precedente. Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`. In caso contrario, usare `domain_hint=organizations`.  |
-| `code_challenge_method` | Facoltativo    | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Può avere uno dei valori seguenti:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. Azure Active Directory v2.0 supporta sia `plain` sia `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `domain_hint`  | Facoltativo    | Può essere uno di `consumers` o `organizations`.<br/><br/>Se incluso, non verrà eseguito il processo di individuazione basata sulla posta elettronica che l'utente passa attraverso nella pagina accesso comporta un'esperienza utente leggermente semplificata. Le app usano spesso questo parametro durante la riautenticazione, estraendo `tid` da un accesso precedente. Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`. In caso contrario, usare `domain_hint=organizations`.  |
+| `code_challenge_method` | Facoltativo    | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Può avere uno dei valori seguenti:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. Piattaforma delle identità Microsoft supporta sia `plain` e `S256`. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | `code_challenge`  | Facoltativo | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE) da un client nativo. Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-A questo punto, all'utente viene chiesto di immettere le credenziali e completare l'autenticazione. L'endpoint 2.0 assicura anche che l'utente abbia fornito il consenso per le autorizzazioni indicate nel parametro di query `scope` . Se l'utente non ha acconsentito a nessuna di queste autorizzazioni, l'endpoint chiederà all'utente di fornire il consenso per le autorizzazioni obbligatorie. Questo articolo contiene informazioni dettagliate su [autorizzazioni, consenso e app multi-tenant](v2-permissions-and-consent.md).
+A questo punto, all'utente viene chiesto di immettere le credenziali e completare l'autenticazione. L'endpoint di piattaforma di identità di Microsoft si assicurerà che l'utente ha acconsentito alle autorizzazioni indicate nel `scope` parametro di query. Se l'utente non ha acconsentito a nessuna di queste autorizzazioni, l'endpoint chiederà all'utente di fornire il consenso per le autorizzazioni obbligatorie. Questo articolo contiene informazioni dettagliate su [autorizzazioni, consenso e app multi-tenant](v2-permissions-and-consent.md).
 
-Dopo che l'utente viene autenticato e fornisce il consenso, l'endpoint 2.0 restituisce una risposta all'app nell'URI `redirect_uri`, usando il metodo specificato nel parametro `response_mode`.
+Dopo che l'utente esegue l'autenticazione e concesso il consenso, l'endpoint di Microsoft identity platform restituirà una risposta per le app nell'URI `redirect_uri`, usando il metodo specificato nel `response_mode` parametro.
 
 #### <a name="successful-response"></a>Risposta con esito positivo
 
@@ -95,7 +93,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 | Parametro | DESCRIZIONE  |
 |-----------|--------------|
-| `code` | Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I codici di autorizzazione hanno una durata molto breve, in genere scadono dopo circa 10 minuti. |
+| `code` | Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. Codici di autorizzazione hanno breve durata, in genere scadono dopo circa 10 minuti. |
 | `state` | Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
 #### <a name="error-response"></a>Risposta di errore
@@ -120,13 +118,13 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 | Codice di errore  | DESCRIZIONE    | Azione client   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Errore del protocollo, ad esempio un parametro obbligatorio mancante. | Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale. |
-| `unauthorized_client` | All'applicazione client non è consentito richiedere un codice di autorizzazione. | Questo errore si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
-| `access_denied`  | Consenso negato dal proprietario della risorsa  | L'applicazione client può notificare all'utente che non può proseguire a meno che l'utente non acconsenta. |
+| `unauthorized_client` | L'applicazione client non è consentito richiedere un codice di autorizzazione. | In genere questo errore si verifica quando l'applicazione client non è registrato in Azure AD o non viene aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| `access_denied`  | Consenso negato dal proprietario della risorsa  | L'applicazione client può inviare una notifica all'utente che non può proseguire a meno che l'utente dà il consenso. |
 | `unsupported_response_type` | Il server di autorizzazione non supporta il tipo di risposta nella richiesta. | Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale.  |
 | `server_error`  | Errore imprevisto rilevato dal server.| ripetere la richiesta. Questi errori possono dipendere da condizioni temporanee. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di un errore temporaneo. |
-| `temporarily_unavailable`   | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
-| `invalid_resource`  | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. | Questo errore indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
-| `login_required` | Troppi o nessun utente | Il client ha richiesto l'autenticazione invisibile all'utente (`prompt=none`), ma non è stato trovato un singolo utente. Questo può significare che sono presenti più utenti attivi nella sessione o nessun utente. Questo prende in considerazione il tenant scelto (ad esempio, se sono presenti 2 account AAD attivi e un account del servizio gestito e viene scelto `consumers`, l'autenticazione invisibile funzionerà). |
+| `temporarily_unavailable`   | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| `invalid_resource`  | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o è configurato in modo non corretto. | Questo errore indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| `login_required` | Troppi o nessun utente | Il client ha richiesto l'autenticazione invisibile all'utente (`prompt=none`), ma non è stato trovato un singolo utente. Questo può significare che sono presenti più utenti attivi nella sessione o nessun utente. Questo tiene conto del tenant scelta (ad esempio, se sono presenti due account di Azure AD attivo e un account Microsoft, e `consumers` viene scelto, l'autenticazione non interattiva funziona). |
 | `interaction_required` | La richiesta richiede l'interazione dell'utente. | È necessario un passaggio di autenticazione o un consenso aggiuntivo. Ripetere la richiesta senza `prompt=none`. |
 
 ## <a name="request-an-access-token"></a>Richiedere un token di accesso
@@ -149,17 +147,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `code`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `code`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 | Parametro  | Obbligatorio/Facoltativo | DESCRIZIONE     |
 |------------|-------------------|----------------|
 | `tenant`   | Obbligatoria   | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | Obbligatoria  | ID applicazione (client) che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina assegnato all'app. |
 | `grant_type` | Obbligatoria   | Deve essere `authorization_code` per il flusso del codice di autorizzazione.   |
-| `scope`      | Obbligatoria   | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella prima sezione o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint v2.0 restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
+| `scope`      | Obbligatoria   | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella prima sezione o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
 | `code`          | Obbligatoria  | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
 | `redirect_uri`  | Obbligatoria  | Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
-| `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. È consigliabile non usarlo in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. Il segreto è obbligatorio per le app Web e le API Web che possono archiviare in modo sicuro il segreto client sul lato server.  Prima di essere inviato, il segreto client deve essere codificato come URL.  |
+| `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. È consigliabile non usare il segreto dell'applicazione in un'app nativa perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. È necessario per le app web e API web, che hanno la possibilità di archiviare il segreto client in modo sicuro sul lato server.  Prima di essere inviato, il segreto client deve essere codificato come URL.  |
 | `code_verifier` | Facoltativo  | Stesso code_verifier usato per ottenere il codice di autorizzazione. Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Risposta con esito positivo
@@ -218,19 +216,19 @@ Le risposte di errore hanno un aspetto simile al seguente:
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Errore del protocollo, ad esempio un parametro obbligatorio mancante. | Correggere e inviare di nuovo la richiesta.   |
 | `invalid_grant`    | Il codice di autorizzazione o PKCE non è valido o è scaduto. | Provare una nuova richiesta per l'endpoint `/authorize` e verificare che il parametro code_verifier sia corretto.  |
-| `unauthorized_client` | Il client autenticato non è autorizzato a usare questo tipo di concessione dell'autorizzazione. | Si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
-| `invalid_client` | Autenticazione client non riuscita.  | Credenziali del client non valide. Per risolvere il problema, l'amministratore applicazione aggiorna le credenziali.   |
+| `unauthorized_client` | Il client autenticato non è autorizzato a utilizzare questo tipo di concessione di autorizzazione. | Ciò si verifica quando l'applicazione client non è registrato in Azure AD o non viene aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| `invalid_client` | Autenticazione client non riuscita.  | Le credenziali del client non sono valide. Per risolvere il problema, l'amministratore applicazione aggiorna le credenziali.   |
 | `unsupported_grant_type` | Il server di autorizzazione non supporta il tipo di concessione dell'autorizzazione. | Modificare il tipo di concessione nella richiesta. Questo tipo di errore dovrebbe verificarsi solo durante lo sviluppo ed essere rilevato durante il test iniziale. |
-| `invalid_resource` | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. | Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD.  |
+| `invalid_resource` | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o è configurato in modo non corretto. | Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD.  |
 | `interaction_required` | La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. | Ripetere la richiesta con la stessa risorsa.  |
-| `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
 ## <a name="use-the-access-token"></a>Usare il token di accesso
 
 Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`:
 
 > [!TIP]
-> Eseguire la richiesta in Postman. Sostituire prima l'intestazione `Authorization`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> Eseguire la richiesta in Postman. Sostituire prima l'intestazione `Authorization`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 GET /v1.0/me/messages
@@ -261,8 +259,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `refresh_token`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
+> Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `refresh_token`. [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
 | Parametro     |                | DESCRIZIONE        |
@@ -270,9 +267,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`        | Obbligatoria     | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | Obbligatoria    | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
 | `grant_type`    | Obbligatoria    | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
-| `scope`         | Obbligatoria    | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella sezione di richiesta del codice di autorizzazione originale o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint v2.0 restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
+| `scope`         | Obbligatoria    | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella sezione di richiesta del codice di autorizzazione originale o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
 | `refresh_token` | Obbligatoria    | Token di aggiornamento acquisito durante la seconda sezione del flusso. |
-| `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. È consigliabile non usarlo in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. Il segreto è obbligatorio per le app Web e le API Web che possono archiviare in modo sicuro il segreto client sul lato server. |
+| `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. Consigliabile non usarla in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. È necessario per le app web e API web, che hanno la possibilità di archiviare il segreto client in modo sicuro sul lato server. |
 
 #### <a name="successful-response"></a>Risposta con esito positivo
 

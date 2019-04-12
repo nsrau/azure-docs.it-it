@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587872"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500839"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Come usare le code del bus di servizio con Node.js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questo articolo illustra come usare le code del bus di servizio con Node.js. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. Gli scenari presentati includono la **creazione di code**, l'**invio e la ricezione di messaggi** e l'**eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
+In questa esercitazione descrive come creare applicazioni Node. js per inviare e ricevere messaggi da una coda del Bus di servizio. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Prerequisiti
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
+    1. Leggere la rapida **overview** del Bus di servizio **code**. 
+    2. Creare un Bus di servizio **dello spazio dei nomi**. 
+    3. Ottenere il **stringa di connessione**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Node. js in questa esercitazione. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure][Create and deploy a Node.js application to an Azure Website] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell.
@@ -114,7 +120,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 function (returnObject, finalCallback, next)
 ```
 
-Dopo l'elaborazione di `returnObject` (ossia della risposta della richiesta al server), questo callback deve richiamare `next`, se esistente, per continuare a elaborare altri filtri oppure richiamare semplicemente `finalCallback` per terminare la chiamata al servizio.
+In questo callback e dopo l'elaborazione di `returnObject` (la risposta della richiesta al server), il callback deve richiamare `next` se esistente, per continuare a elaborare altri filtri oppure richiamare `finalCallback`, che termina la chiamata al servizio .
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. Il codice seguente crea un oggetto `ServiceBusService` che usa `ExponentialRetryPolicyFilter`:
 
@@ -182,7 +188,7 @@ Per altre informazioni sulle code, vedere le risorse seguenti.
 
 * [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions]
 * Repository [Azure SDK per Node][Azure SDK for Node] su GitHub
-* [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/)
+* [Centro per sviluppatori Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905988"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505635"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere e analizzare i log attività di Azure nell'area di lavoro di Log Analitica in Monitoraggio di Azure
 
 ![Simbolo di Log attività di Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-La soluzione Analisi log attività consente di analizzare e cercare i [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) in tutte le sottoscrizioni di Azure. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. Il log attività era noto in precedenza come *log di controllo* o *log operativo* perché segnala eventi per le sottoscrizioni.
+La soluzione Analisi log attività consente di analizzare e cercare i [log attività di Azure](activity-logs-overview.md) in tutte le sottoscrizioni di Azure. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. Il log attività era noto in precedenza come *log di controllo* o *log operativo* perché segnala eventi per le sottoscrizioni.
 
 L'uso del log attività permette di acquisire *informazioni* *dettagliate* *su qualsiasi* operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello di distribuzione classica.
 
@@ -52,28 +52,39 @@ A differenza della maggior parte delle altre soluzioni di monitoraggio di Azure,
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Agenti di Windows](agent-windows.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](../learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione di System Center Operations Manager](om-agents.md) | No  | La soluzione non raccoglie informazioni dagli agenti che fanno riferimento a un gruppo di gestione di Operations Manager. |
 | [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No  | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- L'accesso alle informazioni del log attività di Azure è consentito solo a chi dispone di una sottoscrizione di Azure.
+L'accesso alle informazioni del log attività di Azure è consentito solo a chi dispone di una sottoscrizione di Azure.
+
+La soluzione richiede anche che i due provider di risorse seguenti siano registrati nella sottoscrizione:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Per informazioni su come registrarsi o verificare questi vengono registrati, vedere [provider di risorse di Azure e tipi](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configurazione
 
 Eseguire i passaggi seguenti per configurare la soluzione Log Analytics attività per le aree di lavoro.
 
-1. Abilitare la soluzione Log Analytics attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+
+2. Abilitare la soluzione Log Analytics attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../insights/solutions.md).
+
 2. Configurare i log attività per andare all'area di lavoro Log Analytics.
     1. Nel portale di Azure selezionare l'area di lavoro e fare clic su **Log attività di Azure**.
     2. Per ogni sottoscrizione, fare clic sul relativo nome.  
+        
         ![aggiungere sottoscrizione](./media/collect-activity-logs/add-subscription.png)
+    
     3. Nel pannello *SubscriptionName*, fare clic su **Connetti**.  
+    
         ![Connettere sottoscrizione](./media/collect-activity-logs/subscription-connect.png)
-
-Accedere al portale di Azure per connettere una sottoscrizione di Azure all'area di lavoro.  
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
@@ -98,5 +109,5 @@ Il log attività viene visualizzato solo *dopo* aver configurato i log attività
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare un [avviso](../../azure-monitor/platform/alerts-metric.md) quando si verifica un'attività specifica.
-- Usare [Ricerca Log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare le informazioni dettagliate dai log attività.
+- Creare un [avviso](../platform/alerts-metric.md) quando si verifica un'attività specifica.
+- Usare [Ricerca Log](../log-query/log-query-overview.md) per visualizzare le informazioni dettagliate dai log attività.

@@ -12,33 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842771"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501196"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Come usare le code del bus di servizio con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **la creazione di code**, **l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
+In questa esercitazione descrive come creare applicazioni PHP per inviare e ricevere messaggi da una coda del Bus di servizio. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Prerequisiti
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
+    1. Leggere la rapida **overview** del Bus di servizio **code**. 
+    2. Creare un Bus di servizio **dello spazio dei nomi**. 
+    3. Ottenere il **stringa di connessione**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con PHP in questa esercitazione. 
+3. [Azure SDK per PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
 Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
 > [!NOTE]
 > L'installazione di PHP deve avere anche l'[estensione OpenSSL](https://php.net/openssl) installata e abilitata.
-> 
-> 
 
-In questa guida si useranno le funzionalità del servizio che possono essere chiamate da un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
+In questa Guida, si userà la funzionalità di servizio, che può essere chiamata da un'applicazione PHP in locale o nel codice in esecuzione all'interno di un ruolo web di Azure, un ruolo di lavoro o un sito Web.
 
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -158,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati e ricevuti dalle code del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage]. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
+I messaggi inviati (e ricevuti dalle) del Bus di servizio coda sono istanze della [BrokeredMessage] [ BrokeredMessage] classe. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
 
 Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Il limite massimo della dimensione di una coda è di 5 GB.
 

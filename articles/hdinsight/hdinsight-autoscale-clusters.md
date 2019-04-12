@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227618"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501009"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster HDInsight di Azure (anteprima)
 
@@ -83,7 +83,7 @@ Per altre informazioni sulla creazione di cluster con modelli di Resource Manage
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Abilitare e disabilitare la scalabilità automatica per un cluster in esecuzione
 
-È possibile abilitare o disabilitare la scalabilità automatica per i cluster HDInsight creati dopo il 1 ° gennaio 2019 tramite il portale di Azure.
+È possibile solo abilitare o disabilitare la scalabilità automatica per i nuovi cluster HDInsight.
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -108,8 +108,8 @@ Le metriche riportate sopra vengono controllate ogni 60 secondi. Ridimensionamen
 
 Quando vengono rilevate le condizioni seguenti, scalabilità automatica genererà una richiesta di scalabilità verticale:
 
-* Il totale CPU in sospeso è maggiore del totale CPU disponibile per più di 1 minuto.
-* Il totale memoria in sospeso è maggiore del totale memoria disponibile per più di 1 minuto.
+* In attesa di CPU totale è maggiore di CPU disponibile totale per più di 3 minuti.
+* Totale memoria in sospeso è maggiore di memoria totale disponibile per più di 3 minuti.
 
 Si calcolerà un determinato numero di nuovi nodi di lavoro necessarie per soddisfare i requisiti di CPU e memoria correnti e quindi inviare una richiesta di scalabilità verticale che aggiunge tale numero di nuovi nodi di lavoro.
 
@@ -120,7 +120,7 @@ Quando vengono rilevate le condizioni seguenti, scalabilità automatica generer�
 * Il totale CPU in sospeso è minore del totale CPU disponibile per più di 10 minuti.
 * Il totale memoria in sospeso è minore del totale memoria disponibile per più di 10 minuti.
 
-In base al numero di contenitori AM per ogni nodo e i requisiti di memoria e CPU corrente, la scalabilità automatica genererà una richiesta per rimuovere un determinato numero di nodi, che specifica quali nodi sono candidati potenziali per la rimozione. Per impostazione predefinita, vengono rimossi due nodi in un ciclo.
+In base al numero di contenitori AM per ogni nodo e i requisiti di memoria e CPU corrente, la scalabilità automatica genererà una richiesta per rimuovere un determinato numero di nodi, che specifica quali nodi sono candidati potenziali per la rimozione. La riduzione delle prestazioni attiverà rimozione delle autorizzazioni dei nodi e dopo che i nodi vengono completamente rimossi, verranno rimossi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

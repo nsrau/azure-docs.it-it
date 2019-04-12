@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884364"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505771"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -393,7 +393,7 @@ Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monito
 | Nome della dimensione | DESCRIZIONE |
 | ------------------- | ----------------- |
 | BlobType | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob** e **PageBlob**. Il BLOB di aggiunta è incluso in BlockBlob. |
-| ResponseType | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>ServerOtherError: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li> ServerBusyError: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li> ServerTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li> AuthorizationError: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li> NetworkError: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>    ClientThrottlingError: errore di limitazione sul lato client. </li> <li> ClientTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li> ClientOtherError: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li> Success: richiesta con esito positivo|
+| ResponseType | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>ServerOtherError: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li> ServerBusyError: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li> ServerTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li> AuthorizationError: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li> NetworkError: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>    ClientThrottlingError: errore di limitazione sul lato client. </li> <li> ClientTimeoutError: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li> ClientOtherError: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li> Success: Richiesta completata correttamente. </li> <li> SuccessWithThrottling: Richiesta completata correttamente quando un client SMB viene limitato nel primo tentativo, ma ha esito positivo dopo i tentativi.|
 | GeoType | Transazione da un cluster primario o secondario. I valori disponibili includono Primary e Secondary. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
 | ApiName | Nome dell'operazione. Ad esempio:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>AccountKey: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>SAS: la transazione viene autenticata con firme di accesso condiviso.</li> <li>OAuth: la transazione viene autenticata con i token di accesso OAuth.</li> <li>Anonymous: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>AnonymousPreflight: la transazione è una richiesta preliminare.</li> |

@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553571"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502823"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | --- | --- |
 | Reti virtuali |1.000 |
 | Subnet per rete virtuale |3,000 |
-| Peering reti virtuali per rete virtuale |100 |
+| Peering reti virtuali per rete virtuale |500 |
 | Server DNS per rete virtuale |20 |
 | Indirizzi IP privati per ogni rete virtuale |65,536 |
 | Indirizzi IP privati per ogni interfaccia di rete |256 |
@@ -68,7 +68,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Indirizzi IP pubblici: dinamici | 1.000 per Basic. |Contattare il supporto tecnico. |
-| Indirizzi IP pubblici: statici | 200 per Basic. |Contattare il supporto tecnico. |
+| Indirizzi IP pubblici: statici | 1.000 per Basic. |Contattare il supporto tecnico. |
 | Indirizzi IP pubblici: statici | 200 per il livello Standard.|Contattare il supporto tecnico. |
 | Dimensione del prefisso IP pubblico (anteprima) | /28 | /28 |
 

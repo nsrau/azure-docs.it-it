@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339381"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505576"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -56,7 +56,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | Quantità      | Temperatura   | "32 gradi"    |
 | DateTime      | N/D\*         | "4 febbraio 2012 18:30"      | 
 | DateTime      | Data          | "2 maggio 2017", "02/05/2017"   | 
-| Data/Ora     | Tempo          | "8", "8:00"  | 
+| DateTime      | Tempo          | "8", "8:00"  | 
 | DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
 | DateTime      | TimeRange     | "dalle 18 alle 19"     | 
 | DateTime      | Duration      | "1 minuto e 45 secondi"   | 
@@ -96,7 +96,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Collegamento entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Impostare l'endpoint HTTP per l'estrazione di entità. È necessario includere la risorsa `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Impostare l'endpoint HTTP per l'estrazione di entità. Deve includere il `/entities` risorsa: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
@@ -288,8 +288,8 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il colle
 ## <a name="see-also"></a>Vedere anche  
 
  [Panoramica di Analisi del testo](../overview.md)  
- [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>
- [Pagina del prodotto Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Domande frequenti](../text-analytics-resource-faq.md)</br>
+ [Pagina del prodotto Analitica testo](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

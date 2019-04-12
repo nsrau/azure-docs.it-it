@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276049"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501596"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Piattaforma delle identità Microsoft e il flusso di OAuth 2.0 On-Behalf-Of
 
@@ -33,7 +33,7 @@ Il flusso On-Behalf-Of (OBO) di OAuth 2.0 viene usato quando un'applicazione ric
 
 > [!NOTE]
 >
-> - L'endpoint di piattaforma di identità di Microsoft non supporta tutti gli scenari e funzionalità. Per determinare se è necessario usare l'endpoint di piattaforma Microsoft identity, a conoscenza [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md). In particolare, le applicazioni client note non sono supportate per le app che hanno come destinatari Azure AD e account Microsoft (MSA). Di conseguenza, un modello di consenso comune per OBO non funzionerà per i client che eseguono l'accesso sia con account personali che con account aziendali o di istituti di istruzione. Per altre informazioni su come gestire questo passaggio del flusso, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
+> - L'endpoint di piattaforma di identità di Microsoft non supporta tutti gli scenari e funzionalità. Per determinare se è necessario usare l'endpoint di piattaforma Microsoft identity, a conoscenza [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md). In particolare, le applicazioni client note non sono supportate per le app con account Microsoft (MSA) e tipologie di pubblico di Azure AD. Di conseguenza, un modello di consenso comune per OBO non funzionerà per i client che eseguono l'accesso sia con account personali che con account aziendali o di istituti di istruzione. Per altre informazioni su come gestire questo passaggio del flusso, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
 > - A partire da maggio 2018, non è possibile usare un `id_token` derivato da flusso implicito per il flusso OBO. Le applicazioni a pagina singola dovrebbero invece passare un token di **accesso** a un client riservato di livello intermedio per eseguire i flussi OBO. Per altre informazioni su quali client possono eseguire chiamate OBO, vedere le [limitazioni](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
@@ -55,7 +55,7 @@ I passaggi che seguono costituiscono il flusso OBO e vengono descritti con l'aiu
 
 ## <a name="service-to-service-access-token-request"></a>Richiesta del token di accesso da servizio a servizio
 
-Per richiedere un token di accesso, eseguire una richiesta HTTP POST all'endpoint del token v2.0 specifico del tenant con i parametri seguenti.
+Per richiedere un token di accesso, eseguire una richiesta HTTP POST per l'endpoint specifico del tenant Microsoft identity platform token con i parametri seguenti.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Ottenere il consenso per l'applicazione di livello intermedio
 
-A seconda del gruppo di destinatari per l'applicazione, è possibile considerare diverse strategie per garantire che il flusso OBO ha esito positivo. In tutti i casi l'obiettivo finale consiste nell'assicurare che venga fornito il consenso appropriato. Il modo in cui ciò si verifica, tuttavia, dipende da quali utenti supporta l'applicazione. 
+A seconda del gruppo di destinatari per l'applicazione, è possibile considerare diverse strategie per garantire che il flusso OBO ha esito positivo. In tutti i casi l'obiettivo finale consiste nell'assicurare che venga fornito il consenso appropriato. Il modo in cui ciò si verifica, tuttavia, dipende da quali utenti supporta l'applicazione.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Consenso per le applicazioni solo per Azure AD
 
 #### <a name="default-and-combined-consent"></a>/.default e consenso combinato
 
-Per le applicazioni che devono eseguire l'accesso solo con account aziendali o di istituti di istruzione, è sufficiente l'approccio tradizionale "Applicazioni client note". L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. Nell'endpoint v2.0 questa operazione viene eseguita tramite l'[`/.default`ambito](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni per il client per l'API di livello intermedio, oltre a richiedere le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
+Per le applicazioni che devono eseguire l'accesso solo con account aziendali o di istituti di istruzione, è sufficiente l'approccio tradizionale "Applicazioni client note". L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. Nell'endpoint di piattaforma delle identità di Microsoft, questa operazione viene eseguita usando il [ `/.default` ambito](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni per il client per l'API di livello intermedio, oltre a richiedere le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
 
 Attualmente il sistema di account Microsoft personale non supporta il consenso combinato, pertanto questo approccio non funziona per le app che vogliono accedere in modo specifico tramite account personali. Gli account Microsoft personali usati come account guest in un tenant vengono gestiti tramite il sistema Azure AD e possono passare attraverso il consenso combinato.
 
@@ -211,7 +211,7 @@ Un amministratore del tenant può garantire che le applicazioni siano autorizzat
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consenso per Azure AD e applicazioni di account Microsoft
 
-A causa delle limitazioni nel modello di autorizzazioni per gli account personali e della mancanza di un tenant di controllo, i requisiti per il consenso per gli account personali sono leggermente diversi rispetto ad Azure AD. Non c'è nessun tenant per cui fornire il consenso a livello di tenant, né è presente la possibilità del consenso combinato. In questo modo, si presentano altre strategie, che tuttavia possono essere usate per le applicazioni che devono solo supportare anche gli account Azure AD.
+A causa di restrizioni nel modello di autorizzazioni per gli account personali e la mancanza di un tenant che implementano la governance, i requisiti di consenso per gli account personali sono leggermente diversi da Azure AD. Non c'è nessun tenant per cui fornire il consenso a livello di tenant, né è presente la possibilità del consenso combinato. In questo modo, si presentano altre strategie, che tuttavia possono essere usate per le applicazioni che devono solo supportare anche gli account Azure AD.
 
 #### <a name="use-of-a-single-application"></a>Uso di un'applicazione singola
 
@@ -219,7 +219,7 @@ In alcuni scenari può esserci solo una singola associazione del client di livel
 
 ## <a name="client-limitations"></a>Limitazioni client
 
-Se un client utilizza il flusso implicito per ottenere un id_token e quel client dispone anche di caratteri jolly in un URL di risposta, è impossibile utilizzare l'id_token per un flusso OBO.  Tuttavia, i token di accesso acquisiti tramite il flusso di concessione implicita possono ancora essere riscattati da un client riservato anche se il client di origine dispone di un URL di risposta con caratteri jolly registrato.
+Se un client usa il flusso implicito per ottenere un token ID e che il client disponga anche caratteri jolly in un URL di risposta, il token ID non è utilizzabile per un flusso OBO.  Tuttavia, i token di accesso acquisiti tramite il flusso di concessione implicita possono ancora essere riscattati da un client riservato anche se il client di origine dispone di un URL di risposta con caratteri jolly registrato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

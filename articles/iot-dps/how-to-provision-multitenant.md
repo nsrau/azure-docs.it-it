@@ -3,17 +3,17 @@ title: Come effettuare il provisioning di dispositivi per la multi-tenancy nel s
 description: Come effettuare il provisioning di dispositivi per la multi-tenancy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544444"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500737"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -208,7 +208,7 @@ In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK c
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Le dimensioni di questo repository sono attualmente di circa 220 MB. Il completamento di questa operazione richiederà alcuni minuti.
+    Il completamento di questa operazione richiederà alcuni minuti.
 
 1. Per entrambe le macchine virtuali, creare una nuova cartella **cmake** all'interno del repository e passare a tale cartella.
 
@@ -420,7 +420,7 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisoning di dispositivo in hub IoT](concepts-device-reprovision.md) 
+- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
 - Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 

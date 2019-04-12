@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361550"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501298"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -403,10 +403,11 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan, valore predefinito è Common::TimeSpan::FromMinutes(5)|Dinamico|Specificare l'intervallo di tempo in secondi. L'intervallo di pulizia per consentiti per annullare la registrazione di tipo di applicazione durante la pulitura del tipo l'applicazione automatica.|
 |AzureStorageMaxConnections | Int, valore predefinito: 5000 |Dinamico|Il numero massimo di connessioni simultanee all'archiviazione di Azure. |
 |AzureStorageMaxWorkerThreads | Int, valore predefinito: 25 |Dinamico|Il numero massimo di thread di ruoli di lavoro in parallelo. |
 |AzureStorageOperationTimeout | Tempo in secondi, valore predefinito: 6000 |Dinamico|Specificare l'intervallo di tempo in secondi. Timeout per il completamento dell'operazione xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, valore predefinito: FALSE |Dinamico|Questa configurazione abilita o disabilita la pulizia automatica del pacchetto dell'applicazione quando il provisioning ha esito positivo. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, valore predefinito: FALSE |Dinamico|Abilita o disabilita la pulizia automatica del pacchetto di applicazione nel effettuare il provisioning ha esito positivo. |
 |CleanupUnusedApplicationTypes|Bool, valore predefinito: false |Dinamico|Se abilitata, questa configurazione consente di annullare automaticamente la registrazione di versioni del tipo di applicazione inutilizzati ignorando le versioni inutilizzate tre più recenti, in tal modo trimming lo spazio su disco occupato dall'archivio immagini. La pulizia automatica verrà attivata la fine di eseguire il provisioning ha esito positivo per quel tipo di app specifici e viene eseguito anche periodicamente una volta al giorno per tutti i tipi di applicazione. Numero di versioni inutilizzate da ignorare è configurabile tramite il parametro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, valore predefinito: false |statico| Questa configurazione consente di abilitare o disabilitare la convalida di checksum durante il provisioning dell'applicazione. |
 |DisableServerSideCopy | Bool, valore predefinito: false |statico|Questa configurazione consente di abilitare o disabilitare la copia sul lato server del pacchetto dell'applicazione in ImageStore durante il provisioning dell'applicazione. |

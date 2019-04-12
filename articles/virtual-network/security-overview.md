@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262143"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501128"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 
 |Proprietà  |Spiegazione  |
 |---------|---------|
-|NOME|Nome univoco all'interno del gruppo di sicurezza di rete.|
+|Attività|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
 |Origine o destinazione| Qualsiasi indirizzo IP, blocco CIDR (Classless Inter-Domain Routing), ad esempio 10.0.0.0/24, [tag di servizio](#service-tags) o [gruppo di sicurezza delle applicazioni](#application-security-groups). Se si specifica un indirizzo per una risorsa di Azure, specificare l'indirizzo IP privato assegnato alla risorsa. I gruppi di sicurezza della rete vengono elaborati dopo che Azure ha convertito un indirizzo IP pubblico in un indirizzo IP privato per il traffico in ingresso e prima che Azure converta un indirizzo IP privato in un indirizzo IP pubblico per il traffico in uscita. Vedere altre informazioni sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md) di Azure. Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli in una regola è detta [regola di sicurezza ottimizzata](#augmented-security-rules). Non si possono specificare più tag di servizio o gruppi di applicazioni. È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.|
 |Protocollo     | TCP, UDP o Qualsiasi, che include, ad esempio, TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, usare Qualsiasi. |
@@ -80,6 +80,7 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
 * **AzureMonitor** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureMonitor. Se si specifica *AzureMonitor* come valore, verrà consentito o impedito il traffico verso AzureMonitor. 
 * **ServiceFabric** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio ServiceFabric. Se si specifica *ServiceFabric* come valore, verrà consentito o impedito il traffico verso ServiceFabric. 
 * **AzureMachineLearning** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureMachineLearning. Se si specifica *AzureMachineLearning* come valore, verrà consentito o impedito il traffico verso AzureMachineLearning. 
+* **BatchNodeManagement** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi del servizio Azure BatchNodeManagement. Se si specifica *BatchNodeManagement* per il valore, il traffico è consentito o negato dal servizio Batch nei nodi di calcolo.
 
 > [!NOTE]
 > I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. 

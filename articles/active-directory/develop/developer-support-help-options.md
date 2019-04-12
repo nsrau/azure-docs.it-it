@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235190"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501590"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
@@ -55,7 +55,6 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 | Strumento  | DESCRIZIONE  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione. |
-| [Analizzatore dei codici di errore](https://apps.dev.microsoft.com/portal/tools/errors)| Incollare un codice di errore ricevuto durante l'accesso o dalle pagine di consenso per visualizzare le possibili cause e le soluzioni corrispondenti. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Pubblicare una domanda in Stack Overflow
@@ -76,7 +75,7 @@ Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova 
 
 I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
-* [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
+* [Come porre una domanda da porsi](https://stackoverflow.com/help/how-to-ask)
 * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848573"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501638"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -127,6 +127,19 @@ La prelettura dei messaggi comporta un aumento della velocità effettiva globale
 La proprietà di durata (TTL) di un messaggio viene controllata dal server nel momento in cui invia il messaggio al client. Il client non controlla la proprietà di durata (TTL) del messaggio al momento della ricezione. Il messaggio può essere ricevuto anche se la relativa durata (TTL) scade durante la memorizzazione nella cache da parte del client.
 
 La prelettura non influisce sul numero di operazioni di messaggistica fatturabili ed è disponibile solo per il protocollo client del bus di servizio. Il protocollo HTTP non supporta la prelettura. Questa funzionalità è disponibile per le operazioni di ricezione sincrone e asincrone.
+
+## <a name="prefetching-and-receivebatch"></a>La prelettura e ReceiveBatch
+
+Mentre i concetti di prelettura contemporaneamente più messaggi hanno una semantica simile all'elaborazione dei messaggi in un batch (ReceiveBatch), esistono alcune differenze minime che devono essere tenute in considerazione quando si usa queste funzioni.
+
+La prelettura è una configurazione (o modalità) del client (QueueClient e SubscriptionClient) e ReceiveBatch è un'operazione (che include la semantica di richiesta-risposta).
+
+Quando si usa queste funzioni, considerare i casi seguenti:
+
+* Prelettura deve essere maggiore o uguale al numero di messaggi che si prevede di ricevere da ReceiveBatch.
+* Prelettura può estendersi fino n/3 moltiplicata per il numero di messaggi elaborati al secondo, dove n è la durata del blocco predefinita.
+
+Esistono alcuni problemi con presenza di un greedy approccio (ad esempio, mantenere il conteggio prelettura molto elevato), perché implica che il messaggio è bloccato a un ricevitore specifico. La raccomandazione consiste nel provare out prelettura valori compresi tra la soglia indicato in precedenza e in modo empirico identificare ciò che si adatta.
 
 ## <a name="multiple-queues"></a>Più code
 

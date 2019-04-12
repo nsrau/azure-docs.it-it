@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884509"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505669"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -59,7 +59,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
    * **Interno**: il gateway di Gestione API e il portale per gli sviluppatori sono accessibili soltanto dalla rete virtuale tramite un servizio di bilanciamento del carico interno. Il gateway può accedere alle risorse all'interno della rete virtuale.
 
-     ![Peering privato][api-management-vnet-private]`
+     ![Peering privato][api-management-vnet-private]
 
      Verrà ora visualizzato un elenco di tutte le aree in cui viene eseguito il provisioning del servizio Gestione API. Selezionare una VNET e una subnet per ogni area. L'elenco viene popolato con le reti virtuali classiche e Resource Manager disponibili nelle sottoscrizioni di Azure, impostate nell'area che si sta configurando.
 
@@ -154,7 +154,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * Per altri di gestione API di dipendenze che vengono sottoposti a tunneling, forzato del servizio loro dovrebbe essere modo per risolvere il nome host e a raggiungere l'endpoint. Questi includono
+  * Per altre dipendenze del servizio di gestione API che vengono sottoposti a tunneling forzato, dovrebbe esserci un modo per risolvere il nome host e a raggiungere l'endpoint. Questi includono
       - Le metriche e monitoraggio dell'integrità
       - Portale di Azure Diagnostics
       - Inoltro SMTP

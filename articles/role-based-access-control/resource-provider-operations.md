@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278871"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501468"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -649,7 +649,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Esegue la lettura degli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/read | Esegue la lettura degli artefatti del progetto |
-> | Azione | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Ottenere l'ID oggetto dell'entità servizio i progetti di Azure |
+> | Azione | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Recupera l'ID oggetto dell'entità servizio di Azure Blueprints. |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprints/artifacts/delete | Elimina gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprints/artifacts/read | Esegue la lettura degli artefatti del progetto |
@@ -1107,7 +1107,7 @@ Elenco dei visi persistedFaceId e dati utente in un elenco di visi di grandi dim
 Aggiornare il persistedFaceId campo userData di un viso specificato in un elenco di visi di grandi dimensioni. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Recuperare largeFaceListId dell'elenco un viso di grandi dimensioni, il nome, userData.
 Elencare le informazioni degli elenchi di visi di grandi dimensioni di largeFaceListId, nome e userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Invia un'attività di formazione elenco di visi di grandi dimensioni. Il training è un passaggio fondamentale che solo un elenco di visi di grandi dimensioni sottoposto a training può essere utilizzato da |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Invia un'attività di formazione elenco di visi di grandi dimensioni. Il training è un passaggio fondamentale che possa usare solo un elenco di visi di grandi dimensioni sottoposto a training. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Per controllare lo stato di training elenco di visi grandi ancora in corso o completato. Formazione LargeFaceList è un'operazione asincrona |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Creare un elenco di visi di grandi dimensioni vuota con largeFaceListId specificato dall'utente, il nome e un userData facoltativo.
 Aggiornare le informazioni di un elenco di visi di grandi dimensioni, inclusi nome e userData. |
@@ -1123,7 +1123,7 @@ Elenco di informazioni di tutte le persone nel gruppo di specifica persona di gr
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Nome dell'aggiornamento o una persona userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Recuperare le informazioni di un gruppo di persone di grandi dimensioni, inclusi il nome e userData. Questa API restituisce grande persona le informazioni sui gruppi
 Elencare del tutti i grandi persona gruppi esistenti largePesonGroupId, nome e userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Invia un'attività di formazione di gruppo utente di grandi dimensioni. Il training è un passaggio fondamentale può essere utilizzato solo un gruppo di persone di grandi dimensioni sottoposto a training |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Invia un'attività di formazione di gruppo utente di grandi dimensioni. Il training è un passaggio fondamentale che possa usare solo un gruppo di persone di grandi dimensioni sottoposto a training. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Per controllare persona grandi gruppo corsi di formazione stato completato o ancora in corso. Formazione LargePersonGroup è un'operazione asincrona |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Creare un nuovo gruppo di persone di grandi dimensioni con largePersonGroupId specificato dall'utente, il nome e dati utente facoltativi.
 Aggiornare un gruppo di grandi dimensioni persona esistente nome e userData. Se non si trovano nel corpo della richiesta, mantenere invariate le proprietà. |
@@ -1139,7 +1139,7 @@ Elenco di informazioni di tutte le persone nel gruppo di persona specificata, in
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Nome dell'aggiornamento o una persona userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Recuperare i dati utente e nome del gruppo di persone. Per ottenere le informazioni utente nella sezione di questo gruppo di persone, usare
 Elenco di gruppi di persone pesonGroupId, nome e userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Invia un'attività di formazione di gruppo di persona. Il training è un passaggio fondamentale che solo un gruppo di persone con training può essere utilizzato da |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Invia un'attività di formazione di gruppo di persona. Il training è un passaggio fondamentale che possa usare solo un gruppo di persone con training. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Per controllare lo stato di training gruppo persona ancora in corso o completato. Gruppo di persone formazione è un'operazione asincrona ha attivata |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Creare un nuovo gruppo di persone con personGroupId specificato, il nome e dati utente fornito dall'utente.
 Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel corpo della richiesta, mantenere invariate le proprietà. |
@@ -1229,7 +1229,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.Compute/snapshots/endGetAccess/action | Revoca l'URI SAS dello snapshot |
 > | Azione | Microsoft.Compute/snapshots/read | Ottiene le proprietà di una snapshot |
 > | Azione | Microsoft.Compute/snapshots/write | Crea una nuova snapshot o ne aggiorna una esistente |
-> | Azione | Microsoft.Compute/unregister/action | Annulla la registrazione di sottoscrizione con il provider di risorse Microsoft. Compute |
+> | Azione | Microsoft.Compute/unregister/action | Annulla la registrazione della sottoscrizione con il provider di risorse Microsoft.Compute |
 > | Azione | Microsoft.Compute/virtualMachines/capture/action | Acquisisce la macchina virtuale copiando i dischi rigidi virtuali e genera un modello utilizzabile per creare macchine virtuali simili |
 > | Azione | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Converte i dischi basati su BLOB della macchina virtuale in dischi gestiti |
 > | Azione | Microsoft.Compute/virtualMachines/deallocate/action | Disabilita la macchina virtuale e rilascia le risorse di calcolo |
@@ -1628,7 +1628,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Elimina le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Elenca o ottiene le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Elenca o ottiene le condivisioni |
-> | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Aggiornare i metadati di condivisione con i dati dal cloud |
+> | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Aggiorna i metadati della condivisione con i dati dal cloud |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Crea o aggiorna le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Elimina le credenziali dell'account di archiviazione |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Elenca o ottiene le credenziali dell'account di archiviazione |
@@ -2443,8 +2443,8 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Scalabilità automatica: aumento avviato |
 > | Azione | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Scalabilità automatica: aumento completato |
 > | Azione | Microsoft.Insights/AutoscaleSettings/Write | Crea o aggiorna un'impostazione di scalabilità automatica |
-> | Azione | Microsoft.Insights/Baseline/Read | Leggere una linea di base delle metriche (anteprima) |
-> | Azione | Microsoft.Insights/CalculateBaseline/Read | Calcola una linea di base per i valori delle metriche (anteprima) |
+> | Azione | Microsoft.Insights/Baseline/Read | Lettura baseline metrica (anteprima) |
+> | Azione | Microsoft.Insights/CalculateBaseline/Read | Calcola baseline per i valori della metrica (anteprima) |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Delete | Eliminazione di un elemento di analisi di Application Insights |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Read | Lettura di un elemento di analisi di Application Insights |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Write | Scrittura di un elemento di analisi di Application Insights |
