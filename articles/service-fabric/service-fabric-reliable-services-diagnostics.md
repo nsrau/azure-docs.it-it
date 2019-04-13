@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664116"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527051"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -106,7 +106,7 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
-| Avg. media flush (ms) | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
+| Byte scaricamento log/sec | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
 | Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
 | Avg. transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
 | Avg. media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |

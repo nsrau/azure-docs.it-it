@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: 48f7153dcee45a6271919ac756ad794186faaed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668441"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522387"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
 Le raccolte Reliable Collections replicano e mantengono i propri elementi per garantirne la persistenza anche in caso di errori del computer o interruzioni dell'alimentazione.
@@ -96,7 +96,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Di seguito è riportato un esempio di implementazione di IStateSerializer<OrderKey>.
+Seguito è riportato un esempio di implementazione di IStateSerializer\<OrderKey >.
 Si noti che gli overload Write e Read che accettano baseValue chiamano il rispettivo overload per la compatibilità di inoltro.
 
 ```csharp

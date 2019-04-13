@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
-ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
+ms.openlocfilehash: 1a8f46c74693b00fd8e30b1e1a78d90111dea08b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491391"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520747"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemi noti e limitazioni per le migrazioni online al database SQL di Azure
 
@@ -31,8 +31,10 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 Se il database di origine è costituito da una o più tabelle temporali, si verifica un errore di migrazione del database durante l'operazione di caricamento completo dei dati ed è possibile che venga visualizzato il messaggio seguente:
 
-{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Messaggio: [Microsoft][SQL Server Native Client 11.0][SQL Server]L'uso della replica non è supportato con la tabella temporale '[Application. Cities]' con controllo delle versioni di sistema' Riga: 1 Colonna: -1 "]" }
- 
+```
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
+```
+
  ![Esempio di errori di tabella temporale](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Soluzione alternativa**

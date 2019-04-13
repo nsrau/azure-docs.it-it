@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848927"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521595"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
 
@@ -56,7 +56,7 @@ Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire
 
 ### <a name="classic"></a>Classico
 
-1. In un computer client passare al percorso %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Nella cartella dell'ID del gateway è possibile visualizzare il certificato.
+1. In un computer client, passare al percorso `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Nella cartella dell'ID del gateway è possibile visualizzare il certificato.
 2. Nella scheda Generale per il certificato, verificare che l'autorità emittente sia "DigiCert Global Root CA". Se il valore dell'autorità emittente è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Verificare la pianificazione della transizione del certificato

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280010"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521434"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinati (anteprima)
 
@@ -25,6 +25,8 @@ Prima della registrazione combinata, gli utenti registrati metodi di autenticazi
 ![Che mostra il profilo registrato info di sicurezza per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata su amministratore e la documentazione incentrato sull'utente per verificare di che conoscere le funzionalità e l'effetto di questa funzionalità. La formazione su documentazione per l'utente per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione di base.
+
+Azure AD combinare le informazioni di sicurezza registrazione non è attualmente disponibile nei cloud nazionali, ad esempio Azure US Government, Azure Germania o Azure Cina 21Vianet.
 
 |     |
 | --- |
@@ -137,6 +139,6 @@ Un utente che ha precedentemente configurato almeno un metodo che può essere us
 
 [Metodi disponibili per multi-Factor Authentication e SSPR](concept-authentication-methods.md)
 
-[Configurare la reimpostazione self-service delle password](howto-sspr-deployment.md)
+[Configurare la reimpostazione password self-service](howto-sspr-deployment.md)
 
-[Configurazione di Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurare Azure multi-Factor Authentication](howto-mfa-getstarted.md)

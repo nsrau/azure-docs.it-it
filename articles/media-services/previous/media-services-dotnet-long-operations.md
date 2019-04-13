@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 518cc1d55a83d95daec8f22d0dcfc5db23cc2d38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173839"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520817"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Distribuzione di Live Streaming con Servizi multimediali di Azure
 
@@ -30,7 +30,7 @@ Servizi multimediali di Microsoft Azure offre API che inviano richieste a serviz
 L'SDK di Servizi multimediali per .NET fornisce le API che inviano la richiesta e attendono il completamento dell'operazione (a livello interno, le API eseguono il polling dell'avanzamento dell'operazione a intervalli definiti). Ad esempio, quando si chiama channel.Start(), il metodo restituisce dopo l'avvio del canale. È possibile anche usare la versione asincrona: await channel.StartAsync(). Per informazioni sul modello asincrono basato su attività, vedere [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx). Le API che inviano una richiesta di operazione e quindi eseguono il polling dello stato fino al completamento dell'operazione vengono definite "metodi di polling". Tali metodi (in special modo la versione asincrona) sono consigliati per le applicazioni rich client e/o i servizi con stato.
 
 In alcuni scenari è possibile che un'applicazione non possa attendere una richiesta HTTP con esecuzione prolungata e sia necessario eseguire il polling manuale dell'avanzamento dell'operazione. Un esempio tipico può essere un browser che interagisce con un servizio Web senza stato: quando il browser richiede di creare un canale, il servizio Web avvia un'operazione con esecuzione prolungata e restituisce l'ID operazione al browser. Il browser potrebbe quindi chiedere al servizio Web di ottenere lo stato dell'operazione in base all'ID. L'SDK di Servizi multimediali per .NET fornisce API che sono utili per questo scenario, definite "metodi di non polling",
-I "metodi di non polling" presentano il modello di denominazione seguente: Send*OperationName*Operation (ad esempio, SendCreateOperation). I metodi Send*NomeOperazione*Operation restituiscono l'oggetto **IOperation**. L'oggetto restituito contiene informazioni che consentono di tenere traccia dell'operazione. I metodi Send*NomeOperazione*OperationAsync restituiscono **Task<IOperation>**.
+I "metodi di non polling" presentano il modello di denominazione seguente: Send*OperationName*Operation (ad esempio, SendCreateOperation). I metodi Send*NomeOperazione*Operation restituiscono l'oggetto **IOperation**. L'oggetto restituito contiene informazioni che consentono di tenere traccia dell'operazione. La trasmissione*OperationName*metodi OperationAsync restituiscono **Task\<IOperation >**.
 
 Attualmente, le classi seguenti supportano i metodi non polling:  **Channel**, **StreamingEndpoint** e **Program**.
 

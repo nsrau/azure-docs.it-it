@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c91bf389f5c63b95e5b68784b6657e92b109a46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265866"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545842"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -114,7 +114,7 @@ La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido p
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 
-| **Region** | **Record DNS** |
+| **Area** | **Record DNS** |
 | --- | --- |
 | Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
@@ -126,6 +126,7 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 | Asia sudorientale |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | India centrale |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Giappone orientale |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| Australia orientale |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |

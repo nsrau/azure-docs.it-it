@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282985"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544637"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -25,23 +25,23 @@ Questo articolo fornisce informazioni sui dati inclusi in Gestione costi di Azur
 
 Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) attualmente supportate in Gestione costi di Azure.  Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone.
 
-| Categoria  | **Nome offerta** | **ID quota** | **Numero offerta** |
+| Categoria  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
 | **Azure Germania** | [Azure Germania con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **Contratto Enterprise Agreement (EA)** | Sviluppo/test Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
-| **Contratto Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
-| **Contratto del cliente Microsoft** | [Piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
+| **Contratto Enterprise** | Sviluppo/test Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **Contratto Enterprise** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Contratto per i clienti di Microsoft** | [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D |
+| **Contratto per i clienti di Microsoft** | [Piano di Microsoft Azure per sviluppo/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/D |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pagamento in base al consumo** | [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pagamento in base al consumo** | [Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
 | **Pagamento in base al consumo** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **Pagamento in base al consumo** | [Versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **Pagamento in base al consumo** | [Versione di prova gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
 | **Pagamento in base al consumo** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **Pagamento in base al consumo** | [Azure per studenti](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pagamento in base al consumo** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Pagamento in base al consumo** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise-MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Enterprise - MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
@@ -49,11 +49,11 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 
 La tabella seguente mostra le offerte non supportate.
 
-| Categoria  | **Nome offerta** | **ID quota** | **Numero offerta** |
+| Categoria  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
-| **Provider di soluzioni cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
-| **Provider di soluzioni cloud (CSP)** | CSP Azure per enti pubblici                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
-| **Provider di soluzioni cloud (CSP)** | Azure Germania in CSP per Microsoft Cloud Germania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **Cloud Solution Provider (CSP)** | CSP Azure per enti pubblici                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **Cloud Solution Provider (CSP)** | Azure Germania in CSP per Microsoft Cloud Germania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pagamento in base al consumo**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **Pagamento in base al consumo**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Piani di supporto** | Supporto tecnico standard                    | Default_2014-09-01 | MS-AZR-0041P |
@@ -75,7 +75,7 @@ Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole dete
 
 Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi. Tutti i costi vengono stimati fino a quando non viene generata una fattura. Crediti gratuiti e prepagati non includono i costi visualizzati.
 
-**Dati di utilizzo e costi**
+**Dati su costi e utilizzo**
 
 | **Incluso** | **Non incluso** |
 | --- | --- |
@@ -123,6 +123,25 @@ La disponibilità dei dati sull'utilizzo in Gestione costi dipende da due fattor
 - Il tempo necessario per l'elaborazione dei dati sull'utilizzo tramite il motore di valutazione e le pipeline di gestione dei costi.
 
 Alcuni servizi generano i dati sull'utilizzo più spesso rispetto ad altri. Pertanto, i dati per alcuni servizi potrebbero essere visualizzati in Gestione costi più rapidamente rispetto ad altri servizi che generano i dati con minore frequenza. In genere, la visualizzazione in Gestione costi dei dati sull'utilizzo richiede da 8 a 24 ore. Tenere presente che i dati per un mese aperto vengono aggiornati in caso di aumento dell'utilizzo, perché gli aggiornamenti sono cumulativi.
+
+## <a name="historical-data-might-not-match-invoice"></a>I dati cronologici potrebbero non corrispondere fattura
+
+I dati cronologici per le offerte basate su carta di credito e pagamento anticipato potrebbero non corrispondere la fattura. Alcune offerte di Azure con pagamento a consumo, MSDN e Visual Studio possono avere i crediti di Azure e pagamenti avanzati applicati alla fattura. Tuttavia, i dati cronologici visualizzati in Gestione costi si basa sugli addebiti solo stime sui consumi. Non includono dati cronologici a gestione costi pagamenti e crediti. Di conseguenza, i dati cronologici visualizzati per le offerte seguenti potrebbero non corrispondere esattamente a quelli di fattura.
+
+-   MS-AZR-0029P
+-   MS-AZR-0064P
+-   MS-AZR-0170P
+-   MS-AZR-0062P
+-   MS-AZR-0123P
+-   MS-AZR-0129P
+-   MS-AZR-0044P
+-   MS-AZR-0128P
+-   MS-AZR-0120P
+-   MS-AZR-0125P
+-   MS-AZR-0059P
+-   MS-AZR-0063P
+-   MS-AZR-0060P
+-   MS-AZR-0111P
 
 ## <a name="see-also"></a>Vedere anche 
 

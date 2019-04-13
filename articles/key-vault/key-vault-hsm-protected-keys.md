@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630623"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522729"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -445,7 +445,7 @@ Quando si esegue il comando, sostituire *contosokey* con lo stesso valore specif
 
 Viene chiesto di inserire le schede amministrative relative all'ambiente di sicurezza.
 
-Al termine dell'esecuzione del comando, viene visualizzato il messaggio **Result: SUCCESS** e la copia della chiave con autorizzazioni ridotte si trova nel file denominato key_xferacid_<contosokey>.
+Al termine dell'esecuzione del comando, viene visualizzato il messaggio **Result: Operazione riuscita** e la copia della chiave con autorizzazioni ridotte sono nel file denominato key_xferacid _\<contosokey >.
 
 È possibile ispezionare gli elenchi di controllo di accesso usando i comandi seguenti e le utilità Thales:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917754"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526182"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limitare il contenuto della rete CDN di Azure in base al paese
 
@@ -46,9 +46,9 @@ Nella casella **Percorso** specificare il percorso relativo della posizione a cu
 
 Ad esempio, tutti i filtri di percorso di directory seguenti sono validi:   
 */*                                 
-*/Photos/*     
-*/Photos/Strasburgo /*     
-*/Photos/Strasbourg/city.png*
+*/Foto/*     
+*/Foto/Strasburgo/*     
+*/Foto/Strasburgo/città.png*
 
 ### <a name="define-the-type-of-action"></a>Definire il tipo di azione
 
@@ -59,8 +59,8 @@ Nell'elenco **Azione** selezionare **Consenti** o **Blocca**:
 - **Blocco**: Gli utenti dei paesi specificati negati l'accesso agli asset richiesto dal percorso ricorsivo. Se non sono state definite altre opzioni di filtro di paese per tale percorso, tutti gli altri utenti saranno autorizzati ad accedere.
 
 Ad esempio, una regola di filtro geografico per bloccare il percorso */Foto/Strasburgo/* filtra i file seguenti:     
-*http://<endpoint>.azureedge.net/Foto/Strasburgo/1000.jpg*
-*http://<endpoint>.azureedge.net/Foto/Strasburgo/Cattedrale/1000.jpg*
+*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>Definire i paesi
 Nell'elenco **Codici paese** selezionare i paesi che si vuole bloccare o consentire per il percorso. 

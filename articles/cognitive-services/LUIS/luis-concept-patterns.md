@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547419"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523104"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
@@ -31,7 +31,7 @@ Si consideri un'app di risorse umane che genera report nel grafico aziendale su 
 |Chi è il sottoposto di Tom?|GetOrgChart|.30|
 |Come si chiama il sottoposto di Tom?|GetOrgChart|.30|
 
-Se un'app ha tra le 10 e le 20 espressioni con diverse lunghezze di frase, diverso ordine di parole e persino diverse parole (sinonimi di "sottoposto", "gestire", "report"), LUIS può restituire un punteggio corrispondente a un'attendibilità bassa. Creare un modello per comprendere l'importanza dell'ordine di word, LUIS. 
+Se un'app ha tra le 10 e le 20 espressioni con diverse lunghezze di frase, diverso ordine di parole e persino diverse parole (sinonimi di "sottoposto", "gestire", "report"), LUIS può restituire un punteggio corrispondente a un'attendibilità bassa. Creare un modello per comprendere l'importanza dell'ordine di word LUIS. 
 
 I criteri risolvono le situazioni seguenti: 
 
@@ -41,7 +41,7 @@ I criteri risolvono le situazioni seguenti:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>I criteri non sono una garanzia della finalità
 I criteri usano una combinazione di tecnologie di stima. L'impostazione di una finalità per l'espressione di un modello in un criterio non è una garanzia per la stima della finalità ma è un segnale. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>I modelli non migliorano il rilevamento di entità apprese macchina
 
@@ -50,7 +50,7 @@ Un modello è destinato principalmente per consentire la stima di Intent e ruoli
 Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per le entità semplici da attivare, è necessario aggiungere espressioni o usare entità elenco, altrimenti il criterio non viene attivato.
 
 ## <a name="patterns-use-entity-roles"></a>I criteri usano i ruoli delle entità
-Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità. Ciò equivale agli elementi figlio nelle gerarchiche di entità, ma è disponibile **solo** nei criteri. 
+Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Punteggi di stima con e senza criteri
 Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.  
@@ -83,7 +83,7 @@ Il **facoltativi** sintassi tra parentesi quadre, possono essere due livelli ann
 |è un nuovo modulo|word facoltativo outer corrispondenze e le parole non facoltativi nel modello|
 |un nuovo modulo|solo parole corrispondenze obbligate|
 
-Il **raggruppamento** sintassi tra parentesi, può essere due livelli annidati. Ad esempio: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. In questo modo, una delle tre entità per cui trovare una corrispondenza. 
+Il **raggruppamento** sintassi tra parentesi, può essere due livelli annidati. Ad esempio: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Questa funzionalità consente a uno qualsiasi dei tre entità per cui trovare una corrispondenza. 
 
 Se Entity1 è un percorso con i ruoli, ad esempio origine (Seattle) e di destinazione (Cairo) e 2 di entità è un nome dell'edificio noti da un'entità di elenco (RedWest-C), le espressioni seguenti esegue il mapping a questo modello:
 
@@ -170,7 +170,7 @@ Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra pare
 |Criteri con testo facoltativo|Significato|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` e `from {person}` sono facoltativi|
-|'. Può aiutarmi [?]|Il segno di punteggiatura è facoltativo|
+|'. Può aiutarmi [?] | Il segno di punteggiatura è facoltativo|
 
 Segni di punteggiatura (`?`, `!`, `.`) devono essere ignorate ed è necessario ignorarli utilizzando la sintassi di parentesi quadre nei modelli. 
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868345"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526496"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 
@@ -206,7 +206,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
     Salvare il valore completo per il passaggio 3 di questa sezione. 
 
-1. Per concedere l'accesso corretto al cluster AKS per l'uso delle immagini archiviate nel registro contenitori, creare un'assegnazione di ruolo. Sostituire <appId> e <acrId> con i valori raccolti nei due passaggi precedenti.
+1. Per concedere l'accesso corretto al cluster AKS per l'uso delle immagini archiviate nel registro contenitori, creare un'assegnazione di ruolo. Sostituire `<appId>` e `<acrId>` con i valori raccolti nei due passaggi precedenti.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

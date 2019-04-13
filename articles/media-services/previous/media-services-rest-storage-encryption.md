@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f749a04b569d183589fba8c788ce48f29358b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295556"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525790"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione 
 
@@ -111,7 +111,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 
     Proprietà del corpo della richiesta    | DESCRIZIONE
     ---|---
-    ID | L'ID della chiave simmetrica viene generato usando il formato seguente: "nb:kid:UUID:<NEW GUID>".
+    ID | L'ID del ContentKey viene generato usando il formato seguente, "NB:\<nuovo GUID >".
     ContentKeyType | Il tipo di chiave simmetrica è un numero intero che definisce la chiave. Per il formato di crittografia di archiviazione, il valore è 1.
     EncryptedContentKey | Viene creato un nuovo valore di chiave simmetrica che corrisponde a un valore a 256 bit (32 byte). La chiave viene crittografata mediante il certificato X.509 di crittografia di archiviazione recuperato da Servizi multimediali di Microsoft Azure eseguendo una richiesta HTTP GET per i metodi GetProtectionKeyId e GetProtectionKey. Per un esempio, vedere il codice .NET seguente: il metodo **EncryptSymmetricKeyData** definito [qui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | ID della chiave di protezione per il certificato X.509 di crittografia di archiviazione usato per crittografare la chiave simmetrica.

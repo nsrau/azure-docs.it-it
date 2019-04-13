@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109832"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Esercitazione: Integrazione di Azure Active Directory con Rightscale
 
@@ -129,10 +129,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_general_400.png)
 
-1. Nella sezione **Configurazione di Rightscale** fare clic su **Configura Rightscale** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido**.
+1. Nella sezione **Configurazione di Rightscale** fare clic su **Configura Rightscale** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
+
 1. Per configurare l'accesso SSO per l'applicazione, è necessario accedere al tenant di RightScale come amministratore.
 
     a. Nel menu in alto fare clic sulla scheda **Settings** (Impostazioni) e selezionare **Single Sign-On**.
@@ -164,7 +164,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Fare clic su **Save**.
-   <CE>
+
    > [!TIP]
    > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
    > 

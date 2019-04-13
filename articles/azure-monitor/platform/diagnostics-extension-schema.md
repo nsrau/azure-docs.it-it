@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493315"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526342"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
@@ -56,11 +56,11 @@ L'estensione diagnostica di Azure viene usato con altri prodotti di diagnostica 
 ## <a name="schemas-index"></a>Indice degli schemi  
 Versioni diverse di Diagnostica di Azure usano schemi di configurazione diversi.
 
-[Schema di configurazione di diagnostica 1.0](diagnostics-extension-schema-1dot0.md)  
+[Schema di configurazione di Diagnostica 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Schema di configurazione di diagnostica 1.2](diagnostics-extension-schema-1dot2.md)  
+[Schema di configurazione di Diagnostica 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnostica 1.3 e versioni successive lo Schema di configurazione](diagnostics-extension-schema-1dot3.md)  
+[Schema di configurazione di Diagnostica 1.3 e versioni successive](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Cronologia delle versioni
 
@@ -187,7 +187,7 @@ Il funzionamento della stringa di connessione presenta alcune differenze sostanz
 
 * In Azure SDK 2.4 e versioni precedenti, la stringa di connessione viene usata in fase di runtime dal plug-in di diagnostica per ottenere le informazioni sull'account di archiviazione per il trasferimento dei log di diagnostica.
 * In Azure SDK 2.6 e versioni successive, Visual Studio usa la stringa di connessione di diagnostica per configurare l'estensione di diagnostica con le informazioni appropriate sull'account di archiviazione durante la pubblicazione. La stringa di connessione consente di definire diversi account di archiviazione per diverse configurazioni del servizio, che verranno usate da Visual Studio durante la pubblicazione. Poiché, tuttavia, il plug-in di diagnostica non è più disponibile (dopo Azure SDK 2.5), il solo file .cscfg non è in grado di abilitare l'estensione di diagnostica. È necessario abilitare l'estensione separatamente tramite strumenti quali Visual Studio o PowerShell.
-* Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics<RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
+* Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
 * La stringa di connessione nel file .cscfg viene usata anche dal portale di Azure per accedere ai dati di diagnostica, per consentirne la visualizzazione nella scheda **Monitoraggio** . La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrazione di progetti in Azure SDK 2.6 e versioni successive
@@ -207,7 +207,7 @@ Ad esempio, si supponga di selezionare questa casella di controllo e che la stri
 Se si aggiorna il progetto da Azure SDK 2.4 ad Azure SDK 2.5 o versioni successive, è consigliabile ricordare le differenze seguenti a livello di funzionalità di diagnostica.
 
 * **Le API di configurazione sono deprecate** : la configurazione a livello di codice della diagnostica è disponibile in Azure SDK 2.4 o versioni precedenti, ma è deprecata in Azure SDK 2.5 e versioni successive. Se la configurazione di diagnostica è attualmente definita nel codice, sarà necessario riconfigurare completamente tali impostazioni nel progetto sottoposto a migrazione, in modo da mantenere il funzionamento della diagnostica. Il file di configurazione della diagnostica per Azure SDK 2.4 è diagnostics.wadcfg, mentre è diagnostics.wadcfgx per Azure SDK 2.5 e versioni successive.
-* **La diagnostica per le applicazioni di servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
+* **La diagnostica per le applicazioni del servizio cloud può essere configurata solo a livello di ruolo, non a livello di istanza.**
 * **Ogni volta che si distribuisce l'app, le configurazioni di diagnostica vengono aggiornate** : ciò può provocare problemi di parità se si modifica la configurazione di diagnostica da Esplora server e quindi si ridistribuisce l'app.
 * **In Azure SDK 2.5 e versioni successive i dump di arresto anomalo del sistema sono configurati nel file di configurazione, non nel codice** : se i dump di arresto anomalo del sistema sono configurati nel codice, sarà necessario trasferire manualmente la configurazione dal codice al file di configurazione, perché i dump di arresto anomalo del sistema non vengono trasferiti durante la migrazione in Azure SDK 2.6.
 

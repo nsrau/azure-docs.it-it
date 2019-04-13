@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095671"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545095"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
@@ -27,7 +27,7 @@ Apache Hadoop Streaming è un'utilità che consente di eseguire processi MapRedu
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
-Per eseguire applicazioni .NET, i cluster __HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com)). La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](../hdinsight-component-versioning.md). Per usare una versione specifica di Mono, vedere il documento [Install or update Mono](../hdinsight-hadoop-install-mono.md) (Installare o aggiornare Mono).
+Per eseguire applicazioni .NET, i cluster __HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com)). La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](../hdinsight-component-versioning.md). 
 
 Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 

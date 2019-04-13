@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999831"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522555"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -151,8 +151,8 @@ Le convenzioni di denominazione dei volumi di archiviazione sono elencate nella 
 
 | Utilizzo delle risorse di archiviazione | Nome del montaggio | Nome del volume | 
 | --- | --- | ---|
-| Dati HANA | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| Log HANA | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| Dati HANA | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| Log HANA | /Hana/log/SID/mnt0000\<m > | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | Backup dei log HANA | /hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | Condivisione HANA | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

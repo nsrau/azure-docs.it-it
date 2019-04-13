@@ -1,7 +1,7 @@
 ---
 title: Miglioramento dell'accuratezza grazie ai criteri
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informazioni su come aggiungere i modelli di criteri in Language Understanding (LUIS) per migliorarne la precisione delle previsioni.
+description: Aggiungere modelli di schema per migliorare l'accuratezza della stima nelle applicazioni di LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195048"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521255"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere i modelli per migliorare l'accuratezza della stima
-Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concept-patterns.md) per migliorare l'accuratezza della stima per espressioni che rivela un criterio in ordine di word e la scelta delle parole. Modelli di utilizzano specifici [sintassi](luis-concept-patterns.md#pattern-syntax) per indicare la posizione del: [entità](luis-concept-entity-types.md), i ruoli di entità e testo facoltativo.
+Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concept-patterns.md) per migliorare l'accuratezza della stima per espressioni che rivela un criterio in ordine di word e la scelta delle parole. Modelli di utilizzano specifici [sintassi](luis-concept-patterns.md#pattern-syntax) per indicare la posizione del: [entità](luis-concept-entity-types.md), entità [ruoli](luis-concept-roles.md)e il testo facoltativo.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Aggiungere l'espressione di modello per creare un criterio
 1. Apri l'applicazione selezionando il corrispettivo nome nella pagina **App personali** e quindi seleziona **Criteri** nel riquadro sinistro, nella sezione **Migliora le prestazioni dell'applicazione**.
@@ -34,7 +34,7 @@ Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concep
 
     ![Schermata dell'entità per il criterio](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se l'entità include un ruolo, indica il ruolo con i due punti, `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio. 
+    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un unico carattere due punti `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio. 
 
     ![Schermata dell'entità con un ruolo](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

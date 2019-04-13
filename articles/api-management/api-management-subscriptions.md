@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049759"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526589"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Sottoscrizioni in Gestione API di Azure
 
@@ -50,9 +50,6 @@ In genere, le sottoscrizioni in Gestione API sono state sempre associate a un si
 > In determinate circostanze, gli editori delle API potrebbero voler pubblicare un prodotto API al pubblico senza l'obbligo di sottoscrizioni. In questo caso, è possibile deselezionare l'opzione **Richiedi sottoscrizione** nella pagina **Impostazioni** del prodotto nel portale di Azure. Di conseguenza, è possibile accedere a tutte le API del prodotto senza una chiave API.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Sottoscrizioni per tutte le API o un'API singola
-
-> [!NOTE]
-> Attualmente questa funzione è disponibile solo nel livello di consumo di Gestione API.
 
 Quando è stato introdotto il livello [Consumo](https://aka.ms/apimconsumptionblog) di Gestione API, sono state apportate alcune modifiche per semplificare la gestione delle chiavi:
 - In primo luogo, sono stati aggiunti due altri ambiti per le sottoscrizioni: tutte le API e un'API singola. L'ambito delle sottoscrizioni non è più limitato a un prodotto API. È ora possibile creare chiavi che concedono l'accesso a un'API (o a tutte le API all'interno di un'istanza di Gestione API), senza la necessità di creare un prodotto e aggiungervi le API prima di tutto. Inoltre, ogni istanza di Gestione API include ora una sottoscrizione non modificabile per tutte le API. Con questa sottoscrizione è più semplice e immediato testare ed eseguire il debug delle API all'interno della console di test.

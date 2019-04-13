@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916887"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525562"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure
 Tracciare è una delle azioni a cui è possibile ricorrere per monitorare l'esecuzione di un'applicazione mentre è attiva. È possibile usare le classi [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) e [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) per registrare informazioni sull'esecuzione dell'applicazione ed eventuali errori in file di log, file di testo o altri dispositivi per un'analisi successiva. Per altre informazioni sulle funzionalità di traccia, vedere l'articolo sulle modalità per [tracciare e instrumentare applicazioni](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Per altre informazioni sui listener, vedere l'articolo sui [listener di traccia]
 Dopo aver completato i passaggi necessari per aggiungere il listener, è possibile aggiungere istruzioni di traccia al codice.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Per aggiungere un'istruzione di traccia al codice
-1. Aprire un file di origine per l'applicazione, ad esempio il file <RoleName>.cs per il ruolo di lavoro o il ruolo Web.
+1. Aprire un file di origine per l'applicazione, Ad esempio, il \<RoleName > file con estensione cs per il ruolo web o il ruolo di lavoro.
 2. Aggiungere l'istruzione using seguente, se non è già presente:
     ```
         using System.Diagnostics;

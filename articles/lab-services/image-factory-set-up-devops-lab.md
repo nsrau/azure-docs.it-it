@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439911"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523019"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Eseguire una factory di immagini da Azure DevOps
 Questo articolo illustra tutte le operazioni preliminari necessari per eseguire la factory di immagini dalla metodologia DevOps di Azure (noto in precedenza come Visual Studio Team Services).
@@ -44,12 +44,12 @@ DevOps di Azure consentono di archiviare il codice sorgente, eseguire Azure Powe
 
 Se hai un account di DevOps esistente o un progetto da utilizzare in alternativa, è possibile ignorare questo passaggio.
 
-Per iniziare, creare un account gratuito di Azure DevOps. Visita https://www.visualstudio.com/ e selezionare **Provalo gratis** a destra sotto **Azure DevOps** (noto in precedenza come VSTS). È necessario scegliere un nome di account univoci e assicurarsi di scegliere di gestire il codice con Git. Dopo la creazione, salvare l'URL per il progetto team. Ecco un esempio URL: https://<accountname>.visualstudio.com/MyFirstProject.
+Per iniziare, creare un account gratuito di Azure DevOps. Visita https://www.visualstudio.com/ e selezionare **Provalo gratis** a destra sotto **Azure DevOps** (noto in precedenza come VSTS). È necessario scegliere un nome di account univoci e assicurarsi di scegliere di gestire il codice con Git. Dopo la creazione, salvare l'URL per il progetto team. Di seguito è un URL di esempio: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Archivia la factory di immagini a Git
 PowerShell, modelli e configurazione per la factory di immagini si trovano nel [pubblico DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). Il modo più rapido per ottenere il codice nel nuovo progetto team consiste nell'importare un repository. Si esegue il pull nel repository di DevTest Labs intero (quindi si otterranno extra documentazione ed esempi). 
 
-1. Visita il progetto DevOps di Azure creato nel passaggio precedente (URL è simile **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Visita il progetto DevOps di Azure creato nel passaggio precedente (URL è simile **https:\//\<NomeAccount >.visualstudio.com/MyFirstProject**).
 2. Selezionare **importare un Repository**.
 3. Immettere il **URL di clonazione** per il repository di DevTest Labs: `https://github.com/Azure/azure-devtestlab`.
 4. Selezionare **Importa**.

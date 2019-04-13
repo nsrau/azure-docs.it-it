@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316236"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526606"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
 Quando si distribuiscono contenuti in streaming o video on demand ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete.
@@ -157,7 +157,8 @@ Un endpoint di streaming rappresenta un servizio di streaming in grado di distri
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifiche alla versione del manifesto Smooth Streaming
 Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione precedente di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0. Nella versione 2.0 le durate dei frammenti non usano i cosiddetti tag di ripetizione ("r"). Ad esempio: 
 
-<?xml version="1.0" encoding="UTF-8"?>
+
+    <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
         <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
             <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />

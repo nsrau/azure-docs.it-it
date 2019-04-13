@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526623"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usare un'identità gestita di Azure per eseguire l'autenticazione a un registro contenitori di Azure 
 
@@ -164,7 +164,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH nella macchina virtuale Docker che è configurato con l'identità. Eseguire i comandi seguenti dell'interfaccia della riga di comando di Azure, tramite l'interfaccia della riga di comando di Azure installata nella macchina virtuale.
 
-In primo luogo, eseguire l'autenticazione per il comando di Azure con [account di accesso di az][az-login], usando l'identità è stato configurato nella macchina virtuale. Per <userID>, sostituire l'ID dell'identità recuperato in un passaggio precedente. 
+In primo luogo, eseguire l'autenticazione per il comando di Azure con [account di accesso di az][az-login], usando l'identità è stato configurato nella macchina virtuale. Per `<userID>`, sostituire l'ID dell'identità recuperato in un passaggio precedente. 
 
 ```azurecli
 az login --identity --username <userID>

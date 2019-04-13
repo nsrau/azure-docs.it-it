@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/12/2019
+ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882710"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545825"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -72,7 +72,7 @@ Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vc
 
 ### <a name="backups-for-point-in-time-restore"></a>Backup per il ripristino temporizzato
 
-Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alla dimensione di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema.
+Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alla dimensione di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. È possibile modificare o disabilitare i processi di backup. 
 
 I backup di ripristino temporizzato sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -107,14 +107,14 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup per il recupero temporizzato
 
-È possibile modificare il periodo di conservazione dei backup per il recupero temporizzato predefinito usando il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
+È possibile modificare il periodo di conservazione dei backup Temporizzato predefinito tramite il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
 
 > [!NOTE]
 > Queste API avranno un impatto solo sul periodo di conservazione del recupero temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Per altre informazioni su come modificare i periodi di conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup per il recupero temporizzato nel portale di Azure, passare all'oggetto server di cui si vuole modificare il periodo di conservazione all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server da modificare.
+Per modificare il periodo di conservazione dei backup di ripristino Temporizzato nel portale di Azure, passare all'oggetto server il cui periodo di memorizzazione che si desidera modificare all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server di cui si sta modificando.
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>Modificare il recupero temporizzato per un server di database SQL
 

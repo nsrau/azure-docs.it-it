@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360757"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523002"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -195,8 +195,8 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    | Proprietà | Valore | DESCRIZIONE |
    | -------- | ----- | ----------- |
-   | **NOME** | Limite | Nome della variabile | 
-   | **Type** | Integer | Nome del tipo di dati della variabile | 
+   | **Nome** | Limite | Nome della variabile | 
+   | **Tipo** | Integer | Nome del tipo di dati della variabile | 
    | **Valore** | 0 | Valore iniziale della variabile | 
    |||| 
 
@@ -236,7 +236,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       | Proprietà | Valore | DESCRIZIONE |
       | -------- | ----- | ----------- | 
-      | **A** | *<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
+      | **To** | *\<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
       | **Corpo** | <*contenuto del messaggio di posta elettronica*> | Specificare il contenuto del messaggio di posta elettronica da inviare. Per questo esempio, immettere il testo desiderato. | 
       |||| 
@@ -253,7 +253,7 @@ Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica
 
 | Proprietà | Valore predefinito | DESCRIZIONE | 
 | -------- | ------------- | ----------- | 
-| **Conteggio** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
+| **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
 | **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
 |||| 
 

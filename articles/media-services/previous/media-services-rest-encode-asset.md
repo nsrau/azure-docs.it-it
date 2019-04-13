@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293074"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521629"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ Il seguente esempio mostra impostare l'attributo assetName:
 
 ## <a name="considerations"></a>Considerazioni
 * Le proprietà TaskBody devono usare codice XML letterale per definire il numero di asset di input o di output che vengono usati dall'attività. L'articolo Attività contiene la definizione dello schema XML per il codice XML.
-* Nella definizione TaskBody ogni valore interno per <inputAsset> e <outputAsset>deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
+* Nella definizione TaskBody ogni valore interno per `<inputAsset>` e `<outputAsset>`deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
 * Un'attività può avere più asset di output. Un oggetto JobOutputAsset(x) può essere usato solo una volta come output di un'attività in un processo.
 * È possibile specificare JobInputAsset o JobOutputAsset come asset di input di un'attività.
 * Le attività non devono formare un ciclo.
 * Il parametro del valore passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità del processo.
 * Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata: uri".
 * InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
-* Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponde al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob".
+* Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponde al valore del testo interno dell'elemento `<outputAsset>` preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob".
 
 ## <a name="create-a-job-with-chained-tasks"></a>Creare un processo con attività concatenate
 In molti scenari di applicazione, gli sviluppatori desiderano creare una serie di attività di elaborazione. In Servizi multimediali è possibile creare una serie di attività concatenate. Ogni attività esegue diversi passaggi di elaborazione e può usare processori di contenuti multimediali differenti. Le attività concatenate possono trasferire un asset da un'attività a un'altra e consentono quindi l'esecuzione delle attività dell'asset in sequenza lineare. Tuttavia, non è necessario che le attività eseguite in un processo siano in sequenza. Quando si crea un'attività concatenata, gli oggetti **ITask** concatenati vengono creati in un singolo oggetto **IJob**.

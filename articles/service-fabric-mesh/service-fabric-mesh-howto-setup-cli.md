@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885454"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521017"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
 L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. 
@@ -25,7 +25,7 @@ L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per dis
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Interfaccia della riga di comando principale, che consente di distribuire le applicazioni e gestire le risorse nell'ambiente di Azure Service Fabric Mesh. 
 | sfctl | Cluster locali | Interfaccia della riga di comando di Service Fabric, che consente di distribuire e testare le risorse di Service Fabric sui cluster locali.  
-| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Wrapper per "az mesh" e "sfctl" che consente agli sviluppatori Java di usare un'esperienza della riga di comando familiare per lo sviluppo in locale e in Azure.  
+| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Un wrapper intorno `az mesh` e `sfctl` che consente agli sviluppatori Java di sfruttare un'esperienza familiare della riga di comando per un'esperienza di sviluppo locale e Azure.  
 
 Per l'anteprima l'interfaccia della riga di comando di Azure Service Fabric Mesh viene scritta come estensione dell'interfaccia della riga di comando di Azure. È possibile installarla in Azure Cloud Shell oppure in un'installazione locale dell'interfaccia della riga di comando di Azure. 
 

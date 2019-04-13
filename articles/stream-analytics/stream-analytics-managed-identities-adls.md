@@ -1,19 +1,18 @@
 ---
-title: Autenticare il processo di Analisi di flusso di Azure nell'output di Azure Data Lake Storage Gen1
+title: Eseguire l'autenticazione di Azure Data Lake archiviazione Gen1 output del processo Azure Stream Analitica
 description: Questo articolo descrive come usare le identità gestite per autenticare il processo di Analisi di flusso di Azure nell'output di Azure Data Lake Storage Gen1.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257978"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522062"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Eseguire l'autenticazione Analitica Stream per Azure Data Lake archiviazione Gen1 usando identità gestite
 
@@ -100,36 +99,40 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
    Questa proprietà indica ad Azure Resource Manager di creare e gestire l'identità per il processo di Analisi di flusso di Azure.
 
    **Processo di esempio**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
-   **Esempio di risposta di processo**
+   **Risposta del processo di esempio**
 
    ```json
    {
@@ -145,7 +148,8 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Prendere nota dell'ID entità della risposta del processo per concedere l'accesso alla risorsa di ADLS richiesta.
@@ -169,18 +173,17 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Per altre informazioni sul precedente comando di PowerShell, vedere la [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentazione.
+   Per altre informazioni sul precedente comando di PowerShell, vedere la [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentazione.
 
 ## <a name="limitations"></a>Limitazioni
 Questa funzionalità non supporta le operazioni seguenti:
 
-1.  **L'accesso multi-tenant**: L'entità servizio creata per un determinato processo di Stream Analitica si troverà nel tenant di Azure Active Directory in cui è stato creato il processo e non può essere utilizzato in una risorsa che risiede in un altro tenant di Azure Active Directory. Pertanto, è possibile usare solo MSI sulle risorse di Azure Data Lake Store generazione 1 che sono nello stesso tenant di Azure Active Directory del processo di Azure Stream Analitica. 
+1. **L'accesso multi-tenant**: L'entità servizio creata per un determinato processo di Stream Analitica si troverà nel tenant di Azure Active Directory in cui è stato creato il processo e non può essere utilizzato in una risorsa che risiede in un altro tenant di Azure Active Directory. Pertanto, è possibile usare solo MSI sulle risorse di Azure Data Lake Store generazione 1 che sono nello stesso tenant di Azure Active Directory del processo di Azure Stream Analitica. 
 
-2.  **[Identità utente assegnata](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: non è supportato questo significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica. 
-
+2. **[Identità utente assegnata](../active-directory/managed-identities-azure-resources/overview.md)**: non è supportato. Ciò significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un output di Data lake Store con analitica di flusso](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Dati di test in tempo reale in locale usando gli strumenti di Azure Stream Analitica per Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-live-data-local-testing.md) 

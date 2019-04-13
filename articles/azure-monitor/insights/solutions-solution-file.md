@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776649"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526368"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -213,7 +213,7 @@ La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  S
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Nome area di lavoro\>*. |
+| workspaceResourceId |ID dell'area di lavoro di Log Analitica nel formato  *\<ID gruppo di risorse > /providers/Microsoft.OperationalInsights/workspaces/\<nome area di lavoro\>*. |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
 | containedResources |Elenco delle risorse nella soluzione che devono essere rimosse quando la soluzione viene rimossa. |
 

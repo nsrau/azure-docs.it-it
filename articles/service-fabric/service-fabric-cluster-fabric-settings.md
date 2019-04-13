@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501298"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526538"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -87,7 +87,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |MaxDataMigrationTimeout |Tempo in secondi, valore predefinito: 600 |Dinamico|Specificare l'intervallo di tempo in secondi. Timeout massimo per le operazioni di ripristino di migrazione di dati dopo un aggiornamento di Service Fabric. |
 |MaxOperationRetryDelay |Tempo in secondi, valore predefinito: 5|Dinamico| Specificare l'intervallo di tempo in secondi. Ritardo massimo per i tentativi interni quando vengono rilevati errori. |
 |MaxOperationTimeout |Tempo in secondi, valore predefinito: MaxValue |Dinamico| Specificare l'intervallo di tempo in secondi. Il timeout massimo globale per l'elaborazione interna delle operazioni in ClusterManager. |
-|MaxTimeoutRetryBuffer | Tempo in secondi, valore predefinito: 600 |Dinamico|Specificare l'intervallo di tempo in secondi. Il timeout massimo dell'operazione durante i tentativi interni dovuti a timeout è <Original Time out> + <MaxTimeoutRetryBuffer>. Viene aggiunto timeout aggiuntivo in incrementi di MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tempo in secondi, valore predefinito: 600 |Dinamico|Specificare l'intervallo di tempo in secondi. Il timeout massimo dell'operazione durante i tentativi interni dovuti a timeout è `<Original Time out> + <MaxTimeoutRetryBuffer>`. Viene aggiunto timeout aggiuntivo in incrementi di MinOperationTimeout. |
 |MinOperationTimeout | Tempo in secondi, il valore predefinito è 60 |Dinamico|Specificare l'intervallo di tempo in secondi. Il timeout minimo globale per l'elaborazione interna delle operazioni in ClusterManager. |
 |MinReplicaSetSize |Int, valore predefinito: 3 |Non consentito|MinReplicaSetSize per ClusterManager. |
 |PlacementConstraints | stringa, il valore predefinito è "" |Non consentito|PlacementConstraints per ClusterManager. |

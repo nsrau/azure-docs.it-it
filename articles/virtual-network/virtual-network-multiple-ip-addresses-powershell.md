@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649638"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522985"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Assegnare più indirizzi IP alle macchine virtuali usando PowerShell
 
@@ -96,7 +96,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 6. Definire la configurazione IP primaria della scheda di interfaccia di rete. Modificare 10.0.0.4 in un indirizzo valido nella subnet creata, se il valore definito in precedenza non è stato usato. Prima di assegnare un indirizzo IP statico, è consigliabile verificare che non sia già in uso. Immettere il comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se l'indirizzo è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *False* e un elenco di indirizzi disponibili. 
 
-    Nei comandi seguenti, **sostituire <replace-with-your-unique-name> con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo è un parametro facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
+    Nei comandi seguenti **sostituire \<replace-con-your-unique-name > con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo è un parametro facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
 
     ```powershell
     

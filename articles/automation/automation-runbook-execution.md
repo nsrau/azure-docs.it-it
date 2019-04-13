@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268501"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544756"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -46,7 +46,7 @@ I runbook in Automazione di Automazione di Azure possono essere eseguiti in una 
 |Installare un modulo che richiede un programma di installazione|ruolo di lavoro ibrido per runbook|I moduli per sandbox devono essere Sing|
 |Usare runbook o moduli che richiedono una versione di .NET Framework diversa dalla 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione hanno .NET Framework 4.7.2 e non è possibile aggiornare questa versione|
 |Script che richiedono l'elevazione dei privilegi|ruolo di lavoro ibrido per runbook|Le sandbox di non consentano l'elevazione dei privilegi. Per risolvere questo problema, usare Hybrid Runbook Workers ed è possibile disattivare controllo dell'account utente e usare `Invoke-Command` quando l'esecuzione del comando che richiede l'elevazione dei privilegi|
-|Script che richiedono l'accesso a WMI|ruolo di lavoro ibrido per runbook|I processi in esecuzione in ambienti sandbox cloud [non hanno accesso WMI](#device-and-application-characteristics)|
+|Script che richiedono l'accesso a WMI|ruolo di lavoro ibrido per runbook|I processi in esecuzione in ambienti sandbox nel cloud [non ha accesso a WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento dei runbook
 
@@ -192,7 +192,7 @@ I runbook eseguiti in sandbox di Azure non supportano i processi di chiamata (ad
 
 ### <a name="device-and-application-characteristics"></a>Caratteristiche di dispositivi e applicazioni
 
-I processi di runbook eseguiti in sandbox di Azure non sono disponibili per tutte le caratteristiche di dispositivo o nell'applicazione. L'API più comune usata per le metriche delle prestazioni di query su Windows è WMI. Alcune di queste metriche comuni sono l'utilizzo della CPU e memoria. Tuttavia, non è importante ciò che viene usato l'API. I processi in esecuzione nel cloud non si ha accesso l'implementazione Microsoft di Web basata su Enterprise Management (WBEM), che viene compilato nel modello CIM (Common Information), che sono gli standard di settore per che definisce le caratteristiche di dispositivi e applicazioni.
+I processi di runbook eseguiti in sandbox di Azure non sono disponibili per tutte le caratteristiche di dispositivo o nell'applicazione. L'API più comune usata per le metriche delle prestazioni di query su Windows è WMI. Alcune di queste metriche comuni sono l'utilizzo della CPU e memoria. Tuttavia, non è importante ciò che viene usato l'API. I processi in esecuzione nel cloud non sono disponibili per l'implementazione Microsoft di Web Based Enterprise Management (WBEM), che viene compilato nel modello CIM (Common Information), che sono gli standard di settore per che definisce le caratteristiche di dispositivi e applicazioni.
 
 ## <a name="job-statuses"></a>Stati dei processi
 

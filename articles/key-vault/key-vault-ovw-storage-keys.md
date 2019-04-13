@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370560"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526273"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 
@@ -109,7 +109,7 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
 Dopo aver completato i passaggi elencati sopra, è possibile eseguire i comandi seguenti per chiedere a Key Vault di generare i token di firma di accesso condiviso per l'utente. 
 
 L'elenco di cose che verranno eseguite nei passaggi seguenti sono
-- Imposta una definizione di firma di accesso condiviso dell'account denominato "<YourSASDefinitionName>" in un account di archiviazione gestito da KeyVault "<YourStorageAccountName>" nell'insieme di credenziali "<VaultName>". 
+- Imposta un account denominato definizione di firma di accesso condiviso `<YourSASDefinitionName>` in un account di archiviazione gestita KeyVault `<YourStorageAccountName>` nell'insieme di credenziali `<VaultName>`. 
 - Crea un token di firma di accesso condiviso dell'account per i servizi BLOB, File, Tabella e Coda, per i tipi di risorsa Servizio, Contenitore e Oggetto, con tutte le autorizzazioni, tramite https e con le date di inizio e fine specificate
 - Imposta una definizione di firma di accesso condiviso di archiviazione gestita da KeyVault nell'insieme di credenziali, con l'uri del modello come token di firma di accesso condiviso creato in precedenza, del tipo di firma di accesso condiviso "account" e valido per N giorni
 - Recupera il token di accesso effettivo dal segreto di Key Vault corrispondente alla definizione di firma di accesso condiviso

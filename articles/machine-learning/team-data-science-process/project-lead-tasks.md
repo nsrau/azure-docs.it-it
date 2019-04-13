@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854790"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527011"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Attività per il responsabile di un progetto nel Processo di analisi scientifica dei dati in team
 
@@ -150,7 +150,7 @@ Se si usa Azure DevOps come piattaforma di hosting del codice, in genere, l'_URL
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Se si usa Azure DevOps come piattaforma di hosting del codice, in genere, l'_URL SSH del repository del progetto_ è _ssh:// <nome di servizi di Azure DevOps\>@<Nome di Azure DevOps Services\>.visualstudio.com:22/<Your Project Name>/\_git/<nome del repository del progetto\>. In questo esempio abbiamo ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Se si usa DevOps di Azure come piattaforma di hosting del codice, in genere, il _URL SSH del repository del progetto_ è SSH: / / < nome di servizi di Azure DevOps\>@< nome di servizi di Azure DevOps\>.visualstudio.com:22/ < nome del progetto\>/\_git / < nome del repository del progetto\>. In questo esempio abbiamo ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copiare i contenuti di D3 in D5 
 

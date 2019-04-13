@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Vengono descritti i processi che spazi di sviluppo di Azure power e come vengono configurate nel file di configurazione azds.yaml
 keywords: azds.yaml, Azure Dev spazi Dev, Docker, Kubernetes, Azure, AKS, contenitori di Azure Kubernetes Service
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489589"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544924"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 
@@ -85,16 +85,18 @@ Preparazione del cluster AKS include:
 * L'abilitazione di spazi di sviluppo di Azure nel cluster usando `az aks use-dev-spaces`
 
 Per altre informazioni su come creare e configurare un cluster del servizio contenitore di AZURE per gli spazi di sviluppo di Azure, vedere uno del guide introduttive:
-* [Guida introduttiva ad Azure Dev Spaces con Java](get-started-java.md)
-* [Guida introduttiva ad Azure Dev Spaces con .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
-* [Guida introduttiva ad Azure Dev Spaces con .NET Core](get-started-netcore.md)
-* [Guida introduttiva ad Azure Dev Spaces con Node.js](get-started-nodejs.md)
+* [Iniziare con spazi di sviluppo di Azure con Java](get-started-java.md)
+* [Iniziare con spazi di sviluppo di Azure con .NET Core e Visual Studio](get-started-netcore-visualstudio.md)
+* [Iniziare con spazi di sviluppo di Azure con .NET Core](get-started-netcore.md)
+* [Iniziare con spazi di sviluppo di Azure con Node. js](get-started-nodejs.md)
 
 Quando gli spazi di sviluppo di Azure è abilitato nel cluster AKS, viene installato il controller per il cluster. Il controller è una risorsa di Azure separata all'esterno del cluster ed esegue le operazioni seguenti per le risorse del cluster:
 
 * Crea o definisce uno spazio dei nomi Kubernetes da usare come uno spazio di sviluppo.
 * Rimuove qualsiasi spazio dei nomi Kubernetes denominato *azds*, se presente e ne crea uno nuovo.
-* Consente di distribuire un oggetto di inizializzazione di Kubernetes.
+* Consente di distribuire una configurazione di webhook di Kubernetes.
+* Consente di distribuire un server di ricovero di webhook.
+    
 
 Usa inoltre la stessa entità servizio usati dal cluster servizio contenitore di AZURE per effettuare chiamate di assistenza agli altri componenti di spazi di sviluppo di Azure.
 
@@ -104,9 +106,9 @@ Per usare Azure Dev spazi, deve esistere almeno uno spazio di sviluppo. Spazi di
 
 Per impostazione predefinita, il controller crea uno spazio di sviluppo denominato *predefinite* eseguendo l'aggiornamento esistenti *predefinita* dello spazio dei nomi Kubernetes. È possibile utilizzare gli strumenti lato client per creare nuovi spazi di sviluppo e rimuovere gli spazi di sviluppo esistente. A causa di una limitazione in Kubernetes, il *predefinito* dev spazio non può essere rimosso. Il controller rimuove anche gli spazi dei nomi Kubernetes esistente denominato *azds* per evitare conflitti con i `azds` comando usato dagli strumenti lato client.
 
-L'oggetto di inizializzazione di Kubernetes è usato per inserire i POD con tre contenitori durante la distribuzione per la strumentazione: un contenitore per il proxy devspaces, un contenitore devspaces-proxy-init e un contenitore devspaces-compilazione. **Tutte e tre questi contenitori vengono eseguiti con accesso radice nel cluster AKS.** È anche possibile usare la stessa entità servizio usati dal cluster servizio contenitore di AZURE per effettuare chiamate di assistenza agli altri componenti di spazi di sviluppo di Azure.
+Il server di ammissione Kubernetes webhook viene usato per inserire i POD con tre contenitori durante la distribuzione per la strumentazione: un contenitore per il proxy devspaces, un contenitore devspaces-proxy-init e un contenitore devspaces-compilazione. **Tutte e tre questi contenitori vengono eseguiti con accesso radice nel cluster AKS.** È anche possibile usare la stessa entità servizio usati dal cluster servizio contenitore di AZURE per effettuare chiamate di assistenza agli altri componenti di spazi di sviluppo di Azure.
 
-![Azure Kubernetes spazi Dev inizializzatore](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Server di ammissione webhook Dev spazi Kubernetes Azure](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 Il contenitore devspaces proxy è un contenitore sidecar che gestisce tutto il traffico TCP da e verso il contenitore di applicazioni e consente di eseguono il routing. Il contenitore devspaces proxy reindirizza i messaggi HTTP se vengono utilizzati alcuni spazi. Ad esempio, consente di instradare i messaggi HTTP tra le applicazioni in spazi padre e figlio. Tutto il traffico HTTP non passa attraverso devspaces-proxy senza modificato. Inoltre, il contenitore devspaces proxy registra tutti i messaggi HTTP in ingresso e in uscita e li invia a lato client degli strumenti come tracce. È possibile visualizzare queste tracce dallo sviluppatore per controllare il comportamento dell'applicazione.
 
@@ -117,7 +119,7 @@ Il contenitore devspaces-build è un contenitore di init e dispone di un socket 
 > [!NOTE]
 > Spazi di sviluppo Azure Usa lo stesso nodo per creare il contenitore dell'applicazione ed eseguirla. Di conseguenza, gli spazi di sviluppo di Azure non è necessario un registro contenitori di esterni per compilare ed eseguire l'applicazione.
 
-L'oggetto di inizializzazione di Kubernetes è in ascolto per qualsiasi nuovo pod creato nel cluster AKS. Se quel pod viene distribuita a qualsiasi spazio dei nomi con il *azds.io/space=true* etichetta, inserisce il pod con i contenitori aggiuntivi. Il contenitore devspaces-build viene inserito solo se il contenitore dell'applicazione viene eseguito usando gli strumenti lato client.
+È in ascolto il server di ammissione Kubernetes webhook per qualsiasi nuovo pod creato nel cluster AKS. Se quel pod viene distribuita a qualsiasi spazio dei nomi con il *azds.io/space=true* etichetta, inserisce il pod con i contenitori aggiuntivi. Il contenitore devspaces-build viene inserito solo se il contenitore dell'applicazione viene eseguito usando gli strumenti lato client.
 
 Dopo aver preparato il cluster AKS, è possibile usare gli strumenti lato client per preparare ed eseguire il codice nello spazio di sviluppo.
 
@@ -221,7 +223,7 @@ A un livello più granulare, ecco cosa accade quando si esegue `azds up`:
 1. I file vengono sincronizzati da computer dell'utente a una risorsa di archiviazione di file di Azure che è univoco per il cluster AKS dell'utente. Il codice sorgente, grafico Helm e i file di configurazione vengono caricati. Altre informazioni sul processo di sincronizzazione sono disponibili nella sezione successiva.
 1. Il controller crea una richiesta per avviare una nuova sessione. Questa richiesta contiene diverse proprietà, incluso un ID univoco, nome dello spazio, percorso di codice sorgente e un flag di debug.
 1. Sostituisce il controller i *$(tag)* segnaposto nel grafico Helm con l'ID di sessione univoco e le installazioni del grafico di Helm per il servizio. Aggiunta di che un riferimento all'ID di sessione univoco per il grafico Helm consente al contenitore distribuito nel cluster AKS per questa sessione specifica essere collegate alla richiesta di sessione e informazioni associate.
-1. Durante l'installazione del grafico Helm, l'oggetto di inizializzatore Kubernetes aggiunge altri contenitori POD dell'applicazione per l'accesso al codice sorgente del progetto e di strumentazione. I contenitori di devspaces-proxy-init e devspaces proxy vengono aggiunti per fornire la traccia HTTP e il routing di spazio. Il contenitore devspaces-build viene aggiunta per fornire il pod con accesso all'istanza di Docker e al codice sorgente del progetto per la creazione di contenitori dell'applicazione.
+1. Durante l'installazione del grafico Helm, il server di ammissione webhook Kubernetes aggiunge altri contenitori POD dell'applicazione per l'accesso al codice sorgente del progetto e di strumentazione. I contenitori di devspaces-proxy-init e devspaces proxy vengono aggiunti per fornire la traccia HTTP e il routing di spazio. Il contenitore devspaces-build viene aggiunta per fornire il pod con accesso all'istanza di Docker e al codice sorgente del progetto per la creazione di contenitori dell'applicazione.
 1. Quando viene avviato il pod dell'applicazione, il contenitore devspaces-compilazione e il contenitore devspaces-proxy-init vengono utilizzati per creare il contenitore dell'applicazione. Vengono quindi avviati il contenitore di applicazioni e contenitori devspaces-proxy.
 1. Dopo aver avviato il contenitore dell'applicazione, la funzionalità lato client Usa di Kubernetes *porta-forward* funzionalità per fornire l'accesso HTTP all'applicazione tramite http://localhost. Questo port forwarding si connette il computer di sviluppo per il servizio nello spazio di sviluppo.
 1. Quando tutti i contenitori nel pod è sono avviata, il servizio è in esecuzione. A questo punto, la funzionalità lato client inizia a trasmettere le tracce HTTP, stdout e stderr. Queste informazioni vengono visualizzate dalla funzionalità lato client per gli sviluppatori.

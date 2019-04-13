@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886724"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525637"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -58,7 +58,7 @@ Se una proprietà TTL (Time to Live) è impostata su un elemento su -1, il feed 
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed di modifiche e _etag, _lsn or _ts
 
-Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto solo per i feed di modifiche e rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
+Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto per solo; del feed di modifiche rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Casi d'uso e scenari del feed di modifiche
 
@@ -84,7 +84,7 @@ Ad esempio, con un feed di modifiche è possibile eseguire in modo efficiente le
 
 Di seguito sono indicati alcuni degli scenari che è possibile implementare facilmente con il feed di modifiche:
 
-* Nelle app Web e per dispositivi mobili [senza server](https://azure.microsoft.com/en-us/solutions/serverless/) è possibile tenere traccia di eventi come tutte le modifiche al profilo, alle preferenze o alle località dei clienti, e attivare determinate azioni come l'invio di notifiche push ai dispositivi tramite [Funzioni di Azure](change-feed-functions.md).
+* Nelle app Web e per dispositivi mobili [senza server](https://azure.microsoft.com/solutions/serverless/) è possibile tenere traccia di eventi come tutte le modifiche al profilo, alle preferenze o alle località dei clienti, e attivare determinate azioni come l'invio di notifiche push ai dispositivi tramite [Funzioni di Azure](change-feed-functions.md).
 
 * Se si usa Azure Cosmos DB per creare un gioco, è ad esempio possibile usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
 

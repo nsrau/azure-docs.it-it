@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107798"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526674"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -135,9 +135,9 @@ Per un esempio, vedere [questo script di PowerShell](https://gallery.technet.mic
 
 ### <a name="resource-group"></a> Requisiti per il gruppo di risorse
 -   Il runtime di integrazione Azure-SSIS deve creare alcune risorse di rete nello stesso gruppo di risorse della rete virtuale. Tali risorse includono le seguenti:
-    -   Un servizio di bilanciamento del carico di Azure, denominato *<Guid>-azurebatch-cloudserviceloadbalancer*.
-    -   Un indirizzo IP pubblico di Azure, denominato *<Guid>-azurebatch-cloudservicepublicip*.
-    -   Un gruppo di sicurezza di lavoro di rete, denominato *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+    -   Un servizio di bilanciamento del carico di Azure, con il nome  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   Un Azure indirizzo IP pubblico, con il nome  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   Un gruppo di sicurezza lavoro di rete, con il nome  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Assicurarsi di non avere blocchi di risorse per il gruppo di risorse o la sottoscrizione a cui appartiene la rete virtuale. Se si configura un blocco di sola lettura o un blocco di eliminazione, l'avvio e l'arresto del runtime di integrazione può avere esito negativo o interrompersi. 
 

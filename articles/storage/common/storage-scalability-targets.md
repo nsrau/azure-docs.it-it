@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267702"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521717"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Obiettivi archiviazione di Azure la scalabilità e prestazioni per gli account di archiviazione
 
@@ -58,13 +58,13 @@ Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo
 
 |Area  |Destinazione  |
 |---------|---------|
-|Dimensioni minime                        |100 GiB      |
-|Dimensioni massime                        |100 TiB      |
+|Dimensione minima di provisioning                        |100 GiB      |
+|Max effettuato il provisioning delle dimensioni                        |100 TiB      |
 |Aumentare o ridurre la dimensione minima    |1 GiB      |
 |Operazioni di I/O al secondo di base    |Numero di 1 IOPS per GiB fino a 100.000|
 |IOPS bursting    |3 x IOPS per GiB fino a 100.000|
-|Larghezza di banda minima                     |100        |
-|Larghezza di banda |0,1 MB/s per GiB fino a 5 GiB/s     |
+|Velocità in uscita         |60 MiB/s + 0,06 * provisioning GiB        |
+|Velocità in ingresso| 40 MiB/s + 0,04 * provisioning GiB |
 |Numero massimo di snapshot        |200       |
 
 #### <a name="premium-file-limits"></a>Limiti dei file Premium
@@ -89,9 +89,9 @@ Sincronizzazione file di Azure è stato progettato per supportare un utilizzo se
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/)
-- [Sottoscrizione di Azure e limiti, quote e vincoli](../../azure-subscription-service-limits.md)
-- [Replica di archiviazione di Azure](../storage-redundancy.md)
+- [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md)
+- [Replica di Archiviazione di Azure](../storage-redundancy.md)
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage-performance-checklist.md)

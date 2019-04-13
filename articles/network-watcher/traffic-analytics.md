@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490997"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545400"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -369,3 +369,8 @@ Distribuzione del traffico per Gateway applicazione e bilanciamento del carico, 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 Per le risposte alle domande frequenti, vedere [Traffic Analytics FAQ](traffic-analytics-faq.md) (Domande frequenti su Analisi del traffico).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
+- Per comprendere lo schema e i dettagli del traffico Analitica per l'elaborazione, vedere [schema di analitica traffico](traffic-analytics-schema.md).

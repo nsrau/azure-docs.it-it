@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105166"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545417"
 ---
-> [!NOTE]
-> Ogni ambiente del servizio App ha un IP virtuale (VIP), che può essere usato per contattare l'ambiente del servizio app.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
+# <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
 
-L'ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet in una rete virtuale di Azure. È possibile distribuire un ambiente del servizio app in due modi:
+L'ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet in una rete virtuale di Azure.
+
+> [!NOTE]
+> Ogni ambiente del servizio App ha un IP virtuale (VIP), che può essere usato per contattare l'ambiente del servizio App.
+
+È possibile distribuire un ambiente del servizio app in due modi:
 
 - Con un indirizzo VIP su un indirizzo IP esterno, spesso denominato ambiente del servizio app esterno.
 - Con l'indirizzo VIP in un indirizzo IP interno, spesso denominato ambiente del servizio app con bilanciamento del carico interno perché l'endpoint interno è un servizio di bilanciamento del carico interno.
 
 In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro]. Per informazioni su come creare un ambiente del servizio app con bilanciamento del carico interno, vedere [Creare e usare un ambiente del servizio app con bilanciamento del carico interno][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app ##
+## <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app
 
 Dopo avere creato l'ambiente del servizio app, non è possibile modificare quanto segue:
 
@@ -48,7 +50,7 @@ Dopo avere creato l'ambiente del servizio app, non è possibile modificare quant
 > Quando si sceglie una rete virtuale e si specifica una subnet, assicurarsi che le dimensioni siano sufficienti per supportare la crescita futura e adattarvisi. È consigliabile una dimensione pari a `/24` con 256 indirizzi.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Tre modi per creare un ambiente del servizio app ##
+## <a name="three-ways-to-create-an-ase"></a>Tre modi per creare un ambiente del servizio app
 
 Esistono tre modi per creare un ambiente del servizio app:
 
@@ -58,7 +60,7 @@ Esistono tre modi per creare un ambiente del servizio app:
 
 Un ambiente del servizio app esterno ha un indirizzo VIP pubblico, quindi tutto il traffico HTTP/HTTPS verso le app nell'ambiente del servizio app usa un indirizzo IP accessibile da Internet. Un ambiente del servizio app con bilanciamento del carico interno ha un indirizzo IP dalla subnet usata dall'ambiente del servizio app. Le app ospitate in un ambiente del servizio app con bilanciamento del carico interno non sono esposte direttamente a Internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Creare contemporaneamente un ambiente del servizio app e un piano di servizio app ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Creare contemporaneamente un ambiente del servizio app e un piano di servizio app
 
 Il piano di servizio app è un contenitore di applicazioni. Quando si crea un'applicazione nel servizio app, scegliere o creare un piano di servizio app. Gli ambienti del servizio app di Azure contengono piani del servizio app, che a loro volta contengono app.
 
@@ -142,7 +144,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 1. Selezionare **Crea** per creare l'ambiente del servizio app. Questo processo crea anche il piano di servizio app e l'applicazione. L'ambiente del servizio app, il piano di servizio app e l'applicazione sono tutti inclusi nella stessa sottoscrizione e nello stesso gruppo di risorse. Se l'ambiente del servizio app richiede un gruppo di risorse separato o se è necessario un ambiente del servizio app con bilanciamento del carico interno, seguire la procedura per creare un ambiente del servizio app autonomo.
 
 
-## <a name="create-an-ase-by-itself"></a>Creare un ambiente del servizio app autonomo ##
+## <a name="create-an-ase-by-itself"></a>Creare un ambiente del servizio app autonomo
 
 Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente del servizio app vuoto continua a dover pagare una quota mensile per l'infrastruttura. Seguire questa procedura per creare un ambiente del servizio app con bilanciamento del carico interno o per creare un ambiente del servizio app nel proprio gruppo di risorse. Dopo avere creato l'ambiente del servizio app, è possibile crearvi app usando il normale processo. Selezionare il nuovo ambiente del servizio app come località.
 
@@ -170,7 +172,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
     
     * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. È possibile creare un ambiente del servizio app con una subnet esistente se si usa un modello di Resource Manager.* Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1 ##
+## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1
 
 È tuttavia possibile creare istanze della prima versione dell'ambiente del servizio app. Per avviare tale processo, cercare **App Service Environment v1** (Ambiente del servizio app 1) nel Marketplace. L'ambiente del servizio app viene creato esattamente come si crea l'ambiente del servizio app autonomo. Al termine, l'ambiente del servizio app 1 ha due front-end e due ruoli di lavoro. Con l'ambiente del servizio app 1 è necessario gestire i front-end e i ruoli di lavoro. Questi non vengono aggiunti automaticamente quando si creano i piani di servizio app. Le risorse front-end fungono da endpoint HTTP/HTTPS e inviano il traffico ai ruoli di lavoro. I ruoli di lavoro ospitano le app. Dopo avere creato l'ambiente del servizio app, è possibile modificare la quantità di front-end e ruoli di lavoro. 
 

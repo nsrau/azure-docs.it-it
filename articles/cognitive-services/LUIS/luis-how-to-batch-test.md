@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895733"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521217"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
@@ -96,11 +96,13 @@ Le due sezioni del grafico in rosso indicano le espressioni che non corrispondev
 
 Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare le prestazioni dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Assegnare un'etichetta di espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usare funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
-* [Comprendere il test con questa esercitazione di batch](luis-tutorial-batch-testing.md)
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
+* [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
 * [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).

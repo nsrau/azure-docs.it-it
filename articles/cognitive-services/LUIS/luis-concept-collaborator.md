@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873564"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522746"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaborazione con altri autori
 
-LUIS consente la collaborazione per consentire a un gruppo di utenti di creare un'app.
+Con le app LUIS è richiesto un singolo proprietario e collaboratori facoltativi per consentire a più persone di creare una singola app.
 
 ## <a name="luis-account"></a>Account LUIS
 Un account LUIS è associato a un singolo account [Microsoft Live](https://login.live.com/). A ogni account LUIS viene assegnata una [chiave di creazione](luis-concept-keys.md#authoring-key) da usare per creare tutte le app LUIS a cui l'account ha accesso. 
@@ -30,7 +30,8 @@ Un account LUIS può disporre di più app LUIS.
 Per altre informazioni sugli account utente Active Directory vedere [Tenant di Active Directory di Azure](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ## <a name="luis-app-owner"></a>Proprietario dell'app LUIS
-L'account che crea un'app è il proprietario. Ogni app ha un singolo proprietario. Il proprietario è elencato nelle **[impostazioni](luis-how-to-collaborate.md)** dell'app. È l'account che può eliminare l'app. È anche l'account che riceve la posta elettronica quando la quota dell'endpoint raggiunge il 75% del limite mensile. 
+
+L'account che consente di creare un'app è il proprietario e ogni app ha un solo proprietario. Il proprietario è indicato per l'app **[delle impostazioni](luis-how-to-collaborate.md)** pagina. Il proprietario può eliminare l'app ricevono tramite posta elettronica al 75% del limite mensile di raggiungimento della quota di endpoint. 
 
 ## <a name="authorization-roles"></a>Ruoli di autorizzazione
 LUIS non supporta i diversi ruoli per proprietari e collaboratori, con un'eccezione. L'account proprietario è l'unico che può eliminare l'app.
@@ -61,6 +62,10 @@ Questo metodo consente di disporre di una versione attiva, di una versione di st
 [Esportare](luis-how-to-manage-versions.md#export-version) la versione base. Ogni autore importa la versione. L'utente che importa l'app è il proprietario della versione. Dopo aver modificato l'app, esportare la versione. 
 
 Le app esportate sono file in formato JSON confrontabili con l'esportazione base a livello di modifiche. Combinare i file per creare un singolo file JSON della nuova versione. Modificare la proprietà **versionId** nel file JSON affinché indichi la nuova versione unita. Importare la versione nell'app originale.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>Ruoli di collaboratore entità di Visual Studio
+
+[I ruoli delle entità](luis-concept-roles.md) applicabili al modello di dati dell'app LUIS. Ruoli di collaboratore si applicano ai livelli di accesso di creazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

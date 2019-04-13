@@ -3,17 +3,17 @@ title: Opzioni di rete di funzioni di Azure
 description: Una panoramica di tutte le opzioni di rete disponibili in funzioni di Azure
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358145"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545506"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -32,21 +32,21 @@ App per le funzioni possono essere ospitate in modi diversi.
 |                |[Piano a consumo](functions-scale.md#consumption-plan)|⚠ [Piano Premium](functions-scale.md##premium-plan-public-preview)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Restrizioni indirizzi IP in ingresso**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**Integrazione rete virtuale**](#vnet-integration)|❌No|⚠ Sì|✅Yes|✅Yes|
-|[**Integrazione rete virtuale di anteprima (Express Route e gli endpoint di servizio)**](#preview-vnet-integration)|❌No|⚠ Sì|⚠ Sì|✅Yes|
-|[**connessioni ibride**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[**Integrazione rete virtuale**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Integrazione rete virtuale di anteprima (Express Route e gli endpoint di servizio)**](#preview-vnet-integration)|❌No|⚠Sì|⚠Sì|✅Yes|
+|[**Connessioni ibride**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Accesso al sito privato**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Funzionalità di anteprima e non per uso in produzione
 
-## <a name="inbound-ip-restrictions"></a>Restrizioni indirizzi IP in ingresso
+## <a name="inbound-ip-restrictions"></a>Restrizioni di IP in ingresso
 
 Le restrizioni IP consentono di definire un elenco consenti/nega basato sulle priorità di indirizzi IP a cui è consentito accedere all'app. L'elenco consenti può includere gli indirizzi IPv4 e IPv6. In presenza di una o più voci, alla fine dell'elenco è presente un nega tutto implicito. La funzionalità restrizioni IP può essere usata con funzione di tutte le opzioni di hosting.
 
 > [!NOTE]
 > Per poter usare l'editor del portale di Azure, il portale deve essere in grado di accedere direttamente alle app per le funzioni in esecuzione e il dispositivo che si usa per accedere al portale deve essere relativo inserito nella whitelist IP. Con restrizioni di rete, è comunque possibile accedere le caratteristiche di **funzionalità della piattaforma** scheda.
 
-[Altre informazioni sono disponibili qui](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
+Fare clic [qui](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) per altre informazioni
 
 ## <a name="vnet-integration"></a>Integrazione rete virtuale
 
@@ -76,7 +76,7 @@ La nuova versione dell'integrazione rete virtuale, che è attualmente in antepri
 
 Per altre informazioni sull'utilizzo dell'integrazione rete virtuale di anteprima, vedere [integrare un'app per le funzioni con una rete virtuale di Azure](functions-create-vnet.md).
 
-## <a name="hybrid-connections"></a>connessioni ibride
+## <a name="hybrid-connections"></a>Connessioni ibride
 
 [Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità di inoltro di Azure che può essere utilizzato per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è utilizzabile per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in un [piano di servizio App](functions-scale.md#app-service-plan) e un [ambiente del servizio App](../app-service/environment/intro.md).
 
@@ -89,3 +89,13 @@ Per altre informazioni, vedere la [documentazione del servizio App per le connes
 Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'accesso privato al sito è disponibile solo con un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per informazioni dettagliate sull'uso di un ambiente del servizio App ILB, vedere [creazione e uso di un ambiente del servizio App ILB](../app-service/environment/create-ilb-ase.md).
 
 Esistono molti modi per accedere alle risorse di rete virtuale di altre opzioni di hosting, ma un ambiente del servizio App è l'unico modo per consentire i trigger per una funzione essere eseguita su una rete virtuale.
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulla rete e le funzioni: 
+
+* [Seguire la Guida introduttiva di integrazione rete virtuale](./functions-create-vnet.md)
+* [Leggere le funzioni di rete domande frequenti qui](./functions-networking-faq.md)
+* [Altre informazioni sull'integrazione della rete virtuale con il servizio/le funzioni app qui](../app-service/web-sites-integrate-with-vnet.md)
+* [Altre informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
+* [Abilita altre funzionalità di rete e controllo con ambienti del servizio App](../app-service/environment/intro.md)
+* [Connettersi a singole risorse locali senza modifiche al firewall usando connessioni ibride](../app-service/app-service-hybrid-connections.md)

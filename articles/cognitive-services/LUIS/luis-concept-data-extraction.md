@@ -1,7 +1,7 @@
 ---
 title: Estrazione dei dati
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informazioni sui tipi di dati che è possibile estrarre da Language Understanding (LUIS)
+description: Estrarre dati da un testo utterance con finalità ed entità. Informazioni su quale tipo di dati può essere estratti da LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893980"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526290"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Estrazione dei dati da finalità ed entità
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da un testo utterance con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
 I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti.
@@ -170,9 +170,11 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 
 |Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
-|Entità semplice|"Customer"|"bob jones"|
+|Entità semplice|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Dati entità gerarchica
+
+**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
 
 Le entità [gerarchiche](luis-concept-entity-types.md) sono apprese in modo automatico e possono includere una parola o una frase. Gli elementi figlio vengono identificati in base al contesto. Se si cerca una relazione padre-figlio con corrispondenza di testo esatta, usare un'entità [List](#list-entity-data) (elenco).
 
@@ -432,13 +434,18 @@ Ottenere i nomi da un'espressione è difficile perché un nome può essere quals
 Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) sono disponibili in alcune [impostazioni cultura della lingua](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomi di persone
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un precompilati **[personName](luis-reference-prebuilt-person.md)** entità o un **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) del primo e Cognome. 
+
+Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e cognome in diverse parti del utterance, nelle espressioni di lunghezze diverse e utterances tra tutti gli Intent tra cui nessun intent. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
-I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+
+I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Utilizzare l'entità precompilato **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dei dati. Iniziare con una **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283019"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525926"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -109,9 +109,9 @@ Tutte le condivisioni possono potenziarlo fino a almeno 100 velocità effettiva 
 >
 > Potenziare limite = 3 * linea di base di IOPS. (Fino a un massimo di 100.000 IOPS).
 >
-> velocità di uscita = 60 MiB/s + 0,06 GiB sottoposte a provisioning (fino a 6 GiB/s)
+> velocità di uscita = 60 MiB/s + 0,06 * provisioning GiB
 >
-> velocità in ingresso = 40 MiB/s + 0,04 GiB sottoposte a provisioning (fino a 4 GiB)
+> velocità in ingresso = 40 MiB/s + 0,04 * provisioning GiB
 
 Dimensioni della condivisione possono essere aumentata a qualsiasi ora e una diminuzione in qualsiasi momento, ma possono essere diminuita ogni 24 ore dopo l'ultimo incremento. IOPS/velocità effettiva scalabilità modifiche saranno applicati entro 24 ore dopo la modifica delle dimensioni.
 
@@ -128,9 +128,9 @@ Nella tabella seguente illustra alcuni esempi di queste formule per le dimension
 |10,240 *     | 10,240  | Fino a 30.720  | 675 | 450   |
 |33,792 *     | 33,792  | Fino a 100.000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Fino a 100.000 | 3.132 | 2,088   |
-|100,000 *    | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
+|102,400 *    | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
 
-Le dimensioni di condivisione dei file fino a 5 TiB sono attualmente in anteprima pubblica, mentre le dimensioni fino a 102 TiB sono in anteprima pubblica limitata, per richiedere l'accesso all'anteprima pubblica limitata completo [questo sondaggio.](https://aka.ms/azurefilesatscalesurvey)
+Le dimensioni di condivisione dei file fino a 5 TiB sono attualmente in anteprima pubblica, mentre le dimensioni fino a 100 TiB sono in anteprima pubblica limitata, per richiedere l'accesso all'anteprima pubblica limitata completo [questo sondaggio.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Burst
 
@@ -204,6 +204,6 @@ Esistono diverse semplici opzioni per trasferire i dati in blocco da una condivi
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso File di Azure, oltre ad Archiviazione BLOB di Azure usando semplici comandi con prestazioni ottimali. AzCopy è disponibile per Windows e Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Pianificazione per la distribuzione di sincronizzazione File di Azure](storage-sync-files-planning.md)
-* [Distribuzione di file di Azure](storage-files-deployment-guide.md)
-* [Distribuire sincronizzazione File di Azure](storage-sync-files-deployment-guide.md)
+* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)
+* [Distribuzione di File di Azure](storage-files-deployment-guide.md)
+* [Distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608495"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525596"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Migliorare le prestazioni dei carichi di lavoro di Apache Spark usando Azure HDInsight IO Cache (anteprima)
 
@@ -76,6 +76,6 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 
 In caso di problemi, disabilitare IO Cache.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
-- Altre informazioni su IO Cache, compresi i benchmark delle prestazioni, in questo post di blog: [La velocità dei processi di Apache Spark aumenta fino a 9 volte con HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Altre informazioni su IO Cache, compresi i benchmark delle prestazioni, in questo post di blog: [La velocità dei processi di Apache Spark aumenta fino a 9 volte con HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477455"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545315"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
 
@@ -46,7 +46,7 @@ Questa fase comprende due attività principali:
 ### <a name="define-objectives"></a>Definire gli obiettivi
 1. Un obiettivo centrale di questo passaggio consiste nell'identificare le variabili aziendali principali che l'analisi deve prevedere. Queste variabili vengono definite come *target di modello* e le metriche associate vengono usate per stabilire la riuscita del progetto. Le previsioni di vendita e la probabilità che un ordine sia una frode sono due esempi di questi tipi di target.
 
-2. Definire gli obiettivi del progetto ponendo e creando domande "precise" e rilevanti, specifiche e non ambigue. Il data science è un processo che usa nomi e numeri per rispondere a tali domande. Per altre informazioni su come porre domande precise, vedere il blog [How to do Data Science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) (Come applicare il data science). In genere si usa il data science o Machine Learning per rispondere a cinque tipi di domande:
+2. Definire gli obiettivi del progetto ponendo e creando domande "precise" e rilevanti, specifiche e non ambigue. Il data science è un processo che usa nomi e numeri per rispondere a tali domande. In genere si usa il data science o Machine Learning per rispondere a cinque tipi di domande:
  
    * In che quantità o in che numero? (regressione)
    * Quale categoria? (classificazione)

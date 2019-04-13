@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202963"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544586"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -333,7 +333,6 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 
 * [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
 * [Installare e usare Apache Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-* [Installare o aggiornare Mono nei cluster HDInsight](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802831"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526827"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di
 Nel passaggio precedente, è stato realizzato l'URL che punta a un file manifesto. Il client deve estrarre le informazioni necessarie dai file manifesto del flusso per effettuare una richiesta al servizio di distribuzione delle chiavi.
 
 ### <a name="manifest-files"></a>File manifesto
-Il client deve estrarre il valore URL (che contiene anche l'ID della chiave simmetrica [kid]) dal file manifesto. Il client tenta quindi di ottenere la chiave di crittografia dal servizio di distribuzione delle chiavi. Inoltre, il client deve estrarre il valore IV e usarlo per decrittografare il flusso. Il frammento di codice seguente illustra l'elemento <Protection> del manifesto Smooth Streaming:
+Il client deve estrarre il valore URL (che contiene anche l'ID della chiave simmetrica [kid]) dal file manifesto. Il client tenta quindi di ottenere la chiave di crittografia dal servizio di distribuzione delle chiavi. Inoltre, il client deve estrarre il valore IV e usarlo per decrittografare il flusso. Il frammento di codice seguente illustra l'elemento `<Protection>` del manifesto Smooth Streaming:
 
 ```xml
     <Protection>
