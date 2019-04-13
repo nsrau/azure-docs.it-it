@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010087"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524311"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurare il metodo di routing del traffico Geografico tramite Gestione traffico
 
@@ -26,7 +26,7 @@ Il metodo di routing del traffico Geografico consente di indirizzare il traffico
 1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/).
 2. Fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 4. In **Crea profilo di Gestione traffico**:
-    1. Specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net. Per accedere al profilo di Gestione traffico, usare il nome DNS <profilename>.trafficmanager.net.
+    1. Specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net. Per accedere al profilo di Traffic Manager, si utilizza il nome DNS `<profilename>.trafficmanager.net`.
     2. Selezionare il metodo di routing **Geografico**.
     3. Selezionare la sottoscrizione in cui si desidera creare il profilo.
     4. Usare un gruppo di risorse esistente oppure crearne uno nuovo per posizionare il profilo. Se si sceglie di creare un nuovo gruppo di risorse, usare il menu a discesa **Località del gruppo di risorse** per specificare la località del gruppo di risorse. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che viene distribuito a livello globale.

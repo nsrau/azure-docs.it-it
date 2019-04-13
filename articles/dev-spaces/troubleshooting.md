@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357854"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548781"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -187,11 +187,11 @@ La porta del contenitore non è disponibile. Questo problema può verificarsi pe
 1. Verificare la configurazione della porta. I numeri di porta specificati devono essere **identici** in tutti gli asset seguenti:
     * **Dockerfile:** specificato dall'istruzione `EXPOSE`.
     * **[Grafico Helm](https://docs.helm.sh):** specificato dai valori `externalPort` e `internalPort` per un servizio (spesso in un file `values.yml`).
-    * Qualsiasi porta aperta nel codice dell'applicazione, ad esempio in Node. js: `var server = app.listen(80, function () {...}`
+    * Qualsiasi porta da aprire nel codice applicazione, ad esempio in Node.js: `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>Il file di configurazione non è stato trovato
-Eseguire `azds up` e visualizzato l'errore seguente: `Config file not found: .../azds.yaml`
+Si esegue `azds up` e viene visualizzato l'errore seguente: `Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>Motivo
 È necessario eseguire `azds up` dalla directory radice del codice da eseguire ed è necessario inizializzare la cartella del codice per l'esecuzione con Azure Dev Spaces.
@@ -208,7 +208,7 @@ L'avvio del debugger di VS Code può talvolta generare questo errore.
 2. Premere di nuovo F5.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Errore di debug 'Non è stato possibile trovare l'estensione del debugger per tipo: coreclr'
-Eseguire il debugger di Visual Studio Code segnala l'errore: `Failed to find debugger extension for type:coreclr.`
+L'esecuzione del debugger di VS Code genera l'errore: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
 Nel computer di sviluppo non è installata l'estensione VS Code per C#. Il C# estensione include il supporto per .NET Core (CoreCLR) del debug.
@@ -217,7 +217,7 @@ Nel computer di sviluppo non è installata l'estensione VS Code per C#. Il C# es
 Installare l'[estensione di Visual Studio Code per C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Errore di debug "Configured debug type 'coreclr' is not supported" (Il tipo di debug configurato 'coreclr' non è supportato)
-Eseguire il debugger di Visual Studio Code segnala l'errore: `Configured debug type 'coreclr' is not supported.`
+L'esecuzione del debugger di VS Code genera l'errore: `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>Motivo
 Nel computer di sviluppo non è installata l'estensione VS Code per Azure Dev Spaces.
@@ -226,7 +226,7 @@ Nel computer di sviluppo non è installata l'estensione VS Code per Azure Dev Sp
 Installare l'[estensione VS Code per Azure](get-started-netcore.md).
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Errore di debug "Invalid 'cwd' value '/src'. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato) o "launch: program '/src/[path to project binary]' does not exist" (launch: program '/src/[percorso file binario di progetto]' non esiste)
-Eseguire il debugger di Visual Studio Code segnala l'errore `Invalid 'cwd' value '/src'. The system cannot find the file specified.` e/o `launch: program '/src/[path to project executable]' does not exist`
+L'esecuzione del debugger di VS Code genera l'errore `Invalid 'cwd' value '/src'. The system cannot find the file specified.` e/o `launch: program '/src/[path to project executable]' does not exist`
 
 ### <a name="reason"></a>Motivo
 Per impostazione predefinita, l'estensione VS Code usa `src` come directory di lavoro per il progetto nel contenitore. Se è stato aggiornato il `Dockerfile` per specificare una directory di lavoro diversa, è possibile che venga visualizzato questo errore.
@@ -325,3 +325,35 @@ Il nodo che esegue il pod con l'applicazione Node. js si sta tentando di connett
 
 ### <a name="try"></a>Prova
 Soluzione alternativa temporanea per risolvere questo problema consiste nell'aumentare il valore di *fs.inotify.max_user_watches* in ogni nodo del cluster e riavviare il nodo rendere effettive le modifiche.
+
+## <a name="new-pods-are-not-starting"></a>Nuovi POD non viene avviato
+
+### <a name="reason"></a>Motivo
+
+L'inizializzatore di Kubernetes non è possibile applicare il PodSpec per nuovi POD a causa di modifiche alle autorizzazioni RBAC per la *privilegi di amministratore cluster* ruolo del cluster. Il nuovo pod può anche avere un PodSpec non valido, ad esempio l'account del servizio associato nel pod non esiste più. Per visualizzare il numero di POD in una *in sospeso* dello stato a causa del problema di inizializzatore, usare il `kubectl get pods` comando:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Questo problema può influire sulle POD nel *tutti gli spazi dei nomi* del cluster, inclusi gli spazi dei nomi in cui non è abilitato spazi di sviluppo di Azure.
+
+### <a name="try"></a>Prova
+
+[L'aggiornamento della riga di comando di spazi di sviluppo per la versione più recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e quindi eliminando il *azds InitializerConfiguration* dal controller di spazi di sviluppo di Azure:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Dopo aver rimosso il *azds InitializerConfiguration* dal controller di spazi di sviluppo di Azure, usare `kubectl delete` per rimuovere tutti i POD in una *sospeso* dello stato. Dopo tutto in sospeso POD sono state rimosse, ridistribuire POD.
+
+Se nuovi POD sono comunque bloccati in un *in sospeso* dopo una ridistribuzione, utilizzare `kubectl delete` per rimuovere tutti i POD in una *in sospeso* dello stato. Dopo tutto in sospeso POD sono state rimosse, eliminare il controller dal cluster e reinstallarlo:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Dopo la reinstallazione del controller, ridistribuire il POD.

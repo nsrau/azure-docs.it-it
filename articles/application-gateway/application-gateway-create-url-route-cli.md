@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999982"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527252"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Creare un gateway applicazione con regole di routing basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
@@ -220,7 +220,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, o `http://40.121.222.19:8080/video/test.htm`.
+Per ottenere l'indirizzo IP pubblico del gateway applicazione, è possibile usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` o `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Modificare l'URL in http://<indirizzo-IP>:8080/video/test.htm alla fine dell'URL di base come nell'esempio seguente:
+Modificare l'URL in `http://<ip-address>:8080/video/test.html` alla fine dell'URL di base e si otterrà un risultato simile al seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in http://<indirizzo-IP>:8080/video/test.htm come nell'esempio seguente.
+Modificare l'URL in `http://<ip-address>:8080/video/test.html` dovrebbe essere simile al seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

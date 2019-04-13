@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918009"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527286"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
 
@@ -45,7 +45,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 |ProfanityAction    |Azione |Origine di esempio (giapponese)  |Traduzione di esempio (italiano)  |
 |:--|:--|:--|:--|
 |NoAction   |Default. Equivale a non impostare l'opzione. Il contenuto volgare passerà dall'origine alla destinazione.        |彼はジャッカスです。     |È un cretino.   |
-|Marked     |Le parole volgari verranno racchiuse tra i tag XML <profanity> e </profanity>.     |彼はジャッカスです。 |È un <profanity>cretino</profanity>.    |
+|Marked     |Parole blasfeme saranno essere racchiuso tra tag XML \<per le espressioni volgari > e \</profanity >.       |彼はジャッカスです。 |È un \<per le espressioni volgari > jackass\</profanity >.  |
 |Deleted    |Le parole volgari verranno rimosse dall'output senza sostituzione.     |彼はジャッカスです。 |È un.   |
 
     
@@ -241,7 +241,7 @@ Tipo di contenuto della risposta: application/xml
 ## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Note sull'implementazione
-Ottenere un elenco di codici di lingua che rappresenta le lingue supportate dal servizio Translator.  `Translate` e `TranslateArray` può tradurre tra due di questi linguaggi.
+Ottenere un elenco di codici di lingua che rappresenta le lingue supportate dal servizio Translator.  `Translate` e `TranslateArray` consentono la traduzione tra due di queste lingue.
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
@@ -327,7 +327,7 @@ Tipo di contenuto della risposta: application/xml
 |text|(vuoto)   |Richiesto. Stringa contenente una o più frase della lingua specificata da pronunciare per il flusso audio. Le dimensioni del testo da pronunciare non devono superare 2000 caratteri.|query|stringa|
 |Linguaggio|(vuoto)   |Richiesto. Stringa che rappresenta il codice della lingua supportata in cui pronunciare il testo. Il codice deve essere presente nell'elenco dei codici restituiti dal metodo `GetLanguagesForSpeak`.|query|stringa|
 |format|(vuoto)|facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|stringa|
-|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` disponibili specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` disponibili specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale <code>\|</code> per includere più opzioni. Ad esempio: `MaxQuality|Male`.</li></li></ul> |query|stringa|
+|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` sono disponibili per specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` sono disponibili per specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale <code>\|</code> per includere più opzioni. Ad esempio: `MaxQuality|Male`.</li></li></ul> |query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
 
@@ -596,8 +596,8 @@ Il corpo della richiesta include l'oggetto TranslationOptions facoltativo, che h
 L'oggetto `TranslateOptions` contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
 
 * `Category`: Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".
-* `ContentType`: l'unica opzione supportata e l'impostazione predefinita è "text/plain".
-* `IncludeMultipleMTAlternatives`: flag booleano per determinare se più alternative devono essere restituiti dal motore del server di destinazione master. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
+* `ContentType`: l'unica opzione supportata e predefinita è "text/plain".
+* `IncludeMultipleMTAlternatives`: flag booleano per determinare se devono essere restituite più alternative dal motore MT. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
     - Classificazioni Le classificazioni vengono applicate come segue: 1) La traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
     - Numero di alternative Il numero di alternative restituite è fino a maxTranslations, ma può essere inferiore.
     - Coppie di lingue Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
@@ -706,7 +706,7 @@ Il formato del corpo della richiesta è quello indicato di seguito.
 * `Options`: facoltativo. Oggetto Options contenente i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
     - Category: Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è general.
     - `ContentType`: l'unica opzione supportata e predefinita è text/plain.
-    - `IncludeMultipleMTAlternatives`: flag booleano per determinare se più alternative devono essere restituiti dal motore del server di destinazione master. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
+    - `IncludeMultipleMTAlternatives`: flag booleano per determinare se devono essere restituite più alternative dal motore MT. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
         - Classificazioni Le classificazioni vengono applicate come segue: 1) La traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
         - Numero di alternative Il numero di alternative restituite è fino a maxTranslations, ma può essere inferiore.
         - Coppie di lingue Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
@@ -753,9 +753,9 @@ Ogni elemento `GetTranslationsResponse` contiene i valori seguenti:
 * `From`: se il metodo non ha specificato una lingua `From`, questo valore sarà il risultato del rilevamento automatico della lingua. In caso contrario, sarà la lingua di origine specificata.
 * `State`: stato dell'utente per mettere in correlazione richiesta e risposta. Contiene lo stesso valore specificato nel parametro `TranslateOptions`.
 
-`TranslationMatch` oggetto costituito dagli elementi seguenti:
+L'oggetto `TranslationMatch` è costituito dagli elementi seguenti:
 * `Error`: se si è verificato un errore per una stringa di input specifica, il codice di errore viene archiviato. In caso contrario, il campo è vuoto.
-* `MatchDegree`: il sistema trova una corrispondenza tra le frasi di input e l'archivio, incluse le corrispondenze inesatte.  `MatchDegree` indica in quale misura il testo di input corrisponde al testo originale è presente nell'archivio. Il valore restituito è compreso tra 0 e 100, dove 0 indica nessuna somiglianza e 100 è una corrispondenza esatta tra maiuscole e minuscole.
+* `MatchDegree`: il sistema trova una corrispondenza tra le frasi di input e l'archivio, incluse le corrispondenze inesatte.  `MatchDegree` indica in quale misura il testo di input corrisponde al testo originale trovato nell'archivio. Il valore restituito è compreso tra 0 e 100, dove 0 indica nessuna somiglianza e 100 è una corrispondenza esatta tra maiuscole e minuscole.
 * `MatchedOriginalText`: testo originale corrispondente per questo risultato. Restituito solo se il testo originale corrispondente è diverso dal testo di input. Usato per restituire il testo di origine di una corrispondenza fuzzy. Non restituito per i risultati di Microsoft Translator.
 * `Rating`: indica l'autorità della persona che prende la decisione sulla qualità. I risultati della traduzione automatica avranno una classificazione pari a 5. Le traduzioni fornite in modo anonimo avranno in genere una classificazione da 1 a 4, mentre le traduzioni fornite autorevolmente avranno in genere una classificazione compresa tra 6 e 10.
 * `Count`: numero di volte in cui è stata selezionata questa traduzione con questa classificazione. Il valore sarà 0 per la risposta tradotta automaticamente.
@@ -787,7 +787,7 @@ Tipo di contenuto della risposta: application/xml
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione alla API traduzione testuale v3](../migrate-to-v3.md)
+> [Eseguire la migrazione all'API Traduzione testuale v3](../migrate-to-v3.md)
 
 
 

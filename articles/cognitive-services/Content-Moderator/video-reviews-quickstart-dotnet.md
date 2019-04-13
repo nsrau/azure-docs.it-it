@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758250"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527371"
 ---
 # <a name="create-video-reviews-using-net"></a>Creare revisioni di video usando .NET
 
@@ -166,7 +166,7 @@ Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideo
 L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. Oggetto **IList<CreateVideoReviewsBodyItem>**. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
+1. Un' **IList\<CreateVideoReviewsBodyItem >** oggetto. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
 L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
 - **Content**. URL del video da rivedere.
@@ -224,18 +224,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. Stringa contenente un tipo MIME, che deve essere "application/json".
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
-1. Oggetto **IList<VideoFrameBodyItem>**. Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
+1. Un' **IList\<VideoFrameBodyItem >** oggetto. Ogni oggetto **VideoFrameBodyItem** rappresenta un fotogramma video.
 
 **VideoFrameBodyItem** ha le proprietà seguenti:
 - **Timestamp**. Stringa contenente, in secondi, l'ora nel video in cui è stato estratto il fotogramma video.
 - **FrameImage**. URL del fotogramma video.
-- **Metadata**. Oggetto IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
+- **Metadata**. Un oggetto IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** è semplicemente una coppia chiave/valore. Le chiavi valide includono:
 - **reviewRecommended**. True se è consigliata una revisione umana del fotogramma video.
 - **adultScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto per adulti nel fotogramma video.
 - **a**. True se il video contiene contenuto per adulti.
 - **racyScore**. Valore compreso tra 0 e 1 che classifica il livello di gravità del contenuto spinto nel fotogramma video.
 - **r**. True se il fotogramma video contiene contenuto spinto.
-- **ReviewerResultTags**. Oggetto IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
+- **ReviewerResultTags**. Un oggetto IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** è semplicemente una coppia chiave/valore. Un'applicazione può usare questi tag per organizzare i fotogrammi video.
 
 > [!NOTE]
 > In questa guida introduttiva vengono generati valori casuali per le proprietà **adultScore** e **racyScore**. In un'applicazione di produzione è possibile ottenere questi valori dal [servizio di moderazione video](video-moderation-api.md), distribuito come servizio multimediale di Azure.

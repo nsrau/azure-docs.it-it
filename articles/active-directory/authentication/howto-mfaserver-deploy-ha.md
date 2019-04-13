@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370075"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547006"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurare il server Azure MFA per la disponibilità elevata
 
@@ -36,7 +36,7 @@ Sia il master MFA che i server MFA subordinati comunicano con il servizio MFA qu
 
 In seguito all'autenticazione con AD, il server MFA comunicherà con il servizio MFA. Il server MFA attende la notifica dal servizio MFA per consentire o negare l'accesso dell'utente all'applicazione.
 
-Se l'istanza master del server MFA è offline, è comunque possibile elaborare le autenticazioni, ma non le operazioni che richiedono modifiche al database MFA. Alcuni esempi includono l'aggiunta di utenti, le modifiche PIN self-service e la modifica delle informazioni utente.
+Se l'istanza master del server MFA è offline, è comunque possibile elaborare le autenticazioni, ma non le operazioni che richiedono modifiche al database MFA. (Alcuni esempi: l'aggiunta di utenti, self-service PIN le modifiche, la modifica delle informazioni utente o l'accesso al portale utenti)
 
 ## <a name="deployment"></a>Distribuzione
 

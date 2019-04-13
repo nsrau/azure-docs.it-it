@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272292"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528238"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
-Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per eseguire un'esercitazione, vedere [Esercitazione: Spostare le risorse di Azure in un altro gruppo di risorse o sottoscrizione](./resource-manager-tutorial-move-resources.md).
+Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
 
@@ -161,7 +161,7 @@ Questa sezione illustra come gestire scenari complessi per lo spostamento di ris
 * [Limitazioni del servizio app](#app-service-limitations)
 * [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
 * [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-* [Limitazioni dei servizi di ripristino](#recovery-services-limitations)
+* [Limitazioni di Servizi di ripristino](#recovery-services-limitations)
 * [Limitazioni di HDInsight](#hdinsight-limitations)
 
 ### <a name="virtual-machines-limitations"></a>Limitazioni delle macchine virtuali
@@ -180,8 +180,8 @@ Per spostare le macchine virtuali configurate con Backup di Azure, usare la solu
 * Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1`, ad esempio AzureBackupRG_westus2_1
 * Nel portale di Azure selezionare quindi l'opzione "Mostra tipi nascosti"
 * In PowerShell usare il cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Se nell'interfaccia della riga di comando, usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Trovare la risorsa con tipo `Microsoft.Compute/restorePointCollections` con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Trovare la risorsa di tipo `Microsoft.Compute/restorePointCollections` con modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
 * Al termine dell'operazione, sarà possibile spostare la macchina virtuale. È possibile spostare l'insieme di credenziali e la macchina virtuale nella sottoscrizione di destinazione. Dopo lo spostamento è possibile continuare a eseguire i backup senza alcuna perdita di dati.
 * Per informazioni sullo spostamento degli insiemi di credenziali di Servizi di ripristino per il backup, vedere [Limitazioni di Servizi di ripristino](#recovery-services-limitations).

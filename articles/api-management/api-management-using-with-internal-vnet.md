@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793119"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524144"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -45,6 +45,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **Un'istanza di Gestione API**. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
++ Quando un servizio Gestione API viene distribuito in una rete virtuale, un [elenco di porte](./api-management-using-with-vnet.md#required-ports) vengono usate e devono essere aperte. 
 
 ## <a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
 Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un [servizio di bilanciamento del carico interno (classico)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Questo è l'unica opzione disponibile e non può essere modificato.

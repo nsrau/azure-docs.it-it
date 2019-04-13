@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 2c24634a42fd420eae204437418b82479869bbe5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755510"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525545"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
@@ -196,7 +196,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione della VM, prende
 
 ## <a name="test-traffic-filters"></a>Testare i filtri del traffico
 
-Usare il comando seguente per creare una sessione SSH con la VM *myVmMgmt*. Sostituire *<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
+Usare il comando seguente per creare una sessione SSH con la VM *myVmMgmt*. Sostituire  *\<publicIpAddress >* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

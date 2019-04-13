@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670129"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543669"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric per Visual Studio Code
 
@@ -120,7 +120,7 @@ Il **di Service Fabric: Rimuovi applicazione** comando rimuove un'applicazione d
 2.  Consente di visualizzare il cluster con Service Fabric Explorer per confermare la rimozione dell'applicazione. Questa operazione potrebbe richiedere tempo.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: Compilazione dell'applicazione
-Il **di Service Fabric: Rimuovi applicazione** comando può compilare uno Java o C# applicazioni di Service Fabric. 
+Il **di Service Fabric: Compilazione dell'applicazione** comando può compilare uno Java o C# applicazioni di Service Fabric. 
 
 1.  Assicurarsi di essere nella cartella radice dell'applicazione prima di eseguire questo comando. Il comando identifica il tipo di applicazione (C# o Java) e compila l'applicazione di conseguenza.
 2.  Selezionare il **di Service Fabric: Build Application** (Service Fabric: Compila applicazione).

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879285"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547949"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Creare un'area di lavoro del servizio di Azure Machine Learning
 
@@ -34,10 +34,10 @@ Quando si crea un'area di lavoro delle risorse di Azure seguenti vengono aggiunt
 - [Registro Azure Container](https://azure.microsoft.com/services/container-registry/)
 - [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Insieme di credenziali chiave Azure](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Come con altri servizi di Azure, al servizio Machine Learning sono associati limiti e quote. [Informazioni su quote e come richiedere informazioni.](how-to-manage-quotas.md)
+>Come con altri servizi di Azure, al servizio Machine Learning sono associati limiti e quote. [Informazioni sulle quote e come richiederne altre.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -160,7 +160,7 @@ Creare l'area di lavoro in un'istanza di Jupyter Notebook con Python SDK.
 
 ### <a name="write-a-configuration-file"></a>Scrivere un file di configurazione
 
-Salvare i dettagli dell'area di lavoro in un file di configurazione nella directory corrente. Questo file è denominato *aml_config/config.json*.  
+Salvare i dettagli dell'area di lavoro in un file di configurazione nella directory corrente. Questo file è denominato *.azureml/config.json*.  
 
 Con questo file di configurazione dell'area di lavoro sarà possibile caricare più facilmente la stessa area di lavoro in un secondo momento. È possibile caricarlo con altri notebook e script in una sottodirectory con il codice o nella stessa directory `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ Questa chiamata API `write_config()` crea il file di configurazione nella direct
 ```
 
 > [!TIP]
-> Per usare l'area di lavoro di script Python o i notebook di Jupyter disponibile in altre directory, copiare questo file in tale directory. Il file può essere nella stessa directory, una sottodirectory denominata *aml_config*, o in una directory padre.
+> Per usare l'area di lavoro di script Python o i notebook di Jupyter disponibile in altre directory, copiare questo file in tale directory. Il file può essere nella stessa directory, una sottodirectory denominata *.azureml*, o in una directory padre.
 
 ## <a name="resource-manager-template"></a>Modello di Resource manager
 
 Per creare un'area di lavoro con un modello, vedere [creare un'area di lavoro del servizio di Azure Machine Learning usando un modello](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Interfaccia della riga di comando
 
 Per creare un'area di lavoro con l'interfaccia della riga di comando, vedere [usare l'estensione dell'interfaccia della riga per il servizio di Azure Machine Learning](reference-azure-machine-learning-cli.md).
 

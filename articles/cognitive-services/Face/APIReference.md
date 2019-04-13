@@ -1,7 +1,7 @@
 ---
 title: Informazioni di riferimento per l'API - API Viso
 titleSuffix: Azure Cognitive Services
-description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
+description: Riferimenti alle API fornisce informazioni sulle persone, LargePersonGroup/gruppo di persone, LargeFaceList/FaceList e API viso algoritmi.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,24 +10,22 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a82bd4b06680c0f7763136af70dcfcae5f10af52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f4258f34bb7d353ee4e76f4675f4ef672a4a8c78
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877204"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547599"
 ---
 # <a name="api-reference"></a>Informazioni di riferimento sulle API
 
 L'API Viso di Azure è un'API basata su cloud che fornisce gli algoritmi per il rilevamento e il riconoscimento dei visi. Le API Viso comprendono le categorie seguenti:
 
-- [API di algoritmi Viso](https://docs.microsoft.com/rest/api/cognitiveservices/face/face): eseguono funzioni base come il [rilevamento](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream), l'[individuazione di visi simili](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar), la [verifica](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface), l'[identificazione](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify) e il [raggruppamento](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group).
-- [API di gestione FaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist): si usano per gestire un oggetto FaceList per la funzione [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar) (Ricerca di simili).
-- [API di gestione persone LargePersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson): si usano per gestire visi di persone LargePersonGroup per la funzione [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify) (Identificazione).
-- [API di gestione LargePersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup): si usano per gestire un set di dati LargePersonGroup per la funzione [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify) (Identificazione).
-- [API di gestione LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): si usano per gestire un oggetto LargeFaceList per la funzione [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar) (Ricerca di simili).
-- [API di gestione persone PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): si usano per gestire visi di persone PersonGroup per la funzione [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify) (Identificazione).
-- [API di gestione PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): si usano per gestire un set di dati PersonGroup per la funzione [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify) (Identificazione).
-- [API di gestione Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): si usano per gestire uno snapshot per la migrazione dei dati tra sottoscrizioni.
-
-<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
+- API di algoritmo viso: Copre, ad esempio funzioni di base [Detection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [trovare simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), e [gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+- [Le API FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): si usano per gestire un oggetto FaceList per la funzione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) (Ricerca di simili).
+- [Le API di persona LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): si usano per gestire visi di persone LargePersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [Le API LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): si usano per gestire un set di dati LargePersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [Le API LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): si usano per gestire un oggetto LargeFaceList per la funzione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) (Ricerca di simili).
+- [Gruppo di persone persona API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): si usano per gestire visi di persone PersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [Gruppo di persone API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): si usano per gestire un set di dati PersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [Le API di snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-take): si usano per gestire uno snapshot per la migrazione dei dati tra sottoscrizioni.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878265"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524090"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 come risorsa di archiviazione predefinita usando PowerShell
 
@@ -215,7 +215,7 @@ In questa sezione viene creato un cluster HDInsight Hadoop Linux con Data Lake S
     Dopo il completamento del cmdlet, dovrebbe viene visualizzato un output con i dettagli del cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Eseguire i processi di test nel cluster HDInsight per usare Data Lake Storage Gen1
-Dopo aver configurato un cluster HDInsight, è possibile eseguire i processi di test nel cluster per verificare che possa accedere a Data Lake Storage Gen1. A tale scopo, eseguire un processo Hive di esempio che crea una tabella che usa i dati di esempio già disponibili in Data Lake Storage Gen1 in *<cluster root>/example/data/sample.log*.
+Dopo aver configurato un cluster HDInsight, è possibile eseguire i processi di test nel cluster per verificare che possa accedere a Data Lake Storage Gen1. A tale scopo, eseguire un processo Hive di esempio per creare una tabella che utilizza i dati di esempio che sono già disponibili in Data Lake archiviazione Gen1 al  *\<radice del cluster > /example/data/sample.log*.
 
 In questa sezione si stabilisce una connessione SSH (Secure Shell) al cluster HDInsight Linux creato e quindi si esegue una query Hive di esempio.
 
@@ -254,8 +254,8 @@ Dopo avere stabilito la connessione,visualizzare l'elenco dei file in Data Lake 
 È anche possibile usare il comando `hdfs dfs -put` per caricare alcuni file in Data Lake Storage Gen1 e quindi usare `hdfs dfs -ls` per verificare se i file sono stati caricati correttamente.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Usare Data Lake Storage Gen1 con i cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Portale di Azure: Creare un cluster HDInsight per usare Data Lake archiviazione Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Usare Data Lake Storage Gen1 con cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Portale di Azure: Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

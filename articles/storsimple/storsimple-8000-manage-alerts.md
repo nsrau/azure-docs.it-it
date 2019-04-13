@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314451"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525529"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -160,7 +160,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Failover del dispositivo su <*nome dispositivo*>. |Causa diversa/sconosciuta. |Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 | Un servizio critico del dispositivo è segnalato come non riuscito. |Errore del servizio percorso dati. |Contattare il supporto tecnico Microsoft per ottenere assistenza. |
 | Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #*> è segnalato come non riuscito. |Causa diversa/sconosciuta. |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #*> è segnalato come non riuscito. |Impossibile connettere l'indirizzo IP per nome interfaccia: <*DATA #*>. <IP address> Nella rete è stato rilevato un indirizzo IP duplicato. |Assicurarsi che l'indirizzo IP duplicato venga rimosso dalla rete o riconfigurare l'interfaccia con un altro indirizzo IP. |
+| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #*> è segnalato come non riuscito. |Impossibile connettere l'indirizzo IP per nome interfaccia: <*DATA #*>. `<IP address>` Nella rete è stato rilevato un indirizzo IP duplicato. |Assicurarsi che l'indirizzo IP duplicato venga rimosso dalla rete o riconfigurare l'interfaccia con un altro indirizzo IP. |
 
 ### <a name="disaster-recovery-alerts"></a>Avvisi di ripristino di emergenza
 
@@ -200,8 +200,8 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo *<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo *<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo  *\<device1 >* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo  *\<device1 >* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui criteri URL nel portale di Azure, passare a https:\//aka.ms/ss-8000-network-reqs. Se si usa Azure Government Cloud, passare ai modelli di URL HTTPS:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni

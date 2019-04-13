@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426461"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549355"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -27,7 +27,7 @@ Per creare una definizione di criterio è possibile usare JSON. La definizione d
 - mode
 - Parametri
 - nome visualizzato
-- description
+- Descrizione
 - regola dei criteri
   - valutazione logica
   - effetto
@@ -74,12 +74,12 @@ Tutti gli esempi di Criteri di Azure sono disponibili in [Esempi di criteri](../
 
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
 
-- `all`: valuta tutti i tipi di risorse e gruppi di risorse
-- `indexed`: valutare solo i tipi di risorse che supportano tag e il percorso
+- `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
+- `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere utilizzato durante la creazione di criteri che applicano i tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -94,7 +94,7 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
 
 - **name**: nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
-- `type`: determina se il parametro è una **stringa**o una**matrice.
+- `type`: determina se il parametro è una **stringa** o una **matrice**.
 - `metadata`: definisce le sottoproprietà usate principalmente dal portale di Azure per visualizzare informazioni di tipo descrittivo:
   - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
@@ -262,7 +262,7 @@ Sono supportati i seguenti campi:
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` modi comunque accettabile di dichiarare un campo tag.
+> `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags.
 > Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
 
 #### <a name="use-tags-with-parameters"></a>Usare tag con parametri
@@ -424,7 +424,7 @@ Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-mana
 - resourceId()
 - variables()
 
-Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene usato principalmente con **AuditIfNotExists** e **DeployIfNotExists** ai campi di riferimento sulla risorsa che vengono valutati. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
+Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
@@ -487,36 +487,7 @@ Molti degli alias disponibili hanno una versione che viene visualizzata come un 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-L'alias 'normal' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto di corrispondenza esatta quando l'intero set di valori deve essere esattamente come è definito, non è più e non minore. Usando **ipRules**, per la convalida un esempio è necessario che esista un set esatto di regole inclusi il numero di regole e composizione di ogni regola. Questa regola di esempio controlla sia esattamente **192.168.1.1** e **10.0.4.1** con _azione_ del **Consenti** in **ipRules** per applicare la **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+L'alias 'normal' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto di corrispondenza esatta quando l'intero set di valori deve essere esattamente come è definito, non è più e non minore.
 
 Il **[\*]** alias consente di confrontare il valore di ogni elemento della matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà di elemento per 'Se nessuna delle', 'eventuale di' o ' se tutti gli oggetti di ' scenari. Usando **ipRules [\*]**, ad esempio potrebbe essere la convalida che ogni _azione_ viene _Deny_, ma non doversi preoccupare esistono regole quanti o quali l'indirizzo IP _valore_ è. Questa regola di esempio controlla la presenza di corrispondenze dei **ipRules [\*]. Value** al **10.0.4.1** e applica la **effectType** solo se non viene trovata almeno una corrispondenza:
 

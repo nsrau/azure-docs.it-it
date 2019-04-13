@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: yluiu
-ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862030"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544551"
 ---
 # <a name="face-api-release-notes"></a>Note sulla versione dell'API Viso
 
@@ -27,7 +27,7 @@ Questo articolo si riferisce al servizio API Viso versione 1.0.
 
 ### <a name="release-changes-in-january-2019"></a>Modifiche alla versione di gennaio 2019
 
-* Aggiunta della funzionalità Snapshot per supportare la migrazione dei dati tra le sottoscrizioni: [Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Altre informazioni, vedere [come eseguire la migrazione dei dati viso in un'altra sottoscrizione di volti](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Aggiunta della funzionalità Snapshot per supportare la migrazione dei dati tra le sottoscrizioni: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Altre informazioni, vedere [come eseguire la migrazione dei dati viso in un'altra sottoscrizione di volti](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Modifiche alla versione di ottobre 2018
 

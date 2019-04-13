@@ -1,7 +1,7 @@
 ---
 title: Avviare, monitorare e annullare le esecuzioni di training in Python
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come iniziare, impostare lo stato del, tag e organizzare esperimenti di machine learning.
+description: Informazioni su come iniziare, impostare lo stato del, tag e organizzare gli esperimenti di machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,23 +11,23 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/05/2019
-ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c0c1c1353b12944fa913dfb0789192917b99f234
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494048"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543594"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
 Il [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) fornisce diversi metodi per monitorare, organizzare e gestire le esecuzioni per il training e sperimentazione.
 
-Questo argomento vengono illustrati esempi delle attività seguenti:
+Questo articolo illustra alcuni esempi delle attività seguenti:
 
-* [Monitoraggio delle prestazioni di esecuzione](#monitor)
-* [Annullare o interrompere esecuzioni](#cancel)
-* [Creare figlio esecuzioni](#children)
-* [Tag e trovare le esecuzioni](#tag)
+* Monitoraggio delle prestazioni di esecuzione.
+* Annullare o interrompere esecuzioni.
+* Creare figlio viene eseguito.
+* Tag e trovare le esecuzioni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,19 +35,17 @@ Questo argomento vengono illustrati esempi delle attività seguenti:
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un'area di lavoro del servizio Azure Machine Learning. Visualizzare [creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md).
+* Un' [dell'area di lavoro di Azure Machine Learning servizio](setup-create-workspace.md).
 
-* Azure Machine Learning SDK per Python installata (versione 1.0.21 o versione successiva). Per installare o aggiornare la versione più recente del SDK, vedere la [installare/aggiornare il SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pagina.
+* Azure Machine Learning SDK per Python (versione 1.0.21 o versione successiva). Per installare o aggiornare la versione più recente del SDK, vedere [installare o aggiornare il SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-    Per controllare la versione del SDK di Azure Machine Learning, usare il codice seguente.
+    Per controllare la versione del SDK di Azure Machine Learning, usare il codice seguente:
 
     ```Python
     print(azureml.core.VERSION)
     ```
 
-<a name="monitor"></a>
-
-## <a name="start-a-run-and-set-its-status"></a>Avviare un'esecuzione e impostare il relativo stato
+## <a name="start-a-run-and-its-logging-process"></a>Avviare un'esecuzione e il processo di registrazione
 
 Configurare l'esperimento importando il [dell'area di lavoro](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [sperimentare](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [eseguire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), e [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classi dal [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) pacchetto.
 
@@ -68,13 +66,15 @@ notebook_run = exp.start_logging()
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
-Ottenere lo stato dell'esecuzione con [ `get_status()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--).
+## <a name="monitor-the-status-of-a-run"></a>Monitorare lo stato di un'esecuzione
+
+Ottenere lo stato di un'esecuzione con il [ `get_status()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) (metodo).
 
 ```Python
 print(notebook_run.get_status())
 ```
 
-Per ottenere informazioni aggiuntive sull'utilizzo fase [ `get_details()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--).
+Per ottenere altri dettagli sull'esecuzione, usare il [ `get_details()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) (metodo).
 
 ```Python
 notebook_run.get_details()
@@ -87,7 +87,7 @@ notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-È anche possibile usare Python `with...as` pattern. In questo contesto, l'esecuzione contrassegnerà automaticamente se stesso come completo quando l'esecuzione non rientra nell'ambito. In questo modo non è necessario contrassegnare manualmente l'esecuzione come completato.
+Se si usano Python `with...as` modello, l'esecuzione contrassegnerà automaticamente se stesso come completata quando l'esecuzione non rientra nell'ambito. Non è necessario contrassegnare manualmente l'esecuzione come completato.
 
 ```Python
 with exp.start_logging() as notebook_run:
@@ -97,11 +97,9 @@ with exp.start_logging() as notebook_run:
 print("Has it completed?",notebook_run.get_status())
 ```
 
-<a name="cancel"></a>
-
 ## <a name="cancel-or-fail-runs"></a>Annullare o interrompere esecuzioni
 
- Se si nota un errore o l'esecuzione sembra richiedere del tempo alla fine, usare il [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) metodo per interrompere l'esecuzione prima che venga completato e contrassegnarlo come annullata.
+ Se si nota un errore o se l'esecuzione sta richiedendo troppo tempo alla fine, usare il [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) metodo per interrompere l'esecuzione prima che venga completato e contrassegnarlo come annullata.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -113,7 +111,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-Se l'esecuzione viene completata, ma contiene un errore, ad esempio, è stato usato lo script di training non corretto, è possibile usare la [ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) metodo per contrassegnarlo come non riuscita.
+Se l'esecuzione viene completata, ma contiene un errore (ad esempio, lo script di training non corretto è stato usato), è possibile usare la [ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) metodo per contrassegnarlo come non riuscita.
 
 ```Python
 local_script_run = exp.submit(run_config)
@@ -122,13 +120,11 @@ local_script_run.fail()
 print(local_script_run.get_status())
 ```
 
-<a name="children"></a>
-
 ## <a name="create-child-runs"></a>Creare figlio esecuzioni
 
-Creare figlio viene eseguito per raggruppare le esecuzioni correlate, ad esempio per diversi iterazioni di ottimizzazione degli iperparametri.
+Creare figlio viene eseguito per raggruppare esecuzioni correlate, ad esempio per diverse iterazioni di ottimizzazione degli iperparametri.
 
-Questo esempio di codice Usa lo script hello_with_children.py per creare un batch di cinque esecuzioni figlio all'interno di un'esecuzione inviato utilizzando il [ `child_run()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) (metodo).
+In questo esempio di codice Usa il `hello_with_children.py` script per creare un batch di cinque esecuzioni figlio all'interno di un'esecuzione inviata tramite il [ `child_run()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) metodo:
 
 ```Python
 !more hello_with_children.py
@@ -145,17 +141,15 @@ with exp.start_logging() as parent_run:
 ```
 
 > [!NOTE]
-> Figlio viene eseguito completata automaticamente quando vengono spostati fuori ambito.
+> Durante lo spostamento dall'ambito, viene eseguito figlio contrassegnati automaticamente come completata.
 
 È anche possibile avviare esecuzioni figlio uno alla volta, ma poiché ogni creazione comporta una chiamata di rete, è meno efficiente rispetto all'invio di un batch di esecuzioni.
 
-Usare la [ `get_children()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) esecuzione del metodo per eseguire una query il figlio di un'entità padre specifica.
+Per eseguire una query viene eseguito il figlio di un elemento padre specifico, usare il [ `get_children()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) (metodo).
 
 ```Python
 list(parent_run.get_children())
 ```
-
-<a name="tag"></a>
 
 ## <a name="tag-and-find-runs"></a>Tag e trovare le esecuzioni
 
@@ -163,14 +157,14 @@ Nel servizio di Azure Machine Learning, è possibile utilizzare le proprietà e 
 
 ### <a name="add-properties-and-tags"></a>Aggiungere tag e proprietà
 
-Usare la [ `add_properties()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) per aggiungere metadati disponibili per la ricerca per le esecuzioni. Ad esempio, il codice seguente aggiunge la proprietà "author" per l'esecuzione.
+Per aggiungere metadati ricercabili per l'esecuzione, usare il [ `add_properties()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) (metodo). Ad esempio, il codice seguente aggiunge il `"author"` proprietà per l'esecuzione:
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
 print(local_script_run.get_properties())
 ```
 
-Proprietà non sono modificabili, che si rivela utile come un record permanente a fini di controllo. Esempio di codice seguente genererà un errore, poiché sono già stati aggiunti "azureml-user", come la proprietà "author" nel codice precedente.
+Proprietà non sono modificabili, quindi crea un record permanente a fini di controllo. Nell'esempio di codice risultati degli esempi di un errore, perché sono già stati aggiunti `"azureml-user"` come il `"author"` valore della proprietà nel codice precedente:
 
 ```Python
 try:
@@ -179,7 +173,7 @@ except Exception as e:
     print(e)
 ```
 
-I tag sono tuttavia può essere modificato. Uso [ `tag()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) per aggiungere le informazioni disponibili per la ricerca e significative per i consumer dell'esperimento.
+A differenza delle proprietà, i tag sono modificabili. Per aggiungere le informazioni disponibili per la ricerca e significative per i consumer dell'esperimento, usare il [ `tag()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) (metodo).
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -189,7 +183,7 @@ local_script_run.tag("quality", "fantastic run")
 print(local_script_run.get_tags())
 ```
 
-È anche possibile aggiungere un tag di stringa semplice. Viene visualizzato nel dizionario di tag con il valore di `None`.
+È anche possibile aggiungere i tag di stringa semplice. Quando questi tag vengono visualizzati nel dizionario di tag, hanno valore `None`.
 
 ```Python
 local_script_run.tag("worth another look")
@@ -198,7 +192,7 @@ print(local_script_run.get_tags())
 
 ### <a name="query-properties-and-tags"></a>Eseguire query sui tag e proprietà
 
-È possibile eseguire una query viene eseguito all'interno di un esperimento che corrispondono alle proprietà specifiche e i tag.
+È possibile eseguire una query viene eseguito all'interno di un esperimento per restituire un elenco di esecuzioni che corrispondono a tag e proprietà specifiche.
 
 ```Python
 list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -207,7 +201,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 
-I notebook seguenti illustrano i concetti descritti in questo articolo:
+Il notebook seguenti illustrano i concetti presentati in questo articolo:
 
 * Per altre informazioni sull'API di registrazione, vedere la [notebook di registrazione API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
 
@@ -215,4 +209,4 @@ I notebook seguenti illustrano i concetti descritti in questo articolo:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come registrare le metriche per gli esperimenti, vedere la [registrare metriche durante le esecuzioni di training](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiment) articolo.
+* Per informazioni su come registrare le metriche per gli esperimenti, vedere [registrare metriche durante le esecuzioni di training](how-to-track-experiments.md).

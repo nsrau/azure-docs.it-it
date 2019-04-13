@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492295"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528257"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -27,9 +27,9 @@ I passaggi per creare un peering di rete virtuale sono diversi a seconda che le 
 
 |Modello di distribuzione di Azure  | Sottoscrizione di Azure  |
 |--------- |---------|
-|[Entrambi Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
-|[Uno di Resource Manager, uno della versione classica](create-peering-different-deployment-models.md) |Uguale|
-|[Uno di Resource Manager, uno della versione classica](create-peering-different-deployment-models-subscriptions.md) |Diversa|
+|[Entrambi con Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
+|[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models.md) |Uguale|
+|[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models-subscriptions.md) |Diversa|
 
 Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Se è necessario connettere due reti virtuali, entrambe create tramite il modello di distribuzione classica, è possibile usare un [gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
 
@@ -61,7 +61,7 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 7. Selezionare **Collaboratore Rete** nella casella **Ruolo**.
 8. Nella casella **Seleziona** selezionare *UserB* o digitare l'indirizzo di posta elettronica di UserB per cercare l'utente.
 9. Selezionare **Salva**.
-10. In **myVnetA - Controllo di accesso (IAM)** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile a questo: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. In **myVnetA - Controllo di accesso (IAM)** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Disconnettersi dal portale come UserA e quindi accedere come UserB.
 12. Completare i passaggi 2 e 3, immettendo o selezionando i valori seguenti nel passaggio 3:
 
@@ -74,7 +74,7 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
     - **Posizione**: *Stati Uniti orientali*
 
 13. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Selezionare la voce **myVnetB** quando viene visualizzata nei risultati della ricerca.
-14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Selezionare **Controllo di accesso (IAM)** in **myVnetB** e quindi completare i passaggi da 5 a 10 per myVnetB immettendo **UserA** al passaggio 8.
 16. Disconnettersi dal portale come UserB e accedere come UserA.
 17. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Selezionare la voce **myVnetA** quando viene visualizzata nei risultati della ricerca.
@@ -111,7 +111,7 @@ Lo script seguente:
 Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è possibile usare Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare un'istanza di Cloud Shell a cui è possibile accedere con l'account di Azure.
 
 1. Aprire una sessione dell'interfaccia della riga di comando e accedere ad Azure come UserA usando il comando `azure login`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
-2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID sottoscrizione non è noto, immettere il comando 'az account show'. Il valore per **id** nell'output è l'ID della sottoscrizione.
+2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID della sottoscrizione.
 
     ```azurecli-interactive
     # Create a resource group.

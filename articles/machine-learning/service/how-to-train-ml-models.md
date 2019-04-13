@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 2/14/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012487"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548171"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 
@@ -59,7 +59,7 @@ Questo frammento di codice specifica i parametri seguenti per il costruttore di 
 Parametro | DESCRIZIONE
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote 
-`script_params`| Dizionario che specifica gli argomenti della riga di comando per lo script di training `entry_script`, sotto forma di coppie <argomento riga di comando, valore>
+`script_params`| Dizionario che specifica gli argomenti della riga di comando allo script di training `entry_script`, sotto forma di < argomento della riga di comando, valore > coppie. Per specificare un flag dettagliato nella `script_params`, usare `<command-line argument, "">`.
 `compute_target`| Destinazione di calcolo remota in cui verrà eseguito lo script di training, in questo caso un cluster dell'ambiente di calcolo di Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). Si noti che, anche se il cluster AmlCompute è la destinazione di uso comune, è possibile scegliere altri tipi di destinazioni di calcolo, ad esempio macchine virtuali di Azure o anche un computer locale.
 `entry_script`| Percorso file (relativo a `source_directory`) dello script di training da eseguire nelle risorse di calcolo remote. Questo file e gli eventuali file aggiuntivi da cui dipende, devono trovarsi in questa cartella
 `conda_packages`| Elenco dei pacchetti Python da installare tramite Conda, necessari per lo script di training.  

@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093669"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547549"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installare l'anteprima del runtime di Funzioni di Azure 2
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Se si desidera installare la versione di anteprima del runtime di Funzioni di Azure 2 è necessario seguire questi passaggi:
 
@@ -102,36 +104,37 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
 Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-1. Passare al **portale del runtime di Funzioni di Azure** come https://<machinename>.<domain> ad esempio: https://mycomputer.mydomain.com
+1. Selezionare il **portale di Runtime di funzioni di Azure** come `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com`.
+
 1. Viene richiesto di effettuare l'**accesso**. Se distribuito in un dominio usare il nome utente e la password dell'account di dominio, altrimenti usare il nome utente e la password dell'account locale per accedere al portale.
 
-![Anteprima del runtime di Funzioni di Azure - Accesso al portale][14]
+    ![Anteprima del runtime di Funzioni di Azure - Accesso al portale][14]
 
-1. Per creare app per le funzioni è necessario creare una sottoscrizione.  Nell'angolo superiore sinistro del portale fare clic sull'opzione **+** accanto alle sottoscrizioni
+1. Per creare app per le funzioni è necessario creare una sottoscrizione.  Nell'angolo superiore sinistro del portale, fare clic sui **+** opzione accanto alle sottoscrizioni.
 
-![Anteprima del runtime di Funzioni di Azure - Sottoscrizioni del portale][15]
+    ![Anteprima del runtime di Funzioni di Azure - Sottoscrizioni del portale][15]
 
 1. Scegliere **DefaultPlan**, immettere un nome per la sottoscrizione e fare clic su **Crea**.
 
-![Anteprima del runtime di Funzioni di Azure - Nome e piano di sottoscrizione del portale][16]
+    ![Anteprima del runtime di Funzioni di Azure - Nome e piano di sottoscrizione del portale][16]
 
 1. Tutte le app per le funzioni sono elencate nel riquadro a sinistra del portale.  Per creare una nuova app per le funzioni selezionare l'intestazione **App per le funzioni** e fare clic sull'opzione **+**.
 
 1. Immettere un nome per l'app per le funzioni, selezionare la sottoscrizione corretta, scegliere la versione del runtime di Funzioni di Azure che si desidera programmare e fare clic su **Crea**
 
-![Anteprima del runtime di Funzioni di Azure - Nuova app per le funzioni del portale][17]
+    ![Anteprima del runtime di Funzioni di Azure - Nuova app per le funzioni del portale][17]
 
 1. La nuova app per le funzioni è elencata nel riquadro a sinistra del portale.  Selezionare le funzioni e quindi fare clic su **Nuova funzione** nella parte superiore del riquadro centrale nel portale.
 
-![Anteprima del runtime di Funzioni di Azure - Modelli][18]
+    ![Anteprima del runtime di Funzioni di Azure - Modelli][18]
 
 1. Selezionare la funzione Timer Trigger nel riquadro a comparsa di destra, assegnare un nome alla funzione e modificare la pianificazione per `*/5 * * * * *` (questa espressione Cron fa sì che la funzione del timer venga eseguita ogni cinque secondi), quindi fare clic su **Crea**
 
-![Anteprima del runtime di Funzioni di Azure - Nuova configurazione della funzione del timer][19]
+    ![Anteprima del runtime di Funzioni di Azure - Nuova configurazione della funzione del timer][19]
 
 1. La funzione è stata creata.  È possibile visualizzare il log di esecuzione dell'app per le funzioni espandendo il riquadro del **log** nella parte inferiore del portale.
 
-![Anteprima del runtime di Funzioni di Azure - Esecuzione della funzione][20]
+    ![Anteprima del runtime di Funzioni di Azure - Esecuzione della funzione][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

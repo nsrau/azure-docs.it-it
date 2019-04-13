@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916819"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525110"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creare un endpoint della rete CDN di Azure
 Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per una Guida introduttiva sulla creazione di un profilo e un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    
     ![Pagina Aggiungi endpoint](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. In **Nome** immettere un nome univoco per il nuovo endpoint di rete CDN. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _<endpointname>_.azureedge.net.
+3. In **Nome** immettere un nome univoco per il nuovo endpoint di rete CDN. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio  _\<endpointname >_. azureedge.net.
 
 4. Per **Tipo di origine** scegliere uno dei tipi di origine seguenti: 
    - **Archiviazione** per Archiviazione di Azure
@@ -62,7 +62,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    > Per alcuni tipi di origini, ad esempio Archiviazione di Azure e App Web, è necessario che l'intestazione host corrisponda al dominio dell'origine. A meno che non si abbia un'origine che richiede un'intestazione host diversa dal dominio, è consigliabile lasciare il valore predefinito.
    > 
     
-8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte da usare per accedere alle risorse nel server di origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS). Usare il dominio fornito dalla rete CDN (_<endpointname>_.azureedge.net) per accedere al contenuto HTTPS. 
+8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte da usare per accedere alle risorse nel server di origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS). Usare il dominio della rete CDN-fornito (_\<endpointname >_. azureedge.net) per accedere al contenuto HTTPS. 
    
    > [!NOTE]
    > Il valore di **Porta dell'origine** determina solo la porta usata dall'endpoint per recuperare informazioni dal server di origine. L'endpoint stesso è disponibile per i client finali solo sulle porte HTTP e HTTPS predefinite (80 e 443), indipendentemente dal valore in **Porta dell'origine**.  
@@ -84,7 +84,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
     - Profili di **rete CDN Standard di Azure con tecnologia Akamai**:
        - [**Distribuzione Web generale**](cdn-optimization-overview.md#general-web-delivery)
        - [**Streaming multimediale generale**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Streaming multimediale di video on demand**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Streaming multimediale video on demand**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Download di file di grandi dimensioni**](cdn-optimization-overview.md#large-file-download)
        - [**Accelerazione sito dinamico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

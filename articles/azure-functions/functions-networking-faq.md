@@ -3,17 +3,17 @@ title: Domande frequenti sulle reti in funzioni di Azure
 description: Risposte ad alcune delle domande più comuni e scenari di rete con funzioni di Azure.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896356"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548640"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulle reti in funzioni di Azure
 
@@ -23,7 +23,7 @@ Seguito è riportato un elenco delle domande frequenti di rete. Per una panorami
 
 La distribuzione di una funzione in un ambiente del servizio App (ASE) è attualmente l'unico modo per avere un IP statico in ingresso e in uscita per la funzione. Per informazioni dettagliate sull'uso di un ambiente del servizio App, iniziare dall'articolo di seguito: [Creazione e utilizzo di un ambiente del servizio App ILB](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Come si limita l'accesso a Internet per la funzione?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Come si limita l'accesso a internet per la funzione?
 
 È possibile limitare l'accesso a internet in diversi modi, elencati di seguito.
 
@@ -54,3 +54,13 @@ Usa la nuova integrazione rete virtuale (attualmente in anteprima), è possibile
 Distribuzione in un ambiente del servizio App è l'unico modo per creare un'app per le funzioni che è completamente all'interno di una rete virtuale per informazioni dettagliate sull'uso di un ambiente del servizio App ILB, iniziare dall'articolo di seguito: [Creazione e utilizzo di un ambiente del servizio App ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Per scenari in cui è necessario solo unidirezionale accesso alle risorse di rete virtuale o meno l'isolamento rete completa, vedere la [Panoramica di rete funzioni](functions-networking-options.md).
+
+## <a name="next-steps"></a>Fasi successive
+
+Per altre informazioni sulla rete e le funzioni: 
+
+* [Seguire la Guida introduttiva di integrazione rete virtuale](./functions-create-vnet.md)
+* [Altre informazioni sulle opzioni di rete in questo caso le funzioni](./functions-networking-options.md)
+* [Altre informazioni sull'integrazione della rete virtuale con il servizio/le funzioni app qui](../app-service/web-sites-integrate-with-vnet.md)
+* [Altre informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
+* [Abilita altre funzionalità di rete e controllo con ambienti del servizio App](../app-service/environment/intro.md)

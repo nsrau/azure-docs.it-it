@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369140"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524370"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
 Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'organizzazione in modo da poter accedere a risorse potenzialmente limitate.
@@ -62,7 +62,7 @@ Se il dispositivo è nuovo e non è ancora stato configurato, è possibile usare
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *<nome_organizzazione>*.**
+2. Selezionare **accesso azienda o dell'istituto di istruzione**e assicurarsi che venga visualizzato il testo indicante, ad esempio **connesso alla  *\<nome_organizzazione >* AD Azure**.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Se si possiede il dispositivo da tempo ed è già stato configurato, è possibil
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *<nome_organizzazione>*.**
+2. Selezionare **accesso azienda o dell'istituto di istruzione**e assicurarsi che venga visualizzato il testo indicante, ad esempio **connesso alla  *\<nome_organizzazione >* AD Azure**.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

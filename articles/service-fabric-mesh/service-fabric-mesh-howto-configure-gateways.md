@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532083"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528119"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
 
@@ -228,8 +228,8 @@ Ecco come appare una configurazione completa della risorsa Gateway (adattato dal
 ```
 
 Questo gateway è configurato per un'applicazione Linux "meshAppLinux", costituita da almeno due servizi: "helloWorldService" e "counterService", in ascolto sulla porta 80. A seconda della struttura dell'URL della richiesta in ingresso, la richiesta verrà indirizzata a uno di questi servizi. 
-* "<IPAddress>: 80/helloWorld/\<request\>" risulterebbe in una richiesta indirizzata a "helloWorldListener" in helloWorldService. 
-* "<IPAddress>: 80/counter/\<request\>" risulterebbe in una richiesta indirizzata a "counterListener" in counterService. 
+* "\<IndirizzoIP >: 80/helloWorld/\<richiesta\>" comporterebbe una richiesta viene indirizzata a "helloWorldListener" nel helloWorldService. 
+* "\<IndirizzoIP >: 80/contatore/\<richiesta\>" comporterebbe una richiesta viene indirizzata a "counterListener" nel counterService. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i gateway in azione, distribuire l'[esempio in ingresso](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)

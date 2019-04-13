@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491288"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524046"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -50,7 +50,7 @@ Prima di creare un peering, acquisire familiarità con i requisiti e i vincoli e
 5. <a name="add-peering"></a>Immettere o selezionare i valori per le impostazioni seguenti:
     - **Nome:** il nome per il peering deve essere univoco all'interno della rete virtuale.
     - **Modello di distribuzione della rete virtuale**: selezionare il modello di distribuzione tramite il quale è stata distribuita la rete virtuale con cui si vuole eseguire il peering.
-    - **Conosco l'ID della risorsa:** se si ha accesso in lettura alla rete virtuale con la quale si vuole eseguire il peering, lasciare deselezionata questa casella di controllo. Se non si ha accesso in lettura alla rete virtuale o alla sottoscrizione con la quale si vuole eseguire il peering, selezionare questa casella. Immettere l'ID risorsa completo della rete virtuale con la quale si vuole eseguire il peering nella casella **ID risorsa** visualizzata quando è stata selezionata la casella. L'ID risorsa immesso deve essere quello di una rete virtuale che esiste nella stessa [area](https://azure.microsoft.com/regions) di Azure della rete virtuale o in un'[altra area supportata](#requirements-and-constraints). L'ID risorsa completo è simile a /subscriptions/<Id>/resourceGroups/<nome-gruppo-di-risorse>/providers/Microsoft.Network/virtualNetworks/<nome-rete-virtuale>. È possibile ottenere l'ID risorsa per una rete virtuale visualizzandone le proprietà. Per informazioni su come visualizzare le proprietà per una rete virtuale, vedere [Gestire le reti virtuali](manage-virtual-network.md#view-virtual-networks-and-settings). Se la sottoscrizione è associata a un tenant di Azure Active Directory diverso rispetto alla sottoscrizione con la rete virtuale da cui si crea il peering, prima di tutto aggiungere un utente da ogni tenant come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant opposto.
+    - **Conosco l'ID della risorsa:** se si ha accesso in lettura alla rete virtuale con la quale si vuole eseguire il peering, lasciare deselezionata questa casella di controllo. Se non si ha accesso in lettura alla rete virtuale o alla sottoscrizione con la quale si vuole eseguire il peering, selezionare questa casella. Immettere l'ID risorsa completo della rete virtuale con la quale si vuole eseguire il peering nella casella **ID risorsa** visualizzata quando è stata selezionata la casella. L'ID risorsa immesso deve essere quello di una rete virtuale che esiste nella stessa [area](https://azure.microsoft.com/regions) di Azure della rete virtuale o in un'[altra area supportata](#requirements-and-constraints). La risorsa completa ID sarà simile alla `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. È possibile ottenere l'ID risorsa per una rete virtuale visualizzandone le proprietà. Per informazioni su come visualizzare le proprietà per una rete virtuale, vedere [Gestire le reti virtuali](manage-virtual-network.md#view-virtual-networks-and-settings). Se la sottoscrizione è associata a un tenant di Azure Active Directory diverso rispetto alla sottoscrizione con la rete virtuale da cui si crea il peering, prima di tutto aggiungere un utente da ogni tenant come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant opposto.
     - **Sottoscrizione:** selezionare la [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della rete virtuale con la quale si vuole eseguire il peering. Il numero di sottoscrizioni che vengono elencate dipende dal numero di sottoscrizioni a cui l'account ha accesso in lettura. Se si è selezionata la casella di controllo **ID risorsa**, questa impostazione non è disponibile.
     - **Rete virtuale:** selezionare la rete virtuale con cui si vuole eseguire il peering. È possibile selezionare una rete virtuale creata tramite un modello di distribuzione di Azure. Se si vuole selezionare una rete virtuale in un'area diversa, è necessario selezionare una rete virtuale in un'[area supportata](#cross-region). È necessario avere accesso in lettura alla rete virtuale perché venga visualizzata nell'elenco. Se una rete virtuale è elencata, ma disattivata, la causa potrebbe essere la sovrapposizione dello spazio indirizzi per la rete virtuale con lo spazio indirizzi per questa rete virtuale. Se gli spazi indirizzi delle reti virtuali si sovrappongono, non è possibile eseguire il peering. Se si è selezionata la casella di controllo **ID risorsa**, questa impostazione non è disponibile.
     - **Consenti accesso alla rete virtuale**: selezionare **Abilitata** (impostazione predefinita) per abilitare la comunicazione tra le due reti virtuali. L'abilitazione della comunicazione tra reti virtuali consente alle risorse connesse a una o all'altra delle reti virtuali di comunicare tra loro con la stessa larghezza di banda e latenza che userebbero se fossero connesse alla stessa rete virtuale. Tutte le comunicazioni tra le risorse nelle due reti virtuali avvengono tramite la rete privata di Azure. Il tag del servizio **VirtualNetwork** per i gruppi di sicurezza di rete comprende la rete virtuale e la rete virtuale con peering. Per altre informazioni sui tag del servizio dei gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md#service-tags). Selezionare **Disabilitata** se non si vuole inviare il flusso del traffico alla rete virtuale con peering. È possibile selezionare **Disabilitata** se si è eseguito il peering di una rete virtuale con un'altra rete virtuale, ma occasionalmente si vuole disabilitare il flusso del traffico tra le due reti virtuali. L'abilitazione/disabilitazione può risultare più pratica che eliminare e ricreare i peering. Quando questa impostazione è disabilitata, il traffico non viene trasmesso tra le due reti virtuali con peering.
@@ -84,7 +84,7 @@ Prima di modificare un peering, acquisire familiarità con i requisiti e i vinco
 5. Modificare l'impostazione appropriata. Informazioni sulle opzioni per ogni impostazione [passaggio 5](#add-peering) creare un peering.
 6. Selezionare **Salva**.
 
-**Comandi:**
+**Comandi**
 
 - **Interfaccia della riga di comando di Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering) per elencare i peering di una rete virtuale, [az network vnet peering show](/cli/azure/network/vnet/peering) per visualizzare le impostazioni di uno specifico peering e [az network vnet peering update](/cli/azure/network/vnet/peering) per modificare le impostazioni di un peering.
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) per recuperare le impostazioni di peering e [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) per modificare le impostazioni.
@@ -103,7 +103,7 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
 4. Sul lato destro del peering da eliminare, selezionare **...**, **Elimina** e quindi **Sì** per eliminare il peering dalla prima rete virtuale.
 5. Completare la procedura precedente per eliminare il peering dall'altra rete virtuale nel peering.
 
-**Comandi:**
+**Comandi**
 
 - **Interfaccia della riga di comando di Azure**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)

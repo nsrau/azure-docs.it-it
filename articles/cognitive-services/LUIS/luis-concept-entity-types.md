@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895546"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528034"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -24,7 +24,15 @@ Entità di estrarre dati dal utterance. Tipi di entità offrono stimabile estraz
 
 ## <a name="entity-compared-to-intent"></a>Entità e finalità
 
-L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'espressione può includere molte entità oppure nessuna. Un'entità rappresenta una classe che include una raccolta di oggetti simili (luoghi, cose, persone, eventi o concetti). Le entità descrivono le informazioni rilevanti per la finalità e sono talvolta essenziali affinché l'app svolga la sua attività. Ad esempio, un'app di ricerca di notizie potrebbe includere entità come "topic", "source", "keyword" e "publishing date", ovvero i dati chiave per la ricerca delle notizie. In un'app per la prenotazione di viaggi, "location", "date", "airline", "travel class" e "tickets" sono informazioni chiave per la prenotazione dei voli (rilevanti per la finalità "Bookflight").
+L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'espressione può includere molte entità oppure nessuna. Un'applicazione client potrebbe essere necessario l'entità per eseguire la propria attività oppure usarla come una Guida di diverse opzioni per presentare all'utente. 
+
+Un'entità:
+
+* Rappresenta una classe come una raccolta di oggetti simili (luoghi, cose, persone, eventi o concetti). 
+* Descrive le informazioni pertinenti all'Intent
+
+
+Ad esempio, un'app di ricerca di notizie potrebbe includere entità come "topic", "source", "keyword" e "publishing date", ovvero i dati chiave per la ricerca delle notizie. In un'app per la prenotazione di viaggi, "location", "date", "airline", "travel class" e "tickets" sono informazioni chiave per la prenotazione dei voli (rilevanti per la finalità "Bookflight").
 
 La finalità rappresenta invece la previsione dell'intera espressione. 
 
@@ -88,15 +96,15 @@ Dopo aver estratto l'entità, i relativi dati possono essere rappresentati come 
 
 |Basata su Machine Learning|Può essere contrassegnata|Esercitazione|Esempio<br>Risposta|Tipo di entità|Scopo|
 |--|--|--|--|--|--|
-|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Raggruppamento di entità, indipendentemente dal tipo di entità.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Gerarchica**](#hierarchical-entity)|Raggruppamento di entità semplici.|
+|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composita**](#composite-entity)|Raggruppamento di entità, indipendentemente dal tipo di entità.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Gerarchica**](#hierarchical-entity)|Raggruppamento di entità semplici.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Elenco**](#list-entity)|Elenco di elementi e relativi sinonimi estratti con corrispondenza di testo esatta.|
-|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Entità di cui è difficile determinare la fine.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefiniti**](#prebuilt-entity)|Già sottoposta a training per estrarre vari tipi di dati.|
+|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entità di cui è difficile determinare la fine.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefinita**](#prebuilt-entity)|Già sottoposta a training per estrarre vari tipi di dati.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Espressione regolare**](#regular-expression-entity)|Usa un'espressione regolare in base a cui trovare una corrispondenza di testo.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Semplice**](#simple-entity)|Contiene un singolo concetto in parole o frasi.|
 
-Solo le entità basate su Machine Learning devono essere contrassegnate nelle espressioni di esempio per ogni finalità. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endpoint-utterances.md). 
+Solo le entità apprese macchina devono essere contrassegnato nelle espressioni di esempio. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endoint-utt.md). 
 
 Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pattern](luis-how-to-model-intent-pattern.md), non negli esempi di finalità utente. 
 
@@ -117,33 +125,19 @@ Questa entità è idonea quando i dati:
 ![entità composita](./media/luis-concept-entities/composite-entity.png)
 
 [Esercitazione](luis-tutorial-composite-entity.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#composite-entity-data)<br>
+[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Entità gerarchica
 
+**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
+
 Un'entità gerarchica è una categoria di entità semplici con apprendimento su base contestuale chiamate entità figlio.
-
-Questa entità è idonea quando i dati:
-
-* Sono entità semplici.
-* Sono correlati tra loro nel contesto dell'espressione.
-* Usano parole specifiche per indicare ogni entità figlio. Le parole usate sono, ad esempio, from/to, leaving/headed to, away from/toward.
-* Le entità figlio si trovano spesso nella stessa espressione. 
-* Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
-
-Non usare se:
-
-* È necessaria un'entità che abbia corrispondenze di testo esatte per gli elementi figlio, indipendentemente dal contesto. Usare invece un'[entità elenco](#list-entity). 
-* È necessaria un'entità per una relazione padre-figlio con altri tipi di entità. Usare un'[entità composita](#composite-entity).
 
 ![entità gerarchica](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Esercitazione](luis-quickstart-intent-and-hier-entity.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Ruoli ed entità gerarchiche
 
-I [Ruoli](luis-concept-roles.md#roles-versus-hierarchical-entities) di un criterio risolvono lo stesso problema delle entità gerarchiche ma si applicano a tutti i tipi di entità. I ruoli sono attualmente disponibili solo nei criteri. Non sono disponibili nelle espressioni di esempio della finalità.  
+[Ruoli](luis-concept-roles.md) risolvere lo stesso problema come entità gerarchiche ma si applicano a tutti i tipi di entità.  
 
 ## <a name="list-entity"></a>Entità elenco
 
@@ -158,7 +152,7 @@ Questa entità è idonea quando i dati di testo:
 ![entità elenco](./media/luis-concept-entities/list-entity.png)
 
 [Esercitazione](luis-quickstart-intent-and-list-entity.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#list-entity-data)
+[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entità pattern.any
 
@@ -168,7 +162,7 @@ Questa entità è idonea quando:
 
 * La fine dell'entità può essere confusa con il testo rimanente dell'espressione. 
 [Esercitazione](luis-tutorial-pattern.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#patternany-entity-data)
+[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Esempio**  
 Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`. 
@@ -195,7 +189,7 @@ Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento.
 ![entità predefinita number](./media/luis-concept-entities/number-entity.png)
 
 [Esercitazione](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#prebuilt-entity-data)
+[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto. 
 
@@ -243,7 +237,7 @@ Questa entità è idonea quando:
 ![Entità di espressione regolare](./media/luis-concept-entities/regex-entity.png)
 
 [Esercitazione](luis-quickstart-intents-regex-entity.md)<br>
-[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Entità semplice 
 
@@ -262,24 +256,15 @@ Questa entità è idonea quando:
 
 Esaminare i [limiti](luis-boundaries.md#model-boundaries) per comprendere il numero di entità di ciascun tipo che è possibile aggiungere a un modello.
 
-## <a name="composite-vs-hierarchical-entities"></a>Entità composite e gerarchiche
-
-Sia le entità composite che le entità gerarchiche hanno relazioni padre-figlio e sono basate su Machine Learning. L'apprendimento basato su Machine Learning consente a LUIS di comprendere le entità in base ai diversi contesti (disposizione delle parole). Le entità composite sono più flessibili perché consentono tipi di entità diversi come figli. I figli delle entità gerarchiche sono solo entità semplici. 
-
-|Type|Scopo|Esempio|
-|--|--|--|
-|Gerarchica|Padre-figlio di entità semplici|Location.Origin=New York<br>Location.Destination=London|
-|Composita|Entità padre-figlio: predefinite, elenco, semplici, gerarchiche| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se sono necessarie più entità rispetto al numero massimo 
 
-Potrebbe essere necessario usare entità gerarchiche e composite. Le entità gerarchiche riflettono la relazione tra le entità che condividono caratteristiche o che sono membri di una categoria. Le entità figlio sono tutti i membri della categoria del relativo padre. Ad esempio, un'entità gerarchica denominata PlaneTicketClass potrebbe presentare le entità figlio EconomyClass e FirstClass. La gerarchia si estende a un solo livello di profondità.  
+Potrebbe essere necessario utilizzare le entità composte in combinazione con i ruoli di entità.
 
-Le entità composite rappresentano parti di un intero. Ad esempio, un'entità composita denominata PlaneTicketOrder potrebbe presentare le entità figlio Airline, Destination, DepartureCity, DepartureDate e PlaneTicketClass. Si crea un'entità composita da entità semplici preesistenti, da figli di entità gerarchiche o da entità predefinite.  
+Le entità composite rappresentano parti di un intero. Ad esempio, un'entità composita denominata PlaneTicketOrder potrebbe presentare le entità figlio Airline, Destination, DepartureCity, DepartureDate e PlaneTicketClass.
 
 LUIS fornisce anche il tipo di entità elenco non basato su Machine Learning ma che consente all'app LUIS di specificare un elenco fisso di valori. Vedere il riferimento [Limiti di LUIS](luis-boundaries.md) per esaminare i limiti del tipo di entità elenco. 
 
-Se sono state considerate le entità gerarchiche, composite ed elenco e comunque ne occorrono altre in numero superiore al limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
+Se è stata considerata queste entità e comunque è più necessario, rispetto al limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

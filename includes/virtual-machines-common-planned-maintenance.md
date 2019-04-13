@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805740"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551513"
 ---
 Azure aggiorna periodicamente la piattaforma per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Questi aggiornamenti includono l'applicazione di patch ai componenti software nell'ambiente host, l'aggiornamento dei componenti di rete e la rimozione delle autorizzazioni per l'hardware. La maggior parte di questi aggiornamenti non ha alcuna conseguenza sulle macchine virtuali ospitate. È possibile, tuttavia, che gli aggiornamenti abbiano conseguenze sulle macchine virtuali ospitate e, in questo caso, Azure sceglie il metodo di aggiornamento a minor impatto:
 
@@ -27,9 +27,9 @@ Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per al
 
 Per informazioni sulle procedure di gestione della manutenzione pianificata, vedere "Gestire gli avvisi relativi alla manutenzione pianificata" per [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Manutenzione con mantenimento della memoria
+## <a name="maintenance-not-requiring-a-reboot"></a>Manutenzione non richiedono un riavvio
 
-Per la maggior parte degli aggiornamenti senza riavvio, l'obiettivo è un'interruzione della macchina virtuale inferiore a 10 secondi. Nei casi in cui vengono usati meccanismi di manutenzione con mantenimento della memoria, la macchina virtuale viene sospesa per un massimo di 30 secondi e la memoria viene mantenuta nella RAM. La macchina virtuale viene quindi ripresa e l'orologio della macchina virtuale viene sincronizzato automaticamente. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.
+L'obiettivo per attività di manutenzione che non richiedono un riavvio è inferiore a 10 secondi la sospensione per la macchina virtuale. Nei casi in cui vengono usati meccanismi di manutenzione con mantenimento della memoria, la macchina virtuale viene sospesa per un massimo di 30 secondi e la memoria viene mantenuta nella RAM. La macchina virtuale viene quindi ripresa e l'orologio della macchina virtuale viene sincronizzato automaticamente. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.
 
 Queste operazioni di manutenzione senza riavvio sono applicate dominio di errore per dominio di errore e l'avanzamento viene arrestato se vengono ricevuti segnali di avviso di integrità. 
 

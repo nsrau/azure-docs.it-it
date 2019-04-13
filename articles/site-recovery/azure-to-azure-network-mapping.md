@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359820"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549027"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
@@ -73,7 +73,7 @@ L'indirizzo IP per ogni scheda NIC in una macchina virtuale di destinazione è c
 
 ## <a name="ip-address-assignment-during-failover"></a>Assegnazione indirizzo IP durante il failover
 
-**Subnet di origine e destinazione** | **Dettagli**
+**Subnet di origine e di destinazione** | **Dettagli**
 --- | ---
 Stesso spazio di indirizzi | L'indirizzo IP della scheda NIC della macchia virtuale di origine è impostato come indirizzo IP della scheda NIC della macchia virtuale di destinazione.<br/><br/> Se lo stesso non è disponibile, verrà impostato come indirizzo IP di destinazione il successivo disponibile.
 
@@ -86,7 +86,7 @@ Spazio di indirizzi diverso<br/><br/> Il successivo indirizzo IP disponibile nel
 **Rete di destinazione** | **Dettagli**
 --- | ---
 Rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione è statico, ma non lo stesso indirizzo IP di quello riservato al failover.<br/><br/>  - L'indirizzo assegnato è l’indirizzo successivo disponibile dalla fine dell'intervallo di subnet.<br/><br/> Ad esempio:  Se l'indirizzo IP di origine è 10.0.0.19 e la rete di failover usa l’intervallo 10.0.0.0/24, allora il successivo indirizzo IP assegnato alla macchina virtuale di destinazione è 10.0.0.254.
-La rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione sarà statico con lo stesso indirizzo IP riservato al failover.<br/><br/>  - Se lo stesso indirizzo IP è già assegnato, allora l'indirizzo IP è il successivo disponibile in ogni intervallo di subnet.<br/><br/> Ad esempio:  Se l'indirizzo IP statico di origine è 10.0.0.19 e il failover è in una rete che non sia la rete di failover, con l’intervallo 10.0.0.0/24, allora l'indirizzo IP statico di destinazione sarà 10.0.0.0.19 se disponibile e in caso contrario sarà 10.0.0.254.
+La rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione sarà statico con lo stesso indirizzo IP riservato al failover.<br/><br/>  -Se è già assegnato lo stesso indirizzo IP, l'indirizzo IP è quello successivo disponibile alla fine dell'intervallo di subnet.<br/><br/> Ad esempio:  Se l'indirizzo IP statico di origine è 10.0.0.19 e il failover è in una rete che non sia la rete di failover, con l’intervallo 10.0.0.0/24, allora l'indirizzo IP statico di destinazione sarà 10.0.0.0.19 se disponibile e in caso contrario sarà 10.0.0.254.
 
 - Il failover della rete virtuale è la rete di destinazione che si seleziona quando si configura il ripristino di emergenza.
 - È consigliabile usare sempre una rete non di produzione per il failover di test.

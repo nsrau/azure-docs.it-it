@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847814"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528268"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 
@@ -40,6 +40,12 @@ Le procedure seguenti devono essere eseguite solo in casi estremi o in ambienti 
 Se si ha il sospetto che una chiave sia compromessa, ad esempio per un accesso non autorizzato alla chiave da parte di un utente o un servizio, è consigliabile eliminarla.
 
 Tenere presente che, dopo l'eliminazione della protezione TDE in Key Vault, **tutte le connessioni ai database crittografati nel server sono bloccate e i database passano alla modalità offline e vengono rilasciati entro 24 ore**. I backup precedenti crittografati con la chiave compromessa non sono più accessibili.
+
+I passaggi seguenti illustrano come verificare le identificazioni personali protezione TDE ancora in uso dal file di Log virtuali (VLF) di un determinato database. L'identificazione personale della protezione TDE corrente del database e l'ID del database sono reperibili eseguendo: [Database_id], selezionare       [encryption_state], [encryptor_type], /*certificato indica chiavi gestite dal servizio, chiave asimmetrica significa che Azure Key Vault*/ [encryptor_thumbprint,] da [sys]. [ dm_database_encryption_keys] 
+ 
+La query seguente restituisce il componente di crittografia e i file di log virtuali le identificazioni personali del rispettive in uso. Ogni identificazione personale diversa fa riferimento alla chiave diversi in Azure Key Vault (AKV): SELECT * FROM sys.dm_db_log_info (database_id) 
+
+Il comando PowerShell Get-AzureRmSqlServerKeyVaultKey fornisce l'identificazione personale della protezione TDE usata nella query, pertanto è possibile visualizzare le chiavi da mantenere e le chiavi da eliminare in Azure Key Vault. È possibile eliminare in modo sicuro solo le chiavi non è più utilizzate dal database di Azure Key Vault.
 
 Questa guida pratica descrive due approcci che si distinguono in base al risultato desiderato dopo la risposta all'evento imprevisto:
 

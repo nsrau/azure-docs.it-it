@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313941"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525168"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -174,7 +174,7 @@ Per installare strongSwan è possibile usare i comandi seguenti dell'interfaccia
 2. Estrarre il file.
 3. Copiare o spostare dalla cartella **Generic** VpnServerRoot.cer to /etc/ipsec.d/cacerts.
 4. Copiare o spostare cp client.p12 in /etc/ipsec.d/private/. Questo file è il certificato client per Gateway VPN di Azure.
-5. Aprire file Vpnsettings XML e copiare il valore <VpnServer>. Questo valore verrà usato nel passaggio successivo.
+5. Aprire file Vpnsettings XML e copiare il valore `<VpnServer>`. Questo valore verrà usato nel passaggio successivo.
 6. Modificare i valori nell'esempio seguente, quindi aggiungere l'esempio alla configurazione /etc/ipsec.conf.
   
    ```

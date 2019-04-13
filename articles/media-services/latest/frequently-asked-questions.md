@@ -9,20 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: juliako
-ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316916"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544178"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Domande frequenti su Servizi multimediali di Azure v3
 
 Questo articolo contiene le risposte alle domande frequenti su Servizi multimediali di Azure (AMS) v3.
 
 ## <a name="v3-apis"></a>API v3
+
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>I ruoli di Azure possono eseguire azioni sulle risorse di servizi multimediali di Azure? 
+
+Visualizzare [controllo di accesso basato sui ruoli (RBAC) per gli account di servizi multimediali](rbac-overview.md).
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Come si esegue la configurazione di Media Reserved Units?
 
@@ -66,14 +70,14 @@ Usare API servizi multimediali di Azure per la configurazione di licenza/chiave 
 
 Per altre informazioni, vedere:
 
-- [Panoramica di protezione del contenuto](content-protection-overview.md)
+- [Panoramica della protezione del contenuto](content-protection-overview.md)
 - [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Servizi multimediali v2 e v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>È possibile usare il portale di Azure per gestire le risorse della versione v3?
 
-Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
+Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>È presente un concetto AssetFile nella versione v3?
 

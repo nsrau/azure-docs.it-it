@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 079bfae19a4960ef5ab95c9d48d5603423407a9e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772875"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549321"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Immagine personalizzata, multi-contenitore o immagine della piattaforma predefinita?
 
 Il [servizio app in Linux](app-service-linux-intro.md) offre tre percorsi diversi per pubblicare un'applicazione sul Web:
 
 - **Distribuzione di un'immagine personalizzata**: integrare l'app in un'immagine Docker che contiene tutti i file e le dipendenze in un pacchetto pronto per l'esecuzione.
-- **Distribuzione multi-contenitore**: integrare l'app in un'immagine Docker da distribuire tra più contenitori tramite Docker Compose o un file di configurazione Kubernetes. Per altre informazioni, vedere [Supporto di app multi-contenitore](#multi-container-apps-supportability).
+- **Distribuzione multi-contenitore**: integrare l'app in un'immagine Docker da distribuire tra più contenitori tramite Docker Compose o un file di configurazione Kubernetes.
 - **Distribuzione di un'app con un'immagine di piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
@@ -43,38 +43,3 @@ Ecco i principali fattori da prendere in considerazione:
 - **Requisiti di lettura/scrittura sui dischi**: a tutte le app Web viene allocato un volume di archiviazione per il contenuto Web. Questo volume, supportato da Archiviazione di Azure, è montato su `/home` nel file system dell'app. Diversamente dai file nel file system del contenitore, i file presenti nel volume del contenuto sono accessibili tra tutte le istanze scalabili di un'app e le modifiche vengono mantenute tra i riavvii dell'app. Tuttavia, la latenza del disco del volume del contenuto è maggiore e più variabile rispetto alla latenza del file system del contenitore locale e aggiornamenti della piattaforma, tempi di interruzione imprevisti e problemi di connettività di rete possono influire sull'accesso. Le app che richiedono un accesso elevato in sola lettura a file di contenuto possono trarre vantaggio dalla distribuzione di immagini personalizzate, che inserisce i file nel file system dell'immagine invece che nel volume del contenuto.
 - **Utilizzo delle risorse di compilazione**: quando un'app viene distribuita dal codice sorgente, gli script di distribuzione eseguiti da Kudu usano le stesse risorse di calcolo e archiviazione del piano di servizio dell'app in esecuzione. Distribuzioni di app di grandi dimensioni possono utilizzare più risorse o richiedere più tempo rispetto a quanto desiderato. In particolare, molti flussi di lavoro di distribuzione generano attività dei dischi elevate nel volume del contenuto dell'app, che non è ottimizzato per questo tipo di attività. Un'immagine personalizzata fornisce tutti i file e le dipendenze dell'app ad Azure in un unico pacchetto, senza che siano necessari altri trasferimenti di file o azioni di distribuzione.
 - **Necessità di interazione rapida**: l'uso di un'immagine Docker per un'app richiede altri passaggi di compilazione. Perché le modifiche abbiano effetto, è necessario pubblicare la nuova immagine in un repository con ogni aggiornamento. Di questi aggiornamenti viene quindi eseguito il pull nell'ambiente Azure. Se uno dei contenitori predefiniti soddisfa le esigenze dell'app, la distribuzione dal codice sorgente può offrire un flusso di lavoro di sviluppo più rapido.
-
-## <a name="multi-container-apps-supportability"></a>Supporto di app multi-contenitore
-
-### <a name="supported-docker-compose-configuration-options"></a>Opzioni di configurazione di Docker Compose supportate
-- command
-- entrypoint
-- environment
-- image
-- ports
-- restart
-- services
-- volumes
-
-### <a name="unsupported-docker-compose-configuration-options"></a>Opzioni di configurazione di Docker Compose non supportate
-- build (non consentita)
-- depends_on (ignorata)
-- networks (ignorata)
-- secrets (ignorata)
-- porte diverse da 80 e 8080 (ignorate)
-
-> [!NOTE]
-> Tutte le altre opzioni non indicate in modo esplicito vengono ignorate anche nell'anteprima pubblica.
-
-### <a name="supported-kubernetes-configuration-options"></a>Opzioni di configurazione Kubernetes supportate
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
->Tutte le altre opzioni di Kubernetes non indicate in modo esplicito non sono supportate nell'anteprima pubblica.
->

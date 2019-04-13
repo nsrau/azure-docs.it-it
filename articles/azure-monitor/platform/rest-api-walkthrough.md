@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484983"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528068"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -657,7 +657,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per recuperare l'ID di risorsa per un account di archiviazione di Azure usando l'interfaccia della riga di comando di Azure, eseguire il comando "az storage account show", come illustrato nell'esempio seguente:
+Per recuperare l'ID risorsa per un account di archiviazione di Azure tramite la CLI di Azure, eseguire il `az storage account show` comando, come illustrato nell'esempio seguente:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

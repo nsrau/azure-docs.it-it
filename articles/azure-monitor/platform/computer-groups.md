@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444124"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549304"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query di log di monitoraggio di Azure
 I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -127,15 +127,15 @@ Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS vie
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |Nome del computer membro. |
-| Group |Nome del gruppo. |
-| GroupFullName |Percorso completo del gruppo, con origine e nome dell'origine. |
-| GroupSource |Origine da cui il gruppo è stato raccolto. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Nome dell'origine da cui il gruppo è stato raccolto.  Per Active Directory, corrisponde al nome del dominio. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
-| TimeGenerated |Data e ora in cui il gruppo di computer è stato creato o aggiornato. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Nome del computer membro. |
+| `Group` |Nome del gruppo. |
+| `GroupFullName` |Percorso completo del gruppo, con origine e nome dell'origine. |
+| `GroupSource` |Origine da cui il gruppo è stato raccolto. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Nome dell'origine da cui il gruppo è stato raccolto.  Per Active Directory, corrisponde al nome del dominio. |
+| `ManagementGroupName` |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
+| `TimeGenerated` |Data e ora in cui il gruppo di computer è stato creato o aggiornato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  

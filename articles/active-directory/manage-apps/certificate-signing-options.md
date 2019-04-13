@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916003"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549338"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opzioni avanzate di firma del certificato nel token SAML per le app della raccolta in Azure Active Directory
 
@@ -49,7 +49,7 @@ Azure AD supporta due algoritmi di firma o secure hash Algorithm (integrità), p
 
 * **SHA-1**. Questo algoritmo è meno recente e è considerato meno sicuro rispetto a SHA-256. Se un'applicazione supporta solo questo algoritmo di firma, è possibile selezionare questa opzione nell'elenco a discesa **Algoritmo di firma**. Azure AD firmerà quindi la risposta SAML con l'algoritmo SHA-1.
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>Modificare le opzioni di firma del certificato e l'algoritmo di firma del certificato
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Modificare le opzioni di firma e l'algoritmo di firma di certificato
 
 Per modificare l'algoritmo di firma del certificato e il certificato SAML dell'applicazione opzioni di firma, selezionare l'applicazione in questione:
 
@@ -81,5 +81,5 @@ Successivamente, modificare il certificato nel token SAML per l'applicazione opz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configura accesso single sign-on alle applicazioni non presenti nella raccolta di App di Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Risoluzione dei problemi basato su SAML single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta di app di Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](../develop/howto-v1-debug-saml-sso-issues.md)

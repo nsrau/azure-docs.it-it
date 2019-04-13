@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279619"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528136"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -29,6 +29,8 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 
 + **Nuove funzionalità**
   + il SDK di Azure Machine Learning supporta ora 3.7 di Python.
+  + Azure Machine Learning DNN Businesss ora offrono il supporto di più versioni predefinito. Ad esempio, `TensorFlow`  estimator ora accetta un `framework_version` parametro e gli utenti possono specificare versione '1.10' o '1.12'. Per un elenco delle versioni supportate per la versione SDK corrente, chiamare `get_supported_versions()` sulla classe framework desiderata (ad esempio `TensorFlow.get_supported_versions()`).
+  Per un elenco delle versioni supportate dalla versione di SDK più recente, vedere la [documentazione di rete neurale profonda Estimator](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>1.1.1 SDK di preparazione dei dati di Azure Machine Learning
 
@@ -147,7 +149,7 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
  
 + **Modifiche**
   + Le prestazioni della memoria di determinate operazioni su dati di grandi dimensioni sono state migliorate in modo significativo.
-  + `read_pandas_dataframe()` è ora necessario `temp_folder` specificare.
+  + Per la specifica di `read_pandas_dataframe()` è ora necessario `temp_folder`.
   + La proprietà `name` in `ColumnProfile` è deprecata. Usare `column_name`.
 
 ## <a name="2019-01-28"></a>28 gennaio 2019
@@ -209,7 +211,7 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
 
 + **Nuove funzionalità**
-  + `to_bool` funzione ora consente di mancata corrispondenza dei valori da convertire in valori di errore. Questo è il nuovo comportamento predefinito per `to_bool` e `set_column_types` in caso di mancata corrispondenza. Il comportamento predefinito precedente consisteva nel convertire i valori non corrispondenti in valori False.
+  + La funzione `to_bool` consente ora la conversione di valori non corrispondenti in valori di errore. Questo è il nuovo comportamento predefinito per `to_bool` e `set_column_types` in caso di mancata corrispondenza. Il comportamento predefinito precedente consisteva nel convertire i valori non corrispondenti in valori False.
   + Quando si chiama `to_pandas_dataframe`, è disponibile una nuova opzione per interpretare i valori Null o mancanti nelle colonne numeriche come NaN.
   + È stata aggiunta la possibilità controllare il tipo restituito di alcune espressioni per garantire la coerenza dei tipi e la risposta anticipata agli errori.
   + È ora possibile chiamare `parse_json` per analizzare i valori in una colonna come oggetti JSON ed espanderli in più colonne.
@@ -263,7 +265,7 @@ L'ambiente di calcolo di Azure Machine Learning può essere creato in Python, tr
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
 + **Modifiche di rilievo** 
-  * `SummaryFunction.N` è stato rinominato in `SummaryFunction.Count`.
+  * `SummaryFunction.N` è stato rinominato `SummaryFunction.Count`.
   
 + **Correzioni di bug**
   * Usare il più recente token di esecuzione di Azure Machine Learning durante la lettura e la scrittura negli archivi dati in esecuzioni remote. Precedentemente, se il Token di esecuzione di Azure Machine Learning viene aggiornato in Python, il runtime di preparazione dei dati non viene aggiornato con il token di esecuzione di Azure Machine Learning aggiornato.
@@ -282,7 +284,7 @@ L'ambiente di calcolo di Azure Machine Learning può essere creato in Python, tr
   + Informazioni su come [eseguire previsioni in batch utilizzando le pipeline](how-to-run-batch-predictions.md)
 + Destinazione di calcolo di Azure Machine Learning
   + I [notebook di esempio](https://aka.ms/aml-notebooks) sono ora aggiornati per l'uso del nuovo ambiente di calcolo gestito.
-  + [Informazioni su questo calcolo](how-to-set-up-training-targets.md#amlcompute)
+  + [Informazioni su questo ambiente di calcolo](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Portale di Azure: nuove funzionalità
 + Creare e gestire i tipi di [Ambiente di calcolo di Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) nel portale.
@@ -315,8 +317,8 @@ Per altre informazioni su Data Prep SDK vedere la [documentazione di riferimento
    * È supportato il campionamento stratificato
    * È possibile leggere da file ZIP che contengono file CSV
    * È possibile suddividere i set di dati riga per riga con la suddivisione casuale, ad esempio in set di test-training
-   * Ottenere tutte le colonne i tipi di dati da un flusso di dati o un profilo dati, chiamare `.dtypes`
-   * Ottenere il conteggio delle righe da un flusso di dati o un profilo dati, chiamare `.row_count`
+   * È possibile ottenere tutti i tipi di dati delle colonne da un flusso di dati o un profilo dati chiamando `.dtypes`
+   * È possibile ottenere il conteggio delle righe da un flusso di dati o un profilo dati chiamando `.row_count`
 
 + **Correzioni di bug**
    * È stata corretta la conversione da tipo di dati long a double 
@@ -361,7 +363,7 @@ Il portale di Azure per il servizio di Azure Machine Learning include gli aggior
   * Quando si salva un flusso di dati che contiene archivi dati in un pacchetto DataPrep, le informazioni degli archivi dati verranno rese persistenti come parte del pacchetto DataPrep
   * La scrittura in un archivio dati è ora supportata 
         
-+ **Correzione del bug**
++ **Bug risolto**
   * Gli overflow di interi senza segno a 64 bit vengono ora gestiti correttamente in Linux
   * L'etichetta di testo errata per i file di testo normale è stata corretta in smart_read
   * Il tipo di colonna a stringa viene mostrata ora nella visualizzazione metrica
@@ -437,7 +439,7 @@ La [versione 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) include le
   * Supporto della codifica one-hot
   * Supporto della trasformazione dei quantili
    
-+ **Correzione del bug:**
++ **Bug risolto:**
   * Funziona con qualsiasi versione di Tornado, senza bisogno di effettuare il downgrade della versione di Tornado in uso
   * Vengono conteggiati tutti i valori, non solo i primi tre
 

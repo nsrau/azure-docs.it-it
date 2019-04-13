@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917771"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547592"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Informazioni su CORS
@@ -32,7 +32,7 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina prova ad accedere da https://www.contoso.com ai dati di un utente nell'origine fabrikam.com, a tale sito viene inviata l'intestazione di richiesta seguente:
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. Il server può rispondere con uno degli elementi seguenti:
 

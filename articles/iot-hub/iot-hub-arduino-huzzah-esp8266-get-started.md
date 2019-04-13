@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259389"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524464"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connettere Adafruit Feather HUZZAH ESP8266 ad Azure IoT Hub nel cloud
 
@@ -220,7 +220,7 @@ L'applicazione di esempio consente di simulare i dati di temperatura e umidità 
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuire l'applicazione di esempio in Feather HUZZAH ESP8266
 
-1. In Visual Studio Code fare clic su **<Select Serial Port>** sulla barra di stato e quindi sulla porta seriale per Feather HUZZAH ESP8266.
+1. In Visual Studio Code, fare clic su  **\<selezionare una porta seriale >** sullo stato, a barre e quindi fare clic sulla porta seriale per Feather HUZZAH ESP8266.
 
 2. Immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Caricare** per compilare e distribuire l'applicazione di esempio in Feather HUZZAH ESP8266.
 

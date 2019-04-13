@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835017"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524906"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
 Questo documento illustra come creare funzionalità per i dati archiviati in un cluster Hadoop di Azure HDInsight tramite query Hive. Tali query Hive usano le funzioni definite dall'utente di Hive incorporate, gli script per i quali sono fornite.
@@ -89,14 +89,14 @@ In Hive è disponibile un set di funzioni definite dall'utente per elaborare i c
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Questa query Hive presuppone che *<datetime field>* sia nel formato di Data/Ora predefinito.
+Questa query Hive presuppone che il  *\<amp;#60;DateTime field >* è nel formato di data/ora predefinito.
 
 Se un campo data/ora non è nel formato predefinito, è necessario convertire innanzitutto il campo Datetime in indicatore data/ora Unix e convertire quest'ultimo in una stringa data/ora nel formato predefinito. Quando la stringa data/ora è nel formato predefinito, è possibile applicare le funzioni data/ora incorporate e definite dall'utente al fine di estrarre le funzionalità.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In questa query, se *<datetime field>* ha il modello *03/26/2015 12:04:39*, *<pattern of the datetime field>'* deve essere `'MM/dd/yyyy HH:mm:ss'`. Per eseguire il test, gli utenti possono eseguire
+In questa query, se il  *\<amp;#60;DateTime field >* ha il modello *03, 26 o 2015 12:04:39*, la  *\<pattern del campo datetime >'* deve essere `'MM/dd/yyyy HH:mm:ss'`. Per eseguire il test, gli utenti possono eseguire
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

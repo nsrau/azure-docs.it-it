@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491543"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548708"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
@@ -45,7 +45,7 @@ Aprire la scheda regole di avviso e quindi usare il pulsante Aggiungi.
 * Impostare un [indirizzo di webhook](../../azure-monitor/platform/alerts-webhooks.md) se è stata impostata un'app Web che risponde agli avvisi. L'app viene chiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso: usando i pulsanti nella parte superiore.
 
-*Non è presente il pulsante Aggiungi avviso.*
+*Il pulsante Aggiungi avviso non è visibile.*
 
 * Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Esaminare la scheda di controllo di accesso. [Informazioni sul controllo di accesso][roles].
 
@@ -147,7 +147,7 @@ In questa sezione verranno esaminate come impostare un avviso di eccezione basat
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Come annullare la sottoscrizione a notifiche di posta elettronica di avviso di classico
 
-In questa sezione si applica a **avvisi classici di disponibilità**, **avvisi delle metriche in Application Insights**e di ottenere **gli avvisi di anomalie errori classico**.
+In questa sezione si applica a **avvisi classici di disponibilità**, **classici avvisi delle metriche in Application Insights**e di ottenere **gli avvisi di anomalie errori classico**.
 
 Si ricevono notifiche tramite posta elettronica per questi avvisi classici se applica gli elementi seguenti:
 
@@ -178,7 +178,7 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 ## <a name="automation"></a>Automazione
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
-* [Usare i webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
+* [Usare webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Vedere anche 
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)

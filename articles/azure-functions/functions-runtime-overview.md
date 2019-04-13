@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091918"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546834"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Panoramica di runtime di Funzioni di Azure (anteprima)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Il runtime di Funzioni di Azure (anteprima) offre un nuovo modo per sfruttare la semplicità e la flessibilità del modello di programmazione di Funzioni di Azure in locale. Con la stessa base open source di Funzioni di Azure, il runtime di Funzioni di Azure viene distribuito in locale per fornire un'esperienza di sviluppo quasi identica al servizio cloud.
 
@@ -46,7 +48,7 @@ I ruoli di lavoro di Funzioni di Azure vengono distribuiti nei contenitori Windo
 
 Per iniziare a usare il runtime di Funzioni di Azure è necessario disporre di un computer con Windows Server 2016 o Windows 10 Creators Update con accesso a un'istanza di SQL Server.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Installare l'[anteprima del runtime di Funzioni di Azure](https://aka.ms/azafrdoc)
 

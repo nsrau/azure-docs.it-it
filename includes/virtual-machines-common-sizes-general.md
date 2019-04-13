@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763306"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551515"
 ---
 Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione per ogni dimensione di questo raggruppamento. 
 
@@ -23,13 +23,12 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 
   I casi d'uso di esempio includono server di sviluppo e test, server Web con poco traffico, database da piccoli a medi, modelli di prova e repository di codice.
 
-- La serie Dv2, un'evoluzione della serie D originale, offre una CPU più potente e una configurazione ottimale del rapporto tra CPU e memoria ed è quindi ideale per la maggior parte dei carichi di lavoro di produzione. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sui processori di ultima generazione Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) o E5-2673 v4 a 2,3 GHz (Broadwell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+- La serie Dv2, un'evoluzione della serie D originale, offre una CPU più potente e una configurazione ottimale del rapporto tra CPU e memoria ed è quindi ideale per la maggior parte dei carichi di lavoro di produzione. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. Si basa il più recente v3 di Intel Xeon® E5-2673 generazione (Haswell) a 2,4 GHz o processori E5 2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost Technology 2.0, può arrivare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
 - La serie Dv3 include il processore da 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) o il processore più recente da 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) in una configurazione con hyperthreading, assicurando una proposta di valore ottimizzata per la maggior parte dei carichi di lavoro per utilizzo generico.  La memoria è stata estesa (da ~3,5 GiB/vCPU a 4 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Dv3 non ha più le dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2, che sono state spostate nella nuova famiglia Ev3.
 
-  I casi d'uso di esempio per la serie D includono applicazioni di livello aziendale, database relazionali e attività di analisi e caching in memoria. 
+  Casi d'uso di serie D di esempio includono applicazioni di livello aziendale, i database relazionali, la memorizzazione nella cache in memoria e analitica. 
   
-
 ## <a name="b-series"></a>Serie B
 
 Archiviazione Premium:  Supportato
@@ -99,7 +98,6 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 
 <sup>1</sup> Le macchine virtuali serie Dv3 integrano la tecnologia Intel® Hyper-Threading
 
-
 ## <a name="dsv2-series"></a>Serie DSv2
 
 ACU: 210-250
@@ -116,8 +114,6 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 | Standard_DS4_v2 |8 |28 |56 |32 |32.000/256 (344) |25.600/384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64.000/512 (688) |51.200/768 |8 / 12000 |
 
-
-
 ## <a name="dv2-series"></a>Serie Dv2
 
 ACU: 210-250
@@ -133,7 +129,6 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
-
 
 ## <a name="av2-series"></a>Serie Av2
 
@@ -153,9 +148,6 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4/4 x 500               | 2 / 500                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8/8 x 500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16/16 x 500             | 8 / 2000                     |
-
-<br>
-
 
 ## <a name="dc-series"></a>Serie DC
 

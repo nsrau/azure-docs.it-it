@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496965"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546239"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -40,7 +40,7 @@ Di seguito sono riportati i requisiti di piattaforma per le varie funzionalità 
 - La funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete supporta solo il sistema operativo Windows Server (2008 SP1 o versione successiva).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>È possibile usare computer Linux come nodi di monitoraggio in Monitoraggio prestazioni rete?
-La funzionalità di monitoraggio delle reti tramite nodi basati su Linux è attualmente in anteprima privata. Per altre informazioni, contattare il proprio account manager. Dopo che l'utente ha specificato l'ID dell'area di lavoro, Microsoft procederà ad abilitare la funzionalità. Gli agenti Linux offrono il monitoraggio solo per la funzionalità Performance Monitor di Monitoraggio prestazioni rete e non sono disponibili per le funzionalità Monitoraggio connettività servizio e Monitoraggio di ExpressRoute.
+La possibilità di monitorare le reti che usano nodi basati su Linux è attualmente in anteprima. Per altre informazioni, contattare il proprio account manager. Dopo che l'utente ha specificato l'ID dell'area di lavoro, Microsoft procederà ad abilitare la funzionalità. Gli agenti Linux offrono il monitoraggio solo per la funzionalità Performance Monitor di Monitoraggio prestazioni rete e non sono disponibili per le funzionalità Monitoraggio connettività servizio e Monitoraggio di ExpressRoute.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quali sono i requisiti di dimensione per i nodi da usare per il monitoraggio tramite Monitoraggio prestazioni rete?
 Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per eseguire Monitoraggio prestazioni rete. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione ha la possibilità di arrestare il processo di monitoraggio nel caso in cui venga utilizzato più del 5% di CPU.

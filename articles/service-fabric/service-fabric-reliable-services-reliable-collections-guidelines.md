@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667107"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549021"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
@@ -32,6 +32,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
 * Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
+* Non creare lo stato affidabile con `IReliableStateManager.GetOrAddAsync` e usare lo stato affidabile nella stessa transazione. Ciò comporta un'eccezione InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.

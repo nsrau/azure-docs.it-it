@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417510"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549489"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione. 
@@ -122,6 +122,9 @@ In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. D
 
 I backup parziali consentono di scegliere esattamente i file di cui eseguire il backup.
 
+> [!NOTE]
+> I singoli database nel backup possono essere massime di 4GB ma la dimensione massima totale del backup è 10GB
+
 ### <a name="exclude-files-from-your-backup"></a>Escludere file dal backup
 Si supponga di avere un'app che contiene file di log e immagini statiche di cui è stato eseguito un backup e che nos si intende modificare. In questi casi è possibile escludere le cartelle e i file dall'archiviazione nei backup futuri. Per escludere file e cartelle dai backup, creare un file `_backup.filter` nella cartella `D:\home\site\wwwroot` dell'applicazione. Specificare l'elenco di file e cartelle da escludere in questo file. 
 
@@ -174,7 +177,7 @@ Per qualche esempio vedere:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md). 
 
 

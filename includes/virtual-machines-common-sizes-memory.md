@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333985"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551625"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
 * La serie M offre il maggior numero di vCPU (fino a 128 vCPU) e la maggiore quantità di memoria (fino a 3,8 TiB) rispetto a qualsiasi altra macchina virtuale nel cloud.  È ideale per database molto grandi o altre applicazioni che traggono vantaggio da un elevato numero di vCPU e una grande quantità di memoria.
 
-* Le serie Dv2, G e DSv2/GS sono ideali per le applicazioni che richiedono vCPU più veloci, prestazioni migliori di archiviazione temporanea o requisiti di memoria superiori.  Offrono una potente combinazione per molte applicazioni di livello aziendale.
+* Serie Dv2, serie G e DSv2 o GS sono ideali per applicazioni che richiedono Vcpu più veloci, migliorate prestazioni di archiviazione temporanea, o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 
-
-* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sui processori di ultima generazione Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) o E5-2673 v4 a 2,3 GHz (Broadwell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. Si basa sull'ultima generazione 2,4 GHz Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) o processori E5 2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost Technology 2.0, può arrivare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
 * La serie Ev3 include il processore E5-2673 v4 a 2,3 GHz (Broadwell) in una configurazione con hyperthreading, assicurando una proposta di valore ottimizzata per la maggior parte dei carichi di lavoro per uso generico e garantendo l'allineamento della serie Ev3 alle macchine virtuali per uso generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading.  La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
@@ -170,7 +169,6 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 <sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
@@ -187,14 +185,10 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64.000/512 (576) |51.200/768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DSv2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
-
-<sup>3</sup> Disponibili dimensioni core vincolate.
-
-<sup>4</sup> 25000 Mbps con rete accelerata.
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DSv2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.  
+<sup>3</sup> Disponibili dimensioni core vincolate.  
+<sup>4</sup> 25000 Mbps con rete accelerata. 
 
 <br>
 
@@ -214,13 +208,5 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64/64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64/64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente. 
-
-<sup>2</sup> 25000 Mbps con rete accelerata.
-
-
-
-<br>
-
-
-
+<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.  
+<sup>2</sup> 25000 Mbps con rete accelerata. 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448782"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548405"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Il processo di creazione e applicazione degli snapshot non interromperà le chiamate regolari agli oggetti **PersonGroup** (o **FaceList**) di origine o di destinazione. Tuttavia, si consiglia di non eseguire chiamate simultanee che modificano l'oggetto di origine (ad esempio, [chiamate di gestione dell'elenco di visi](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) o la chiamata [Train per un gruppo di persone](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train)), in quanto l'operazione di snapshot potrebbe essere eseguita prima o dopo queste operazioni o potrebbero verificarsi errori. 
+> Il processo di creazione e applicazione degli snapshot non interromperà le chiamate regolari agli oggetti **PersonGroup** (o **FaceList**) di origine o di destinazione. Tuttavia, si consiglia di non eseguire chiamate simultanee che modificano l'oggetto di origine ([FaceList le chiamate di gestione](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) o il [gruppo di persone Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) chiamare, ad esempio), in quanto l'operazione di snapshot potrebbe eseguire prima o dopo queste operazioni o che si verifichino errori.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperare l'ID dello snapshot
 

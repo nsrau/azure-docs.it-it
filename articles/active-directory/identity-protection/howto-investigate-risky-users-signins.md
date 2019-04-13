@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517597"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547057"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedura: Analizzare utenti e accessi a rischio 
 
@@ -46,7 +46,7 @@ Il primo punto di approccio a questo report è la sezione **Analisis dei problem
 
 Il report utenti a rischio dispone di una vista predefinita che include:
 
-- NOME
+- Attività
 
 - Stato del rischio
 
@@ -105,7 +105,7 @@ La vista Dettagli mostra:
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati sugli utenti a rischio usando i campi predefiniti seguenti:
 
-- NOME
+- Attività
 
 - Username
 
@@ -151,7 +151,7 @@ Il filtro **Stato** consente di selezionare:
 
 ### <a name="download-risky-users-data"></a>Download dei dati sugli utenti a rischio
 
-È possibile scaricare i dati degli utenti a rischio per usarli esternamente al portale di Azure. Facendo clic su Scarica, viene creato un file CSV dei 5.000 record più recenti. 
+Se si desidera utilizzarli all'esterno del portale di Azure, è possibile scaricare i dati degli utenti a rischio. Facendo clic su Download crea un file CSV dei record di 2.500 più recente. 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ I valori possibili sono:
 
 ### <a name="download-risky-sign-ins-data"></a>Download dei dati sugli accessi a rischio
 
-È possibile scaricare i dati relativi agli accessi a rischio per usarli esternamente al portale di Azure. Facendo clic su Scarica, viene creato un file CSV dei 5.000 record più recenti. 
+Se si desidera utilizzarli all'esterno del portale di Azure, è possibile scaricare i dati di accessi a rischio. Facendo clic su Download crea un file CSV dei record di 2.500 più recente. 
 
 ![Report utenti a rischio](./media/howto-investigate-risky-users-signins/15.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359752"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549406"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -30,7 +30,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 
 **Nuove funzionalità** 
 
-* il SDK supporta ora il servizio di sintesi vocale come una versione beta. È supportata in Windows e Linux Desktop da C++, C#e Java. Per altre informazioni, vedere la [Panoramica di sintesi vocale](text-to-speech.md#get-started-with-text-to-speech).
+* il SDK supporta ora il servizio di sintesi vocale come una versione beta. È supportata in Windows e Linux Desktop da C++ e C#. Per altre informazioni, vedere la [Panoramica di sintesi vocale](text-to-speech.md#get-started-with-text-to-speech).
 * il SDK supporta ora i file audio MP3 e sono state/Ogg come file di input di flusso. Questa funzionalità è disponibile solo in Linux da C++ e C# ed è attualmente in versione beta (ulteriori dettagli [qui](how-to-use-compressed-audio-input-streams.md)).
 * Speech SDK per Java, .NET core, Objective-C e C++ abbia avuto il supporto di macOS. Il supporto di Objective-C per macOS è attualmente in versione beta.
 * iOS: Speech SDK per iOS (Objective-C) è ora stata pubblicata anche un' CocoaPod.
@@ -42,7 +42,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 * Sono stati aggiunti esempi per l'uso di Speech SDK con C++ e Objective-C in macOS.
 * Sono stati aggiunti esempi che illustrano l'utilizzo del servizio di sintesi vocale.
 
-**Miglioramenti o modifiche**
+**Miglioramenti/modifiche**
 
 * Python: Proprietà aggiuntive dei risultati del riconoscimento vengono ora esposti tramite il `properties` proprietà.
 * Per ulteriore supporto di sviluppo e debug è possibile reindirizzare le informazioni di registrazione e diagnostica SDK in un file di log (altre informazioni [qui](how-to-use-logging.md)).
@@ -81,7 +81,7 @@ I nuovi contenuti seguenti sono disponibili nel [repository di esempio](https://
 * Esempi aggiuntivi per Java per la traduzione con output audio.
 * Nuovo esempio per l'uso dell'[API REST di trascrizione batch](batch-transcription.md).
 
-**Miglioramenti o modifiche**
+**Miglioramenti/modifiche**
 
 * Python
   * Messaggi di errore e verifica dei parametri migliorati in SpeechConfig.
@@ -226,7 +226,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 * Sperimentale: supporto di Java 8 in Windows (64 bit) e Linux (Ubuntu 16.04 x64).
   Consultare la [Guida introduttiva di Java Runtime Environment](quickstart-java-jre.md).
 
-**Modifiche funzionali**
+**Modifica funzionale**
 
 * Informazioni aggiuntive dettagliate sull'errore in caso di errori di connessione.
 
@@ -255,7 +255,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 **Modifiche funzionali**
 
-* `StartContinuousRecognitionAsync()` supporta il riconoscimento di lunga durata.
+* `StartContinuousRecognitionAsync()` supporta il riconoscimento a esecuzione prolungata.
 * Il risultato del riconoscimento contiene più campi. Scostamento da inizio audio e durata (entrambi in tick) del testo riconosciuto, valori aggiuntivi che rappresentano lo stato di riconoscimento, ad esempio `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * Supporto del token di autorizzazione per la creazione di istanze di factory.
 

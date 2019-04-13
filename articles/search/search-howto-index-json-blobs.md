@@ -1,7 +1,7 @@
 ---
 title: Indicizzare i BLOB JSON da un indicizzatore di BLOB di Azure per la ricerca full-text - Ricerca di Azure
 description: Ricercare per indicizzazione i BLOB JSON di Azure per il contenuto di testo usando l'indicizzatore di BLOB di Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per le origini dati selezionate, ad esempio l'archiviazione BLOB di Azure.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518746"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527354"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
 Questo articolo illustra come configurare un blob di ricerca di Azure [indicizzatore](search-indexer-overview.md) per estrarre contenuto strutturato dai documenti JSON in archiviazione Blob di Azure e rendere disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 
@@ -40,14 +40,15 @@ Il metodo più semplice di indicizzazione dei documenti JSON consiste nell'usare
 
 ### <a name="1---prepare-source-data"></a>1 - Preparare i dati di origine
 
-Sono necessari un account di archiviazione di Azure, con archivio BLOB, e un contenitore di documenti JSON. Se non si ha familiarità con uno qualsiasi di questi requisiti, consultare "Configurare dati di esempio di carico e del servizio Blob di Azure" nel [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Accedere al portale di Azure](https://portal.azure.com/).
 
-> [!Important]
-> Per il contenitore, assicurarsi che **livello di accesso pubblico** è impostato su "Contenitore (accesso in lettura anonimo per contenitori e BLOB)". Archiviazione di Azure e ricerca di Azure deve essere nella stessa sottoscrizione e, se possibile, nella stessa area. 
+1. [Creare un contenitore Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per contenere i dati. Il livello di accesso pubblico può essere impostato su uno qualsiasi dei relativi valori validi.
+
+È necessario il nome di account di archiviazione, nome del contenitore e una chiave di accesso per recuperare i dati nel **importare dati** procedura guidata.
 
 ### <a name="2---start-import-data-wizard"></a>2 - Avviare la procedura guidata Importa dati
 
-È possibile [avviare la procedura guidata](search-import-data-portal.md) dalla barra dei comandi nella pagina del servizio Ricerca di Azure oppure facendo clic su **Aggiungi Ricerca di Azure** nella sezione **Servizio BLOB** del riquadro di spostamento sinistro del proprio account di archiviazione.
+Nella pagina Panoramica del servizio di ricerca di Azure, è possibile [avviare la procedura guidata](search-import-data-portal.md) dalla barra dei comandi o facendo clic **Aggiungi ricerca di Azure** nel **servizio Blob** sezione il account di archiviazione a sinistra del riquadro di spostamento.
 
    ![Comando Importa dati nel portale](./media/search-import-data-portal/import-data-cmd2.png "Avviare la procedura guidata Importa dati")
 

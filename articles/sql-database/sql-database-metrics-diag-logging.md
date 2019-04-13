@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490069"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548639"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -76,14 +76,14 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 | [SQLInsights](#intelligent-insights-dataset): Contiene Intelligent Insights sulle prestazioni per un database. Per altre informazioni, vedere [Intelligent Insights](sql-database-intelligent-insights.md). | Sì | Sì |
 
 > [!IMPORTANT]
-> Le istanze gestite e pool elastici hanno la propria telemetria delle diagnostiche separate dai database che contengono. Questo è importante notare come dati di telemetria di diagnostica è configurata separatamente per ciascuna di queste risorse, come descritto di seguito.
+> Le istanze gestite e pool elastici hanno i propri dati di telemetria di diagnostica separati dai database che contengono. Questo è importante notare come dati di telemetria di diagnostica è configurata separatamente per ciascuna di queste risorse, come descritto di seguito.
 
 > [!NOTE]
 > Impossibile abilitare il log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database (anche se visualizzati sullo schermo). Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-È possibile usare **delle impostazioni di diagnostica** menu per ogni singola, in pool, o database nel portale di Azure per configurare il flusso di dati di telemetria di diagnostica dell'istanza. Inoltre, i dati di telemetria diagnostica può anche essere configurata separatamente per i contenitori di database: i pool elastici e istanze gestite. È possibile impostare le seguenti destinazioni per trasmettere i dati di telemetria di diagnostica: Archiviazione, hub eventi di Azure e monitoraggio di Azure i log di Azure.
+È possibile usare la **delle impostazioni di diagnostica** menu per ogni singola, in pool, o database nel portale di Azure per configurare il flusso di dati di telemetria di diagnostica dell'istanza. Inoltre, i dati di telemetria diagnostica può anche essere configurata separatamente per i contenitori di database: i pool elastici e istanze gestite. È possibile impostare le seguenti destinazioni per trasmettere i dati di telemetria di diagnostica: Archiviazione, hub eventi di Azure e monitoraggio di Azure i log di Azure.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurare il flusso di dati di telemetria di diagnostica per i pool elastici
 
@@ -138,12 +138,12 @@ Per abilitare il flusso di dati di telemetria di diagnostica per i database sing
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per l'esperienza di monitoraggio standard, basato su eventi, selezionare le caselle di controllo seguenti per la telemetria dei log di diagnostica del database: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errori**, **DatabaseWaitStatistics**, **Timeout**, **Blocchi** e **Deadlock**.
 1. Per un'esperienza di monitoraggio avanzata, basata su 1 minuto, selezionare la casella di controllo **AllMetrics**.
-   ![Configurare la diagnostica per i database singoli, in pool o di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configurare la diagnostica per un singolo, in pool o i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selezionare **Salva**.
 1. Ripetere questi passaggi per ogni database che si desidera monitorare.
 
 > [!NOTE]
-> Impossibile abilitare il log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database (anche se visualizzati sullo schermo). Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Impossibile abilitare il log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database (anche se visualizzato sullo schermo). Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Ripetere questi passaggi per ogni database SQL di Azure che si desidera monitorare.
 
@@ -162,7 +162,7 @@ Per configurare il flusso di dati di telemetria di diagnostica per istanza gesti
 - Abilitare il flusso di dati di telemetria di diagnostica per l'istanza gestita, **e**
 - Abilitare lo streaming dei dati di telemetria di diagnostica per ogni database dell'istanza
 
-Questo avviene perché istanza gestita è un contenitore di database con la propria telemetria viene separata dalla telemetria del database singola istanza.
+Questo avviene perché istanza gestita è un contenitore con la propria telemetria, separato dalla telemetria del database singola istanza del database.
 
 Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica per una risorsa di istanza gestita, seguire questa procedura:
 
@@ -178,7 +178,7 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 1. Selezionare la casella di controllo per la telemetria di diagnostica dell'istanza: **ResourceUsageStats**.
    ![Configurare la diagnostica per l'istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Selezionare **Salva**.
-1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database dell'istanza all'interno dell'istanza gestita che si desidera monitorare, seguendo i passaggi descritti nella sezione successiva.
+1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database dell'istanza all'interno dell'istanza gestita che si desidera monitorare seguendo i passaggi descritti nella sezione successiva.
 
 > [!IMPORTANT]
 > Oltre alla configurazione della telemetria di diagnostica per un'istanza gestita, è anche necessario configurare i dati di telemetria di diagnostica per ogni database dell'istanza, come descritto di seguito. 
@@ -200,7 +200,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio databas
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Selezionare le caselle di controllo per i dati di telemetria della diagnostica del database: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **Errori**.
-   ![Configurare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurare la diagnostica, ad esempio i database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Selezionare **Salva**.
 1. Ripetere questi passaggi per ogni database dell'istanza che si desidera monitorare.
 
@@ -340,7 +340,7 @@ Se si usano pool elastici o istanze gestite, è necessario anche configurare la 
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurare i database per registrare le metriche e i log di diagnostica
 
-Il modo più semplice per configurare la posizione in cui i database registrano le metriche è con il portale di Azure. Come descritto in precedenza, passare alla risorsa del database SQL nel portale di Azure e selezionare **Impostazioni di diagnostica**.
+Il modo più semplice per configurare in cui i database registrano metriche consiste nell'usare il portale di Azure. Come descritto in precedenza, passare alla risorsa del database SQL nel portale di Azure e selezionare **Impostazioni di diagnostica**.
 
 Se si usano pool elastici o istanze gestite, è necessario anche configurare le impostazioni di diagnostica in queste risorse per abilitare il flusso di dati di telemetria della diagnostica da trasmettere nell'area di lavoro.
 
@@ -356,7 +356,7 @@ Se si usano pool elastici o istanze gestite, è necessario anche configurare le 
 
 Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possibile iniziare a valutare scenari di monitoraggio avanzati. Hub eventi funge da ingresso per una pipeline di eventi. Dopo aver raccolto i dati in un hub eventi, potranno essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatore di archiviazione. Hub eventi separa la produzione di un flusso di eventi dal consumo di tali eventi. In questo modo, i consumer eventi possono accedere agli eventi in una pianificazione personalizzata. Per altre informazioni sugli hub eventi, vedere:
 
-- [Che cos'è hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Che cos'è Hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 È possibile usare le metriche tramesse in hub eventi per:
@@ -429,7 +429,7 @@ Fare riferimento alle tabelle seguenti per informazioni dettagliate su tutte le 
 
 ## <a name="all-logs"></a>Tutti i log
 
-Vengono forniti i dettagli dei dati di telemetria disponibile per tutti i log nelle tabelle riportate di seguito. Vedi [supportata la registrazione diagnostica](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) per comprendere quali log sono supportati per una versione specifica del database - SQL di Azure singolo e pool, o istanza del database.
+I dettagli dei dati di telemetria disponibile per tutti i log sono documentati nelle tabelle seguenti. Vedi [supportata la registrazione diagnostica](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) per comprendere quali log sono supportati per una versione specifica del database - SQL di Azure singolo e pool, o istanza del database.
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Statistiche di utilizzo delle risorse per l'istanza gestita
 

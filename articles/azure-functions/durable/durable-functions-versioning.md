@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338244"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549085"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
 
@@ -140,7 +140,7 @@ Tutte le entità di Archiviazione di Azure sono denominate in base al valore di 
 È consigliabile distribuire la nuova versione dell'app per le funzioni a un nuovo [slot di distribuzione](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Gli slot di distribuzione consentono di eseguire side-by-side più copie dell'app per le funzioni con un solo slot come slot di *produzione* attivo. Quando è possibile esporre la nuova logica di orchestrazione all'infrastruttura esistente, l'operazione può essere semplice come la sostituzione della nuova versione nello slot di produzione.
 
 > [!NOTE]
-> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio code o hub eventi, la definizione del trigger deve derivare da un'impostazione dell'app che viene aggiornata come parte dell'operazione di sostituzione.
+> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio code o hub eventi, la definizione del trigger dovrebbe [derivano da un'impostazione dell'app](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) che viene aggiornata come parte dell'operazione di sostituzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

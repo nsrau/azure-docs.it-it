@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877976"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549185"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Creare un volume per Azure NetApp Files
 
@@ -100,7 +100,7 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
         Questo è l'indirizzo IP di controller di dominio per il preferito Active Directory Domain Services per l'utilizzo con file di Azure NetApp. 
     * **DNS secondario**  
         Questo è l'indirizzo IP di controller di dominio per il secondario Active Directory Domain Services per l'utilizzo con file di Azure NetApp. 
-    * **Domain**  
+    * **Dominio**  
         Si tratta del nome di dominio di Active Directory Domain Services che si desidera aggiungere.
     * **Prefisso SMB server (account del computer)**  
         Si tratta del prefisso dei nomi per l'account del computer in Active Directory che i file di Azure NetApp utilizzerà per la creazione di nuovi account.
@@ -136,7 +136,7 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
 
         Il nome deve essere univoco all'interno di un gruppo di risorse. Deve essere composto da almeno tre caratteri.  È possibile usare qualsiasi carattere alfanumerico.
 
-    * **Percorso del file**  
+    * **Percorso file**  
         Specificare il percorso del file che verrà usato per creare il percorso di esportazione per il nuovo volume. Il percorso di esportazione viene usato per montare il volume e accedervi.   
      
         Il nome di percorso di file può contenere solo lettere, numeri e trattini ("-"). Il nome deve avere una lunghezza compresa tra 16 e 40 caratteri.  
@@ -179,6 +179,6 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-* [Montare o smontare un volume per macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Montare o smontare un volume per le macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurare i criteri di esportazione per un volume NFS](azure-netapp-files-configure-export-policy.md)
-* [Informazioni sull'integrazione della rete virtuale per servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

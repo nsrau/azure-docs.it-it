@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426427"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527184"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -147,7 +147,7 @@ L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette ai 
 
 > [!NOTE]
 > Un'istanza del ruolo può eseguire la risoluzione dei nomi di macchine virtuali all'interno della stessa rete virtuale. A tale scopo, usa il nome di dominio completo, costituito dal nome host della macchina virtuale e dal suffisso DNS **internal.cloudapp.net**. Tuttavia, in questo caso, la risoluzione dei nomi ha esito positivo solo se per l'istanza del ruolo il nome della VM è definito nello [schema Role (file con estensione cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Le istanze del ruolo che devono eseguire la risoluzione dei nomi delle macchine virtuali in un'altra rete virtuale (nome di dominio completo con il suffisso **internal.cloudapp.net**) devono usare il metodo descritto in questa sezione (server DNS personalizzati per l'inoltro tra le due reti virtuali).
 >
@@ -219,6 +219,6 @@ Modello di distribuzione Azure Resource Manager:
 
 Modello di distribuzione classica:
 
-* [Schema di configurazione di servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Schema di configurazione di rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
+* [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
+* [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)

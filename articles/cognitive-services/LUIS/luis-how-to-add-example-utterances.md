@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096691"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524260"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
@@ -91,6 +91,8 @@ Supponendo che il utterance `Does John Smith work in Seattle?`, un utterance com
 
 ## <a name="add-hierarchical-entity"></a>Aggiungere un'entità gerarchica
 
+**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
+
 Un'entità gerarchica è una categoria di entità con apprendimento su base contestuale e correlate per concetto. Nell'esempio seguente, l'entità contiene ubicazioni di origine e destinazione. 
 
 Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
@@ -105,6 +107,12 @@ Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, me
 
     >[!CAUTION]
     >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
+
+## <a name="add-entitys-role-to-utterance"></a>Aggiungere il ruolo dell'entità a utterance
+
+Un ruolo è un sottotipo di un'entità, determinato dal contesto del utterance denominato. È possibile contrassegnare un'entità all'interno di un utterance come entità o selezionare un ruolo all'interno di tale entità. Qualsiasi entità possono avere ruoli, inclusi le entità personalizzate che sono Appresa macchina (entità semplice e composta), non sono Appresa macchina (le entità predefinite, le entità di espressione regolare, elenco di entità). 
+
+Scopri [come contrassegnare un utterance con i ruoli delle entità](tutorial-entity-roles.md) da un'esercitazione pratica. 
 
 ## <a name="entity-status-predictions"></a>Previsioni dello stato dell'entità
 
@@ -151,11 +159,11 @@ Per rimuovere l'etichetta di un'entità appresa automaticamente da un'espression
 
 ### <a name="add-prebuilt-entity-label"></a>Aggiungere un'etichetta di un'entità predefinita
 
-Quando si aggiungono le entità predefinite all'app LUIS, non è necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità predefinite e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-prebuilt-entity).
+Quando si aggiungono le entità predefinite all'app LUIS, non è necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità predefinite e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Aggiungere un'etichetta di un'entità di espressione regolare
 
-Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità di espressioni regolari e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-regular-expression-entities).
+Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità di espressioni regolari e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Creare un criterio a partire da un'espressione

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729356"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547145"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Deviazione dello schema dei flussi di dati di mapping
 
@@ -26,7 +26,7 @@ Per proteggere l'ambiente dalla deviazione dello schema, è importante avere a d
 * Definire i parametri di trasformazione che possono funzionare con i modelli di dati invece di valori e campi impostati come hardcoded
 * Definire le espressioni in grado di riconoscere i criteri per la corrispondenza dei campi in ingresso, invece di usare campi denominati
 
-Nel flusso di dati di Azure Data Factory queste capacità vengono presentate tramite questo flusso di lavoro:
+## <a name="how-to-implement-schema-drift"></a>Come implementare deviazione schema
 
 * Scegliere "Allow Schema Drift" (Consenti deviazione schema) nella trasformazione origine
 
@@ -67,3 +67,10 @@ Verranno quindi arrotondati e sommati i valori per ognuna delle colonne corrispo
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Accesso le nuove colonne a valle
+
+Quando si generano nuove colonne usando modelli di colonna, è possibile accedere a tali nuove colonne in un secondo momento nelle trasformazioni del flusso di dati utilizzando la funzione di espressione "byName".
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Nel [linguaggio di espressioni del flusso di dati](data-flow-expression-functions.md) per modelli di colonna e deviazione schema incluso "byName" e "byPosition" sono disponibili funzionalità aggiuntive.

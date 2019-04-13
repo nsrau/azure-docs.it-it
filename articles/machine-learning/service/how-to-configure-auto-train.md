@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358300"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548826"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurare esperimenti di Machine Learning automatizzato
 
@@ -41,20 +41,20 @@ Durante il processo di automazione e ottimizzazione, il processo di Machine Lear
 
 classificazione | Regressione | Previsione in serie temporale
 |-- |-- |--
-[Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Boosting a gradienti](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Boosting a gradienti](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Boosting a gradienti](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Gradient boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [Albero delle decisioni](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Albero delle decisioni](https://scikit-learn.org/stable/modules/tree.html#regression)|[Albero delle decisioni](https://scikit-learn.org/stable/modules/tree.html#regression)
 [K vicini più prossimi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vicini più prossimi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vicini più prossimi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[SVC lineare](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Classificazione di vettori di supporto di C (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Gradiente Stocastica (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Gradiente Stocastica (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[SVC lineare](https://scikit-learn.org/stable/modules/svm.html#classification)|[Lasso LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[Lasso LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[Classificazione a vettori di supporto C (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Foresta casuale](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Foresta casuale](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Foresta casuale](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Strutture ad albero molto casuale](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Strutture ad albero molto casuale](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Strutture ad albero molto casuale](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[Alberi estremamente casuali](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Alberi estremamente casuali](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Alberi estremamente casuali](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Classificazione di rete neurale profonda](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressore rete neurale profonda](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressore rete neurale profonda](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Funzione di classificazione lineare di rete neurale profonda](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regressore lineare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regressore lineare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[Gradiente Stocastica (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Bayesiano naif](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Origine dati e formato
@@ -84,7 +84,7 @@ Esempi:
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Recuperare i dati per l'esecuzione dell'esperimento a risorse di calcolo remote
 
-Se si usa un computer remoto per eseguire l'esperimento, l'operazione di recupero di dati deve essere racchiusa in uno script python separato `get_data()`. Questo script viene eseguito nella risorsa di calcolo remota in cui viene eseguito l'esperimento di Machine Learning automatizzato. `get_data` Elimina la necessità di recuperare i dati trasmessi in rete per ogni iterazione. Senza `get_data`, l'esperimento avrà esito negativo quando viene eseguito su risorse di calcolo remoto.
+Se si usa un computer remoto per eseguire l'esperimento, l'operazione di recupero di dati deve essere racchiusa in uno script python separato `get_data()`. Questo script viene eseguito nella risorsa di calcolo remota in cui viene eseguito l'esperimento di Machine Learning automatizzato. `get_data` elimina la necessità di recuperare i dati trasmessi in rete per ogni iterazione. Senza `get_data`, l'esperimento avrà esito negativo quando viene eseguito su risorse di calcolo remoto.
 
 Di seguito è fornito un esempio di `get_data`:
 
@@ -110,7 +110,7 @@ Nell'oggetto `AutoMLConfig`, specificare il parametro `data_script` e specificar
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` lo script può restituire:
+Lo script `get_data` può restituire:
 
 Chiave | Type | Si escludono a vicenda con    | DESCRIZIONE
 ---|---|---|---
@@ -173,7 +173,7 @@ Successivamente, determinare dove verrà eseguito il training del modello. Un es
 *   Nel computer locale, ad esempio un desktop locale o un computer portatile: in genere quando si dispone di set di dati di piccole dimensioni e si è ancora in fase di esplorazione.
 *   In un computer remoto nel cloud: l'[ambiente di calcolo gestito di Azure Machine Learning](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) è un servizio gestito che offre la possibilità di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure.
 
-Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) per notebook di esempio con destinazioni di calcolo locali e remote.
+Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) per notebook di esempio con destinazioni di calcolo locali e remote.
 
 <a name='configure-experiment'></a>
 
@@ -238,6 +238,9 @@ Se si usa `preprocess=True`, i passaggi seguenti di pre-elaborazione dei dati ve
     * Le caratteristiche numeriche con un numero molto ridotto di valori univoci vengono trasformate in caratteristiche di categoria.
     * A seconda della cardinalità delle caratteristiche di categoria, viene eseguita la codifica delle etichette o la codifica one-hot (hashing).
 
+## <a name="ensemble-models"></a>Modelli di insieme
+Apprendimento dell'insieme migliora i risultati di machine learning e le prestazioni predittive combinando molti modelli rispetto all'utilizzo di modelli singoli. Usando automatizzate di apprendimento automatico, è possibile eseguire il training modelli di insieme usando il [algoritmo di selezione Caruana insieme durante l'inizializzazione dell'insieme ordinato di](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Come ultima iterazione di eseguire l'iterazione dell'insieme.
+
 ## <a name="time-series-forecasting"></a>Previsione in serie temporale
 Per tipo di attività previsione serie ora si dispone di parametri aggiuntivi da definire.
 1. time_column_name - si tratta di un parametro obbligatorio che definisce il nome della colonna nella serie di data/ora di formazione su dati che lo contiene. 
@@ -270,7 +273,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

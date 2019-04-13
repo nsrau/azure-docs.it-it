@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758583"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524498"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creare revisioni di trascrizioni di video usando .NET
 
@@ -154,7 +154,7 @@ Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideo
 L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. Oggetto **IList<CreateVideoReviewsBodyItem>**. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
+1. Un' **IList\<CreateVideoReviewsBodyItem >** oggetto. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
 L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
 - **Content**. URL del video da rivedere.
@@ -244,15 +244,15 @@ L'oggetto **AddVideoTranscriptModerationResult** ha i parametri obbligatori segu
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
-1. Oggetto IList<TranscriptModerationBodyItem>. Un oggetto **TranscriptModerationBodyItem** include le proprietà seguenti:
-1. **Terms**. Oggetto IList<TranscriptModerationBodyItemTermsItem>. Un oggetto **TranscriptModerationBodyItemTermsItem** include le proprietà seguenti:
+1. Un oggetto IList\<TranscriptModerationBodyItem >. Un oggetto **TranscriptModerationBodyItem** include le proprietà seguenti:
+1. **Terms**. Un oggetto IList\<TranscriptModerationBodyItemTermsItem >. Un oggetto **TranscriptModerationBodyItemTermsItem** include le proprietà seguenti:
 1. **Index**. Indice in base zero del termine.
 1. **Term**. Stringa contenente il termine.
 1. **Timestamp**. Stringa che contiene il tempo, in secondi, nella trascrizione in corrispondenza del quale vengono trovati i termini.
 
 La trascrizione deve essere nel formato WebVTT. Per altre informazioni, vedere [WebVTT: formato Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
-Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoTranscriptReviews, classe Program. Questo metodo invia una trascrizione al metodo **ContentModeratorClient.TextModeration.ScreenText**. Converte inoltre il risultato in un oggetto IList<TranscriptModerationBodyItem> e lo invia a **AddVideoTranscriptModerationResult**.
+Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoTranscriptReviews, classe Program. Questo metodo invia una trascrizione al metodo **ContentModeratorClient.TextModeration.ScreenText**. Converte inoltre il risultato in un oggetto IList\<TranscriptModerationBodyItem > e li invia a **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

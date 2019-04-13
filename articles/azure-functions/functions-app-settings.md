@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: d49a6f88f3475359a74be74bf528fb5699dce632
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860653"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546627"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -106,7 +106,7 @@ Percorso per il compilatore usato per TypeScript. Consente di eseguire l'overrid
 
 ## <a name="functionappeditmode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-I valori validi sono "readwrite" e "readonly".
+Determina se la modifica nel portale di Azure è abilitata. I valori validi sono "readwrite" e "readonly".
 
 |Chiave|Valore di esempio|
 |---|------------|

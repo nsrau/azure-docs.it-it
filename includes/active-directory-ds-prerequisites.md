@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478832"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551638"
 ---
 > [!IMPORTANT]
 > **Abilitare la sincronizzazione dell'hash password ad Azure Active Directory Domain Services, prima di aver completato le attività in questo articolo.**
 >
-> Seguire le istruzioni seguenti, a seconda del tipo di utenti in Azure Active Directory. Se in Azure Active Directory è presente una combinazione di account utente solo cloud e sincronizzati, completare entrambi i set di istruzioni.
+> Seguire le istruzioni seguenti, a seconda del tipo di utenti in Azure Active Directory. Se in Azure Active Directory è presente una combinazione di account utente solo cloud e sincronizzati, completare entrambi i set di istruzioni. Potrebbe non essere in grado di eseguire le operazioni seguenti nel caso in cui si sta tentando di usare un account Guest B2B (esempio di gmail o account del servizio gestito da un provider di identità diversi che è consentito) perché non è disponibile la password per gli utenti sincronizzati con il dominio gestito come queste sono gli account guest nella directory. Le informazioni complete su tali account tra cui la password sarebbe di fuori di Azure AD e come queste informazioni non sono in Azure AD di conseguenza non anche ottenere sincronizzati con il dominio gestito. 
 > - [Istruzioni per account utente solo cloud](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Istruzioni per account utente sincronizzati da una directory locale](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

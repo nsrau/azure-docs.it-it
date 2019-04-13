@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918706"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543746"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
@@ -42,7 +42,7 @@ Le funzionalità seguenti sono disponibili per App per le funzioni distribuite i
 
 Se non gli eventi e le esecuzioni si verificano attualmente nel piano a consumo, l'app potrebbe ridurre a zero istanze. Quando sono disponibili nuovi eventi in, una nuova istanza deve essere specializzato con l'app in esecuzione su di esso.  Le nuove istanze specializzate potrebbero richiedere alcuni minuti a seconda dell'app.  Questa latenza aggiuntiva dovuta alla prima chiamata viene spesso chiamata avvio a freddo dell'app.
 
-Il piano Premium, è possibile avere app pre-riscaldato su un determinato numero di istanze.  Le istanze di pre-riscaldate consentono inoltre di pre-ridimensionare un'app in precedenza un carico elevato. L'app viene scalata orizzontalmente, innanzitutto aumenta in istanze di pre-warmed. Altre istanze continuano a disconnettersi e a caldo immediatamente in preparazione per l'operazione di ridimensionamento successivo del buffer. Grazie all'uso di un buffer di pre-riscaldate istanze, è possibile evitare in modo efficace le latenze di avvio a freddo.  Pre-riscaldate istanze è una funzionalità del piano Premium, è necessario conservare almeno un'istanza in esecuzione e disponibile in tutte le volte in cui il piano è attivo.
+Il piano Premium, è possibile avere app pre-riscaldato su un numero di istanze, fino alle dimensioni del piano minimo specificato.  Le istanze di pre-riscaldate consentono inoltre di pre-ridimensionare un'app in precedenza un carico elevato. L'app viene scalata orizzontalmente, innanzitutto aumenta in istanze di pre-warmed. Altre istanze continuano a disconnettersi e a caldo immediatamente in preparazione per l'operazione di ridimensionamento successivo del buffer. Grazie all'uso di un buffer di pre-riscaldate istanze, è possibile evitare in modo efficace le latenze di avvio a freddo.  Pre-riscaldate istanze è una funzionalità del piano Premium, è necessario conservare almeno un'istanza in esecuzione e disponibile in tutte le volte in cui il piano è attivo.
 
 È possibile configurare il numero di istanze di pre-riscaldate nel portale di Azure selezionando **Scale Out** nel **funzionalità della piattaforma** scheda.
 
@@ -69,6 +69,8 @@ Le istanze di calcolo aggiuntive vengono aggiunti automaticamente per l'app usan
 ### <a name="unbounded-run-duration"></a>Unbounded Durata esecuzione
 
 Funzioni di Azure in un piano a consumo sono limitate a 10 minuti per una singola esecuzione.  Il piano Premium, la durata dell'esecuzione per impostazione predefinita a 30 minuti per evitare che le esecuzioni sfuggiti al controllo. Tuttavia, è possibile [modificare la configurazione host. JSON](./functions-host-json.md#functiontimeout) rendere questo illimitata per le app piano Premium.
+
+In fase di anteprima, la durata non è garantita oltre 12 minuti e avrà le maggiori probabilità di esecuzione oltre 30 minuti se l'app non viene ampliata oltre il conteggio minimo di lavoro.
 
 ## <a name="plan-and-sku-settings"></a>Impostazioni piano e SKU
 
@@ -106,7 +108,6 @@ Di seguito sono le aree attualmente supportate per l'anteprima pubblica.
 |Australia orientale|
 |Australia sud-orientale|
 |Canada centrale|
-|India centrale|
 |Stati Uniti centrali|
 |Asia orientale|
 |Stati Uniti orientali 2|

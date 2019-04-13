@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361984"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527680"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generare il report
-Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report viene denominato DeploymentPlannerReport_<unique numeric identifier>.xlsm e inserito nella directory specificata.
+Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report è denominato `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e inserito nella directory specificata.
 
 >[!NOTE]
 >Il report richiede che il simbolo decimale sia configurato come "." per generare stime di costi nel server dove è in esecuzione Deployment Planner. Se è stato configurato "," come simbolo decimale in un computer Windows, passare a "Modificare il formato di numeri, data e ora" nel Pannello di controllo e selezionare "Impostazioni aggiuntive" per cambiare il simbolo decimale in ".".
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valore percentile usato per il calcolo
-**Valore percentile predefinito delle metriche delle prestazioni raccolti durante la profilatura viene usato dallo strumento quando genera un report?**
+**Valore percentile predefinito delle metriche delle prestazioni raccolte durante la profilatura usato dallo strumento quando genera un report**
 
 Lo strumento usa come valore predefinito il 95° percentile di operazioni di I/O al secondo in lettura/scrittura, operazioni di I/O al secondo in scrittura e varianza dei dati raccolte durante la profilatura di tutte le macchine virtuali. Questa metrica assicura che lo spike del 100° percentile che può essere rilevato dalle VM a causa di eventi temporanei non venga usato per determinare i requisiti dell'account di archiviazione di destinazione e della larghezza di banda di origine. Un evento temporaneo può essere, ad esempio, un processo di backup eseguito una volta al giorno, un'indicizzazione periodica di un database, un'attività di generazione di report analitici o altri eventi simili temporizzati di breve durata.
 
@@ -226,7 +226,7 @@ L'uso dei valori di 95° percentile fornisce un quadro attendibile delle reali c
 ```
 
 ## <a name="growth-factor-considerations"></a>Considerazioni sul fattore di crescita
-**Perché considerare il fattore di crescita quando si pianificano le distribuzioni?**
+**Perché considerare il fattore di crescita quando si pianificano le distribuzioni**
 
 È fondamentale prendere in considerazione la crescita nelle caratteristiche del carico di lavoro, supponendo un potenziale aumento dell'utilizzo nel tempo. Dopo aver applicato la protezione, se le caratteristiche del carico di lavoro cambiano, non è possibile passare a un account di archiviazione diverso per la protezione senza disabilitare e riabilitare la protezione stessa.
 
@@ -240,12 +240,12 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
-* [On-premises Summary](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Consigli](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Selezione host di archiviazione VM <>](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Riepilogo ambiente locale](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Raccomandazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [Selezione host di archiviazione delle VM](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [VM compatibili](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [Stima dei costo](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [Stima dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 

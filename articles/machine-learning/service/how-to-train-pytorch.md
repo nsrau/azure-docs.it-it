@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004064"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548546"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Eseguire il training di modelli di PyTorch con il servizio Azure Machine Learning
 
@@ -46,7 +46,7 @@ Qui si specificano i parametri seguenti al costruttore PyTorch:
 Parametro | DESCRIZIONE
 --|--
 `source_directory` |  Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote
-`script_params` |  Dizionario che specifica gli argomenti della riga di comando per lo script di training `entry_script`, sotto forma di coppie <argomento riga di comando, valore>
+`script_params` |  Dizionario che specifica gli argomenti della riga di comando allo script di training `entry_script`, sotto forma di < argomento della riga di comando, valore > coppie.  Per specificare un flag dettagliato nella `script_params`, usare `<command-line argument, "">`.
 `compute_target` |  Destinazione di calcolo remota su cui verrà eseguito lo script di training, in questo caso un cluster di ambiente di calcolo di Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute))
 `entry_script` |  Percorso file (relativo a `source_directory`) dello script di training da eseguire nelle risorse di calcolo remote. Questo file e gli eventuali file aggiuntivi da cui dipende, devono trovarsi in questa cartella
 `conda_packages` |  Elenco dei pacchetti Python da installare tramite Conda, necessari per lo script di training. Il costruttore ha un altro parametro chiamato `pip_packages` che è possibile usare per gli eventuali pacchetti pip necessari

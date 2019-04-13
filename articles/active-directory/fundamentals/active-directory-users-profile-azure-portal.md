@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11c71f7f5a329a836d379a16afe66c08572ccde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177989"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548042"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory
 Aggiungere informazioni sul profilo utente, inclusi un'immagine del profilo, informazioni lavorative specifiche e alcune impostazioni con Azure Active Directory (Azure AD). Per altre informazioni su come aggiungere nuovi utenti, vedere [Procedura: Aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,7 +26,7 @@ Aggiungere informazioni sul profilo utente, inclusi un'immagine del profilo, inf
 Come si vedrà, le informazioni disponibili in un profilo utente sono molte di più rispetto a quelle che è possibile aggiungere durante la creazione dell'utente. Tutte queste informazioni aggiuntive sono facoltative e possono essere aggiunte in base alle esigenze dell'organizzazione.
 
 ## <a name="to-add-or-change-profile-information"></a>Per aggiungere o modificare le informazioni sul profilo utente
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale o amministratore utenti per la directory.
+1. Accedi per il [portale di Azure](https://portal.azure.com/) come un amministratore degli utenti per l'organizzazione.
 
 2. Selezionare **Azure Active Directory**, **Utenti** e quindi selezionare un utente. Ad esempio, _Alain Charon_.
 
@@ -40,7 +40,7 @@ Come si vedrà, le informazioni disponibili in un profilo utente sono molte di p
 
     - **Immagine del profilo.** Selezionare un'immagine di anteprima per l'account dell'utente. Questa immagine viene visualizzata in Azure Active Directory e nelle pagine personali dell'utente, ad esempio nella pagina myapps.microsoft.com.
 
-    - **Identità.** Aggiungere eventuali informazioni relative all'account, ad esempio il cognome da sposato o un nome utente modificato. 
+    - **Identità.** Aggiungere o aggiornare un valore di identità aggiuntive per l'utente, ad esempio un cognome sposato. È possibile impostare il nome specificato in modo indipendente dai valori di nome e cognome. Ad esempio, è possibile utilizzarlo per includere un nome della società, le iniziali o per modificare la sequenza di nomi visualizzati. In un altro esempio, per due utenti i cui nomi sono 'Chris Green' è possibile utilizzare la stringa di identità per impostare i relativi nomi su 'Chris B. Green' 'R. Luca Udinesi (Contoso).'
 
     - **Job info.** (Informazioni professionali) Aggiungere eventuali informazioni relative alle mansioni dell'utente, ad esempio posizione, reparto o manager.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013551"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528170"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
@@ -34,11 +34,11 @@ Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiest
 La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di tipo GEO (ad esempio, il codice postale) non sono disponibili per una particolare richiesta, viene restituito un valore vuoto.
 
 
-| NOME | Variabile | DESCRIZIONE | Valore di esempio |
+| Attività | Variabile | DESCRIZIONE | Valore di esempio |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) (ASN (richiedente)) | %{geo_asnum} | Indica il numero AS del richiedente. <br /><br />**Deprecata:** %{virt_dst_asnum}. <br />Questa variabile è stata deprecata a favore di %{geo_asnum}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | AS15133 |
 | City (Requester) (Città (richiedente)) | %{geo_city} | Indica la città del richiedente. | Los Angeles |
-| Continent (Requester) (Continente (richiedente)) | %{geo_continent} | Indica il continente del richiedente tramite la relativa abbreviazione. <br />I valori validi sono: <br />AF: Africa<br />AS: Asia<br />UE: Europa<br />NA: America del Nord<br />OC: Oceania<br />ASSOCIAZIONE DI SICUREZZA: America del Sud<br /><br />**Deprecata:** %{virt_dst_continent}. <ber />Questa variabile è stata deprecata a favore di %{geo_continent}. <br />Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile.| N/D |
+| Continent (Requester) (Continente (richiedente)) | %{geo_continent} | Indica il continente del richiedente tramite la relativa abbreviazione. <br />I valori validi sono: <br />AF: Africa<br />AS: Asia<br />UE: Europa<br />NA: America del Nord<br />OC: Oceania<br />ASSOCIAZIONE DI SICUREZZA: America del Sud<br /><br />**Deprecata:** %{virt_dst_continent}. <br />Questa variabile è stata deprecata a favore di % {geo_continent}. <br />Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile.| N/D |
 | Cookie Value (Valore cookie) | %{cookie_Cookie} | Restituisce il valore corrispondente alla chiave del cookie identificata dal termine Cookie. | Esempio di utilizzo: <br />%{cookie__utma}<br /><br />Valore di esempio:<br />111662281.2.10.1222100123 |
 | Country (Requester) (Paese (richiedente)) | %{geo_country} | Indica il paese di origine del richiedente tramite il relativo codice paese. <br />**Deprecata:** %{virt_dst_country}. <br /><br />Questa variabile è stata deprecata a favore di %{geo_country}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | Stati Uniti |
 | Designated Market Area (Requester) (Area di mercato designata (richiedente)) | %{geo_dma_code} |Indica il mercato del richiedente tramite il relativo codice area geografica. <br /><br />Questo campo è applicabile solo alle richieste provenienti dagli Stati Uniti.| 745 |

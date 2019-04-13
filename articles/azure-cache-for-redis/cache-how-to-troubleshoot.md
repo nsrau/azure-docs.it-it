@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482607"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527167"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Risoluzione dei problemi di Cache Redis di Azure
 
@@ -250,6 +250,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 1. Era presente una richiesta di grandi dimensioni precedenti diverse richieste di piccole dimensioni per la cache timeout? Il parametro `qs` nel messaggio di errore messaggio è indicato il numero di richieste inviato dal client al server, ma non hanno elaborato una risposta. Questo valore può continuare ad aumentare perché StackExchange.Redis usa una sola connessione TCP e può leggere solo una risposta per volta. Anche se la prima operazione di timeout, non viene interrotto più dati possano essere inviate a o dal server. Le altre richieste verranno bloccato fino a quando la richiesta di grandi dimensioni ha terminata e può causare timeout. Una soluzione consiste nel ridurre al minimo la possibilità di timeout assicurandosi che la cache sia abbastanza grande per il carico di lavoro e dividendo i valori elevati in blocchi più piccoli. Un'altra possibile soluzione consiste nell'usare un pool di oggetti `ConnectionMultiplexer` nel client e nello scegliere il `ConnectionMultiplexer` con il carico minore quando si invia una nuova richiesta. Il caricamento da più oggetti di connessione deve impedire un singolo timeout provochi il timeout anche altre richieste.
 1. Se si usa `RedisSessionStateProvider`, assicurarsi di aver impostato correttamente il timeout dei tentativi. `retryTimeoutInMilliseconds` deve essere superiore a `operationTimeoutInMilliseconds`. In caso contrario, non vengono effettuati nuovi tentativi. Nell'esempio seguente `retryTimeoutInMilliseconds` è impostato su 3000. Per altre informazioni, vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md) e [Come usare i parametri di configurazione del provider di stato della sessione e del provider della cache di output](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Controllare l'utilizzo della memoria nel server Cache Redis di Azure [monitorando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se è in uso un criterio di rimozione, Redis inizia a rimuovere le chiavi quando `Used_Memory` raggiunge le dimensioni della cache. Idealmente, `Used Memory RSS` deve essere solo di poco più elevato di `Used memory`. Una grande differenza indica la frammentazione della memoria (interne o esterne). Quando `Used Memory RSS` è inferiore a `Used Memory`, significa che il sistema operativo ha effettuato lo swapping di parte della memoria cache. In questo caso, possono verificarsi alcune latenze significative. Poiché Redis non possono controllare come le allocazioni vengono mappate alle pagine in memoria, elevate `Used Memory RSS` è spesso il risultato di un picco nell'utilizzo della memoria. Quando il server Redis libera la memoria, l'allocatore richiede la memoria ma può o potrebbe non restituire la memoria nel sistema. Può esistere una discrepanza tra il valore `Used Memory` e l'utilizzo di memoria segnalato dal sistema operativo, Memoria potrebbe sono stata utilizzata e rilasciata da Redis ma non restituita al sistema. Per ridurre i problemi di memoria, è possibile eseguire i passaggi seguenti:
 

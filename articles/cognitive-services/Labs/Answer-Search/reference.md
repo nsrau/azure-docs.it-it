@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: e0d005725730680798b78acab0c90e1c0a02a7b8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876353"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527320"
 ---
 # <a name="project-answer-search-v7-reference"></a>Riferimento per il progetto Ricerca di risposte v7
 
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 La richiesta deve usare il protocollo HTTPS e includere il parametro di query seguente:
--  q =<URL>: la query che identifica l'oggetto della ricerca
+-  `q=<URL>` -La query che identifica l'oggetto della ricerca
 
 Per gli esempi che illustrano come effettuare richieste, vedere l'articolo sull'[avvio rapido in C#](c-sharp-quickstart.md) oppure sull'[avvio rapido in Java](java-quickstart.md). 
 
@@ -56,7 +56,7 @@ Per informazioni sull'utilizzo consentito e la visualizzazione dei risultati, ve
 > - Pragma: il chiamante non ha il controllo sull'eventualità che Anteprima URL usi la cache
 > - Cache-Control: il chiamante non ha il controllo sull'eventualità che Anteprima URL usi la cache
 > - User-Agent
-
+> 
 > Inoltre, alcuni parametri non sono attualmente significativi per l'API Anteprima URL, ma potranno essere usati in futuro per un processo migliore di globalizzazione. 
  
 ## <a name="headers"></a>Headers  
@@ -64,13 +64,13 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
   
 |Intestazione|DESCRIZIONE|  
 |------------|-----------------|  
-|Accept|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](http://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
-|<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario inoltre specificare il parametro di query cc. Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
+|Accept|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](https://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
+|<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario inoltre specificare il parametro di query cc. Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
 |<a name="market" />BingAPIs-Market|Intestazione della risposta.<br /><br /> Il mercato usato dalla richiesta. Il formato è \<languageCode\>-\<countryCode\>, ad esempio en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Intestazione della risposta.<br /><br /> L'ID della voce di registro che contiene i dettagli della richiesta. In caso di errore acquisire questo ID. Se non si riesce a individuare e risolvere il problema, includere questo ID con le altre informazioni inviate al team di supporto.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Intestazione della richiesta obbligatoria.<br /><br /> La chiave di sottoscrizione ricevuta quando è stata eseguita la registrazione per questo servizio in [Servizi cognitivi](https://www.microsoft.com/cognitive-services/).|  
 |<a name="pragma" />Pragma|Intestazione di richiesta facoltativa<br /><br /> Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
-|<a name="useragent" />User-Agent|Intestazione di richiesta facoltativa.<br /><br /> L'agente utente di origine della richiesta. Bing usa l'agente utente per fornire agli utenti di dispositivi mobili un'esperienza ottimizzata. Sebbene sia facoltativa, è consigliabile specificare sempre questa intestazione.<br /><br /> La stringa user-agent deve essere la stessa stringa inviata da qualsiasi browser di uso comune. Per informazioni sugli agenti utente, vedere [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Di seguito sono riportati esempi di stringhe user-agent.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
+|<a name="useragent" />User-Agent|Intestazione di richiesta facoltativa.<br /><br /> L'agente utente di origine della richiesta. Bing usa l'agente utente per fornire agli utenti di dispositivi mobili un'esperienza ottimizzata. Sebbene sia facoltativa, è consigliabile specificare sempre questa intestazione.<br /><br /> La stringa user-agent deve essere la stessa stringa inviata da qualsiasi browser di uso comune. Per informazioni sugli agenti utente, vedere [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Di seguito sono riportati esempi di stringhe user-agent.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
 |<a name="clientid" />X-MSEdge-ClientID|Intestazione di richiesta e risposta facoltativa.<br /><br /> Bing usa questa intestazione per fornire agli utenti un comportamento coerente tra le chiamate API Bing. Bing spesso invia in versione di anteprima i miglioramenti e le nuove funzionalità e usa l'ID client come chiave per l'assegnazione del traffico per le diverse versioni di anteprima. Se non si usa lo stesso ID client per un utente in più richieste, Bing può assegnare l'utente a più versioni di anteprima in conflitto. L'assegnazione a più versioni di anteprima in conflitto può generare un'esperienza utente incoerente. Ad esempio, se alla seconda richiesta viene assegnata una versione di anteprima diversa rispetto alla prima, è possibile che l'esperienza non sia quella prevista. Inoltre, Bing può usare l'ID client per adattare i risultati Web alla cronologia di ricerca dell'ID client, fornendo un'esperienza più completa per l'utente.<br /><br /> Bing usa questa intestazione anche per migliorare le classifiche dei risultati analizzando l'attività generata da un ID client. I miglioramenti di pertinenza migliorano la qualità dei risultati forniti dalle API Bing consentendo, di conseguenza, percentuali di click-through più elevate per il consumer API.<br /><br /> **IMPORTANTE:** sebbene sia facoltativa, è opportuno considerare obbligatoria questa intestazione. Salvare in modo permanente l'ID client in più richieste per la stessa combinazione di dispositivo e utente finale consente 1) al consumer API di ottenere un'esperienza utente coerente e 2) percentuali di click-through più elevate migliorando la qualità dei risultati dalle API Bing.<br /><br /> Di seguito sono indicate le regole d'uso di base che si applicano a questa intestazione.<br /><ul><li>Ogni utente che usa l'applicazione nel dispositivo deve avere un ID client univoco generato da Bing.<br /><br/>Se non si include questa intestazione nella richiesta, Bing genera un ID e lo restituisce nell'intestazione della risposta X-MSEdge-ClientID. L'unica volta in cui NON è necessario includere questa intestazione in una richiesta è la prima volta l'utente usa l'app nel dispositivo.<br /><br/></li><li>Usare l'ID client per ogni richiesta dell'API Bing che l'app effettua per questo utente nel dispositivo.<br /><br/></li><li>**ATTENZIONE:** è necessario assicurarsi che questo ID client non sia collegabile a informazioni sull'account utente autenticabili.</li><br/><li>Salvare l'ID client in modo permanente. Per salvare in modo permanente l'ID in un'app browser, usare un cookie HTTP permanente per far sì che l'ID venga usato in tutte le sessioni. Non usare un cookie di sessione. Per altre app, ad esempio le app per dispositivi mobili, usare l'archiviazione permanente del dispositivo per salvare in modo permanente l'ID.<br /><br/>La volta successiva che l'utente usa l'app in questo dispositivo, ottiene l'ID client salvato in modo permanente.</li></ul><br /> **NOTA:** le risposte Bing possono includere o meno questa intestazione. Se la risposta include questa intestazione, acquisire l'ID client e usarlo per tutte le richieste Bing successive per l'utente in tale dispositivo.<br /><br /> **NOTA:** se si include X-MSEdge-ClientID, non includere i cookie nella richiesta.|  
 |<a name="clientip" />X-MSEdge-ClientIP|Intestazione di richiesta facoltativa.<br /><br /> Indirizzo IPv4 o IPv6 del dispositivo client. L'indirizzo IP viene usato per individuare la posizione dell'utente. Bing usa le informazioni sulla posizione per determinare il comportamento di ricerca sicura.<br /><br /> **NOTA:** sebbene sia facoltativa, è consigliabile specificare sempre questa intestazione e l'intestazione X-Search-Location.<br /><br /> Non offuscare l'indirizzo, ad esempio, modificando l'ultimo ottetto su 0. L'offuscamento dei risultati degli indirizzi nella posizione in un punto non vicino alla posizione effettiva del dispositivo può generare risultati errati in Bing.|  
 |<a name="location" />X-Search-Location|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da punto e virgola di coppie chiave/valore che descrivono la posizione geografica del client. Bing usa le informazioni sulla posizione per determinare il comportamento di ricerca sicura e per restituire il contenuto locale pertinente. Specificare la coppia chiave/valore come \<chiave\>:\<valore\>. Di seguito sono riportate le chiavi usate per specificare la posizione dell'utente.<br /><br /><ul><li>lat: la latitudine della posizione del client, in gradi. La latitudine deve essere maggiore o uguale a -90.0 e minore o uguale a + 90.0. I valori negativi indicano le latitudini meridionali e i valori positivi indicano le latitudini settentrionali.<br /><br /></li><li>long: la longitudine della posizione del client, in gradi. La longitudine deve essere maggiore o uguale a -180.0 e minore o uguale a +180.0. I valori negativi indicano le latitudini occidentali e i valori positivi indicano le latitudini orientali.<br /><br /></li><li>re: il raggio, in metri, che specifica la precisione orizzontale delle coordinate. Passare il valore restituito dal servizio che rileva la posizione del dispositivo. I valori tipici potrebbero essere 22 m per GPS/Wi-Fi, 380 m per la triangolazione dei ripetitori di rete e 18.000 m per la ricerca inversa degli indirizzi IP.<br /><br /></li><li>ts: il timestamp UNIX UTC del momento in cui il client si trovava nella posizione. Il timestamp UNIX è il numero di secondi trascorsi dal 1° gennaio 1970.<br /><br /></li><li>head&mdash;Facoltativa. Intestazione o direzione di viaggio relative al client. Specificare la direzione di viaggio come gradi da 0 a 360, partendo in senso orario rispetto al vero nord. Specificare questa chiave solo se la chiave `sp` è diversa da zero.<br /><br /></li><li>sp: la velocità orizzontale, in metri al secondo, con cui viaggia il dispositivo client.<br /><br /></li><li>alt: l'altitudine del dispositivo client, in metri.<br /><br /></li><li>are: facoltativo. Il raggio, in metri, che specifica la precisione verticale delle coordinate. Il raggio predefinito è 50 km. Specificare questa chiave solo se si specifica la chiave `alt`.<br /><br /></li></ul> **NOTA:** sebbene queste chiavi siano facoltative, più informazioni vengono fornite, più accurati sono i risultati relativi alle posizioni.<br /><br /> **NOTA:** è consigliabile specificare sempre la posizione geografica dell'utente. Specificare la posizione è particolarmente importante se l'indirizzo IP del client non riflette accuratamente la posizione fisica dell'utente, ad esempio, se il client usa una VPN. Per ottenere risultati ottimali, è necessario includere questa intestazione e l'intestazione X-MSEdge-ClientIP ma, è necessario almeno includere questa intestazione.|
@@ -83,11 +83,11 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query.  
   
   
-|NOME|Valore|Type|Obbligatoria|  
+|Attività|Valore|Type|Obbligatorio|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API Anteprima URL supporta solo la lingua o il mercato en-us.<br /><br />|string|Sì|  
 |<a name="query" />q|URL per l'anteprima|string|Sì|  
-|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](http://json-ld.org/).|string|No |  
+|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|string|No |  
 |<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No |  
 |<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|string|No | 
 
@@ -119,7 +119,7 @@ Definisce l'errore che si è verificato.
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|string|  
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error (Errore) (Error (Errore)e)](#error)|  
@@ -129,7 +129,7 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>Licenza  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |name|Il nome della licenza.|string|  
 |URL|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|string|  
@@ -138,7 +138,7 @@ Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Definisce una regola contrattuale per l'attribuzione di licenze.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su LicenseAttribution.|string|  
 |license|Licenza ai sensi della quale è possibile usare il contenuto.|[License](#license)|  
@@ -150,7 +150,7 @@ Definisce una regola contrattuale per l'attribuzione di licenze.
 ### <a name="link"></a>Collegamento  
 Definisce i componenti di un collegamento ipertestuale.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|string|  
 |text|Testo visualizzato.|string|  
@@ -160,7 +160,7 @@ Definisce i componenti di un collegamento ipertestuale.
 ### <a name="linkattribution"></a>LinkAttribution  
 Definisce una regola contrattuale per l'attribuzione di collegamenti.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su LinkAttribution.|string|  
 |mustBeCloseToContent|Valore booleano che determina se il contenuto della regola deve essere posizionato in stretta prossimità al campo a cui si applica la regola. Se il valore è **true**, il contenuto deve essere posizionato in stretta prossimità. Se il valore è **false** o questo campo non esiste, il contenuto può essere posizionato a discrezione del chiamante.|Boolean|  
@@ -172,7 +172,7 @@ Definisce una regola contrattuale per l'attribuzione di collegamenti.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Definisce una regola contrattuale per l'attribuzione di contenuti multimediali.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su MediaAttribution.|string|  
 |mustBeCloseToContent|Valore booleano che determina se il contenuto della regola deve essere posizionato in stretta prossimità al campo a cui si applica la regola. Se il valore è **true**, il contenuto deve essere posizionato in stretta prossimità. Se il valore è **false** o questo campo non esiste, il contenuto può essere posizionato a discrezione del chiamante.|Boolean|  
@@ -186,7 +186,7 @@ Definisce un editore.
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |name|Nome dell'editore.|string|  
 |URL|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|string|  
@@ -196,11 +196,11 @@ Si noti che un editore può fornire il proprio nome e/o il sito Web.
 ### <a name="webpage"></a>WebPage  
 Definisce le informazioni su una pagina Web in anteprima.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|
 |name|Titolo della pagina, non necessariamente il titolo HTML|string|
 |URL|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|string|  
-|description|Breve descrizione della pagina e del contenuto|string|  
+|Descrizione|Breve descrizione della pagina e del contenuto|string|  
 |isFamilyFriendly|Più preciso per gli elementi nell'indice Web; i recuperi in tempo reale eseguono questo rilevamento esclusivamente in base all'URL e non al contenuto della pagina|boolean|
 |primaryImageOfPage/contentUrl|URL di un'immagine rappresentativa da includere nell'anteprima|string| 
   
@@ -217,19 +217,22 @@ Definisce il contesto di query usato da Bing per la richiesta.
 |originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valore|Type|  
+
+|Attività|Valore|Type|  
 |-------------|-----------------|----------|
 |id|Identificatore di risorsa|string|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definisce un gruppo di risultati di ricerca, ad esempio la riga principale.
-|NOME|Valore|Type|  
+
+|Attività|Valore|Type|  
 |-------------|-----------------|----------|
 |items|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definisce un elemento dei risultati della ricerca da visualizzare.
-|NOME|Valore|Type|  
+
+|Attività|Valore|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
 |answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
@@ -239,7 +242,7 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
   
-|NOME|Valore|  
+|Attività|Valore|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|I risultati della ricerca da visualizzare nella riga principale.|  
 |<a name="ranking-pole" />pole|I risultati della ricerca che devono ottenere il trattamento più visibile, ad esempio la visualizzazione sopra la riga principale e la barra laterale.|  
@@ -251,7 +254,7 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su SearchResponse.|string|  
 |WebPage|Oggetto JSON che definisce l'anteprima|stringa|  
@@ -260,7 +263,7 @@ Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta a
 ### <a name="textattribution"></a>TextAttribution  
 Definisce una regola contrattuale per l'attribuzione di testo normale.  
   
-|NOME|Valore|Type|  
+|Attività|Valore|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su TextAttribution.|string|  
 |text|Testo dell'attribuzione.<br /><br /> L'attribuzione di testo si applica all'entità nel suo complesso e deve essere visualizzata immediatamente dopo la presentazione dell'entità. Se esistono più regole di attribuzione di testo o collegamenti che non specificano una destinazione, è necessario concatenarle e visualizzarle usando un'etichetta "Dati di:".|string| 
