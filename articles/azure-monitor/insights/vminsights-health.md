@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490042"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549866"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendere l'integrità delle macchine virtuali di Azure
 
@@ -235,7 +235,9 @@ Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la p
 
 ## <a name="alerts"></a>Avvisi
 
-La funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali è integrata ad [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md) e genera un avviso quando i criteri di integrità predefiniti passano da uno stato integro a uno non integro quando viene rilevata la condizione. Gli avvisi sono classificati in base alla gravità, da 0 a 4 dove la gravità 0 rappresenta il livello più alto.  
+La funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali è integrata ad [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md) e genera un avviso quando i criteri di integrità predefiniti passano da uno stato integro a uno non integro quando viene rilevata la condizione. Gli avvisi sono classificati in base alla gravità, da 0 a 4 dove la gravità 0 rappresenta il livello più alto. 
+
+Gli avvisi non sono associati a un gruppo di azioni per notificare quando è stato attivato l'avviso. Il proprietario della sottoscrizione deve configurare le notifiche seguendo la procedura [più avanti in questa sezione](#configure-alerts).   
 
 Il numero totale di avvisi di integrità delle macchine virtuali classificati in base alla gravità è disponibile nel dashboard **Integrità** nella sezione **Avvisi**. Quando si seleziona il numero totale di avvisi o il numero corrispondente a un livello di gravità, si apre la pagina **Avvisi** in cui sono elencati tutti gli avvisi corrispondenti alla selezione.  Ad esempio, se si seleziona la riga corrispondente al **livello di gravità 1**, viene visualizzato quanto segue:
 

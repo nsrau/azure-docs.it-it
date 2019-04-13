@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860712"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549682"
 ---
 # <a name="schema-format"></a>Formato dello schema
 
@@ -43,14 +43,14 @@ Di seguito è riportato un elenco dei tipi di dati degli attributi supportati:
 
 | Type | DESCRIZIONE | Operazioni | Esempio |
 |------|-------------|------------|---------|
-| string | Stringa (da 1 a 1024 caratteri) | equals, starts_with | "hello world" |
-| Int32 | Valore intero a 32 bit con segno | equals, starts_with, is_between | 2016 |
-| Int64 | Valore intero a 64 bit con segno | equals, starts_with, is_between | 9876543210 |
-| Double | Valore a virgola mobile a precisione doppia | equals, starts_with, is_between | 1,602e-19 |
-| Data | Data (da 1400-01-01 a 9999-12-31) | equals, is_between | '2016-03-14' |
-| Guid | Identificatore univoco globale | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| BLOB | Dati non indicizzati compressi internamente | *Nessuno* | "Empower every person and every organization on the planet to achieve more" |
-| Composite | Composizione di più attributi secondari| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | Stringa (da 1 a 1024 caratteri) | equals, starts_with | "hello world" |
+| `Int32` | Valore intero a 32 bit con segno | equals, starts_with, is_between | 2016 |
+| `Int64` | Valore intero a 64 bit con segno | equals, starts_with, is_between | 9876543210 |
+| `Double` | Valore a virgola mobile a precisione doppia | equals, starts_with, is_between | 1,602e-19 |
+| `Date` | Data (da 1400-01-01 a 9999-12-31) | equals, is_between | '2016-03-14' |
+| `Guid` | Identificatore univoco globale | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Dati non indicizzati compressi internamente | *Nessuno* | "Empower every person and every organization on the planet to achieve more" |
+| `Composite` | Composizione di più attributi secondari| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Gli attributi di tipo stringa vengono usati per rappresentare i valori di stringa che possono essere visualizzati come parte della query utente.  Supportano l'operazione *equals* con corrispondenza esatta, oltre all'operazione *starts_with* per gli scenari di completamento delle query, ad esempio la corrispondenza di "micros" con "microsoft".  La corrispondenza fuzzy e senza distinzione tra maiuscole e minuscole per gestire gli errori ortografici sarà supportata in una versione futura.
 

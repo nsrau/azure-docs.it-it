@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486819"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549688"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -90,10 +90,16 @@ Questo comando copia Database1 sul server1 in un nuovo database denominato Datab
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> I firewall di entrambe le istanze dei server devono essere configurati per consentire la connessione in ingresso dall'indirizzo IP del client eseguendo il comando di copia di T-SQL.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiare un database SQL in un'altra sottoscrizione
 
-Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
+È possibile utilizzare il descrbed passaggi nella sezione precedente per copiare il database in un server di Database SQL in una sottoscrizione diversa. Assicurarsi di usare un account di accesso con lo stesso nome e la password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità a livello di server. 
+
+> [!NOTE]
+> Il [portale di Azure](https://portal.azure.com) nepodporuje copia in una sottoscrizione diversa perché portale chiama l'API di ARM e Usa i certificati di sottoscrizione per accedere a entrambi i server coinvolti nella replica geografica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
