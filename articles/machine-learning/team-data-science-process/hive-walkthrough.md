@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881147"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524005"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: Usare cluster Hadoop di Azure HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -88,11 +88,11 @@ Per copiare il set di dati delle [corse dei taxi di New York](https://www.andres
 
 Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni incluse in [Introduzione all'utilità della riga di comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Da una finestra del prompt dei comandi eseguire i comandi AzCopy seguenti, sostituendo *<path_to_data_folder>* con la destinazione desiderata:
+1. Da una finestra del prompt dei comandi, eseguire i comandi AzCopy seguenti, sostituendo  *\<path_to_data_folder >* con la destinazione desiderata:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Nelle sezioni seguenti questa cartella sarà denominata *<path\_to\_unzipped_data\_files\>*.
+1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella è detto il *\<percorso\_al\_unzipped_data\_file\>* in seguito.
 
 ## <a name="upload"></a>Caricare i dati nel contenitore predefinito del cluster Hadoop di HDInsight
 > [!NOTE]
@@ -102,10 +102,10 @@ Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. P
 
 Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effettivi specificati durante la creazione del cluster Hadoop e decomprimere i file di dati.
 
-* ***<path_to_data_folder>*** La directory (insieme al percorso) nel computer che contiene i file di dati non compressi.  
-* ***<storage account name of Hadoop cluster>*** L'account di archiviazione associato al cluster di HDInsight.
-* ***<default container of Hadoop cluster>*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito corrisponde in genere al nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
-* ***<storage account key>*** La chiave dell'account di archiviazione usato dal cluster.
+* ***\<path_to_data_folder >*** la directory (insieme al percorso) nel computer che contiene i file di dati non compressi.  
+* ***\<nome account di archiviazione del cluster Hadoop >*** l'account di archiviazione associato al cluster HDInsight.
+* ***\<contenitore predefinito del cluster Hadoop >*** il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito corrisponde in genere al nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
+* ***\<chiave dell'account di archiviazione >*** la chiave dell'account di archiviazione usato dal cluster.
 
 Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due comandi AzCopy seguenti.
 

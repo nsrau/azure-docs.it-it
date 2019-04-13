@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730360"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523444"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -58,7 +58,7 @@ Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile,
 
 Per impostazione predefinita, l'app del servizio app accetta le richieste da tutti gli indirizzi IP da Internet, ma è possibile limitare tale accesso a un sottoinsieme ristretto di indirizzi IP. Il servizio app in Windows consente di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask. Per altre informazioni, vedere [Restrizioni IP statico del Servizio app di Azure](app-service-ip-restrictions.md).
 
-Per il servizio app in Windows è inoltre possibile limitare gli indirizzi IP dinamicamente tramite la configurazione del file _web.config_. Per altre informazioni, vedere [Dynamic IP Security<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/) (sicurezza degli IP dinamici).
+Per il servizio app in Windows è inoltre possibile limitare gli indirizzi IP dinamicamente tramite la configurazione del file _web.config_. Per altre informazioni, vedere [sicurezza degli IP dinamici \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticazione e autorizzazione dei client
 

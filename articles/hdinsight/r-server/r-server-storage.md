@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309118"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523393"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di Archiviazione di Azure per ML Services in Azure HDInsight
 
@@ -95,7 +95,7 @@ Nel codice R puntare il nome del riferimento al nodo sull'account di archiviazio
 
 Tutti i riferimenti a file e directory ora puntano all'account di archiviazione `wasb://container2@storage2.blob.core.windows.net`. Questo è il **nodo del nome** specificato.
 
-È necessario configurare la directory /user/RevoShare/<SSH username> in **storage2** come indicato di seguito:
+È necessario configurare il `/user/RevoShare/<SSH username>` nella directory **storage2** come indicato di seguito:
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user

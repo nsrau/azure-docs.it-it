@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501179"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523461"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Piattaforma delle identità Microsoft e il protocollo OpenID Connect
 
@@ -215,7 +215,7 @@ Molte app Web non richiedono soltanto l'accesso dell'utente, ma necessitano anch
 
 Il flusso completo di accesso OpenID Connect e di acquisizione dei token è simile a quello illustrato nella figura seguente. Le sezioni seguenti dell'articolo descrivono i singoli passaggi.
 
-![Protocollo OpenID Connect: Acquisizione dei token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocollo OpenID Connect: Acquisizione dei token](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>Ottenere i token di accesso
 Per acquisire i token di accesso, modificare la richiesta di accesso:

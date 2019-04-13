@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976777"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523937"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
@@ -59,7 +59,7 @@ Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengo
 
 1. Definizione delle query di selezione dei dati (vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .
    
-   La sintassi per chiamare una funzione della data factory è **$$<function>** per le query di selezione dei dati e altre proprietà dell'attività e del set di dati.  
+   La sintassi per chiamare una funzione della data factory è:  **$$ \<funzione >** per le query di selezione dei dati e altre proprietà dell'attività e i set di dati.  
 2. Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.
    
     La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.     

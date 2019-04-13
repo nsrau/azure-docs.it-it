@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787904"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523971"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight 
 
@@ -45,7 +45,7 @@ Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark co
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Sostituire <ClusterName> con il nome del cluster Spark.
+    Sostituire `<ClusterName>` con il nome del cluster Spark.
 
 L'interfaccia utente Web Server cronologia Spark è simile all'immagine seguente:
 

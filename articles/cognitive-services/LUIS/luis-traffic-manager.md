@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736550"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523410"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -86,7 +86,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
     |-RelativeDnsName|luis-dns-eastus|Questo è il sottodominio per il servizio: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Intervallo di polling, 30 secondi|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Il protocollo e la porta per LUIS sono HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Sostituire <appIdLuis> e <subscriptionKeyLuis> con valori personalizzati.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Sostituire `<appIdLuis>` e `<subscriptionKeyLuis>` con valori personalizzati.|
     
     Una richiesta con esito positivo non ha risposta.
 
@@ -154,7 +154,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
     |-RelativeDnsName|luis-dns-westus|Questo è il sottodominio per il servizio: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Intervallo di polling, 30 secondi|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Il protocollo e la porta per LUIS sono HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Sostituire <appId> e <subscriptionKey> con valori personalizzati. Tenere presente che questa chiave endpoint è diversa dalla chiave endpoint orientale|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Sostituire `<appId>` e `<subscriptionKey>` con valori personalizzati. Tenere presente che questa chiave endpoint è diversa dalla chiave endpoint orientale|
     
     Una richiesta con esito positivo non ha risposta.
 

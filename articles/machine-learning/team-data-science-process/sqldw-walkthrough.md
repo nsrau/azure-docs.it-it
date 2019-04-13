@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838885"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523597"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -77,7 +77,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 **Effettuare il provisioning dell'istanza di Azure SQL DW.**
 Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la documentazione in [Creare un SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) . Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
 
-* **Nome server**: <server Name>.database.windows.net
+* **Nome del server**: \<server Name >. database.windows.net
 * **Nome SQLDW (database)**
 * **Nome utente**
 * **Password**

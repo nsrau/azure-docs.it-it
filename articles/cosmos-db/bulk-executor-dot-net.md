@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523342"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
@@ -115,7 +115,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    |NumberOfDocumentsImported (long)   |  Il numero totale di documenti importati correttamente rispetto ai documenti forniti alla chiamata API di importazione in blocco.       |
    |TotalRequestUnitsConsumed (double)   |   Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.      |
    |TotalTimeTaken (TimeSpan)    |   Il tempo totale impiegato dalla chiamata API di importazione in blocco per completare l'esecuzione.      |
-   |BadInputDocuments (List<object>)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
+   |BadInputDocuments (elenco\<oggetto >)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Aggiornare in blocco i dati in Azure Cosmos DB
 

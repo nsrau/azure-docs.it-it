@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621499"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523767"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -193,7 +193,7 @@ Nell'esempio seguente viene creato un nuovo processo per raccogliere i dati sull
 Per impostazione predefinita l'agente processo cercherà di creare la tabella in cui archiviare i risultati. Di conseguenza l'accesso associato alle credenziali usate per le credenziali di output dovrà disporre delle autorizzazioni sufficienti per eseguire questa operazione. Se si vuole creare manualmente la tabella in anticipo, è necessario che disponga delle proprietà seguenti:
 1. Colonne con il nome e tipi di dati corretti per il set di risultati.
 2. Colonna aggiuntiva per internal_execution_id con il tipo di dati uniqueidentifier.
-3. Un indice non cluster denominato "IX_<TableName>_Internal_Execution_ID" nella colonna internal_execution_id.
+3. Un indice non cluster denominato `IX_<TableName>_Internal_Execution_ID` sulla colonna internal_execution_id.
 
 Connettersi al [*database dei processi*](sql-database-job-automation-overview.md#job-database) ed eseguire i comandi seguenti:
 
@@ -481,7 +481,7 @@ Numero di identificazione del processo assegnato al processo se viene creato cor
 
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 sp_add_job deve essere eseguito dal database dell'agente processo specificato al momento della creazione dell'agente processo.
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
@@ -544,7 +544,7 @@ Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time 
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -576,7 +576,7 @@ Specifica se eseguire l'eliminazione e annullare le eventuali esecuzioni del pro
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 La cronologia del processo viene eliminata automaticamente quando si elimina un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -701,7 +701,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 Quando sp_add_jobstep ha esito positivo, viene incrementato il numero di versione corrente del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione. Se il processo è in esecuzione, l'esecuzione non conterrà il nuovo passaggio.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -825,7 +825,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -868,7 +868,7 @@ Parametro di output che verrà assegnato al nuovo numero di versione del process
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
 Gli altri passaggi del processo verranno rinumerati automaticamente per colmare il vuoto lasciato dal passaggio del processo eliminato.
@@ -906,8 +906,8 @@ Parametro di output che verrà assegnato all'ID dell'esecuzione del processo. jo
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
-Nessuna.
+#### <a name="remarks"></a>Osservazioni
+No.
  
 #### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
@@ -934,8 +934,8 @@ Numero di identificazione dell'esecuzione del processo da arrestare. job_executi
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
-Nessuna.
+#### <a name="remarks"></a>Osservazioni
+No.
  
 #### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
@@ -966,7 +966,7 @@ Nome del gruppo di destinazione da creare. target_group_name è di tipo nvarchar
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -994,8 +994,8 @@ Nome del gruppo di destinazione da eliminare. target_group_name è di tipo nvarc
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
-Nessuna.
+#### <a name="remarks"></a>Osservazioni
+No.
 
 #### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
@@ -1050,7 +1050,7 @@ Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione spe
 Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione se viene creato e aggiunto correttamente al gruppo di destinazione. target_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
 Valori del codice restituito 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 Un processo viene eseguito in tutti i database singoli in un server di database SQL o un pool elastico al momento dell'esecuzione quando un server di database SQL o un pool elastico è incluso nel gruppo di destinazione.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -1112,10 +1112,10 @@ Nome del gruppo di destinazione da cui rimuovere il membro del gruppo di destina
 [ @target_id = ] target_id  
  Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione da rimuovere. target_id è di tipo uniqueidentifier e il valore predefinito è NULL.
 
-#### <a name="return-code-values"></a>Valori restituiti
+#### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Note
+#### <a name="remarks"></a>Osservazioni
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -1193,7 +1193,7 @@ GO
 Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
-|Visualizzazione  |DESCRIZIONE  |
+|Visualizza  |DESCRIZIONE  |
 |---------|---------|
 |[jobs_executions](#jobs_executions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[jobs](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1340,7 +1340,7 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 
 ## <a name="resources"></a>Risorse
 
- - ![Icona di collegamento a un argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona di collegamento a un argomento")[Convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Icona collegamento argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona collegamento argomento") [Convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

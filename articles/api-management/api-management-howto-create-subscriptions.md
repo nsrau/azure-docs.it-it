@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054503"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523508"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Creare sottoscrizioni in Gestione API di Azure
 
@@ -38,7 +38,8 @@ Per eseguire i passaggi descritti in questo articolo, i prerequisiti sono i segu
 1. Selezionare **Sottoscrizioni** nel menu a sinistra.
 2. Selezionare **Aggiungi sottoscrizione**.
 3. Specificare il nome della sottoscrizione e selezionare l'ambito.
-4. Selezionare **Salva**.
+4. Facoltativamente, scegliere se la sottoscrizione deve essere associata a un utente.
+5. Selezionare **Salva**.
 
 ![Sottoscrizioni flessibili](./media/api-management-subscriptions/flexible-subscription.png)
 

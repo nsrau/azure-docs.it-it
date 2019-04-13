@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359044"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523699"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -107,7 +107,7 @@ Come procedura consigliata, consigliano di connessione dell'applicazione di stri
 Ad esempio quando si usa il driver ADO.NET questa operazione viene eseguita tramite **Encrypt = True** e **TrustServerCertificate = False**. Se si ottiene la stringa di connessione dal portale di Azure, avrà le impostazioni corrette.
 
 > [!IMPORTANT]
-> Si noti che alcuni driver non Microsoft non può usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (< 2.0) per il funzionamento. In questo caso SQL Server consente comunque di connettersi al database. Tuttavia, è consigliabile valutare i rischi di sicurezza di consentire tali driver e applicazioni per la connessione al Database SQL, specialmente se si archiviano dati sensibili. 
+> Si noti che alcuni driver non Microsoft non può usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (< 1.2) per il funzionamento. In questo caso SQL Server consente comunque di connettersi al database. Tuttavia, è consigliabile valutare i rischi di sicurezza di consentire tali driver e applicazioni per la connessione al Database SQL, specialmente se si archiviano dati sensibili. 
 >
 > Per altre informazioni su TLS e connettività, vedere [considerazioni TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

@@ -4,22 +4,24 @@ description: Questa pagina offre informazioni sulle regole e i gruppi di regole 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279704"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523920"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Elenco delle regole e dei gruppi di regole CRS del Web application firewall disponibili
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Le regole e gruppi di regole CRS di web application firewall
 
-Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. A questo scopo vengono usate regole definite in base a OWASP Core Rule Set 2.2.9 o 3.0. Queste regole possono essere disabilitate singolarmente. Questo articolo contiene le regole e i set di regole attualmente offerti.
+Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. Questa operazione viene eseguita attraverso regole definite in base a OWASP core rule set 2.2.9 o 3.0. Queste regole possono essere disabilitate singolarmente. Questo articolo contiene le regole e i set di regole attualmente offerti.
 
-Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili quando si usa Gateway applicazione con il Web application firewall.  Ogni tabella rappresenta le regole incluse in un gruppo di regole per una specifica versione di CRS.
+I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gateway applicazione con web application firewall.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Set di regole
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Generale</p>
 
@@ -50,7 +52,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |---|---|
 |920100|Riga della richiesta HTTP non valida|
 |920130|Impossibile analizzare corpo della richiesta|
-|920140|La convalida di tipo strict del corpo della richiesta multiparte non è riuscita:     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Il corpo della richiesta multipart non è stato possibile convalida ristretta|
 |920160|Intestazione HTTP Content-Length non numerica|
 |920170|Richiesta GET o HEAD con contenuto del corpo|
 |920180|Richiesta POST senza intestazione Content-Length|
@@ -216,7 +218,9 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |943110|Possibile attacco di tipo Session Fixation: nome parametro SessionID con referrer fuori dominio|
 |943120|Possibile attacco di tipo Session Fixation: nome parametro SessionID senza referrer|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Set di regole
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |960911|Riga della richiesta HTTP non valida|
 |981227|Errore Apache: URI non valido nella richiesta|
 |960912|Impossibile analizzare corpo della richiesta|
-|960914|La convalida di tipo strict del corpo della richiesta multiparte non è riuscita:     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Il corpo della richiesta multipart non è stato possibile convalida ristretta|
 |960915|Il parser multiparte ha rilevato un possibile limite senza corrispondenza|
 |960016|Intestazione HTTP Content-Length non numerica|
 |960011|Richiesta GET o HEAD con contenuto del corpo|
@@ -472,6 +476,8 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |950921|Accesso backdoor|
 |950922|Accesso backdoor|
 
+---
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come disabilitare le regole WAF, vedere l'articolo: [Personalizzare le regole del web application firewall](application-gateway-customize-waf-rules-portal.md)
+Informazioni su come disabilitare le regole del WAF: [Personalizzare le regole del web application firewall](application-gateway-customize-waf-rules-portal.md)

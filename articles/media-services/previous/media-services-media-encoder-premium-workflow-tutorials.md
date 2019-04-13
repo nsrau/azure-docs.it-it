@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189785"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523835"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
 ## <a name="overview"></a>Panoramica
@@ -760,7 +760,7 @@ Queste modifiche sono state apportate con normali operazioni di manipolazione de
 
 *Registrazione dell'elenco di clip risultante*
 
-Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Per questo motivo solo la prima volta che si impostano i punti di entrata e di uscita il file XML viene trasformato, invece tutte le altre volte la clausola guard (if(clipListXML.indexOf("<trim>") == -1)) impedirà al flusso di lavoro di aggiungere un altro elemento trim se ne è già presente uno.
+Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che si impostano i punti in e out, causerà il file xml viene trasformato, tutte le altre volte la clausola guard (se (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento trim se ne è già presente uno.
 
 Per semplificare il test locale del flusso di lavoro, è consigliabile aggiungere un codice di manutenzione che controlla se è già presente un elemento trim. In questo caso, è possibile rimuoverlo prima di continuare a modificare il file XML con i nuovi valori. Invece di usare le normali manipolazioni di stringa, è probabilmente più sicuro eseguire questa operazione con l'analisi del modello a oggetti XML effettivo.
 
