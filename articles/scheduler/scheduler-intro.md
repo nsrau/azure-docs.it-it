@@ -32,7 +32,7 @@ Ecco alcuni scenari in cui l'Utilità di pianificazione consente di:
 
 * **Eseguire le azioni ricorrenti delle app**: ad esempio, raccogliere periodicamente i dati da Twitter in un feed.
 
-* **Effettuare la manutenzione quotidiana**: eseguire operazioni quali l'eliminazione giornaliera dei registri, l'esecuzione di backup e altre attività di manutenzione. 
+* **Effettuare la manutenzione quotidiana**: eseguire operazioni quali l'eliminazione giornaliera dei log, l'esecuzione di backup e altre attività di manutenzione. 
 
   Ad esempio, come amministratore, è possibile eseguire il backup del database ogni giorno all'1:00 per i nove mesi successivi.
 

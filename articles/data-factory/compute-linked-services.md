@@ -46,7 +46,7 @@ Il servizio Azure Data Factory può creare automaticamente un cluster HDInsight 
 Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight su richiesta:
 
 * Il cluster HDInsight su richiesta verrà creato nella sottoscrizione di Azure. È possibile visualizzare il cluster nel portale di Azure quando questo è attivo e in esecuzione. 
-* I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definiti nella definizione del servizio collegato vengono usati per accedere al cluster per la risoluzione approfondita dei problemi durante il ciclo di vita del cluster. 
+* I log per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definiti nella definizione del servizio collegato vengono usati per accedere al cluster per la risoluzione approfondita dei problemi durante il ciclo di vita del cluster. 
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
 * Si può usare un'**azione script** con il servizio collegato Azure HDInsight su richiesta.  
 

@@ -389,7 +389,7 @@ Viene registrata ogni richiesta all'archiviazione di Azure viene registrata. Ecc
 
 ![Snapshot di un file di log](./media/storage-security-guide/image2.png)
 
-Si noterà che è possibile usare i registri per rilevare qualsiasi tipo di chiamate a un account di archiviazione.
+Si noterà che è possibile usare i log per rilevare qualsiasi tipo di chiamate a un account di archiviazione.
 
 #### <a name="what-are-all-of-those-fields-for"></a>Scopo di tutti questi campi
 Le risorse indicate di seguito includono un articolo che fornisce l'elenco dei molti campi disponibili nei log e lo scopo per cui vengono usati. Ecco l'elenco dei campi in ordine:

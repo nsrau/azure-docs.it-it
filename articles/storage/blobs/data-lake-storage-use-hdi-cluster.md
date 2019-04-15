@@ -24,7 +24,7 @@ Questo articolo illustra come funziona Data Lake Storage Gen2 con i cluster HDIn
 
 Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. HDInsight può usare Archiviazione di Azure Data Lake come file system predefinito per il cluster. Attraverso un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui file in Archiviazione di Azure Data Lake.
 
-Non è consigliabile usare il file system predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il file system predefinito dopo ogni utilizzo per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+Non è consigliabile usare il file system predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il file system predefinito dopo ogni utilizzo per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include log di sistema e applicazioni. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
 La condivisione di un solo file system tra più cluster non è supportata.
 

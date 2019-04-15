@@ -66,7 +66,7 @@ Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API dete
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -90,7 +90,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di dati avviata con S
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -115,7 +115,7 @@ Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riport
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -137,7 +137,7 @@ Ottiene le informazioni sulla partizione specificata. La risposta include l'ID d
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -160,7 +160,7 @@ La risposta include l'ID di partizione, le informazioni dello schema di partizio
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -182,7 +182,7 @@ Restituisce informazioni sul carico di una partizione specificata. La risposta i
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -204,7 +204,7 @@ Reimposta il carico corrente di una partizione di Service Fabric sul carico pred
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -230,7 +230,7 @@ Questa API è utile per un caso di perdita di quorum temporaneo sul servizio. Ch
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -254,7 +254,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di quorum avviata con
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -276,7 +276,7 @@ Questa operazione può essere eseguita solo se è noto che non è possibile recu
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -297,7 +297,7 @@ Questa operazione può essere eseguita solo se è noto che non è possibile recu
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -327,7 +327,7 @@ Segnala lo stato di integrità della partizione di Service Fabric specificata. I
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -352,7 +352,7 @@ Questa API è utile per il test del failover. Se utilizzato come destinazione di
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -376,7 +376,7 @@ Indica lo stato di avanzamento di un'operazione PartitionRestart avviata con Sta
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -398,7 +398,7 @@ Ottiene il nome del servizio per la partizione specificata. Se l'ID di partizion
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |

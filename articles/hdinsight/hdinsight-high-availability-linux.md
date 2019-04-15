@@ -219,7 +219,7 @@ Se non si sa quali componenti siano specificati da un servizio, è possibile usa
 
 Durante la connessione a un nodo head tramite SSH, i file di registro sono disponibili su **/var/log**. Ad esempio, **/var/log/hadoop-yarn/yarn** contiene i registri per YARN.
 
-Ogni nodo head può avere voci di registro univoche, perciò è consigliabile controllare i registri su entrambi.
+Ogni nodo head può avere voci di log univoche, perciò è consigliabile controllare i log su entrambi.
 
 ### <a name="sftp"></a>SFTP
 
@@ -244,7 +244,7 @@ Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 
 Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si vogliono visualizzare i log, ad esempio, YARN. Usare quindi **Collegamenti rapidi** per selezionare il nodo head di cui visualizzare i log.
 
-![Utilizzo dei collegamenti rapidi per visualizzare i registri](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Utilizzo dei collegamenti rapidi per visualizzare i log](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Come configurare le dimensioni del nodo
 

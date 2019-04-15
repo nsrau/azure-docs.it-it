@@ -163,7 +163,7 @@ Gli amministratori di Contoso avviano lo strumento di migrazione TFS sul databas
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection2.png)
 
-5. È stato individuato che i file di registro si trovano nella cartella **Registro**, appena prima della posizione dello strumento. Viene generato un file di registro per ogni convalida principale. **TfsMigration.log** contiene le informazioni principali.
+5. È stato individuato che i file di log si trovano nella cartella **Log**, appena prima della posizione dello strumento. Viene generato un file di registro per ogni convalida principale. **TfsMigration.log** contiene le informazioni principali.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 

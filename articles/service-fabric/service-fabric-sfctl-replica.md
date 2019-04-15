@@ -55,7 +55,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -80,7 +80,7 @@ Recupera l'elenco contenente le informazioni relative alle repliche distribuite 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -104,7 +104,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -127,7 +127,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -150,7 +150,7 @@ L'endpoint GetReplicas restituisce le informazioni sulle repliche della partizio
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -175,7 +175,7 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -207,7 +207,7 @@ Segnala lo stato di integrità della replica di Service Fabric specificata. Il r
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -231,7 +231,7 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |

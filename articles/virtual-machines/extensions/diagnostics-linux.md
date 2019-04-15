@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57997958"
 ---
-# <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
+# <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
 Questo documento descrive la versione 3.0 e successive dell'estensione Diagnostica per Linux.
 
@@ -250,7 +250,7 @@ Gli elementi rimanenti vengono descritti in dettaglio nelle sezioni seguenti.
 }
 ```
 
-Questa struttura facoltativa controlla la raccolta di metriche e registri per l'invio al servizio Metriche di Azure e ad altri dati sink. È necessario specificare `performanceCounters` o `syslogEvents` oppure entrambi. È necessario specificare la struttura `metrics`.
+Questa struttura facoltativa controlla la raccolta di metriche e log per l'invio al servizio Metriche di Azure e ad altri dati sink. È necessario specificare `performanceCounters` o `syslogEvents` oppure entrambi. È necessario specificare la struttura `metrics`.
 
 Elemento | Valore
 ------- | -----
@@ -329,7 +329,7 @@ counterSpecifier è un identificatore arbitrario. Gli utenti di metriche, quali 
 
 Né per LAD né per il portale di Azure si prevede che il valore di counterSpecifier corrisponda a un modello. È consigliabile essere coerenti durante la creazione dei valori di counterSpecifier.
 
-Quando si specifica `performanceCounters`, LAD scrive sempre i dati in una tabella nell'archiviazione di Azure. È possibile che gli stessi dati vengano scritti nel BLOB JSON e/o negli hub eventi, ma non è possibile disabilitare l'inserimento dei dati in una tabella. Tutte le istanze dell'estensione di diagnostica configurate per l'uso dello stesso nome per l'account di archiviazione e dello stesso endpoint aggiungono le metriche e i registri alla stessa tabella. Se troppe macchine virtuali scrivono nella stessa partizione di tabella, Azure può limitare le scritture per tale partizione. L'impostazione eventVolume fa in modo che le voci si diffondano tra 1 (Piccolo), 10 (Medio) o 100 (Grande) partizioni diverse. In genere, "Medio" è sufficiente a garantire che il traffico non venga limitato. La funzionalità Metriche di Azure del portale di Azure usa i dati in questa tabella per creare grafici o per attivare gli avvisi. Il nome della tabella è la concatenazione delle stringhe seguenti:
+Quando si specifica `performanceCounters`, LAD scrive sempre i dati in una tabella nell'archiviazione di Azure. È possibile che gli stessi dati vengano scritti nel BLOB JSON e/o negli hub eventi, ma non è possibile disabilitare l'inserimento dei dati in una tabella. Tutte le istanze dell'estensione di diagnostica configurate per l'uso dello stesso nome per l'account di archiviazione e dello stesso endpoint aggiungono le metriche e i log alla stessa tabella. Se troppe macchine virtuali scrivono nella stessa partizione di tabella, Azure può limitare le scritture per tale partizione. L'impostazione eventVolume fa in modo che le voci si diffondano tra 1 (Piccolo), 10 (Medio) o 100 (Grande) partizioni diverse. In genere, "Medio" è sufficiente a garantire che il traffico non venga limitato. La funzionalità Metriche di Azure del portale di Azure usa i dati in questa tabella per creare grafici o per attivare gli avvisi. Il nome della tabella è la concatenazione delle stringhe seguenti:
 
 * `WADMetrics`
 * "scheduledTransferPeriod" per i valori aggregati inseriti nella tabella

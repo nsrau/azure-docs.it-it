@@ -445,7 +445,7 @@ Per altre informazioni, vedere [Come è possibile rinnovare la chiave di decritt
 
 Monitorare i server che eseguono gli agenti di autenticazione per garantire la disponibilità della soluzione. Oltre ai contatori delle prestazioni generali del server, gli agenti di autenticazione espongono oggetti prestazioni che possono essere utili per riconoscere gli errori e le statistiche di autenticazione.
 
-Gli agenti di autenticazione registrano le operazioni nei registri eventi di Windows che si trovano in Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin.
+Gli agenti di autenticazione registrano le operazioni nei log eventi di Windows che si trovano in Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin.
 
 È anche possibile attivare la registrazione per la risoluzione dei problemi.
 

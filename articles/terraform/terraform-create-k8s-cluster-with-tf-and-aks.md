@@ -408,7 +408,7 @@ In caso di timeout della sessione di Cloud Shell, è possibile eseguire questi p
 
     ![Lo strumento kubectl consente di verificare l'integrità del cluster Kubernetes](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
-## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e registri
+## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e log
 Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato il monitoraggio per acquisire le metriche di integrità sia per i nodi del cluster che per i pod. Queste metriche di integrità sono disponibili nel portale di Azure. Per altre informazioni sul monitoraggio dell'integrità dei contenitori, vedere [Monitorare l'integrità del servizio Azure Kubernetes](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi

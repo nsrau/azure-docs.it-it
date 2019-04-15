@@ -112,7 +112,7 @@ Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali
      ```
 
 3. Viene generato un errore di timeout della richiesta al proxy inverso. 
-    I registri eventi contengono un evento con i dettagli della richiesta ricevuta (non indicati qui).
+    I log eventi contengono un evento con i dettagli della richiesta ricevuta (non indicati qui).
     L'evento successivo mostra che il servizio ha restituito un codice di stato 404 e il proxy inverso ha avviato nuovamente una risoluzione. 
 
     ```

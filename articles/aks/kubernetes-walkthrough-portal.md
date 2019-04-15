@@ -214,7 +214,7 @@ Per vedere in azione l'app Azure Vote, aprire un Web browser all'indirizzo IP es
 
 ![Immagine del passaggio all'applicazione Azure Vote di esempio](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e registri
+## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e log
 
 Dopo la creazione del cluster, Monitoraggio di Azure per i contenitori è stato abilitato. Questa funzione di monitoraggio fornisce metriche di integrità sia per il cluster del servizio Azure Kubernetes che per i pod in esecuzione nel cluster.
 

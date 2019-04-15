@@ -43,7 +43,7 @@ Per monitoraggio di Azure per raccogliere questi log di diagnostica di Azure, i 
 | Eventi operativi di Service Fabric |Nodi di Service Fabric |WADServiceFabricSystemEventTable |
 | Eventi di Reliable Actor di Service Fabric |Nodi di Service Fabric |WADServiceFabricReliableActorEventTable |
 | Eventi di Reliable Service di Service Fabric |Nodi di Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registri eventi di Windows |Nodi di Service Fabric <br> Macchine virtuali <br> Ruoli Web <br> Ruoli di lavoro |WADWindowsEventLogsTable (archivio tabelle) |
+| Log eventi di Windows |Nodi di Service Fabric <br> Macchine virtuali <br> Ruoli Web <br> Ruoli di lavoro |WADWindowsEventLogsTable (archivio tabelle) |
 | Log di Windows ETW |Nodi di Service Fabric <br> Macchine virtuali <br> Ruoli Web <br> Ruoli di lavoro |WADETWEventTable (archivio tabelle) |
 
 > [!NOTE]
@@ -80,11 +80,11 @@ Consultare l'argomento su [come abilitare la diagnostica in un servizio cloud](.
 Con Diagnostica di Azure abilitata:
 
 * Per impostazione predefinita, i log di IIS vengono archiviati e i dati dei log vengono trasferiti in base all'intervallo di trasferimento scheduledTransferPeriod.
-* Per impostazione predefinita, i registri eventi di Windows non vengono trasferiti.
+* Per impostazione predefinita, i log eventi di Windows non vengono trasferiti.
 
 ### <a name="to-enable-diagnostics"></a>Per abilitare la diagnostica
 
-Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare Diagnostica di Azure con il file di configurazione XML (diagnostics.wadcfg), come mostrato in [Passaggio 4: Creare il file di configurazione della diagnostica e installare l'estensione](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+Per abilitare i log eventi di Windows o per modificare scheduledTransferPeriod, configurare Diagnostica di Azure con il file di configurazione XML (diagnostics.wadcfg), come mostrato in [Passaggio 4: Creare il file di configurazione della diagnostica e installare l'estensione](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
 

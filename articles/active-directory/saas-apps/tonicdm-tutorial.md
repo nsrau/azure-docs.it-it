@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 104acda9521ff52af809fc79b1dfd12e4769e87b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848789"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Esercitazione: Integrazione di Azure Active Directory con TonicDM
 
@@ -83,7 +83,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con TonicDM, è n
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di TonicDM](#create-tonicdm-test-user)**: per avere una controparte di Britta Simon in TonicDM collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TonicDM, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di TonicDM](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL `https://tonicdm.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL: `https://tonicdm.com/`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://tonicdm.com/saml/metadata`
 
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TonicDM, seguire questa
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 

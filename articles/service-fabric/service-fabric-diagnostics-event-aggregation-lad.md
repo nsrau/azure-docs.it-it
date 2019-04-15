@@ -30,12 +30,12 @@ ms.locfileid: "58669419"
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster.
 
-Un modo per caricare e raccogliere i registri consiste nell'usare l'estensione Diagnostica di Azure per Linux, ovvero LAD, che consente di caricare i registri nell'Archiviazione di Azure e di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi di archiviazione e inserirli in una piattaforma di analisi come [monitoraggio di Azure registra](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di log.
+Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure per Linux, ovvero LAD, che consente di caricare i log nell'Archiviazione di Azure e di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi di archiviazione e inserirli in una piattaforma di analisi come [monitoraggio di Azure registra](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di log.
 
 ## <a name="log-and-event-sources"></a>Origini di log ed eventi
 
 ### <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
-Service Fabric emette alcuni registri pronti all'uso tramite [LTTng](https://lttng.org), inclusi gli eventi operativi o gli eventi di runtime. Questi log vengono archiviati nel percorso specificato dal cluster del modello di Resource Manager. Per ottenere e impostare i dettagli dell'account di archiviazione, cercare il tag **AzureTableWinFabETWQueryable** e quindi **StoreConnectionString**.
+Service Fabric emette alcuni log pronti all'uso tramite [LTTng](https://lttng.org), inclusi gli eventi operativi o gli eventi di runtime. Questi log vengono archiviati nel percorso specificato dal cluster del modello di Resource Manager. Per ottenere e impostare i dettagli dell'account di archiviazione, cercare il tag **AzureTableWinFabETWQueryable** e quindi **StoreConnectionString**.
 
 ### <a name="application-events"></a>Eventi dell'applicazione
  Eventi generati dal codice delle applicazioni e dei servizi come specificato dall'utente durante la strumentazione del software. È possibile usare qualsiasi soluzione di registrazione che scriva file di log basati su testo, ad esempio LTTng. Per altre informazioni, vedere la documentazione di LTTng relativa alla traccia dell'applicazione.

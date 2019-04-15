@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f93bea79354dda68c4307ab45c6d1bbfd410ea1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370602"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Esercitazione: Integrazione di Azure Active Directory con IQNavigator VMS
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IQNavigator VMS, seguir
 
     c. Fare clic su **Impostare URL aggiuntivi**.
 
-    d. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://<subdomain>.iqnavigator.com`
+    d. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e lo stato dell'inoltro effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IQNavigator VMS](https://www.beeline.com/iqn-product-support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

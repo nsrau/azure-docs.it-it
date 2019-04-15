@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ed34267aa1f18b4c66fe841164e6a2cde4e27d47
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 385092cb9c760e6f9fa848449bd61663541573b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361048"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con IBM Kenexa Survey Enterprise
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IBM Kenexa Survey Enter
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -171,7 +171,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **IBM Kenexa Survey Enterprise**.
 
-    ![Collegamento di IBM Kenexa Survey Enterprise nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento IBM Kenexa Survey Enterprise nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

@@ -72,7 +72,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 
     ![Impostazioni avanzate di Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
 
-3. Selezionare **Dati** e quindi selezionare **Registri eventi di Windows**.  
+3. Selezionare **Dati** e quindi selezionare **Log eventi Windows**.  
 4. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi fare clic sul segno **+**.  
 5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
 6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.

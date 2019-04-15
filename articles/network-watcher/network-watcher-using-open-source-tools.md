@@ -16,7 +16,7 @@ ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
 ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/21/2018
 ms.locfileid: "36302234"
@@ -94,7 +94,7 @@ La funzionalità di acquisizione pacchetti di Network Watcher permette di acquis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui registri dei flussi dei gruppi di sicurezza di rete, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
+Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
 
 Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI, vedere [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 <!--Image references-->

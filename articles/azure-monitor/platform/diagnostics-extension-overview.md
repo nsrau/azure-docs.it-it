@@ -27,7 +27,7 @@ L'estensione Diagnostica di Azure può raccogliere i tipi di dati seguenti:
 | --- | --- |
 | Metriche dei contatori delle prestazioni |Contatori delle prestazioni del sistema operativo e personalizzati |
 | Log applicazioni |Messaggi di traccia scritti dall'applicazione |
-| Registri eventi di Windows |Informazioni inviate al sistema di registrazione eventi di Windows. |
+| Log eventi di Windows |Informazioni inviate al sistema di registrazione eventi di Windows. |
 | Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) di .NET |
 | log di IIS |Informazioni sui siti Web di IIS |
 | [Log ETW basati su manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Traccia di eventi per eventi Windows generati da qualsiasi processo.(1) |

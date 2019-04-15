@@ -35,7 +35,7 @@ Alcuni aspetti da considerare:
     Un aumento del numero di istanze ha luogo unicamente quando l'uso medio della CPU tra **tutte** le macchine virtuali in un set di scalabilità supera il valore di soglia, in base al tempo definito all'interno delle regole di scalabilità automatica.
 * Sono stati persi eventi di scalabilità?
   
-    Cercare gli eventi di scalabilità nei registri di controllo nel portale di Azure. Potrebbero essersi verificati un aumento e poi una riduzione delle prestazioni non rilevati. È possibile filtrare per "Scalabilità".
+    Cercare gli eventi di scalabilità nei log di controllo nel portale di Azure. Potrebbero essersi verificati un aumento e poi una riduzione delle prestazioni non rilevati. È possibile filtrare per "Scalabilità".
   
     ![Log di controllo][audit]
 * Le soglie di aumento e riduzione del numero di istanze sono sufficientemente diverse?

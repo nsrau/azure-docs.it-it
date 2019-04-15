@@ -70,7 +70,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 Se si esegue un riavvio dal portale di Azure, da Azure PowerShell, dall'interfaccia della riga di comando o dall'API RESET, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
-Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei registri di sistema.
+Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei log di sistema.
 
 Il riavvio della macchina virtuale si verifica solitamente anche quando si eseguono più azioni di modifica della configurazione. In genere, viene visualizzato un messaggio di avviso in cui si specifica che l'esecuzione di una determinata azione comporterà il riavvio della macchina virtuale. Questi tipi di azione includono, ad esempio, operazioni di ridimensionamento della macchina virtuale, la modifica della password dell'account amministrativo o l'impostazione di un indirizzo IP statico.
 

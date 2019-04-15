@@ -37,9 +37,9 @@ Per la macchina virtuale che usa il disco gestito, vedere [Risolvere i problemi 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare la diagnostica di avvio e la schermata della VM per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento di un disco rigido virtuale sottostante.
 
-Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per i visualizzare i messaggi della console originati dalla VM. Esaminare i registri della console per cercare di determinare la causa del problema riscontrato nella macchina virtuale. L'esempio seguente mostra una macchina virtuale bloccata in modalità di manutenzione che richiede l'intervento manuale:
+Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per i visualizzare i messaggi della console originati dalla VM. Esaminare i log della console per cercare di determinare la causa del problema riscontrato nella macchina virtuale. L'esempio seguente mostra una macchina virtuale bloccata in modalità di manutenzione che richiede l'intervento manuale:
 
-![Visualizzazione dei registri della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
+![Visualizzazione dei log della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
 
 È anche possibile fare clic su **Schermata** nella parte superiore del log della diagnostica di avvio per scaricare una schermata della macchina virtuale.
 

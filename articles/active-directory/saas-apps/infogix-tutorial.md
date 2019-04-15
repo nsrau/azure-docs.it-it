@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cdadb8345f88c8d6f5960d1951c1368c666430b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189275"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Esercitazione: Integrazione di Azure Active Directory con Infogix Data3Sixty Govern
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Infogix Data3Sixty Govern con Azure
 L'integrazione di Infogix Data3Sixty Govern con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Infogix Data3Sixty Govern.
-* È possibile abilitare gli utenti per l'accesso automatico a Infogix Data3Sixty Govern (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Infogix Data3Sixty Govern con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-infogix-data3sixty-govern-from-the-gallery"></a>Aggiunta di Infogix Data3Sixty Govern dalla raccolta
 
-Per configurare l'integrazione di Infogix Data3Sixty Govern in Azure AD, è necessario aggiungere Infogix Data3Sixty Govern dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Infogix Data3Sixty Govern in Azure AD, è necessario aggiungere Infogix Data3Sixty Govern dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Infogix Data3Sixty Govern dalla raccolta, seguire questa procedura:**
 
@@ -73,14 +73,14 @@ Per configurare l'integrazione di Infogix Data3Sixty Govern in Azure AD, è nece
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Govern usando un utente di test di nome **Britta Simon**.
-Perché l'accesso Single Sign-On possa funzionare, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Infogix Data3Sixty Govern.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Infogix Data3Sixty Govern.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Govern, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Govern, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Infogix Data3Sixty Govern](#configure-infogix-data3sixty-govern-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Infogix Data3Sixty Govern](#configure-infogix-data3sixty-govern-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Infogix Data3Sixty Govern](#create-infogix-data3sixty-govern-test-user)**: per avere una controparte di Britta Simon in Infogix Data3Sixty Govern collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,15 +104,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Gove
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per Single Sign-On di Infogix Data3Sixty Govern](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Infogix Data3Sixty Govern](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `https://data3sixty.com/ui`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.data3sixty.com/sso/acs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.data3sixty.com/sso/acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per Single Sign-On di Infogix Data3Sixty Govern](common/metadata-upload-additional-signon.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Infogix Data3Sixty Govern](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.data3sixty.com`
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Gove
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | -----------| -------------- |
     | firstname  | user.givenname |
     | lastname   | user.surname |
@@ -159,7 +159,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Gove
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -167,9 +167,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infogix Data3Sixty Gove
 
 Per configurare l'accesso Single Sign-On sul lato **Infogix Data3Sixty Govern**, è necessario inviare il file di **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,17 +192,17 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Infogix Data3Sixty Govern.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Infogix Data3Sixty Govern.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Infogix Data3Sixty Govern**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Infogix Data3Sixty Govern**.
+2. Nell'elenco delle applicazioni selezionare **Infogix Data3Sixty Govern**.
 
-    ![Collegamento Infogix Data3Sixty Govern nell'elenco di applicazioni](common/all-applications.png)
+    ![Collegamento Infogix Data3Sixty Govern nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -229,7 +229,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Infogix Data3Si
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Infogix Data3Sixty Govern nel pannello di accesso, si dovrebbe accedere automaticamente a Infogix Data3Sixty Govern per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro Infogix Data3Sixty Govern nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Infogix Data3Sixty Govern per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

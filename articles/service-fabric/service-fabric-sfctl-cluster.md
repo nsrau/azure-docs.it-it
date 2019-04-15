@@ -62,7 +62,7 @@ Mostra un elenco di informazioni sulle versioni del codice di un'infrastruttura 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -84,7 +84,7 @@ Mostra un elenco di informazioni sulle versioni di configurazione di un'infrastr
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -110,7 +110,7 @@ Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riport
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -131,7 +131,7 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -159,7 +159,7 @@ Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -182,7 +182,7 @@ Mostra l'elenco di operazioni di errore indotte dall'utente filtrato in base all
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -205,7 +205,7 @@ Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni d
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -226,7 +226,7 @@ Indica al cluster di Service Fabric che deve provare a recuperare i servizi di s
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -255,7 +255,7 @@ Il report deve contenere le informazioni relative all'origine del report sull'in
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -282,7 +282,7 @@ In caso di connessione a un cluster sicuro, specificare un percorso assoluto a u
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -295,7 +295,7 @@ Mostra i cluster di Service Fabric a cui è connessa l'istanza sfctl.
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -318,7 +318,7 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -358,7 +358,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -380,7 +380,7 @@ Consente all'aggiornamento del codice o della configurazione del cluster di pass
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -401,7 +401,7 @@ Esegue il rollback dell'aggiornamento di codici o configurazioni di un cluster d
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -422,7 +422,7 @@ Mostra lo stato di avanzamento corrente dell'aggiornamento del cluster in corso.
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -459,7 +459,7 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |

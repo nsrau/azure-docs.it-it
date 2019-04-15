@@ -155,7 +155,7 @@ Per altre informazioni, vedere l'articolo [Use the StorSimple Device Manager ser
 
 ### <a name="local-web-user-interface"></a>Interfaccia utente Web locale
 
-L'array virtuale include un'interfaccia utente basata sul Web per configurazione e registrazione singole del dispositivo con il servizio Gestione dispositivi StorSimple. È possibile usarla per arrestare e riavviare l'array virtuale, eseguire i test diagnostici, aggiornare il software, modificare la password amministratore del dispositivo, visualizzare i registri di sistema e contattare il supporto tecnico Microsoft per inviare una richiesta di assistenza.
+L'array virtuale include un'interfaccia utente basata sul Web per configurazione e registrazione singole del dispositivo con il servizio Gestione dispositivi StorSimple. È possibile usarla per arrestare e riavviare l'array virtuale, eseguire i test diagnostici, aggiornare il software, modificare la password amministratore del dispositivo, visualizzare i log di sistema e contattare il supporto tecnico Microsoft per inviare una richiesta di assistenza.
 
 Per informazioni sull'uso di un'interfaccia utente basata sul Web, vedere [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

@@ -219,7 +219,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
    <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
    -->
-1. Visualizzare tutti i registri di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
+1. Visualizzare tutti i log di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  

@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
 ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55751396"
@@ -55,10 +55,10 @@ Gli eventi di archiviazione BLOB contengono tutte le informazioni necessarie per
 > |data.contentLength|number|Dimensione del BLOB come valore intero che rappresenta un numero di byte, come verrebbe restituita nell'intestazione Content-Length dal BLOB.  Inviato con l'evento BlobCreated ma non con BlobDeleted.|
 > |data.url|stringa|URL dell'oggetto che è l'argomento dell'evento|
 > |data.eTag|stringa|Etag dell'oggetto quando viene generato questo evento.  Non disponibile per l'evento BlobDeleted.|
-> |data.api|stringa|Nome dell'operazione API che ha generato questo evento. Per gli eventi BlobCreated questo valore è "PutBlob", "PutBlockList" o "CopyBlob". Per gli eventi BlobDeleted questo valore è "DeleteBlob". Questi valori sono gli stessi nomi di API che sono presenti nei registri di diagnostica di Archiviazione di Azure. Vedere [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operazioni e messaggi di stati registrati).|
+> |data.api|stringa|Nome dell'operazione API che ha generato questo evento. Per gli eventi BlobCreated questo valore è "PutBlob", "PutBlockList" o "CopyBlob". Per gli eventi BlobDeleted questo valore è "DeleteBlob". Questi valori sono gli stessi nomi di API che sono presenti nei log di diagnostica di Archiviazione di Azure. Vedere [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operazioni e messaggi di stati registrati).|
 > |data.sequencer|stringa|Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB.|
-> |data.requestId|stringa|ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei registri e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
-> |data.clientRequestId|stringa|ID di richiesta generato dal client per l'operazione API di archiviazione. Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "client-request-id" nei registri e può essere inserito nelle richieste client usando l'intestazione "x-ms-client-request-id". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+> |data.requestId|stringa|ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
+> |data.clientRequestId|stringa|ID di richiesta generato dal client per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "client-request-id" nei log e può essere inserito nelle richieste client usando l'intestazione "x-ms-client-request-id". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
 > |data.storageDiagnostics|object|Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi.|
 |data.blobType|stringa|Tipo dell'oggetto BLOB. I valori validi sono "BlockBlob" o "PageBlob".| 
 

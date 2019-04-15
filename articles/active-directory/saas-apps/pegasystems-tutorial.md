@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Pega Systems | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Pega Systems.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Pegasystems | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Pegasystems.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34fe5d85829d909989513214406ba96ea5be0aa8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649187"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271102"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pega Systems
+# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pegasystems
 
-Questa esercitazione descrive come integrare Pega Systems con Azure Active Directory (Azure AD).
-L'integrazione di Pega Systems con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Pegasystems con Azure Active Directory (Azure AD).
+L'integrazione di Pegasystems con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Pega Systems.
+* È possibile controllare in Azure AD chi può accedere a Pegasystems.
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Pega Systems con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Pega Systems, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Pegasystems, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Pega Systems abilitata per l'accesso Single Sign-On
@@ -47,9 +47,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Pega Systems supporta l'accesso SSO avviato da **SP** e **IDP**
 
-## <a name="adding-pega-systems-from-the-gallery"></a>Aggiunta di Pega Systems dalla raccolta
+## <a name="adding-pega-systems-from-the-gallery"></a>Aggiunta di Pegasystems dalla raccolta
 
-Per configurare l'integrazione di Pega Systems in Azure AD, è necessario aggiungere Pega Systems dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Pegasystems in Azure AD, è necessario aggiungere Pegasystems dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Pega Systems dalla raccolta, seguire questa procedura:**
 
@@ -65,23 +65,23 @@ Per configurare l'integrazione di Pega Systems in Azure AD, è necessario aggiun
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Pega Systems**, selezionare **Pega Systems** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Pegasystems**, selezionare **Pegasystems** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Pega Systems nell'elenco risultati](common/search-new-app.png)
+     ![Pegasystems nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Pega Systems usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Pega Systems.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Pega Systems, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Pegasystems, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Pega Systems](#configure-pega-systems-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Pega Systems](#create-pega-systems-test-user)**: per avere una controparte di Britta Simon in Pega Systems collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pega Systems, seguire q
     b. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta, l'URL di accesso e l'URL dello stato dell'inoltro effettivi. È possibile trovare i valori dell'identificatore e dell'URL di risposta nell'applicazione Pega Systems illustrata più avanti in questa esercitazione. Per ottenere il valore dello stato dell'inoltro, contattare il [team di supporto clienti di Pega Systems](https://www.pega.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta, l'URL di accesso e l'URL dello stato dell'inoltro effettivi. È possibile trovare i valori dell'identificatore e dell'URL di risposta nell'applicazione Pegasystems illustrata più avanti in questa esercitazione. Per ottenere il valore dello stato dell'inoltro, contattare il [team di supporto clienti di Pega Systems](https://www.pega.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. L'applicazione Pega Systems prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
 
@@ -169,13 +169,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pega Systems, seguire q
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
 ### <a name="configure-pega-systems-single-sign-on"></a>Configurare l'accesso Single Sign-On di Pega Systems
 
-1. Per configurare l'accesso Single Sign-On sul lato **Pega Systems**, aprire il **portale Pega** usando l'account amministratore in un'altra finestra del browser.
+1. Per configurare l'accesso Single Sign-On sul lato **Pegasystems**, aprire il **portale Pega** usando l'account amministratore in un'altra finestra del browser.
 
 2. Selezionare **Create** -> **SysAdmin** -> **Authentication Service** (Crea > Amministrazione del sistema > Servizio di autenticazione).
 
@@ -239,15 +239,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pega Systems.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pegasystems.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Pega Systems**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Pega Systems**.
+2. Nell'elenco delle applicazioni selezionare **Pegasystems**.
 
-    ![Collegamento Pega Systems nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento Pegasystems nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -265,7 +265,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-pega-systems-test-user"></a>Creare l'utente di test di Pega Systems
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Pega Systems. Rivolgersi [team di supporto clienti di Pega Systems](https://www.pega.com/contact-us) per creare utenti in Pega Systems.
+Questa sezione descrive come creare un utente chiamato Britta Simon in Pegasystems. Rivolgersi [team di supporto clienti di Pega Systems](https://www.pega.com/contact-us) per creare utenti in Pega Systems.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

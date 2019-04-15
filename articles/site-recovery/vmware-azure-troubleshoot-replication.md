@@ -152,7 +152,7 @@ L'elenco seguente mostra i modi in cui è possibile controllare il server di ela
 
   In %programfiles%\Microsoft Azure Recovery Services Agent\Temp aprire il file CBEngineCurr.errlog più recente. Nel file cercare **443** o la stringa **connection attempt failed**.
 
-  ![Screenshot che mostra il registro degli errori nella cartella Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Screenshot che mostra il log degli errori nella cartella Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
   Se si visualizzano dei problemi, nella riga di comando del server di elaborazione usare Telnet per effettuare il ping dell'indirizzo IP pubblico di Azure (nell'immagine precedente l'indirizzo IP è mascherato). È possibile trovare l'indirizzo IP pubblico di Azure nel file CBEngineCurr.currLog usando la porta 443:
 

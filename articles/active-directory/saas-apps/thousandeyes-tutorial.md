@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 605ab73a11874c85f20728f5524eb770a7a1b259
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 587d6f8ecdc447672c14ce400ebc64609e4d472d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848011"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
 
@@ -83,7 +83,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ThousandEyes,
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di ThousandEyes ](#create-thousandeyes-test-user)**: per avere una controparte di Britta Simon in ThousandEyes collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -207,7 +207,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-thousandeyes-test-user"></a>Creare l'utente di test di ThousandEyes
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandEyes. ThousandEyes supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](thousandeyes-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandEyes. ThousandEyes supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](thousandeyes-provisioning-tutorial.md).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 

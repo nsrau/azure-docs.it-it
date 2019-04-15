@@ -30,7 +30,7 @@ Dopo la migrazione, l'attività più importante consiste nel proteggere i carich
 - [Configurare l'antimalware](#best-practice-protect-vms-with-antimalware): proteggere le macchine virtuali da malware e attacchi dannosi.
 - [Proteggere le app Web](#best-practice-secure-web-apps): proteggere informazioni riservate nelle app Web migrate.
 - [Rivedere le sottoscrizioni](#best-practice-review-subscriptions-and-resource-permissions): verificare chi può accedere alle sottoscrizioni e alle risorse di Azure dopo la migrazione.
-- [Usare i registri](#best-practice-review-audit-and-security-logs): rivedere periodicamente i registri di controllo e protezione di Azure.
+- [Usare i registri](#best-practice-review-audit-and-security-logs): rivedere periodicamente i log di controllo e protezione di Azure.
 - [Esaminare altre funzionalità di sicurezza](#best-practice-evaluate-other-security-features): comprendere e valutare le funzionalità di sicurezza avanzate offerte da Azure.
 
 ## <a name="best-practice-follow-azure-security-center-recommendations"></a>Procedura consigliata: seguire i consigli del Centro sicurezza di Azure
@@ -168,7 +168,7 @@ Nel momento in cui si esegue la migrazione dei carichi di lavoro e li si esegue 
 - [Informazioni](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per gestire l'accesso mediante il controllo degli accessi in base al ruolo e il portale di Azure.
 - [Informazioni](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) sui ruoli personalizzati.
 
-## <a name="best-practice-review-audit-and-security-logs"></a>Procedura consigliata: Esaminare i registri di controllo e protezione
+## <a name="best-practice-review-audit-and-security-logs"></a>Procedura consigliata: Esaminare i log di controllo e protezione
 
 Azure Active Directory (AD) offre log di attivati, visualizzati in Monitoraggio di Azure. I log acquisiscono le operazioni eseguite nella tenancy di Azure, il momento in cui si verificano e gli utenti che le eseguono. 
 

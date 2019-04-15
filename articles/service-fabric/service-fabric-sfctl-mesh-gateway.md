@@ -47,7 +47,7 @@ Elimina la risorsa del gateway identificata dal nome.
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -62,7 +62,7 @@ Ottiene le informazioni su tutte le risorse del gateway in un determinato gruppo
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -83,7 +83,7 @@ Ottiene le informazioni sulla risorsa del gateway con il nome specificato. Le in
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |

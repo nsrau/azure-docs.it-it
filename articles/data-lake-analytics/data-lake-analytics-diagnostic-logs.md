@@ -17,7 +17,7 @@ ms.locfileid: "56959131"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
-La registrazione diagnostica consente di raccogliere audit trail di accesso ai dati. Questi registri includono informazioni quali:
+La registrazione diagnostica consente di raccogliere audit trail di accesso ai dati. Questi log includono informazioni quali:
 
 * Un elenco di utenti che hanno avuto accesso ai dati.
 * La frequenza con cui si accede ai dati.

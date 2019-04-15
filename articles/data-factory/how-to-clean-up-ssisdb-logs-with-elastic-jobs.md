@@ -1,6 +1,6 @@
 ---
-title: Pulizia registri SSISDB con processi di Database elastico di Azure | Microsoft Docs
-description: In questo articolo viene descritto come pulire i registri SSISDB tramite processi di database elastico di Azure per attivare la stored procedure esistente per questo scopo
+title: Pulizia log SSISDB con processi di Database elastico di Azure | Microsoft Docs
+description: In questo articolo viene descritto come pulire i log SSISDB tramite processi di database elastico di Azure per attivare la stored procedure esistente per questo scopo
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57430918"
 ---
-# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Pulizia di registri SSISDB tramite processi di Database elastico di Azure | Microsoft Docs
+# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Pulizia di log SSISDB tramite processi di Database elastico di Azure | Microsoft Docs
 
 Questo articolo descrive come usare processi di Database elastico di Azure per attivare la stored procedure di pulizia dei log per il database di catalogo di SQL Server Integration Services, `SSISDB`.
 
@@ -27,9 +27,9 @@ Processi di Database elastico è un servizio di Azure che rende più semplice au
 
 Per altre informazioni, vedere [Gestire gruppi di database con i processi di database elastico](../sql-database/elastic-jobs-overview.md).
 
-Le sezioni seguenti descrivono come attivare la stored procedure `[internal].[cleanup_server_retention_window_exclusive]`, che rimuove i registri SSISDB all'esterno dell'intervallo di conservazione impostato dall'amministratore.
+Le sezioni seguenti descrivono come attivare la stored procedure `[internal].[cleanup_server_retention_window_exclusive]`, che rimuove i log SSISDB all'esterno dell'intervallo di conservazione impostato dall'amministratore.
 
-## <a name="clean-up-logs-with-power-shell"></a>Pulire un registro con PowerShell
+## <a name="clean-up-logs-with-power-shell"></a>Pulire un log con PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -157,13 +157,13 @@ Write-Output "Start the execution schedule of the stored procedure for SSISDB lo
 $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
 ```
 
-## <a name="clean-up-logs-with-transact-sql"></a>Pulire i registri con Transact-SQL
+## <a name="clean-up-logs-with-transact-sql"></a>Pulire i log con Transact-SQL
 
 I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico per attivare la stored procedure per la pulizia del registro SSISDB. Per altre informazioni, vedere [Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico](../sql-database/elastic-jobs-tsql.md).
 
 1. Creare o identificare un database SQL di Azure S0 o superiore vuoto perché funga da database di processo SSISDBCleanup. Creare un agente processo elastico nel [Portale di Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
-2. Nel Database di processo, creare una credenziale per il processo di pulizia registro SSISDB. Questa credenziale viene usata per connettersi al database SSISDB per pulire i registri.
+2. Nel Database di processo, creare una credenziale per il processo di pulizia registro SSISDB. Questa credenziale viene usata per connettersi al database SSISDB per pulire i log.
 
     ```sql
     -- Connect to the job database specified when creating the job agent
@@ -214,7 +214,7 @@ I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico p
     @credential_name='SSISDBLogCleanupCred',
     @target_group_name='SSISDBTargetGroup'
     ```
-6. Prima di continuare, assicurarsi che l'intervallo di conservazione sia stato impostato in modo appropriato. I registri SSISDB all'esterno dell'intervallo vengono eliminati e non possono essere recuperati.
+6. Prima di continuare, assicurarsi che l'intervallo di conservazione sia stato impostato in modo appropriato. I log SSISDB all'esterno dell'intervallo vengono eliminati e non possono essere recuperati.
 
    È quindi possibile eseguire il processo immediatamente, per iniziare la pulizia del registro SSISDB.
 
@@ -228,7 +228,7 @@ I seguenti script di Transact-SQL di esempio creano un nuovo processo elastico p
     select @je
     select * from jobs.job_executions where job_execution_id = @je
     ```
-7. Facoltativamente, pianificare le esecuzioni di processo per rimuovere i registri SSISDB al di fuori dell'intervallo di conservazione in base a una pianificazione. Usare un'istruzione simile per aggiornare i parametri del processo.
+7. Facoltativamente, pianificare le esecuzioni di processo per rimuovere i log SSISDB al di fuori dell'intervallo di conservazione in base a una pianificazione. Usare un'istruzione simile per aggiornare i parametri del processo.
 
     ```sql
     --Connect to the job database 

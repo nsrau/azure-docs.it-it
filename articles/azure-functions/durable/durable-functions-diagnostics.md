@@ -208,7 +208,7 @@ Done!
 ```
 
 > [!NOTE]
-> Tenere presente che mentre i registri contengono la dichiarazione di chiamata F1, F2 e F3, queste funzioni vengono chiamate *effettivamente* solo al primo rilevamento. Le chiamate successive eseguite durante la riesecuzione vengono ignorate e gli output vengono rieseguiti nella logica dell'agente di orchestrazione.
+> Tenere presente che mentre i log contengono la dichiarazione di chiamata F1, F2 e F3, queste funzioni vengono chiamate *effettivamente* solo al primo rilevamento. Le chiamate successive eseguite durante la riesecuzione vengono ignorate e gli output vengono rieseguiti nella logica dell'agente di orchestrazione.
 
 Se si vuole eseguire la registrazione solo con l'esecuzione senza riesecuzione, è possibile scrivere un'espressione condizionale per eseguire la registrazione solo se `IsReplaying` è `false`. Si consideri l'esempio precedente, ma questa volta con i controlli di riesecuzione.
 

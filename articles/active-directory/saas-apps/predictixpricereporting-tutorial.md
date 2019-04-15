@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b1303cfdc28cf568796e03c23ff69320ab83dc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: aa96bcbc7c75f1a4dcd28a5dbe7479f99aabe908
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577000"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Price Reporting
 
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Predictix Pri
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Predictix Price Reporting](#create-predictix-price-reporting-test-user)**: per avere una controparte di Britta Simon in Predictix Price Reporting collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Predictix Price Reporti
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname-pricing>.predictix.com/sso/request`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
 
     | |
     |--|

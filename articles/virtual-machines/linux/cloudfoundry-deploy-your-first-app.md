@@ -115,15 +115,15 @@ Per visualizzare l'applicazione hello-spring-cloud, aprire l'URL specificato nel
 > [!NOTE] 
 > Per altre informazioni su cosa accade durante `cf push`, vedere [How Applications Are Staged][cf-push-docs] (Come vengono gestite temporaneamente le applicazioni) nella documentazione di Cloud Foundry.
 
-## <a name="view-application-logs"></a>Visualizzare i registri applicazioni
+## <a name="view-application-logs"></a>Visualizzare i log applicazioni
 
-Per visualizzare i registri di un'applicazione in base al nome, è possibile usare l'interfaccia della riga di comando di Cloud Foundry:
+Per visualizzare i log di un'applicazione in base al nome, è possibile usare l'interfaccia della riga di comando di Cloud Foundry:
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Per impostazione predefinita, il comando registri usa *tail*, che visualizza i nuovi registri man mano che vengono scritti. Per visualizzare i nuovi registri, aggiornare l'applicazione hello-spring-cloud nel browser.
+Per impostazione predefinita, il comando logs usa *tail*, che visualizza i nuovi log man mano che vengono scritti. Per visualizzare i nuovi log, aggiornare l'applicazione hello-spring-cloud nel browser.
 
 Per visualizzare i log che sono già stati scritti, aggiungere l'istruzione `recent`:
 

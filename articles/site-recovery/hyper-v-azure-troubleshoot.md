@@ -145,7 +145,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 Tutti gli eventi di replica di Hyper-V vengono registrati nel log Hyper-V-VMMS\Admin, disponibile in **Registri applicazioni e servizi** > **Microsoft** > **Windows**. È anche possibile abilitare un registro analitico per il servizio Virtual Machine Management di Hyper-V, come indicato di seguito:
 
-1. Rendere i registri analitici e di debug visibili nel Visualizzatore eventi. Per rendere disponibili i log nel Visualizzatore eventi fare clic su **Visualizza** > **Show Analytic and Debug Logs** (Visualizza log analitici e di debug). Il registro analitico viene visualizzato in **Hyper-V-VMMS**.
+1. Rendere i log analitici e di debug visibili nel Visualizzatore eventi. Per rendere disponibili i log nel Visualizzatore eventi fare clic su **Visualizza** > **Show Analytic and Debug Logs** (Visualizza log analitici e di debug). Il registro analitico viene visualizzato in **Hyper-V-VMMS**.
 2. Nel riquadro **Azioni** fare clic su **Attiva registro**. 
 
     ![Attiva registro](media/hyper-v-azure-troubleshoot/enable-log.png)

@@ -114,7 +114,7 @@ Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle
 
 ### <a name="protect-paas"></a>Protezione di PaaS
 
-Centro sicurezza aiuta a rilevare le minacce in tutti i servizi PaaS di Azure. È possibile rilevare le minacce destinate ai servizi di Azure, tra cui Servizio app di Azure, Azure SQL, Account di archiviazione di Azure e ad altri servizi dati. È anche possibile sfruttare l'integrazione nativa con le analisi sul comportamento di utenti ed entità (UEBA) di Microsoft Cloud App Security per rilevare le anomalie nei registri delle attività di Azure.
+Centro sicurezza aiuta a rilevare le minacce in tutti i servizi PaaS di Azure. È possibile rilevare le minacce destinate ai servizi di Azure, tra cui Servizio app di Azure, Azure SQL, Account di archiviazione di Azure e ad altri servizi dati. È anche possibile sfruttare l'integrazione nativa con le analisi sul comportamento di utenti ed entità (UEBA) di Microsoft Cloud App Security per rilevare le anomalie nei log attività di Azure.
 
 ### <a name="block-brute-force-attacks"></a>Blocco degli attacchi di forza bruta
 

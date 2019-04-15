@@ -17,7 +17,7 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
 ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51036994"
@@ -341,7 +341,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
-3. Esaminare i registri di sistema. Controllare la presenza di altre operazioni che potrebbero aver interferito con l'estensione, ad esempio un'installazione a esecuzione prolungata di un'altra applicazione che ha richiesto l'accesso di gestione pacchetti esclusiva.
+3. Esaminare i log di sistema. Controllare la presenza di altre operazioni che potrebbero aver interferito con l'estensione, ad esempio un'installazione a esecuzione prolungata di un'altra applicazione che ha richiesto l'accesso di gestione pacchetti esclusiva.
 
 ### <a name="common-reasons-for-extension-failures"></a>Motivi comuni che causano errori delle estensioni
 

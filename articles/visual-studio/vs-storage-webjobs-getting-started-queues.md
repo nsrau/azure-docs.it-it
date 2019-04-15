@@ -514,7 +514,7 @@ L'output dei metodi Console chiamati in una funzione o nel metodo **Main()** vie
 
 L'output di Console non può essere collegato a una chiamata a un metodo particolare perché Console è a thread singolo, mentre potrebbero essere in esecuzione più funzioni di processo contemporaneamente. Per questo motivo l'SDK fornisce a ogni chiamata di funzione il proprio oggetto writer di log univoco.
 
-Per scrivere [log di traccia dell'applicazione](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), usare **Console.Out** (crea log contrassegnati come INFO) e **Console.Error** (crea log contrassegnati come ERROR). In alternativa, è possibile usare [Trace o TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), che fornisce livelli dettagliati, di avviso e critici, oltre ai livelli di informazioni e di errore. I log di traccia dell'applicazione vengono visualizzati nei file di log dell'app Web, nelle tabelle di Azure o nei BLOB di Azure a seconda di come è configurata l'app Web di Azure. Come per tutti gli output di Console, anche i 100 registri applicazioni più recenti vengono visualizzati nella pagina Dashboard del processo Web e non nella pagina di una chiamata di funzione.
+Per scrivere [log di traccia dell'applicazione](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), usare **Console.Out** (crea log contrassegnati come INFO) e **Console.Error** (crea log contrassegnati come ERROR). In alternativa, è possibile usare [Trace o TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), che fornisce livelli dettagliati, di avviso e critici, oltre ai livelli di informazioni e di errore. I log di traccia dell'applicazione vengono visualizzati nei file di log dell'app Web, nelle tabelle di Azure o nei BLOB di Azure a seconda di come è configurata l'app Web di Azure. Come per tutti gli output di Console, anche i 100 log applicazioni più recenti vengono visualizzati nella pagina Dashboard del processo Web e non nella pagina di una chiamata di funzione.
 
 L'output di Console viene visualizzato nel dashboard solo se il programma viene eseguito in un processo Web di Azure e non se il programma viene eseguito localmente o in un altro ambiente.
 
@@ -550,7 +550,7 @@ In un processo Web continuo, i log dell'applicazione vengono visualizzati in /da
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-In un BLOB di Azure, l'aspetto dei registri applicazione è simile al seguente: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+In un BLOB di Azure, l'aspetto dei log applicazione è simile al seguente: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspetto simile al seguente:
 

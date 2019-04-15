@@ -164,7 +164,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 | Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
-| 1000 | Errore generico | Il messaggio per questo errore viene fornito dall'eccezione specifica nei registri di estensione |
+| 1000 | Errore generico | Il messaggio per questo errore viene fornito dall'eccezione specifica nei log di estensione |
 | 52 | Errore di installazione dell'estensione | Il messaggio per questo errore viene fornito dall'eccezione specifica |
 | 1002 | Errore di installazione WMF | Si è verificato un errore durante l'installazione di WMF. |
 | 1004 | Pacchetto Zip non valido | Zip non valido; errore durante la decompressione del file zip |

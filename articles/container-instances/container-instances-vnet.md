@@ -164,7 +164,7 @@ az container create \
     --subnet aci-subnet
 ```
 
-Dopo aver completato la distribuzione del secondo contenitore, eseguire il pull dei registri relativi in modo che sia possibile visualizzare l'output del comando `wget`:
+Dopo aver completato la distribuzione del secondo contenitore, eseguire il pull dei log relativi in modo che sia possibile visualizzare l'output del comando `wget`:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker

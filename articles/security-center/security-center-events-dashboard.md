@@ -32,7 +32,7 @@ Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Definizione di evento di sicurezza
-Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere diverse configurazione ed eventi correlati alla sicurezza dai computer e archivia questi eventi nelle aree di lavoro dell'utente. Ecco alcuni esempi di dati: registri del sistema operativo, ovvero registri eventi di Windows, processi in esecuzione ed eventi delle soluzioni di sicurezza integrati nel Centro sicurezza. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
+Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere diverse configurazione ed eventi correlati alla sicurezza dai computer e archivia questi eventi nelle aree di lavoro dell'utente. Ecco alcuni esempi di dati: log del sistema operativo, ovvero log eventi di Windows, processi in esecuzione ed eventi delle soluzioni di sicurezza integrati nel Centro sicurezza. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
 
 ## <a name="events-processed-dashboard"></a>Dashboard degli eventi elaborati
 Dal menu principale del Centro sicurezza o dal pannello **Panoramica** del Centro sicurezza si accede al dashboard **Eventi**.  

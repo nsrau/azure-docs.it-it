@@ -35,14 +35,14 @@ Il Centro sicurezza di Azure usa una serie di [funzionalità di rilevamento](sec
 * Informazioni contestuali
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Analisi del comportamento delle macchine virtuali
-Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi del registro eventi delle macchine virtuali, ad esempio eventi di creazione di processi ed eventi di accesso. Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala.
+Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi del log eventi delle macchine virtuali, ad esempio eventi di creazione di processi ed eventi di accesso. Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala.
 
 > [!NOTE]
 > Per altre informazioni sulle funzionalità di rilevamento del Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
 
 
 ### <a name="event-analysis"></a>Analisi di eventi
-Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromesse in base all'analisi del registro eventi delle macchine virtuali, ad esempio eventi di creazione di processi ed eventi di accesso. Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala.
+Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromesse in base all'analisi del log eventi delle macchine virtuali, ad esempio eventi di creazione di processi ed eventi di accesso. Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala.
 
 * **Rilevata esecuzione di processo sospetto**: gli utenti malintenzionati provano spesso a eseguire malware senza rilevamento mascherandolo da processo non dannoso. Avvisi simili a questi indicano che l'esecuzione di un processo corrispondeva a uno dei modelli seguenti:
     * È stato eseguito un processo usato per scopi dannosi. Anche se i singoli comandi possono sembrare non dannosi, l'avviso viene classificato in base a un'aggregazione di questi comandi.

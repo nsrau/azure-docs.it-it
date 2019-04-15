@@ -106,7 +106,7 @@ items:
       href: howto-server-parameters.md
     - name: Interfaccia della riga di comando di Azure
       href: howto-configure-server-parameters-cli.md
-  - name: Accesso ai registri server
+  - name: Accesso ai log server
     items:
     - name: Portale di Azure
       href: howto-configure-server-logs-portal.md

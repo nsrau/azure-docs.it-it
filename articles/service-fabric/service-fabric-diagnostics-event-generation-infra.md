@@ -34,13 +34,13 @@ In Windows, gli eventi di Service Fabric sono disponibili da un unico provider E
 * **Canale OPERATIVO - in dettaglio**  
 Report sull'integrità e decisioni di bilanciamento del carico.
 
-È possibile accedere al canale operativo in vari modi, ad esempio i registri eventi ETW/Windows ed [EventStore](service-fabric-diagnostics-eventstore.md), disponibile in Windows nella versione 6.2 e successive per i cluster di Windows. EventStore consente l'accesso agli eventi del cluster per singola entità (tra cui cluster, nodi, applicazioni, servizi, partizioni, repliche e contenitori) e li espone tramite API REST e la libreria client di Service Fabric. Usare EventStore per monitorare i cluster di sviluppo/test e per ottenere un riconoscimento temporizzato dello stato dei cluster di produzione.
+È possibile accedere al canale operativo in vari modi, ad esempio i log eventi ETW/Windows ed [EventStore](service-fabric-diagnostics-eventstore.md), disponibile in Windows nella versione 6.2 e successive per i cluster di Windows. EventStore consente l'accesso agli eventi del cluster per singola entità (tra cui cluster, nodi, applicazioni, servizi, partizioni, repliche e contenitori) e li espone tramite API REST e la libreria client di Service Fabric. Usare EventStore per monitorare i cluster di sviluppo/test e per ottenere un riconoscimento temporizzato dello stato dei cluster di produzione.
 
 * **Canale dati e messaggistica**  
-Eventi e registri critici generati nella messaggistica (attualmente solo ReverseProxy) e nel percorso dati (modelli di servizi affidabili).
+Eventi e log critici generati nella messaggistica (attualmente solo ReverseProxy) e nel percorso dati (modelli di servizi affidabili).
 
 * **Canale data e messaggistica - in dettaglio**  
-Canale dettagliato che contiene tutti i registri non critici di dati e messaggistica nel cluster. Questo canale presenta un volume di eventi molto elevato.
+Canale dettagliato che contiene tutti i log non critici di dati e messaggistica nel cluster. Questo canale presenta un volume di eventi molto elevato.
 
 Oltre a questi, sono forniti due canali EventSource strutturati, nonché log che vengono raccolti a scopo di supporto.
 
@@ -50,8 +50,8 @@ Eventi specifici del modello di programmazione.
 * [Eventi di Reliable Actors](service-fabric-reliable-actors-diagnostics.md)  
 Contatori delle prestazioni ed eventi specifici del modello di programmazione.
 
-* Registri di supporto  
-Registri di sistema generati da Service Fabric e destinati esclusivamente a finalità di supporto.
+* Log di supporto  
+Log di sistema generati da Service Fabric e destinati esclusivamente a finalità di supporto.
 
 Questi diversi canali coprono la maggior parte della registrazione consigliabile a livello piattaforma. Per migliorare la registrazione a livello piattaforma, valutare la possibilità di comprendere meglio il modello di integrità e aggiungere report sull'integrità personalizzati e **contatori delle prestazioni** personalizzati per ottenere una conoscenza in tempo reale dell'impatto dei servizi e delle applicazioni sul cluster.
 

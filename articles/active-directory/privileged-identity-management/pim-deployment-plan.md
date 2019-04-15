@@ -169,7 +169,7 @@ Gli utenti con il ruolo Proprietario per una sottoscrizione di Azure possono anc
 
 Dopo l'operazione di pulizia delle assegnazioni di ruolo con privilegi all'interno dell'organizzazione, è necessario decidere quali ruoli proteggere con PIM.
 
-Se un ruolo è protetto da PIM, è necessario elevare i privilegi degli utenti idonei assegnati a tale ruolo in modo che possano usare i privilegi concessi dal ruolo. Per il processo di elevazione dei privilegi può anche essere necessario ottenere l'approvazione, eseguire l'autenticazione a più fattori e/o specificare un motivo per l'attivazione. PIM può inoltre tenere traccia delle elevazioni dei privilegi tramite le notifiche e i registri eventi di controllo di PIM e Azure AD.
+Se un ruolo è protetto da PIM, è necessario elevare i privilegi degli utenti idonei assegnati a tale ruolo in modo che possano usare i privilegi concessi dal ruolo. Per il processo di elevazione dei privilegi può anche essere necessario ottenere l'approvazione, eseguire l'autenticazione a più fattori e/o specificare un motivo per l'attivazione. PIM può inoltre tenere traccia delle elevazioni dei privilegi tramite le notifiche e i log eventi di controllo di PIM e Azure AD.
 
 La scelta dei ruoli da proteggere con PIM può essere difficile e varia a seconda dell'organizzazione. Questa sezione presenta i consigli pratici di Microsoft per la scelta dei ruoli di Azure AD e di quelli relativi alle risorse di Azure.
 

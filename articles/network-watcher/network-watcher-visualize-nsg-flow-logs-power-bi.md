@@ -107,7 +107,7 @@ Questo modello include i filtri dei dati indicati di seguito, che permettono di 
 
 ## <a name="conclusion"></a>Conclusioni
 
-Questo scenario ha permesso di dimostrare come l'uso dei registri dei flussi dei gruppi di sicurezza di rete inclusi in Network Watcher e Power BI permetta di visualizzare e comprendere il traffico. Usando il modello incluso, Power BI scarica i log direttamente dall'archivio e li elabora in locale. Il tempo necessario a caricare il modello varia a seconda del numero di file richiesti e della dimensione totale dei file scaricati.
+Questo scenario ha permesso di dimostrare come l'uso dei log dei flussi dei gruppi di sicurezza di rete inclusi in Network Watcher e Power BI permetta di visualizzare e comprendere il traffico. Usando il modello incluso, Power BI scarica i log direttamente dall'archivio e li elabora in locale. Il tempo necessario a caricare il modello varia a seconda del numero di file richiesti e della dimensione totale dei file scaricati.
 
 È possibile personalizzare il modello in base alle esigenze. Power BI e i log dei flussi dei gruppi di sicurezza di rete possono essere usati in molti modi diversi. 
 

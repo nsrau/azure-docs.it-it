@@ -31,7 +31,7 @@ L'articolo include le esercitazioni seguenti:
 
 ## <a name="generate-support-package"></a>Creare un pacchetto per il supporto
 
-Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai registri di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per creare un pacchetto di supporto, attenersi alla procedura seguente:
+Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per creare un pacchetto di supporto, attenersi alla procedura seguente:
 
 1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e fare clic su **Crea pacchetto per il supporto**.
 

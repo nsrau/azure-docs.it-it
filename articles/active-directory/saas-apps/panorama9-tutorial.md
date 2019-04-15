@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b5a037f5d13db1f0f1c704a52fb1fd9b712cd8e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: ff26acc1050a6104525ec44304fd9fee21d6d3cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448349"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Esercitazione: Integrazione di Azure Active Directory con Panorama9
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Panorama9, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Panorama9](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL `https://dashboard.panorama9.com/saml/access/3262`
+    a. Nella casella di testo **URL di accesso** digitare un URL: `https://dashboard.panorama9.com/saml/access/3262`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://www.panorama9.com/saml20/<tenant-name>`
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Panorama9, seguire ques
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -208,7 +208,7 @@ Per consentire agli utenti di Azure AD di accedere a Panorama9, è necessario ef
 
 Nel caso di Panorama9, il provisioning è un'attività manuale.
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
+**Per configurare il provisioning utente, eseguire la procedura seguente:**
 
 1. Accedere al sito aziendale di **Panorama9** come amministratore.
 

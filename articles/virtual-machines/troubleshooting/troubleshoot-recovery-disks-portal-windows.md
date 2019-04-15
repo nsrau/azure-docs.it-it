@@ -39,7 +39,7 @@ Per determinare perché la VM non riesce ad avviarsi correttamente, esaminare lo
 
 Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per visualizzare lo screenshot. Esaminare i messaggi di errore o i codici errore specifici per determinare perché si sta verificando un problema con la VM. 
 
-![Visualizzazione dei registri della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
+![Visualizzazione dei log della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 È anche possibile fare clic su **Scarica screenshot** per scaricare uno screenshot della macchina virtuale.
 

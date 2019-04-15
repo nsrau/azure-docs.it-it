@@ -114,7 +114,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 Questa pipeline è ora configurata per l'esecuzione automatica quando si esegue il push di nuovo codice al repository. L'ultima attività, quella di pubblicazione di artefatti della pipeline, attiva una pipeline di versione. Passare alla sezione successiva per creare la pipeline di versione. 
 
 ## <a name="configure-continuous-deployment"></a>Configurare la distribuzione continua
-In questa sezione si crea una pipeline di versione configurata per essere eseguita automaticamente quando la pipeline di compilazione rilascerà gli artefatti e mostrerà i registri di distribuzione in Azure Pipelines.
+In questa sezione si crea una pipeline di versione configurata per essere eseguita automaticamente quando la pipeline di compilazione rilascerà gli artefatti e mostrerà i log di distribuzione in Azure Pipelines.
 
 In questa sezione si creano due diverse fasi, una per le distribuzioni di test e una per le distribuzioni di produzione. 
 

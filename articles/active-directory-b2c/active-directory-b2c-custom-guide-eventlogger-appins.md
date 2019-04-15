@@ -21,7 +21,7 @@ ms.locfileid: "58403817"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Quando si usa Azure Active Directory (Azure AD) B2C con Azure Application Insights, è possibile ottenere registri eventi dettagliati e personalizzati per i percorsi utente. In questo articolo viene spiegato come:
+Quando si usa Azure Active Directory (Azure AD) B2C con Azure Application Insights, è possibile ottenere log eventi dettagliati e personalizzati per i percorsi utente. In questo articolo viene spiegato come:
 
 * Ottenere informazioni dettagliate sul comportamento degli utenti.
 * Risolvere i problemi relativi ai criteri in ambiente di sviluppo o di produzione.

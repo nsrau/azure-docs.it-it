@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: eababa0d83e1db4934fc8b2315e20407ccc77f27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892949"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Esercitazione: Integrazione di Azure Active Directory con ClickUp Productivity Platform
 
@@ -104,9 +104,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickUp Productivity Pl
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di ClickUp Productivity Platform](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL `https://app.clickup.com/login/sso`
+    a. Nella casella di testo **URL di accesso** digitare un URL: `https://app.clickup.com/login/sso`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://api.clickup.com/v1/team/<team_id>/microsoft`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
     > [!NOTE]
     > Il valore dell'identificatore non è reale. Aggiornare questo valore con l'identificatore effettivo, come illustrato più avanti nell'esercitazione.

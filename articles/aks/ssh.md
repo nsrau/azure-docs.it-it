@@ -148,7 +148,7 @@ Al termine, `exit` la sessione SSH e quindi `exit` la sessione interattiva del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono necessari ulteriori dati per la risoluzione dei problemi, è possibile [visualizzare i registri kubelet][view-kubelet-logs] o [visualizzare i registri dei nodi master Kubernetes][view-master-logs].
+Se sono necessari ulteriori dati per la risoluzione dei problemi, è possibile [visualizzare i log kubelet][view-kubelet-logs] o [visualizzare i log dei nodi master Kubernetes][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

@@ -396,7 +396,7 @@ La registrazione a livello di rete è una funzione chiave per qualsiasi scenario
 
 * [Log attività](../azure-monitor/platform/activity-logs-overview.md). Vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. Nelle versioni precedenti sono noti come "log di controllo" o "log operativi".
 * Log eventi. Forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
-* Registri contatori. Consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
+* Log contatori. Consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
 Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uno strumento avanzato di visualizzazione dei dati.
 Altre informazioni:

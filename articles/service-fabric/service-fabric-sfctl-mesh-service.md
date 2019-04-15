@@ -46,7 +46,7 @@ Ottiene le informazioni su tutti i servizi di una risorsa dell'applicazione. Le 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
@@ -68,7 +68,7 @@ Ottiene le informazioni sulla risorsa del servizio con il nome specificato. Le i
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |

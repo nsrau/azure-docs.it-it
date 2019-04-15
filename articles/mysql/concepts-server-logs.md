@@ -18,7 +18,7 @@ Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
 
-## <a name="access-server-logs"></a>Accesso ai registri server
+## <a name="access-server-logs"></a>Accesso ai log server
 È possibile elencare e scaricare i log del server del Database di Azure per MySQL usando il portale di Azure e l'interfaccia della riga di comando di Azure.
 
 Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.

@@ -67,7 +67,7 @@ Per altre informazioni sui requisiti GDPR per Azure AD Connect correlati, vedere
 
 ### <a name="delete-authentication-agent-event-logs"></a>Eliminare i log eventi dell'agente di autenticazione
 
-Questo prodotto potrebbe anche creare **Registri eventi di Windows**. Per altre informazioni, vedere [questo articolo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Questo prodotto potrebbe anche creare **log eventi di Windows**. Per altre informazioni, vedere [questo articolo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
 
 Per visualizzare i log correlati all'agente di autenticazione pass-through, aprire l'applicazione **Visualizzatore eventi** nel server e controllare in **Registri applicazioni e servizi\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 

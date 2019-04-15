@@ -1,5 +1,5 @@
 ---
-title: Registri server nel database di Azure per PostgreSQL
+title: Log server nel database di Azure per PostgreSQL
 description: Questo articolo descrive come Database di Azure per PostgreSQL genera log degli errori e delle query e come viene configurata la conservazione dei log.
 author: rachel-msft
 ms.author: raagyema

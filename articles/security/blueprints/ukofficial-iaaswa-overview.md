@@ -174,7 +174,7 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 **Log di diagnostica**: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da una risorsa. Questi log possono includere log eventi del sistema di Windows, BLOB, tabelle e log delle code.
 
-**Log del firewall**: il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I registri firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
+**Log del firewall**: il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 
 **Archiviazione di log**: Archiviazione dei dati di log può essere configurato per la scrittura in un account di archiviazione di Azure centralizzato per archiviazione e per un periodo di memorizzazione definito. I log possono essere elaborati tramite i log di monitoraggio di Azure o dai sistemi SIEM di terze parti.
 

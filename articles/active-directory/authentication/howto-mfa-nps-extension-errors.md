@@ -98,9 +98,9 @@ Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/mult
 
 ### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 
-Se è necessario avere un maggiore supporto, contattare un tecnico del supporto tramite il [supporto del server Multi-Factor Authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Le informazioni da dare includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico, l'ID dell'utente che visualizza l'errore e i registri debug.
+Se è necessario avere un maggiore supporto, contattare un tecnico del supporto tramite il [supporto del server Multi-Factor Authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Le informazioni da dare includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico, l'ID dell'utente che visualizza l'errore e i log di debug.
 
-Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla procedura seguente sul server NPS:
+Per raccogliere i log di debug per la diagnostica di supporto, attenersi alla procedura seguente sul server NPS:
 
 1. Aprire l'editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa impostando **VERBOSE_LOG** su **TRUE**
 2. Aprire un prompt dei comandi di amministratore ed eseguire questi comandi:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437961"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Esercitazione: Integrazione di Azure Active Directory con The Funding Portal
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con The Funding Portal, seg
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di The Funding Portal](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.regenteducation.net/`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.regenteducation.net/`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.regenteducation.net`
 
@@ -151,7 +151,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con The Funding Portal, seg
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [c
 
 5. Nel riquadro **Diagnostica**, in **Stato**, selezionare **On**.
 6. Fare clic su **Account di archiviazione**.
-7. In **LOG** selezionare un account di archiviazione esistente o crearne uno nuovo. Usare il dispositivo di scorrimento per stabilire per quanti giorni i dati dell'evento verranno archiviati nei registri eventi. 
+7. In **LOG** selezionare un account di archiviazione esistente o crearne uno nuovo. Usare il dispositivo di scorrimento per stabilire per quanti giorni i dati dell'evento verranno archiviati nei log eventi. 
 8. Fare clic su **Save**.
 
 I dati della diagnostica verranno salvati in archiviazione tabelle nell’account di archiviazione specificato. Se i log non vengono salvati, significa che non sono stati prodotti log rilevanti.

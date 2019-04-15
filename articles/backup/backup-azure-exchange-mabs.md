@@ -10,7 +10,7 @@ ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
 ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55495395"
@@ -61,7 +61,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i registri non verranno troncati.
+   > Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i log non verranno troncati.
    >
    >
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.

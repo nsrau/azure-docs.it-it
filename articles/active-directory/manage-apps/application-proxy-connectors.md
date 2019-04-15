@@ -156,9 +156,9 @@ Register-AppProxyConnector
 
 ## <a name="under-the-hood"></a>Dietro le quinte
 
-I connettori sono basati su proxy di applicazione Web di Windows Server, per cui condividono la maggior parte degli strumenti di gestione, inclusi i registri eventi di Windows
+I connettori sono basati su proxy di applicazione Web di Windows Server, per cui condividono la maggior parte degli strumenti di gestione, inclusi i log eventi di Windows
 
- ![Gestire i registri eventi con il Visualizzatore eventi](./media/application-proxy-connectors/event-view-window.png)
+ ![Gestire i log eventi con il Visualizzatore eventi](./media/application-proxy-connectors/event-view-window.png)
 
 e con i contatori delle prestazioni di Windows. 
 
@@ -166,7 +166,7 @@ e con i contatori delle prestazioni di Windows.
 
 I connettori hanno sia log di amministrazione che log di sessione. I log di amministrazione includono gli eventi principali e i relativi errori. I log di sessione includono tutte le transazioni e i relativi dettagli di elaborazione. 
 
-Per visualizzare i registri, passare al Visualizzatore eventi, aprire il menu **Visualizza** e abilitare **Visualizza registri analitici e di debug**. È necessario abilitarli per avviare la raccolta degli eventi. Questi log non appaiono nel proxy applicazione Web in Windows Server 2012 R2, in quanto i connettori sono basati su una versione più recente.
+Per visualizzare i log, passare al Visualizzatore eventi, aprire il menu **Visualizza** e abilitare **Visualizza registri analitici e di debug**. È necessario abilitarli per avviare la raccolta degli eventi. Questi log non appaiono nel proxy applicazione Web in Windows Server 2012 R2, in quanto i connettori sono basati su una versione più recente.
 
 È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti costantemente.
 

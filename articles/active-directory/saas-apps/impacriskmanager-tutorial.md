@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c84241abc69b5bd070d893ba57fb60b90d4d6d28
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295590"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Esercitazione: Integrazione di Azure Active Directory con IMPAC Risk Manager
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IMPAC Risk Manager, seg
     | | |
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 

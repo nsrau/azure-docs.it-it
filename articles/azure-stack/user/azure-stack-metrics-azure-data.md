@@ -65,7 +65,7 @@ Le applicazioni possono eseguire nel sistema operativo di una macchina virtuale 
 I tipi di misure includono:
  - Contatori delle prestazioni
  - Log applicazioni
- - Registri eventi di Windows
+ - Log eventi di Windows
  - Origine degli eventi .NET
  - Log di IIS
  - ETW basato su manifesto

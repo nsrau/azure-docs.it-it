@@ -86,7 +86,7 @@ Data Factory può creare automaticamente un cluster HDInsight on demand basato s
 Tenere presente i seguenti punti *chiave* sul servizio collegato HDInsight on demand:
 
 * Il cluster HDInsight on demand non viene visualizzato nella sottoscrizione di Azure. Il servizio Data Factory gestisce il cluster HDInsight on demand per conto dell'utente.
-* I registri per i processi eseguiti su un cluster HDInsight on demand vengono copiati nell'account di archiviazione associato al cluster HDInsight. Per accedere a questi log, nel portale di Azure andare al riquadro **Dettagli di esecuzione di attività**. Per altre informazioni, vedere [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md).
+* I log per i processi eseguiti su un cluster HDInsight on demand vengono copiati nell'account di archiviazione associato al cluster HDInsight. Per accedere a questi log, nel portale di Azure andare al riquadro **Dettagli di esecuzione di attività**. Per altre informazioni, vedere [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md).
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
 
 > [!IMPORTANT]

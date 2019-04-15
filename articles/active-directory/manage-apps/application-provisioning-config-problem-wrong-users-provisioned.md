@@ -65,7 +65,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
 
-Se il provisioning è configurato e già in esecuzione per un'app, il provisioning di nuovi utenti per un'applicazione dovrebbe essere eseguito dopo circa 10 minuti. Controllare i **registri di controllo** per informazioni dettagliate.
+Se il provisioning è configurato e già in esecuzione per un'app, il provisioning di nuovi utenti per un'applicazione dovrebbe essere eseguito dopo circa 10 minuti. Controllare i **log di controllo** per informazioni dettagliate.
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Assegnare un gruppo direttamente a un'applicazione come amministratore
 
@@ -103,7 +103,7 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione ai gruppi selezionati.
 
-Se il provisioning è configurato e già in esecuzione per un'app, il provisioning dei nuovi utenti inclusi nel gruppo dovrebbe essere eseguito per un'applicazione dopo circa 10 minuti. Controllare i **registri di controllo** per informazioni dettagliate.
+Se il provisioning è configurato e già in esecuzione per un'app, il provisioning dei nuovi utenti inclusi nel gruppo dovrebbe essere eseguito per un'applicazione dopo circa 10 minuti. Controllare i **log di controllo** per informazioni dettagliate.
 
 >[!IMPORTANT]
 >Eseguire il provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità attivando o disattivando il **mapping** per gli oggetti di gruppo visualizzati nella scheda **Provisioning**. 

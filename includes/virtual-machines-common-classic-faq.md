@@ -127,7 +127,7 @@ Gli eventi di manutenzione non pianificati possono verificarsi quando Azure rile
 
 Per qualsiasi VM autonoma (vale a dire quando la VM non fa parte di un set di disponibilità), Azure notifica l'amministratore del servizio di sottoscrizione tramite posta elettronica almeno una settimana prima della manutenzione pianificata, perché le VM potrebbero essere riavviate durante l'aggiornamento. Le applicazioni in esecuzione nelle macchine virtuali potrebbero subire un tempo di inattività.
 
-È anche possibile usare il portale di Azure oppure Azure PowerShell per visualizzare i log di riavvio quando il riavvio si è verificato per interventi di manutenzione pianificata. Per informazioni dettagliate, vedere [Visualizzazione dei registri di riavvio della macchina virtuale](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+È anche possibile usare il portale di Azure oppure Azure PowerShell per visualizzare i log di riavvio quando il riavvio si è verificato per interventi di manutenzione pianificata. Per informazioni dettagliate, vedere [Visualizzazione dei log di riavvio della macchina virtuale](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Per garantire la ridondanza, inserire due o più VM configurate in modo analogo nello stesso set di disponibilità. In questo modo si assicura che almeno una VM sia disponibile durante la manutenzione pianificata o non pianificata. Azure garantisce determinati livelli di disponibilità della VM per questa configurazione. Per informazioni dettagliate, vedere [Gestione della disponibilità delle macchine virtuali](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

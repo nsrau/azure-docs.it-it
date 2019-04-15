@@ -99,7 +99,7 @@ Per verificare che tutte le porte richieste siano aperte, vedere la documentazio
 
 Se nessuna delle operazioni precedenti ha risolto il problema, il passaggio successivo è cercare errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore condividono consigli specifici per la risoluzione dei problemi. Per visualizzare i registri, vedere la [documentazione sui connettori](application-proxy-connectors.md#under-the-hood).
+È anche possibile consultare direttamente i log del connettore per verificare se sono riportati errori. Molti dei messaggi di errore condividono consigli specifici per la risoluzione dei problemi. Per visualizzare i log, vedere la [documentazione sui connettori](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Risorse aggiuntive
 
@@ -111,7 +111,7 @@ Ora aprire un browser e provare nuovamente ad accedere all'applicazione. Dovrebb
 
 Se si continua a visualizzare l'errore, accedere al computer su cui è installato il connettore, aprire un browser e tentare di raggiungere l'URL interno usato per l'applicazione. Il connettore funziona come un altro client dallo stesso computer. Se non è possibile raggiungere l'applicazione, ricercarne il motivo o usare un connettore su un server in grado di accedere all'applicazione.
 
-Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](application-proxy-troubleshoot.md#connector-errors). È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i registri, vedere la [documentazione sui connettori](application-proxy-connectors.md#under-the-hood).
+Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](application-proxy-troubleshoot.md#connector-errors). È anche possibile consultare direttamente i log del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i log, vedere la [documentazione sui connettori](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)

@@ -61,7 +61,7 @@ Per spostarsi sul percorso per il log di copia, passare all'account di archiviaz
 
 Il log attività contiene tutte le operazioni di scrittura (ad esempio PUT, POST, DELETE) eseguite sulle risorse, ma non le operazioni di lettura (ad esempio GET). 
 
-I registri attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima. È anche possibile filtrare i dati usando una delle query predefinite in Insights. Ad esempio, fare clic su un errore e quindi selezionare e fare clic su errori specifici per comprendere la causa radice.
+I log attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima. È anche possibile filtrare i dati usando una delle query predefinite in Insights. Ad esempio, fare clic su un errore e quindi selezionare e fare clic su errori specifici per comprendere la causa radice.
 
 ## <a name="data-box-disk-unlock-tool-errors"></a>Errori dello strumento di sblocco di Data Box Disk
 
