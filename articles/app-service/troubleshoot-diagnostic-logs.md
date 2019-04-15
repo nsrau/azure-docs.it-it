@@ -67,7 +67,7 @@ Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Li
 Per il **registro applicazioni** è possibile attivare l'opzione del file system temporaneamente per scopi di debug. Questa opzione si disattiva automaticamente dopo 12 ore. È anche possibile attivare l'opzione di archiviazione BLOB per selezionare un contenitore BLOB in cui scrivere i log.
 
 > [!NOTE]
-> Attualmente solo i registri applicazioni .NET possono essere scritti nell'archiviazione BLOB. I registri applicazioni Java, PHP, Node.js e Python possono essere archiviati solo nel file system (senza modifiche al codice per la scrittura di log in risorse di archiviazione esterne).
+> Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. I registri applicazioni Java, PHP, Node.js e Python possono essere archiviati solo nel file system (senza modifiche al codice per la scrittura di log in risorse di archiviazione esterne).
 >
 >
 
@@ -75,7 +75,7 @@ Per la **registrazione del server Web** è possibile selezionare **archiviazione
 
 Se si archiviano i log nel file system, è possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite l'interfaccia della riga di comando di Azure.
 
-Per impostazione predefinita, i registri non vengono eliminati automaticamente, ad eccezione di **Registrazione applicazioni (file system)**. Per eliminare automaticamente i log, impostare il campo relativo al **periodo di conservazione (giorni)**.
+Per impostazione predefinita, i log non vengono eliminati automaticamente, ad eccezione di **Registrazione applicazioni (file system)**. Per eliminare automaticamente i log, impostare il campo relativo al **periodo di conservazione (giorni)**.
 
 > [!NOTE]
 > Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare l'operazione seguente:
@@ -123,7 +123,7 @@ Questo comando Salva i log dell'App denominata 'appname' in un file denominato *
 >
 
 ## <a name="how-to-view-logs-in-application-insights"></a>Procedura: Visualizzare i log in Application Insights
-Visual Studio Application Insights fornisce strumenti per il filtro e ricerca dei registri e per correlare i registri con le richieste e altri eventi.
+Visual Studio Application Insights fornisce strumenti per il filtro e ricerca dei log e per correlare i log con le richieste e altri eventi.
 
 1. Aggiungere Application Insights al progetto in Visual Studio
    * In Esplora soluzioni fare clic con il pulsante destro del mouse e scegliere Aggiungi Application Insights. L'interfaccia guida l'utente attraverso la procedura, che include la creazione di una risorsa di Application Insights. [Altre informazioni](../azure-monitor/app/asp-net.md)

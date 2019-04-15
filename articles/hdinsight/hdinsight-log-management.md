@@ -20,7 +20,7 @@ ms.locfileid: "59544279"
 
 Un cluster HDInsight genera svariati file di log. Apache Hadoop e i servizi correlati, come Apache Spark, generano ad esempio log di esecuzione dei processi dettagliati. La gestione dei file di log è una delle attività che consentono di mantenere integro un cluster HDInsight. Possono anche esistere requisiti normativi per l'archiviazione dei log.  A causa del numero e delle dimensioni dei file di log, ottimizzando la memorizzazione e l'archiviazione dei log è possibile semplificare la gestione dei costi dei servizi.
 
-La gestione dei registri cluster di HDInsight include la conservazione delle informazioni su tutti gli aspetti dell'ambiente cluster, che comprendono tutti i log dei servizi di Azure associati, la configurazione cluster, le informazioni sull'esecuzione dei processi, eventuali stati di errore e altri dati necessari.
+La gestione dei log cluster di HDInsight include la conservazione delle informazioni su tutti gli aspetti dell'ambiente cluster, che comprendono tutti i log dei servizi di Azure associati, la configurazione cluster, le informazioni sull'esecuzione dei processi, eventuali stati di errore e altri dati necessari.
 
 I passaggi tipici della gestione dei log di HDInsight sono:
 
@@ -88,7 +88,7 @@ Usando l'interfaccia utente di Ambari, è possibile scaricare la configurazione 
 
 ### <a name="view-the-script-action-logs"></a>Visualizzare i log delle azioni script
 
-Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight eseguono script in un cluster, manualmente o se specificato. Le azioni script, ad esempio, possono essere usate per installare software aggiuntivo nel cluster o modificare i valori predefiniti delle impostazioni di configurazione. I log delle azioni script forniscono informazioni sugli errori verificatisi durante la configurazione del cluster e anche sulle modifiche delle impostazioni di configurazione che possono avere effetto sulle prestazioni e sulla disponibilità del cluster.  Per visualizzare lo stato di un'azione script, selezionare il pulsante **ops** (operazioni) nell'interfaccia utente di Ambari o accedere ai log di stato nell'account di archiviazione predefinito. I registri di archiviazione sono disponibili in `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
+Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight eseguono script in un cluster, manualmente o se specificato. Le azioni script, ad esempio, possono essere usate per installare software aggiuntivo nel cluster o modificare i valori predefiniti delle impostazioni di configurazione. I log delle azioni script forniscono informazioni sugli errori verificatisi durante la configurazione del cluster e anche sulle modifiche delle impostazioni di configurazione che possono avere effetto sulle prestazioni e sulla disponibilità del cluster.  Per visualizzare lo stato di un'azione script, selezionare il pulsante **ops** (operazioni) nell'interfaccia utente di Ambari o accedere ai log di stato nell'account di archiviazione predefinito. I log di archiviazione sono disponibili in `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Passaggio 3: Gestire i file di log di esecuzione dei processi cluster
 

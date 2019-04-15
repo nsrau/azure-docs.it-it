@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56186591"
@@ -30,8 +30,8 @@ Azure Active Directory Application Proxy richiede l'installazione dei connettori
 ## <a name="where-is-the-personal-data"></a>Dove si trovano i dati personali?
 È possibile che l'Application Proxy scriva dati personali per i tipi di log seguenti:
 
-- Registri eventi del connettore
-- Registri eventi di Windows
+- Log eventi del connettore
+- Log eventi di Windows
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Rimuovere i dati personali dai log eventi di Windows
 

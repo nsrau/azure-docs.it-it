@@ -33,7 +33,7 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 | Utilizzo generico v1   | BLOB               | Standard                    | N/D                    |
 | Archiviazione BLOB         | BLOB               | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*    |
 
-Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include log di sistema e applicazioni. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
 La condivisione di un contenitore BLOB come file system predefinito tra più cluster non è supportata.
  

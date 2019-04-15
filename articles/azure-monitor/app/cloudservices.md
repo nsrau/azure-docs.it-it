@@ -15,7 +15,7 @@ ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54267233"
@@ -155,7 +155,7 @@ Se non sono presenti dati, eseguire le operazioni seguenti:
 Le informazioni di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sono disponibili in Application Insights nelle posizioni seguenti:
 
 * I contatori delle prestazioni vengono visualizzati come metriche personalizzate. 
-* I registri eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
+* I log eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
 * I log applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce.
 
 Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire [Esplora metriche](../../azure-monitor/app/metrics-explorer.md) e aggiungere il grafico seguente:

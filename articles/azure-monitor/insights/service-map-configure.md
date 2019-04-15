@@ -236,7 +236,7 @@ Per installare Dependency Agent in ogni computer Windows, seguire questa procedu
     `InstallDependencyAgent-Windows.exe`
 
 3.  Seguire la procedura guidata per installare l'agente.
-4.  Se Dependency Agent non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
+4.  Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### <a name="windows-command-line"></a>Riga di comando di Windows
 
@@ -265,7 +265,7 @@ Per installare Dependency Agent in ogni computer Linux, seguire questa procedura
     
     `sh InstallDependencyAgent-Linux64.bin`
 
-3.  Se Dependency Agent non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è /var/opt/microsoft/dependency-agent/log.
+3.  Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è /var/opt/microsoft/dependency-agent/log.
 
 Per vedere un elenco dei flag di installazione eseguire il programma di installazione con il flag -help come segue.
 

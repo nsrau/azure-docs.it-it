@@ -53,7 +53,7 @@ Questa procedura consente di distribuire alcune risorse di Azure. Insieme, quest
         > [!NOTE]
         > Il percorso di ricerca sarà diverso dal percorso del sito Web.
 
-    * Scegliere se abilitare o meno **Application Insights**. Se **Application Insights** è abilitato, QnA Maker raccoglierà dati di telemetria su traffico, registri delle chat ed errori.
+    * Scegliere se abilitare o meno **Application Insights**. Se **Application Insights** è abilitato, QnA Maker raccoglierà dati di telemetria su traffico, log delle chat ed errori.
     * Scegliere il **percorso** in cui verrà distribuita la risorsa Application Insights.
     * Per le misure di risparmio sui costi, è possibile [condividere](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alcuni ma non tutte le risorse di Azure create per QnA Maker. 
 

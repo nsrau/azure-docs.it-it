@@ -10,7 +10,7 @@ ms.date: 04/25/2018
 ms.author: laevenso
 ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56312282"
@@ -209,7 +209,7 @@ Ripetere il passaggio `kubectl delete` precedente per tutte le risorse *addon-ht
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Usare il comando [kubectl logs][kubectl-logs] per visualizzare i registri applicazioni dell'applicazione External-DNS. I registri dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
+Usare il comando [kubectl logs][kubectl-logs] per visualizzare i log applicazioni dell'applicazione External-DNS. I log dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -222,7 +222,7 @@ Questi record possono essere visualizzati anche nella risorsa di zona DNS nel po
 
 ![Ottenere i record DNS](media/http-routing/clippy.png)
 
-Usare il comando [kubectl logs][kubectl-logs] per visualizzare i registri applicazioni del controller di ingresso NGINX. I registri dovrebbero confermare l'esecuzione dell'operazione `CREATE` per una risorsa di ingresso e il ricaricamento del controller. Vengono registrate tutte le attività HTTP.
+Usare il comando [kubectl logs][kubectl-logs] per visualizzare i log applicazioni del controller di ingresso NGINX. I log dovrebbero confermare l'esecuzione dell'operazione `CREATE` per una risorsa di ingresso e il ricaricamento del controller. Vengono registrate tutte le attività HTTP.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

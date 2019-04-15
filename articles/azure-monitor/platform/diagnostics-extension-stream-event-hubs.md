@@ -11,7 +11,7 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54478128"
@@ -23,7 +23,7 @@ Tipi di dati supportati:
 
 * Tracciamento degli eventi di Windows (ETW)
 * Contatori delle prestazioni
-* Registri eventi di Windows
+* Log eventi di Windows
 * Log applicazioni
 * Log dell'infrastruttura Diagnostica di Azure
 
@@ -108,7 +108,7 @@ Il valore `SharedAccessKeyName` deve corrispondere a una chiave di firma di acce
 >
 
 ## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Configurare la Diagnostica di Azure per inviare log e metriche a Hub eventi
-Come illustrato in precedenza, tutti i dati di diagnostica predefiniti e personalizzati (ovvero metriche e log) vengono inviati automaticamente ad Archiviazione di Azure agli intervalli configurati. Con Hub eventi (e qualsiasi sink aggiuntivo), è possibile specificare qualsiasi nodo radice o foglia nella gerarchia da inviare a Hub eventi. Questi includono gli eventi ETW, i contatori delle prestazioni, i registri eventi di Windows e i registri dell'applicazione.   
+Come illustrato in precedenza, tutti i dati di diagnostica predefiniti e personalizzati (ovvero metriche e log) vengono inviati automaticamente ad Archiviazione di Azure agli intervalli configurati. Con Hub eventi (e qualsiasi sink aggiuntivo), è possibile specificare qualsiasi nodo radice o foglia nella gerarchia da inviare a Hub eventi. Questi includono gli eventi ETW, i contatori delle prestazioni, i log eventi di Windows e i log dell'applicazione.   
 
 È importante valutare il numero di punti dati effettivi da trasferire all'Hub eventi. Di solito gli sviluppatori trasferiscono i dati del percorso critico a bassa latenza che devono essere utilizzati e interpretati rapidamente. I sistemi che monitorano gli avvisi o le regole di scalabilità automatica sono degli esempi. Uno sviluppatore può anche configurare un archivio di analisi o di ricerca alternativo; ad esempio, Analisi di flusso di Azure, ElasticSearch, un sistema di monitoraggio personalizzato o un sistema di monitoraggio preferito di terze parti.
 
@@ -199,7 +199,7 @@ Nell'esempio seguente viene illustrato come uno sviluppatore può limitare la qu
 }
 ```
 
-In questo esempio, il sink viene applicato ai registri e filtrato solo per l'analisi a livello di errore.
+In questo esempio, il sink viene applicato ai log e filtrato solo per l'analisi a livello di errore.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuire e aggiornare un'applicazione dei servizi cloud e della configurazione della diagnostica
 Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **diagnostics.wadcfgx**.  
@@ -316,7 +316,7 @@ namespace EventHubListener
     In primo luogo, assicurarsi che le informazioni di configurazione e dell'Hub eventi siano esatte, come spiegato in precedenza. Capita che a volte **PrivateConfig** venga reimpostato in un aggiornamento della distribuzione. La soluzione consigliata consiste nell'apportare tutte le modifiche nel file *.wadcfgx* del progetto e quindi eseguire il push di un aggiornamento completo dell'applicazione. Se non è possibile, verificare che l'aggiornamento della diagnostica esegua il push della sezione **PrivateConfig** completa, che include la chiave SAS.  
 * Ho provato a seguire i suggerimenti, ma l'Hub eventi continua a non funzionare.
 
-    Eseguire una ricerca nella tabella di Archiviazione di Azure contenente i registri e gli errori della Diagnostica di Azure: **WADDiagnosticInfrastructureLogsTable**. Una possibilità consiste nell'usare uno strumento come [Esplora archivi Azure](https://www.storageexplorer.com) per connettersi a questo account di archiviazione, visualizzare la tabella e aggiungere una query per il TimeStamp delle ultime 24 ore. È possibile utilizzare lo strumento per esportare un file .csv e aprirlo in un'applicazione come Microsoft Excel. Excel semplifica la ricerca di stringhe di presentazione come **EventHubs**per visualizzare l'errore segnalato.  
+    Eseguire una ricerca nella tabella di Archiviazione di Azure contenente i log e gli errori della Diagnostica di Azure: **WADDiagnosticInfrastructureLogsTable**. Una possibilità consiste nell'usare uno strumento come [Esplora archivi Azure](https://www.storageexplorer.com) per connettersi a questo account di archiviazione, visualizzare la tabella e aggiungere una query per il TimeStamp delle ultime 24 ore. È possibile utilizzare lo strumento per esportare un file .csv e aprirlo in un'applicazione come Microsoft Excel. Excel semplifica la ricerca di stringhe di presentazione come **EventHubs**per visualizzare l'errore segnalato.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 • [Altre informazioni su Hub eventi](https://azure.microsoft.com/services/event-hubs/)

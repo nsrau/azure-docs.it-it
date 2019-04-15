@@ -618,7 +618,7 @@ Ad esempio, per eseguire il programma di installazione con il parametro `-help`,
 
 Installare Dependency Agent per Linux come utente ROOT eseguendo il comando `sh InstallDependencyAgent-Linux64.bin`.
 
-Se Dependency Agent non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
+Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 

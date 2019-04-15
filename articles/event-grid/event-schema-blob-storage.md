@@ -9,7 +9,7 @@ ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54469733"
@@ -104,7 +104,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | api | stringa | L'operazione che ha attivato l'evento. |
-| clientRequestId | stringa | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel registro analisi. |
+| clientRequestId | stringa | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel log analisi. |
 | requestId | stringa | Identificatore univoco per la richiesta. Usarlo per la risoluzione dei problemi della richiesta. |
 | eTag | stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
 | contentType | stringa | Il tipo di contenuto specificato per il BLOB. |

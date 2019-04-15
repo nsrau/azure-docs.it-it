@@ -152,7 +152,7 @@ servicefabric:/<section-name>/<setting-name>
 
 ## <a name="verification"></a>Verifica
 
-Avviare il servizio e osservare la finestra dell'output di debug di Visual Studio. Dopo l'avvio del servizio, dovrebbero essere visibili le prove dell'invio di record del servizio all'output configurato. Passare alla piattaforma di analisi e visualizzazione di eventi e confermare che i registri vengono visualizzati. Questa operazione potrebbe richiedere alcuni minuti.
+Avviare il servizio e osservare la finestra dell'output di debug di Visual Studio. Dopo l'avvio del servizio, dovrebbero essere visibili le prove dell'invio di record del servizio all'output configurato. Passare alla piattaforma di analisi e visualizzazione di eventi e confermare che i log vengono visualizzati. Questa operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

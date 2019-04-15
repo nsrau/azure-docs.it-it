@@ -117,7 +117,7 @@ Per altre informazioni, vedere [Usare l'URI di Azure Data Lake Storage Gen2](../
 
 Archiviazione di Azure è una soluzione di archiviazione affidabile di utilizzo generico che si integra perfettamente con HDInsight. HDInsight può usare un contenitore BLOB in Archiviazione di Azure come file system predefinito per il cluster. Grazie a un'interfaccia HDFS, tutti i componenti disponibili in HDInsight possono agire direttamente su dati strutturati o non strutturati archiviati come BLOB.
 
-È consigliabile usare i contenitori di archiviazione separato per la risorsa di archiviazione cluster predefinita e i dati aziendali, per isolare i log di HDInsight e i file temporanei dai propri dati di business. È inoltre consigliabile eliminare il contenitore blob predefinito, che contiene l'applicazione e i registri di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+È consigliabile usare i contenitori di archiviazione separato per la risorsa di archiviazione cluster predefinita e i dati aziendali, per isolare i log di HDInsight e i file temporanei dai propri dati di business. È inoltre consigliabile eliminare il contenitore blob predefinito, che contiene l'applicazione e i registri di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
 Se si sceglie di proteggere l'account di archiviazione con il **firewall e reti virtuali** restrizioni sulle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti attendibili Microsoft servizi...**  in modo che HDInsight può accedere all'account di archiviazione.
 

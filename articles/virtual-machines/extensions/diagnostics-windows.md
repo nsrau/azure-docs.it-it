@@ -16,7 +16,7 @@ ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55980755"
@@ -77,7 +77,7 @@ Per abilitare l'estensione di diagnostica su una VM esistente creata tramite il 
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>Configurazione di diagnostica di esempio
-Per la configurazione pubblica di diagnostica con gli script precedenti, è possibile usare il codice XML seguente. Questa configurazione di esempio trasferirà diversi contatori delle prestazioni all'account di archiviazione di diagnostica insieme agli errori dai canali Application, Security e System nei registri eventi di Windows e a eventuali errori dai registri dell'infrastruttura di diagnostica.
+Per la configurazione pubblica di diagnostica con gli script precedenti, è possibile usare il codice XML seguente. Questa configurazione di esempio trasferirà diversi contatori delle prestazioni all'account di archiviazione di diagnostica insieme agli errori dai canali Application, Security e System nei log eventi di Windows e a eventuali errori dai log dell'infrastruttura di diagnostica.
 
 La configurazione deve essere aggiornata per includere gli elementi seguenti:
 

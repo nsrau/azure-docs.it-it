@@ -4940,7 +4940,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Sql/servers/databases/pause/action | Mette in pausa il database Azure SQL Datawarehouse |
 > | Azione | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa |
 > | Azione | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per la risorsa |
-> | Azione | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Ottiene i registri disponibili per i database |
+> | Azione | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Ottiene i log disponibili per i database |
 > | Azione | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/metricDefinitions/read | Restituisce i tipi di metriche disponibili per i database |
 > | Azione | Microsoft.Sql/servers/databases/queryStore/queryTexts/read | Restituisce la raccolta dei testi delle query che corrispondono ai parametri specificati. |
 > | Azione | Microsoft.Sql/servers/databases/queryStore/read | Restituisce i valori correnti delle impostazioni Query Store per il database. |
@@ -5399,7 +5399,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/outputs/Write | Scrive un output processo di Analisi di flusso |
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read | Legge un'impostazione di diagnostica. |
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write | Scrive un'impostazione di diagnostica. |
-> | Azione | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Ottiene i registri disponibili per i processi di streaming |
+> | Azione | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Ottiene i log disponibili per i processi di streaming |
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per i processi di streaming |
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/Read | Legge un processo di Analisi di flusso |
 > | Azione | Microsoft.StreamAnalytics/streamingjobs/Start/action | Avvia un processo di Analisi di flusso |

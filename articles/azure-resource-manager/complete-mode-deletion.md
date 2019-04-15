@@ -8,7 +8,7 @@ ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
 ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56302645"
@@ -47,7 +47,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | agents | No  | 
 | anonymousapiusers | No  | 
 | configurazione | No  | 
-| logs | No  | 
+| log | No  | 
 | reports | No  | 
 | services | No  | 
 
@@ -671,7 +671,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | extendedDiagnosticSettings | No  | 
 | logDefinitions | No  | 
 | logprofiles | No  | 
-| logs | No  | 
+| log | No  | 
 | metricAlerts | Sì |
 | migrateToNewPricingModel | No  | 
 | myWorkbooks | No  | 
@@ -733,7 +733,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo di risorsa | Eliminazione in modalità completa |
 | ------------- | ----------- |
-| logs | No  | 
+| log | No  | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo di risorsa | Eliminazione in modalità completa |

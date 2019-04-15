@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53545179"
@@ -18,7 +18,7 @@ Nel Database di Azure per MariaDB, il log delle query lente è disponibile per g
 
 Per altre informazioni sul log delle query lente, vedere la documentazione MariaDB per il [log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Accesso ai registri server
+## <a name="access-server-logs"></a>Accesso ai log server
 È possibile elencare e scaricare i log del server del Database di Azure per MariaDB usando il portale di Azure e l'interfaccia della riga di comando di Azure.
 
 Nel portale di Azure, selezionare il server Database di Azure per MariaDB. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.

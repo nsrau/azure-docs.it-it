@@ -323,7 +323,7 @@ Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il
 Se si verificano errori analoghi ai seguenti, potrebbero essere causati da una configurazione non corretta del firewall o del server proxy, che impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
 
 * Quando si prova a registrare il runtime di integrazione self-hosted, viene visualizzato l'errore seguente: "Non è stato possibile registrare questo nodo di Runtime di integrazione. Verificare la validità della chiave di autenticazione e che il servizio host servizio di integrazione sia in esecuzione nel computer".
-* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi** > **Registri applicazioni e servizi** > **Microsoft Integration Runtime** vengono visualizzati messaggi di errore simili ai seguenti:
+* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i log eventi di Windows, in **Visualizzatore eventi** > **Registri applicazioni e servizi** > **Microsoft Integration Runtime** vengono visualizzati messaggi di errore simili ai seguenti:
 
     ```
     Unable to connect to the remote server

@@ -175,7 +175,7 @@ Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monit
 |Microsoft.Insights/components/*|Gestisce i componenti di Application Insights.|
 |Microsoft.Insights/DiagnosticSettings/*|Gestisce le impostazioni di diagnostica.|
 |Microsoft.Insights/eventtypes/*|Elenco degli eventi dei registri attività (eventi di gestione) in una sottoscrizione. Questa autorizzazione è applicabile sia all'accesso programmatico che all'accesso al portale per il registro attività.|
-|Microsoft.Insights/LogDefinitions/*|Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. Elencare categorie di log nel log attività.|
+|Microsoft.Insights/LogDefinitions/*|Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai log attività tramite il portale. Elencare categorie di log nel log attività.|
 |Microsoft.Insights/MetricDefinitions/*|Definizioni delle metriche (elenco dei tipi di metriche disponibili per una risorsa).|
 |Microsoft.Insights/Metrics/*|Metriche per una risorsa.|
 |Microsoft.Insights/Register/Action|Registra il provider Microsoft.Insights.|

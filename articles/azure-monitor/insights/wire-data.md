@@ -189,7 +189,7 @@ Per installare Dependency Agent in ogni computer che esegue Windows, seguire que
 1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../../azure-monitor/platform/agent-windows.md).
 2. Scaricare Windows Dependency Agent tramite il collegamento nella sezione precedente e quindi eseguirlo usando il comando seguente: `InstallDependencyAgent-Windows.exe`
 3. Seguire la procedura guidata per installare l'agente.
-4. Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
+4. Se l'agente di dipendenza non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
 
 #### <a name="windows-command-line"></a>Riga di comando di Windows
 
@@ -214,7 +214,7 @@ Per installare Dependency Agent in ogni computer Linux, seguire questa procedura
 
 1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Linux ospitati nell'ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Scaricare Linux Dependency Agent tramite il collegamento riportato nella sezione precedente e quindi installarlo come radice con il comando seguente: sh InstallDependencyAgent-Linux64.bin
-3. Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux, la directory di log è /var/opt/microsoft/dependency-agent/log.
+3. Se l'agente di dipendenza non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux, la directory di log è /var/opt/microsoft/dependency-agent/log.
 
 Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag `-help` come segue.
 

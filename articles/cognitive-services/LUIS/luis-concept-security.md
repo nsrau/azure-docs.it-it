@@ -30,7 +30,7 @@ Il proprietario e tutti i collaboratori hanno accesso in creazione all'app.
 |--|--|
 |Aggiungere o rimuovere chiavi endpoint||
 |Esportare una versione||
-|Esportare i registri endpoint||
+|Esportare i log di endpoint||
 |Importare una versione||
 |Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
 |Modificare il modello|

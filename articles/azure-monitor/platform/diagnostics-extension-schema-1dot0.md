@@ -248,7 +248,7 @@ Attributi:
 |**sampleRate**|duration|Richiesto. Frequenza con la quale raccogliere il contatore delle prestazioni.|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
- Definisce i registri eventi da monitorare.
+ Definisce i log eventi da monitorare.
 
  Elemento padre: Elemento DiagnosticMonitorConfiguration.
 

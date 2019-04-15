@@ -49,14 +49,14 @@ In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realment
 
 È possibile usare i cmdlet di PowerShell per gestire le app Web del servizio app. Il post di blog [Automatizzare le app Web ospitate nel servizio app di Azure usando PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/) descrive come usare i cmdlet di PowerShell basati su Azure Resource Manager per automatizzare attività comuni. Il post di blog offre anche codice di esempio per diverse attività di gestione delle app Web. Per le descrizioni e la sintassi di tutti i cmdlet delle app Web del servizio app, vedere [Az.Websites](/powershell/module/az.websites).
 
-## <a name="how-do-i-view-my-web-apps-event-logs"></a>Come si possono visualizzare i registri eventi dell'app Web?
+## <a name="how-do-i-view-my-web-apps-event-logs"></a>Come si possono visualizzare i log eventi dell'app Web?
 
-Per visualizzare i registri eventi dell'app Web:
+Per visualizzare i log eventi dell'app Web:
 
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
 3. Selezionare la cartella **LogFiles**.
-4. Per visualizzare i registri eventi, selezionare l'icona della matita accanto a **eventlog.xml**.
+4. Per visualizzare i log eventi, selezionare l'icona della matita accanto a **eventlog.xml**.
 5. Per scaricare i log, eseguire il cmdlet `Save-AzureWebSiteLog -Name webappname` di PowerShell.
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Come si acquisisce un dump della memoria in modalità utente per l'app Web?

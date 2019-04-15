@@ -16,7 +16,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
 ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/21/2018
 ms.locfileid: "52275736"
@@ -105,7 +105,7 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 |Dati raccolti                              |  |  | Scenari delle prestazioni |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
-| Informazioni dei registri eventi       | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
+| Informazioni dei log eventi       | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Informazioni di sistema                | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Mapping del volume                        | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Mapping del disco                          | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |

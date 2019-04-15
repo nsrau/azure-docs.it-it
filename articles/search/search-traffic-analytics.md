@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
 ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2019
 ms.locfileid: "55079665"
@@ -33,7 +33,7 @@ I segnali necessari per Analisi del traffico di ricerca sono due:
 
 2. Eventi generati dai clic degli utenti: in questo documento, il termine "clic" si riferisce alla selezione, da parte di un utente, di un determinato risultato di ricerca restituito da una query di ricerca. Un clic in genere indica che un documento è un risultato rilevante per una specifica query di ricerca.
 
-Il collegamento degli eventi di ricerca e degli eventi clic mediante un ID di correlazione consente di analizzare i comportamenti degli utenti nell'applicazione. I registri del traffico di ricerca non sono in grado di offrire informazioni sulla ricerca così dettagliate.
+Il collegamento degli eventi di ricerca e degli eventi clic mediante un ID di correlazione consente di analizzare i comportamenti degli utenti nell'applicazione. I log del traffico di ricerca non sono in grado di offrire informazioni sulla ricerca così dettagliate.
 
 ## <a name="add-search-traffic-analytics"></a>Aggiungere Analisi del traffico di ricerca
 

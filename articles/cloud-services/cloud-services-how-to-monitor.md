@@ -16,7 +16,7 @@ ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/27/2018
 ms.locfileid: "53789468"
@@ -46,7 +46,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 
 * Contatori delle prestazioni personalizzati
 * Log applicazioni
-* Registri eventi di Windows
+* Log eventi di Windows
 * Origine degli eventi .NET
 * Log di IIS
 * ETW basato su manifesto

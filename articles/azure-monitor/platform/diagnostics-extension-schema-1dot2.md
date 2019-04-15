@@ -114,7 +114,7 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 |**EtwProviders**|Configura la raccolta di eventi ETW da EventSource e/o da provider basati su manifesti ETW.|  
 |**Metriche**|Questo elemento consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni. Attributo obbligatorio:<br /><br /> **resourceId**: si tratta dell'ID risorsa della macchina virtuale nella quale si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Esplora** -> **Gruppi di risorse** -> **<Nome\>**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.|  
 |**PerformanceCounters**|Abilita la raccolta dei contatori delle prestazioni. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
-|**WindowsEventLog**|Abilita la raccolta dei registri eventi di Windows. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**WindowsEventLog**|Abilita la raccolta dei log eventi di Windows. Attributo facoltativo:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Abilita la raccolta di dump di arresto anomalo del sistema. La tabella seguente descrive gli elementi figlio:  
@@ -199,5 +199,5 @@ Definisce le impostazioni di configurazione per i dati di telemetria da raccogli
 
 |Nome dell'elemento|DESCRIZIONE|  
 |------------------|-----------------|  
-|**DataSource**|Registri eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio: <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*".|
+|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio: <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*".|
 

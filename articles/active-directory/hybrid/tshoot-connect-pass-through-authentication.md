@@ -18,7 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56184891"
@@ -50,7 +50,7 @@ Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti.
 |AADSTS80004|Il nome utente passato all'agente non era valido|Assicurarsi che l'utente stia tentando di accedere con il nome utente corretto.
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Errore temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
-|AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i registri dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto.
+|AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i log dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 
@@ -114,15 +114,15 @@ Assicurasi che il server in cui è installato Azure AD Connect possa comunicare 
 
 Assicurarsi di usare un account amministratore globale solo cloud quando si abilita la funzionalità. Esiste un problema noto con gli account amministratore globale con autenticazione MFA abilitata: disattivare l'autenticazione MFA temporaneamente (solo per completare le operazioni) come soluzione alternativa.
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>Raccolta dei registri dell'agente di autenticazione pass-through
+## <a name="collecting-pass-through-authentication-agent-logs"></a>Raccolta dei log dell'agente di autenticazione pass-through
 
-In base al tipo di problema, i registri dell'agente di autenticazione pass-through vanno cercati in posizioni diverse.
+In base al tipo di problema, i log dell'agente di autenticazione pass-through vanno cercati in posizioni diverse.
 
 ### <a name="azure-ad-connect-logs"></a>Log di Azure AD Connect
 
 Per gli errori relativi all'installazione, controllare i log di Azure AD Connect in **%ProgramData%\AADConnect\trace-\*.log**.
 
-### <a name="authentication-agent-event-logs"></a>Registri eventi dell'agente di autenticazione
+### <a name="authentication-agent-event-logs"></a>Log eventi dell'agente di autenticazione
 
 Per gli errori correlati all'agente di autenticazione aprire l'applicazione Visualizzatore eventi sul server e controllare in **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 

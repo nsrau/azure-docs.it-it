@@ -16,7 +16,7 @@ ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
 ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2018
 ms.locfileid: "37342434"
@@ -69,7 +69,7 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 * Registrazione del dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Errori durante le impostazioni di rete necessarie
-| No. | Messaggio di errore | Possibili cause | Azione consigliata |
+|  No. | Messaggio di errore | Possibili cause | Azione consigliata |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: questo comando può essere eseguito solo sul controller attivo. |La configurazione veniva eseguita solo sul controller passivo. |Eseguire il comando dal controller attivo. Per altre informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | 2 |Invoke-HcsSetupWizard: dispositivo non pronto. |Sono presenti problemi con la connettività di rete su DATA 0. |Controllare la connettività di rete fisica in DATA 0. |
@@ -103,7 +103,7 @@ Per altre informazioni sulla password amministratore del dispositivo, vedere [Us
 
 È possibile riscontrare uno o più dei seguenti errori quando si configurano le password di amministratore del dispositivo e Gestione snapshot StorSimple.
 
-| No. | Messaggio di errore | Azione consigliata |
+|  No. | Messaggio di errore | Azione consigliata |
 | --- | --- | --- |
 | 1 |La password supera la lunghezza massima. |La password di amministratore dispositivo deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. |
 | 2 |La password non soddisfa la lunghezza richiesta. |La password di amministratore dispositivo deve avere una lunghezza compresa tra gli 8 e i 15 caratteri.|
@@ -126,7 +126,7 @@ Le password vengono raccolte prima della registrazione del dispositivo ma vengon
 ## <a name="errors-during-device-registration"></a>Errori durante la registrazione del dispositivo
 Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorSimple in esecuzione su Microsoft Azure. Durante la registrazione del dispositivo, potrebbero essere riscontrati uno o più dei seguenti problemi.
 
-| No. | Messaggio di errore | Possibili cause | Azione consigliata |
+|  No. | Messaggio di errore | Possibili cause | Azione consigliata |
 | --- | --- | --- | --- |
 | 1 |Errore 350027: impossibile registrare il dispositivo con Gestione dispositivi StorSimple. | |Attendere alcuni minuti e ripetere l'operazione. Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Errore 350013: si è verificato un errore nella registrazione del dispositivo. L'errore potrebbe essere dovuto a una chiave di registrazione del servizio non corretta. | |Registrare nuovamente il dispositivo con la chiave di registrazione del servizio corretta. Per altre informazioni, vedere [Ottenere la chiave di registrazione del servizio.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -141,17 +141,17 @@ Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorS
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple
 StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. incluse le seguenti:
 
-* Pacchetti di supporto e registri del dispositivo.
+* Pacchetti di supporto e log del dispositivo.
 * Cmdlet progettati appositamente per la risoluzione dei problemi.
 
-## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Pacchetti di supporto e registri del dispositivo disponibili per la risoluzione dei problemi
-Un pacchetto di supporto contiene tutti i registri pertinenti per assistere il team del supporto tecnico Microsoft durante la risoluzione dei problemi del dispositivo. È possibile utilizzare Windows PowerShell per StorSimple per generare un pacchetto di supporto crittografato che può essere condiviso con il personale di supporto.
+## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Pacchetti di supporto e log del dispositivo disponibili per la risoluzione dei problemi
+Un pacchetto di supporto contiene tutti i log pertinenti per assistere il team del supporto tecnico Microsoft durante la risoluzione dei problemi del dispositivo. È possibile utilizzare Windows PowerShell per StorSimple per generare un pacchetto di supporto crittografato che può essere condiviso con il personale di supporto.
 
-### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Per visualizzare i registri o i contenuti del pacchetto di supporto
+### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Per visualizzare i log o i contenuti del pacchetto di supporto
 1. Utilizzare Windows PowerShell per StorSimple per generare un pacchetto di supporto, come descritto in [creare e gestire un pacchetto di supporto](storsimple-8000-create-manage-support-package.md).
 2. Scaricare localmente lo [script di decrittografia](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) sul computer client.
 3. Utilizzare questa [procedura dettagliata](storsimple-8000-create-manage-support-package.md#edit-a-support-package) per aprire e decrittografare il pacchetto di supporto.
-4. I registri del pacchetto di supporto decrittografato sono in formato etw/etvx. È possibile eseguire la procedura seguente per visualizzare questi file in Visualizzatore eventi di Windows:
+4. I log del pacchetto di supporto decrittografato sono in formato etw/etvx. È possibile eseguire la procedura seguente per visualizzare questi file in Visualizzatore eventi di Windows:
    
    1. Eseguire il comando **eventvwr** nel client Windows. Viene avviato il Visualizzatore eventi.
    2. Nel riquadro **Azioni** fare clic su **Apri registro salvato** e scegliere i file di registro in formato etvx/etw (il pacchetto di supporto). Ora è possibile visualizzare il file. Dopo aver aperto il file, è possibile fare clic con il pulsante destro del mouse e salvare il file come testo.
@@ -159,7 +159,7 @@ Un pacchetto di supporto contiene tutti i registri pertinenti per assistere il t
       > [!IMPORTANT]
       > È inoltre possibile utilizzare il cmdlet **Get-WinEvent** per aprire tali file in Windows PowerShell. Per altre informazioni, vedere [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) nella documentazione di riferimento del cmdlet di Windows PowerShell.
      
-5. Quando i registri vengono aperti nel Visualizzatore eventi, cercare i registri seguenti dove sono presenti i problemi relativi alla configurazione del dispositivo:
+5. Quando i log vengono aperti nel Visualizzatore eventi, cercare i log seguenti dove sono presenti i problemi relativi alla configurazione del dispositivo:
    
    * hcs_pfconfig/Operational Log
    * hcs_pfconfig/Config
@@ -523,7 +523,7 @@ L'errore potrebbe essere causato da una delle seguenti cause:
      > 
 6. Utilizzare il cmdlet Test-Connection per verificare di disporre della connettività alla rete esterna. Per altre informazioni, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 7. Controllare le interferenze del firewall. Se le impostazioni dell'IP virtuale (VIP), subnet, gateway e DNS sono state verificate e risultano corrette ma continuano a essere visualizzati problemi di connettività, è possibile che il firewall blocchi le comunicazioni tra il dispositivo e la rete esterna. Assicurarsi che le porte 80 e 443 siano disponibili sul dispositivo StorSimple per le comunicazioni in uscita. Per ulteriori informazioni, vedere [Requisiti di rete per il dispositivo StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
-8. Esaminare i registri. Vedere [Pacchetti di supporto e registri del dispositivo disponibili per la risoluzione dei problemi](#support-packages-and-device-logs-available-for-troubleshooting).
+8. Esaminare i log. Vedere [Pacchetti di supporto e log del dispositivo disponibili per la risoluzione dei problemi](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Se la procedura precedente non risolve il problema, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi

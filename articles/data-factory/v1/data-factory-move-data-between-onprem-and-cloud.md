@@ -146,8 +146,8 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     È inoltre possibile eseguire le azioni seguenti nella scheda **Diagnostica** :
 
    * Usare la sezione **Connessione di test** su un'origine dati locale con il gateway.
-   * Fare clic su **Visualizza registri** per vedere il registro del gateway di gestione dati in una finestra del Visualizzatore eventi.
-   * Fare clic su **Invia registri** per caricare un file zip dei registri degli ultimi sette giorni sul sito Microsoft al fine di facilitare la risoluzione dei problemi.
+   * Fare clic su **Visualizza log** per vedere il log del gateway di gestione dati in una finestra del Visualizzatore eventi.
+   * Fare clic su **Invia log** per caricare un file zip dei log degli ultimi sette giorni sul sito Microsoft al fine di facilitare la risoluzione dei problemi.
 10. Nella scheda **Diagnostica**, nella sezione **Test connessione** selezionare **SqlServer** come tipo di archivio dati, immettere il nome del server di database, il nome del database, specificare il tipo di autenticazione, immettere il nome utente e la password e fare clic su **Test** per verificare se il gateway può connettersi al database.
 11. Passare al Web browser e nel **portale di Azure** fare clic su **OK** nella pagina **Configura** e quindi nella pagina **Nuovo gateway dati**.
 12. Verrà visualizzato **adftutorialgateway** in **Gateway dati** nella visualizzazione albero a sinistra.  Se si fa clic, viene visualizzato l'oggetto JSON associato.

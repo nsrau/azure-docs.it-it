@@ -81,7 +81,7 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Come leggere più entità da una tabella
 Per leggere una tabella, usare l'attributo **Tabella** con un parametro **IQueryable<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
-Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso** :
+Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso**:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,

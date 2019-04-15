@@ -44,7 +44,7 @@ Il flusso di lavoro di machine learning in genere segue questa sequenza:
 
 L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Learning. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati durante l'uso del servizio Azure Machine Learning.
 
-L'area di lavoro mantiene un elenco di destinazioni di calcolo che può essere usato per il training del modello. Inoltre, mantiene una cronologia di esecuzioni di training che include i registri, le metriche, gli output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.
+L'area di lavoro mantiene un elenco di destinazioni di calcolo che può essere usato per il training del modello. Inoltre, mantiene una cronologia di esecuzioni di training che include i log, le metriche, gli output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.
 
 I modelli vengono registrati con l'area di lavoro. Il modello registrato e gli script di punteggio sono usati per creare un'immagine. È possibile quindi distribuire l'immagine nelle Istanze di Azure Container, nel servizio Azure Kubernetes o in una matrice FPGA come un endpoint HTTP basato su REST. È inoltre possibile distribuirla in un dispositivo Azure IoT Edge come modulo.
 

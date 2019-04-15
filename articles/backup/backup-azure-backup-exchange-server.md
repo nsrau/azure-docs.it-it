@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55298314"
@@ -75,7 +75,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i registri non verranno troncati.
+   > Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i log non verranno troncati.
    >
    >
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.

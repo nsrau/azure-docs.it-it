@@ -23,7 +23,7 @@ In questo articolo viene illustrato come eseguire l'autenticazione in modo che i
 
 L'API di monitoraggio di Azure consente di recuperare in modo programmatico le definizioni delle metriche predefinite disponibili, la granularità e i valori delle metriche. I dati possono essere salvati in un archivio dati separato come il database SQL di Azure, Azure Cosmos DB o Azure Data Lake. Da qui, se necessario, è possibile svolgere ulteriori analisi.
 
-Oltre a essere compatibile con vari punti dati delle metriche, l'API di monitoraggio consente di elencare le regole di avviso, di visualizzare i registri delle attività e molto altro ancora. Per un elenco completo delle operazioni disponibili, vedere le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://docs.microsoft.com/rest/api/monitor/).
+Oltre a essere compatibile con vari punti dati delle metriche, l'API di monitoraggio consente di elencare le regole di avviso, di visualizzare i log delle attività e molto altro ancora. Per un elenco completo delle operazioni disponibili, vedere le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://docs.microsoft.com/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Autenticazione delle richieste di monitoraggio di Azure
 

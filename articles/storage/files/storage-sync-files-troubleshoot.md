@@ -170,7 +170,7 @@ All'interno di ogni gruppo di sincronizzazione è possibile risalire ai relativi
 ![Schermata del portale di Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # [<a name="server"></a>Server](#tab/server)
-Passare ai registri dei dati di telemetria del server che si trovano in Visualizzatore eventi in `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. L'evento 9102 corrisponde a una sessione di sincronizzazione completata; per lo stato più recente del servizio di sincronizzazione, cercare l'evento più recente con ID 9102. SyncDirection indica se la sessione rappresenta un caricamento o un download. Se il valore HResult è 0, la sessione di sincronizzazione è riuscita. Un valore HResult diverso da zero indica che si è verificato un errore durante la sincronizzazione; per un elenco di errori comuni, vedere di seguito. Se PerItemErrorCount è maggiore di 0, significa che alcuni file o cartelle non sono stati sincronizzati correttamente. È possibile ricevere un valore HResult pari a 0, ma al contempo un PerItemErrorCount maggiore di 0.
+Passare ai log dei dati di telemetria del server che si trovano in Visualizzatore eventi in `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. L'evento 9102 corrisponde a una sessione di sincronizzazione completata; per lo stato più recente del servizio di sincronizzazione, cercare l'evento più recente con ID 9102. SyncDirection indica se la sessione rappresenta un caricamento o un download. Se il valore HResult è 0, la sessione di sincronizzazione è riuscita. Un valore HResult diverso da zero indica che si è verificato un errore durante la sincronizzazione; per un elenco di errori comuni, vedere di seguito. Se PerItemErrorCount è maggiore di 0, significa che alcuni file o cartelle non sono stati sincronizzati correttamente. È possibile ricevere un valore HResult pari a 0, ma al contempo un PerItemErrorCount maggiore di 0.
 
 Di seguito, un esempio di caricamento corretto. Per ragioni di brevità, solo alcuni dei valori contenuti in ciascun evento 9102 sono elencati di seguito. 
 
@@ -205,7 +205,7 @@ In alcuni casi le sessioni di sincronizzazione hanno un esito completamente nega
 All'interno del gruppo di sincronizzazione, accedere all'endpoint server in questione ed esaminare la sezione delle attività di sincronizzazione per visualizzare il numero di file caricati o scaricati nella sessione di sincronizzazione corrente. Si noti che questo stato ritarderà di circa 5 minuti e, se la sessione di sincronizzazione è sufficientemente ridotta da essere completata entro questo periodo, potrebbe non essere segnalata nel portale. 
 
 # [<a name="server"></a>Server](#tab/server)
-Cercare gli eventi 9302 più recenti nei dati di telemetria del registro eventi sul server (nel Visualizzatore eventi, passare ad Registri applicazioni e servizi\Microsoft\FileSync\Agente\Telemetria). Questo evento indica lo stato della sessione di sincronizzazione corrente. TotalItemCount denota il numero di file che devono essere sincronizzati, AppliedItemCount il numero di file che sono stati sincronizzati finora e PerItemErrorCount il numero di file che hanno esito negativo per la sincronizzazione (vedere di seguito per la procedura risolvere questo problema).
+Cercare gli eventi 9302 più recenti nei dati di telemetria del log eventi sul server (nel Visualizzatore eventi, passare ad Registri applicazioni e servizi\Microsoft\FileSync\Agente\Telemetria). Questo evento indica lo stato della sessione di sincronizzazione corrente. TotalItemCount denota il numero di file che devono essere sincronizzati, AppliedItemCount il numero di file che sono stati sincronizzati finora e PerItemErrorCount il numero di file che hanno esito negativo per la sincronizzazione (vedere di seguito per la procedura risolvere questo problema).
 
 ```
 Replica Sync Progress. 
@@ -844,7 +844,7 @@ Per monitorare l'attività di richiamo in un server, usare gli ID evento 9005, 9
 <a id="files-fail-tiering"></a>**Risolvere i problemi dei file che non è possibile archiviare a livelli**  
 Se non è possibile archiviare a livelli i file in File di Azure:
 
-1. Nel Visualizzatore eventi esaminare i registri i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente. 
+1. Nel Visualizzatore eventi esaminare i log i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente. 
    1. Verificare che i file esistano nella condivisione di file di Azure.
 
       > [!NOTE]
@@ -855,11 +855,11 @@ Se non è possibile archiviare a livelli i file in File di Azure:
        - Al prompt dei comandi con privilegi elevati. eseguire `fltmc`. Verificare che i driver di filtro del file system StorageSync.sys e StorageSyncGuard.sys siano presenti nell'elenco.
 
 > [!NOTE]
-> L'ID evento 9003 viene registrato dopo un'ora nel registro eventi di telemetria, se un file non riesce a eseguire la suddivisione in livelli (per ogni codice di errore viene registrato un evento). I registri di eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
+> L'ID evento 9003 viene registrato dopo un'ora nel registro eventi di telemetria, se un file non riesce a eseguire la suddivisione in livelli (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
 
 <a id="files-fail-recall"></a>**Risolvere i problemi di file che non è possibile richiamare**  
 Se il richiamo di file ha esito negativo:
-1. Nel Visualizzatore eventi esaminare i registri i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente.
+1. Nel Visualizzatore eventi esaminare i log i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente.
     1. Verificare che i file esistano nella condivisione di file di Azure.
     2. Verificare che il server disponga della connettività Internet. 
     3. Aprire lo snap-in Servizi di MMC e verificare se l'agente di sincronizzazione archiviazione (FileSyncSvc) è in esecuzione.
@@ -867,7 +867,7 @@ Se il richiamo di file ha esito negativo:
         - Al prompt dei comandi con privilegi elevati. eseguire `fltmc`. Verificare che i driver di filtro del file system StorageSync.sys e StorageSyncGuard.sys siano presenti nell'elenco.
 
 > [!NOTE]
-> L'ID evento 9006 viene registrato una volta all'ora nel registro eventi di telemetria se un file non riesce a eseguire il richiamo (per ogni codice di errore viene registrato un evento). I registri di eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
+> L'ID evento 9006 viene registrato una volta all'ora nel registro eventi di telemetria se un file non riesce a eseguire il richiamo (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
 
 <a id="files-unexpectedly-recalled"></a>**Risolvere i problemi dei file richiamati in modo imprevisto in un server**  
 Antivirus, backup e altre applicazioni che leggono quantità elevate di file causano richiami indesiderati a meno che non rispettino l'attributo per ignorare i file offline e ignorare la lettura del contenuto di tali file. Se si ignorano i file offline per i prodotti che supportano questa opzione, è possibile evitare richiami imprevisti durante operazioni come le analisi antivirus o i processi di backup.
@@ -882,8 +882,8 @@ I richiami imprevisti possono verificarsi anche in altri scenari, ad esempio qua
 ## <a name="general-troubleshooting"></a>Risoluzione dei problemi generali
 Se si verificano problemi con Sincronizzazione file di Azure in un server, per prima cosa eseguire questi passaggi:
 1. Nel Visualizzatore eventi esaminare i dati di telemetria e i registri eventi operativi e diagnostici.
-    - I problemi di sincronizzazione, archiviazione a livelli e richiamo vengono registrati nei dati di telemetria nella sezione dei registri eventi operativi e diagnostici in Registri applicazioni e servizi\Microsoft\FileSync\Agent.
-    - I problemi correlati alla gestione di un server (ad esempio le impostazioni di configurazione) vengono registrati nei registri eventi operativi e diagnostici in Applications e Services\Microsoft\FileSync\Management.
+    - I problemi di sincronizzazione, archiviazione a livelli e richiamo vengono registrati nei dati di telemetria nella sezione dei log eventi operativi e diagnostici in Registri applicazioni e servizi\Microsoft\FileSync\Agent.
+    - I problemi correlati alla gestione di un server (ad esempio le impostazioni di configurazione) vengono registrati nei log eventi operativi e diagnostici in Applications e Services\Microsoft\FileSync\Management.
 2. Verificare che il servizio Sincronizzazione file di Azure sia in esecuzione nel server:
     - Aprire lo snap-in di MMC di Servizi e verificare se l'agente di sincronizzazione archiviazione (FileSyncSvc) è in esecuzione.
 3. Verificare che i driver di filtro di Sincronizzazione file di Azure (StorageSync.sys e StorageSyncGuard.sys) siano in esecuzione:
@@ -902,7 +902,7 @@ Se il problema persiste, eseguire lo strumento AFSDiag:
 3. Per il livello di traccia nella modalità kernel di Sincronizzazione file di Azure, immettere **1** (salvo diversamente specificato, per creare tracce più dettagliate) e quindi premere INVIO.
 4. Per il livello di traccia nella modalità utente di Sincronizzazione file di Azure, immettere **1** (salvo diversamente specificato, per creare tracce più dettagliate) e quindi premere INVIO.
 5. Riprodurre il problema. Al termine immettere **D**.
-6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i registri e i file di traccia.
+6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia.
 
 ## <a name="see-also"></a>Vedere anche 
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

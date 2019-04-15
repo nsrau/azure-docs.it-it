@@ -58,7 +58,7 @@ Le immagini consentono una distribuzione affidabile del modello, insieme a tutti
 * Il file di assegnazione dei punteggi o l'applicazione
 * Tutte le dipendenze necessarie per assegnare un punteggio al modello
 
-L'immagine può anche includere componenti SDK per la registrazione e il monitoraggio. I dati di registro SDK possono essere utilizzati per ottimizzare o ripetere il training dei modelli, compresi l'input e l'output del modello.
+L'immagine può anche includere componenti SDK per la registrazione e il monitoraggio. I dati di log SDK possono essere utilizzati per ottimizzare o ripetere il training dei modelli, compresi l'input e l'output del modello.
 
 Azure Machine Learning supporta i framework più diffusi, ma in genere può funzionare qualsiasi framework in cui si può installare il pip.
 

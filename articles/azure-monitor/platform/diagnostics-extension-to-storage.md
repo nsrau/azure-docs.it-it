@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54468523"
@@ -37,7 +37,7 @@ A seconda del tipo di dati di diagnostica da raccogliere, Diagnostica di Azure u
 | Log di IIS 7.0 |BLOB |
 | Log dell'infrastruttura Diagnostica di Azure |Tabella |
 | Log di analisi delle richieste non riuscite |BLOB |
-| Registri eventi di Windows |Tabella |
+| Log eventi di Windows |Tabella |
 | Contatori delle prestazioni |Tabella |
 | Dump di arresto anomalo del sistema |BLOB |
 | Log degli errori personalizzati |BLOB |

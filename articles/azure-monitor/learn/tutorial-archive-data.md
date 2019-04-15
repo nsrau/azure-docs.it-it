@@ -28,7 +28,7 @@ Questa esercitazione illustra il processo di configurazione dell'ambiente di Azu
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione per conservare i dati di monitoraggio
-> * Indirizzarvi i registri della sottoscrizione
+> * Indirizzarvi i log della sottoscrizione
 > * Indirizzarvi i dati della risorsa
 > * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest
 > * Visualizzare i dati di monitoraggio nell'account di archiviazione
@@ -189,7 +189,7 @@ In questa esercitazione è stato descritto come configurare i dati di monitoragg
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione per conservare i dati di monitoraggio
-> * Indirizzarvi i registri della sottoscrizione
+> * Indirizzarvi i log della sottoscrizione
 > * Indirizzarvi i dati della risorsa
 > * Indirizzarvi i dati della macchina virtuale, ovvero del sistema operativo guest
 > * Visualizzare i dati di monitoraggio nell'account di archiviazione

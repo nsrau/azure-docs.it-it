@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017430"
@@ -28,7 +28,7 @@ Contoso è una società di giochi online che crea giochi per più piattaforme: c
 
 L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o cross-selling basate sulla cronologia dei giochi degli utenti e aggiungere nuove funzionalità interessanti per promuovere la crescita del business e fornire un'esperienza migliore ai clienti. In questo caso, usiamo una società di giochi come esempio di società. La società desidera ottimizzare i giochi in base al comportamento dei giocatori. Questi principi si applicano a qualsiasi società che desideri coinvolgere i clienti nei suoi beni e servizi e migliorare la loro esperienza.
 
-In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I registri di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
+In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I log di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
 
 ## <a name="deploy-solution"></a>Distribuire la soluzione
 Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../../storage/common/storage-quickstart-create-account.md) e di una [database SQL di Azure](../../sql-database/sql-database-get-started.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.

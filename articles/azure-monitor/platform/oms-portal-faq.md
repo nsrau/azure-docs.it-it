@@ -89,7 +89,7 @@ Gestire la maggior parte delle impostazioni dei dati nel menu **Impostazioni ava
 
 | Impostazione nel portale di OMS | Equivalente nel portale di Azure |
 |:---|:---|
-| Registri eventi di Windows           | Menu **Impostazioni avanzate** per l'area di lavoro. |
+| Log eventi di Windows           | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Contatori delle prestazioni di Windows | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Contatori delle prestazioni di Linux   | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | log di IIS                     | Menu **Impostazioni avanzate** per l'area di lavoro. |

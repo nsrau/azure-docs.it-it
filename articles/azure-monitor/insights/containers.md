@@ -625,7 +625,7 @@ Nella risoluzione di un errore specifico può essere utile vedere dove l'errore 
 
 
 ### <a name="to-query-logs-for-container-data"></a>Eseguire query sui registri dei dati dei contenitori
-* Scegliere un'immagine non riuscita di recente e trovare i relativi registri degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Scegliere un'immagine non riuscita di recente e trovare i relativi log degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Cercare contenitori Ubuntu](./media/containers/search-ubuntu.png)
 
   Espandere una riga nei risultati per visualizzare i dettagli per tale contenitore.

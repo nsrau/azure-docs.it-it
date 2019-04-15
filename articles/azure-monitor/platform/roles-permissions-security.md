@@ -80,10 +80,10 @@ Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Impostazioni di scalabilità automatica di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Impostazioni di diagnostica di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/EventCategories/Read |Enumerazione di tutte le categorie possibili nel log attività. Operazione usata dal portale di Azure. |
-| Microsoft.Insights/eventtypes/digestevents/Read |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. |
+| Microsoft.Insights/eventtypes/digestevents/Read |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai log attività tramite il portale. |
 | Microsoft.Insights/eventtypes/values/Read |Elenco degli eventi dei registri attività (eventi di gestione) in una sottoscrizione. Questa autorizzazione è applicabile sia all'accesso programmatico che all'accesso al portale per il registro attività. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Impostazioni di diagnostica di lettura, scrittura ed eliminazione per i log del flusso di rete. |
-| Microsoft.Insights/LogDefinitions/Read |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. |
+| Microsoft.Insights/LogDefinitions/Read |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai log attività tramite il portale. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Profili di log di lettura, scrittura ed eliminazione (streaming del log attività nell'hub eventi o nell'account di archiviazione). |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Avvisi delle metriche near real time di lettura, scrittura ed eliminazione |
 | Microsoft.Insights/MetricDefinitions/Read |Definizioni delle metriche (elenco dei tipi di metriche disponibili per una risorsa). |
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 I dati sul monitoraggio dei dati, in particolare i file di registro, possono contenere informazioni sensibili, come indirizzi IP o nomi utente. I dati sul monitoraggio di Azure sono forniti in tre forme base:
 
 1. Registro attività, che descrive tutte le azioni del piano di controllo nella sottoscrizione di Azure.
-2. Registri di diagnostica, cioè registri generati da una risorsa.
+2. Log di diagnostica, cioè log generati da una risorsa.
 3. Metriche, generate dalle risorse.
 
 Tutti e tre questi tipi di dati possono essere archiviati in un account di archiviazione o trasmessi a un hub eventi, che sono entrambi risorse di Azure di scopo generico. Poiché si tratta di risorse di scopo generico, la creazione, l'eliminazione e l'accesso sono operazioni privilegiate e riservate agli amministratori. Si consiglia di usare le procedure seguenti con le risorse relative al monitoraggio per evitare un uso improprio:

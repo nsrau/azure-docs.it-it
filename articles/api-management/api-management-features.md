@@ -15,7 +15,7 @@ ms.date: 11/26/2018
 ms.author: apimpm
 ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
 ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54156698"
@@ -39,7 +39,7 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 | [Backup e ripristino](api-management-howto-disaster-recovery-backup-restore.md)               | No                             | Yes            | Sì            | Sì            | Yes            |
 | [Gestione tramite Git](api-management-configuration-repository-git.md)                        | No                             | Yes            | Sì            | Sì            | Yes            |
 | API di gestione diretta                                                                        | No                             | Yes            | Sì            | Sì            | Yes            |
-| Metriche e registri di Monitoraggio di Azure                                                               | N.<sup>5</sup>                | Yes            | Sì            | Sì            | Yes            |
+| Metriche e log di Monitoraggio di Azure                                                               | N.<sup>5</sup>                | Yes            | Sì            | Sì            | Yes            |
 
 <sup>1</sup> Consente l'utilizzo di Azure AD (e Azure AD B2C) come provider di identità per l'accesso dell'utente al portale per sviluppatori.<br/>
 <sup>2</sup> Sono incluse le funzionalità correlate, ad esempio utenti, gruppi, problemi, modelli di posta elettronica e applicazioni, nonché notifiche.<br/>

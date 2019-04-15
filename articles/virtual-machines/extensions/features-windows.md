@@ -356,7 +356,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
-4. Esaminare i registri di sistema. Controllare la presenza di altre operazioni che potrebbero aver interferito con l'estensione, ad esempio un'installazione a esecuzione prolungata di un'altra applicazione che ha richiesto l'accesso di gestione pacchetti esclusiva.
+4. Esaminare i log di sistema. Controllare la presenza di altre operazioni che potrebbero aver interferito con l'estensione, ad esempio un'installazione a esecuzione prolungata di un'altra applicazione che ha richiesto l'accesso di gestione pacchetti esclusiva.
 
 ### <a name="common-reasons-for-extension-failures"></a>Motivi comuni che causano errori delle estensioni
 

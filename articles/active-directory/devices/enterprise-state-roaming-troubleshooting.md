@@ -95,7 +95,7 @@ Per procedure di risoluzione dei problemi avanzate, è possibile usare il Visual
 
 ### <a name="sync-does-not-work-on-devices-that-have-apps-side-loaded-using-mdm-software"></a>La sincronizzazione non funziona sui dispositivi che hanno app caricate in sideload con software MDM
 
-Influisce sui dispositivi che eseguono Windows 10 Anniversary Update (versione 1607). Nel Visualizzatore eventi, nei registri SettingSync-Azure, è presente di frequente l'ID evento 6013 con l'errore 80070259.
+Influisce sui dispositivi che eseguono Windows 10 Anniversary Update (versione 1607). Nel Visualizzatore eventi, nei log SettingSync-Azure, è presente di frequente l'ID evento 6013 con l'errore 80070259.
 
 **Azione consigliata**  
 Assicurarsi che il client Windows 10 v1607 disponga dell'aggiornamento cumulativo del 23 agosto 2016 (build [KB3176934](https://support.microsoft.com/kb/3176934) del sistema operativo 14393.82). 
@@ -180,7 +180,7 @@ Nel primo caso, richiedere all'utente di aggiornare le credenziali e di effettua
 
 ### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID evento 1098: Errore: 0xCAA5001C Operazione broker del token non riuscita  
 
-Nel Visualizzatore eventi, nei registri AAD/Operational, questo errore può essere presente con Evento 1104: chiamata del plug-in AAD Cloud Il token Get ha restituito l'errore: 0xC000005F. Questo problema si verifica se mancano autorizzazioni o attributi di proprietà.  
+Nel Visualizzatore eventi, nei log AAD/Operational, questo errore può essere presente con Evento 1104: chiamata del plug-in AAD Cloud Il token Get ha restituito l'errore: 0xC000005F. Questo problema si verifica se mancano autorizzazioni o attributi di proprietà.  
 
 **Azione consigliata**  
 Procedere con i passaggi elencati in [KB3196528](https://support.microsoft.com/kb/3196528).  
