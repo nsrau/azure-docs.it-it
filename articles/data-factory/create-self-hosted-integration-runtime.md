@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261038"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565531"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -184,13 +184,13 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 
 ### <a name="monitoring"></a>Monitoraggio 
 
-- **Runtime di integrazione condiviso**
+- **IR condiviso**
 
   ![Selezioni per la ricerca di un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
   ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **Runtime di integrazione collegato**
+- **IR collegato**
 
   ![Selezioni per la ricerca di un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -255,7 +255,7 @@ Se nell'ambiente di rete aziendale è presente un server proxy per accedere a In
 
 ![Specificare il proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Il runtime di integrazione self-hosted usa il server proxy per connettersi al servizio cloud. Selezionare il collegamento **Change** (Modifica) durante la configurazione iniziale. Viene visualizzata la finestra di dialogo per l'impostazione del proxy.
+Quando è configurato, il runtime di integrazione self-hosted Usa server proxy per connettersi al servizio cloud, di origine / destinazione (quelle che usano HTTP / protocollo HTTPS). Si tratta di Select **Modifica collegamento** durante la configurazione iniziale. Viene visualizzata la finestra di dialogo per l'impostazione del proxy.
 
 ![Impostare il proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

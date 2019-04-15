@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361306"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565683"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurare l'indirizzamento IP per la connessione alle macchine virtuali di Azure dopo il failover
 
@@ -62,7 +62,7 @@ Ecco cosa deve fare Woodgrove per poter replicare le macchine virtuali in Azure 
 
 1. Creare una rete virtuale di Azure in cui verranno create le macchine virtuali di Azure dopo il failover dei computer locali. Deve trattarsi di un'estensione della rete locale, per agevolare il failover delle applicazioni.
 2. Prima del failover, in Site Recovery la società assegna lo stesso indirizzo IP nelle proprietà del computer. Dopo il failover, Site Recovery assegna questo indirizzo alla macchina virtuale di Azure.
-3. Dopo l'esecuzione del failover e dopo la creazione delle macchine virtuali di Azure con lo stesso indirizzo IP, queste si connettono alla rete usando una [connessione da rete virtuale a rete virtuale](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Questa azione può essere eseguita tramite script.
+3. Dopo l'esecuzione del failover e dopo la creazione delle macchine virtuali di Azure con lo stesso indirizzo IP, queste si connettono alla rete usando una [connessione da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Questa azione può essere eseguita tramite script.
 4. È necessario modificare le route, in modo che riflettano il passaggio dell'indirizzo 192.168.1.0/24 ad Azure.
 
 

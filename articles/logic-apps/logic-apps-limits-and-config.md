@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e0a0bd0e630281d2218c74050e810fe73361c6be
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578544"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565904"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -26,7 +26,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-| Attività | Limite | Notes |
+| Attività | Limite | Note |
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
@@ -48,7 +48,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Attività | Limite | Notes |
+| Attività | Limite | Note |
 |------|-------|-------|
 | Durata esecuzione | 90 giorni | Per modificare questo limite, vedere [Modificare la durata dell'esecuzione e la conservazione nella risorsa di archiviazione](#change-duration). |
 | Intervallo di ricorrenza minimo | 1 secondo | |
@@ -75,7 +75,7 @@ Per modificare il limite predefinito e impostarlo su un valore compreso tra 7 gi
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Attività | Limite | Notes |
+| Attività | Limite | Note |
 | ---- | ----- | ----- |
 | Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -93,7 +93,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="global-logic-apps-service"></a>Servizio App per la logica globale
 
-| Attività | Limite | Notes |
+| Attività | Limite | Note |
 | ---- | ----- | ----- |
 | Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo consentito. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
@@ -105,7 +105,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione (ISE)
 
-| Attività | Limite | Notes |
+| Attività | Limite | Note |
 |------|-------|-------|
 | Limite di esecuzione di unità di base | 10.000 esecuzioni di azioni per 5 minuti, <br>ovvero circa 80 milioni di esecuzioni di azioni al mese | |
 | Limite di esecuzione di unità di scala | 5.000 esecuzioni di azioni per 5 minuti, <br>quale è ~ 40 milioni di esecuzioni di azioni al mese | |
@@ -139,7 +139,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 | Limite per la valutazione delle espressioni | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
 ||||
 
-#### <a name="retry-policy"></a>Criteri per i tentativi
+#### <a name="retry-policy"></a>Criteri di ripetizione
 
 | Attività | Limite | Note |
 | ---- | ----- | ----- |
@@ -212,12 +212,12 @@ Usare il livello gratuito solo per scenari esplorativi, non per scenari di produ
 | Elemento | Limite | Note |
 |----------|-------|-------|
 | Assembly | 50 | |
-| Configurazioni batch | 5 |
-| Certificati | 50 | |
+| Configurazioni batch | 50 |
+| Certificati | 500 | |
 | Contratti commerciali EDI | 500 | |
 | Partner commerciali EDI | 500 | |
-| Mappe | 500 | |
-| Schemi | 500 |
+| Mappe | 1.000 | |
+| Schemi | 1.000 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -228,7 +228,7 @@ Usare il livello gratuito solo per scenari esplorativi, non per scenari di produ
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | Mappa (file XSLT) | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare l'[API REST di App per la logica di Azure Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
-| Schema | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| SCHEMA | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
 | Endpoint di runtime | Limite | Note |
@@ -284,10 +284,10 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 
 ### <a name="inbound-ip-addresses---logic-apps-service-only"></a>Indirizzi IP in ingresso - solo per il servizio App per la logica
 
-| Regione | IP |
+| Region | IP |
 |--------|----|
 | Australia orientale | 13.75.153.66, 52.187.231.161, 104.210.89.222, 104.210.89.244 |
-| Australia sudorientale | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
+| Australia sud-orientale | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brasile meridionale | 191.234.166.198, 191.235.86.199, 191.235.94.220, 191.235.95.229 |
 | Canada centrale | 13.88.249.209, 40.85.241.105, 52.233.29.79, 52.233.30.218 |
 | Canada orientale | 40.86.202.42, 52.229.125.57, 52.232.129.143, 52.232.133.109 |
@@ -302,7 +302,7 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 | Europa settentrionale | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
 | Stati Uniti centro-meridionali | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | India meridionale | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
-| Asia sudorientale | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Asia sud-orientale | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Stati Uniti centro-occidentali | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
 | Europa occidentale | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
 | India occidentale | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
@@ -316,10 +316,10 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 
 ### <a name="outbound-ip-addresses---logic-apps-service--managed-connectors"></a>Indirizzi IP in uscita - servizio App per la logica e connettori gestiti
 
-| Regione | IP App per la logica | IP connettori gestiti |
+| Region | IP App per la logica | IP connettori gestiti |
 |--------|---------------|-----------------------|
 | Australia orientale | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 |
-| Australia sudorientale | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 |
+| Australia sud-orientale | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 |
 | Brasile meridionale | 191.234.161.28, 191.234.161.168, 191.234.162.131, 191.234.162.178, 191.234.182.26, 191.235.82.221, 191.235.91.7, 191.237.255.116 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207 | 
 | Canada centrale | 13.71.184.150, 13.71.186.1, 40.85.250.135, 40.85.250.212, 40.85.252.47, 52.233.29.92, 52.228.39.241, 52.228.39.244 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126 |
 | Canada orientale | 40.86.203.228, 40.86.216.241, 40.86.217.241, 40.86.226.149, 40.86.228.93, 52.229.120.45, 52.229.126.25, 52.232.128.155 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 |
@@ -334,7 +334,7 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 | Europa settentrionale | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 |
 | Stati Uniti centro-meridionali | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
 | India meridionale | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225 |
-| Asia sudorientale | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
+| Asia sud-orientale | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
 | Stati Uniti centro-occidentali | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 |
 | Europa occidentale | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | India occidentale | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |

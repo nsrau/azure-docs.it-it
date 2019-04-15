@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163787"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565411"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Come aggiungere entità con training preliminare
 Questa esercitazione illustra come aggiungere entità con training preliminare a un modello di Conversation Learner.
@@ -62,7 +62,7 @@ Per iniziare, passare alla home page nell'interfaccia utente Web.
 
 1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
 2. Immettere **qual è la data?** per **risposta del Bot...** . Le entità con training preliminare non possono essere **le entità necessarie** come vengono riconosciute per impostazione predefinita per tutte le espressioni.
-3. Immettere **builtin datetimev2** per **qualificato dà diritto**.
+3. Immettere **builtin datetimev2** per **entità qualificato**.
 4. Selezionare **Create**.
 
 ![](../media/T08_action_create_2.png)

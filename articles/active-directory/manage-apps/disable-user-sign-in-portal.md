@@ -11,34 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdbabc1a1ccf4bf27172a4db53255eeb1576def9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a168c3415996ff97137c4e312348f74a48e9531b
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180505"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564993"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
-Disabilitare un'applicazione aziendale in modo da impedirne l'accesso da parte degli utenti in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
+È facile disabilitare un'applicazione aziendale in modo che gli utenti non possono accedervi in Azure Active Directory (Azure AD). Sono necessarie le autorizzazioni appropriate per gestire l'app aziendale. E, è necessario essere amministratore globale della directory.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Come è possibile disabilitare l'accesso degli utenti?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2. Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **INVIO**.
-3. Nel riquadro **Azure Active Directory** -  ***nomedirectory***, vale a dire il riquadro Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
-
-    ![Apertura di app aziendali](./media/disable-user-sign-in-portal/open-enterprise-apps.png)
-4. Nel riquadro **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Viene visualizzato un elenco di app che è possibile gestire.
-5. Nel riquadro **Applicazioni aziendali - Tutte le applicazioni** selezionare un'app.
-6. Nel riquadro ***nomeapp***, vale a dire il riquadro con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
-
-    ![Selezione del comando All applications (Tutte le applicazioni)](./media/disable-user-sign-in-portal/select-app.png)
-7. Nel riquadro ***nomeapp*** - **Proprietà** selezionare **No** per **Abilitata per l'accesso degli utenti?**.
-8. Selezionare il comando **Salva** .
+1. Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **INVIO**.
+1. Nel **Azure Active Directory** -  ***nomedirectory*** riquadro (vale a dire il riquadro Azure AD per la directory che si sta gestendo), selezionare **applicazioni aziendali**.
+1. Nel **applicazioni aziendali - tutte le applicazioni** riquadro, viene visualizzato un elenco di App che è possibile gestire. Selezionare un'app.
+1. Nel riquadro ***nomeapp***, vale a dire il riquadro con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
+1. Nel riquadro ***nomeapp*** - **Proprietà** selezionare **No** per **Abilitata per l'accesso degli utenti?**.
+1. Selezionare il comando **Salva** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)

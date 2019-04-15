@@ -1,25 +1,25 @@
 ---
 title: Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure | Microsoft Docs
 description: Questo articolo descrive come eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527680"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565428"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modalità di esecuzione di Deployment Planner
-È possibile eseguire lo strumento da riga di comando (ASRDeploymentPlanner.exe) in una delle quattro modalità seguenti:
+È possibile eseguire lo strumento da riga di comando (ASRDeploymentPlanner.exe) in una delle tre modalità seguenti:
 
 1.  [Profilatura](#profile-vmware-vms)
 2.  [Generazione di report](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report è denominato `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e inserito nella directory specificata.
 
 >[!NOTE]
->Il report richiede che il simbolo decimale sia configurato come "." per generare stime di costi nel server dove è in esecuzione Deployment Planner. Se è stato configurato "," come simbolo decimale in un computer Windows, passare a "Modificare il formato di numeri, data e ora" nel Pannello di controllo e selezionare "Impostazioni aggiuntive" per cambiare il simbolo decimale in ".".
+>Generazione di report richiede un PC Windows o Windows Server con Excel 2013 o versione successiva. Il separatore decimale in questo computer deve essere configurato come "." per generare le stime dei costi. Nel caso in cui è stato impostato "," come separatore decimale, passare a "Modifica data, ora o formati numerici" nel Pannello di controllo e passare a "Impostazioni aggiuntive" per modificare il separatore delle migliaia a".".
 
 Al termine della profilatura, è possibile eseguire lo strumento in modalità di generazione di report. La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi dello strumento per l'esecuzione in modalità di generazione di report.
 

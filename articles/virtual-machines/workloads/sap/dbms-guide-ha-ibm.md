@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502129"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565802"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -538,7 +538,7 @@ Lo stato originale in un sistema SAP è documentato nella transazione DBACOCKPIT
 
 
 > [!IMPORTANT] 
-> Prima di iniziare il test, assicurarsi che Pacemaker non siano presenti azioni non riuscite (crm status), non sono presenti vincoli di posizione (leftovers del test di migrazione) e del funzionamento della sincronizzazione di IBM Db2 HADR. Verificare con con db2 utente\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Prima di iniziare il test, assicurarsi che Pacemaker non siano presenti azioni non riuscite (crm status), non sono presenti vincoli di posizione (leftovers del test di migrazione) e del funzionamento della sincronizzazione di IBM Db2 HADR. Contattare l'utente db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Eseguire la migrazione il nodo che esegue il database di Db2 primario eseguendo il seguente comando:
@@ -879,7 +879,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 ## <a name="next-steps"></a>Passaggi successivi
 Consultare la documentazione:
 
-- [Architettura e scenari di disponibilità elevata per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [Scenari e architettura a disponibilità elevata per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Configurazione di Pacemaker su SUSE Linux immettere
 - pri
 - Se Server in Azure] (https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)

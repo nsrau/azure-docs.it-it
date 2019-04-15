@@ -2,18 +2,18 @@
 title: Distribuire il server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery
 services: site-recovery
-author: mayurigupta13
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449220"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565125"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -121,7 +121,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ### <a name="configure-settings"></a>Configurare le impostazioni
 
-1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Dagli elenchi a discesa, selezionare prima l'interfaccia di rete utilizzato dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio mobility nelle macchine di origine e quindi selezionare la scheda di rete utilizzato dal Server di configurazione per la connettività con Azure. Selezionare quindi **Salva**. È possibile modificare questa impostazione dopo averlo configurato. È consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP STATICO e non DHCP.
+1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Dagli elenchi a discesa selezionare prima l'interfaccia di rete usata dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio Mobility nelle macchine di origine e quindi selezionare la scheda di rete usata dal server di configurazione per la connettività con Azure. Selezionare quindi **Salva**. È possibile modificare questa impostazione dopo averlo configurato. È consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP STATICO e non DHCP.
 2. Nelle **insieme di credenziali dei servizi di ripristino selezionare**, accedere a Microsoft Azure con le credenziali utilizzate **passaggio 6** di "[Registra server di configurazione con servizi di Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. Dopo aver effettuato l'accesso, selezionare la sottoscrizione di Azure e il gruppo di risorse rilevanti e insieme di credenziali.
 

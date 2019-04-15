@@ -1,43 +1,47 @@
 ---
 title: Eseguire processi Apache Sqoop con Azure HDInsight (Apache Hadoop)
 description: Informazioni su come usare Azure PowerShell da una workstation per eseguire importazioni ed esportazioni con Sqoop tra un cluster Hadoop e un database SQL di Azure.
-ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: 9351ffabd1a263de1ff262fe5f6fef48be518836
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.date: 04/12/2019
+ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446195"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565853"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informazioni su come usare Apache Sqoop in HDInsight per effettuare importazioni ed esportazioni tra un cluster HDInsight e un database SQL di Azure o un database di SQL Server.
+Informazioni su come usare Apache Sqoop in HDInsight per importare ed esportare dati tra un cluster HDInsight e un database SQL di Azure.
 
-Benché Apache Hadoop rappresenti una scelta ottimale per l'elaborazione di dati non strutturati e semistrutturati, ad esempio log e file, potrebbe essere necessario elaborare anche dati strutturati archiviati in database relazionali.
+Anche se Apache Hadoop è una scelta naturale per l'elaborazione dei dati non strutturati e semi-strutturati, ad esempio log e file, è anche possibile necessario elaborare i dati strutturati archiviati nei database relazionali.
 
-[Apache Sqoop][sqoop-user-guide-1.4.4] è uno strumento progettato per il trasferimento di dati tra cluster Hadoop e database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL Server, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Apache Hive e quindi esportarli nuovamente in un sistema RDBMS. In questa esercitazione si userà un database SQL Server per il database relazionale.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) è uno strumento progettato per trasferire dati tra i cluster Hadoop e database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL Server, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Apache Hive e quindi esportarli nuovamente in un sistema RDBMS. In questo articolo, si usa un database di SQL Server per il database relazionale.
 
-Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, vedere l'articolo relativo alle [novità delle versioni cluster incluse in HDInsight][hdinsight-versions].
+> [!IMPORTANT]  
+> Questo articolo si configura un ambiente di test per eseguire il trasferimento dei dati. È quindi scegliere un metodo di trasferimento dati per questo ambiente da uno dei metodi nella sezione [processi Sqoop eseguire](#run-sqoop-jobs), più avanti.
+
+Per le versioni di Sqoop supportate nei cluster HDInsight, vedere [novità introdotta in versioni di cluster incluse in HDInsight?](../hdinsight-component-versioning.md)
 
 ## <a name="understand-the-scenario"></a>Informazioni sullo scenario
 
 Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti:
 
-* Un file di log Apache Log4j presente in */example/data/sample.log*. Dal file verranno estratti i log seguenti:
-  
-        2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
-        2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
-        2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
-        ...
-* Una tabella di Hive denominata *hivesampletable*, che fa riferimento al file di dati presente in */hive/warehouse/hivesampletable*. La tabella contiene alcuni dati relativi al dispositivo mobile. 
+* Un file di log Log4j di Apache, che si trova in `/example/data/sample.log`. Dal file verranno estratti i log seguenti:
+
+```text
+2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
+2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
+2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
+...
+```
+
+* Una tabella Hive denominata `hivesampletable`, che fa riferimento al file di dati che si trova in `/hive/warehouse/hivesampletable`. La tabella contiene alcuni dati relativi al dispositivo mobile.
   
   | Campo | Tipo di dati |
   | --- | --- |
@@ -53,102 +57,60 @@ Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-In questa esercitazione vengono usati due set di dati per testare l'importazione e l'esportazione di Sqoop.
+In questo articolo usare questi due set di dati per testare Sqoop importazione ed esportazione.
 
-## <a name="create-cluster-and-sql-database"></a>Creare un cluster e un database SQL
-Questa sezione illustra come creare un cluster, un database SQL e gli schemi del database SQL per eseguire l'esercitazione con il portale di Azure e un modello di Azure Resource Manager. Il modello è reperibile nel [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Il modello di Resource Manager chiama un pacchetto bacpac per distribuire gli schemi della tabella nel database SQL.  Il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
-   
+## <a name="create-cluster-and-sql-database"></a>Configurare l'ambiente di test
+Il cluster, database SQL e altri oggetti vengono creati tramite il portale di Azure usando un modello di Azure Resource Manager. Il modello è reperibile nel [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Il modello di Resource Manager chiama un pacchetto bacpac per distribuire gli schemi di tabella in un database SQL.  Il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
+
 ```json
 "storageKeyType": "Primary",
 "storageKey": "<TheAzureStorageAccountKey>",
 ```
 
-Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL, vedere l'[appendice A](#appendix-a---a-powershell-sample).
-
 > [!NOTE]  
 > L'importazione tramite un modello o il portale di Azure supporta solo l'importazione di un file BACPAC dall'archiviazione BLOB di Azure.
 
-**Per configurare l'ambiente usando un modello di gestione delle risorse**
-1. Fare clic sull'immagine seguente per aprire un modello di Resource Manager nel portale di Azure.         
-   
+1. Selezionare l'immagine seguente per aprire il modello di Resource Manager nel portale di Azure.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
 2. Immettere le seguenti proprietà:
 
-    - **Sottoscrizione** Immettere la sottoscrizione di Azure.
-    - **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure o selezionarne uno esistente.  Un gruppo di risorse viene usato per finalità di gestione  come contenitore per gli oggetti.
-    - **Posizione**: Scegliere un'area,
-    - **Nome del cluster**: Immettere un nome per il cluster Hadoop.
-    - **Nome di accesso e password del cluster**: Il nome di accesso predefinito è admin.
-    - **Nome utente e password SSH**.
-    - **SQL database server login name and password**(Nome utente e password di accesso al server di database SQL).
-    - **_artifacts Location** (_Posizione elementi): Usare il valore predefinito a meno che non si vuole usare un file bacpac in un percorso diverso.
-    - **_artifacts Location Sas Token** (_Token di firma di accesso condiviso posizione elementi): Lasciare vuoto.
-    - **Bacpac File Name** (Nome file BACPAC): Usare il valore predefinito a meno che non si vuole usare un file bacpac.
-     
-        I valori seguenti sono hardcoded nella sezione relativa alle variabili:
-        
-        |NOME|Valore|
-        |----|-----|
-        | Nome dell'account di archiviazione predefinito | &lt;ClusterName>store |
-        | Nome server del database SQL di Azure | &lt;NomeCluster>dbserver |
-        | Nome del database SQL di Azure | &lt;NomeCluster>db |
-     
+    |Campo |Valore |
+    |---|---|
+    |Sottoscrizione |Selezionare la sottoscrizione di Azure nell'elenco a discesa.|
+    |Gruppo di risorse |Selezionare il gruppo di risorse nell'elenco a discesa o crearne uno nuovo|
+    |Località |Selezionare un'area nell'elenco a discesa.|
+    |Cluster Name |Immettere un nome per il cluster Hadoop. Usare solo una lettera minuscola.|
+    |Nome utente dell'account di accesso del cluster |Mantenere il valore già popolato `admin`.|
+    |Password di accesso al cluster |Immettere una password.|
+    |Nome utente SSH |Mantenere il valore già popolato `sshuser`.|
+    |SSH Password |Immettere una password.|
+    |Account di accesso amministratore SQL |Mantenere il valore già popolato `sqluser`.|
+    |Password amministratore SQL |Immettere una password.|
+    |Artifacts location | Usare il valore predefinito a meno che non si vuole usare un file bacpac in un percorso diverso.|
+    |Artifacts location Sas Token |Lasciare vuoto.|
+    |Nome del File Bacpac |Usare il valore predefinito a meno che non si vuole usare un file bacpac.|
+    |Località |Usare il valore predefinito.|
+
+    Il nome di Server SQL di Azure sarà `<ClusterName>dbserver`. Il nome del database saranno `<ClusterName>db`. Il nome di account di archiviazione predefinito sarà `e6qhezrh2pdqu`.
+
 3. Selezionare **Accetto le condizioni riportate sopra**.
-4. Fare clic su **Acquista**. Viene visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
 
-Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL di Microsoft
-
-* **Database SQL di Azure**: è necessario configurare una regola del firewall per il server di database SQL di Azure per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere l'[introduzione all'uso del database SQL di Azure][sqldatabase-get-started]. 
-  
-  > [!NOTE]  
-  > Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, è necessario abilitarla dal portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere l'articolo su come [creare e configurare un database SQL][sqldatabase-create-configure].
-
-* **SQL Server**: se il cluster HDInsight si trova sulla stessa rete virtuale di Azure di SQL Server, è possibile usare la procedura descritta in questo articolo per importare ed esportare i dati in un database SQL Server.
-  
-  > [!NOTE]  
-  > HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
-
-  
-  * Per creare e configurare una rete virtuale, vedere [Creare una rete virtuale usando il portale di Azure](../../virtual-network/quick-create-portal.md).
-    
-    * Quando si usa SQL Server nel proprio data center, è necessario configurare la rete virtuale come *da sito a sito* o *da punto a sito*.
-      
-      > [!NOTE]  
-      > Per le reti virtuali **da punto a sito**, è necessario che su SQL Server venga eseguita l'applicazione di configurazione del client VPN, disponibile nel **Dashboard** di configurazione della rete virtuale di Azure.
-
-
-    * Quando si usa SQL Server in una macchina virtuale di Azure, sarà possibile usare qualsiasi configurazione di rete virtuale a condizione che la macchina virtuale sulla quale è ospitato SQL Server sia un membro della stessa rete virtuale di HDInsight.
-  * Per creare un cluster HDInsight in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Apache Hadoop in HDInsight con opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md)
-    
-    > [!NOTE]  
-    > SQL Server deve sempre consentire l'autenticazione. Per la procedura descritta in questo articolo è necessario usare un account di accesso di SQL Server.
-
-
-**Per convalidare la configurazione**
-
-1. Aprire il gruppo di risorse nel portale di Azure. Nel gruppo vengono visualizzate quattro risorse:
-
-    - Cluster
-    - Server di database
-    - Database
-    - Account di archiviazione predefinito
-
-2. Aprire il database in Microsoft SQL Server Management Studio.  Vengono visualizzati due database distribuiti:
-
-    ![Azure HDInsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
-
+4. Selezionare **Acquisto**. Viene visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
 
 ## <a name="run-sqoop-jobs"></a>Eseguire processi Sqoop
+
 HDInsight è in grado di eseguire processi Sqoop in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
-| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione**batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
+| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione**batch** | ...da questo **sistema operativo client** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, Unix, Mac OS X o Windows |
-| [.NET SDK per Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux o Windows |Windows (per ora) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux o Windows |Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X o Windows |
+| [.NET SDK per Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (per ora) |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
 ## <a name="limitations"></a>Limitazioni
+
 * Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
 * Invio in batch: con HDInsight basato su Linux, quando si usa il comando `-batch` durante gli inserimenti, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
 
@@ -157,488 +119,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 * [Usare Apache Hive con HDInsight](../hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](../hdinsight-use-pig.md)
-* [Caricare dati in HDInsight][hdinsight-upload-data]: trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.
-
-## <a name="appendix-a---a-powershell-sample"></a>Appendice A - Esempio di PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-L'esempio di PowerShell esegue questa procedura:
-
-1. Connettersi ad Azure.
-2. Creare un gruppo di risorse di Azure. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../../azure-resource-manager/manage-resource-groups-powershell.md)
-3. Creare un server di Database SQL di Azure, un database SQL Azure e due tabelle. 
-   
-    Se invece si utilizza SQL Server, utilizzare le istruzioni seguenti per creare le tabelle:
-   
-        CREATE TABLE [dbo].[log4jlogs](
-         [t1] [nvarchar](50),
-         [t2] [nvarchar](50),
-         [t3] [nvarchar](50),
-         [t4] [nvarchar](50),
-         [t5] [nvarchar](50),
-         [t6] [nvarchar](50),
-         [t7] [nvarchar](50))
-   
-        CREATE TABLE [dbo].[mobiledata](
-         [clientid] [nvarchar](50),
-         [querytime] [nvarchar](50),
-         [market] [nvarchar](50),
-         [deviceplatform] [nvarchar](50),
-         [devicemake] [nvarchar](50),
-         [devicemodel] [nvarchar](50),
-         [state] [nvarchar](50),
-         [country] [nvarchar](50),
-         [querydwelltime] [float],
-         [sessionid] [bigint],
-         [sessionpagevieworder][bigint])
-   
-    Il modo più semplice per esaminare il database e le tabelle è quello di usare Visual Studio. Il server del database e il database possono essere esaminati tramite il portale di Azure.
-4. Creare un cluster HDInsight
-   
-    Per esaminare il cluster, è possibile usare il portale di Azure o Azure PowerShell.
-5. Pre-elaborare i file dei dati di origine.
-   
-    In questa esercitazione nel database SQL di Azure vengono esportati un file di log log4j (un file con valori delimitati) e una tabella di Hive. Il file con valori delimitati è denominato */example/data/sample.log*. Alcuni esempi di file di log log4j sono stati visualizzati in precedenza in questa esercitazione. Nel file di log sono presenti alcune righe vuote e righe simili alle seguenti:
-   
-        java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
-            at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
-   
-    Questa condizione può andar bene per altri esempi in cui vengono usati questi dati, ma è necessario rimuovere queste eccezioni prima di poterli importare nel database SQL di Azure o in SQL Server. In presenza di una stringa vuota o di una riga contenente un numero di elementi inferiore al numero dei campi definiti nella tabella del database SQL di Azure, non è possibile eseguire l'esportazione con Sqoop. La tabella log4jlogs comprende sette campi tipo stringa.
-   
-    Questa procedura crea un nuovo file nel cluster: tutorials/usesqoop/data/sample.log. Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. Nell'[introduzione a HDInsight][hdinsight-get-started] è riportato un esempio di codice per usare Azure PowerShell per scaricare un file e visualizzarne il contenuto.
-6. Esportare un file dei dati nel database SQL di Azure.
-   
-    Il file di origine è tutorials/usesqoop/data/sample.log. La tabella in cui vengono esportati i dati è denominata log4jlogs.
-   
-   > [!NOTE]  
-   > Ad eccezione delle informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure e per SQL Server. La procedura è stata verificata con la configurazione seguente:
-   > 
-   > * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale ha connesso il cluster HDInsight a un server SQL in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere [Creare cluster Hadoop in HDInsight con opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md).
-   > * **SQL Server 2014**: configurato per consentire l'autenticazione e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
-   > 
-   > 
-7. Esportare una tabella Hive nel database SQL di Azure.
-8. Importare la tabella mobiledata nel cluster HDInsight.
-   
-    Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell.  Nell'[introduzione a HDInsight][hdinsight-get-started] è riportato un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
-
-### <a name="the-powershell-sample"></a>L'esempio di PowerShell.
-
-```powershell
-# Prepare an Azure SQL database to be used by the Sqoop tutorial
-
-#region - provide the following values
-
-$subscriptionID = "<Enter your Azure Subscription ID>"
-
-$sqlDatabaseLogin = "<Enter a SQL Database Login name>" #SQL Database server login
-$sqlDatabasePassword = "<Enter a Password>"
-
-$httpUserName = "admin"  #HDInsight cluster username
-$httpPassword = "<Enter a Password>"
-
-$sshUserName = "sshuser" #HDInsight ssh username
-$sshPassword = $httpPassword 
-
-# used for creating Azure service names
-$nameToken = "<Enter an alias>" 
-$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-#endregion
-
-#region - variables
-
-# Resource group variables
-$resourceGroupName = $namePrefix + "rg"
-$location = "East US 2" # used by all Azure services defined in this tutorial
-
-# SQL database varialbes
-$sqlDatabaseServerName = $namePrefix + "sqldbserver"
-$sqlDatabaseName = $namePrefix + "sqldb"
-$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
-$sqlDatabaseMaxSizeGB = 10
-
-# Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "https://bot.whatismyipaddress.com"
-$fireWallRuleName = "UseSqoop"
-
-# Used for creating tables and clustered indexes
-$cmdCreateLog4jTable = "CREATE TABLE [dbo].[log4jlogs](
-    [t1] [nvarchar](50),
-    [t2] [nvarchar](50),
-    [t3] [nvarchar](50),
-    [t4] [nvarchar](50),
-    [t5] [nvarchar](50),
-    [t6] [nvarchar](50),
-    [t7] [nvarchar](50))"
-
-$cmdCreateLog4jClusteredIndex = "CREATE CLUSTERED INDEX log4jlogs_clustered_index on log4jlogs(t1)"
-
-$cmdCreateMobileTable = " CREATE TABLE [dbo].[mobiledata](
-[clientid] [nvarchar](50),
-[querytime] [nvarchar](50),
-[market] [nvarchar](50),
-[deviceplatform] [nvarchar](50),
-[devicemake] [nvarchar](50),
-[devicemodel] [nvarchar](50),
-[state] [nvarchar](50),
-[country] [nvarchar](50),
-[querydwelltime] [float],
-[sessionid] [bigint],
-[sessionpagevieworder][bigint])"
-
-$cmdCreateMobileDataClusteredIndex = "CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)"
-
-# HDInsight variables
-$hdinsightClusterName = $namePrefix + "hdi"
-$defaultStorageAccountName = $namePrefix + "store"
-$defaultBlobContainerName = $hdinsightClusterName
-#endregion
-
-# Treat all errors as terminating
-$ErrorActionPreference = "Stop"
-
-#region - Connect to Azure subscription
-Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-try{Get-AzContext}
-catch{Connect-AzAccount}
-#endregion
-
-#region - Create Azure resource group
-Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
-try{
-    Get-AzResourceGroup -Name $resourceGroupName
-}
-catch{
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-}
-#endregion
-
-#region - Create Azure SQL database server
-Write-Host "`nCreating an Azure SQL Database server ..." -ForegroundColor Green
-try{
-    Get-AzSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
-catch{
-    Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
-
-    $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
-
-    $sqlDatabaseServerName = (New-AzSqlServer `
-                                -ResourceGroupName $resourceGroupName `
-                                -ServerName $sqlDatabaseServerName `
-                                -SqlAdministratorCredentials $credential `
-                                -Location $location).ServerName
-    Write-Host "`tThe new SQL database server name is $sqlDatabaseServerName." -ForegroundColor Cyan
-
-    Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
-    $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-    New-AzSqlServerFirewallRule `
-        -ResourceGroupName $resourceGroupName `
-        -ServerName $sqlDatabaseServerName `
-        -FirewallRuleName "$fireWallRuleName-workstation" `
-        -StartIpAddress $workstationIPAddress `
-        -EndIpAddress $workstationIPAddress
-
-    #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
-    #Note that this allows Azure traffic from any Azure subscription to access the server.
-    New-AzSqlServerFirewallRule `
-        -ResourceGroupName $resourceGroupName `
-        -ServerName $sqlDatabaseServerName `
-        -FirewallRuleName "$fireWallRuleName-Azureservices" `
-        -StartIpAddress "0.0.0.0" `
-        -EndIpAddress "0.0.0.0"
-}
-
-#endregion
-
-#region - Create and validate Azure SQL database
-Write-Host "`nCreating an Azure SQL database ..." -ForegroundColor Green
-
-try {
-    Get-AzSqlDatabase `
-        -ResourceGroupName $resourceGroupName `
-        -ServerName $sqlDatabaseServerName `
-        -DatabaseName $sqlDatabaseName
-}
-catch {
-    Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
-    New-AzSqlDatabase `
-        -ResourceGroupName $resourceGroupName `
-        -ServerName $sqlDatabaseServerName `
-        -DatabaseName $sqlDatabaseName `
-        -Edition "Standard" `
-        -RequestedServiceObjectiveName "S1"
-}
-
-#endregion
-
-#region - Create tables
-Write-Host "Creating the log4jlogs table and the mobiledata table ..." -ForegroundColor Green
-
-$conn = New-Object System.Data.SqlClient.SqlConnection
-$conn.ConnectionString = $sqlDatabaseConnectionString
-$conn.Open()
-
-# Create the log4jlogs table and index
-$cmd = New-Object System.Data.SqlClient.SqlCommand
-$cmd.Connection = $conn
-$cmd.CommandText = $cmdCreateLog4jTable
-$ret = $cmd.ExecuteNonQuery()
-$cmd.CommandText = $cmdCreateLog4jClusteredIndex
-$cmd.ExecuteNonQuery()
-
-# Create the mobiledata table and index
-$cmd.CommandText = $cmdCreateMobileTable
-$cmd.ExecuteNonQuery()
-$cmd.CommandText = $cmdCreateMobileDataClusteredIndex
-$cmd.ExecuteNonQuery()
-
-$conn.close()
-
-#endregion
-
-
-#region - Create HDInsight cluster
-
-Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
-
-# Create the default storage account
-New-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $defaultStorageAccountName `
-    -Location $location `
-    -Type Standard_LRS
-
-# Create the default Blob container
-$defaultStorageAccountKey = (Get-AzStorageAccountKey `
-                                -ResourceGroupName $resourceGroupName `
-                                -Name $defaultStorageAccountName)[0].Value
-$defaultStorageAccountContext = New-AzStorageContext `
-                                    -StorageAccountName $defaultStorageAccountName `
-                                    -StorageAccountKey $defaultStorageAccountKey 
-New-AzStorageContainer `
-    -Name $defaultBlobContainerName `
-    -Context $defaultStorageAccountContext 
-
-# Create the HDInsight cluster
-$pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-
-New-AzHDInsightCluster `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $HDInsightClusterName `
-    -Location $location `
-    -ClusterType Hadoop `
-    -OSType Linux `
-    -Version 3.6 `
-    -ClusterSizeInNodes 2 `
-    -HttpCredential $httpCredential `
-    -SshCredential $sshCredential `
-    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultStorageContainer $defaultBlobContainerName  
-
-# Validate the cluster
-Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
-#endregion
-
-#region - pre-process the source file
-
-Write-Host "Preprocessing the source file ..." -ForegroundColor Green
-
-# This procedure creates a new file with $destBlobName
-$sourceBlobName = "example/data/sample.log"
-$destBlobName = "tutorials/usesqoop/data/sample.log"
-
-# Define the connection string
-$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
-
-# Create block blob objects referencing the source and destination blob.
-$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
-$storageClient = $storageAccount.CreateCloudBlobClient();
-$storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
-$sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
-$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-
-# Define a MemoryStream and a StreamReader for reading from the source file
-$stream = New-Object System.IO.MemoryStream
-$stream = $sourceBlob.OpenRead()
-$sReader = New-Object System.IO.StreamReader($stream)
-
-# Define a MemoryStream and a StreamWriter for writing into the destination file
-$memStream = New-Object System.IO.MemoryStream
-$writeStream = New-Object System.IO.StreamWriter $memStream
-
-# Pre-process the source blob
-$exString = "java.lang.Exception:"
-while(-Not $sReader.EndOfStream){
-    $line = $sReader.ReadLine()
-    $split = $line.Split(" ")
-
-    # remove the "java.lang.Exception" from the first element of the array
-    # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
-    if ($split[0] -eq $exString){
-        #create a new ArrayList to remove $split[0]
-        $newArray = [System.Collections.ArrayList] $split
-        $newArray.Remove($exString)
-
-        # update $split and $line
-        $split = $newArray
-        $line = $newArray -join(" ")
-    }
-
-    # remove the lines that has less than 7 elements
-    if ($split.count -ge 7){
-        write-host $line
-        $writeStream.WriteLine($line)
-    }
-}
-
-# Write to the destination blob
-$writeStream.Flush()
-$memStream.Seek(0, "Begin")
-$destBlob.UploadFromStream($memStream)
-
-#endregion
-
-#region - export a log file from the cluster to the SQL database
-
-Write-Host "Preprocessing the source file ..." -ForegroundColor Green
-
-$tableName_log4j = "log4jlogs"
-
-# Connection string for Azure SQL Database.
-# Comment if using SQL Server
-$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-# Connection string for SQL Server.
-# Uncomment if using SQL Server.
-#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-
-$exportDir_log4j = "/tutorials/usesqoop/data"
-
-# Submit a Sqoop job
-$sqoopDef = New-AzHDInsightSqoopJobDefinition `
-    -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
-$sqoopJob = Start-AzHDInsightJob `
-                -ClusterName $hdinsightClusterName `
-                -HttpCredential $httpCredential `
-                -JobDefinition $sqoopDef #-Debug -Verbose
-Wait-AzHDInsightJob `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId
-
-Write-Host "Standard Error" -BackgroundColor Green
-Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
-Write-Host "Standard Output" -BackgroundColor Green
-Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-
-#endregion
-
-#region - export a Hive table
-
-$tableName_mobile = "mobiledata"
-$exportDir_mobile = "/hive/warehouse/hivesampletable"
-
-$sqoopDef = New-AzHDInsightSqoopJobDefinition `
-    -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
-$sqoopJob = Start-AzHDInsightJob `
-                -ClusterName $hdinsightClusterName `
-                -HttpCredential $httpCredential `
-                -JobDefinition $sqoopDef #-Debug -Verbose
-
-Wait-AzHDInsightJob `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId
-
-Write-Host "Standard Error" -BackgroundColor Green
-Get-AzHDInsightJobOutput `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -DefaultStorageAccountName $defaultStorageAccountName `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultContainer $defaultBlobContainerName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId `
-    -DisplayOutputType StandardError
-
-Write-Host "Standard Output" -BackgroundColor Green
-Get-AzHDInsightJobOutput `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -DefaultStorageAccountName $defaultStorageAccountName `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultContainer $defaultBlobContainerName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId `
-    -DisplayOutputType StandardOutput
-
-#endregion
-
-#region - import a database
-
-$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
-
-$sqoopDef = New-AzHDInsightSqoopJobDefinition `
-    -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
-
-$sqoopJob = Start-AzHDInsightJob `
-                -ClusterName $hdinsightClusterName `
-                -HttpCredential $httpCredential `
-                -JobDefinition $sqoopDef #-Debug -Verbose
-
-Wait-AzHDInsightJob `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId
-
-Write-Host "Standard Error" -BackgroundColor Green
-Get-AzHDInsightJobOutput `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -DefaultStorageAccountName $defaultStorageAccountName `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultContainer $defaultBlobContainerName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId `
-    -DisplayOutputType StandardError
-
-Write-Host "Standard Output" -BackgroundColor Green
-Get-AzHDInsightJobOutput `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $hdinsightClusterName `
-    -DefaultStorageAccountName $defaultStorageAccountName `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultContainer $defaultBlobContainerName `
-    -HttpCredential $httpCredential `
-    -JobId $sqoopJob.JobId `
-    -DisplayOutputType StandardOutput
-
-#endregion
-```
-
-
-[azure-management-portal]: https://portal.azure.com/
-
-[hdinsight-versions]:  ../hdinsight-component-versioning.md
-[hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-
-[sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
-
-[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
-
-[sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+* [Caricare dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.

@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi all'estensione Pannello di accesso di Azure per Internet Explorer | Documentazione Microsoft
+title: Risolvere i problemi di Azure Access Panel Extension per Internet Explorer | Microsoft Docs
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: ''
@@ -11,87 +11,86 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 04/11/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace2482e51454458977452f0aa610dd43a94e8a7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 63dfece713657df4450f18b8a7ce212ce2c41687
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211190"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565028"
 ---
-# <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Risoluzione dei problemi di Access Panel Extension per Internet Explorer
+# <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Risolvere i problemi di Access Panel Extension per Internet Explorer
+
 Questo articolo semplifica la risoluzione dei problemi seguenti:
 
 * Non è possibile accedere alle app tramite il portale App personali durante l'uso di Internet Explorer.
 * Viene visualizzato il messaggio "Installa software" anche se è già stato installato il software.
 
-Se l'utente è un amministratore, vedere anche: [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](deploy-access-panel-browser-extension.md)
+Se sei un amministratore, vedere [come distribuire Access Panel Extension per Internet Explorer con criteri di gruppo](deploy-access-panel-browser-extension.md).
 
 ## <a name="run-the-diagnostic-tool"></a>Eseguire lo strumento di diagnostica
-È possibile eseguire la diagnostica dei problemi di installazione di Access Panel Extension scaricando ed eseguendo il relativo strumento di diagnostica:
 
-1. [Fare clic qui per scaricare lo strumento di diagnostica.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
-2. Aprire il file, quindi premere il pulsante **Estrai tutti** .
+È possibile diagnosticare i problemi di installazione con Access Panel Extension scaricando ed eseguendo lo strumento di diagnostica del Pannello di accesso. 
+
+Per scaricare e installare lo strumento di diagnostica:
+
+1. [Selezionare questo collegamento per scaricare lo strumento di diagnostica.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+
+2. Aprire il file ed estrarre il contenuto nel computer.
    
-    ![Pulsante Estrai tutti](./media/manage-access-panel-browser-extension/extract1.png)
-3. Premere il pulsante **Estrai** per continuare.
+3. Per eseguire lo strumento, fare clic sul file denominato *AccessPanelExtensionDiagnosticTool.js* e selezionare **aperta con** > **Microsoft Windows Based Script Host** .
    
-    ![Premere Estrai](./media/manage-access-panel-browser-extension/extract2.png)
-4. Per eseguire lo strumento, fare doppio clic con il pulsante destro del mouse sul file denominato **AccessPanelExtensionDiagnosticTool** e quindi selezionare **Apri con > Microsoft Windows Based Script Host**.
-   
-    ![Apri con > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open_tool.png)
-5. Viene quindi visualizzata la finestra di diagnostica seguente, contenente la descrizione dei possibili errori dell'installazione.
-   
-    ![Esempio della finestra di diagnostica](./media/manage-access-panel-browser-extension/tool_preview.png)
-6. Fare clic su "**Sì**" per consentire al programma di risolvere i problemi rilevati.
-7. Per salvare queste modifiche, chiudere tutte le finestre di Internet Explorer e quindi riaprire Internet Explorer.<br />Se risulta ancora impossibile accedere alle applicazioni, attenersi alla procedura riportata di seguito.
+    ![Apri con > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
+
+4. Esaminare i risultati di diagnostica che vengono visualizzati e selezionare **Sì** per risolvere i problemi. Il **risultati della verifica** verrà visualizzata la finestra di dialogo con informazioni sulle operazioni da eseguire se l'estensione non funziona.  
+
+5. Leggere il messaggio e selezionare **OK**.
 
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>Verificare che Access Panel Extension sia abilitato.
-Per verificare se Access Panel Extension è abilitato in Internet Explorer:
 
-1. In Internet Explorer fare clic sull'**icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
+Per verificare di aver abilitato l'estensione Pannello di accesso in Internet Explorer:
+
+1. In Internet Explorer, selezionare la **icona dell'ingranaggio** nell'angolo superiore destro della finestra e selezionare **Opzioni Internet**.
    
-    ![Accedere a Strumenti > Opzioni Internet](./media/manage-access-panel-browser-extension/internetoptions.png)
-2. Fare clic sulla scheda **Programmi** e quindi sul pulsante **Gestione componenti aggiuntivi**.
+2. Andare alla **i programmi** scheda e selezionare **gestione dei componenti aggiuntivi**.
    
-    ![Fare clic su Gestione componenti aggiuntivi](./media/manage-access-panel-browser-extension/internetoptions_programs.png)
-3. In questa finestra di dialogo selezionare **Access Panel Extension** e quindi fare clic sul pulsante **Abilita**.
+3. Selezionare **Access Panel Extension** nel **Microsoft Corporation** sezione e selezionare **abilitare**.
    
-    ![Fare clic su Abilita](./media/manage-access-panel-browser-extension/enableaddon.png)
-4. Per salvare queste modifiche, chiudere tutte le finestre di Internet Explorer e quindi riaprire Internet Explorer.
+4. Per salvare le modifiche, chiudere tutte le finestre del browser Internet Explorer è aperto. La modifica avrà effetto alla successiva apertura di Internet Explorer.
 
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Abilitare le estensioni per InPrivate Browsing
-Se si usa la modalità InPrivate Browsing:
 
-1. In Internet Explorer fare clic sull'**icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
+Per abilitare le estensioni per InPrivate Browsing:
+
+1. In Internet Explorer, selezionare la **icona dell'ingranaggio** nell'angolo superiore destro della finestra e selezionare **Opzioni Internet**.
    
-    ![Esempio della finestra di diagnostica](./media/manage-access-panel-browser-extension/inprivateoptions.png)
-2. Passare alla scheda **Privacy** e **deselezionare** la casella di controllo **Disabilita estensioni e barre degli strumenti all'avvio di InPrivate Browsing**</p>
+2. Andare alla **Privacy** scheda e verificare che il **disabilitare le estensioni e barre degli strumenti all'avvio di InPrivate Browsing** casella di controllo è deselezionata.
    
-    ![Deselezionare la casella di controllo Disabilita estensioni e barre degli strumenti all'avvio di InPrivate Browsing](./media/manage-access-panel-browser-extension/enabletoolbars.png)
-3. Per salvare queste modifiche, chiudere tutte le finestre di Internet Explorer e quindi riaprire Internet Explorer.
+3.  Per salvare le modifiche, chiudere tutte le finestre del browser Internet Explorer è aperto. La modifica avrà effetto alla successiva apertura di Internet Explorer.
 
 ## <a name="uninstall-the-access-panel-extension"></a>Disinstallare Access Panel Extension
+
 Per disinstallare Access Panel Extension dal computer:
 
-1. Sulla tastiera premere il **tasto Windows** per aprire il menu Start. Quando il menu è aperto, è possibile digitare un testo qualsiasi per eseguire una ricerca. Digitare "Pannello di controllo" e quindi aprire il **Pannello di controllo** quando viene visualizzato nei risultati della ricerca.
+1. Nel Pannello di controllo, cercare *disinstallare*. 
+
+2. Nei risultati della ricerca, selezionare **Disinstalla un programma**.
    
-    ![Cercare Pannello di controllo](./media/manage-access-panel-browser-extension/search_sm.png)
-2. Nell'angolo in alto a destra del Pannello di controllo modificare l'opzione **Visualizza per** impostandola su **Icone grandi**. Individuare e fare clic sul pulsante **Programmi e funzionalità**.
+    ![Ricerca di programma di disinstallazione.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
+
+3. Nell'elenco, selezionare **Access Panel Extension** e selezionare **Disinstalla**.
+
+    ![Disinstallare Access Panel Extension.](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
    
-    ![Modificare la visualizzazione in modo da visualizzare le icone grandi](./media/manage-access-panel-browser-extension/control_panel.png)
-3. Nell'elenco selezionare **Access Panel Extension** e quindi scegliere il pulsante **Disinstalla**.
-   
-    ![Fare clic su Disinstalla](./media/manage-access-panel-browser-extension/uninstall.png)
 4. È quindi possibile provare a installare di nuovo l'estensione per verificare se il problema è stato risolto.
 
-Se si verificano problemi durante la disinstallazione dell'estensione, è possibile rimuoverla anche usando lo strumento [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) .
+Se si verificano problemi di disinstallazione dell'estensione, è possibile rimuovere anche tramite il [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) dello strumento.
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](what-is-single-sign-on.md)
-* [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](deploy-access-panel-browser-extension.md)
+* [Come distribuire Access Panel Extension per Internet Explorer con criteri di gruppo](deploy-access-panel-browser-extension.md)
 

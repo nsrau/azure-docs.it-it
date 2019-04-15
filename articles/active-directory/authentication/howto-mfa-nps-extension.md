@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491492"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564532"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -60,7 +60,7 @@ Windows Server 2008 R2 SP1 o versione successiva.
 Queste librerie vengono installate automaticamente con l'estensione.
 
 - [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft modulo Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
@@ -78,6 +78,12 @@ Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle port
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Inoltre, la connettività agli URL seguenti è necessario per completare il [il programma di installazione dell'adapter utilizzando lo script di PowerShell fornito](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -142,6 +148,14 @@ Gli utenti devono inoltre eseguire la procedura per la registrazione prima di po
 1. [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download di Microsoft.
 2. Copiare il file binario nel Server dei criteri di rete da configurare.
 3. Eseguire *setup.exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
+
+#### <a name="upgrade-the-nps-extension"></a>Aggiornare l'estensione NPS
+
+Quando si installa l'aggiornamento di un'estensione dei criteri di rete esistente, per evitare un riavvio del server sottostante completare i passaggi seguenti:
+
+1. Disinstallare la versione esistente
+1. Eseguire il nuovo programma di installazione
+1. Riavviare il servizio Server dei criteri di rete (IAS)
 
 ### <a name="run-the-powershell-script"></a>Eseguire lo script di PowerShell
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-Dopo aver eseguito questo comando passare all'unità C, individuare il file e fare doppio clic su di esso. Passare ai dettagli e scorrere verso il basso fino all'"identificazione personale" e confrontare l'identificazione personale del certificato installato nel server con questa. Le identificazioni personali devono corrispondere.
+Dopo aver eseguito questo comando, passare all'unità C, individuare il file e fare doppio clic su di esso. Passare ai dettagli e scorrere verso il basso fino all'"identificazione personale" e confrontare l'identificazione personale del certificato installato nel server con questa. Le identificazioni personali devono corrispondere.
 
 I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, possono essere usati per filtrare i risultati errati se il comando restituisce più di un certificato.
 
@@ -239,7 +253,7 @@ I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, po
 
 ### <a name="why-cant-i-sign-in"></a>Perché non è possibile accedere?
 
-Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Contattare il personale IT dell'organizzazione per ricevere assistenza.
+Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Per ulteriore assistenza, contattare il personale IT dell'organizzazione.
 
 -------------------------------------------------------------
 
@@ -282,4 +296,4 @@ Per controllare se si dispone di un certificato valido, controllare Store certif
 
 - Informazioni su come integrare [Gateway Desktop remoto](howto-mfa-nps-extension-rdg.md) e [server VPN](howto-mfa-nps-extension-vpn.md) usando l'estensione NPS
 
-- [Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure](howto-mfa-nps-extension-errors.md)
+- [Risolvere i messaggi di errore dall'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
