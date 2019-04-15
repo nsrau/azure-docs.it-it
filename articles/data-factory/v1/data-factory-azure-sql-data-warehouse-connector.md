@@ -99,7 +99,7 @@ In caso di origine di tipo **SqlDWSource**, nella sezione **typeProperties** son
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No  |
+| sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No  |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No  |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No  |
 
@@ -315,10 +315,10 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | SmallMoney | SmallMoney |
 | Binary | Binary |
 | Varbinary | Varbinary (fino a 8000) |
-| Data | Data |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Tempo | Tempo |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (fino a 8000) |
@@ -329,7 +329,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | NChar | NChar |
 | VarChar | VarChar (fino a 8000) |
 | NVarChar | NVarChar (fino a 4000) |
-| xml | Varchar (fino a 8000) |
+| Xml | Varchar (fino a 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -350,7 +350,7 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -371,12 +371,12 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
