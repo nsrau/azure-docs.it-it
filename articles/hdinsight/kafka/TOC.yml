@@ -11,7 +11,7 @@ items:
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
-- name: Guide di avvio rapido
+- name: Guide introduttive
   items:
   - name: Creare un cluster Apache Kafka - Portale
     href: apache-kafka-get-started.md
@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Esercitazioni
   items:
-  - name: 1 - Usare il flusso strutturato Apache Spark
+  - name: Usare il flusso strutturato Apache Spark
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Scrivere/leggere da Apache Kafka con Apache Storm
+  - name: Scrivere/leggere da Apache Kafka con Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Usare l'API Apache Kafka per producer e consumer
+  - name: Usare l'API Apache Kafka per producer e consumer
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Sviluppare app con l'API Apache Kafka Streams
+  - name: Sviluppare app con l'API Apache Kafka Streams
     href: apache-kafka-streams-api.md
-  - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Concetti
   items:
   - name: Pianificazione della capacità
@@ -159,6 +156,9 @@ items:
       - name: Usare l'API REST Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Monitorare la disponibilità dei cluster con i log di Monitoraggio di Azure
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: Gestire i log per un cluster HDInsight
       href: ../hdinsight-log-management.md
@@ -235,7 +235,7 @@ items:
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -271,9 +271,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668144"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565093"
