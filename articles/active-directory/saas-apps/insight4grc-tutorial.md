@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Insight4GRC | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Insight4GRC | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Insight4GRC.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 360dbd6605953f77a2874b2daf8db2d4e93307c1
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1ad101d209415acdceb0091dba5fbedeb8b0aa4b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189615"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280520"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Esercitazione: integrazione di Azure Active Directory con Insight4GRC
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Esercitazione: Integrazione di Azure Active Directory con Insight4GRC
 
 Questa esercitazione descrive come integrare Insight4GRC con Azure Active Directory (Azure AD).
 L'integrazione di Insight4GRC con Azure AD offre i vantaggi seguenti:
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-insight4grc-from-the-gallery"></a>Aggiunta di Insight4GRC dalla raccolta
 
-Per configurare l'integrazione di Insight4GRC in Azure AD, è necessario aggiungere Insight4GRC dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Insight4GRC in Azure AD, è necessario aggiungere Insight4GRC dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Insight4GRC dalla raccolta, seguire questa procedura:**
 
@@ -72,15 +72,15 @@ Per configurare l'integrazione di Insight4GRC in Azure AD, è necessario aggiung
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Insight4GRC in base a un utente test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Insight4GRC in base a un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Insight4GRC.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Insight4GRC, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Insight4GRC, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Insight4GRC](#configure-insight4grc-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Insight4GRC](#configure-insight4grc-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Insight4GRC](#create-insight4grc-test-user)**: per avere una controparte di Britta Simon in Insight4GRC collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Insight4GRC, seguire qu
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.Insight4GRC.com/SAML`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -127,9 +127,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Insight4GRC, seguire qu
 
 Per configurare l'accesso Single Sign-On sul lato **Insight4GRC**, è necessario inviare l'**URL dei metadati della federazione dell'app** al [team di supporto di Insight4GRC](mailto:support.ss@rsmuk.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -152,9 +152,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Insight4GRC.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Insight4GRC.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Insight4GRC**.
 

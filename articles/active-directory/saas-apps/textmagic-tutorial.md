@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f65ad80425f12304624f242871a605d4417ca533
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361830"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Esercitazione: Integrazione di Azure Active Directory con TextMagic
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-textmagic-from-the-gallery"></a>Aggiunta di TextMagic dalla raccolta
 
-Per configurare l'integrazione di TextMagic in Azure AD, è necessario aggiungere TextMagic dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di TextMagic in Azure AD, è necessario aggiungere TextMagic dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere TextMagic dalla raccolta, seguire questa procedura:**
 
@@ -80,8 +80,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con TextMagic, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di TextMagic](#configure-textmagic-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di TextMagic](#create-textmagic-test-user)**: per avere una controparte di Britta Simon in TextMagic collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di TextMagic](#create-textmagic-test-user)**: per avere una controparte di Britta Simon in TextMagic collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
 6. Oltre quelli elencati in precedenza, l'applicazione TextMagic prevede il passaggio di altri attributi nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME |   Source Attribute| Spazio dei nomi  |
+    | Nome |   Attributo di origine| Spazio dei nomi  |
     | --------------- | --------------- | --------------- |
     | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
@@ -150,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -166,7 +166,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
     ![Configurazione di TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Nella casella di testo  **Identity provider Entity ID**  (ID entità del provider di identità) incollare il valore di  **Identificatore di Azure AD** copiato dal portale di Azure.
+    a. Nella casella di testo  **Identity provider Entity ID**  (ID entità del provider di identità) incollare il valore di  **Identificatore Azure AD** copiato dal portale di Azure.
 
     b. Nella casella di testo  **Identity provider SSO URL:**  (URL SSO del provider di identità) incollare il valore di  **URL di accesso** copiato dal portale di Azure.
 
@@ -176,9 +176,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -200,7 +200,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TextMagic.
 

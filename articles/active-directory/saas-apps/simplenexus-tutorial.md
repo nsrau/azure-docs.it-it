@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: b3e372906625710a9b08d54048f0bfc1fbce1e49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44959410b68439dd6a132c41d2a51dcdafdec846
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133196"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Esercitazione: Integrazione di Azure Active Directory con SimpleNexus
 

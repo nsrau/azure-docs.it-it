@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: da1ff2be9661de143bd36c8e17fd388d64f947a7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407505"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Esercitazione: Integrazione di Azure Active Directory con Pantheon
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pantheon, seguire quest
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 917ad5a97932bc6eefbbd20c0df4981eb30095d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 040413f2e0daccc04921f32199a3c75e8d38310e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902808"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>Esercitazione: Integrazione di Azure Active Directory con Fulcrum
 

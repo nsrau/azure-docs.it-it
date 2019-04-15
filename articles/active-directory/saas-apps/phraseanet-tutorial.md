@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a43ba4a4f6a1a9d658d8f4bc8ba4ff7d07d1834
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c022dbb08146bbf8b16ccd9020fdffbc50166dd9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407369"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Esercitazione: Integrazione di Azure Active Directory con Phraseanet
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Phraseanet, seguire que
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.alchemyasp.com`
 
     > [!NOTE]
-    > Poiché questo valore non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Phraseanet](mailto:support@alchemy.fr). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Phraseanet](mailto:support@alchemy.fr). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Phraseanet, seguire que
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

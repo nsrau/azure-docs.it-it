@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a67bb2b258d5376c997d4858bea4d094e850127
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997139"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ScreenSteps, seguire qu
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<tenantname>.ScreenSteps.com`
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo, come illustrato più avanti nell'esercitazione.
+    > Poiché non è reale, Aggiornare questo valore con l'URL di accesso effettivo, come illustrato più avanti nell'esercitazione.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -227,7 +227,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-screensteps-test-user"></a>Creare l'utente di test di ScreenSteps
 
-In questa sezione viene creato un utente di nome Britta Simon in ScreenSteps. Collaborare con il  [team di supporto clienti di ScreenSteps](https://www.screensteps.com/contact) per aggiungere gli utenti alla piattaforma ScreenSteps. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ScreenSteps. Collaborare con il  [team di supporto clienti di ScreenSteps](https://www.screensteps.com/contact) per aggiungere gli utenti nella piattaforma ScreenSteps. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

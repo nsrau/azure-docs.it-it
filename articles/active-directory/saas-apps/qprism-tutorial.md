@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 164b0a92e8b4bb291f3576ba8ebcc0915838f834
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf6c50a486acfaf8c0410616a75d9bcbe36987e6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620771"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Esercitazione: Integrazione di Azure Active Directory con QPrism
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con QPrism, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di QPrism](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<customer domain>.qmyzone.com/login`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<customer domain>.qmyzone.com/login`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<customer domain>.qmyzone.com/metadata.php`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<customer domain>.qmyzone.com/metadata.php`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di QPrism](mailto:qsupport-ce@quatrro.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -154,7 +154,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **QPrism**.
 
-    ![Collegamento di QPrism nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento QPrism nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

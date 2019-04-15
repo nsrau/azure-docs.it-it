@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cf646deb90bc086263b7bc3047a9da34865e798
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136635"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Esercitazione: Integrazione di Azure Active Directory con Nimblex
 

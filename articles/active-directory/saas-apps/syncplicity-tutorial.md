@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ac9d859ec76c782f762dfc6f424d70ea487665
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360229"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Esercitazione: Integrazione di Azure Active Directory con Syncplicity
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Syncplicity](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.syncplicity.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.syncplicity.com/sp`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com/sp`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Syncplicity](https://www.syncplicity.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -134,11 +134,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
 
-1. Nella pagina della finestra di dialogo **Single Sign-On (SSO)** eseguire la procedura seguente:
+1. Nella pagina finestra di dialogo **Single Sign-On (SSO)** eseguire la procedura seguente:
 
-    ![Accesso Single Sign-On \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Single Sign-On \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
-    a. Nella casella di testo **Custom Domain** (Dominio personalizzato) digitare il nome del dominio.
+    a. Nella casella di testo **Custom Domain** digitare il nome del dominio.
   
     b. Selezionare **Enabled** (Abilitato) come **Single Sign-On Status** (Stato Single Sign-On).
 
@@ -150,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     f. In **Identity Provider Certificate** (Certificato provider di identità) fare clic su **Choose file** (Scegli file) e quindi caricare il certificato scaricato dal portale di Azure.
 
-    g. Fare clic su **SAVE CHANGES** (Salva modifiche).
+    g. Fare clic su **SAVE CHANGES** (SALVA MODIFICHE).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -206,7 +206,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per essere in grado di effettuare l'accesso, è necessario effettuare il provisioning degli utenti AAD all'applicazione Syncplicity. In questa sezione viene descritto come creare gli account utente AAD in Syncplicity.
 
-**Per eseguire il provisioning di un account utente a Syncplicity, eseguire la procedura seguente:**
+**Per eseguire il provisioning di un account utente, eseguire la procedura seguente:**
 
 1. Accedere al tenant **Syncplicity** (ad esempio: `https://company.Syncplicity.com`).
 

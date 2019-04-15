@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 008dbe1f226553ac407698e5b117c4d000524787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133026"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Esercitazione: Integrazione di Azure Active Directory con Spacio
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Spacio, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Spacio](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://sso.spac.io/<brokerageID>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://sso.spac.io/<brokerageID>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://sso.spac.io/<brokerageID>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://sso.spac.io/<brokerageID>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Spacio](mailto:support@spac.io). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

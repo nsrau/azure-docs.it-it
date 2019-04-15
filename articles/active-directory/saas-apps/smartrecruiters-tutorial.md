@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6cf24dd5bd43670efbc41b89ca62ec061dc0dbc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177603"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Esercitazione: Integrazione di Azure Active Directory con SmartRecruiters
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SmartRecruiters, seguir
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -193,7 +193,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **SmartRecruiters**.
 
-    ![Collegamento di SmartRecruiters nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento SmartRecruiters nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

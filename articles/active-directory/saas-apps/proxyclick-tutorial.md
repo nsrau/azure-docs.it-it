@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d37e3cc56b4a80fce9dcae6f87ff626867496007
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b797c7d49495aac90abb31a9214bf2928784a866
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578328"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Esercitazione: Integrazione di Azure Active Directory con Proxyclick
 
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Proxyclick, Ã
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Proxyclick](#create-proxyclick-test-user)**: per avere una controparte di Britta Simon in Proxyclick collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -158,9 +158,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
     e. Nella casella di testo **SAML 2.0 Endpoint URL** (URL endpoint SAML 2.0) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    f. Aprire il certificato scaricato dal portale di Azure nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificato**.
+    f. Aprire il certificato scaricato dal portale di Azure nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificate** (Certificato).
 
-    g. Fare clic su **Save changes** (Salva modifiche).
+    g. Fare clic su **Save Changes** (Salva modifiche).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -220,7 +220,7 @@ Per consentire agli utenti di Azure AD di accedere a Proxyclick, Ã¨ necessario e
 
 1. Accedere al sito aziendale di Proxyclick come amministratore.
 
-1. Fare clic su **Colleagues** (Colleghi) dalla barra di navigazione in alto.
+1. Fare clic su**Colleghi**dalla barra di navigazione in alto.
 
     ![Aggiungere un dipendente](./media/proxyclick-tutorial/user1.png)
 

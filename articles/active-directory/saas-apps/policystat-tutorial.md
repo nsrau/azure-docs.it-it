@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 65fbac8c316d3a4ba1f24fcc373b197d6df13a90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 98ab9904f8afc5c74d9f043b0964bc56b49670cc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
 
@@ -83,7 +83,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con PolicyStat, �
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di PolicyStat ](#create-policystat-test-user)**: per avere una controparte di Britta Simon in PolicyStat collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -180,7 +180,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
     d. Nella casella di testo **Email Attribute** (Attributo posta elettronica) digitare **emailaddress** dell'utente `BrittaSimon@contoso.com`.
 
-    e. Fare clic su **Save changes** (Salva modifiche).
+    e. Fare clic su **Save Changes** (Salva modifiche).
 
 5. Fare clic su **Metadati del provider di identità** quindi, nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
    
@@ -188,7 +188,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
    
     a. Aprire il file di metadati scaricato, copiare il contenuto e incollarlo nella casella di testo **Your Identity Provider Metadata** (Metadati provider di identità).
 
-    b. Fare clic su **Save changes** (Salva modifiche).
+    b. Fare clic su **Save Changes** (Salva modifiche).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 

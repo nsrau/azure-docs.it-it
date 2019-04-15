@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con SmartLPA | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SmartLPA | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SmartLPA.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 61973706eb073f31ad6269ff8c17cf49ba8d2c6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b3101e747ef70a669ca7f81128cb701aa6d9720
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172785"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272190"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Esercitazione: integrazione di Azure Active Directory con SmartLPA
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Esercitazione: Integrazione di Azure Active Directory con SmartLPA
 
 Questa esercitazione descrive come integrare SmartLPA con Azure Active Directory (Azure AD).
 L'integrazione di SmartLPA con Azure AD offre i vantaggi seguenti:
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con SmartLPA, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SmartLPA](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<TENANTNAME>.smartlpa.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<TENANTNAME>.smartlpa.com/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di SmartLPA](mailto:support@smartlpa.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

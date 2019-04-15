@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 16d5f9ac8e1dbe01fdf812c5193285dcb0a28527
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3055d91028ed6c4fcfbfcbe607350b3f5fc8bedf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897538"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Esercitazione: Integrazione di Azure Active Directory con Novatus
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-novatus-from-the-gallery"></a>Aggiunta di Novatus dalla raccolta
 
-Per configurare l'integrazione di Novatus in Azure AD, è necessario aggiungere Novatus dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Novatus in Azure AD, è necessario aggiungere Novatus dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Novatus dalla raccolta, seguire questa procedura:**
 
@@ -75,13 +75,13 @@ Per configurare l'integrazione di Novatus in Azure AD, è necessario aggiungere 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Novatus usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Novatus.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Novatus, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Novatus, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Novatus](#configure-novatus-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Novatus](#create-novatus-test-user)**: per avere una controparte di Britta Simon in Novatus collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Novatus](#create-novatus-test-user)**: per avere una controparte di Britta Simon in Novatus collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -115,13 +115,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Novatus, seguire questa
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura Novatus** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura Novatus** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -129,9 +129,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Novatus, seguire questa
 
 Per configurare l'accesso Single Sign-On sul lato **Novatus**, è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Novatus](mailto:jvinci@novatusinc.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -154,15 +154,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Novatus.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Novatus.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Novatus**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Novatus**.
+2. Nell'elenco delle applicazioni selezionare **Novatus**.
 
     ![Collegamento di Novatus nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -180,9 +180,9 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-novatus-test-user"></a>Creare un utente di test di Novatus
+### <a name="create-novatus-test-user"></a>Creare l'utente di test di Novatus
 
-In questa sezione viene creato un utente di nome Britta Simon in Novatus. Novatus supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Novatus, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Novatus. Novatus supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Novatus, ne viene creato uno nuovo dopo l'autenticazione.
 
 >[!NOTE]
 >Per creare un utente manualmente, è necessario contattare il [team di supporto di Novatus](mailto:jvinci@novatusinc.com). 

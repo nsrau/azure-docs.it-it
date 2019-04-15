@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: edef9a982957f786da95ae1eccf4b3fb9d422d46
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407539"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Esercitazione: Integrazione di Azure Active Directory con PlanGrid
 
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanGrid, seguire quest
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

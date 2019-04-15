@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con join.me| Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con join.me| Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e join.me.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aadf67c76a9be007608452eb6c2ed6efb26c8eab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab2fc543d345436e3d0a82fdb97a8c937f6ef256
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888281"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262942"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Esercitazione: integrazione di Azure Active Directory con join.me
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Esercitazione: Integrazione di Azure Active Directory con join.me
 
 Questa esercitazione descrive come integrare join.me con Azure Active Directory (Azure AD).
 L'integrazione di join.me con Azure AD offre i vantaggi seguenti:
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-joinme-from-the-gallery"></a>Aggiunta di join.me dalla raccolta
 
-Per configurare l'integrazione di join.me in Azure AD, è necessario aggiungere join.me dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di join.me in Azure AD, è necessario aggiungere join.me dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere join.me dalla raccolta, seguire questa procedura:**
 
@@ -67,27 +67,27 @@ Per configurare l'integrazione di join.me in Azure AD, è necessario aggiungere 
 
 4. Nella casella di ricerca digitare **join.me**, selezionare **join.me** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![join.me nell'elenco dei risultati](common/search-new-app.png)
+     ![join.me nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con join.me usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in join.me.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con join.me, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con join.me, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di join.me](#configure-joinme-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di join.me](#create-joinme-test-user)**: per avere una controparte di Britta Simon in join.me collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di join.me](#create-joinme-test-user)**: per avere una controparte di Britta Simon in join.me collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare Single Sign-On di Azure AD con join.me, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con join.me, seguire questa procedura:
 
 1. Nella pagina di integrazione dell'applicazione **join.me** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
@@ -113,9 +113,9 @@ Per configurare Single Sign-On di Azure AD con join.me, seguire questa procedura
 
 Per configurare l'accesso Single Sign-On sul lato **join.me**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di join.me](https://help.join.me/s/?language). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -138,15 +138,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a join.me.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a join.me.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **join.me**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **join.me**.
+2. Nell'elenco delle applicazioni selezionare **join.me**.
 
     ![Collegamento a join.me nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -164,7 +164,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-joinme-test-user"></a>Creare un utente di test di join.me
+### <a name="create-joinme-test-user"></a>Creare l'utente di test di join.me
 
 In questa sezione viene creato un utente chiamato Britta Simon in join.me. Collaborare con il  [team di supporto di join.me](https://help.join.me/s/?language) per l'aggiunta di utenti alla piattaforma join.me. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71347970ed3cb4f6a653b64ade5b949db457f299
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d68c8a63dd3adaee0c04f5438f91da68f3903aea
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361320"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Esercitazione: Integrazione di Azure Active Directory con SumTotalCentral
 
@@ -105,12 +105,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con SumTotalCentral, seguir
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SumTotalCentral](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.sumtotalsystems.com/sites/default`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.sumtotalsystems.com/sites/default`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un valore: `SumTotalFederationGateway`
 
     > [!NOTE]
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di SumTotalCentral](http://www.sumtotalsystems.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di SumTotalCentral](http://www.sumtotalsystems.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SumTotalCentral, seguir
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

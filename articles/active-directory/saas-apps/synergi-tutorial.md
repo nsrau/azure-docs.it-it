@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3c416254acf63dc479326cf00e3113c1425c4008
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2e6916cc96f9d9778cc829e39f82ef7204e137bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360793"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Esercitazione: Integrazione di Azure Active Directory con Synergi
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Synergi, seguire questa
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

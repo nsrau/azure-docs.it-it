@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874984"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Esercitazione: Integrazione di Azure Active Directory con Pluralsight
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-pluralsight-from-the-gallery"></a>Aggiunta di Pluralsight dalla raccolta
 
-Per configurare l'integrazione di Pluralsight in Azure AD, è necessario aggiungere Pluralsight dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Pluralsight in Azure AD, è necessario aggiungere Pluralsight dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Pluralsight dalla raccolta, seguire questa procedura:**
 
@@ -68,20 +68,20 @@ Per configurare l'integrazione di Pluralsight in Azure AD, è necessario aggiung
 
 4. Nella casella di ricerca digitare **Pluralsight**, selezionare **Pluralsight** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Pluralsight nell'elenco dei risultati](common/search-new-app.png)
+     ![Pluralsight nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Pluralsight usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Pluralsight.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Pluralsight, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Pluralsight, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Pluralsight](#configure-pluralsight-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Pluralsight](#create-pluralsight-test-user)**: per avere una controparte di Britta Simon in Pluralsight collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Pluralsight](#create-pluralsight-test-user)**: per avere una controparte di Britta Simon in Pluralsight collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pluralsight, seguire qu
 
     b. Nella casella **Identificatore** digitare un URL: `www.pluralsight.com`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Pluralsight](mailto:support@pluralsight.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pluralsight, seguire qu
 
 6. Oltre quelli elencati in precedenza, l'applicazione Pluralsight prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | --------------- | --------- |
     | Nome  | user.givenname  |
     | Cognome  | user.surname  |
@@ -155,9 +155,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pluralsight, seguire qu
 
 Per configurare l'accesso Single Sign-On sul lato **Pluralsight**, è necessario inviare il file **XML dei metadati della federazione** scaricato dal portale di Azure al [team di supporto di Pluralsight](mailto:support@pluralsight.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -180,9 +180,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pluralsight.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pluralsight.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Pluralsight**.
 
@@ -208,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-pluralsight-test-user"></a>Creare l'utente di test di Pluralsight
 
-In questa sezione si crea un utente di nome Britta Simon in Pluralsight. Pluralsight supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Pluralsight, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Pluralsight. Pluralsight supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Pluralsight, ne viene creato uno nuovo dopo l'autenticazione.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
@@ -218,7 +218,7 @@ Quando si fa clic sul riquadro di Pluralsight nel pannello di accesso, si dovreb
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

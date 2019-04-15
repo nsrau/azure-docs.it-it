@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a5968710a919d96b9aee1d5acbd2366be76aa9e8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371804"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Esercitazione: Integrazione di Azure Active Directory con PlanMyLeave
 
@@ -107,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di PlanMyLeave](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<company-name>.planmyleave.com/Login.aspx`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<company-name>.planmyleave.com/Login.aspx`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<company-name>.planmyleave.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<company-name>.planmyleave.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di PlanMyLeave](mailto:support@planmyleave.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

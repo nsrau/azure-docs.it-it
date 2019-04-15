@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: bf291f22f523756c868128cbe5595fa56cf7d109
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361677"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Esercitazione: Integrazione di Azure Active Directory con Peakon
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Peakon, seguire questa 
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

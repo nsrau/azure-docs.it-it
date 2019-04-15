@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 15d86b198b914a100dd71494198409b36a0e1378
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112467"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Esercitazione: Integrazione di Azure Active Directory con Opal
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-opal-from-the-gallery"></a>Aggiunta di Opal dalla raccolta
 
-Per configurare l'integrazione di Opal in Azure AD è necessario aggiungere Opal dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Opal in Azure AD è necessario aggiungere Opal dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Opal dalla raccolta, seguire questa procedura:**
 
@@ -74,13 +74,13 @@ Per configurare l'integrazione di Opal in Azure AD è necessario aggiungere Opal
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Opal usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Opal.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Opal, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Opal, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Opal](#configure-opal-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Opal](#create-opal-test-user)**: per avere una controparte di Britta Simon in Opal collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Opal](#create-opal-test-user)**: per avere una controparte di Britta Simon in Opal collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Opal, seguire questa pr
 
     a. Nella casella di testo **Identificatore** digitare un URL: `Opal`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.ouropal.com/auth/saml/callback`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.ouropal.com/auth/saml/callback`
 
     > [!NOTE]
     > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Opal](mailto:support@workwithopal.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Opal, seguire questa pr
 
 6. Oltre a quanto elencato in precedenza, l'applicazione Opal prevede il passaggio di altri attributi nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
     | firstname           | user.givenname |
     | lastname        | user.surname |
@@ -145,13 +145,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Opal, seguire questa pr
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-8. Nella sezione **Configura Opal** copiare gli URL appropriati in base alle proprie esigenze.
+8. Nella sezione **Configura Opal** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -159,9 +159,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Opal, seguire questa pr
 
 Per configurare l'accesso Single Sign-On sul lato **Opal**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL copiati appropriati dal portale di Azure al [team di supporto di Opal](mailto:support@workwithopal.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -184,9 +184,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Opal.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Opal.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Opal**.
 
@@ -210,7 +210,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-opal-test-user"></a>Creare un utente di test di Opal
+### <a name="create-opal-test-user"></a>Creare l'utente di test di Opal
 
 In questa sezione viene creato un utente di nome Britta Simon in Opal. Collaborare con il  [team di supporto di Opal](mailto:support@workwithopal.com) per aggiungere gli utenti nella piattaforma Opal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

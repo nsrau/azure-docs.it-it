@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 50850fc9372976382724d6bbc98be9a8d10a0655
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Esercitazione: Integrazione di Azure Active Directory con NetDocuments
 
 Questa esercitazione descrive come integrare NetDocuments con Azure Active Directory (Azure AD).
 L'integrazione di NetDocuments con Azure AD offre i vantaggi seguenti:
 
-* In Azure AD è possibile controllare chi può accedere a NetDocuments.
+* È possibile controllare in Azure AD chi può accedere a NetDocuments.
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a NetDocuments con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
@@ -66,7 +66,7 @@ Per configurare l'integrazione di NetDocuments in Azure AD, è necessario aggiun
 
 4. Nella casella di ricerca digitare **NetDocuments**, selezionare **NetDocuments** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![NetDocuments nell'elenco dei risultati](common/search-new-app.png)
+     ![NetDocuments nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -78,8 +78,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con NetDocuments,
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di NetDocuments](#configure-netdocuments-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di NetDocuments](#create-netdocuments-test-user)**: per avere una controparte di Britta Simon in NetDocuments collegata alla rappresentazione in Azure AD dell'utente.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di NetDocuments](#create-netdocuments-test-user)**: per avere una controparte di Britta Simon in NetDocuments collegata alla rappresentazione in Azure AD dell'utente.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -102,11 +102,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con NetDocuments, seguire i
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni sul dominio e sugli URL dell'accesso Single Sign-On di NetDocuments](common/sp-reply.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di NetDocuments](common/sp-reply.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di NetDocuments](https://support.netdocuments.com/hc/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -115,13 +115,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con NetDocuments, seguire i
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura NetDocuments** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura NetDocuments** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -149,9 +149,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con NetDocuments, seguire i
    
     c. Fare clic su **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -174,9 +174,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a NetDocuments.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a NetDocuments.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **NetDocuments**.
 
@@ -200,10 +200,10 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-netdocuments-test-user"></a>Creare un utente di test di NetDocuments
+### <a name="create-netdocuments-test-user"></a>Creare l'utente di test di NetDocuments
 
 Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario effettuarne il provisioning in NetDocuments.  
-Nel caso di NetDocuments, il provisioning è un’attività manuale.
+Nel caso di NetDocuments, il provisioning è un'attività manuale.
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 

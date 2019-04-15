@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e3e60e81e722fd9c6f03b5bdf6e2e5327d0b9bf6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b3e839af886dc23bdfb11dacfb1854a2277bf3a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881028"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Esercitazione: Integrazione di Azure Active Directory con FloQast
 

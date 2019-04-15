@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0197a18cd70a7f4305768c96b41a05adfc127df4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b6e004ea613d1a3dfd47a2798e0298f41eab2d3d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621057"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Esercitazione: Integrazione di Azure Active Directory con PurelyHR
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PurelyHR, seguire quest
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PurelyHR, seguire quest
 
     ![Configure Single Sign-On](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
-    a. Aprire il certificato **Certificate(Bas64)** scaricato dal portale di Azure nel blocco note e copiare il valore del certificato. Incollare il valore copiato nella casella **x.509 Certificate** (Certificato x.509).
+    a. Aprire il certificato **Certificate(Bas64)** scaricato dal portale di Azure nel blocco note e copiare il valore del certificato. Incollare il valore copiato nella casella **x509 Certificate** (Certificato x509).
 
     b. Nella casella **Idp Issuer URL** (URL emittente IdP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f6932195e8177c7bfb921dfb17b32271e4d7a3d4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Esercitazione: Integrazione di Azure Active Directory con Jive
 
@@ -106,9 +106,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jive, seguire questa pr
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Jive](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<instance name>.jivecustom.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<instance name>.jivecustom.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<instance name>.jiveon.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<instance name>.jiveon.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di Jive](https://www.jivesoftware.com/services-support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jive, seguire questa pr
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

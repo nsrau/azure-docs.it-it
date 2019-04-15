@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b97bc7deb706d8ff4844a7a7a7534cc7270adbae
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 61be963f4edc2dc50f176087f2c817c5f485588b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407675"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Esercitazione: Integrazione di Azure Active Directory con PatentSQUARE
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con PatentSQUARE, seguire q
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di PatentSQUARE](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companysubdomain>.pat-dss.com:443/patlics`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companysubdomain>.pat-dss.com:443/patlics`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PatentSQUARE, seguire q
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
