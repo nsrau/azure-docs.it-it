@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e1575148f90333cacfe706f22912143cede854b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 56b3e42a65eb84ef6ee53b4ba16e5fafc4473405
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Esercitazione: Integrazione di Azure Active Directory con Onit
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Onit, è nece
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Onit](#configure-onit-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Onit](#create-onit-test-user)**: per avere una controparte di Britta Simon in Onit collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Onit, seguire questa pr
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Onit](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<sub-domain>.onit.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<sub-domain>.onit.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<sub-domain>.onit.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<sub-domain>.onit.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Onit](https://www.onit.com/support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Onit, seguire questa pr
 
 6. Oltre quelli elencati in precedenza, l'applicazione Onit prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
     | email | user.mail |
 
@@ -148,13 +148,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Onit, seguire questa pr
 
     ![Copiare il valore di Identificazione personale](common/copy-thumbprint.png)
 
-9. Nella sezione **Configura Onit** copiare gli URL appropriati in base alle proprie esigenze.
+9. Nella sezione **Configura Onit** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -170,7 +170,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Onit, seguire questa pr
    
     ![Modificare l'azienda](./media/onit-tutorial/IC791175.png "Modificare l'azienda")
    
-4. Fare clic sulla scheda **Security** .
+4. Fare clic sulla scheda **Security** (Sicurezza).
     
     ![Modificare le informazioni sulla società](./media/onit-tutorial/IC791176.png "Modificare le informazioni sulla società")
 
@@ -186,9 +186,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Onit, seguire questa pr
 
     d. Nella casella di testo **Idp Cert Fingerprint (SHA1)** (Impronta digitale certificato IdP - SHA1) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -211,9 +211,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Onit.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Onit.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Onit**.
 
@@ -241,7 +241,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguirne il provisioning in Onit. Nel caso di Onit, il provisioning è un'attività manuale.
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
+**Per configurare il provisioning utente, eseguire la procedura seguente:**
 
 1. Accedere al sito aziendale di **Onit** come amministratore.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 41337859feeff9cf9de507629eea4bc27b302a40
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93fd14d1148ce29731087cba5cd20f5ff1bcd4a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449807"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Esercitazione: Integrazione di Azure Active Directory con Iris Intranet
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Iris Intranet, seguire 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Iris Intranet](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.irisintranet.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<SUBDOMAIN>.irisintranet.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.irisintranet.com`
 

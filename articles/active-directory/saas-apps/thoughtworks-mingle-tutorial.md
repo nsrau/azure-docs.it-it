@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93790edbce20022ff1dcf0b547caf2cf3843ab3c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850010"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Thoughtworks Mingle con Azure Activ
 L'integrazione di Thoughtworks Mingle con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Thoughtworks Mingle.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Thoughtworks Mingle con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Thoughtworks Mingle con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Aggiunta di Thoughtworks Mingle dalla raccolta
 
-Per configurare l'integrazione di Thoughtworks Mingle in Azure AD, è necessario aggiungere Thoughtworks Mingle dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Thoughtworks Mingle in Azure AD, è necessario aggiungere Thoughtworks Mingle dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Thoughtworks Mingle dalla raccolta, seguire questa procedura:**
 
@@ -67,19 +67,19 @@ Per configurare l'integrazione di Thoughtworks Mingle in Azure AD, è necessario
 
 4. Nella casella di ricerca digitare **Thoughtworks Mingle**, selezionare **Thoughtworks Mingle** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Thoughtworks Mingle nell'elenco dei risultati](common/search-new-app.png)
+     ![Thoughtworks Mingle nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Thoughtworks Mingle.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Thoughtworks Mingle](#configure-thoughtworks-mingle-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Thoughtworks Mingle](#create-thoughtworks-mingle-test-user)**: per avere una controparte di Britta Simon in Thoughtworks Mingle collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, se
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Thoughtworks Mingle](common/sp-signonurl.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Thoughtworks Mingle](common/sp-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.mingle.thoughtworks.com`
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, se
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, se
    
     ![Scheda Amministrazione](./media/thoughtworks-mingle-tutorial/ic785157.png "Config SSO")
 
-3. Nella sezione **Config SSO** , eseguire la procedura seguente:
+3. Nella sezione **Config SSO** eseguire la procedura seguente:
    
     ![Configurazione dell'accesso SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configurazione dell'accesso SSO")
     
@@ -140,9 +140,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, se
 
     b. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -164,9 +164,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Thoughtworks Mingle.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Thoughtworks Mingle.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Thoughtworks Mingle**.
 
@@ -192,9 +192,9 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-thoughtworks-mingle-test-user"></a>Creare l'utente di test di Thoughtworks Mingle
 
-Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il privisioning nell'applicazione Thoughtworks Mingle utilizzando i relativi nomi utente di Azure Active Directory. Nel caso di Thoughtworks Mingle, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il provisioning nell'applicazione Thoughtworks Mingle usando i relativi nomi utente di Azure Active Directory. Nel caso di Thoughtworks Mingle, il provisioning è un'attività manuale.
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
+**Per configurare il provisioning utente, eseguire la procedura seguente:**
 
 1. Accedere al sito aziendale di Thoughtworks Mingle come amministratore.
 

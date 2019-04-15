@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: cf6327583c73128cb839bcdd2c9861a4daf96b58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 240291c7ec1d989e52a2896dc696f69afbee0093
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897759"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Esercitazione: Integrazione di Azure Active Directory con myPolicies
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-mypolicies-from-the-gallery"></a>Aggiunta di myPolicies dalla raccolta
 
-Per configurare l'integrazione di myPolicies in Azure AD, è necessario aggiungere myPolicies dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di myPolicies in Azure AD, è necessario aggiungere myPolicies dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere myPolicies dalla raccolta, seguire questa procedura:**
 
@@ -78,8 +78,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con myPolicies, �
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per myPolicies](#configure-mypolicies-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di myPolicies](#create-mypolicies-test-user)**: per avere una controparte di Britta Simon in myPolicies collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di myPolicies](#create-mypolicies-test-user)**: per avere una controparte di Britta Simon in myPolicies collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con myPolicies, seguire que
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<tenantname>.mypolicies.com/`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di myPolicies](mailto:support@mypolicies.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -115,13 +115,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con myPolicies, seguire que
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura myPolicies** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura myPolicies** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -129,9 +129,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con myPolicies, seguire que
 
 Per configurare l'accesso Single Sign-On sul lato **myPolicies**, è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di myPolicies](mailto:support@mypolicies.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -154,9 +154,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a myPolicies.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a myPolicies.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **myPolicies**.
 
@@ -180,7 +180,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-mypolicies-test-user"></a>Creare un utente di test di myPolicies
+### <a name="create-mypolicies-test-user"></a>Creare l'utente di test di myPolicies
 
 In questa sezione viene creato un utente di nome Britta Simon in myPolicies. Per aggiungere gli utenti alla piattaforma myPolicies, collaborare con il  [team di supporto di myPolicies](mailto:support@mypolicies.com). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

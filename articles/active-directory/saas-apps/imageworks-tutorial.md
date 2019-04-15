@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aaa93c03236f1a3bd87d8fdd5e1be0930ee1381
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cde9d4efd3d6eb5bc987a4bf7eb423447ceddc2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Esercitazione: Integrazione di Azure Active Directory con IMAGE WORKS
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare IMAGE WORKS con Azure Active Direct
 L'integrazione di IMAGE WORKS con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a IMAGE WORKS.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a IMAGE WORKS con i loro account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a IMAGE WORKS con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-image-works-from-the-gallery"></a>Aggiunta di IMAGE WORKS dalla raccolta
 
-Per configurare l'integrazione di IMAGE WORKS in Azure AD, è necessario aggiungere IMAGE WORKS dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di IMAGE WORKS in Azure AD, è necessario aggiungere IMAGE WORKS dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere IMAGE WORKS dalla raccolta, seguire questa procedura:**
 
@@ -67,20 +67,20 @@ Per configurare l'integrazione di IMAGE WORKS in Azure AD, è necessario aggiung
 
 4. Nella casella di ricerca digitare **IMAGE WORKS**, selezionare **IMAGE WORKS** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![IMAGE WORKS nell'elenco dei risultati](common/search-new-app.png)
+     ![IMAGE WORKS nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con IMAGE WORKS usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in IMAGE WORKS.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con IMAGE WORKS, è necessario completare i blocchi predefiniti seguenti.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con IMAGE WORKS, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di IMAGE WORKS](#configure-image-works-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di IMAGE WORKS](#create-image-works-test-user)**: per avere una controparte di Britta Simon in IMAGE WORKS collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di IMAGE WORKS](#create-image-works-test-user)**: per avere una controparte di Britta Simon in IMAGE WORKS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IMAGE WORKS, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di IMAGE WORKS](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
@@ -130,9 +130,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con IMAGE WORKS, seguire qu
 
 Per configurare l'accesso Single Sign-On sul lato **IMAGE WORKS** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di IMAGE WORKS](mailto:iw-sd-support@fujifilm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -155,7 +155,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a IMAGE WORKS.
 
@@ -181,7 +181,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-image-works-test-user"></a>Creare un utente di test di IMAGE WORKS
+### <a name="create-image-works-test-user"></a>Creare l'utente di test di IMAGE WORKS
 
 In questa sezione viene creato un utente di nome Britta Simon in IMAGE WORKS. Collaborare con il  [team di supporto di IMAGE WORKS](mailto:iw-sd-support@fujifilm.com)per aggiungere gli utenti alla piattaforma IMAGE WORKS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a7416ce4a31cdf3b1dd7c3a001918f8b69ff55d9
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 800b6307504632be5b584dd645f74c6b48962d20
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847783"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Esercitazione: Integrazione di Azure Active Directory con Rally Software
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-rally-software-from-the-gallery"></a>Aggiunta di Rally Software dalla raccolta
 
-Per configurare l'integrazione di Rally Software in Azure AD, è necessario aggiungere Rally Software dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Rally Software in Azure AD è necessario aggiungere Rally Software dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Rally Software dalla raccolta, seguire questa procedura:**
 
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Rally Softwar
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Rally Software](#create-rally-software-test-user)**: per avere una controparte di Britta Simon in Rally Software collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rally Software, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Rally Software](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant-name>.rally.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.rally.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<tenant-name>.rally.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant-name>.rally.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Rally Software](https://help.rallydev.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -200,7 +200,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il provisioning nell'applicazione Rally Software usando i relativi nomi utente di Azure Active Directory.
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
+**Per configurare il provisioning utente, eseguire la procedura seguente:**
 
 1. Accedere al tenant Rally Software.
 

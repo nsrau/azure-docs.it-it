@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 42ef2d9bbdf825eb0a872e9fe6fa66b34faa2cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180569"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software
 
@@ -107,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con OfficeSpace Software, s
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di OfficeSpace Software](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `<company name>.officespacesoftware.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `<company name>.officespacesoftware.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di OfficeSpace Software](mailto:support@officespacesoftware.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -145,7 +145,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OfficeSpace Software, s
 
     g. Fare clic su **Save**.
 
-7. Nella sezione **Certificato di firma SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML**.
+7. Nella sezione **Certificato di firma SAML**  fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML** .
 
     ![Modificare il certificato di firma SAML](common/edit-certificate.png)
 
