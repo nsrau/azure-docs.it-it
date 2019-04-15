@@ -36,7 +36,7 @@ Le pianificazioni includono le proprietà elencate nella tabella seguente.
 |:--- |:--- |
 | Interval |La frequenza con cui viene eseguita la ricerca. Il valore è espresso in minuti. |
 | QueryTimeSpan |L'intervallo di tempo durante il quale vengono valutati i criteri. Deve essere maggiore o uguale a Interval. Il valore è espresso in minuti. |
-| Versione |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+| Version |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti e Timespan pari a 30 minuti. In questo caso, la query viene eseguita ogni 15 minuti e viene attivato un avviso se i criteri continuano a restituire true in un intervallo di 30 minuti.
 
@@ -94,9 +94,9 @@ Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
-| NOME |Nome visualizzato per l'avviso. |
-| Versione |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+| `Type` |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
+| `Name` |Nome visualizzato per l'avviso. |
+| `Version` |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 ### <a name="retrieving-actions"></a>Recupero delle azioni
 
@@ -187,9 +187,9 @@ Log Analytics permette di classificare gli avvisi in categorie, per semplificare
 
 |Livello di gravità di Log Analytics  |Livello di gravità degli avvisi di Azure  |
 |---------|---------|
-|Critico |Gravità 0|
-|Avviso |Gravità 1|
-|Informativo | Gravità 2|
+|`critical` |Gravità 0|
+|`warning` |Gravità 1|
+|`informational` | Gravità 2|
 
 Di seguito è riportata una risposta di esempio per un'azione con solo una soglia e la gravità. 
 
@@ -360,7 +360,7 @@ Le notifiche tramite posta elettronica inviano i messaggi a uno o più destinata
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Recipients |Elenco di indirizzi di posta elettronica. |
-| Oggetto |L’oggetto del messaggio. |
+| Subject |L’oggetto del messaggio. |
 | Attachment |Poiché gli allegati non sono attualmente supportati, il valore sarà sempre "None". |
 
 Di seguito è riportata una risposta di esempio per un'azione di notifica di posta elettronica con una determinata soglia.  
