@@ -132,13 +132,14 @@ items:
   - name: Automatizzare l'apprendimento automatico
     displayName: automl, auto ml
     items:
-    - name: Automatizzare il training in Python
+    - name: Usare la Machine Learning automatizzata (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Usare destinazioni di calcolo remote
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Eseguire il training automatico dei modelli di previsione
+    - name: Eseguire il training automatico di un modello previsionale
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: Modelli ONNX
     href: how-to-build-deploy-onnx.md
@@ -212,9 +213,9 @@ items:
   - name: Confrontare i prodotti Machine Learning
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 6106a8ea03253b0787bb740295f839301543f9c6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 647c949a8f999a34963ddfa49f1df8a1606a1295
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495448"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521768"

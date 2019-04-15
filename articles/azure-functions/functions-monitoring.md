@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495686"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565964"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -99,11 +99,11 @@ Le seguenti aree di Application Insights possono essere utile quando si valuta i
 
 | TAB | DESCRIZIONE |
 | ---- | ----------- |
-| **[Errori](../azure-monitor/app/asp-net-exceptions.md)** |  Creare grafici e avvisi in base agli errori di funzione e le eccezioni di server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori di dipendenze non vengono visualizzati solo se si implementano i dati di telemetria personalizzati per le dipendenze. |
-| **[Prestazioni](../azure-monitor/app/performance-counters.md)** | Analizzare i problemi di prestazioni. |
+| **[errori](../azure-monitor/app/asp-net-exceptions.md)** |  Creare grafici e avvisi in base agli errori di funzione e le eccezioni di server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori di dipendenze non vengono visualizzati solo se si implementano i dati di telemetria personalizzati per le dipendenze. |
+| **[Performance](../azure-monitor/app/performance-counters.md)** | Analizzare i problemi di prestazioni. |
 | **Server** | Visualizzare l'utilizzo delle risorse e la velocità effettiva per ogni server. Questi dati possono essere utili negli scenari di debug in cui le funzioni bloccano le risorse sottostanti. I server sono denominati **Istanze del ruolo del cloud**. |
 | **[Metriche](../azure-monitor/app/metrics-explorer.md)** | Creare grafici e avvisi basati sulle metriche. Le metriche includono il numero di chiamate alla funzione, il tempo di esecuzione e le percentuali di successo. |
-| **[Flusso di metriche live](../azure-monitor/app/live-stream.md)** | Visualizzare i dati delle metriche durante la creazione in tempo reale. |
+| **[Flusso di metriche in tempo reale](../azure-monitor/app/live-stream.md)** | Visualizzare i dati delle metriche durante la creazione in tempo reale. |
 
 ## <a name="query-telemetry-data"></a>Query sui dati di telemetria
 
@@ -128,7 +128,7 @@ Le tabelle disponibili vengono visualizzate nei **Schema** scheda a sinistra. Ne
 | ----- | ----------- |
 | **traces** | Log creati dal runtime e dal codice della funzione. |
 | **requests** | Una richiesta per ogni chiamata di funzione. |
-| **eccezioni** | Tutte le eccezioni generate dal runtime. |
+| **exceptions** | Tutte le eccezioni generate dal runtime. |
 | **customMetrics** | Numero di chiamate di esito positivo e negativo, percentuale di successo e la durata. |
 | **customEvents** | Eventi rilevati dal runtime, ad esempio: richieste HTTP che attivano una funzione. |
 | **performanceCounters** | Informazioni sulle prestazioni dei server che eseguono le funzioni. |
@@ -174,7 +174,7 @@ Il livello di registrazione `None` è illustrato nella sezione successiva.
 
 ### <a name="log-configuration-in-hostjson"></a>Configurazione di log nell'host. JSON
 
-Il file [host.json] configura il numero di registrazioni che un'app per le funzioni invia ad Application Insights. Per ogni categoria, si indica il livello di registrazione minimo da inviare. Ci sono due esempi: gli obiettivi di esempio prima la [funzioni versione 2.x del runtime](functions-versions.md#version-2x) (.NET Core) e il secondo esempio è per la versione 1.x del runtime.
+Il file [host. JSON] configura il numero di registrazioni che un'app per le funzioni invia ad Application Insights. Per ogni categoria, si indica il livello di registrazione minimo da inviare. Ci sono due esempi: gli obiettivi di esempio prima la [funzioni versione 2.x del runtime](functions-versions.md#version-2x) (.NET Core) e il secondo esempio è per la versione 1.x del runtime.
 
 ### <a name="version-2x"></a>Versione 2.x
 
@@ -214,12 +214,12 @@ Il runtime della versione 2.x usa la [gerarchia di filtro del log di .NET Core](
 In questo esempio vengono impostate due regole:
 
 * Per i log con categoria `Host.Results` oppure `Function`, invia solo `Error` livello e versioni successive per Application Insights. I log di livello `Warning` e livelli inferiori vengono ignorati.
-* Per i log con categoria `Host.Aggregator`, inviare tutti i log ad Application Insights. Il livello del log `Trace` corrisponde a quello che alcuni logger chiamano `Verbose`, ma usano `Trace` nel file [host.json].
+* Per i log con categoria `Host.Aggregator`, inviare tutti i log ad Application Insights. Il livello del log `Trace` corrisponde a quello che alcuni logger chiamano `Verbose`, ma usano `Trace` nel file [host. JSON].
 * Per tutti gli altri log, inviare ad Application Insights solo i log di livello `Information` e superiori.
 
-Il valore della categoria in [host.json] controlla la registrazione di tutte le categorie che iniziano con lo stesso valore. `Host` nelle [host. JSON] la registrazione per i controlli `Host.General`, `Host.Executor`, `Host.Results`e così via.
+Il valore della categoria in [host. JSON] controlla la registrazione di tutte le categorie che iniziano con lo stesso valore. `Host` nelle [host. JSON] la registrazione per i controlli `Host.General`, `Host.Executor`, `Host.Results`e così via.
 
-Se [host.json] include più categorie che iniziano con la stessa stringa, viene rilevata prima la corrispondenza con quelle più lunghe. Si supponga che tutti gli elementi dalla fase di esecuzione, ad eccezione `Host.Aggregator` per accedere alla `Error` livello, ma si desidera `Host.Aggregator` per accedere al `Information` livello:
+Se [host. JSON] include più categorie che iniziano con la stessa stringa, viene rilevata prima la corrispondenza con quelle più lunghe. Si supponga che tutti gli elementi dalla fase di esecuzione, ad eccezione `Host.Aggregator` per accedere alla `Error` livello, ma si desidera `Host.Aggregator` per accedere al `Information` livello:
 
 ### <a name="version-2x"></a>Versione 2.x 
 
@@ -288,7 +288,7 @@ I log scritti dal codice di funzione hanno categoria `Function` e può essere qu
 
 ## <a name="configure-the-aggregator"></a>Configurare l'aggregatore
 
-Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzioni di funzioni in un periodo di tempo. Il periodo predefinito è 30 secondi o 1000 esecuzioni, ovvero quello che viene prima. È possibile configurare questa impostazione nel file [host.json].  Ad esempio:
+Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzioni di funzioni in un periodo di tempo. Il periodo predefinito è 30 secondi o 1000 esecuzioni, ovvero quello che viene prima. È possibile configurare questa impostazione nel file [host. JSON].  Ad esempio:
 
 ```json
 {
@@ -301,7 +301,7 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 
 ## <a name="configure-sampling"></a>Configurare il campionamento
 
-Application Insights include un' [campionamento](../azure-monitor/app/sampling.md) funzionalità che consente di proteggere dalla produzione di troppi dati di telemetria su completata esecuzioni nei momenti di picco di carico. Quando la frequenza di esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcuni delle esecuzioni in ingresso. L'impostazione predefinita per il numero massimo di esecuzioni riuscite al secondo è pari a 20 (cinque nella versione 1.x). È possibile configurare il campionamento nel file [host.json].  Ad esempio:
+Application Insights include un' [campionamento](../azure-monitor/app/sampling.md) funzionalità che consente di proteggere dalla produzione di troppi dati di telemetria su completata esecuzioni nei momenti di picco di carico. Quando la frequenza di esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcuni delle esecuzioni in ingresso. L'impostazione predefinita per il numero massimo di esecuzioni riuscite al secondo è pari a 20 (cinque nella versione 1.x). È possibile configurare il campionamento nel file [host. JSON].  Ad esempio:
 
 ### <a name="version-2x"></a>Versione 2.x 
 
@@ -595,7 +595,9 @@ Il `tagOverrides` set di parametri di `operation_Id` all'ID di chiamata. della f
 
 ## <a name="dependencies"></a>Dependencies
 
-Dipendenze con la funzione agli altri servizi non vengono visualizzati automaticamente. È possibile scrivere codice personalizzato per visualizzare le dipendenze. Per esempi, vedere il codice di esempio il [ C# sezione dati di telemetria personalizzati](#log-custom-telemetry-in-c-functions). Il codice di esempio crea un' *mappa delle applicazioni* in Application Insights simile a quello riportato nell'immagine seguente:
+Funzioni v2 raccoglie automaticamente le dipendenze per SQL, bus di servizio e le richieste HTTP.
+
+È possibile scrivere codice personalizzato per visualizzare le dipendenze. Per esempi, vedere il codice di esempio il [ C# sezione dati di telemetria personalizzati](#log-custom-telemetry-in-c-functions). Il codice di esempio crea un' *mappa delle applicazioni* in Application Insights simile a quello riportato nell'immagine seguente:
 
 ![Mappa delle applicazioni](./media/functions-monitoring/app-map.png)
 
@@ -657,4 +659,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Application Insights](/azure/application-insights/)
 * [Registrazione di ASP.NET Core](/aspnet/core/fundamentals/logging/)
 
-[host.json]: functions-host-json.md
+[host. JSON]: functions-host-json.md

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490776"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548526"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controllo di accesso basato sui ruoli (RBAC) per gli account di servizi multimediali
 
@@ -40,11 +40,11 @@ Il [le definizioni di ruolo predefinite](https://docs.microsoft.com/azure/role-b
 
 Vedere gli articoli seguenti per altre informazioni:
 
-- [Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Ruoli di amministratore della sottoscrizione classica, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Che cos'è RBAC per risorse di Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Usare RBAC per gestire l'accesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Ottenere i criteri di chiave simmetrica mediante .NET di servizi multimediali](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Sviluppo con servizi multimediali v3 API](media-services-apis-overview.md)
+- [Sviluppo con servizi multimediali v3 API](media-services-apis-overview.md)
+- [Ottenere i criteri di chiave simmetrica mediante .NET di servizi multimediali](get-content-key-policy-dotnet-howto.md)

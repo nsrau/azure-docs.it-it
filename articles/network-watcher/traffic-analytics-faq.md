@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046989"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549372"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -179,7 +179,7 @@ Attualmente, non è possibile utilizzare un modello di Azure Resource Manager pe
 
 Per configurare Analisi del traffico utilizzando un client Azure Resource Manager, vedere gli esempi seguenti.
 
-**Esempio di set di cmdlet:**
+**Esempio Set cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -220,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Ottenere l'esempio di cmdlet:**
+**Esempio Get cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Come viene determinato il prezzo di Analisi del traffico?
 
 Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
 Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Frequenza con cui il traffico di Analitica elabori i dati?
+
+Vedere il [sezione aggregazione dei dati](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) nello Schema di Analitica di traffico e documento di aggregazione di dati
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Come traffico Analitica decidere che un indirizzo IP sia dannoso? 
+
+Il traffico Analitica si basa su sistemi di business intelligence Microsoft delle minacce interne per considerare un indirizzo IP come dannoso. Questi sistemi sfruttano origini dati di telemetria diversi, ad esempio i prodotti Microsoft e servizi, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) e feed esterni e creare molti business intelligence su di esso. Alcuni di questi dati è Microsoft interno. Se un indirizzo IP noto recupero risulta essere malicios, creare un ticket di supporto per conoscere i dettagli.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Come è possibile impostare avvisi per i dati di Analitica di traffico?
+
+Il traffico Analitica non è supporto incorporato per gli avvisi. Tuttavia, poiché il traffico Analitica dati vengono archiviati nel Log Analitica è possibile scrivere query personalizzate e impostare avvisi su di essi. Procedura:
+- È possibile usare il collegamento breve per Log Analitica nel traffico Analitica. 
+- Usare la [schema documentato qui](traffic-analytics-schema.md) per scrivere le query 
+- Fare clic su "Nuova regola di avviso" creazione dell'avviso
+- Fare riferimento a [documentazione degli avvisi di log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) per creare l'avviso
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
@@ -272,7 +287,7 @@ La pagina della mappa geografica contiene due sezioni principali:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navigazione da tastiera in qualsiasi momento
     
-- `Esc` Comprime la selezione espansa.
+- `Esc` comprime la selezione espansa.
 - Il tasto `Up arrow` esegue la stessa azione di `Esc`. Il tasto `Down arrow` esegue la stessa azione di `Enter`.
 - Usare `Shift+Plus` per fare zoom avanti e `Shift+Minus` per fare zoom indietro.
 

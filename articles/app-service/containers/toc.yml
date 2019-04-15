@@ -23,7 +23,7 @@ items:
     href: quickstart-python.md
   - name: Creare un'app Ruby
     href: quickstart-ruby.md
-  - name: Creare un'app Docker/Go
+  - name: Eseguire il contenitore personalizzato
     href: quickstart-docker-go.md
   - name: Creare un'app multicontenitore
     href: quickstart-multi-container.md
@@ -48,7 +48,7 @@ items:
       href: tutorial-java-enterprise-postgresql-app.md
   - name: App con più contenitori
     href: tutorial-multi-container-app.md
-  - name: Immagine Docker personalizzata
+  - name: Eseguire il contenitore da Registro Azure Container
     href: tutorial-custom-docker-image.md
   - name: Eseguire il mapping di un dominio personalizzato
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -72,10 +72,6 @@ items:
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Ambiente del servizio app
     href: ../environment/intro.md
-  - name: Guida per sviluppatori Java
-    href: app-service-linux-java.md
-  - name: Guida di Java Enterprise
-    href: app-service-java-enterprise.md
   - name: IP in ingresso e in uscita
     href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Autenticazione e autorizzazione
@@ -88,10 +84,22 @@ items:
   items:
   - name: Configurare un'app
     items:
-    - name: Immagine Python
-      href: how-to-configure-python.md
     - name: Usare le impostazioni dell'app
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Configurare ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configurare Node.js
+      href: configure-language-nodejs.md
+    - name: Configurare PHP
+      href: configure-language-php.md
+    - name: Configurare Java
+      href: configure-language-java.md
+    - name: Configurare Python
+      href: how-to-configure-python.md
+    - name: Configurare Ruby
+      href: configure-language-ruby.md
+    - name: Configurare il contenitore personalizzato
+      href: configure-custom-container.md
     - name: Gestire il contenuto con Archiviazione
       href: how-to-serve-content-from-azure-storage.md
   - name: Distribuisci in Azure
@@ -158,8 +166,6 @@ items:
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Abilitare i log
       href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Integrazioni di Application Performance Monitoring in Java
-      href: how-to-java-apm-monitoring.md
   - name: Gestire un'app
     items:
     - name: Eseguire il backup di un'app
@@ -222,9 +228,9 @@ items:
         href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Domande frequenti su configurazione e gestione
         href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: f29fa4901e2eb8e3a6bcabcc72e4dba37041186a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 250501832c3daaeee9935c2796e6da9df3483e35
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719524"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544873"

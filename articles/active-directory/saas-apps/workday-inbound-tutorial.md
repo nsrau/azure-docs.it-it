@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897623"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524634"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Per chi è più adatta questa soluzione di provisioning utenti?
 
-Questa soluzione di provisioning utenti Workday è attualmente disponibile in anteprima pubblica e idealmente è la più appropriata per:
+Questa soluzione di provisioning utenti di Workday sono ideale per:
 
 * Organizzazioni che desiderano una soluzione predefinita basata sul cloud per il provisioning utenti Workday
 
@@ -460,7 +460,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
 2. Nel campo **Source Object Scope** (Ambito dell'oggetto di origine) è possibile selezionare i set di utenti in Workday da includere nell'ambito per il provisioning in AD, definendo un set di filtri basati su attributi. L'ambito predefinito è "tutti gli utenti in Workday". Filtri di esempio:
 
-   * Esempio: ambito per gli utenti con ID lavoratore compreso tra 1000000 e    2000000
+   * Esempio: Ambito per gli utenti con ID lavoratore compreso tra 1000000 e 2000000 (escluso 2000000)
 
       * Attributo: WorkerID
 

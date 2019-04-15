@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895890"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549713"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST
 L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
@@ -94,9 +94,9 @@ Tutte le azioni includono le proprietà elencate nella tabella seguente.  I vari
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
-| NOME |Nome visualizzato per l'avviso. |
-| Versione |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
+| `Type` |Tipo di azione.  Attualmente, i valori possibili sono Alert e Webhook. |
+| `Name` |Nome visualizzato per l'avviso. |
+| `Version` |La versione API utilizzata.  Attualmente, deve sempre essere impostata su 1. |
 
 ### <a name="retrieving-actions"></a>Recupero delle azioni
 
@@ -154,8 +154,8 @@ Le soglie includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Operator |Operatore di confronto soglie. <br> gt = Maggiore di <br>  lt = minore di |
-| Value |Valore per la soglia. |
+| `Operator` |Operatore di confronto soglie. <br> gt = Maggiore di <br>  lt = minore di |
+| `Value` |Valore per la soglia. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti, Timespan pari a 30 minuti e Threshold maggiore di 10. In questo caso, la query viene eseguita ogni 15 minuti e viene attivato un avviso se restituisce 10 eventi creati in un intervallo di 30 minuti.
 
@@ -187,9 +187,9 @@ Log Analytics permette di classificare gli avvisi in categorie, per semplificare
 
 |Livello di gravità di Log Analytics  |Livello di gravità degli avvisi di Azure  |
 |---------|---------|
-|Critico |Gravità 0|
-|Avviso |Gravità 1|
-|Informativo | Gravità 2|
+|`critical` |Gravità 0|
+|`warning` |Gravità 1|
+|`informational` | Gravità 2|
 
 Di seguito è riportata una risposta di esempio per un'azione con solo una soglia e la gravità. 
 
@@ -284,7 +284,7 @@ Usare il metodo Put con un ID azione esistente per modificare un gruppo di azion
 Per impostazione predefinita, le azioni seguono il modello e il formato standard per le notifiche. Gli utenti possono tuttavia personalizzare alcune azioni, anche se sono controllate da gruppi di azioni. Attualmente, la personalizzazione è possibile per l'oggetto del messaggio di posta elettronica e il payload del webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizzare l'oggetto del messaggio di posta elettronica per il gruppo di azioni
-Per impostazione predefinita, l'oggetto del messaggio di posta elettronica per gli avvisi è: Alert Notification <AlertName> for <WorkspaceName>. L'oggetto può essere personalizzato per poter usare parole o tag specifici in modo da impiegare facilmente regole di filtro nella cartella della posta in arrivo. I dettagli dell'intestazione dei messaggi di posta elettronica personalizzati devono essere inviati insieme ai dettagli relativi al gruppo di azioni, come nell'esempio seguente.
+Per impostazione predefinita, l'oggetto del messaggio di posta elettronica per gli avvisi è: Alert Notification `<AlertName>` for `<WorkspaceName>`. L'oggetto può essere personalizzato per poter usare parole o tag specifici in modo da impiegare facilmente regole di filtro nella cartella della posta in arrivo. I dettagli dell'intestazione dei messaggi di posta elettronica personalizzati devono essere inviati insieme ai dettagli relativi al gruppo di azioni, come nell'esempio seguente.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

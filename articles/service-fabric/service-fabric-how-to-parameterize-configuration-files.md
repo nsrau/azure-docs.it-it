@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102670"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524515"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Come aggiungere parametri ai file di configurazione in Service Fabric
 
@@ -27,7 +27,7 @@ Questo articolo illustra come aggiungere parametri a un file di configurazione i
 
 In questo esempio si esegue l'override di un valore di configurazione definendo parametri nella distribuzione dell'applicazione.
 
-1. Aprire il file *<MyService>\PackageRoot\Config\Settings.xml* nel progetto di servizio.
+1. Aprire il  *\<MyService > \PackageRoot\Config\Settings.xml* file nel progetto di servizio.
 1. Impostare un nome e un valore di un parametro di configurazione, ad esempio una dimensione della cache pari a 25, aggiungendo il codice XML seguente:
 
    ```xml
@@ -37,7 +37,7 @@ In questo esempio si esegue l'override di un valore di configurazione definendo 
    ```
 
 1. Salvare e chiudere il file.
-1. Aprire il file *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
+1. Aprire il  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* file.
 1. Nel file ApplicationManifest.xml dichiarare un parametro e il valore predefinito nell'elemento `Parameters`.  È consigliabile assegnare al parametro un nome che includa quello del servizio, ad esempio "MyService".
 
    ```xml
