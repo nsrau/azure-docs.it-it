@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528136"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579156"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
 Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per una descrizione completa di ogni SDK, vedere la documentazione di riferimento per:
 + [**I principali SDK per Python**](https://aka.ms/aml-sdk) di Azure Machine Learning
 + [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Portale di Azure
+  + È ora possibile inviare di nuovo uno Script esistente eseguito in un cluster di calcolo remoto esistente. 
+  + È ora possibile eseguire una pipeline pubblicata con nuovi parametri nella scheda della pipeline. 
+  + Dettagli delle esecuzioni supporta ora un nuovo Visualizzatore file di Snapshot. Quando è stato inviato a un'esecuzione specifica, è possibile visualizzare uno snapshot della directory. È anche possibile scaricare il notebook che è stato inoltrato all'avvio dell'esecuzione.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
   + Rilevamento del tipo colonna ora supporta le colonne di tipo Long.
   + Risolto un bug in cui sono stati visualizzati alcuni valori di data come timestamp anziché gli oggetti datetime Python.
   + Risolto un bug in cui sono stati visualizzati alcune conteggi di tipo come valori Double invece di numeri interi.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

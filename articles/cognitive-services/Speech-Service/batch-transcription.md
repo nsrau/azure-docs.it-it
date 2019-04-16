@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447651"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579360"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -88,6 +88,16 @@ I parametri di configurazione vengono forniti in formato JSON:
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. | Facoltativo |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. | Facoltativo |
 
+### <a name="storage"></a>Archiviazione
+
+Batch supporta di trascrizione [archiviazione Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e trascrizioni di scrittura in un archivio.
+
+## <a name="webhooks"></a>Webhook 
+
+Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fornire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che è possibile informare il client al completamento di attività con esecuzione prolungata trascrizione.
+
+Per altre informazioni, vedere [Webhook](webhooks.md).
+
 ## <a name="sample-code"></a>Codice di esempio
 
 L'esempio completo è disponibile nel [repository di esempi GitHub](https://aka.ms/csspeech/samples) all'interno della sottodirectory `samples/batch`.
@@ -108,10 +118,6 @@ Il codice di esempio corrente non specifica un modello personalizzato. Per la tr
 
 > [!NOTE]
 > Per le trascrizioni di base non è necessario dichiarare l'ID dei modelli di base. Se si specifica solo l'ID di un modello linguistico (e non un ID di modello acustico), viene automaticamente selezionato un modello acustico corrispondente. Se si specifica solo l'ID di un modello acustico, viene automaticamente selezionato un modello linguistico corrispondente.
-
-### <a name="supported-storage"></a>Archiviazione supportata
-
-Attualmente è supportata solo l'archiviazione BLOB di Azure.
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 

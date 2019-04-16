@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493060"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577968"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -50,15 +50,14 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nel riquadro a sinistra.
 3. Cercare **Azure Active Directory** nell'elenco dei servizi e selezionarlo.
-4. Selezionare **Utenti e gruppi**.
-5. Selezionare **Log di controllo** dal menu **Utenti e gruppi**. Vengono visualizzati tutti gli eventi di controllo che si verificano per tutti gli utenti nella directory. È possibile filtrare la visualizzazione per vedere tutti gli eventi correlati alle password.
-6. Per filtrare questa visualizzazione esclusivamente in base agli eventi correlati alla reimpostazione delle password, selezionare il pulsante **Filtra** nella parte superiore del riquadro.
-7. Dal menu **Filtra** selezionare l'elenco a discesa **Categoria** e impostare l'elemento su **Self-service Password Management** (Gestione delle password self-service).
-8. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
+4. Selezionare **utenti** dalla sezione Gestisci.
+5. Selezionare **log di controllo** dalle **utenti** pannello. Vengono visualizzati tutti gli eventi di controllo che si verificano per tutti gli utenti nella directory. È possibile filtrare la visualizzazione per vedere tutti gli eventi correlati alle password.
+6. Dal **filtro** dal menu nella parte superiore del riquadro, seleziona il **servizio** elenco a discesa elenco e modificarla in modo che il **Self-Service Password Management** tipo di servizio.
+7. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
 
 ### <a name="converged-registration-preview"></a>Registrazione convergente (anteprima)
 
-Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative alle attività dell'utente nei log di controllo saranno disponibili nella categoria **Metodi di autenticazione**.
+Se si fa parte dell'anteprima pubblica di registrazione convergente, le informazioni relative alle attività dell'utente nei log di controllo sarà disponibile il servizio **metodi di autenticazione**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 
@@ -176,16 +175,16 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come completare una distribuzione di SSPR eseguita correttamente?](howto-sspr-deployment.md)
+* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
-* [Hai una domanda di gestione delle licenze?](concept-sspr-licensing.md)
-* [Dati usati da SSPR e quali dati da immettere per gli utenti?](howto-sspr-authenticationdata.md)
-* [I metodi di autenticazione sono disponibili per gli utenti?](concept-sspr-howitworks.md#authentication-methods)
-* [Quali sono le opzioni dei criteri con SSPR?](concept-sspr-policy.md)
-* [Che cos'è il writeback delle password e il motivo per cui mi preoccupo su di esso?](howto-sspr-writeback.md)
-* [Quali sono tutte le opzioni in SSPR e cosa il loro significato?](concept-sspr-howitworks.md)
-* [Ritengo che qualcosa è interrotto. Come si risolvono SSPR?](active-directory-passwords-troubleshoot.md)
-* [Ho una domanda che informazioni non illustrata altrove else](active-directory-passwords-faq.md)
+* [Domande sulle licenze](concept-sspr-licensing.md)
+* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
+* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
+* [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
+* [Panoramica del writeback delle password](howto-sspr-writeback.md)
+* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

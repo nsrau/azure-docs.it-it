@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578646"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578918"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -60,6 +60,10 @@ Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>In che modo il sito locale si connette ad Azure Migrate?
 
 La connessione può avvenire tramite internet o usare ExpressRoute con peering pubblico.
+
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>I requisiti di connettività di rete necessari per eseguire la migrazione di Azure?
+
+Per l'URL e le porte necessarie per eseguire la migrazione di Azure comunicare con Azure, vedere [gli URL per la connettività](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>È possibile rafforzare la macchina virtuale configurata con il modello OVA?
 

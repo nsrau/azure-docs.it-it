@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958049"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579411"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta della Knowledge base con l'API di GenerateAnswer e metadati
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Intestazione|Content-Type|stringa|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
 |Intestazione|Authorization|stringa|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|La domanda con le impostazioni|
-|Parametro di stringa di query (facoltativo)|`isTest`|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
+
 
 Il corpo JSON presenta diverse impostazioni:
 
@@ -83,6 +83,7 @@ Il corpo JSON presenta diverse impostazioni:
 |`question`|Obbligatoria|stringa|Una domanda utente da inviare alla knowledge base.|
 |`top`|Facoltativo|numero intero|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
 |`userId`|Facoltativo|stringa|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
+|`isTest`|Facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
 |`strictFilters`|Facoltativo|stringa|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati.|
 
 Un esempio del corpo JSON sarà simile a:
@@ -91,6 +92,7 @@ Un esempio del corpo JSON sarà simile a:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

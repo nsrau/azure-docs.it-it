@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007840"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579037"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -95,7 +95,8 @@ Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il dat
   * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
 * Porta probe
   * Porta 620<strong>&lt;nr&gt;</strong>
-* Regole di bilanciamento del carico
+* Caricamento 
+* le regole di bilanciamento del carico
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -132,7 +133,8 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
 
 È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello ASCS/SCS a più SID][template-multisid-xscs] o il [modello convergente][template-converged] nel portale di Azure. Il modello ASCS/SCS consente di creare solo le regole di bilanciamento del carico per le istanze ASCS/SCS e ERS di SAP NetWeaver (solo Linux), mentre il modello convergente crea anche le regole di bilanciamento del carico per un database, ad esempio Microsoft SQL Server o SAP HANA. Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche il database nelle stesse macchine, usare il [modello convergente][template-converged].
+1. Aprire il [modello ASCS/SCS a più SID] [ template-multisid-xscs] o le [modello con convergenza] [ template-converged] nel portale di Azure. 
+   Il modello ASCS/SCS consente di creare solo le regole di bilanciamento del carico per il SAP NetWeaver ASCS/SCS e le istanze ERS (solo Linux) mentre il modello con convergenza crea anche le regole di bilanciamento del carico per un database (ad esempio Microsoft SQL Server o SAP HANA). Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche il database nelle stesse macchine, usare il [modello convergente][template-converged].
 1. Immettere i parametri seguenti
    1. Prefisso di risorsa (solo modello ASCS/SCS a più SID)  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
@@ -144,7 +146,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
       Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare SLES 12 BYOS
    6. Tipo di database  
       Selezionare HANA
-   7. Dimensioni del sistema SAP  
+   7. Dimensioni del sistema SAP.  
       Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
    8. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
@@ -530,6 +532,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Creare le risorse del cluster SAP
 
+Se si usa l'architettura del server 1 enqueue (ENSA1), definire le risorse come segue:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP introdotto il supporto per il server di Accodamento 2, che include replica, a partire da SAP NW 7.52. A partire da ABAP piattaforma 1809, 2 server di accodamento è installato per impostazione predefinita. Vedere SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto di server 2 enqueue.
+Se si usa l'architettura del server 2 enqueue ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definire le risorse come segue:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  Se si esegue l'aggiornamento da una versione precedente e passare a server di Accodamento 2, vedere la nota sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ I test seguenti sono una copia dei test case contenuti nelle guide alle procedur
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Creare un blocco di accodamento, ad esempio modificando un utente nella transazione su01. Eseguire i comandi seguenti come \<sapsid>adm nel nodo di cui è in esecuzione l'istanza di ASCS. I comandi interromperanno l'istanza ASCS per poi riavviarla. Nel test, il blocco di accodamento deve andare perso.
+   Creare un blocco di accodamento, ad esempio modificando un utente nella transazione su01. Eseguire i comandi seguenti come \<sapsid>adm nel nodo di cui è in esecuzione l'istanza di ASCS. I comandi interromperanno l'istanza ASCS per poi riavviarla. Se si usa l'architettura del server 1 enqueue, il blocco di accodamento è previsto per questo test non venga mantenuta. Se si usa l'architettura di Accodamento server 2, l'accodamento verrà conservata. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7463a61945524672c5124966db2464c036559db7
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818873"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571329"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS) seguendo questa procedura:
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite** immettere `your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 3. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
@@ -157,7 +157,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimenti
 
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 

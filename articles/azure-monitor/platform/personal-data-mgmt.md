@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121350"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577899"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -86,6 +86,9 @@ Come indicato nella sezione [Strategia per la gestione dei dati personali](#stra
 ### <a name="view-and-export"></a>Visualizzare ed esportare i dati
 
 Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzare l'[API di query di Log Analytics](https://dev.loganalytics.io/) o l'[API di query di Application Insights](https://dev.applicationinsights.io/quickstart). Spetta all'utente implementare la logica per la conversione della forma dei dati in una appropriata da offrire agli utenti. [Funzioni di Azure](https://azure.microsoft.com/services/functions/) è una valida soluzione per ospitare tale logica.
+
+> [!IMPORTANT]
+>  Mentre la maggior parte delle operazioni di eliminazione potrebbe essere più veloce rispetto al contratto di servizio, completata **formale contratto di servizio per il completamento delle operazioni di eliminazione è impostato su 30 giorni** a causa del relativo impatto eccessivo sulla data platform usata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione deve essere gestito più veloce.
 
 ### <a name="delete"></a>Delete
 

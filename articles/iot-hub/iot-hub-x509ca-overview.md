@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489812"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571155"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -62,13 +62,15 @@ Il processo di caricamento comporta il caricamento di un file che contiene il ce
 
 Il passaggio relativo all'uso del token proof-of-possession prevede un processo basato sulla crittografia e sullo scambio della richiesta di verifica e della relativa risposta tra il dispositivo e l'hub IoT.  Dato che il contenuto di un certificato digitale è pubblico e pertanto suscettibile all'intercettazione, l'hub IoT deve verificare l'effettiva titolarità del possesso del certificato della CA.  A tale scopo, verrà generata una richiesta casuale di verifica che sarà necessario firmare usando la corrispondente chiave privata associata al certificato.  Se la chiave privata non è stata divulgata ed è stata conservata in un luogo protetto come indicato in precedenza, solo l'utente proprietario sarà in grado di completare questo passaggio. In questo metodo il fattore determinante della relazione di attendibilità è dato dalla riservatezza delle chiavi private.  Dopo avere firmato la richiesta di verifica, completare questo passaggio caricando un file contenente i risultati.
 
-Informazioni su come [registrare il certificato della CA](iot-hub-security-x509-get-started.md#registercerts).
+Informazioni su come [registrare il certificato della CA](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Come creare un dispositivo nell'hub IoT
 
 Per impedire la rappresentazione del dispositivo, è necessario indicare all'hub IoT il dispositivo previsto.  A tale scopo, creare una voce specifica nel registro dei dispositivi dell'hub IoT.  Questo processo è automatico quando si usa il [servizio Device Provisioning](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) dell'hub IoT. 
 
-Informazioni su come [creare manualmente un dispositivo nell'hub IoT](iot-hub-security-x509-get-started.md#createdevice).
+Informazioni su come [creare manualmente un dispositivo nell'hub IoT](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Creare un dispositivo X.509 per l'hub IoT
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Autenticazione dei dispositivi firmati con i certificati della CA X.509
 
@@ -76,7 +78,7 @@ Dopo aver registrato il certificato della CA X.509 e aver firmato i dispositivi 
 
 Una connessione riuscita del dispositivo all'hub IoT completa il processo di autenticazione e indica un'installazione corretta.
 
-Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
+Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Fasi successive
 

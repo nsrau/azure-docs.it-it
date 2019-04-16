@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918621"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577839"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API Traduzione testuale 3.0: Transliterate
 
@@ -60,8 +60,8 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Un'autorizzazione_<br/>_intestazione_</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
+    <td>Intestazioni di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -165,7 +165,7 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 L'esempio seguente illustra come convertire due stringhe in lingua giapponese in giapponese romanizzato.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 Il payload JSON per la richiesta in questo esempio:
 

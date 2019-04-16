@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189139"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571086"
 ---
 # <a name="virtual-network-tap"></a>TAP di rete virtuale
 
@@ -36,17 +36,18 @@ Un TAP (Terminal Access Point) di rete virtuale di Azure consente di trasmettere
 - [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Analisi della sicurezza, gestione delle prestazioni di rete/applicazioni
 
 - [Sicurezza attivo](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Stealthwatch Cisco Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
@@ -56,7 +57,7 @@ L'immagine seguente illustra come funziona un TAP di rete virtuale. È possibile
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di creare un TAP di rete virtuale, è necessario aver ricevuto un messaggio di conferma della registrazione per l'anteprima e avere creato una o più macchine virtuali tramite il modello di distribuzione [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e la soluzione di un partner per l'aggregazione del traffico TAP nell'area WestCentralUS. Se non è disponibile una soluzione di un partner nella rete virtuale, vedere le [soluzioni dei partner](#virtual-network-tap-partner-solutions) per distribuirne una. È possibile usare la stessa risorsa TAP di rete virtuale per aggregare il traffico da più interfacce di rete nella stessa sottoscrizione o in sottoscrizioni diverse. Se le interfacce di rete monitorate si trovano in sottoscrizioni diverse, le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory. Inoltre, le interfacce di rete monitorate e l'endpoint di destinazione per aggregare il traffico TAP possono trovarsi in reti virtuali con peering nella stessa area. Se si usa questo modello di distribuzione, assicurarsi che il [peering di reti virtuali](virtual-network-peering-overview.md) sia abilitato prima di configurare il TAP di rete virtuale.
+Prima di creare un dispositivo TAP di rete virtuale, è necessario aver ricevuto un messaggio di conferma che si sono registrati per l'anteprima e è uno o più macchine virtuali create tramite [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modello di distribuzione e un partner soluzione per aggregare il traffico di TOCCO nella stessa area di azure. Se non è disponibile una soluzione di un partner nella rete virtuale, vedere le [soluzioni dei partner](#virtual-network-tap-partner-solutions) per distribuirne una. È possibile usare la stessa risorsa TAP di rete virtuale per aggregare il traffico da più interfacce di rete nella stessa sottoscrizione o in sottoscrizioni diverse. Se le interfacce di rete monitorate si trovano in sottoscrizioni diverse, le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory. Inoltre, le interfacce di rete monitorate e l'endpoint di destinazione per aggregare il traffico TAP possono trovarsi in reti virtuali con peering nella stessa area. Se si usa questo modello di distribuzione, assicurarsi che il [peering di reti virtuali](virtual-network-peering-overview.md) sia abilitato prima di configurare il TAP di rete virtuale.
 
 ## <a name="permissions"></a>Autorizzazioni
 

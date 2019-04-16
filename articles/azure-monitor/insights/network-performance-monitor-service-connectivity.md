@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501964"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571172"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -68,7 +68,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 5. In **Destinazione** immettere l'indirizzo URL/FQDN/IP per cui si vuole monitorare la connettività di rete.
 6. In **Numero di porta** immettere il numero di porta del servizio di destinazione. 
 7. In **Frequenza test** immettere un valore per la frequenza con cui si vuole eseguire il test. 
-8. Selezionare i nodi da cui si vuole monitorare la connettività della rete al servizio. 
+8. Selezionare i nodi da cui si vuole monitorare la connettività della rete al servizio. Assicurarsi che il numero di agenti aggiunti al test sia inferiore a 150. Tutti gli agenti possono massimi 150 endpoint/gli agenti di test.
 
     >[!NOTE]
     > Per i nodi basati su server Windows, la funzionalità usa richieste basate su TCP per eseguire le misure di rete. Per i nodi basati su client Windows, la funzionalità usa richieste basate su ICMP per eseguire le misure di rete. In alcuni casi, l'applicazione di destinazione blocca le richieste basate su ICMP in ingresso quando i nodi sono basati su client Windows. In questo caso, la soluzione non riesce a eseguire le misure di rete. In tali casi è consigliabile usare nodi basati su server Windows. 

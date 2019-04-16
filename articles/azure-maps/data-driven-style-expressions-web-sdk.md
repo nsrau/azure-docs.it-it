@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288097"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579496"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basato sui dati (Web SDK)
 
@@ -90,7 +90,7 @@ Le espressioni di dati forniscono accesso ai dati di proprietà in una funzional
 | `['id']` | value | Ottiene l'ID della funzionalità se presente. |
 | `['length', string | array]` | number | Ottiene la lunghezza di una stringa o matrice. |
 
-**Esempi**
+**esempi**
 
 Proprietà di una funzionalità è accessibile direttamente in un'espressione con un `get` espressione. Nell'esempio seguente usa il valore di "zoneColor" della funzionalità per specificare la proprietà di colore di un livello a bolle. 
 
@@ -249,7 +249,7 @@ Lo pseudocodice seguente definisce la struttura del `match` espressione.
 ]
 ```
 
-**Esempi**
+**esempi**
 
 L'esempio seguente esamina il `entityType` proprietà di una funzionalità del punto in un livello bolle Cerca una corrispondenza. Se viene trovata una corrispondenza, che specificato valore restituito o restituisce il valore di fallback.
 
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Oggetto `coalesce` espressione illustra un set di espressioni finché non viene ottenuto il primo valore non null e non restituisce tale valore. 
 
-Lo pseudocodice seguente definisce la struttura del ` coalesce` espressione. 
+Lo pseudocodice seguente definisce la struttura del `coalesce` espressione. 
 
 ```javascript
 [
@@ -795,10 +795,10 @@ Vedere gli articoli seguenti per altri esempi di codice che implementano le espr
 > [Aggiungere un livello per le bolle](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
-> [Aggiungi forme](map-add-shape.md)
+> [Aggiungere forme](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Aggiungere un livello per le mappe termiche](map-add-heat-map-layer.md)
+> [Aggiungere un livello mappa termica](map-add-heat-map-layer.md)
 
 Altre informazioni sulle opzioni di livello che supportano le espressioni:
 

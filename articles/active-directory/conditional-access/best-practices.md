@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261539"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571121"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -109,7 +109,7 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
 
-Sì, è possibile usare Exchange ActiveSync in criteri di accesso condizionale.
+Sì, è possibile usare Exchange ActiveSync in Criteri di accesso condizionale con alcune [limitazioni](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come si deve configurare l'accesso condizionale con le app di Office 365?
 
@@ -130,7 +130,7 @@ Il framework di accesso condizionale offre ottima flessibilità di configurazion
 Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 
-**Per tutti gli utenti, tutte le app cloud:**
+**Per tutti gli utenti e tutte le applicazioni cloud:**
 
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 
@@ -140,7 +140,7 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 - **Richiedono criteri di protezione delle app** : questo criterio di blocco accesso ha anche la possibilità di bloccare l'accesso per tutti gli utenti nell'organizzazione se non si dispone di un criterio di Intune. Se si è amministratore senza un'applicazione client che ha un criterio di protezione app di Intune, questo criterio blocca l'accesso in portali, ad esempio Intune e Azure.
 
-**Per tutti gli utenti, tutte le app cloud, tutte le piattaforme di dispositivo:**
+**Per tutti gli utenti, tutte le applicazioni cloud e tutte le piattaforme per dispositivi:**
 
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 

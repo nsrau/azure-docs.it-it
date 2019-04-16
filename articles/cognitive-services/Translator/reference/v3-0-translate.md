@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8533a5b2a974af3bd426e9b70ba298534b0365f7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d68c5579664a9b0a36f906e4586aa0e268a0fd01
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917516"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579258"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -86,7 +86,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica che il servizio può eseguire il fallback in un sistema generale quando non esiste un sistema personalizzato. I valori possibili sono: <code>true</code> (impostazione predefinita) o <code>false</code>.<br/><br/><code>allowFallback=false</code> Specifica che la traduzione deve utilizzare solo i sistemi sottoposti a training per il <code>category</code> specificato dalla richiesta. Se una traduzione dalla lingua X alla lingua Y richiede un concatenamento tramite una lingua pivot E, tutti i sistemi nella catena (X->E ed E->Y) dovranno essere personalizzati e avere la stessa categoria. Se non viene trovato alcun sistema con la specifica categoria, la richiesta restituirà un codice di stato 400. <code>allowFallback=true</code> Specifica che il servizio può eseguire il fallback in un sistema generale quando un sistema personalizzato non esiste.
+    <td><em>Parametro facoltativo</em>.<br/>Specifica che il servizio può eseguire il fallback in un sistema generale quando non esiste un sistema personalizzato. I valori possibili sono: <code>true</code> (impostazione predefinita) o <code>false</code>.<br/><br/><code>allowFallback=false</code> specifica che la traduzione deve usare solo sistemi sottoposti a training per il valore di <code>category</code> definito dalla richiesta. Se una traduzione dalla lingua X alla lingua Y richiede un concatenamento tramite una lingua pivot E, tutti i sistemi nella catena (X->E ed E->Y) dovranno essere personalizzati e avere la stessa categoria. Se non viene trovato alcun sistema con la specifica categoria, la richiesta restituirà un codice di stato 400. <code>allowFallback=true</code> specifica che il servizio può eseguire il fallback in un sistema generale quando non esiste un sistema personalizzato.
 </td>
   </tr>
 </table> 
@@ -97,8 +97,8 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Un'autorizzazione_<br/>_intestazione_</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
+    <td>Intestazioni di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -165,7 +165,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
     I delimitatori di frase vengono inclusi solo quando il parametro della richiesta `includeSentenceLength` è `true`.
 
-  * `sourceText`: oggetto con una proprietà di stringa singola denominata `text`, che fornisce il testo di input nel carattere predefinito della lingua di origine. `sourceText` proprietà è presente solo quando l'input viene espresso in uno script che non è lo script di solito per la lingua. Ad esempio, se l'input è in arabo scritto in caratteri dell'alfabeto latino, `sourceText.text` è lo stesso testo in arabo convertito in caratteri dell'alfabeto arabo.
+  * `sourceText`: oggetto con una proprietà di stringa singola denominata `text`, che fornisce il testo di input nel carattere predefinito della lingua di origine. La proprietà `sourceText` è presente solo quando l'input è espresso in un carattere che non è quello consueto per la lingua. Ad esempio, se l'input è in arabo scritto in caratteri dell'alfabeto latino, `sourceText.text` è lo stesso testo in arabo convertito in caratteri dell'alfabeto arabo.
 
 Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
@@ -233,7 +233,7 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -259,7 +259,7 @@ La matrice `translations` include un elemento, che fornisce la traduzione della 
 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato. La richiesta non specifica la lingua di input. Viene usato invece il rilevamento automatico della lingua di origine.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -285,7 +285,7 @@ La risposta è simile a quella dell'esempio precedente. Poiché è stato richies
 
 È possibile estendere l'esempio precedente aggiungendo la traslitterazione. La richiesta seguente richiede una traduzione in cinese scritta in caratteri dell'alfabeto latino.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -316,7 +316,7 @@ Il risultato della traduzione include ora una proprietà `transliteration`, che 
 
 La traduzione di più stringhe contemporaneamente equivale semplicemente a specificare una matrice di stringhe nel corpo della richiesta.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -345,7 +345,7 @@ Il corpo della risposta è:
 
 Questo esempio mostra come tradurre lo stesso input in diverse lingue in una sola richiesta.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -403,7 +403,7 @@ Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag
 
 Ad esempio: 
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -425,7 +425,7 @@ Viene restituito:
 
 Eseguire il confronto con:
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -456,7 +456,7 @@ L'ultima richiesta restituisce:
 
 Di seguito è riportata una richiesta di esempio.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -480,7 +480,7 @@ La risposta è:
 
 Per ricevere informazioni sull'allineamento, specificare `includeAlignment=true` nella stringa di query.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -518,7 +518,7 @@ Prendere nota delle restrizioni seguenti:
 
 Per ricevere informazioni sulla lunghezza della frase nel testo di origine e nel testo tradotto, specificare `includeSentenceLength=true` nella stringa di query.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

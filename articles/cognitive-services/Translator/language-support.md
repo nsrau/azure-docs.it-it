@@ -10,20 +10,22 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267907"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577592"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
 L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo a testo. La traduzione automatica neurale è il nuovo standard per traduzioni automatiche di alta qualità supportate dall'intelligenza artificiale ed è disponibile per impostazione predefinita quando si usa la versione V3 dell'API Traduzione testuale, se è disponibile un sistema neurale.
 
-[Altre informazioni sul funzionamento del servizio di traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
+[Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-**V2 API traduzione**
+## <a name="translation"></a>Traduzione
+
+**API Traduzione V2**
 
 > [!NOTE]
 > La versione 2 è stata deprecata il 30 aprile 2018 e verrà sospesa il 30 aprile 2019.
@@ -191,83 +193,14 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 
 ## <a name="detect"></a>Detect
 
-Il metodo Detect supporta le lingue seguenti. Detect può identificare lingue che Microsoft Translator non riesce a tradurre.
+API traduzione testuale rileva tutte le lingue disponibili per la conversione e traslitterazione.
 
-| Linguaggio    |
-|:----------- |
-| Afrikaans |
-| Albanese |
-| Arabo |
-| Basco |
-| Bielorusso |
-| Bulgaro |
-| Catalano |
-| Cinese |
-| Cinese (semplificato) |
-| Cinese (tradizionale) |
-| Croato |
-| Ceco |
-| Danese |
-| Olandese |
-| Inglese |
-| Esperanto |
-| Estone |
-| Finlandese |
-| Francese |
-| Galiziano |
-| Tedesco |
-| Greco |
-| Creolo haitiano |
-| Ebraico |
-| Hindi |
-| Ungherese |
-| Islandese |
-| Indonesiano |
-| Irlandese |
-| Italiano |
-| Giapponese |
-| Coreano |
-| Curdo (paesi arabi) |
-| Curdo (Latino) |
-| Latino |
-| Lettone |
-| Lituano |
-| Macedone |
-| Malese |
-| Maltese |
-| Norvegese |
-| Norvegese (Nynorsk) |
-| Pashto |
-| Persiano |
-| Polacco |
-| Portoghese |
-| Rumeno |
-| Russo |
-| Serbo (alfabeto cirillico) |
-| Serbo (alfabeto latino) |
-| Slovacco |
-| Sloveno |
-| Somalo |
-| Spagnolo |
-| Swahili |
-| Svedese |
-| Tagalog |
-| Telugu |
-| Thai |
-| Turco |
-| Ucraino |
-| Urdu |
-| Uzbeco (alfabeto cirillico) |
-| Uzbeco (alfabeto latino) |
-| Vietnamita |
-| Gallese |
-| Yiddish |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accedere all'elenco di lingue dell'API Traduzione testuale a livello di codice
 
 È possibile recuperare l'elenco delle lingue supportate per l'API Traduzione testuale v3.0 usando il metodo Languages. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando diventano disponibili nuove lingue.
 
-[Visualizzare la documentazione di riferimento di lingue operazione](reference/v3-0-languages.md)
+[Visualizzare la documentazione di riferimento dell'operazione Languages](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Personalizzazione
 
@@ -294,6 +227,7 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 | Hindi      | `hi`          |
 | Ungherese      | `hu`          |
 | Islandese | `is` |
+| Indonesiano|   `id`    |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
 | Coreano      | `ko`          |
@@ -319,4 +253,4 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 
 Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
-[Vedere l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)
+[Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

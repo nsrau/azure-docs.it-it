@@ -1,29 +1,22 @@
 ---
-title: Origini dati supportate in Azure Data Catalog | Microsoft Docs
+title: Origini dati supportate in Azure Data Catalog
 description: Questo articolo elenca le specifiche delle origini dati attualmente supportate.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: jstevens
-editor: ''
-tags: ''
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
+author: markingmyname
+ms.author: maghan
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: f8d24b896e6cdb39262f2c8a7f93c86f5e79fd33
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146541"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579394"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
 
 È possibile pubblicare metadati usando un'API pubblica o uno strumento di registrazione di tipo ClickOnce oppure immettendo manualmente le informazioni direttamente nel portale Web di Azure Data Catalog. La tabella seguente fornisce un riepilogo di tutte le origini dati supportate attualmente dal catalogo e delle relative funzionalità di pubblicazione. Sono anche elencati gli strumenti dati esterni che ogni origine dati può avviare dal portale. La seconda tabella contiene una specifica più tecnica della proprietà di connessione delle singole origini dati.
-
 
 ## <a name="list-of-supported-data-sources"></a>Elenco di origini dati supportate
 
@@ -37,7 +30,7 @@ ms.locfileid: "39146541"
        <td><b>Note</b></td>
     </tr>
     <tr>
-      <td>Directory di Azure Data Lake Store</td>
+      <td>Directory di Azure Data Lake Store (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -45,7 +38,7 @@ ms.locfileid: "39146541"
       <td></td>
     </tr>
     <tr>
-      <td>File di Azure Data Lake Store</td>
+      <td>File di Azure Data Lake Store (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -374,7 +367,7 @@ ms.locfileid: "39146541"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Sono compatibili solo le raccolte legacy di Azure DocumentDB e le raccolte di API SQL in Azure Cosmos DB. Non sono ancora supportate API di Azure Cosmos DB più recenti. Scegliere Azure DocumentDB nell'elenco Origine dati.</td>
     </tr>
     <tr>
       <td>Tabella ODBC generica</td>
@@ -539,32 +532,6 @@ Se si è interessati al supporto di un'origine dati specifica, scrivere un sugge
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

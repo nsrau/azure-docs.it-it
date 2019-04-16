@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502339"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578590"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Il proxy dell'applicazione di Azure AD: Cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del Proxy dell'applicazione Azure Active Directory (Azure AD) che sono state rilasciate. Il team di Azure AD aggiorna regolarmente il Proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del Proxy dell'applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione.
@@ -31,7 +31,7 @@ Ecco un elenco di risorse correlate:
 Risorsa |  Dettagli
 --------- | --------- |
 Come abilitare il Proxy di applicazione | Prerequisiti per l'abilitazione del Proxy di applicazione e l'installazione e la registrazione di un connettore sono descritte in questo [esercitazione](application-proxy-add-on-premises-application.md).
-Comprendere i connettori del proxy applicazione Azure AD | Altre informazioni sulle [gestione connettori](application-proxy-connectors.md) e come connettori di aggiornamento automatico.
+Comprendere i connettori del proxy applicazione Azure AD | Altre informazioni sulle [management connector](application-proxy-connectors.md) e in che modo i connettori [aggiornamento automatico](application-proxy-connectors.md#automatic-updates).
 Azure AD Application Proxy Connector Download |  [Scaricare il connettore più recente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0

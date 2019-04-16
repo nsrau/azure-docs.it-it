@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452692"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578748"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
- Le applicazioni Azure Blockchain Workbench sono flussi di lavoro in più parti definiti dai metadati di configurazione e dal codice dei contratti intelligenti. I metadati di configurazione definiscono i flussi di lavoro di alto livello e il modello di interazione dell'applicazione blockchain. I contratti intelligenti definiscono la logica di business dell'applicazione blockchain. Workbench usa il codice di configurazione e dei contratti intelligenti per generare le esperienze utente dell'applicazione blockchain.
+Le applicazioni Azure Blockchain Workbench sono flussi di lavoro in più parti definiti dai metadati di configurazione e dal codice dei contratti intelligenti. I metadati di configurazione definiscono i flussi di lavoro di alto livello e il modello di interazione dell'applicazione blockchain. I contratti intelligenti definiscono la logica di business dell'applicazione blockchain. Workbench usa il codice di configurazione e dei contratti intelligenti per generare le esperienze utente dell'applicazione blockchain.
 
 I metadati di configurazione specificano le informazioni seguenti per ogni applicazione blockchain:
 

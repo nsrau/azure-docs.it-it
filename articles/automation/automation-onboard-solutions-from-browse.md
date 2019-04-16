@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855351"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578493"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -71,7 +71,7 @@ La tabella seguente mostra i mapping supportati:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |Europa occidentale|Europa occidentale|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -79,8 +79,7 @@ La tabella seguente mostra i mapping supportati:
 
 <sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
 
-> [!NOTE]
-> A causa della domanda, un'area non siano disponibile quando si crea l'area di lavoro di Log Analitica o Account di automazione.  In tal caso, assicurarsi di usare un'area nella tabella precedente che è possibile creare le risorse.
+<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
 
 Deselezionare la casella di controllo accanto alle macchine virtuali che non si vuole abilitare. Le macchine virtuali che non è possibile abilitare sono già deselezionate.
 

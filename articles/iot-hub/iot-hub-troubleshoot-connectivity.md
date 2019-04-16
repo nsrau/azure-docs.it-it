@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648820"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571053"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Rilevare e risolvere i problemi di disconnessione per l'hub IoT di Azure
 
@@ -28,13 +28,18 @@ Usare Monitoraggio di Azure per ricevere avvisi e scrivere i log in caso di inte
 Per registrare gli eventi e gli errori di connessione dei dispositivi, attivare la diagnostica per l'hub IoT.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare all'hub IoT.
-1. Selezionare **Impostazioni di diagnostica**.
-1. Selezionare **Attiva diagnostica**.
-1. Abilitare la raccolta dei log **Connessioni**.
-1. Per semplificare l'analisi, è necessario attivare **Invia a Log Analytics** ([vedere i prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)). Vedere l'esempio sotto [Risolvere gli errori di connettività](#resolve-connectivity-errors).
 
-   ![Impostazioni consigliate][2]
+2. Passare all'hub IoT.
+
+3. Selezionare **Impostazioni di diagnostica**.
+
+4. Selezionare **Attiva diagnostica**.
+
+5. Abilitare la raccolta dei log **Connessioni**.
+
+6. Per semplificare l'analisi, è necessario attivare **Invia a Log Analytics** ([vedere i prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)). Vedere l'esempio sotto [Risolvere gli errori di connettività](#resolve-connectivity-errors).
+
+   ![Impostazioni consigliate](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
 Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi](iot-hub-monitor-resource-health.md).
 
@@ -43,11 +48,16 @@ Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure ed
 Per ottenere avvisi quando disconnettere i dispositivi, configurare avvisi per i **connessi dispositivi (anteprima)** metrica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare all'hub IoT.
-1. Selezionare **Avvisi**.
-1. Selezionare **nuova regola di avviso**.
-1. Selezionare **Aggiungi condizione**, quindi selezionare "Connesso i dispositivi (anteprima)".
-1. Completare l'impostazione di soglie desiderate e opzioni di avviso da richieste seguenti.
+
+2. Passare all'hub IoT.
+
+3. Selezionare **Avvisi**.
+
+4. Selezionare **nuova regola di avviso**.
+
+5. Selezionare **Aggiungi condizione**, quindi selezionare "Connesso i dispositivi (anteprima)".
+
+6. Completare l'impostazione di soglie desiderate e opzioni di avviso da richieste seguenti.
 
 Per altre informazioni, vedere [Cosa sono gli avvisi classici in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
@@ -56,8 +66,10 @@ Per altre informazioni, vedere [Cosa sono gli avvisi classici in Microsoft Azure
 Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come risolvere i problemi comuni quando si riceve un avviso. La procedura seguente presuppone di che aver configurato i log di monitoraggio di Azure per i log di diagnostica.
 
 1. Passare all'area di lavoro di **Log Analytics** nel portale di Azure.
-1. Selezionare **Ricerca log**.
-1. Per isolare i log degli errori di connettività per l'hub IoT, immettere la query seguente e selezionare **Esegui**:
+
+2. Selezionare **Ricerca log**.
+
+3. Per isolare i log degli errori di connettività per l'hub IoT, immettere la query seguente e selezionare **Esegui**:
 
     ```
     search *
@@ -67,12 +79,12 @@ Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi,
 
 1. Se sono presenti risultati, cercare `OperationName`, `ResultType` (codice di errore) e `ResultDescription` (messaggio di errore) per ottenere altri dettagli sull'errore.
 
-   ![Esempio di log degli errori][4]
+   ![Esempio di log degli errori](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-1. Usare questa tabella per comprendere e risolvere gli errori comuni.
+2. Usare questa tabella per comprendere e risolvere gli errori comuni.
 
     | Tipi di errore | Causa radice | Risoluzione |
-    |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |-------|------------|------------|
     | 404104 DeviceConnectionClosedRemotely | La connessione è stata chiusa dal dispositivo, ma l'hub IoT non è in grado di determinare il motivo. Le cause più comuni includono il timeout MQTT/AMQP e la perdita di connettività Internet. | Assicurarsi che il dispositivo possa connettersi all'hub IoT [eseguendo il test della connessione](tutorial-connectivity.md). Se la connessione viene stabilita ma il dispositivo si disconnette in modo intermittente, assicurarsi di implementare per i dispositivi la logica keep-alive appropriata per il protocollo scelto (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | L'hub IoT non è riuscito ad autenticare la connessione. | Assicurarsi che la firma di accesso condiviso o altri token di sicurezza in uso non siano scaduti. Gli [Azure IoT SDK](iot-hub-devguide-sdks.md) generano automaticamente i token senza richiedere una configurazione speciale. |
     | 409002 LinkCreationConflict | Un dispositivo ha più di una connessione. Quando arriva una nuova richiesta di connessione per un dispositivo, l'hub IoT chiude quella precedente con questo errore. | Nel caso più comune, un dispositivo rileva una disconnessione e tenta di ristabilire la connessione, ma per l'hub IoT non è ancora disconnesso. L'hub IoT chiude la connessione precedente e registra questo errore. In genere, questo errore si verifica come effetto collaterale di un altro problema temporaneo. Per risolvere il problema, cercare l'errore nei log. In alternativa, assicurarsi di generare una nuova richiesta di connessione solo se la connessione viene interrotta. |
@@ -84,7 +96,9 @@ Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi,
 Se i passaggi precedenti non consentono di risolvere il problema, è possibile provare le soluzioni seguenti:
 
 * Se si ha accesso ai dispositivi che presentano problemi, fisicamente o in modalità remota (ad esempio, tramite SSH), seguire la [guida alla risoluzione dei problemi sul lato del dispositivo](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) per continuare la risoluzione dei problemi.
+
 * Verificare che i dispositivi siano **abilitati** nel portale di Azure > Hub IoT > Dispositivi IoT.
+
 * Ottenere assistenza dal [forum dedicato all'hub IoT di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), da [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) o dal [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
 Se questa guida non è stata utile, lasciare un commento nella sezione dei commenti seguente per contribuire a migliorare la documentazione per tutti gli utenti.
@@ -92,10 +106,5 @@ Se questa guida non è stata utile, lasciare un commento nella sezione dei comme
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla risoluzione dei problemi temporanei, vedere [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
-* Per informazioni su Azure IoT SDK e sulla gestione della ripetizione di tentativi, vedere [Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
-<!-- Images -->
-[1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png
-[2]: ./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png
-[3]: ./media/iot-hub-troubleshoot-connectivity/metric-alert.png
-[4]: ./media/iot-hub-troubleshoot-connectivity/diag-logs.png
+* Per informazioni su Azure IoT SDK e sulla gestione della ripetizione di tentativi, vedere [Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure](iot-hub-reliability-features-in-sdks.md#connection-and-retry).

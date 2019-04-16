@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: b45d64f56653ad6d0baabef4a63351ef14f24c42
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58861956"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577837"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuire un centro di sicurezza di Azure per IoT C#-agente di protezione per Windows basato su
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questa guida illustra come installare il Centro sicurezza di Azure (ASC) per IoT C#-basato su agente protezione in Windows.
@@ -86,7 +86,7 @@ Per altre informazioni, usare il comando Get-Help in PowerShell <br>Esempio di G
 ### <a name="verify-deployment-status"></a>Verificare lo stato di distribuzione
 
 - Controllare lo stato di distribuzione dell'agente eseguendo:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### <a name="uninstall-the-agent"></a>Disinstallare l'agente
 
@@ -135,7 +135,7 @@ Per abilitare la registrazione:
 
 1. Esaminare il file di log per altre informazioni sull'errore.
 
-   Percorso file di log: `%WinDir%/System32/IoTAgentLog.log`
+   Posizione dei file di log: `%WinDir%/System32/IoTAgentLog.log`
 
 
 ## <a name="next-steps"></a>Passaggi successivi

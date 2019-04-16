@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843624"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578442"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -44,7 +44,7 @@ La tabella seguente mostra i mapping supportati:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |Europa occidentale|Europa occidentale|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -52,8 +52,7 @@ La tabella seguente mostra i mapping supportati:
 
 <sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
 
-> [!NOTE]
-> A causa della domanda, un'area non siano disponibile quando si crea l'area di lavoro di Log Analitica o Account di automazione.  In tal caso, assicurarsi di usare un'area nella tabella precedente che è possibile creare le risorse.
+<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
 
 La soluzione di rilevamento delle modifiche e di inventario offre la possibilità di [tenere traccia delle modifiche](automation-vm-change-tracking.md) e dei dati di [inventario](automation-vm-inventory.md) nelle macchine virtuali. In questo passaggio si abilita la soluzione su una macchina virtuale.
 
@@ -161,7 +160,7 @@ Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di m
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* variables
+* Variabili
 
 ## <a name="next-steps"></a>Passaggi successivi
 

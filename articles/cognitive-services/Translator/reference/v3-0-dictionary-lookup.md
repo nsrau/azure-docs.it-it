@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 89b4058c384440b83f60fb6147cd373ecf893011
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917006"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578340"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: Ricerca nel dizionario
 
@@ -56,8 +56,8 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Un'autorizzazione_<br/>_intestazione_</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
+    <td>Intestazioni di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -140,7 +140,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come eseguire la ricerca di traduzioni spagnole alternative per il termine inglese `fly`.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 
 Questo esempio illustra cosa succede quando il termine cercato non esiste per la coppia di dizionario valida.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

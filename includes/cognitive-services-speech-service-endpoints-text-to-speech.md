@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 3ff49e800b8db09cbff5c07107f71532437a4572
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ef68d02f6aa23368962e08af7b35d2b81c0e80bb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671841"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579803"
 ---
 ### <a name="neural-voices"></a>Voci neurali
 
@@ -31,7 +31,6 @@ Voci standard sono disponibili nelle aree seguenti:
 | Region | Endpoint |
 |--------|----------|
 | Australia orientale | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 |
-| Brasile meridionale | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Canada centrale | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Stati Uniti centrali | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Asia orientale | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -57,7 +56,6 @@ Se è stato creato un carattere voce personalizzato, usare l'endpoint creato app
 | Region | Endpoint |
 |--------|----------|
 | Australia orientale | https://australiaeast.voice.speech.microsoft.com |
-| Brasile meridionale | https://brazilsouth.voice.speech.microsoft.com |
 | Canada centrale | https://canadacentral.voice.speech.microsoft.com |
 | Stati Uniti centrali | https://centralus.voice.speech.microsoft.com |
 | Asia orientale | https://eastasia.voice.speech.microsoft.com |

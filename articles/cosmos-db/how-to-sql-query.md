@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263044"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579216"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -484,15 +484,15 @@ Le seguenti query di usano gli operatori binari:
 
 La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **string** | **Oggetto** | **Array** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
-| **string** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
-| **Oggetto** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 Per gli operatori di confronto, ad esempio `>`, `>=`, `!=`, `<`, e `<=`, il confronto tra i tipi o tra due oggetti o matrici produce `Undefined`.  
 
@@ -502,7 +502,7 @@ Se il risultato dell'espressione scalare `Undefined`, l'elemento non è incluso 
 
 Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustrano le tabelle di veridicità logica per questi operatori:
 
-**Operatore OR**
+**Operator OR**
 
 | Oppure | True  | False | Undefined |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**NOT (operatore)**
+**Operatore NOT**
 
 | NOT |  |
 | --- | --- |
@@ -1238,7 +1238,7 @@ Il risultato è:
 
 Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione all'interno di una query SQL. È possibile usare funzioni di controllo di tipo per determinare i tipi di proprietà all'interno di elementi in tempo reale, quando si trovano variabile o sconosciuto. Ecco una tabella di funzioni di controllo del tipo supportate predefinite:
 
-| **Uso** | **DESCRIZIONE** |
+| **Utilizzo** | **Descrizione** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Restituisce un valore booleano che indica se il tipo del valore è una matrice. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Restituisce un valore booleano che indica se il tipo del valore è booleano. |
@@ -1246,8 +1246,8 @@ Le funzioni di controllo del tipo consentono di controllare il tipo di un'espres
 | [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Restituisce un valore booleano che indica se il tipo del valore è un numero. |
 | [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Restituisce un valore booleano che indica se il tipo del valore è un oggetto JSON. |
 | [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Restituisce un valore booleano che indica se il tipo del valore è una stringa. |
-| [IS_DEFINED (espressione)](sql-api-query-reference.md#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
-| [IS_PRIMITIVE (espressione)](sql-api-query-reference.md#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è una stringa, numero, booleano o null. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è una stringa, numero, booleano o null. |
 
 Usando queste funzioni, è possibile eseguire query come nell'esempio seguente:
 
@@ -1714,7 +1714,7 @@ L'esempio seguente vengono illustrati i join, esplicito tramite LINQ `SelectMany
 
 Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nella `foreach` si blocca, come illustrato nell'esempio precedente. Le opzioni di query introdotte nel [API REST](#RestAPI) sezione sono disponibili anche in .NET SDK, usando la `FeedOptions` e `FeedResponse` le classi nel `CreateDocumentQuery` (metodo). È possibile controllare il numero di pagine tramite la `MaxItemCount` impostazione.
 
-È anche possibile controllare esplicitamente il paging creando `IDocumentQueryable` tramite l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e ritrasferendoli come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` per abilitare l'analisi quando la query non è supportata da criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query a fronte di una partizione singola, anche se Azure Cosmos DB può estrazione automatica dal testo della query. È possibile usare `EnableCrossPartitionQuery` per eseguire query su più partizioni.
+È possibile controllare in modo esplicito il paging creando `IDocumentQueryable` usando il `IQueryable` oggetto, quindi leggendo il `ResponseContinuationToken` i valori e passarli nuovamente come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` per abilitare l'analisi quando la query non è supportata da criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query a fronte di una partizione singola, anche se Azure Cosmos DB può estrazione automatica dal testo della query. È possibile usare `EnableCrossPartitionQuery` per eseguire query su più partizioni.
 
 Per altri esempi di .NET con le query, vedere la [esempi di Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
 
@@ -2156,20 +2156,20 @@ Una query annidata applica la query interna a ogni elemento del contenitore este
 
 ## <a id="References"></a>Riferimenti
 
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Specifica SQL di Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Specifiche JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Valutazione tecniche di query per database di grandi dimensioni](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, nessuna. 2 (1993).
-- Graefe, G. "Il framework di unarie a catena per l'ottimizzazione delle query." *IEEE Data Eng. Tendente al rialzo.* 18, no. 3 (1995).
+- Graefe, G. "Il framework di unarie a catena per l'ottimizzazione delle query." *Specifica i dati IEEE Tendente al rialzo.* 18, no. 3 (1995).
 - Lu, Ooi, Tan. "Query Processing in sistemi di Database relazionali parallele". *IEEE Computer Society Press* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar e Andrew Tomkins. "Pig Latin: Un linguaggio non così estraneo per l'elaborazione dei dati." *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione ad Azure Cosmos DB][introduction]
-- [Esempi di Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Livelli di coerenza di Azure Cosmos DB][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

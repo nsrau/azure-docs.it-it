@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549506"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578782"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è sintesi vocale?
 
@@ -53,10 +53,7 @@ Questa tabella elenca le funzionalità di base per la sintesi vocale:
 | Creare e gestire i test del tipo di carattere vocali. | No  | Sì\* |
 | Gestire le sottoscrizioni. | No  | Sì\* |
 
-\* *Questi servizi sono disponibili tramite l'endpoint cris.ai. Visualizzare [Swagger riferimento](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Gli endpoint vocali personalizzati implementano la limitazione delle richieste che limita le richieste a 25 per ogni 5 secondi. Quando si verifica una limitazione, verrà segnalato tramite le intestazioni del messaggio.
+\* *Questi servizi sono disponibili tramite l'endpoint cris.ai. Visualizzare [Swagger riferimento](https://westus.cris.ai/swagger/ui/index). Questi corsi di formazione vocali personalizzati e API di gestione di implementare la limitazione delle richieste che limiti le richieste a 25 per ogni 5 secondi, mentre la sintesi vocale, API stessa implementa la limitazione delle richieste che consente a 200 richieste al secondo come la più alta. Quando si verifica una limitazione, verrà segnalato tramite le intestazioni del messaggio.*
 
 ## <a name="get-started-with-text-to-speech"></a>Introduzione a sintesi vocale
 
