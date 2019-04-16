@@ -16,7 +16,7 @@ ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ms.locfileid: "23108539"

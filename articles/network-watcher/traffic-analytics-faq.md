@@ -137,7 +137,7 @@ Ciò è dovuto a un bug in cui i provider di risorse 'Microsoft. Network' non è
 
 Se il problema persiste, contattare il supporto. 
 
-## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Cosa accade se si ottiene lo stato "Impossibile caricare" nella pagina dei registri di flusso NSG?
+## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Cosa accade se si ottiene lo stato "Impossibile caricare" nella pagina dei log di flusso NSG?
 
 Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider Microsoft.Insights. Se non si è sicuri che il provider Microsoft.Insights sia registrato o meno per la sottoscrizione, sostituire *xxxxx-xxxxx-xxxxxx-xxxx* nel comando seguente ed eseguire questi comandi di PowerShell:
 
@@ -159,7 +159,7 @@ Provare le opzioni seguenti:
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "L'analisi dei registri di flusso NSG viene eseguita per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Cosa accade se viene visualizzato un messaggio simile al seguente: "È in corso l'analisi dei log del flusso del gruppo di sicurezza di rete per la prima volta. L'operazione potrebbe richiedere circa 20-30 minuti. Verificare più tardi". 2) Controllare qui l'utilizzo dell'area di lavoro per convalidare la quota in eccedenza altrimenti fare riferimento alle FAQ per ulteriori informazioni, se l'area di lavoro si trova nello SKU gratuito e il passaggio precedente non funziona"?
 
 È possibile che venga visualizzato questo messaggio perché:
 - Analisi del traffico è stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.

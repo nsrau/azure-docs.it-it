@@ -63,11 +63,11 @@ Con [integrazione di Application Insights abilitata](#enable-application-insight
 
 1. Selezionare **Aggiorna** periodicamente, fino a quando non viene visualizzato l'elenco di chiamate di funzione.
 
-   Possono volerci fino a cinque minuti per l'elenco venga visualizzato anche se il client di telemetria invia in batch dei dati per la trasmissione al server. (Il ritardo non è valida per il [Live Stream metriche](../azure-monitor/app/live-stream.md). Tale servizio si connette all'host di Funzioni quando si carica la pagina, pertanto i registri vengono trasmessi direttamente alla pagina.
+   Possono volerci fino a cinque minuti per l'elenco venga visualizzato anche se il client di telemetria invia in batch dei dati per la trasmissione al server. (Il ritardo non è valida per il [Live Stream metriche](../azure-monitor/app/live-stream.md). Tale servizio si connette all'host di Funzioni quando si carica la pagina, pertanto i log vengono trasmessi direttamente alla pagina.
 
    ![Elenco di chiamate](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-1. Per visualizzare i registri per una chiamata di funzione particolare, selezionare il collegamento alla colonna **Dati** per tale chiamata.
+1. Per visualizzare i log per una chiamata di funzione particolare, selezionare il collegamento alla colonna **Dati** per tale chiamata.
 
    ![Collegamento ai dettagli di chiamata](media/functions-monitoring/invocation-details-link-ai.png)
 

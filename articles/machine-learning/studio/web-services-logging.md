@@ -49,7 +49,7 @@ La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine L
 
 7. Per i servizi Web classici, creare il contenitore **ml-diagnostics**.
 
-   Tutti i registri dei servizi Web vengono mantenuti in un contenitore BLOB denominato **ml-diagnostics** nell'account di archiviazione associato al servizio Web. Per i nuovi servizi Web, questo contenitore viene creato la prima volta in cui si accede al servizio Web. Per i servizi Web classici, è necessario creare il contenitore se non esiste già. 
+   Tutti i log dei servizi Web vengono mantenuti in un contenitore BLOB denominato **ml-diagnostics** nell'account di archiviazione associato al servizio Web. Per i nuovi servizi Web, questo contenitore viene creato la prima volta in cui si accede al servizio Web. Per i servizi Web classici, è necessario creare il contenitore se non esiste già. 
 
    1. Nel [portale di Azure](https://portal.azure.com) accedere all'account di archiviazione associato al servizio Web.
 
@@ -67,7 +67,7 @@ La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine L
 ## <a name="the-effects-of-enabling-logging"></a>Effetti dell'abilitazione della registrazione
 Quando la registrazione è abilitata, tutti i dati di diagnostica e gli errori originati dall'endpoint del servizio Web vengono registrati nel contenitore BLOB **ml-diagnostics** nell'account di archiviazione di Azure collegato all'area di lavoro dell'utente. Tale contenitore contiene tutte le informazioni di diagnostica per tutti gli endpoint del servizio Web di tutte le aree di lavoro associate all'account di archiviazione.
 
-I registri possono essere visualizzati tramite uno dei diversi strumenti disponibili per l'esplorazione degli account di archiviazione di Azure. Il modo più semplice per visualizzarli è passare all'account di archiviazione nel portale di Azure e fare clic su **Contenitori** e quindi sul contenitore **ml-diagnostics**.  
+I log possono essere visualizzati tramite uno dei diversi strumenti disponibili per l'esplorazione degli account di archiviazione di Azure. Il modo più semplice per visualizzarli è passare all'account di archiviazione nel portale di Azure e fare clic su **Contenitori** e quindi sul contenitore **ml-diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Informazioni dettagliate dei BLOB dei log
 Ogni BLOB nel contenitore contiene le informazioni di diagnostica per una delle azioni seguenti:

@@ -170,7 +170,7 @@ Si noti che il livello di controllo "di base" è abilitato per impostazione pred
 
 1. Aprire il **Visualizzatore eventi**.
 2. Passare a Registri di Windows e selezionare **Sicurezza**.
-3. A destra fare clic su **Filtra registri correnti**.
+3. A destra fare clic su **Filtra log correnti**.
 4. In Origine evento selezionare **Controllo di ADFS**.
 
     Vedere la [nota nelle domande frequenti](reference-connect-health-faq.md#operations-questions) sui log di controllo.
