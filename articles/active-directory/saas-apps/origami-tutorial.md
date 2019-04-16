@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a3e01b7275b7d8329a9fc3bfc90e20398fdf38b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845097"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Esercitazione: Integrazione di Azure Active Directory con Origami
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Origami con Azure Active Directory 
 L'integrazione di Origami con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Origami.
-* È possibile abilitare gli utenti di essere automaticamente eseguito l'accesso a Origami (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Origami con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,17 +39,17 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per configurare l'integrazione di Azure AD con Origami, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione abilitata per Origami single sign-on
+* Sottoscrizione di Origami abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Supporta Origami **SP** SSO avviato dal
+* Origami supporta l'accesso SSO avviato da **SP**
 
 ## <a name="adding-origami-from-the-gallery"></a>Aggiunta di Origami dalla raccolta
 
-Per configurare l'integrazione di Origami in Azure AD, è necessario aggiungere Origami dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Origami in Azure AD, è necessario aggiungere Origami dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Origami dalla raccolta, seguire questa procedura:**
 
@@ -65,31 +65,31 @@ Per configurare l'integrazione di Origami in Azure AD, è necessario aggiungere 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **Origami**, selezionare **Origami** nel pannello dei risultati quindi fare clic su **Add** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Origami** selezionare **Origami** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Origami nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato Azure single sign-on AD con Origami con un utente test di nome **Britta Simon**.
-Per single sign-on funzioni, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Origami.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Origami usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Origami.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Origami, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Origami, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configura Origami Single Sign-On](#configure-origami-single-sign-on)**  : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Origami](#configure-origami-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Origami](#create-origami-test-user)**  : per avere una controparte di Britta Simon in Origami collegata alla rappresentazione in Azure AD dell'utente.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Origami](#create-origami-test-user)**: per avere una controparte di Britta Simon in Origami collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare single sign-on di Azure con Origami, seguire i passaggi seguenti:
+Per configurare l'accesso Single Sign-On di Azure AD con Origami, seguire questa procedura:
 
-1. Nel [portale di Azure](https://portal.azure.com/)via le **Origami** pagina di integrazione dell'applicazione, seleziona **l'accesso Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **Origami** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Per configurare single sign-on di Azure con Origami, seguire i passaggi seguenti
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![URL e dominio Origami informazioni single sign-on](common/sp-signonurl.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Origami](common/sp-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://live.origamirisk.com/origami/account/login?account=<companyname>`
 
@@ -114,7 +114,7 @@ Per configurare single sign-on di Azure con Origami, seguire i passaggi seguenti
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nel **configurazione di Origami** sezione, copiare l'URL appropriato in base alle proprie esigenze.
+6. Nella sezione **Configura Origami** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -124,7 +124,7 @@ Per configurare single sign-on di Azure con Origami, seguire i passaggi seguenti
 
     c. URL di chiusura sessione
 
-### <a name="configure-origami-single-sign-on"></a>Configura Origami Single Sign-On
+### <a name="configure-origami-single-sign-on"></a>Configurare l'accesso Single Sign-On di Origami
 
 1. Accedere all'account Origami con diritti di amministratore.
 
@@ -138,17 +138,17 @@ Per configurare single sign-on di Azure con Origami, seguire i passaggi seguenti
 
     a. Selezionare **Abilita Single Sign-On**.
 
-    b. Nel **Sign-in Page URL del Provider di identità** nella casella di testo, incollare il valore di **URL di accesso**, che è stato copiato dal portale di Azure.
+    b. Nella casella di testo **Identity Provider's Sign-in Page URL** (Pagina URL di accesso del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nel **URL pagina di disconnessione del Provider di identità** nella casella di testo, incollare il valore di **URL di disconnessione**, che è stato copiato dal portale di Azure.
+    c. Nella casella di testo **Identity Provider's Sign-out Page URL** (Pagina URL di disconnessione del provider di identità) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
     d. Fare clic su **Sfoglia** per caricare il certificato scaricato dal portale di Azure.
 
     e. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -171,17 +171,17 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Origami.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Origami.
 
-1. Nel portale di Azure, selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **Origami**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Origami**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni, selezionare **Origami**.
+2. Nell'elenco delle applicazioni selezionare **Origami**.
 
-    ![Il collegamento di Origami nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Origami nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -219,7 +219,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. Nel **nome utente** casella di testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
+    a. Nella casella di testo **User name** (Nome utente) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
     b. Nella casella di testo **Password** digitare una password.
 
@@ -241,7 +241,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Origami.
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Origami nel Pannello di accesso, dovrebbe automaticamente accedere a Origami per il quale configurare SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Origami nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Origami per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

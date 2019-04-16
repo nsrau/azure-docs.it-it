@@ -1,34 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con vxMaintain | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e vxMaintain.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Mitel Connect | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Mitel Connect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c034e12c372e0514fa6cbb1f35af48cbdb4bf865
+ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
 ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278446"
+ms.locfileid: "59283952"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Esercitazione: Integrazione di Azure Active Directory con vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>Esercitazione: Integrazione di Azure Active Directory con Mitel Connect
 
-Questa esercitazione descrive come integrare vxMaintain con Azure Active Directory (Azure AD).
-L'integrazione di vxMaintain con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Mitel Connect con Azure Active Directory (Azure AD).
+L'integrazione di Mitel Connect con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a vxMaintain.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a vxMaintain con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Mitel Connect.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Mitel Connect con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +35,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con vxMaintain, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Mitel Connect, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di vxMaintain abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Mitel Connect abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* vxMaintain supporta l'accesso SSO avviato da **IDP**
+* Mitel Connect supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-vxmaintain-from-the-gallery"></a>Aggiunta di vxMaintain dalla raccolta
+## <a name="adding-mitel-connect-from-the-gallery"></a>Aggiunta di Mitel Connect dalla raccolta
 
-Per configurare l'integrazione di vxMaintain in Azure AD, è necessario aggiungere vxMaintain dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Mitel Connect in Azure AD, è necessario aggiungere Mitel Connect dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere vxMaintain dalla raccolta, seguire questa procedura:**
+**Per aggiungere Mitel Connect dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +64,31 @@ Per configurare l'integrazione di vxMaintain in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **vxMaintain** selezionare **vxMaintain** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Mitel Connect** selezionare **Mitel Connect** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![vxMaintain nell'elenco risultati](common/search-new-app.png)
+     ![Mitel Connect nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con vxMaintain usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in vxMaintain.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mitel Connect usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mitel Connect.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con vxMaintain, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Mitel Connect, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di vxMaintain](#configure-vxmaintain-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Mitel Connect](#configure-mitel-connect-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di vxMaintain](#create-vxmaintain-test-user)**: per avere una controparte di Britta Simon in vxMaintain collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Mitel Connect](#create-mitel-connect-test-user)**: per avere una controparte di Britta Simon in Mitel Connect collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con vxMaintain, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Mitel Connect, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **vxMaintain** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Mitel Connect** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -101,22 +100,22 @@ Per configurare l'accesso Single Sign-On di Azure AD con vxMaintain, seguire que
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di vxMaintain](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Mitel Connect](common/sp-identifier.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<company name>.verisae.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di vxMaintain](https://www.hubspot.com/company/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Mitel Connect](https://www.mitel.com/support/mitel-technical-support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura vxMaintain** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura Mitel Connect** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -126,9 +125,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con vxMaintain, seguire que
 
     c. URL di chiusura sessione
 
-### <a name="configure-vxmaintain-single-sign-on"></a>Configurare l'accesso Single Sign-On di vxMaintain
+### <a name="configure-mitel-connect-single-sign-on"></a>Configurare l'accesso Single Sign-On di Mitel Connect
 
-Per configurare l'accesso Single Sign-On sul lato **vxMaintain**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di vxMaintain](https://www.hubspot.com/company/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Mitel Connect**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Mitel Connect](https://www.mitel.com/support/mitel-technical-support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -156,15 +155,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a vxMaintain.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mitel Connect.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **vxMaintain**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Mitel Connect**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **vxMaintain**.
+2. Nell'elenco delle applicazioni selezionare **Mitel Connect**.
 
-    ![Collegamento di vxMaintain nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Mitel Connect nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -180,15 +179,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-vxmaintain-test-user"></a>Creare l'utente di test di vxMaintain
+### <a name="create-mitel-connect-test-user"></a>Creare l'utente di test di Mitel Connect
 
-In questa sezione viene creato un utente chiamato Britta Simon in vxMaintain. Collaborare con il  [team di supporto di vxMaintain](https://www.hubspot.com/company/contact) per aggiungere gli utenti alla piattaforma vxMaintain. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Mitel Connect. Collaborare con il  [team di supporto di Mitel Connect](https://www.mitel.com/support/mitel-technical-support) per aggiungere gli utenti alla piattaforma Mitel Connect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di vxMaintain nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione vxMaintain per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Mitel Connect nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Mitel Connect per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

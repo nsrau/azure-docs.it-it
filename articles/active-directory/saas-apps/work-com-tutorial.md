@@ -4,156 +4,157 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+ms.topic: tutorial
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e9a978c8e32acb504ac97e3ca039deb8906e1543
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891570"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Esercitazione: Integrazione di Azure Active Directory con Work.com
 
 Questa esercitazione descrive come integrare Work.com con Azure Active Directory (Azure AD).
-
 L'integrazione di Work.com con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Work.com
-- È possibile abilitare gli utenti per l'accesso automatico a Work.com (Single Sign-On) con gli account Azure AD personali
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Work.com.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Work.com con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Work.com, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Work.com abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Work.com abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiungere Work.com dalla raccolta
-1. Configurare e testare l'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-## <a name="add-workcom-from-the-gallery"></a>Aggiungere Work.com dalla raccolta
+* Work.com supporta l'accesso SSO avviato da **SP**
+
+## <a name="adding-workcom-from-the-gallery"></a>Aggiunta di Work.com dalla raccolta
+
 Per configurare l'integrazione di Work.com in Azure AD, è necessario aggiungere Work.com dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Work.com dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Work.com**, selezionare **Work.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Aggiungere dalla raccolta](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
+4. Nella casella di ricerca digitare **Work.com** selezionare **Work.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Work.com usando un utente di test di nome "Britta Simon".
+    ![Work.com nell'elenco risultati](common/search-new-app.png)
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Work.com corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Work.com.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Per stabilire la relazione di collegamento, in Work.com assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Work.com usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Work.com.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Work.com, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente di test di Work.com](#create-a-workcom-test-user)**: per avere una controparte di Britta Simon in Work.com collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+2. **[Configurare l'accesso Single Sign-On di Work.com](#configure-workcom-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Work.com](#create-workcom-test-user)**: per avere una controparte di Britta Simon in Work.com collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Work.com.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
 >[!NOTE]
 >Per configurare l'accesso Single Sign-On, è necessario configurare un nome di dominio personalizzato Work.com. È necessario definire almeno un nome di dominio, testare il nome di dominio e distribuirlo in tutta l'organizzazione.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Work.com, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con Work.com, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Work.com** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Work.com** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Accesso basato su SAML](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-1. Nella sezione **URL e dominio Work.com** seguire questa procedura:
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Sezione URL e dominio Work.com](./media/work-com-tutorial/tutorial_work-com_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `http://<companyname>.my.salesforce.com`
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Work.com](https://help.salesforce.com/articleView?id=000159855&type=3). 
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Work.com](common/sp-signonurl.png)
 
-    ![Sezione Certificato di firma SAML](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `http://<companyname>.my.salesforce.com`
 
-1. Fare clic sul pulsante **Salva** .
+    > [!NOTE]
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Work.com](https://help.salesforce.com/articleView?id=000159855&type=3). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    ![Pulsante per il salvataggio](./media/work-com-tutorial/tutorial_general_400.png)
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-1. Nella sezione **Configurazione di Work.com** fare clic su **Configura Work.com** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
-    ![Sezione Configurazione di Work.com](./media/work-com-tutorial/tutorial_work-com_configure.png) 
+6. Nella sezione **Configura Work.com** copiare gli URL appropriati in base alle esigenze.
+
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
+    a. URL di accesso
+
+    b. Identificatore di Azure AD
+
+    c. URL di chiusura sessione
+
+### <a name="configure-workcom-single-sign-on"></a>Configurare l'accesso Single Sign-On di Work.com
+
 1. Accedere al tenant di Work.com come amministratore.
 
-1. Passare a **Setup**.
+2. Passare a **Setup**.
    
     ![Installazione](./media/work-com-tutorial/ic794108.png "Installazione")
 
-1. Nella sezione **Administer** (Amministra) del riquadro di spostamento sinistro fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
+3. Nella sezione **Administer** (Amministra) del riquadro di spostamento sinistro fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
    
     ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
 
-1. Per verificare che il dominio sia stato configurato correttamente, verificare che sia presente in "**Step 4 Deployed to Users**" (Passaggio 4 Distribuzione agli utenti) e quindi verificare le selezioni in "**My Domain Settings**" (Impostazioni dominio personale).
+4. Per verificare che il dominio sia stato configurato correttamente, verificare che sia presente in "**Step 4 Deployed to Users**" (Passaggio 4 Distribuzione agli utenti) e quindi verificare le selezioni in "**My Domain Settings**" (Impostazioni dominio personale).
    
-    ![Dominio distribuito all'utente](./media/work-com-tutorial/ic784377.png "Dominio distribuito all'utente")
+    ![Domain Deployed to User](./media/work-com-tutorial/ic784377.png "Domain Deployed to User")
 
-1. Accedere al tenant di Work.com.
+5. Accedere al tenant di Work.com.
 
-1. Passare a **Setup**.
+6. Passare a **Setup**.
     
     ![Installazione](./media/work-com-tutorial/ic794108.png "Installazione")
 
-1. Espandere il menu **Security Controls** (Controlli di sicurezza) e quindi fare clic su **Single Sign-On Settings** (Impostazioni Single Sign-On).
+7. Espandere il menu **Security Controls** (Controlli di sicurezza) e quindi fare clic su **Single Sign-On Settings** (Impostazioni Single Sign-On).
     
     ![Single Sign-On Settings](./media/work-com-tutorial/ic794113.png "Single Sign-On Settings")
 
-1. Nella finestra di dialogo **Single Sign-On Settings** seguire questa procedura:
+8. Nella finestra di dialogo **Single Sign-On Settings** seguire questa procedura:
     
     ![SAML Enabled](./media/work-com-tutorial/ic781026.png "SAML Enabled")
     
@@ -161,7 +162,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     b. Fare clic su **Nuovo**.
 
-1. Nella sezione **SAML Single Sign-On Setting** seguire questa procedura:
+9. Nella sezione **SAML Single Sign-On Setting** seguire questa procedura:
     
     ![SAML Single Sign-On Setting](./media/work-com-tutorial/ic794114.png "SAML Single Sign-On Setting")
     
@@ -170,7 +171,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Se si specifica un valore per **Name** (Nome) verrà popolata automaticamente la casella di testo **API Name** (Nome API).
     
-    b. Nella casella di testo **Issuer** (Autorità emittente) incollare il valore dell'**ID entità SAML** copiato dal portale di Azure.
+    b. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
     
     c. Per caricare il certificato scaricato dal portale di Azure, fare clic su **Browse** (Sfoglia).
     
@@ -178,81 +179,99 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     e. In **SAML Identity Type** (Tipo di identità SAML) selezionare **Assertion contains the Federation ID from the User object** (L'asserzione contiene l'ID federazione dell'oggetto utente).
     
-    f. In **SAML Identity Location** (Percorso identità SAML) selezionare **Identity is in the NameIdentfier element of the Subject statement** (L'identità è nell'elemento NameIdentfier dell'istruzione Subject).
+    f. In **SAML Identity Location** (Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
     
-    g. Nella casella di testo **Identity Provider Login URL** (URL di accesso provider di identità) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
+    g. Nella casella di testo **Identity Provider Login URL** (URL di accesso provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    h. Nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
+    h. Nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
     
     i. In **Service Provider Initiated Request Binding** (Binding richiesta avviato dal provider di servizi) selezionare **HTTP Post**.
     
     j. Fare clic su **Save**.
 
-1. Nel pannello di navigazione a sinistra del portale di Work.com classico fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
+10. Nel pannello di navigazione a sinistra del portale di Work.com classico fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
     
     ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
 
-1. Nella sezione **Login Page Branding** (Personalizzazione pagina di accesso) della pagina **My Domain** (Dominio personale) fare clic su **Edit** (Modifica).
+11. Nella sezione **Login Page Branding** (Personalizzazione pagina di accesso) della pagina **My Domain** (Dominio personale) fare clic su **Edit** (Modifica).
     
     ![Login Page Branding](./media/work-com-tutorial/ic767826.png "Login Page Branding")
 
-1. Nella sezione**Authentication Service** (Servizio autenticazione) della pagina **Login Page Branding** (Personalizzazione pagina di accesso) viene visualizzato il nome delle **impostazioni SAML SSO**. Selezionarlo e quindi fare clic su **Save**.
+12. Nella sezione **Authentication Service** (Servizio autenticazione) della pagina **Login Page Branding** (Personalizzazione pagina di accesso) viene visualizzato il nome delle **impostazioni SAML SSO**. Selezionarlo e quindi fare clic su **Save**.
     
     ![Login Page Branding](./media/work-com-tutorial/ic784366.png "Login Page Branding")
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/work-com-tutorial/create_aaduser_01.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Utenti e gruppi -> Tutti gli utenti](./media/work-com-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Add](./media/work-com-tutorial/create_aaduser_03.png) 
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Finestra di dialogo Utente](./media/work-com-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
-
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="create-a-workcom-test-user"></a>Creare un utente di test di Work.com
+
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Work.com.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Work.com**.
+
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+
+2. Nell'elenco delle applicazioni selezionare **Work.com**.
+
+    ![Collegamento di Work.com nell'elenco delle applicazioni](common/all-applications.png)
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+### <a name="create-workcom-test-user"></a>Creare l'utente di test di Work.com
+
 Per consentire l'accesso agli utenti di Azure Active Directory, è necessario che eseguano il provisioning a Work.com. Nel caso di Work.com, il provisioning è un'attività manuale.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
+
 1. Accedere al sito aziendale di Work.com come amministratore.
 
-1. Passare a **Setup**.
+2. Passare a **Setup**.
    
     ![Installazione](./media/work-com-tutorial/IC794108.png "Installazione")
-1. Passare a **Manage Users (Gestisci utenti) \> Users (Utenti)**.
+
+3. Passare a **Manage Users (Gestisci utenti) \> Users (Utenti)**.
    
     ![Gestione utenti](./media/work-com-tutorial/IC784369.png "Gestione utenti")
 
-1. Fare clic su **Nuovo utente**.
+4. Fare clic su **Nuovo utente**.
    
     ![Tutti gli utenti](./media/work-com-tutorial/IC794117.png "Tutti gli utenti")
 
-1. Nella sezione relativa alle modifiche utente eseguire i passaggi seguenti inserendo nelle caselle di testo correlate gli attributi di un account Azure AD valido di cui si vuole effettuare il provisioning:
+5. Nella sezione relativa alle modifiche utente eseguire i passaggi seguenti inserendo nelle caselle di testo correlate gli attributi di un account Azure AD valido di cui si vuole effettuare il provisioning:
    
     ![User Edit](./media/work-com-tutorial/ic794118.png "User Edit")
    
@@ -262,9 +281,9 @@ Per consentire l'accesso agli utenti di Azure Active Directory, è necessario ch
     
     c. Nella casella di testo **Alias** digitare il **nome** dell'utente **BrittaS**.
     
-    d. Nel **messaggio di posta elettronica** digitare il **indirizzo di posta elettronica** dell'utente **Brittasimon\@contoso.com**.
+    d. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l'**indirizzo di posta elettronica** dell'utente Brittasimon@contoso.com.
     
-    e. Nel **nome utente** nella casella di testo digitare un nome utente dell'utente, ad esempio **Brittasimon\@contoso.com**.
+    e. Nella casella di testo **User Name** (Nome utente) digitare il nome utente dell'utente, ad esempio Brittasimon@contoso.com.
     
     f. Nella casella di testo **Nick Name** (Nome alternativo) digitare un **nome alternativo** dell'utente **Simon**.
     
@@ -275,62 +294,18 @@ Per consentire l'accesso agli utenti di Azure Active Directory, è necessario ch
     > [!NOTE]
     > Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica con un collegamento per confermare l'account e attivarlo.
     > 
-    > 
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Work.com.
-
-![Assegna utente][200] 
-
-**Per assegnare Britta Simon a Work.com, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
-
-1. Nell'elenco delle applicazioni selezionare **Work.com**.
-
-    ![Work.com nell'elenco delle app](./media/work-com-tutorial/tutorial_work-com_app.png) 
-
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Assegna utente][202] 
-
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Assegna utente][203]
-
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
-
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Work.com nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Work.com.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro di Work.com nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Work.com per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/work-com-tutorial/tutorial_general_01.png
-[2]: ./media/work-com-tutorial/tutorial_general_02.png
-[3]: ./media/work-com-tutorial/tutorial_general_03.png
-[4]: ./media/work-com-tutorial/tutorial_general_04.png
-
-[100]: ./media/work-com-tutorial/tutorial_general_100.png
-
-[200]: ./media/work-com-tutorial/tutorial_general_200.png
-[201]: ./media/work-com-tutorial/tutorial_general_201.png
-[202]: ./media/work-com-tutorial/tutorial_general_202.png
-[203]: ./media/work-com-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
