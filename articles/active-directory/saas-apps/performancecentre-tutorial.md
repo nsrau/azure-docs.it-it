@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407573"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Esercitazione: Integrazione di Azure Active Directory con PerformanceCentre
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-performancecentre-from-the-gallery"></a>Aggiunta di PerformanceCentre dalla raccolta
 
-Per configurare l'integrazione di PerformanceCentre in Azure AD, è necessario aggiungere PerformanceCentre dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di PerformanceCentre in Azure AD, è necessario aggiungere PerformanceCentre dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere PerformanceCentre dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di PerformanceCentre in Azure AD, è necessario a
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PerformanceCentre usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in PerformanceCentre.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con PerformanceCentre, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con PerformanceCentre, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di PerformanceCentre](#configure-performancecentre-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di PerformanceCentre](#create-performancecentre-test-user)**: per avere una controparte di Britta Simon in PerformanceCentre collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PerformanceCentre, segu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di PerformanceCentre](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `http://<companyname>.performancecentre.com/saml/SSO`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `http://<companyname>.performancecentre.com/saml/SSO`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `http://<companyname>.performancecentre.com`
 
@@ -150,9 +150,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con PerformanceCentre, segu
     
      ![Single Sign-On di Microsoft Azure AD][14]
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -175,15 +175,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PerformanceCentre.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PerformanceCentre.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PerformanceCentre**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **PerformanceCentre**.
+2. Nell'elenco di applicazioni selezionare **PerformanceCentre**.
 
     ![Collegamento di PerformanceCentre nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -205,7 +205,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in PerformanceCentre.
 
-**Per creare un utente denominato Britta Simon in PerformanceCentre, seguire questa procedura:**
+**Per creare un utente di nome Britta Simon in PerformanceCentre, seguire questa procedura:**
 
 1. Accedere al sito aziendale di PerformanceCentre come amministratore.
 

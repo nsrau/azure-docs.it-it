@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215592"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362133"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD
 
@@ -43,7 +43,7 @@ In questa esercitazione verrà abilitata un'implementazione pilota di reimpostaz
    * Fare clic su **Save** (Salva).
 1. Nella pagina **Metodi di autenticazione**
    * Impostare **Numero di metodi da reimpostare** su **1**
-   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione selezionare le caselle per abilitare **Posta elettronica** e **Codice dell'app per dispositivi mobili (anteprima)**.
+   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione selezionare le caselle per abilitare **Posta elettronica**, **Telefono cellulare**, **Telefono ufficio**, **Notifica dell'app per dispositivi mobili (anteprima)** e **Codice dell'app per dispositivi mobili (anteprima)**.
    * Fare clic su **Save** (Salva).
 1. Nella pagina **Registrazione**
    * Selezionare **Sì** per **Richiedere agli utenti di registrarsi all'accesso**.
@@ -81,4 +81,4 @@ Se si decide di non volere più usare le funzionalità configurate nell'ambito d
 In questa esercitazione è stata abilitata la reimpostazione della password self-service di Azure AD. Continuare con l'esercitazione successiva per vedere come un'infrastruttura di Active Directory Domain Services in locale può essere integrata nell'esperienza di reimpostazione della password self-service.
 
 > [!div class="nextstepaction"]
-> [Enable SSPR on-premises writeback integration](tutorial-enable-writeback.md) (Abilitare l'integrazione di writeback in locale della reimpostazione della password self-service)
+> [Enable SSPR on-premises writeback integration (Abilitare l'integrazione di writeback in locale della reimpostazione della password self-service)](tutorial-enable-writeback.md)

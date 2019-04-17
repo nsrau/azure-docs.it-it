@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258548"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009179"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come sviluppare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione è basata sulla versione 1.3.1 del pacchetto Maven di Speech SDK di Servizi cognitivi Microsoft e su Android Studio 3.1.
+L'applicazione è basata sulla versione 1.4.0 del pacchetto Maven di Speech SDK e su Android Studio 3.3.
 Speech SDK è attualmente compatibile con i dispositivi Android con processori ARM a 32/64 bit e Intel x86/x64 compatibili.
 
 > [!NOTE]
@@ -38,27 +38,19 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
     ![Screenshot della finestra iniziale di Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. Viene visualizzata la procedura guidata **Crea nuovo progetto**. Nella schermata **Create Android Project** (Crea progetto Android) immettere **Quickstart** (Avvio rapido) come **nome dell'applicazione**, **samples.speech.cognitiveservices.microsoft.com** come **dominio aziendale** e scegliere una directory di progetto. Lasciare le caselle di controllo C++ e Kotlin deselezionate, quindi selezionare **Avanti**.
+1. Nella procedura guidata **Choose your project** (Scegliere il progetto) visualizzata, selezionare **Phone and Tablet** (Telefono e tablet) e quindi **Empty Activity** (Attività vuota) nella casella di selezione dell'attività. Selezionare **Avanti**.
 
-   ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-02-create-android-project.png)
+   ![Screenshot della procedura guidata Choose your project](media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. Nella schermata **Target Android Devices** (Dispositivi Android di destinazione), selezionare solo **Telefoni e Tablet**. Nell'elenco a discesa sottostante scegliere **API 23: Android 6.0 (Marshmallow)** e selezionare **Avanti**.
+1. Nella schermata **Configure your project** (Configurare il progetto) immettere **Quickstart** (Avvio rapido) come **nome**, **samples.speech.cognitiveservices.microsoft.com** come **Package name** (Nome pacchetto) e scegliere una directory di progetto. Per **Minimum API level** (Livello API minimo) scegliere **API 23: Android 6.0 (Marshmallow)**. Lasciare deselezionate tutte le altre caselle di controllo e scegliere **Finish** (Fine).
 
-   ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. Nella schermata **Add an Activity to Mobile** (Aggiungere un'attività ai dispositivi mobili) selezionare **Empty Activity** (Attività vuota) e fare clic su **Next** (Avanti).
-
-   ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. Nella schermata **Configure Activity** (Configura attività) usare **MainActivity** come nome dell'attività e **activity\_main** come nome del layout. Selezionare entrambe le caselle di controllo e selezionare **Fine**.
-
-   ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-05-configure-activity.png)
+   ![Screenshot della procedura guidata Configure your project](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio richiede qualche momento per preparare il nuovo progetto Android. Successivamente, configurare il progetto per conoscere Speech SDK e usare Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.3.1`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
 
 Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste.
 È ospitato in un repository Maven in https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +65,7 @@ Di seguito viene descritto come configurare il progetto per usare Speech SDK. Ap
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`. Selezionare **OK**.
+1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`. Selezionare **OK**.
    A questo punto Speech SDK viene aggiunto all'elenco delle dipendenze come illustrato di seguito:
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -100,16 +92,9 @@ Verrà creata un'interfaccia utente di base per l'applicazione. Modificare il la
 
 Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili all'immagine seguente:
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
@@ -149,4 +134,4 @@ Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al ri
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare modelli di lingua](how-to-customize-language-model.md)

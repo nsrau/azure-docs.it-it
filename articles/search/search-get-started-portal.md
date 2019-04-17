@@ -1,23 +1,29 @@
 ---
-title: Esercitazione di avvio rapido per l'indicizzazione e le query con il portale di Azure - Ricerca di Azure
-description: Informazioni su come creare e interrogare il primo indice in Ricerca di Azure usando i dati di esempio integrati e l'importazione guidata nel portale di Azure.
+title: 'Guida introduttiva: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
+description: Creare il primo indice ed eseguirvi query in Ricerca di Azure usando i dati di esempio integrati e la procedura guidata Importa dati nel portale di Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137828"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282662"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+> [!div class="op_single_selector"]
+> * [Portale](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Per approfondire rapidamente i concetti relativi a Ricerca di Azure, provare gli strumenti predefiniti nel portale di Azure. Procedure guidate ed editor non offrono esattamente le stesse funzionalità di .NET e delle API REST, ma è possibile iniziare rapidamente con un'introduzione senza codice, scrivendo query interessanti per i dati di esempio in pochi minuti.
 
@@ -73,7 +79,7 @@ Questo passaggio per il momento verrà ignorato e si passerà direttamente a **P
    ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> È possibile provare a eseguire la nuova funzionalità di anteprima di ricerca cognitiva per Ricerca di Azure presentata nella [guida di avvio rapido alla ricerca cognitiva](cognitive-search-quickstart-blob.md) oppure in questa [esercitazione](cognitive-search-tutorial-blob.md).
+> È possibile provare a eseguire la nuova funzionalità di anteprima di ricerca cognitiva per Ricerca di Azure presentata nella [guida introduttiva alla ricerca cognitiva](cognitive-search-quickstart-blob.md) oppure in questa [esercitazione](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Passaggio 3: Configurare l'indice
 
@@ -266,6 +272,6 @@ Se il servizio Ricerca di Azure è stato usato per la prima volta con questa ese
 
 È possibile esplorare ancora Ricerca di Azure usando gli strumenti a livello di codice:
 
-* [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Creare un indice con .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Creare un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
 * [Creare un indice usando Postman o Fiddler e le API REST di Ricerca di Azure](search-fiddler.md)

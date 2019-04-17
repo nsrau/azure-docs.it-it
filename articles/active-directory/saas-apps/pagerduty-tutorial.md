@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5470c13f75d010634f97e87dc1a870a100187973
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ded5854c5e669ab1982641169f13a9cb400d5d6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835068"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Esercitazione: Integrazione di Azure Active Directory con PagerDuty
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare PagerDuty con Azure Active Director
 L'integrazione di PagerDuty con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a PagerDuty.
-* È possibile abilitare gli utenti di essere automaticamente eseguito l'accesso a PagerDuty (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a PagerDuty con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,13 +39,13 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per configurare l'integrazione di Azure AD con PagerDuty, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione abilitata per PagerDuty single sign-on
+* Sottoscrizione di PagerDuty abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* PagerDuty supporta le **SP** SSO avviato dal
+* PagerDuty supporta l'accesso SSO avviato da **SP**
 
 ## <a name="adding-pagerduty-from-the-gallery"></a>Aggiunta di PagerDuty dalla raccolta
 
@@ -65,31 +65,31 @@ Per configurare l'integrazione di PagerDuty in Azure AD, è necessario aggiunger
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **PagerDuty**, selezionare **PagerDuty** nel pannello dei risultati quindi fare clic su **Add** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **PagerDuty**, selezionare **PagerDuty** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![PagerDuty nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato single sign-on di Azure con PagerDuty in base a un utente test di nome **Britta Simon**.
-Per single sign-on funzioni, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in PagerDuty.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PagerDuty in base a un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in PagerDuty.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con PagerDuty, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configura PagerDuty Single Sign-On](#configure-pagerduty-single-sign-on)**  : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Deputy](#configure-pagerduty-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di PagerDuty](#create-pagerduty-test-user)**  : per avere una controparte di Britta Simon in PagerDuty collegata alla rappresentazione in Azure AD dell'utente.
+5. **[Creare un utente di test di PagerDuty](#create-pagerduty-test-user)**: per avere una controparte di Britta Simon in PagerDuty collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare single sign-on di Azure con PagerDuty, seguire i passaggi seguenti:
+Per configurare l'accesso Single Sign-On di Azure AD con PagerDuty, seguire questa procedura:
 
-1. Nel [portale di Azure](https://portal.azure.com/)via le **PagerDuty** pagina di integrazione dell'applicazione, seleziona **l'accesso Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione [PagerDuty](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Per configurare single sign-on di Azure con PagerDuty, seguire i passaggi seguen
 
     ![Informazioni su URL e dominio per Single Sign-On di PagerDuty](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<tenant-name>.pagerduty.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.pagerduty.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant-name>.pagerduty.com`
 
@@ -116,7 +116,7 @@ Per configurare single sign-on di Azure con PagerDuty, seguire i passaggi seguen
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nel **configurazione di PagerDuty** sezione, copiare l'URL appropriato in base alle proprie esigenze.
+6. Nella sezione **Configura PagerDuty** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -126,7 +126,7 @@ Per configurare single sign-on di Azure con PagerDuty, seguire i passaggi seguen
 
     c. URL di chiusura sessione
 
-### <a name="configure-pagerduty-single-sign-on"></a>Configura PagerDuty Single Sign-On
+### <a name="configure-pagerduty-single-sign-on"></a>Configurare l'accesso Single Sign-On di PagerDuty
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Pagerduty come amministratore.
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PagerDuty.
 
-1. Nel portale di Azure, selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **PagerDuty**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PagerDuty**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-pagerduty-test-user"></a>Creare l'utente di test di PagerDuty
+### <a name="create-pagerduty-test-user"></a>Creare un utente di test di PagerDuty
 
 Per consentire agli utenti di Azure AD di accedere a PagerDuty, è necessario eseguirne il provisioning in PagerDuty.  
 Nel caso di PagerDuty, il provisioning è un'attività manuale.
@@ -229,7 +229,7 @@ Nel caso di PagerDuty, il provisioning è un'attività manuale.
 
     a. Digitare il **nome e il cognome** dell'utente, ad esempio **Britta Simon**. 
    
-    b. Immettere **messaggio di posta elettronica** indirizzo dell'utente, ad esempio **brittasimon\@contoso.com**.
+    b. Immettere l'indirizzo di **posta elettronica** dell'utente, ad esempio **brittasimon\@contoso.com**.
    
     c. Fare clic su **Add** (Aggiungi) e quindi su **Send Invites** (Invia inviti).
    
@@ -240,7 +240,7 @@ Nel caso di PagerDuty, il provisioning è un'attività manuale.
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro PagerDuty nel Pannello di accesso, dovrebbe automaticamente accedere a di PagerDuty per il quale configurare SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di PagerDuty nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PagerDuty per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

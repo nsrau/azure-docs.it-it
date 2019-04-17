@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309641"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470339"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Esercitazione sul bake in Unity con Progetto Acustica
 Questa esercitazione descrive il bake con Progetto Acustica in Unity.
@@ -137,7 +137,7 @@ Il nome della scena viene usato per connettere la scena ai file in cui sono arch
 
 1. Pulsante della scheda **Probes** (Probe) usato per visualizzare questa pagina
 2. Breve descrizione di che cosa fare quando si usa questa pagina
-3. Usarli per scegliere una risoluzione per la simulazione grossolana o fine. Quella grossolana è più veloce, ma presenta alcuni svantaggi. Vedere [Scegliere tra risoluzione grossolana e risoluzione fine](#Coarse-vs-Fine-Resolution) per i dettagli.
+3. Usarli per scegliere una risoluzione per la simulazione grossolana o fine. Quella grossolana è più veloce, ma presenta alcuni svantaggi. Per informazioni dettagliate, vedere[Risoluzione del bake](bake-resolution.md) più avanti.
 4. Questo campo consente di scegliere la posizione in cui i file di dati di acustica devono essere inseriti. Fare clic sul pulsante con "..." per usare la selezione cartelle. La posizione predefinita è **Assets/AcousticsData**. In questa posizione verrà creata anche una sottocartella **Editor**. Per altre informazioni sui file di dati, vedere [File di dati](#Data-Files) più avanti.
 5. I file di dati per questa scena verranno denominati usando il prefisso fornito qui. Il prefisso predefinito è "Acoustics_[Nome scena]".
 6. Dopo aver calcolato i probe, i controlli precedenti verranno disabilitati. Fare clic sul pulsante **Clear** (Cancella) per cancellare i calcoli e abilitare i controlli per poter eseguire di nuovo i calcoli con nuove impostazioni.
@@ -145,21 +145,7 @@ Il nome della scena viene usato per connettere la scena ai file in cui sono arch
 
 In questa versione di Project Acoustics i probe non possono essere inseriti manualmente, ma devono essere inseriti tramite il processo automatizzato fornito nella scheda **Probes** (Probe).
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Scegliere tra risoluzione grossolana e risoluzione fine
-
-L'unica differenza tra le impostazioni di risoluzione grossolana e fine è la frequenza con cui viene eseguita la simulazione. La risoluzione fine usa una frequenza due volte superiore rispetto a quella grossolana.
-Anche se può sembrare semplice, le implicazioni per la simulazione acustica sono diverse:
-
-* La lunghezza d'onda per la risoluzione grossolana è il doppio rispetto a quella fine, quindi i voxel sono due volte più grandi.
-* Il tempo di simulazione è direttamente correlato alle dimensioni dei voxel, di conseguenza un bake grossolano è circa 16 volte più veloce di un bake fine.
-* I portali (ad esempio, porte o finestre) con dimensioni inferiori a quelle dei voxel non possono essere simulati. L'impostazione Coarse (Grossolana) può impedire la simulazione di alcuni di questi portali più piccoli, che quindi non lasceranno passare il suono in fase di esecuzione. Per verificare se ciò accade, visualizzare i voxel.
-* La frequenza di simulazione più bassa comporta meno diffrazione sui bordi e agli angoli.
-* Le sorgenti sonore non possono trovarsi all'interno di voxel "pieni", ovvero voxel che contengono una geometria, perché il suono non viene udito. Collocare le sorgenti audio in modo che non siano all'interno dei voxel più grandi dell'impostazione Coarse (Grossolana) è più difficile che usare l'impostazione Fine (Fine).
-* I voxel più grandi si estenderanno maggiormente nei portali, come illustrato di seguito. La prima immagine è stata creata con la risoluzione grossolana, mentre la seconda rappresenta la stessa entrata con la risoluzione fine. Come indicato dai contrassegni di colore rosso, l'intrusione è considerevolmente minore nell'entrata con l'impostazione Fine (Fine). La linea blu è l'entrata definita dalla geometria, mentre la linea rossa è il portale acustico effettivo definito dalle dimensioni dei voxel. Le conseguenze di questa intrusione in una determinata situazione dipendono interamente da come i voxel sono allineati alla geometria del portale, il che è determinato dalle dimensioni e dalle posizioni degli oggetti nella scena.
-
-![Screenshot dei voxel con risoluzione grossolana nell'entrata](media/coarse-voxel-doorway.png)
-
-![Screenshot dei voxel con risoluzione fine nell'entrata](media/fine-voxel-doorway.png)
+Per informazioni più dettagliate sulla risoluzione grossolana o fine, vedere [Risoluzione del bake](bake-resolution.md).
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Effettuare il bake della scena con Azure Batch
 È possibile effettuare il bake della scena con un cluster di elaborazione nel cloud usando il servizio Azure Batch. Il plug-in Progetto Acustica di Unity si connette direttamente ad Azure Batch per creare un'istanza di un cluster di Azure Batch per ogni bake e gestire ed eliminare tale cluster. Nella scheda **Bake** immettere le credenziali di Azure, selezionare un tipo e una dimensione di computer cluster e fare clic su **Bake**.

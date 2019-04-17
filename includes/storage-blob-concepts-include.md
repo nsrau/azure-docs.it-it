@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 32b9b12c2adf03a4cb0616a5da48dd33fc81fb4f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973090"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291690"
 ---
-L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. 
+L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari.
 
 ## <a name="about-blob-storage"></a>Informazioni sull'archiviazione BLOB
 
@@ -30,8 +30,8 @@ L'archiviazione BLOB è progettata per:
 
 Gli utenti o le applicazioni client possono accedere agli oggetti nell'archiviazione BLOB tramite HTTP/HTTPS ovunque si trovino. Gli oggetti nell'archiviazione BLOB sono accessibili tramite l'[API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage) o una libreria client di Archiviazione di Azure. Le librerie client sono disponibili per diversi linguaggi, tra cui [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [Go](https://github.com/azure/azure-storage-blob-go/), [PHP](http://azure.github.io/azure-storage-php/) e [Ruby](http://azure.github.io/azure-storage-ruby).
 
-## <a name="about-azure-data-lake-storage-gen2"></a>Informazioni su Azure Data Lake Storage Gen2 
+## <a name="about-azure-data-lake-storage-gen2"></a>Informazioni su Azure Data Lake Storage Gen2
 
-L'archiviazione BLOB supporta Azure Data Lake Storage Gen2, la soluzione aziendale di analisi di Big Data Microsoft per il cloud. Azure Data Lake Storage Gen2 offre un file system gerarchico e i vantaggi dell'archiviazione BLOB, tra cui archiviazione a livelli a basso costo, disponibilità elevata, coerenza assoluta e funzionalità di ripristino di emergenza. 
+L'archiviazione BLOB supporta Azure Data Lake Storage Gen2, la soluzione aziendale di analisi di Big Data Microsoft per il cloud. Azure Data Lake Storage Gen2 offre un file system gerarchico e i vantaggi dell'archiviazione BLOB, tra cui archiviazione a livelli a basso costo, disponibilità elevata, coerenza assoluta e funzionalità di ripristino di emergenza.
 
-Per altre informazioni su Data Lake Storage Gen2, vedere [Anteprima di Azure Data Lake Storage Gen2 - Introduzione](../articles/storage/data-lake-storage/introduction.md).
+Per altre informazioni su Data Lake Storage Gen2, vedere [Introduzione ad Azure Data Lake Storage Gen2](../articles/storage/data-lake-storage/introduction.md).

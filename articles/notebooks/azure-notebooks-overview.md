@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777720"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280112"
 ---
 # <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
 
 Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione. [Jupyter](https://jupyter.org/) (in precedenza noto come IPython) è un progetto open source che consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il *notebook* (immagine per gentile concessione di jupyter.org):
 
-[![Esempi di notebook di Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![EEsempi di notebook di Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Grazie a questa combinazione avanzata di codice, grafica e testo esplicativo, Jupyter è molto diffuso per diversi scopi, tra cui istruzione di data science, pulizia e trasformazione dei dati, simulazione numerica, modellazione statistica e sviluppo di modelli di Machine learning.
 
@@ -58,6 +58,8 @@ In breve, Azure Notebook consente di svolgere il proprio lavoro in modo più eff
 Azure Notebooks è un servizio gratuito, ma ogni progetto è limitato a 4 GB di memoria e 1 GB di dati per evitarne l'uso improprio. Gli utenti legittimi che superano questi limiti visualizzano una richiesta Captcha per continuare l'esecuzione dei notebook.
 
 Per rilasciare tutti i limiti, accedere ad Azure Notebooks con un account che usa Azure Active Directory, ad esempio un account aziendale. Se tale account è associato a una sottoscrizione di Azure, è possibile connettersi a qualsiasi istanza di Azure Data Science Virtual Machine nell'ambito di tale sottoscrizione. Per altre informazioni, vedere [Gestire e configurare progetti - Livello di calcolo](configure-manage-azure-notebooks-projects.md#compute-tier).
+
+È garantita l'esistenza dei server Notebook per massimo 8 ore. Nella maggior parte dei casi, il contenitore non è soggetto a questo limite e rimane in esecuzione oltre questo intervallo, ma le sessioni di lunga durata potrebbero in alcuni casi essere arrestate per la stabilità del sistema.
 
 ## <a name="available-kernels-and-environments"></a>Ambienti e kernel disponibili
 
@@ -112,8 +114,8 @@ Per domande su Azure Notebooks, segnalare un problema nel [repository GitHub](ht
 - Procedure dettagliate:
   
   - [Creare e clonare progetti](create-clone-jupyter-notebooks.md)
-  - [Configure and manage projects (Configurare e gestire i progetti)](configure-manage-azure-notebooks-projects.md)
-  - [Install packages from within a notebook (Installare pacchetti da un notebook)](install-packages-jupyter-notebook.md)
+  - [Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+  - [Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
   - [Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)
   - [Usare i file di dati](work-with-project-data-files.md)
   - [Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)

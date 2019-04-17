@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: e79442483fc419e73caa38ea7e088f8a389173e5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8a8611218f47e5600fc02efef24aa7912b630522
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56963364"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010961"
 ---
 1. Avviare Eclipse.
 
@@ -45,7 +45,7 @@ ms.locfileid: "56963364"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-   * Aggiungere anche un elemento `dependencies`, con la versione 1.3.1 di Speech SDK come dipendenza:
+   * Aggiungere anche un elemento `dependencies`, con la versione 1.4.0 di Speech SDK come dipendenza:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

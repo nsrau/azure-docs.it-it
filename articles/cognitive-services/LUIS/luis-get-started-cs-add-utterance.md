@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852272"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273465"
 ---
 # <a name="quickstart-change-model-using-c"></a>Guida introduttiva: Modificare il modello tramite C#
 
@@ -37,19 +37,19 @@ ms.locfileid: "57852272"
 
 ## <a name="create-quickstart-code"></a>Creare il codice della guida introduttiva 
 
-In Visual Studio creare una nuova app **console Desktop classico di Windows** con .NET Framework. 
+In Visual Studio creare una nuova app **console Desktop classico di Windows** con .NET Framework. Assegnare al progetto il nome `ConsoleApp1`.
 
 ![Tipo di progetto di Visual Studio](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Aggiungere la dipendenza System.Web
 
-Per il progetto di Visual Studio è necessario **System.Web**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**.
+Per il progetto di Visual Studio è necessario **System.Web**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento** nella sezione Assembly.
 
 ![Aggiungere il riferimento System.web](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Aggiungere altre dipendenze
 
-Per il progetto di Visual Studio sono necessari i pacchetti **JsonFormatterPlus** e **CommandLineParser**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e selezionare **Gestisci pacchetti NuGet**. Cercare ognuno delle due pacchetti e aggiungerlo. 
+Per il progetto di Visual Studio sono necessari i pacchetti **JsonFormatterPlus** e **CommandLineParser**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e selezionare **Gestisci pacchetti NuGet**. Individuare e aggiungere ognuno dei due pacchetti. 
 
 ![Aggiungere dipendenze di terze parti](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Aggiungere le dipendenze.
+Aggiornare le dipendenze in questo modo:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Per gestire gli argomenti della riga di comando, aggiungere il codice main. Aggi
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copiare utterances.json nella directory di output
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse su `utterances.json`, quindi scegliere **Proprietà**. Nelle finestre delle proprietà contrassegnare **Azione di compilazione** di `Content` e **Copia nella directory di output** di `Copy Always`.  
+In Esplora soluzioni aggiungere `utterances.json` facendo clic con il pulsante destro del mouse sul nome del progetto e scegliendo **Aggiungi**, quindi selezionando **Elemento esistente**. Selezionare il file `utterances.json`. Il file viene aggiunto al progetto. Quindi deve essere aggiunto alla direzione di output. Fare clic con il pulsante destro del mouse su `utterances.json` e scegliere **Proprietà**. Nelle finestre delle proprietà contrassegnare **Azione di compilazione** di `Content` e **Copia nella directory di output** di `Copy Always`.  
 
 ![Contrassegnare il file JSON come contenuto](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Compilare il codice in Visual Studio.
 Nella directory /bin/Debug del progetto eseguire l'applicazione da una riga di comando. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Questa riga di comando visualizza i risultati della chiamata all'API di aggiunta delle espressioni. 
@@ -140,4 +140,4 @@ Dopo aver completato la procedura illustrata, rimuovere tutti i file creati in q
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Compilare un'app di Language Understanding Intelligent Service (LUIS) a livello di codice](luis-tutorial-node-import-utterances-csv.md) 
+> [Compilare un'app di LUIS a livello di codice](luis-tutorial-node-import-utterances-csv.md) 

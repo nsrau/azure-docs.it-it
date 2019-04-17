@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550678"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010380"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selezionare un dispositivo di input audio con Speech SDK
 
-La versione 1.3.0 di Speech SDK introduce un'API per la selezione dell'input audio. Questo articolo illustra come ottenere gli ID dei dispositivi audio connessi a un sistema,
+La versione 1.3.0 di Speech SDK introduce un'API per la selezione dell'input audio.
+Questo articolo illustra come ottenere gli ID dei dispositivi audio connessi a un sistema,
 che potranno quindi essere usati in Speech SDK configurando il dispositivo audio tramite l'oggetto `AudioConfig`:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Questa funzionalità non è ancora disponibile in JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> L'utilizzo del microfono non è disponibile per JavaScript in esecuzione in Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>ID dei dispositivi audio in Windows per applicazioni desktop
 
@@ -368,6 +372,10 @@ Ad esempio, l'istruzione
 
 consente di usare un auricolare Bluetooth per un'app abilitata al riconoscimento vocale.
 
+## <a name="audio-device-ids-in-javascript"></a>ID dei dispositivi audio in JavaScript
+
+In JavaScript il metodo [MediaDevices.enumerateDevices](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) può essere usato per enumerare i dispositivi multimediali e trovare un ID dispositivo da passare a `fromMicrophone(...)`.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
@@ -376,4 +384,4 @@ consente di usare un auricolare Bluetooth per un'app abilitata al riconoscimento
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare modelli di lingua](how-to-customize-language-model.md)

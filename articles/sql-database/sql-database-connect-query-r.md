@@ -11,15 +11,15 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/04/2019
+ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864950"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051224"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Avvio rapido: Usare Machine Learning Services (con R) nel database SQL di Azure (anteprima)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Guida introduttiva: Usare Machine Learning Services (con R) nel database SQL di Azure (anteprima)
 
 Questo articolo illustra come usare l'anteprima pubblica di [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md). Descrive le nozioni di base dello spostamento di dati tra un database SQL e R e spiega come eseguire il wrapping di codice R ben formato nella stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) per compilare, eseguire il training e usare modelli di Machine Learning in un database SQL.
 
@@ -98,7 +98,8 @@ L'esercizio seguente è incentrato sul primo modello di interazione: come passar
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. Presumendo che tutto sia stato configurato correttamente, viene calcolato il risultato corretto e la funzione `print` di C restituisce il risultato nella finestra **Messaggi**.
@@ -522,5 +523,5 @@ Per altre informazioni su Machine Learning Services, vedere gli articoli seguent
 - [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Esercitazione: Informazioni sull'analisi nel database con R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Procedura dettagliata di data science end-to-end per R e SQL Server)
+- [End-to-end data science walkthrough for R and SQL Server (Procedura dettagliata di data science end-to-end per R e SQL Server)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
 - [Esercitazione: Usare funzioni R di RevoScaleR con dati di SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

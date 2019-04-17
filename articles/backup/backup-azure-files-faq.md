@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492805"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426614"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ Durante un tentativo di backup, la selezione di un account di archiviazione per 
 Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.md#stop-protecting-an-azure-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure? <br/>
-Il backup di condivisioni file di Azure è attualmente disponibile in anteprima e solo nelle aree geografiche seguenti: 
-- Australia orientale (AE) 
-- Australia sud-orientale (ASE) 
+Il backup di condivisioni file di Azure è attualmente disponibile in anteprima e solo nelle aree geografiche seguenti:
+- Australia orientale (AE)
+- Australia sud-orientale (ASE)
 - Brasile meridionale (BRS)
 - Canada centrale (CNC)
 - Canada orientale (CE)
@@ -50,17 +50,17 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 - Stati Uniti orientali 2 (EUS2)
 - Giappone orientale (JPE)
 - Giappone occidentale (JPW)
-- India centrale (INC) 
+- India centrale (INC)
 - India meridionale (INS)
 - Corea del Sud centrale (KRC)
 - Corea del Sud meridionale (KRS)
-- Stati Uniti centro-settentrionali (NCUS) 
-- Europa settentrionale (NE) 
-- Stati Uniti a centro-meridionali (SCUS) 
+- Stati Uniti centro-settentrionali (NCUS)
+- Europa settentrionale (NE)
+- Stati Uniti a centro-meridionali (SCUS)
 - Asia sud-orientale (SEA)
-- Regno Unito meridionale (UKS) 
-- Regno Unito occidentale (UKW) 
-- Europa occidentale (OE) 
+- Regno Unito meridionale (UKS)
+- Regno Unito occidentale (UKW)
+- Europa occidentale (OE)
 - Stati Uniti occidentali (WUS)
 - Stati Uniti centro occidentali (WCUS)
 - Stati Uniti occidentali 2 (WUS 2)
@@ -82,7 +82,7 @@ Durante l'anteprima è possibile proteggere condivisioni file di Azure di un mas
 È previsto un limite di 200 snapshot per ogni condivisione file in qualsiasi momento. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Dopo aver abilitato le reti virtuali nell'account di archiviazione, il backup di condivisioni file nell'account non riesce. Perché?
-Il backup di condivisioni file di Azure non supporta attualmente gli account di archiviazione con reti virtuali abilitate. Disabilitare le reti virtuali negli account di archiviazione per consentire il backup. 
+Il backup di condivisioni file di Azure non supporta attualmente gli account di archiviazione con reti virtuali abilitate. Disabilitare le reti virtuali negli account di archiviazione per consentire il backup.
 
 ## <a name="restore"></a>Restore
 
@@ -91,6 +91,10 @@ Quando si elimina una condivisione file di Azure, viene visualizzato l'elenco de
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>È possibile eseguire il ripristino dai backup se è stata interrotta la protezione in una condivisione file di Azure? <br/>
 Sì. Se si è scelto **Conserva i dati di backup** quando è stata interrotta la protezione, sarà possibile eseguire il ripristino da tutti i punti di ripristino esistenti.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
+Se si annulla un processo di ripristino in corso, il processo si interrompe e tutti i file ripristinati prima dell'annullamento rimangono nella destinazione configurata (posizione originale o alternativa) senza rollback. 
+
 
 ## <a name="manage-backup"></a>Gestire il backup
 

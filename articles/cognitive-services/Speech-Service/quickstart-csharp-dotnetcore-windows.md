@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows con Speech SDK
+description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows o macOS con Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895612"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009428"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Core
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, si crea un'applicazione console C# per .NET Core su Windows usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Trascrizione riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo, si crea un'applicazione console C# per .NET Core su Windows o macOS usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
 
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -32,7 +32,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Core su Windows 
 
 Questa guida introduttiva richiede:
 
-* [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
@@ -76,4 +76,4 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare modelli di lingua](how-to-customize-language-model.md)

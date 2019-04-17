@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535649"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264200"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando JavaScript
 
@@ -50,7 +50,7 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 
     ![Creare il servizio SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Nell'editor di codice aprire la cartella *chat/src/javascript* nel repository clonato.
+1. Nell'editor di codice aprire la cartella *src/chat/javascript* nel repository clonato.
 
 1. Rinominare *local.settings.sample.json* in *local.settings.json*.
 
@@ -61,7 +61,7 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
     - **negotiate**: usa l'associazione di input *SignalRConnectionInfo* per generare e restituire informazioni di connessione valide.
     - **messages**: riceve un messaggio di chat nel corpo della richiesta e usa l'associazione di output *SignalR* per trasmettere il messaggio a tutte le applicazioni client connesse.
 
-1. Nel terminale assicurarsi di aver selezionato la cartella *chat/src/javascript*. Usare gli strumenti di base di Funzioni di Azure per installare le estensioni necessarie per eseguire l'app.
+1. Nel terminale assicurarsi di aver selezionato la cartella *src/chat/javascript*. Usare gli strumenti di base di Funzioni di Azure per installare le estensioni necessarie per eseguire l'app.
 
     ```bash
     func extensions install
@@ -84,4 +84,4 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 In questo avvio reale è stata creata ed eseguita un'applicazione serverless in tempo reale in VS Code. Successivamente, si riceveranno altre informazioni su come distribuire le funzioni di Azure da VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuire le funzioni di Azure con VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Distribuire Funzioni di Azure con VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

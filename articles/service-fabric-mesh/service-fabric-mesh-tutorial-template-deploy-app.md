@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336321"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527337"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -351,8 +351,8 @@ Nel file di parametri aggiornare i valori dei parametri seguenti:
 |registryPassword|La password ottenuta in precedenza in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry). Questo parametro nel modello è una stringa sicura e non verrà visualizzata nello stato di distribuzione o nei comandi `az mesh service show`.|
 |registryUserName|Il nome utente ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|
 |registryServer|Il nome del server del registro ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|
-|frontEndImage|L'immagine del contenitore per il servizio front-end.  Ad esempio, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|L'immagine del contenitore per il servizio back-end.  Ad esempio, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|L'immagine del contenitore per il servizio front-end.  Ad esempio: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|L'immagine del contenitore per il servizio back-end.  Ad esempio: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Per distribuire l'applicazione, eseguire il comando seguente:
 

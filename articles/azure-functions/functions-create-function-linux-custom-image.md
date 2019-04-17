@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418058"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470067"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -256,6 +256,16 @@ AzureWebJobsStorage=$storageConnectionString
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
+## <a name="enable-application-insights"></a>Abilitare Application Insights
+
+È consigliabile monitorare l'esecuzione delle funzioni tramite l'integrazione dell'app per le funzioni con Azure Application Insights. Quando si crea un'app per le funzioni nel portale di Azure, questa integrazione avviene automaticamente per impostazione predefinita. Quando tuttavia si crea l'app per le funzioni usando l'interfaccia della riga di comando di Azure, l'integrazione nell'app per le funzioni in Azure non viene eseguita.
+
+Per abilitare Application Insights per l'app per le funzioni:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
+
 ## <a name="enable-continuous-deployment"></a>adsa
 
 Uno dei vantaggi dell'uso dei contenitori è la capacità di distribuire automaticamente gli aggiornamenti quando i contenitori vengono aggiornati nel registro. Abilitare la distribuzione continua con il comando [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config).
@@ -292,4 +302,4 @@ Questa esercitazione illustra come:
 Informazioni su come abilitare la funzionalità di integrazione continua inclusa nella piattaforma del servizio app di base. È possibile configurare l'app per le funzioni in modo che il contenitore venga ridistribuito quando si aggiorna l'immagine nell'hub Docker.
 
 > [!div class="nextstepaction"] 
-> [Continuous deployment with Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md) (Distribuzione continua con l'app Web per contenitori)
+> [Distribuzione continua con l'app Web per contenitori](../app-service/containers/app-service-linux-ci-cd.md)

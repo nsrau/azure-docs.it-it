@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571304"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268769"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
-Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa più aggiornati disponibili che fornisce un contesto geografico preciso alle applicazioni Web e ai dispositivi mobili. Mappe di Azure consiste in API REST per il rendering delle **mappe** in più stili e immagini satellitari, la **ricerca** di indirizzi, luoghi e punti di interesse in tutto il mondo; il **routing** point-to-point, multipoint, ottimizzazione multipoint, isocrono, veicoli commerciali, influenzato dal traffico e il routing di matrici; la visualizzazione ottimale di flusso del traffico e incidenti; stabilire la posizione dell'utente attraverso la **georilevazione**; infine, la conversione della posizione in **fusi orari** oltre che il recupero dell'orario di una posizione. In più, Mappe di Azure offre servizi per **geofencing**, archiviazione dei **dati** sulle mappe, ospitando informazioni sulla posizione in Azure, e **Operazioni spaziali** che offrono informazioni sulla posizione attraverso dati analitici geospaziali. I servizi di Mappe di Azure sono disponibili direttamente come API REST o attraverso un **Web SDK** o **Android SDK**. Questi strumenti consentono agli sviluppatori di sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure dal cloud di Azure. Per iniziare subito a sviluppare, iscriversi per ottenere un [account gratuito di Mappe di Azure](https://azure.microsoft.com/services/azure-maps/).
+Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa più aggiornati disponibili che fornisce un contesto geografico preciso alle applicazioni Web e ai dispositivi mobili. Mappe di Azure consiste in API REST per il rendering delle **mappe** in più stili e immagini satellitari, la **ricerca** di indirizzi, luoghi e punti di interesse in tutto il mondo; il **routing** point-to-point, multipoint, ottimizzazione multipoint, isocrono, veicoli commerciali, influenzato dal traffico e il routing di matrici; la visualizzazione ottimale di flusso del traffico e incidenti; l'individuazione della posizione dell'utente attraverso la **georilevazione**; infine, la conversione della posizione in **fusi orari** oltre che il recupero dell'orario di una posizione. In più, Mappe di Azure offre servizi per **geofencing**, archiviazione dei **dati** sulle mappe, ospitando informazioni sulla posizione in Azure, e **Operazioni spaziali** che offrono informazioni sulla posizione attraverso dati analitici geospaziali. I servizi di Mappe di Azure sono disponibili direttamente come API REST o attraverso un **Web SDK** o **Android SDK**. Questi strumenti consentono agli sviluppatori di sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure dal cloud di Azure. Per iniziare subito a sviluppare, iscriversi per ottenere un [account gratuito di Mappe di Azure](https://azure.microsoft.com/services/azure-maps/).
 
 Il video seguente spiega Mappe di Azure in modo approfondito:
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Per informazioni dettagliate su questo servizio, visitare la pagina delle [API d
 Il servizio informazioni sul traffico è costituito da più servizi Web progettati per consentire agli sviluppatori di creare applicazioni Web e per dispositivi mobili che richiedono informazioni sul traffico. Il servizio fornisce due tipi di dati:
 
 * Flusso del traffico: dati sulla velocità e sui tempi di percorrenza osservati in tempo reale per tutte le strade principali della rete.
-* Eventi imprevisti del traffico: visualizzazione accurata di ingorghi e incidenti nella rete stradale.
+* Incidenti del traffico: visualizzazione aggiornata di ingorghi e incidenti nella rete stradale.
 
 ![Traffico in Mappe di Azure](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -139,7 +141,7 @@ Per altre informazioni sulle nuove funzionalità di Mappe di Azure:
 > [!div class="nextstepaction"]
 > [Matrice di percorsi, isocrone, ricerca IP e altre funzioni](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-Procedere e provare un'app di esempio che dimostra il servizio:
+Provare un'app di esempi oche dimostra Mappe di Azure:
 
 > [!div class="nextstepaction"]
-> [Avviare una mappa demo per la ricerca interattiva](quick-demo-map-app.md)
+> [Guida introduttiva: Creare un'app Web](quick-demo-map-app.md)

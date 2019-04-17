@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in JavaScript in un browser con Speech SDK
 services: cognitive-services
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841175"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008987"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in JavaScript in un browser con Speech SDK
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un sito Web usando il binding JavaScript di Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione è basata su Speech SDK di Servizi cognitivi Microsoft ([scaricare la versione 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L'applicazione si basa su Speech SDK per JavaScript ([scaricare la versione 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una chiave di sottoscrizione per il servizio di riconoscimento vocale. Vedere [Prova gratuita dei servizi Voce](get-started.md).
 * Un PC o Mac con un microfono funzionante.
 * Un editor di testo.
-* Una versione corrente di Microsoft Edge o Chrome.
+* Una versione corrente di Chrome, Microsoft Edge o Safari.
 * Facoltativamente, un server Web che supporti l'hosting di script PHP.
 
 ## <a name="create-a-new-website-folder"></a>Creare una nuova cartella per il sito Web
@@ -52,7 +52,7 @@ Creare un nuovo file nella cartella denominato `index.html` e aprirlo con un edi
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -98,6 +98,10 @@ In questo modo la chiave di sottoscrizione non lascerà mai il server, consenten
 ## <a name="build-and-run-the-sample-locally"></a>Compilare ed eseguire l'esempio in locale
 
 Per avviare l'app, fare doppio clic sul file index.html o aprirlo con il Web browser preferito. Presenterà una semplice interfaccia utente grafica, che consente di immettere la chiave di sottoscrizione e l'[area](regions.md) e attivare un riconoscimento tramite il microfono.
+
+> [!NOTE]
+> Questo metodo non funziona con il browser Safari.
+> In Safari, la pagina Web di esempio deve essere ospitata in un server Web. Safari non consente ai siti Web caricati da un file locale di usare il microfono.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Compilare ed eseguire l'esempio tramite un server Web
 

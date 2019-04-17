@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359460"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281234"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
@@ -110,7 +110,9 @@ A questo punto, sono stati aggiunti tutti i componenti necessari per avviare un'
 
 Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure nel computer di sviluppo locale. Viene richiesto di installare questi strumenti al primo avvio di una funzione da Visual Studio Code.  
 
-1. In un computer Windows avviare l'emulatore di archiviazione di Azure e verificare che la proprietà **AzureWebJobsStorage** di local.settings.json sia impostata su `UseDevelopmentStorage=true`. In un computer Mac o Linux è necessario impostare la proprietà **AzureWebJobsStorage** sulla stringa di connessione di un account di archiviazione di Azure esistente. Sarà possibile creare un account di archiviazione più avanti in questo articolo.
+1. In un computer Windows avviare l'emulatore di archiviazione di Azure e verificare che la proprietà **AzureWebJobsStorage** di local.settings.json sia impostata su `UseDevelopmentStorage=true`. 
+
+    Per l'emulatore di archiviazione 5.8 verificare che la proprietà **AzureWebJobsStorage** di local.settings.json sia impostata su `files`. In un computer Mac o Linux è necessario impostare la proprietà **AzureWebJobsStorage** sulla stringa di connessione di un account di archiviazione di Azure esistente. Sarà possibile creare un account di archiviazione più avanti in questo articolo.
 
 2. Per testare la funzione, impostare un punto di interruzione nel codice della funzione e premere F5 per avviare il progetto di app per le funzioni. L'output dagli strumenti di base viene visualizzato nel pannello **Terminale**. Se è la prima volta che si usa Durable Functions, l'estensione Durable Functions viene installata e la compilazione potrebbe richiedere alcuni secondi.
 
@@ -125,7 +127,29 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
 5. Con uno strumento come [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), inviare una richiesta HTTP POST all'endpoint URL.
 
-6. Per interrompere il debug, premere MAIUSC+F1 in VS Code.
+   La risposta è il risultato iniziale restituito dalla funzione HTTP per comunicare che l'orchestrazione durevole è stata avviata correttamente. Non è ancora il risultato finale dell'orchestrazione. La risposta include alcuni URL utili. Per il momento si eseguirà una query relativa allo stato dell'orchestrazione.
+
+6. Copiare il valore dell'URL per `statusQueryGetUri`, incollarlo nella barra degli indirizzi del browser ed eseguire la richiesta. In alternativa è possibile continuare a usare Postman per inviare la richiesta GET.
+
+   La richiesta eseguirà una query per determinare lo stato dell'istanza di orchestrazione. Si otterrà eventualmente una risposta che mostra che l'istanza è stata completata e include l'output o i risultati della funzione durevole. L'aspetto sarà simile al seguente: 
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Per interrompere il debug, premere **MAIUSC+F5** in VS Code.
 
 Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile pubblicare il progetto in Azure.
 
@@ -146,4 +170,4 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 Si è usato Visual Studio Code per creare e pubblicare un'app per le funzioni durevoli in JavaScript.
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri di funzione permanente comuni](durable-functions-concepts.md)
+> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-concepts.md)

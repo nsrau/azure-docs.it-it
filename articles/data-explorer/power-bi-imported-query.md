@@ -1,19 +1,18 @@
 ---
-title: 'Guida introduttiva: Visualizzare i dati tramite una query importata in Power BI'
+title: 'Guida introduttiva: Visualizzare i dati da Esplora dati di Azure con una query importata in Power BI '
 description: 'In questa guida introduttiva viene descritto come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: importazione di una query da Esplora dati di Azure.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756117"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050587"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Guida introduttiva: Visualizzare i dati tramite una query importata in Power BI
 

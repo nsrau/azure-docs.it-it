@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448986"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274009"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
@@ -24,8 +24,6 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Creare un frame di dati da un file csv
 > * Eseguire query sul frame di dati
-
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +36,11 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
 ![Snapshot di dati per query SQL Spark interattive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot di dati per query SQL Spark interattive")
 
 
-1. Aprire il Jupyter notebook creato nella sezione dei prerequisiti.
+1. Aprire il notebook di Jupyter creato nella sezione dei prerequisiti e creare un nuovo notebook con PySpark.
+
+    > [!NOTE]  
+    > Usando il kernel PySpark per creare un notebook, la sessione `spark` viene creata automaticamente quando si esegue la prima cella di codice. Non è necessario creare in modo esplicito la sessione.
+
 2. Incollare il codice seguente in una cella vuota del notebook e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
 
     ```python
@@ -58,10 +60,6 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > Usando il kernel PySpark per creare un notebook, la sessione `spark` viene creata automaticamente quando si esegue la prima cella di codice. Non è necessario creare in modo esplicito la sessione.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Eseguire query sul frame di dati
 
 Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dati.
@@ -77,13 +75,13 @@ Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dat
 
      ![Tabella di output dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabella di output dei risultati della query interattiva Spark")
 
-3. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
+2. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
 
     ![Grafico ad area dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafico ad area dei risultati della query interattiva Spark")
 
-10. Dal menu **File** del notebook scegliere **Save and Checkpoint** (Salva e checkpoint). 
+3. Dalla barra dei menu del notebook, passare a **File** > **Save and Checkpoint** (Salva e checkpoint).
 
-11. Se si intende iniziare l'[esercitazione successiva](apache-spark-use-bi-tools.md) a questo punto, lasciare aperto il notebook. In caso contrario, arrestare il notebook per rilasciare le risorse cluster: dal menu **File** nel notebook scegliere **Close and Halt** (Chiudi e interrompi).
+4. Se si intende iniziare l'[esercitazione successiva](apache-spark-use-bi-tools.md) a questo punto, lasciare aperto il notebook. In caso contrario, arrestare il notebook per rilasciare le risorse cluster: dalla barra dei menu del notebook, passare a **File** >  **Close and Halt (Chiudi e interrompi)**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -98,11 +96,10 @@ Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa esercitazione illustra come:
-
-* Creare un frame di dati di Apache Spark.
-* Eseguire Spark SQL sul frame di dati.
+> [!div class="checklist"]
+> * Creare un frame di dati di Apache Spark.
+> * Eseguire Spark SQL sul frame di dati.
 
 Passare all'articolo successivo per scoprire come eseguire il pull dei dati registrati in Apache Spark in uno strumento di analisi BI come Power BI. 
 > [!div class="nextstepaction"]
 > [Analizzare i dati usando gli strumenti di business intelligence](apache-spark-use-bi-tools.md)
-

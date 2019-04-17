@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399990"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278480"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Esercitazione: Installare Azure Data Box Edge
 
@@ -90,7 +90,9 @@ Il dispositivo deve essere installato su un rack standard da 19 pollici. Usare l
 
 - Prima di iniziare, leggere le istruzioni per la sicurezza riportate nell'opuscolo informativo su sicurezza, ambiente e normative spedito con il dispositivo.
 - Iniziare a installare le guide nello spazio assegnato più vicino alla parte inferiore dello scaffale rack.
-- Per la configurazione di montaggio delle guide con utensili, sono necessarie otto viti: 10-32, 12-24, M5 o M6. Il diametro della testa delle viti deve essere inferiore a 10 mm.
+- Per la configurazione di montaggio delle guide con utensili:
+    -  Sono necessarie otto viti: 10-32, 12-24, M5 o M6. Il diametro della testa delle viti deve essere inferiore a 10 mm.
+    -  Occorre un cacciavite a punta piatta.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identificare il contenuto del kit di guide
 
@@ -102,6 +104,9 @@ Individuare i componenti per l'installazione del gruppo kit di guide:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installare e rimuovere le guide senza utensili (rack a fori quadrati o rotondi)
 
+> [!TIP]
+> Questa opzione non richiede utensili per installare e rimuovere le guide nei fori quadrati o rotondi non filettati nei rack.
+
 1. Posizionare i terminali delle guide di sinistra e di destra con la dicitura **FRONT** rivolti verso l'interno e orientati in modo che ognuno si inserisca nei fori sul lato anteriore delle flange del rack.
 2. Allineare ogni terminale ai fori superiore e inferiore degli spazi unità desiderati.
 3. Agganciare l'estremità posteriore della guida finché non risulta completamente inserita nella flangia verticale del rack e il fermo non scatta in posizione. Ripetere questi passaggi per posizionare e inserire l'estremità anteriore nella flangia verticale del rack.
@@ -110,6 +115,9 @@ Individuare i componenti per l'installazione del gruppo kit di guide:
 ![Installare e rimuovere le guide senza utensili](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installare e rimuovere le guide con utensili (rack con fori filettati)
+
+> [!TIP]
+> Questa opzione richiede un utensile (_un cacciavite a punta piatta_) per installare e rimuovere le guide nei fori rotondi filettati nei rack.
 
 1. Rimuovere i perni dalle staffe di montaggio anteriore e posteriore usando un cacciavite a punta piatta.
 2. Tirare e ruotare i sottogruppi del fermo delle guide per rimuoverli dalle staffe di montaggio.
@@ -152,7 +160,7 @@ NOTA:  per i sistemi non dotati di fermo a scatto, fissare il sistema con viti c
 
 1. Individuare le staffe CMA esterne sui lati interni di entrambe le flange del rack.
 2. Avvolgere delicatamente i cavi tirandoli verso sinistra e verso destra dai connettori del sistema.
-3. Infilare le fascette a gancio e occhiello attraverso le fessure attrezzate delle staffe CMA esterne su ogni lato del sistema per fissare i fasci di cavi.
+3. Infilare le fascette a gancio e occhiello attraverso le fessure delle staffe CMA esterne su ogni lato del sistema per fissare i fasci di cavi.
 
 
 ![Sistemare i cavi](./media/data-box-edge-deploy-install/routing-cables.png)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dc1451d75b14c89fd9fa1742c3e0b078b035d7f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361847"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Esercitazione: Integrazione di Azure Active Directory con T&E Express
 
@@ -74,7 +74,7 @@ Per configurare l'integrazione di T&E Express in Azure AD, è necessario aggiung
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con T&E Express usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in T&E Express.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con T&E Express, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con T&E Express, è necessario completare i seguenti blocchi predefiniti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di T&E Express](#configure-te-express-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con T&E Express, seguire qu
 
     a. Nella casella di testo **Identificatore** digitare il valore come URL nel formato seguente: `https://<domain>.tyeexpress.com`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Per ottenere questi valori, contattare il [team di supporto clienti di T&E Express](http://www.tyeexpress.com/contacto.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -195,7 +195,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere a T&E Express, è necessario eseguirne il provisioning in T&E Express. Nel caso di T&E Express, il provisioning è un'attività manuale.
 
-**Per effettuare il provisioning di un account utente, seguire questa procedura:**
+**Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di T&E Express come amministratore.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621669"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361794"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
 
@@ -25,12 +25,12 @@ Il servizio Backup di Azure consente di eseguire il backup dei dati nel cloud di
 
 Backup di Azure offre i vantaggi principali seguenti:
 
-- **Offload del backup locale**: Backup di Azure offre una soluzione semplice per eseguire il backup delle risorse locali nel cloud. Consente di ottenere backup a breve e a lungo termine senza la necessità di distribuire complesse soluzioni locali. 
+- **Offload del backup locale**: Backup di Azure offre una soluzione semplice per eseguire il backup delle risorse locali nel cloud. Consente di ottenere backup a breve e a lungo termine senza la necessità di distribuire complesse soluzioni locali.
 - **Backup delle VM IaaS di Azure**: Backup di Azure fornisce backup indipendenti e isolati per salvaguardare dalla distruzione accidentale dei dati originali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire il ripristino con facilità secondo necessità.
-- **Scalabilità semplificata**: Backup di Azure sfrutta le potenzialità e la scalabilità illimitata del cloud di Azure per offrire disponibilità elevata, senza costi generali di manutenzione o monitoraggio. 
+- **Scalabilità semplificata**: Backup di Azure sfrutta le potenzialità e la scalabilità illimitata del cloud di Azure per offrire disponibilità elevata, senza costi generali di manutenzione o monitoraggio.
 - **Trasferimento dati senza limiti**: Backup di Azure non prevede limiti per la quantità di dati trasferiti in ingresso o in uscita né addebiti per il trasferimento dei dati.
     - I dati in uscita sono i dati trasferiti da un insieme di credenziali di Servizi di ripristino durante un'operazione di ripristino.
-    - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md) 
+    - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md)
 - **Sicurezza dei dati**:
     - in locale i dati in movimento vengono crittografati nel computer locale con AES256. I dati trasmessi vengono protetti tramite HTTPS tra l'archiviazione e il backup. Il protocollo iSCSI protegge i dati trasmessi tra il backup e il computer dell'utente. Il tunneling protetto viene usato per proteggere il canale iSCSI.
     - Per il backup dall'ambiente locale ad Azure, i dati inattivi in Azure vengono crittografati usando la passphrase specificata durante la configurazione del backup. La passphrase o la chiave non viene mai trasmessa né archiviata in Azure. Se è necessario ripristinare i dati, solo il cliente è in possesso della passphrase o della chiave di crittografia.
@@ -56,29 +56,25 @@ I due servizi offrono funzionalità complementari ma differenti.
 - **Azure Site Recovery**: Site Recovery fornisce una soluzione di ripristino di emergenza per i computer locali e per le VM di Azure. I computer vengono replicati da una posizione primaria a una secondaria. In caso di emergenza, viene eseguito il failover dei computer nella seconda posizione, da cui risultano accessibili. Quando viene ripristinata la normale operatività, viene eseguito il failback dei computer nel sito primario per il ripristino.
 - **Backup di Azure**: il servizio Backup di Azure esegue i backup dei dati da computer locali e da VM di Azure. È possibile eseguire il backup e il ripristino dei dati a livello granulare, includendo file, cartelle, stato del sistema e dati con riconoscimento delle app. Backup di Azure gestisce i dati a livello più granulare rispetto a Site Recovery. Se ad esempio una presentazione in un computer portatile risulta danneggiata, è possibile usare Backup di Azure per ripristinarla. Se si vogliono mantenere i dati e le configurazioni delle VM al sicuro e accessibili, è possibile usare Site Recovery.  
 
-Consultare la tabella seguente per identificare le proprie esigenze ai fini della strategia BCDR. 
+Consultare la tabella seguente per identificare le proprie esigenze ai fini della strategia BCDR.
 
 **Obiettivo** | **Dettagli** | **Confronto**
---- | --- | --- 
+--- | --- | ---
 **Backup/conservazione dei dati** | I dati di backup possono essere conservati e archiviati per diversi giorni, mesi o anche anni se necessario ai fini della conformità. | Le soluzioni come Backup di Azure consentono di selezionare con precisione i dati di cui eseguire il backup, nonché di ottimizzare i criteri di backup e conservazione.<br/><br/> Site Recovery non offre lo stesso livello di ottimizzazione.
 **Obiettivo del punto di ripristino (RPO)** | Quantità di perdita di dati accettabile se si rende necessario un ripristino. | I backup hanno RPO più variabili.<br/><br/> I backup delle VM hanno in genere un RPO di un giorno, mentre i backup dei database hanno RPO fino a un minimo di 15 minuti.<br/><br/> Site Recovery fornisce un RPO basso, perché la replica è continua o frequente, quindi il delta tra l'origine e la copia di replica è piccolo.
-**Obiettivo del tempo di ripristino (RTO)** |Quantità di tempo necessario per completare un ripristino o un recupero. | Dato l'RPO più alto, la quantità di dati che deve essere elaborata dalla soluzione di backup è in genere molto più grande e questo comporta un RTO maggiore. Ad esempio, il ripristino dei dati dai nastri può richiedere giorni, a seconda del tempo richiesto per il trasporto del nastro da una posizione esterna. 
+**Obiettivo del tempo di ripristino (RTO)** |Quantità di tempo necessario per completare un ripristino o un recupero. | Dato l'RPO più alto, la quantità di dati che deve essere elaborata dalla soluzione di backup è in genere molto più grande e questo comporta un RTO maggiore. Ad esempio, il ripristino dei dati dai nastri può richiedere giorni, a seconda del tempo richiesto per il trasporto del nastro da una posizione esterna.
 
 ## <a name="what-backup-scenarios-are-supported"></a>Quali scenari di backup sono supportati?
 
 Backup di Azure consente di eseguire il backup sia di computer locali che di VM di Azure.
 
-**Computer** | **Scenario di backup**
+**Machine** | **Scenario di backup**
 --- | ---
 **Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurarlo per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
-**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 3) Eseguire il backup di una macchina virtuale di Azure in un server DPM o in un server di Backup di Microsoft Azure in esecuzione in Azure. Eseguire quindi il backup del server DPM o del server di Backup di Microsoft Azure in un insieme di credenziali con Backup di Azure. 
+**Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 3) Eseguire il backup di una macchina virtuale di Azure in un server DPM o in un server di Backup di Microsoft Azure in esecuzione in Azure. Eseguire quindi il backup del server DPM o del server di Backup di Microsoft Azure in un insieme di credenziali con Backup di Azure.
 
 
 ## <a name="why-use-a-backup-server"></a>Perché usare un server di backup?
-
-
-
-
 La scelta di eseguire il backup di computer e app in risorse di archiviazione del server DPM o del server di Backup di Microsoft Azure e quindi di eseguire il backup di tali risorse in un insieme di credenziali offre i vantaggi seguenti:
 
 - Con il backup in server DPM o server di Backup di Microsoft Azure si ottengono backup con riconoscimento delle app ottimizzati per app comuni come SQL Server, Exchange e SharePoint, oltre a backup di file, cartelle, volumi e dello stato del computer (bare metal, stato del sistema).
@@ -90,20 +86,20 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 
 ## <a name="what-can-i-back-up"></a>Backup consentiti
 
-**Computer** | **Metodo di backup** | **Eseguire il backup**
+**Machine** | **Metodo di backup** | **Eseguire il backup**
 --- | --- | ---
-**Macchine virtuali Windows locali** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
-**Computer locali** | backup in DPM/MABS | Backup di qualsiasi elemento protetto da [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) o [server di Backup di Microsoft Azure](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) come file, cartelle, condivisioni, volumi e dati specifici delle app. 
+**VM Windows locali** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
+**Computer locali** | backup in DPM/MABS | Backup di qualsiasi elemento protetto da [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) o [server di Backup di Microsoft Azure](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) come file, cartelle, condivisioni, volumi e dati specifici delle app.
 **Macchine virtuali di Azure** | Esecuzione dell'estensione di backup dell'agente di macchine Virtuali di Azure | Backup dell'intera macchina virtuale
 **Macchine virtuali di Azure** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
 **Macchine virtuali di Azure** | Backup in server DPM o server di Backup di Microsoft Azure in esecuzione in Azure | Backup di qualsiasi elemento protetto da [server di Backup di Microsoft Azure](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) o [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) come file, cartelle, condivisioni, volumi e dati specifici delle app.
 
 ## <a name="what-backup-agents-do-i-need"></a>Quali agenti di backup sono necessari?
 
-**Scenario** | **Agent** 
---- | --- 
-**Eseguire un backup delle VM di Azure** | Non è necessario alcun agente. L'estensione delle macchine virtuali di Azure per il backup viene installata nella macchina virtuale di Azure quando si esegue il primo backup della macchina virtuale di Azure.<br/><br/> Sono supportati Windows e Linux.
-**Backup di computer Windows locali** | Scaricare, installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure direttamente nel computer. 
+**Scenario** | **Agente**
+--- | ---
+**Eseguire il backup delle VM di Azure** | Non è necessario alcun agente. L'estensione delle macchine virtuali di Azure per il backup viene installata nella macchina virtuale di Azure quando si esegue il primo backup della macchina virtuale di Azure.<br/><br/> Sono supportati Windows e Linux.
+**Backup di computer Windows locali** | Scaricare, installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure direttamente nel computer.
 **Backup delle macchine virtuali di Azure con l'agente di Servizi di ripristino di Microsoft Azure** | Scaricare, installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure direttamente nel computer. L'agente di Servizi di ripristino di Microsoft Azure può essere eseguito insieme all'estensione di backup.
 **Backup di computer locali e macchine virtuali di Azure in DPM o server di Backup di Microsoft Azure** | L'agente di protezione di DPM o del server di Backup di Microsoft Azure viene eseguito nei computer da proteggere. L'agente di Servizi di ripristino di Microsoft Azure viene eseguito in server DPM o server di Backup di Microsoft Azure per eseguire il backup in Azure.
 
@@ -114,7 +110,7 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 **Si vuole eseguire il backup di un'intera macchina virtuale di Azure** | Abilitare il backup per la macchina virtuale. L'estensione di backup verrà configurata automaticamente nella VM di Azure Windows o Linux. | Viene eseguito il backup dell'intera macchina virtuale <br/><br/> Per le VM Windows, il backup è coerente con le app. Per Linux, il backup è coerente con i file. Se serve il riconoscimento delle app per le macchine virtuali Linux, è necessario configurarlo con script personalizzati.
 **Si vuole eseguire il backup di file e cartelle specifiche nella macchina virtuale di Azure** | Distribuire l'agente di Servizi di ripristino di Microsoft Azure nella macchina virtuale.
 **Si vuole eseguire direttamente il backup di computer Windows locali** | Installare l'agente MARS nel computer. | È possibile eseguire il backup di file, cartelle e stato del sistema in Azure. I backup non sono con riconoscimento delle app.
-**Si vuole eseguire direttamente il backup di computer Linux locali** | È necessario distribuire DPM o MABS per eseguire il backup in Azure.
+**Si vuole eseguire direttamente il backup di computer Linux locali** | È necessario distribuire DPM o MABS per eseguire il backup in Azure. | Il backup dell'host Linux non è supportato; è possibile eseguire il backup solo della macchina guest Linux ospitata in Hyper-V o VMWare.
 **Si vuole eseguire il backup di app in esecuzione in locale** | Per i backup con riconoscimento delle app, i computer devono essere protetti da DPM o dal server di Backup di Microsoft Azure.
 **Si vogliono impostazioni di backup e ripristino granulari e flessibile per le macchine virtuali di Azure** | Proteggere le macchine virtuali di Azure con DPM o il server di Backup di Microsoft Azure in esecuzione in Azure per una maggiore flessibilità per la pianificazione dei backup e per la massima flessibilità per la protezione e il ripristino di file, cartelle, volumi, app e stato del sistema.
 
@@ -127,4 +123,3 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

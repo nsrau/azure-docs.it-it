@@ -1,23 +1,23 @@
 ---
-title: Esercitazione per l'indicizzazione dei database SQL di Azure nel portale di Azure - Ricerca di Azure
-description: In questa esercitazione si eseguirà la connessione al database SQL di Azure, si estrarranno i dati ricercabili e si caricheranno in un indice di Ricerca di Azure.
+title: 'Esercitazione: Indicizzare i dati dai database SQL di Azure nel codice C# di esempio - Ricerca di Azure'
+description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201399"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270463"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
+# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione in C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 
 Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 
@@ -37,35 +37,39 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
+
 [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
-* Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) che fornisce l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella.
+[Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) archivia l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella. I passaggi per la creazione del servizio e del database sono forniti in questa esercitazione.
 
-* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono state testati nell'edizione Community Edition gratuita.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), in qualsiasi edizione, può essere usato per eseguire la soluzione di esempio. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
+
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) fornisce la soluzione di esempio che si trova nel repository GitHub di esempi di Azure. Scaricare ed estrarre la soluzione. Per impostazione predefinita, le soluzioni sono di sola lettura. Fare clic con il pulsante destro del mouse sulla soluzione e deselezionare l'attributo di sola lettura in modo che sia possibile modificare i file.
 
 > [!Note]
 > Se si usa il servizio Ricerca di Azure gratuito, si è limitati a tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Assicurarsi che lo spazio nel servizio sia sufficiente per accettare le nuove risorse.
 
-### <a name="download-the-solution"></a>Scaricare la soluzione
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
-La soluzione dell'indicizzatore usata in questa esercitazione proviene da una raccolta di esempi di Ricerca di Azure distribuiti in un download master. La soluzione usata per questa esercitazione è *DotNetHowToIndexers*.
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-1. Passare ad [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started) nel repository GitHub di esempi di Azure.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
-2. Fare clic su **Clone or Download** (Clona o scarica)  > **Download ZIP** (Scarica ZIP). Per impostazione predefinita, il file viene salvato nella cartella Download.
+1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-3. In **Esplora file** > **Download** fare clic con il pulsante destro del mouse sul file e quindi scegliere **Estrai tutto**.
+![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
 
-4. Disattivare le autorizzazioni di sola lettura. Fare clic con il pulsante destro del mouse sul nome della cartella, quindi scegliere **Proprietà** > **Generale** e deselezionare l'attributo **Sola lettura** per la cartella corrente, le sottocartelle e i file.
+Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-5. In **Visual Studio 2017** aprire la soluzione *DotNetHowToIndexers.sln*.
-
-6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione padre del nodo principale, quindi scegliere **Ripristina pacchetti NuGet**.
-
-### <a name="set-up-connections"></a>Configurare le connessioni
+## <a name="set-up-connections"></a>Configurare le connessioni
 Le informazioni sulla connessione per i servizi necessari vengono specificate nel file **appsettings.json** nella soluzione. 
 
-In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popolare ogni impostazione attenendosi alle istruzioni disponibili in questa esercitazione.  
+1. In Visual Studio aprire il file **DotNetHowToIndexers.sln**.
+
+1. In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popolare ogni impostazione.  
+
+Le prime due voci possono essere inserite subito, usando l'URL e le chiavi amministratore per il servizio Ricerca di Azure. Con `https://mydemo.search.windows.net` come endpoint, il nome del servizio da fornire sarà `mydemo`.
 
 ```json
 {
@@ -75,48 +79,17 @@ In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popo
 }
 ```
 
-### <a name="get-the-search-service-name-and-admin-api-key"></a>Ottenere il nome del servizio di ricerca e la chiave API dell'amministratore
-
-È possibile trovare l'endpoint e la chiave del servizio di ricerca nel portale. Una chiave fornisce l'accesso alle operazioni del servizio. Le chiavi amministratore consentono l'accesso in scrittura, necessario per la creazione e l'eliminazione di oggetti, ad esempio indici e indicizzatori, nel servizio.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/) e trovare i [servizi di ricerca per la sottoscrizione](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-
-2. Aprire la pagina del servizio.
-
-3. Trovare il nome del servizio nella parte superiore della pagina principale. Nello screenshot seguente è *azs-tutorial*.
-
-   ![Nome del servizio](./media/search-indexer-tutorial/service-name.png)
-
-4. Copiarlo e incollarlo come prima voce in **appsettings.json** in Visual Studio.
-
-   > [!Note]
-   > Un nome del servizio è parte dell'endpoint che include search.windows.net. Se interessati, è possibile visualizzare l'URL completo in **Informazioni di base** nella pagina Panoramica. L'URL è simile all'esempio seguente: https://your-service-name.search.windows.net
-
-5. A sinistra in **Impostazioni** > **Chiavi** copiare una delle chiavi amministratore e incollarla come seconda voce in **appsettings.json**. Le chiavi sono stringhe alfanumeriche generate per il servizio durante il provisioning e sono necessarie per l'accesso autorizzato alle operazioni del servizio. 
-
-   Dopo l'aggiunta di entrambe le impostazioni l'aspetto del file sarà analogo a questo esempio:
-
-   ```json
-   {
-    "SearchServiceName": "azs-tutorial",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
-    . . .
-   }
-   ```
+L'ultima voce richiede un database esistente che verrà creato nel passaggio successivo.
 
 ## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
-In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. Il file di dati per questa esercitazione è *hotels.sql*, disponibile nella cartella \DotNetHowToIndexers della soluzione. 
-
-### <a name="azure-sql-database"></a>Database SQL di Azure
-
-È possibile usare il portale di Azure e il file *hotels.sql* dall'esempio per creare il set di dati nel database SQL di Azure. Ricerca di Azure utilizza set di righe bidimensionali, come quello generato da una visualizzazione o una query. Il file SQL nella soluzione di esempio crea e popola una singola tabella.
+In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. È possibile usare il portale di Azure e il file *hotels.sql* dall'esempio per creare il set di dati nel database SQL di Azure. Ricerca di Azure utilizza set di righe bidimensionali, come quello generato da una visualizzazione o una query. Il file SQL nella soluzione di esempio crea e popola una singola tabella.
 
 L'esercizio seguente presuppone che non sia disponibile alcun server o database e richiede la creazione di entrambi nel Passaggio 2. Se è presente una risorsa esistente, è facoltativamente possibile aggiungere ad essa la tabella relativa agli hotel, a partire dal Passaggio 4.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
-2. Fare clic su **Crea una risorsa** > **Database SQL** per creare un database, un server e un gruppo di risorse. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
+2. Cercare o creare un **database SQL di Azure** per creare un database, un server e un gruppo di risorse. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
 
    ![Pagina Nuovo database](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -156,13 +129,13 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
     ```json
     {
-      "SearchServiceName": "azs-tutorial",
-      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
+      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-index-and-indexer-code"></a>Informazioni sull'indice e sul codice dell'indicizzatore
+## <a name="understand-the-code"></a>Informazioni sul codice
 
 Il codice è ora pronto per la compilazione e l'esecuzione. Prima di eseguire queste operazioni, esaminare l'indice e le definizioni dell'indicizzatore per questo esempio. Il codice rilevante è disponibile in due file:
 

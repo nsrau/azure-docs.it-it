@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435113"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630513"
 ---
 Nel primo scenario si aggiunge un nuovo tipo di telemetria al dispositivo **Chiller** esistente di Contoso.
 
@@ -33,7 +33,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 | NOME   | Valori      |
 | ------ | ----------- |
-| Status | "on", "off" |
+| Stato | "on", "off" |
 | Temperatura | Gradi F |
 | online | true, false |
 
@@ -57,7 +57,7 @@ La tabella seguente mostra lo stato iniziale del dispositivo:
 | ------------------------ | -------|
 | Initial color (Colore iniziale)            | Bianco  |
 | Initial brightness (Luminosità iniziale)       | 75     |
-| Initial remaining life (Durata rimanente iniziale)   | 10.000 |
+| Initial remaining life (Durata rimanente iniziale)   | 10,000 |
 | Initial telemetry status (Stato telemetria iniziale) | "on"   |
 | Initial telemetry temperature (Temperatura telemetria iniziale) | 200   |
 
@@ -98,13 +98,11 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **.vscode/launch.json** e assegnare la stringa di connessione di Cosmos DB alla variabile di ambiente **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING**.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Aprire il **storage-adapter/WebService/appsettings.ini** del file e assegnare la stringa di connessione di Cosmos DB per il **documentDBConnectionString** variabile.
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 
-Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output dal microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando si passa a questo indirizzo, lo stato deve essere "OK: Alive and well" (OK: Attivo e in esecuzione).
+Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output dal microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando si passa a questo indirizzo, lo stato deve essere "OK: Attivo e".
 
 Lasciare il microservizio di adattatore di archiviazione in esecuzione nell'istanza corrente di Visual Studio Code fino al completamento dei passaggi successivi.
 
@@ -116,7 +114,7 @@ In questa sezione si aggiunge un nuovo tipo di telemetria **Internal Temperature
 
 1. Copiare i file seguenti nella nuova cartella dalla copia scaricata del microservizio di simulazione dispositivi:
 
-    | Sorgente | Destination |
+    | Source (Sorgente) | Destination |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
@@ -417,11 +415,7 @@ In questa sezione vengono testati i tipi di dispositivi creati in locale nelle s
 
 Aprire la cartella **device-simulation-dotnet-master** scaricata da GitHub in una nuova istanza di Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **.vscode/launch.json** e assegnare la stringa di connessione dell'hub IoT alla variabile di ambiente **PCS_IOTHUB_CONNSTRING**. Nello stesso file aggiungere la variabile di ambiente **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** e assegnare la stringa di connessione per il database Cosmos DB.
-
-Aprire il file **WebService/Properties/launchSettings.json** e assegnare la stringa di connessione dell'hub IoT alla variabile di ambiente **PCS_IOTHUB_CONNSTRING**.
-
-Aprire il file **WebService/appsettings.ini** e modificare le impostazioni nel modo seguente:
+Aprire il **WebService/appsettings.ini** del file e assegnare la stringa di connessione di Cosmos DB per il **documentdb_connstring** variabile e anche modificare le impostazioni come segue:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

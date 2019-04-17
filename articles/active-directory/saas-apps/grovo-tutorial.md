@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861962"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Esercitazione: Integrazione di Azure Active Directory con Grovo
 
@@ -108,11 +108,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Grovo, seguire questa p
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. Fare clic su **Impostare URL aggiuntivi**.
 
-    d. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://<subdomain>.grovo.com`
+    d. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<subdomain>.grovo.com`
 
 5. Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 

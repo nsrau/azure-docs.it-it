@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ca5fec00d264bb50c75338d36ec793946f495bff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229154"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix Netscaler
 
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Citrix Netsca
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Citrix Netscaler](#configure-citrix-netscaler-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Citrix Netscaler](#create-citrix-netscaler-test-user)**: per avere una controparte di Britta Simon in Citrix Netscaler collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,11 +107,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix Netscaler, segui
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Citrix Netscaler](common/sp-identifier-reply.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<<Your FQDN>>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<<Your FQDN>>`
 
-    c. Nella casella di testo **Reply URL (Assertion Consumer Service URL)** (URL di risposta - URL del servizio consumer di asserzione) digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    c. Nella casella di testo **Reply URL (Assertion Consumer Service URL)** (URL di risposta (URL del servizio consumer di asserzione)) digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Citrix Netscaler](https://www.citrix.com/contact/technical-support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix Netscaler, segui
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -317,9 +317,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix Netscaler, segui
 
     c. Fare clic su **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -342,7 +342,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Citrix Netscaler.
 

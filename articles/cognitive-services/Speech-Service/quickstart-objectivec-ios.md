@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094923"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009272"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Objective-C in iOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Questo articolo spiega come creare un'applicazione iOS in Objective-C usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale.
+Questo articolo spiega come creare un'applicazione iOS in Objective-C usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale dal microfono o da un file con audio registrato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,16 +29,16 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 * Una [chiave di sottoscrizione](get-started.md) per il servizio di riconoscimento vocale
 * Un computer macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o versione successiva
-* Destinazione impostata su iOS versione 11.4 o successiva
+* Destinazione impostata su iOS versione 9.3 o successiva
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Ottenere Speech SDK per iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.3.1`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
 
-Speech SDK di Servizi cognitivi per Mac e iOS viene attualmente distribuito come un Framework di Cocoa.
-È possibile scaricarlo da https://aka.ms/csspeech/iosbinary. Scaricare il file nella home directory.
+Speech SDK di Servizi cognitivi per iOS viene attualmente distribuito come un Framework di Cocoa.
+Può essere scaricato da [questa pagina](https://aka.ms/csspeech/iosbinary). Scaricare il file nella home directory.
 
 ## <a name="create-an-xcode-project"></a>Creare un progetto Xcode
 
@@ -103,3 +103,4 @@ Sostituire il codice XML generato automaticamente con questo codice:
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di Objective-C su GitHub](https://aka.ms/csspeech/samples)
+

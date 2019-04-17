@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872459"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257230"
 ---
 # <a name="what-is-qna-maker"></a>Informazioni su QnA Maker
 
@@ -66,10 +66,9 @@ L'architettura di QnA Maker è costituita dai due componenti seguenti:
 
 ## <a name="service-highlights"></a>Principali caratteristiche del servizio
 
-- Esperienza completa **senza codice** per [creare un bot per domande frequenti](https://aka.ms/qnamaker-docs-create-faqbot).
+- Esperienza completa **senza codice** per [creare un bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) da una knowledge base.
 - **Nessuna limitazione della larghezza di banda della rete per le previsioni**. Si paga per l'hosting del servizio e non per il numero di transazioni. Per altri dettagli, vedere la [pagina dei prezzi](https://aka.ms/qnamaker-docs-pricing).
 - **Ridimensionamento in base alle esigenze**. Scegliere gli SKU appropriati dei singoli componenti in base allo scenario. Vedere come [scegliere la capacità](https://aka.ms/qnamaker-docs-capacity) per il servizio QnA Maker.
-- **Conformità dei dati completa**. I componenti del servizio di previsione vengono distribuiti nella sottoscrizione di Azure ed entro i limiti di conformità.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

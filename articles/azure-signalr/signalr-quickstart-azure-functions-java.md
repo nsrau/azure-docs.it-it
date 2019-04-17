@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261174"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando Java
 
@@ -58,18 +58,18 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 
     ![Creare il servizio SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Nell'editor di codice aprire la cartella *chat/src/java* nel repository clonato.
+1. Nell'editor di codice aprire la cartella *src/chat/java* nel repository clonato.
 
 1. Rinominare *local.settings.sample.json* in *local.settings.json*.
 
 1. In **local.settings.json**, incollare la stringa di connessione nel valore dell'impostazione **AzureSignalRConnectionString**. Salvare il file.
 
-1. Il file principale che contiene le funzioni si trova in *src/main/java/com/function/Functions.java*:
+1. Il file principale che contiene le funzioni si trova in *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate**: usa l'associazione di input *SignalRConnectionInfo* per generare e restituire informazioni di connessione valide.
     - **sendMessage**: riceve un messaggio di chat nel corpo della richiesta e usa l'associazione di output *SignalR* per trasmettere il messaggio a tutte le applicazioni client connesse.
 
-1. Nel terminale assicurarsi di aver selezionato la cartella *chat/src/java*. Compilare l'app per le funzioni.
+1. Nel terminale assicurarsi di aver selezionato la cartella *src/chat/java*. Compilare l'app per le funzioni.
 
     ```bash
     mvn clean package

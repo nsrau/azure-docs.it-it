@@ -1,20 +1,18 @@
 ---
 title: 'Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure'
 description: In questo argomento di avvio rapido verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756429"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051853"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Guida introduttiva: Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
@@ -41,11 +39,11 @@ Questo argomento di avvio rapido descrive come impostare una sottoscrizione di [
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | NOME | *test-grid-connection* | Il nome della griglia di eventi da creare.|
-    | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
+    | Schema di eventi | *Schema di Griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
     | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
     | Esegui la sottoscrizione di tutti i tipi di eventi | *deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
-    | Tipi di evento definiti | *Blob created* (BLOB creato) | Gli eventi specifici per cui ricevere notifiche. |
+    | Tipi di evento definiti | *Blob created (BLOB creato)* | Gli eventi specifici per cui ricevere notifiche. |
     | Tipo di endpoint | *Hub eventi* | Il tipo di endpoint a cui vengono inviati gli eventi. |
     | Endpoint | *test-hub* | Hub eventi creato. |
     | | |

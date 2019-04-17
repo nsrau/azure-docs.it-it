@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116691"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008903"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>Avviare l'aggiornamento del firmware
 
-Si crea una [configurazione di gestione automatica dei dispositivi](iot-hub-auto-device-config.md#create-a-configuration) nell'applicazione back-end per iniziare il processo di aggiornamento del firmware in tutti i dispositivi contrassegnati con **devicetype** chiller. In questa sezione verrà illustrato come:
+Si crea una [configurazione di gestione automatica dei dispositivi](iot-hub-automatic-device-management.md#create-a-configuration) nell'applicazione back-end per iniziare il processo di aggiornamento del firmware in tutti i dispositivi contrassegnati con **devicetype** chiller. In questa sezione verrà illustrato come:
 
 * Creare una configurazione da un'applicazione back-end.
 * Monitorare il processo fino al completamento.

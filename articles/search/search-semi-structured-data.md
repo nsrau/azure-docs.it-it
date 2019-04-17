@@ -1,24 +1,24 @@
 ---
-title: Esercitazione per la ricerca di dati JSON nell'archivio BLOB di Azure - Ricerca di Azure
-description: Questa esercitazione descrive come cercare dati BLOB di Azure semistrutturati tramite Ricerca di Azure.
+title: 'Esercitazione: indicizzazione di dati semistrutturati in BLOB JSON - Ricerca di Azure'
+description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con Ricerca di Azure e Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201348"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471461"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Esercitazione: Cercare dati semistrutturati nell'archiviazione cloud di Azure
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Esercitazione: indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca di Azure
 
-Ricerca di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati. Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
+Ricerca di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
 
 In questa esercitazione usare le [API REST Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/) e un client REST per eseguire le attività seguenti:
 
@@ -33,37 +33,53 @@ In questa esercitazione usare le [API REST Ricerca di Azure](https://docs.micros
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
+In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) in cui includere i dati di esempio.
+[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
 
-[Usare Postman](https://www.getpostman.com/) o un altro client REST per inviare le richieste. Le istruzioni per configurare una richiesta HTTP in Postman vengono fornite nella sezione successiva.
+[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
+
+Per l'invio di richieste a Ricerca di Azure viene usata l'[app desktop Postman](https://www.getpostman.com/).
+
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contiene i dati usati in questa esercitazione. Scaricare e decomprimere il file nella propria cartella. I dati provengono da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) e sono stati convertiti in JSON per questa esercitazione.
+
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
+
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
+
+1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
+
+![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+
+Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
+
+## <a name="prepare-sample-data"></a>Preparare i dati di esempio
+
+1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
+
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. Dato che si useranno una chiave e un nome di account di archiviazione per la connessione, assicurarsi che il livello di accesso pubblico del contenitore sia impostato su "Contenitore (accesso in lettura anonimo per contenitori)".
+
+   ![Impostare il livello di accesso pubblico](media/search-semi-structured-data/container-public-access-level.png "Impostare il livello di accesso pubblico")
+
+1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
+
+   ![Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Carica nella barra dei comandi")
+
+1. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
+
+   ![Caricare i file](media/search-semi-structured-data/clinicalupload.png "Caricare i file")
+
+Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
 ## <a name="set-up-postman"></a>Configurare Postman
 
 Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-fiddler.md) per altre informazioni.
 
-Il metodo di richiesta per ogni chiamata in questa esercitazione è "POST". Le chiavi di intestazione sono "Content-type" e "api-key". I valori delle chiavi di intestazione sono rispettivamente "application/json" e la chiave di amministrazione, ovvero un segnaposto per la chiave primaria di ricerca. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. A seconda del client in uso, la procedura per la creazione della query potrebbe essere leggermente diversa, ma questi sono i criteri di base.
+Il metodo di richiesta per ogni chiamata in questa esercitazione è **POST**. Le chiavi di intestazione sono "Content-type" e "api-key". I valori delle chiavi di intestazione sono rispettivamente "application/json" e la chiave di amministrazione, ovvero un segnaposto per la chiave primaria di ricerca. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. A seconda del client in uso, la procedura per la creazione della query potrebbe essere leggermente diversa, ma questi sono i criteri di base.
 
   ![Ricerca su dati semistrutturati](media/search-semi-structured-data/postmanoverview.png)
-
-Per le chiamate REST illustrate in questa esercitazione, la chiave API per la ricerca è obbligatoria. È possibile trovare la chiave API in **Chiavi** all'interno del servizio di ricerca. Questa chiave API deve essere nell'intestazione di ogni chiamata API (sostituire la chiave di amministrazione nello screenshot precedente con questa chiave) che dovrà essere eseguita seguendo le istruzioni in questa esercitazione. Conservare la chiave perché è necessaria per ogni chiamata.
-
-  ![Ricerca su dati semistrutturati](media/search-semi-structured-data/keys.png)
-
-## <a name="prepare-sample-data"></a>Preparare i dati di esempio
-
-1. **Scaricare [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** e decomprimerlo nella relativa cartella. I dati provengono da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) e sono stati convertiti in JSON per questa esercitazione.
-
-2. Accedere al [portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, aprire il contenitore di **dati** e fare clic su **Carica**.
-
-3. Fare clic su **Avanzate**, immettere "clinical-trials-json" e quindi caricare tutti i file JSON scaricati.
-
-  ![Ricerca su dati semistrutturati](media/search-semi-structured-data/clinicalupload.png)
-
-Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
-
-## <a name="connect-your-search-service-to-your-container"></a>Connettere il servizio di ricerca al contenitore
 
 Viene usato Postman per effettuare tre chiamate API al servizio di ricerca per creare un'origine dati, un indice e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante il caricamento dei dati.
 
@@ -73,20 +89,22 @@ Eseguire le tre chiamate dell'API seguenti dal client REST.
 
 ## <a name="create-a-data-source"></a>Creare un'origine dati
 
-Un'origine dati è un oggetto di Ricerca di Azure che specifica quali dati indicizzare.
+L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un'origine di Ricerca di Azure che specifica quali dati indicizzare.
 
-L'endpoint di questa chiamata è `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Sostituire `[service name]` con il nome del servizio di ricerca. Per questa chiamata, sono necessari il nome dell'account di archiviazione e la chiave dell'account di archiviazione. La chiave dell'account di archiviazione è reperibile nel portale di Azure tra le **chiavi di accesso** dell'account di archiviazione. La posizione è indicata nell'immagine seguente:
+L'endpoint di questa chiamata è `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Sostituire `[service name]` con il nome del servizio di ricerca. 
+
+Per questa chiamata, il corpo della richiesta deve includere il nome dell'account di archiviazione, la chiave dell'account di archiviazione e il nome del contenitore BLOB. La chiave dell'account di archiviazione è reperibile nel portale di Azure tra le **chiavi di accesso** dell'account di archiviazione. La posizione è indicata nell'immagine seguente:
 
   ![Ricerca su dati semistrutturati](media/search-semi-structured-data/storagekeys.png)
 
-Assicurarsi di sostituire `[storage account name]` e `[storage account key]` nel corpo della chiamata prima di eseguire la chiamata.
+Assicurarsi di sostituire `[storage account name]`, `[storage account key]` e `[blob container name]` nel corpo della chiamata prima di eseguire la chiamata.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -104,8 +122,8 @@ La risposta dovrebbe essere simile alla seguente:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -114,7 +132,7 @@ La risposta dovrebbe essere simile alla seguente:
 
 ## <a name="create-an-index"></a>Creare un indice
     
-La seconda chiamata dell'API crea un indice di Ricerca di Azure. Un indice specifica tutti i parametri e i relativi attributi.
+La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-data-source) che crea un indice di Ricerca di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
 
 L'URL per questa chiamata è `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
@@ -204,7 +222,7 @@ La risposta dovrebbe essere simile alla seguente:
 
 ## <a name="create-and-run-an-indexer"></a>Creare ed eseguire un indicizzatore
 
-Un indicizzatore connette l'origine dati, importa i dati nell'indice di ricerca di destinazione e facoltativamente fornisce una pianificazione per automatizzare l'aggiornamento dei dati.
+Un indicizzatore connette l'origine dati, importa i dati nell'indice di ricerca di destinazione e facoltativamente fornisce una pianificazione per automatizzare l'aggiornamento dei dati. L'API REST è [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 L'URL per questa chiamata è `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Sostituire `[service name]` con il nome del servizio di ricerca.
 
@@ -247,7 +265,11 @@ La risposta dovrebbe essere simile alla seguente:
 
 ## <a name="search-your-json-files"></a>Cercare i file JSON
 
-È possibile inviare query sull'indice. Per questa attività, usare [**Esplora ricerche** ](search-explorer.md)nel portale.
+È possibile iniziare a eseguire ricerche subito dopo aver caricato il primo documento. Per questa attività, usare [**Esplora ricerche** ](search-explorer.md)nel portale.
+
+Nel portale di Azure aprire la pagina **Panoramica** del servizio di ricerca e trovare l'indice creato nell'elenco **Indici**.
+
+Assicurarsi di scegliere l'indice appena creato. La versione API può essere la versione di anteprima o una versione disponibile a livello generale. L'unico requisito di anteprima riguardava l'indicizzazione delle matrici JSON.
 
   ![Ricerca su dati non strutturati](media/search-semi-structured-data/indexespane.png)
 
@@ -273,7 +295,7 @@ Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'el
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile collegare gli algoritmi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
+È possibile collegare gli algoritmi di Servizi cognitivi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
 
 > [!div class="nextstepaction"]
-> [Indicizzazione di documenti in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indicizzazione con intelligenza artificiale](cognitive-search-tutorial-blob.md)

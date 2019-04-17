@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683429"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009668"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Esercitazione: Gestire i dispositivi connessi in blocco
 
@@ -57,7 +57,7 @@ L'esercitazione usa un dispositivo [IoT DevKit](https://microsoft.github.io/azur
 Prima di iniziare:
 
 * Assicurarsi che il [bootloader del dispositivo IoT DevKit sia della versione 1.4.0 o successiva](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Assicurarsi che la versione di IoT DevKit SDK sia la stessa del bootloader. È possibile aggiornare IoT DevKit SDK usando l'estensione Azure IoT Workbench in VS Code. Aprire il riquadro comandi e immettere **Arduino: Board Manager** (Arduino: Gestione scheda). Per altre informazioni, vedere [Preparare l'ambiente di sviluppo](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
+* Assicurarsi che la versione di IoT DevKit SDK sia la stessa del bootloader. È possibile aggiornare IoT DevKit SDK usando l'estensione Azure IoT Workbench in VS Code. Aprire il riquadro comandi e immettere **Arduino: Board Manager**. Per altre informazioni, vedere [Preparare l'ambiente di sviluppo](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
 È anche necessario connettere almeno un dispositivo IoT DevKit all'acceleratore di soluzione Monitoraggio remoto. Se non si è connesso un dispositivo IoT DevKit, vedere [Connettere MXChip IoT DevKit AZ3166 all'acceleratore di soluzione Monitoraggio remoto IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
@@ -145,13 +145,13 @@ Usare l'account di archiviazione di Azure per ospitare il nuovo file del firmwar
 
 1. Visual Studio Code verifica e carica il codice nel dispositivo IoT DevKit.
 
-1. Al termine del caricamento, il dispositivo IoT DevKit viene riavviato. Dopo il riavvio, la schermata del dispositivo IoT DevKit visualizza **FW version: 1.0.0** (Versione firmware: 1.0.0) e l'indicazione che sta verificando la disponibilità di nuovo firmware:
+1. Al termine del caricamento, il dispositivo IoT DevKit viene riavviato. Dopo il riavvio, la schermata del dispositivo IoT DevKit visualizza **FW version: 1.0.0** (Versione firmware:1.0.0) e l'indicazione che sta verificando la disponibilità di nuovo firmware:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Creare una configurazione del dispositivo
 
-Una configurazione del dispositivo specifica lo stato desiderato dei dispositivi. In genere, uno sviluppatore [crea la configurazione](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) nella pagina **Configurazione del dispositivo IoT** del portale di Azure. Una configurazione del dispositivo è un documento JSON che specifica lo stato desiderato dei dispositivi e un set di metriche.
+Una configurazione del dispositivo specifica lo stato desiderato dei dispositivi. In genere, uno sviluppatore [crea la configurazione](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) nella pagina **Configurazione del dispositivo IoT** del portale di Azure. Una configurazione del dispositivo è un documento JSON che specifica lo stato desiderato dei dispositivi e un set di metriche.
 
 Salvare la configurazione seguente come file denominato **firmware update.json** nel computer locale. Sostituire i segnaposto `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` e `YOURPACKAGESIZE` con i valori annotati in precedenza:
 

@@ -1,19 +1,18 @@
 ---
 title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite Python'
-description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python
-services: data-explorer
+description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472580"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045202"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 

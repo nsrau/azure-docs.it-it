@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447583"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009400"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Java
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) su Windows a 64 bit o Ubuntu Linux 16.04 / 18.04 a 64 bit. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
+In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) su Windows a 64 bit, Ubuntu Linux 16.04 / 18.04 a 64 bit o macOS 10.13 o versione successiva. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
@@ -30,7 +30,7 @@ In questo articolo, si crea un'applicazione console Java usando [Speech SDK](spe
 
 Questa guida introduttiva richiede:
 
-* Sistema operativo: Windows (a 64 bit) o Ubuntu Linux 16.04/18.04 (a 64 bit)
+* Sistema operativo: Windows (a 64 bit), Ubuntu Linux 16.04/18.04 (a 64 bit) o macOS 10.13 o versione successiva
 * [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
@@ -86,4 +86,4 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 
 - [Guida introduttiva: Traduzione vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare modelli di lingua](how-to-customize-language-model.md)

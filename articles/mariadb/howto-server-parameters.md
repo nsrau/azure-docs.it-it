@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4b83917a76cb4b3e24ca4f5961d3a00c4d2c9cb0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077259"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615949"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -46,10 +46,12 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 |Utilizzo generico| 8| 15360| 1250|
 |Utilizzo generico| 16| 31232| 2500|
 |Utilizzo generico| 32| 62976| 5000|
+|Utilizzo generico| 64| 125952| 10000|
 |Con ottimizzazione per la memoria| 2| 7168| 600|
 |Con ottimizzazione per la memoria| 4| 15360| 1250|
 |Con ottimizzazione per la memoria| 8| 30720| 2500|
 |Con ottimizzazione per la memoria| 16| 62464| 5000|
+|Con ottimizzazione per la memoria| 32| 125952| 10000|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 

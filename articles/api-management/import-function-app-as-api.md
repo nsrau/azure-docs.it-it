@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810780"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046054"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -69,7 +69,7 @@ Per creare una nuova API da un'app per le funzioni di Azure, seguire questa proc
     ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > È possibile importare solo funzioni basate su un trigger HTTP e il cui livello di autorizzazione è impostato su *Anonimo* o *Funzione*.
+    > È possibile importare solo funzioni basate su un trigger HTTP e il cui livello di autorizzazione è impostato su *Anonimo* o *Funzione*. Al momento, le app per le funzioni Linux non sono supportate.
 
 7. Passare alla visualizzazione **Completa** e assegnare **Prodotto** alla nuova API. Se necessario, modificare altri campi già popolati.
 
@@ -111,11 +111,14 @@ Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa
 
     ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Chiave host dell'app per le funzioni di Azure generata
+## <a name="authorization"></a> Autorizzazione
 
 L'importazione di un'app per le funzioni di Azure genera automaticamente:
+
 * la chiave host nell'app per le funzioni, con il nome apim-{*nome istanza del servizio Gestione API di Azure*},
 * il valore denominato nell'istanza di Gestione API di Azure, con il nome {*nome istanza dell'app per le funzioni di Azure*}-key, che contiene la chiave host creata.
+
+Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità*Backend*associata all'app per le funzioni.
 
 > [!WARNING]
 > Se si rimuove o si modifica il valore della chiave host dell'app per le funzioni di Azure o il valore denominato di Gestione API di Azure, la comunicazione tra i servizi sarà interrotta. I valori non vengono sincronizzati automaticamente.

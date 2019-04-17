@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487618"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258063"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Esercitazione: Creare una pipeline con l'attività Copia usando Visual Studio
 > [!div class="op_single_selector"]
@@ -374,7 +374,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 3. Creare **set di dati**che descrivono dati di input e dati di output per le pipeline.
 4. Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink. 
 
-Per informazioni su come usare un'attività Hive di HDInsight per trasformare dati usando un cluster Azure HDInsight, vedere [ Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
+Per informazioni su come usare un'attività Hive di HDInsight per trasformare dati usando un cluster Azure HDInsight, vedere [Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
 

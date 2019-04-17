@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898466"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Esercitazione: Integrazione di Azure Active Directory con HackerOne
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HackerOne](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://hackerone.com/<company name>/authentication`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://hackerone.com/<company name>/authentication`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://hackerone.com/users/saml/metadata`
 
@@ -145,9 +145,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     a. Nella casella di testo **Email Domain** (Dominio di posta elettronica) digitare un dominio registrato.
 
-    b. Nella casella di testo   **Single Sign On URL** (URL Single Sign-On) incollare il valore di  **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **Single Sign-On URL** (URL di Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Aprire nel Blocco note il **file del certificato** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **X509 Certificate** (Certificato X.509).
+    c. Aprire nel Blocco note il **file del certificato** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **X509 Certificate** (Certificato X.509).
 
     d. Fare clic su **Save**.
 

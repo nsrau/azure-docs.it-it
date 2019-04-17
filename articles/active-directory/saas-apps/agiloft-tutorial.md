@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886389"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Esercitazione: Integrazione di Azure Active Directory con Agiloft
 
@@ -167,13 +167,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Agiloft, seguire questa
 
     ![Configurazione di Agiloft](./media/agiloft-tutorial/setup4.png)
 
-    a. Nella casella di testo **IdP Entity Id / Issuer** (ID/autorità di certificazione entità provider di identità) incollare il valore di **Identificatore Azure AD**copiato dal portale di Azure.
+    a. Nella casella di testo **IdP Entity Id / Issuer** (ID entità provider di identità/Emittente) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    b. Nella casella di testo **IdP Login URL** (URL di accesso provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **IdP Login URL** (URL accesso IdP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **IdP Logout URL** (URL di disconnessione IdP) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo **IdP Logout URL** (URL disconnessione IdP) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
-    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo  **IdP Provided X.509 certificate contents**  (Contenuto certificato X.509 fornito da IdP).
+    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **IdP Provided X.509 certificate contents** (Contenuto certificato X.509 fornito da IdP).
 
     e. Fare clic su **Fine**.
 

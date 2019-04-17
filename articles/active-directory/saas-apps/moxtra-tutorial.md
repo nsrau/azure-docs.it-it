@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b1fe34c390eecb77ff608a334eae2a8b2e9ae50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840393"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: Integrazione di Azure Active Directory con Moxtra
 
@@ -239,7 +239,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Moxtra.
 
-**Per creare un utente denominato Britta Simon in Moxtra, seguire questa procedura:**
+**Per creare un utente di nome Britta Simon in Moxtra, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Moxtra come amministratore.
 

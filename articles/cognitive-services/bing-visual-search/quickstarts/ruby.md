@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Ruby"
+title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Ruby"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544717"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049287"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Ruby
 
 In questo argomento di avvio rapido viene usato il linguaggio di programmazione Ruby per chiamare Ricerca visiva Bing e visualizzare i risultati. Una richiesta POST carica un'immagine nell'endpoint dell'API. I risultati includono URL e informazioni descrittive su immagini simili a quella caricata.
 
@@ -32,7 +32,7 @@ Per eseguire questo avvio rapido:
 
 ## <a name="project-and-required-modules"></a>Progetto e moduli obbligatori
 
-Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato o nell'editor preferito. Importare `net/http`, `uri` e `json` per gestire il testo JSON dei risultati. La libreria `base64` viene usata per codificare la stringa del nome file. 
+Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato o nell'editor preferito. Importare `net/http`, `uri` e `json` per gestire il testo JSON dei risultati. La libreria `base64` viene usata per codificare la stringa del nome file: 
 
 ```
 require 'net/https'
@@ -63,7 +63,7 @@ end
 
 ## <a name="form-data-for-post-request"></a>Dati del modulo per la richiesta POST
 
-I dati dell'immagine per la richiesta POST sono racchiusi tra i limiti iniziale e finale.  I limiti sono impostati dalle funzioni seguenti.
+I dati dell'immagine per la richiesta POST sono racchiusi tra i limiti iniziale e finale. I limiti sono impostati dalle funzioni seguenti:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-Creare quindi l'URI dell'endpoint e una matrice per contenere il corpo di POST.  Usare la funzione precedente per caricare il limite iniziale nella matrice. Leggere il file di immagine nella matrice. Leggere quindi il limite finale nella matrice. 
+Creare quindi l'URI dell'endpoint e una matrice per contenere il corpo di POST.  Usare la funzione precedente per caricare il limite iniziale nella matrice. Leggere il file di immagine nella matrice. Leggere quindi il limite finale nella matrice:
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>Creare la richiesta HTTP
 
-Impostare l'intestazione `Ocp-Apim-Subscription-Key`.  Creare la richiesta.  Assegnare quindi l'intestazione e il tipo di contenuto.  Unire alla richiesta il corpo di POST creato in precedenza.
+Impostare l'intestazione `Ocp-Apim-Subscription-Key`.  Creare la richiesta. Assegnare quindi l'intestazione e il tipo di contenuto. Unire alla richiesta il corpo di POST creato in precedenza:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Richiesta e risposta
 
-Ruby invia la richiesta e ottiene la risposta con la riga di codice seguente.
+Ruby invia la richiesta e ottiene la risposta con la riga di codice seguente:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Stampare i risultati
 
-Stampare le intestazioni della risposta. Usare quindi la libreria JSON per formattare l'output.
+Stampare le intestazioni della risposta e usare quindi la libreria JSON per formattare l'output:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Risultati
 
-Il codice JSON seguente è un segmento dell'output.
+Il codice JSON seguente è un segmento dell'output:
 
 ```
 Relevant Headers:
@@ -286,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sull'API Ricerca visiva Bing](../overview.md)
-> [Creare un'app Web di ricerca personalizzata](../tutorial-bing-visual-search-single-page-app.md)
+> [Panoramica di Ricerca visiva Bing](../overview.md)
+> [Creare un'app Web a pagina singola con Ricerca visiva](../tutorial-bing-visual-search-single-page-app.md)

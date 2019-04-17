@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e3b66f4cb93f0917a3c29b0f337e29dd6c94448
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844818"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
 
@@ -104,7 +104,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Namely, seguire questa 
 
     ![Informazioni su URL e dominio Namely per l'accesso Single Sign-On](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.namely.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.namely.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.namely.com/saml/metadata`
 
@@ -208,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Namely.
 
-**Per creare un utente denominato Britta Simon in Namely, seguire questa procedura:**
+**Per creare un utente di nome Britta Simon in Namely, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Namely come amministratore.
 

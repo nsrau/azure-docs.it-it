@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474820"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049150"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 
@@ -28,6 +28,8 @@ L'articolo illustra i passaggi di base per estendere la capacità di archiviazio
 > * Creare un endpoint server
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -181,7 +183,7 @@ Successivamente, nella macchina virtuale Windows Server 2016 Datacenter installa
 1. Eseguire il comando seguente:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ Successivamente, nella macchina virtuale Windows Server 2016 Datacenter installa
 
 1. Rispondere **Sì** o **Sì per tutti** per continuare l'installazione.
 
-Il modulo `AzureRM` è un modulo di rollup per i cmdlet di Azure PowerShell. Con la sua installazione vengono scaricati tutti i moduli di Azure Resource Manager disponibili e vengono messi a disposizione i relativi cmdlet.
+Il modulo `Az` è un modulo di rollup per i cmdlet di Azure PowerShell. Con la sua installazione vengono scaricati tutti i moduli di Azure Resource Manager disponibili e vengono messi a disposizione i relativi cmdlet.
 
 A questo punto, l'ambiente è stato configurato per l'esercitazione. È ora possibile distribuire il servizio di sincronizzazione archiviazione.
 
@@ -218,10 +220,10 @@ Per distribuire Sincronizzazione file di Azure, inserire prima di tutto una riso
 
    | Valore | DESCRIZIONE |
    | ----- | ----- |
-   | **Nome** | Un nome univoco (per ogni sottoscrizione) per il servizio di sincronizzazione archiviazione.<br><br>Usare _afssyncservice02_ per questa esercitazione. |
+   | **NOME** | Un nome univoco (per ogni sottoscrizione) per il servizio di sincronizzazione archiviazione.<br><br>Usare _afssyncservice02_ per questa esercitazione. |
    | **Sottoscrizione** | Sottoscrizione di Azure usata per questa esercitazione. |
    | **Gruppo di risorse** | il gruppo di risorse che contiene il servizio di sincronizzazione archiviazione.<br><br>Usare _afsresgroup101918_ per questa esercitazione. |
-   | **Posizione** | Stati Uniti orientali |
+   | **Località** | Stati Uniti orientali |
 
 1. Al termine, selezionare **Crea** per distribuire il **servizio di sincronizzazione di archiviazione**.
 1. Selezionare la scheda **Notifiche** -> **Vai alla risorsa**.
@@ -283,7 +285,7 @@ Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un 
 
    | Valore | DESCRIZIONE |
    | ----- | ----- |
-   | **Nome gruppo di sincronizzazione** | Questo nome deve essere univoco all'interno del servizio di sincronizzazione archiviazione, ma può essere qualsiasi nome logico per l'utente. Usare *afssyncgroup* per questa esercitazione.|
+   | **Nome del gruppo di sincronizzazione** | Questo nome deve essere univoco all'interno del servizio di sincronizzazione archiviazione, ma può essere qualsiasi nome logico per l'utente. Usare *afssyncgroup* per questa esercitazione.|
    | **Sottoscrizione** | La sottoscrizione in cui è stato distribuito il servizio di sincronizzazione archiviazione per questa esercitazione. |
    | **Account di archiviazione** | Scegliere **Selezionare l'account di archiviazione**. Nel riquadro visualizzato selezionare l'account di archiviazione con la condivisione file di Azure creata. Usare *afsstoracct101918* per questa esercitazione. |
    | **Condivisione file di Azure** | Il nome della condivisione file di Azure creato. Usare *afsfileshare* per questa esercitazione. |
@@ -306,9 +308,9 @@ Un endpoint server rappresenta una posizione specifica in un server registrato. 
    | ----- | ----- |
    | Valore | DESCRIZIONE |
    | **Server registrato** | Il nome del server creato. Usare *afsvm101918* per questa esercitazione. |
-   | **Percorso** | Il nome del percorso di Windows Server all'unità creato. Usare *f:\filestosync* in questa esercitazione. |
-   | **Suddivisione in livelli nel cloud** | Lasciare disattivato per questa esercitazione. |
-   | **Spazio disponibile volume** | Lasciare vuoto per questa esercitazione. |
+   | **path** | Il nome del percorso di Windows Server all'unità creato. Usare *f:\filestosync* in questa esercitazione. |
+   | **Cloud a livelli** | Lasciare disattivato per questa esercitazione. |
+   | **Spazio disponibile nel volume** | Lasciare vuoto per questa esercitazione. |
 
 1. Selezionare **Create**.
 
