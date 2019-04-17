@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662449"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045646"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
 
@@ -40,14 +40,17 @@ In questa serie di esercitazioni si apprenderà come:
 > * Eseguire il monitoraggio di un cluster
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Eliminazione di un cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) o [l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sicuro 
 * Configurare la [raccolta di diagnostica](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) per il cluster
 * Abilitare il [servizio EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) nel cluster

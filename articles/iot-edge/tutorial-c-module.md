@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084590"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273713"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo C per IoT Edge e distribuirlo in un dispositivo simulato
 
@@ -36,8 +36,10 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 Un dispositivo Azure IoT Edge:
 
-* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md). 
-* I moduli C per Azure IoT Edge non supportano i contenitori Windows. Se il dispositivo IoT Edge è un computer Windows, verificare che sia configurato per l'uso di contenitori Linux. Per informazioni sulle differenze di installazione tra contenitori Windows e Linux, vedere l'articolo su come [installare il runtime IoT Edge in Windows](how-to-install-iot-edge-windows.md).
+* è possibile usare una macchina virtuale di Azure come dispositivo IoT Edge seguendo la procedura illustrata nell'argomento di avvio rapido per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md). 
+
+   >[!TIP]
+   >Questa esercitazione usa Visual Studio Code per sviluppare un modulo C con i contenitori Linux. Per sviluppare in C per i contenitori Windows, è necessario usare Visual Studio 2017. Per altre informazioni, vedere [Usare Visual Studio 2017 per sviluppare ed eseguire il debug di moduli per Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 Risorse cloud:
 
@@ -100,7 +102,7 @@ Creare un modello di soluzione C che è possibile personalizzare con il proprio 
  
    ![Specificare il repository di immagini Docker](./media/tutorial-c-module/repository.png)
 
-La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. La cartella **modules** contiene il codice C per il modulo e i Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. Il file **deployment.debug.template.json** contiene invece la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**.
+La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge con i cinque componenti di livello superiore. La cartella **modules** contiene il codice C per il modulo e i Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. Il file **deployment.debug.template.json** contiene invece la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**.
 
 Se non è stato specificato un registro contenitori durante la creazione della soluzione, ma è stato accettato il valore predefinito localhost:5000, non sarà presente il file con estensione \. env.
 
@@ -118,7 +120,7 @@ Il file dell'ambiente archivia le credenziali per il registro contenitori e le c
 
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
-Aggiungere il codice al modulo C che gli consente di leggere i dati dal sensore, controllare se la temperatura del computer indicata ha superato una soglia sicura e passare tali informazioni all'hub IoT.
+Aggiungere il codice al modulo C che gli consente di controllare se la temperatura del computer indicata ha superato una soglia sicura. Se la temperatura è troppo alta, il modulo aggiunge un parametro di avviso al messaggio prima di inviare i dati all'hub IoT. 
 
 1. I dati del sensore in questo scenario sono disponibili in formato JSON. Per filtrare i messaggi in formato JSON, importare una libreria JSON per C. Questa esercitazione usa Parson.
 
@@ -321,7 +323,7 @@ Aggiungere il codice al modulo C che gli consente di leggere i dati dal sensore,
 
 Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto a CModule il codice per filtrare i messaggi in cui la temperatura del computer segnalata è compresa nei limiti accettabili. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori.
 
-1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale integrato**.
+1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**.
 
 1. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code. È necessario accedere con le credenziali di Registro Azure Container in modo che sia possibile eseguire il push dell'immagine del modulo nel registro.
      

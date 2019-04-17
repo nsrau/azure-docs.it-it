@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257451"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -36,7 +36,7 @@ Per eseguire l'offerta di Azure Marketplace ed effettuare il provisioning di un 
 
 Seguire le istruzioni per immettere le informazioni nei pannelli appropriati.
 
-### <a name="basics"></a>Informazioni di base
+### <a name="basics"></a>Nozioni di base
 
 Nel pannello di informazioni di base procedere come segue:
 
@@ -116,6 +116,9 @@ Ecco i client attualmente supportati:
 
 - [Client di Desktop remoto per Windows 7 e Windows 10](connect-windows-7-and-10.md)
 - [Client Web di Desktop virtuale Windows](connect-web.md)
+
+>[!IMPORTANT]
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

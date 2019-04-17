@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339313"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268414"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Un aspetto importante da tenere presente è l'esecuzione transazionale dei trigger in Azure Cosmos DB. Questo post-trigger viene eseguito come parte della stessa transazione usata dall'elemento di Azure Cosmos DB creato. Se quindi si riceve un'eccezione durante l'esecuzione del post-trigger (ad esempio se non è possibile aggiornare l'elemento dei metadati), l'intera transazione ha esito negativo e viene ripristinata allo stato precedente. Quindi, viene creato l'elemento di Azure Cosmos DB e viene restituita un'eccezione.
+Un aspetto importante da tenere presente è l'esecuzione transazionale dei trigger in Azure Cosmos DB. Questo post-trigger viene eseguito come parte della stessa transazione per lo stesso elemento sottostante. Un'eccezione durante l'esecuzione di post-trigger determinerà l'esito negativo dell'intera transazione. Verrà eseguito il rollback di qualsiasi elemento di cui è stato eseguito il commit e verrà restituita un'eccezione.
 
 Per esempi di come registrare e chiamare un pre-trigger, vedere gli articoli sui [pre-trigger](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e i [post-trigger](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 

@@ -1,7 +1,6 @@
 ---
 title: Creare un criterio per le risorse non conformi
 description: Questo articolo illustra i passaggi per creare una definizione dei criteri per identificare le risorse non conformi.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803987"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278956"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi
 

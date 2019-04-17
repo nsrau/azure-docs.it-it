@@ -1,19 +1,18 @@
 ---
 title: Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
 description: Questo set di definizioni di criteri di esempio richiede valori di tag specifici per il centro di costo e il nome del prodotto.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801766"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275012"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
 
@@ -29,7 +28,7 @@ Questo set di criteri richiede valori di tag specifici per il centro di costo e 
 
 ## <a name="deploy-with-the-portal"></a>Eseguire la distribuzione con il portale
 
-[![Distribuire l'esempio in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![DDistribuire l'esempio in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 

@@ -3,17 +3,17 @@ title: Panoramica del servizio Device Provisioning in hub IoT di Azure | Microso
 description: Questo articolo descrive il provisioning in Azure attraverso il servizio Device Provisioning e l'hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316415"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051468"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Device Provisioning in hub IoT di Azure è un servizio di assistenza per l'hub IoT che consente il provisioning JIT automatico, permettendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.

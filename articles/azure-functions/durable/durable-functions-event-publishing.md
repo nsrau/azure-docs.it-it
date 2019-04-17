@@ -204,7 +204,7 @@ namespace LifeCycleEventSpike
 
 Se si chiama `Sample_HttpStart` con Postman o il browser, la funzione durevole inizia a inviare eventi del ciclo di vita. L'endpoint è in genere `http://localhost:7071/api/Sample_HttpStart` per il debug locale.
 
-Vedere i registri della funzione creata nel portale di Azure.
+Vedere i log della funzione creata nel portale di Azure.
 
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)

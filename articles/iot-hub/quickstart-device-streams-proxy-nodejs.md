@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085576"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005438"
 ---
-# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Avvio rapido: SSH/RDP su flussi dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
+# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Guida introduttiva: SSH/RDP su flussi dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -27,11 +27,9 @@ I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consen
 
 Per prima cosa viene descritta la configurazione per SSH (con la porta 22). Verrà quindi illustrato come modificare la configurazione per RDP (che usa la porta 3389). Poiché i flussi dispositivo sono indipendenti dalle applicazioni e dai protocolli, lo stesso esempio può essere modificato e adattato ad altri tipi di traffico delle applicazioni, modificando in genere la porta di comunicazione.
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,8 +48,13 @@ Per eseguire l'applicazione locale del servizio in questa guida introduttiva, è
 node --version
 ```
 
-Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip ed estrarre l'archivio ZIP.
+Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip ed estrarre l'archivio ZIP.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -59,21 +62,19 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
-
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
 Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
    **MyDevice**: nome specificato per il dispositivo registrato. Usare MyDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -89,13 +90,11 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>Connessione SSH a un dispositivo tramite i flussi dispositivo
 
 ### <a name="run-the-device-local-proxy"></a>Eseguire il proxy locale del dispositivo
 
 Come indicato in precedenza, l'SDK Node.js dell'hub IoT supporta solo i flussi dispositivo sul lato servizio. Per l'applicazione locale del dispositivo usare i programmi proxy del dispositivo associati disponibili nella [guida introduttiva per C](./quickstart-device-streams-proxy-c.md) o nella [guida introduttiva per C#](./quickstart-device-streams-proxy-csharp.md). Prima di procedere al passaggio successivo verificare che il proxy locale del dispositivo sia in esecuzione.
-
 
 ### <a name="run-the-service-local-proxy"></a>Eseguire il proxy locale del servizio
 
@@ -128,13 +127,12 @@ Supponendo che il [proxy locale del dispositivo](#run-the-device-local-proxy) si
   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>Connessione SSH a un dispositivo tramite i flussi dispositivo
+
 In Linux eseguire SSH usando `ssh $USER@localhost -p 2222` in un terminale. In Windows usare il client SSH preferito, ad esempio PuTTY.
 
 Output della console sul proxy locale del servizio dopo aver stabilito una sessione SSH (il proxy locale del servizio è in ascolto sulla porta 2222): ![Testo alternativo](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "Output terminale SSH")
 
-
 Output della console del programma client SSH (il client SSH comunica con il daemon SSH tramite la connessione alla porta 22 dove è in ascolto il proxy locale del servizio): ![Testo alternativo](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Output del client SSH")
-
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>Connessione RDP a un dispositivo tramite i flussi dispositivo
 
@@ -144,7 +142,6 @@ Usare ora il programma client RDP e connettersi al proxy del servizio sulla port
 > Assicurarsi che il proxy del dispositivo sia configurato correttamente per RDP e che sia configurato con la porta RDP 3389.
 
 ![Testo alternativo](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG "Il client RDP si connette al proxy locale del servizio.")
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

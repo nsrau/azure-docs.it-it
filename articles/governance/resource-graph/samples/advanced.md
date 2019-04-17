@@ -1,7 +1,6 @@
 ---
 title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, tra cui ottenere la capacità di un set di scalabilità di macchine virtuali, elencare tutti i tag usati e cercare la corrispondenza di macchine virtuali con espressioni regolari.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842618"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256822"
 ---
 # <a name="advanced-resource-graph-queries"></a>Query avanzate di Resource Graph
 

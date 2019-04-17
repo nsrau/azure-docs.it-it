@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: f5ec6a16de46a7902f7ab739922dc756c96702e0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010974"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004787"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Java)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Java)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -43,10 +43,16 @@ java -version
 
 Per compilare gli esempi, è necessario installare Maven 3. È possibile scaricare Maven per più piattaforme da [Apache Maven](https://maven.apache.org/download.cgi).
 
-È possibile verificare la versione corrente di Maven installata nel computer di sviluppo tramite il comando seguente:
+Per verificare la versione corrente di Maven installata nel computer di sviluppo, usare il comando seguente:
 
 ```cmd/sh
 mvn --version
+```
+
+Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 Scaricare il progetto di esempio di Java da https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip ed estrarre l'archivio ZIP.
@@ -59,14 +65,13 @@ Scaricare il progetto di esempio di Java da https://github.com/Azure-Samples/azu
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo.
+1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
    **MyJavaDevice**: nome del dispositivo da registrare. Usare **MyJavaDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
@@ -164,4 +169,4 @@ In questa Guida rapida, è stata configurata un hub IoT, è stato registrato un 
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-java.md)
+> [Avvio rapido: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-java.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 71b7cfb92b4caded75e0723564a09fae9f10858c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359774"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk
 
@@ -74,7 +74,7 @@ Per configurare l'integrazione di Jitbit Helpdesk in Azure AD, è necessario agg
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk usando un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jitbit Helpdesk.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Jitbit Helpdesk](#configure-jitbit-helpdesk-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -180,9 +180,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jitbit Helpdesk.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jitbit Helpdesk.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Jitbit Helpdesk**.
 

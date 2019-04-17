@@ -3,21 +3,21 @@ title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure 
 description: In questa guida introduttiva si eseguono due applicazioni C# di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: 22be617d1789390cfa0c40fc4dc17ba32d482900
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008798"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049269"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C#)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C#)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -41,6 +41,12 @@ Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritt
 dotnet --version
 ```
 
+Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip ed estrarre l'archivio ZIP.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -51,14 +57,13 @@ Scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-io
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo.
+1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
    **MyDotnetDevice**: nome del dispositivo da registrare. Usare **MyDotnetDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
@@ -157,4 +162,4 @@ In questa Guida rapida, è stata configurata un hub IoT, è stato registrato un 
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-dotnet.md)
+> [Guida introduttiva: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-dotnet.md)

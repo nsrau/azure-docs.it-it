@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409842"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269298"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
@@ -53,7 +53,7 @@ Gestione risorse offre numerosi vantaggi:
 
 ## <a name="understand-management-scope"></a>Informazioni sull'ambito di gestione
 
-Azure offre quattro livelli relativi all'ambito di gestione: gruppi di gestione, sottoscrizioni, gruppi di risorse e risorse. I [gruppi di gestione](../governance/management-groups/index.md) sono disponibili in versione di anteprima. Nella figura seguente viene illustrato un esempio di questi livelli.
+Azure offre quattro livelli relativi all'ambito di gestione: [gruppi di gestione](../governance/management-groups/index.md), sottoscrizioni, [gruppi di risorse](#resource-groups) e risorse. Nella figura seguente viene illustrato un esempio di questi livelli.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
@@ -84,6 +84,8 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 * Una risorsa può interagire con le risorse di altri gruppi di risorse. Questa interazione è comune quando le due risorse sono correlate ma non condividono lo stesso ciclo di vita, ad esempio app Web che si connettono a un database.
 
 Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perché un gruppo di risorse necessita di un percorso? E se le risorse possono avere percorsi diversi rispetto al gruppo di risorse, perché il percorso del gruppo di risorse è importante? Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
+
+Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
 ## <a name="resource-providers"></a>Provider di risorse
 

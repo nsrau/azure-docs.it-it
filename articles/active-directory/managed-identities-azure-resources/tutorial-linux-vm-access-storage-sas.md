@@ -15,18 +15,21 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a206b6027054522a2bbbe1cc847adf9bb7f765e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447646"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273958"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Questa esercitazione mostra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per ottenere credenziali di firma di accesso condiviso per l'archiviazione. In particolare, [credenziali di firma di accesso condiviso del servizio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+
+> [!NOTE]
+> La chiave di firma di accesso condiviso generata in questa esercitazione non sarà limitata/vincolata alla VM.  
 
 La firma di accesso condiviso del servizio offre la possibilità di concedere accesso limitato agli oggetti in un account di archiviazione per un periodo di tempo limitato e per un servizio specifico (in questo caso, il servizio BLOB) senza esporre la chiave di accesso di un account. È possibile usare credenziali di firma di accesso condiviso come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione viene illustrato come caricare e scaricare un oggetto BLOB tramite l'interfaccia della riga di comando di Archiviazione di Azure. Si apprenderà come:
 

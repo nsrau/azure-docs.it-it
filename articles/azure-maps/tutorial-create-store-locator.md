@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540857"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270804"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -132,14 +132,14 @@ Per creare l'interfaccia utente, aggiungere codice a *index.html*:
 1. Aggiungere riferimenti al controllo Web dei file JavaScript e CSS di Mappe di Azure:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Aggiungere un riferimento al modulo dei servizi di Mappe di Azure. Il modulo è una libreria di JavaScript che esegue il wrapping dei servizi REST di Mappe di Azure e li rende facili da usare in JavaScript. Questo modulo è utile per potenziare la funzionalità di ricerca.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Aggiungere riferimenti ai file *index.js* e *index.css*:
@@ -454,7 +454,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
     window.onload = initialize;
     ```
 
-1. Nel listener di eventi `load` della mappa aggiungere un controllo di zoom e un marcatore HTML per visualizzare il centro di un'area di ricerca.
+1. Nel listener di eventi `ready` della mappa aggiungere un controllo di zoom e un marcatore HTML per visualizzare il centro di un'area di ricerca.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
     map.markers.add(centerMarker);
     ```
 
-1. Nel listener di eventi `load` della mappa aggiungere un'origine dati. Effettuare quindi una chiamata per il caricamento e l'analisi del set di dati. Abilitare il clustering sull'origine dati. Il clustering sull'origine dati raggruppa i punti sovrapposti in un cluster. I cluster si separano in singoli punti quando l'utente applica lo zoom avanti. È quindi possibile ottenere un'esperienza utente più fluida e prestazioni migliori.
+1. Nel listener di eventi `ready` della mappa aggiungere un'origine dati. Effettuare quindi una chiamata per il caricamento e l'analisi del set di dati. Abilitare il clustering sull'origine dati. Il clustering sull'origine dati raggruppa i punti sovrapposti in un cluster. I cluster si separano in singoli punti quando l'utente applica lo zoom avanti. È quindi possibile ottenere un'esperienza utente più fluida e prestazioni migliori.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
     loadStoreData();
     ```
 
-1. Dopo il caricamento del set di dati nel listener di eventi `load` della mappa, definire un set di livelli per il rendering dei dati. Un livello a bolle viene usato per il rendering dei punti dati in cluster. Un livello di simboli viene usato per il rendering del numero di punti in ogni cluster sopra il livello a bolle. Un secondo livello di simboli esegue il rendering di un'icona personalizzata per singole posizioni sulla mappa.
+1. Dopo il caricamento del set di dati nel listener di eventi `ready` della mappa, definire un set di livelli per il rendering dei dati. Un livello a bolle viene usato per il rendering dei punti dati in cluster. Un livello di simboli viene usato per il rendering del numero di punti in ogni cluster sopra il livello a bolle. Un secondo livello di simboli esegue il rendering di un'icona personalizzata per singole posizioni sulla mappa.
 
    Aggiungere gli eventi `mouseover` e `mouseout` ai livelli a bolle e di icone per modificare il cursore del mouse quando l'utente lo posiziona sopra un cluster o un'icona sulla mappa. Aggiungere un evento `click` al livello a bolle del cluster. Questo evento `click` ingrandisce la mappa in due livelli e la centra rispetto a un cluster quando l'utente seleziona un cluster. Aggiungere un evento `click` al livello di icone. Questo evento `click` mostra una finestra popup che visualizza i dettagli di un bar quando un utente seleziona un'icona relativa a una singola posizione. Aggiungere un evento alla mappa per monitorare il momento in cui viene completato lo spostamento della mappa. Quando questo evento viene generato, aggiornare gli elementi nel pannello elenchi.  
 
@@ -970,3 +970,6 @@ Per altri esempi di codice e un'esperienza di codifica interattiva:
 
 > [!div class="nextstepaction"]
 > [Come usare il controllo mappa](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)

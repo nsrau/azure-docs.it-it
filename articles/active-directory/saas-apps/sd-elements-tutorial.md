@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 42fc2fb7d68465b55d16aad882dd8557fe13ee62
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188306"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Esercitazione: Integrazione di Azure Active Directory con SD Elements
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SD Elements, seguire qu
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SD Elements](mailto:support@sdelements.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -233,7 +233,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Questa sezione descrive come creare un utente denominato Britta Simon in SD Elements. Nel caso di SD Elements la creazione degli utenti è un'attività manuale.
 
-**Per creare un utente denominato Britta Simon in SD Elements, seguire questa procedura:**
+**Per creare un utente di nome Britta Simon in SD Elements, seguire questa procedura:**
 
 1. In una finestra del Web browser accedere al sito aziendale di SD Elements come amministratore.
 

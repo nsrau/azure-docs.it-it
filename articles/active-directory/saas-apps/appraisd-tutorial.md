@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861503"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Esercitazione: Integrazione di Azure Active Directory con Appraisd
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appraisd, seguire quest
 
     b. Nella casella di testo **Stato dell'inoltro** digitare un URL: `<TENANTCODE>`
 
-    c. Se si vuole configurare l'applicazione in modalità avviata da **SP** nella sezione **URL di accesso** digitare un URL usando il modello seguente: `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. Se si vuole configurare l'applicazione in modalità avviata da **SP**, nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > L'URL di accesso effettivo e il valore dello stato dell'inoltro vengono visualizzati nella pagina di configurazione SSO di Appraisd, descritta più avanti nell'esercitazione.
@@ -161,7 +161,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appraisd, seguire quest
 
 1. In un'altra finestra del Web browser accedere ad Appraisd come amministratore della sicurezza.
 
-2. Nell'angolo in alto a destra della pagina fare clic sull'icona **Settings** (Impostazioni) e quindi passare a **Configuration** (Configurazione).
+2. Nell'angolo in alto a destra della pagina fare clic sull'icona **Settings** (Impostazioni), quindi passare a **Configuration** (Configurazione).
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appraisd, seguire quest
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Copiare il valore di **Default Relay State** (Stato di inoltro predefinito) e incollarlo nella casella di testo **Stato dell'inoltro** in **Configurazione SAML di base** nel portale di Azure.
+    a. Copiare il valore di **Default Relay State** (Stato di inoltro predefinito) e incollarlo nella casella di testo **Stato dell'inoltro** in **Configurazione SAML di base** nel portale di Azure.
 
-    b. Copiare il valore di **Service-initiated login URL** (URL di accesso avviato dal servizio) e incollarlo nella casella di testo **URL di accesso** in **Configurazione SAML di base** nel portale di Azure.
+    b. Copiare il valore di **Service-initiated login URL** (URL di accesso avviato dal servizio) e incollarlo nella casella di testo **URL di accesso** in **Configurazione SAML di base** nel portale di Azure.
 
 5. Scorrere la stessa pagina verso il basso sotto **Identifying users** (Identificazione utenti) e seguire questa procedura:
 
@@ -185,7 +185,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appraisd, seguire quest
 
     b. Nella casella di testo **Identity Provider Issuer URL** (URL autorità di certificazione provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure e fare clic su **Salva**.
 
-    c. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **X.509 Certificate** (Certificato X.509) e fare clic su **Save** (Salva).
+    c. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **X.509 Certificate** (Certificato X.509) e fare clic su **Save** (Salva).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -246,11 +246,11 @@ Per consentire agli utenti di Azure AD di accedere ad Appraisd, è necessario ef
 
 1. Accedere ad Appraisd come amministratore della sicurezza.
 
-2. Nell'angolo in alto a destra della pagina fare clic sull'icona **Settings** (Impostazioni), quindi passare ad **Administration centre** (Centro di amministrazione).
+2. Nell'angolo in alto a destra della pagina fare clic sull'icona **Settings** (Impostazioni), quindi passare ad **Administration centre** (Centro di amministrazione).
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Nella barra degli strumenti nella parte superiore della pagina fare clic su **People** (Persone) e quindi passare ad **Add a new user** (Aggiungi un nuovo utente).
+3. Nella barra degli strumenti nella parte superiore della pagina fare clic su **People** (Persone), quindi passare ad **Add a new user** (Aggiungi un nuovo utente).
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 

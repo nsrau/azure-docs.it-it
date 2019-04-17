@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b0269d783dac17c48553c837ccdc2b3b014790
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: a6fc7e13cf5ea3991f81d53edcabe0980d799cb0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442230"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520865"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Windows per accedere ad Azure Resource Manager
 
@@ -136,7 +136,7 @@ Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macch
 
 ## <a name="read-the-properties-of-a-resource-group"></a>Leggere le proprietà di un gruppo di risorse
 
-Usare il token di accesso recuperato nel passaggio precedente per accedere ad Azure Resource Manager e leggere le proprietà del gruppo di risorse a cui si è concesso l'accesso per l'identità assegnata dall'utente. Sostituire <SUBSCRIPTION ID> con l'ID sottoscrizione del proprio ambiente.
+Usare il token di accesso recuperato nel passaggio precedente per accedere ad Azure Resource Manager e leggere le proprietà del gruppo di risorse a cui si è concesso l'accesso per l'identità assegnata dall'utente. Sostituire `<SUBSCRIPTION ID>` con l'ID sottoscrizione del proprio ambiente.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content

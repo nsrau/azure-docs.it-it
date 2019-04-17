@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: sachinp
+author: mumian
+ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/22/2019
-ms.openlocfilehash: 01e14f86b16db6d998d60e74211ae5ad77381461
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/09/2019
+ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372946"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425781"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Guida introduttiva: Creare un database singolo nel database SQL di Azure usando il modello di Azure Resource Manager
 
@@ -29,13 +29,128 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Un database singolo include un set definito di risorse di calcolo, memoria, I/O e archiviazione basate su uno dei due [modelli di acquisto](sql-database-purchase-models.md). Quando si crea un database singolo, si definisce anche un [server di database SQL](sql-database-servers.md) per gestirlo e lo si inserisce all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un'area geografica specificata.
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/). Il file JSON seguente è il modello usato in questo articolo. Altri esempi di modelli di database SQL di Azure sono disponibili [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+Il file JSON seguente è il modello usato in questo articolo. Il modello viene archiviato in un account di archiviazione di Azure. Altri esempi di modelli di database SQL di Azure sono disponibili [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
-[!code-json[create-azure-sql-database](~/quickstart-templates/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json)]
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverName": {
+      "type": "string",
+      "defaultValue": "[concat('server-', uniqueString(resourceGroup().id, deployment().name))]",
+      "metadata": {
+        "description": "Name for the SQL server"
+      }
+    },
+    "shouldDeployDb": {
+      "type": "string",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "defaultValue": "Yes",
+      "metadata": {
+        "description": "Whether an Azure SQL Database should be deployed under the server"
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "[concat('db-', uniqueString(resourceGroup().id, deployment().name), '-1')]",
+      "metadata": {
+        "description": "Name for the SQL database under the SQL server"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for server and optional DB"
+      }
+    },
+    "emailAddresses": {
+      "type": "array",
+      "defaultValue": [
+        "user1@example.com",
+        "user2@example.com"
+      ],
+      "metadata": {
+        "description": "Email addresses for receiving alerts"
+      }
+    },
+    "adminUser": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for admin"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for admin"
+      }
+    }
+  },
+  "variables": {
+    "databaseServerName": "[toLower(parameters('serverName'))]",
+    "databaseName": "[parameters('databaseName')]",
+    "shouldDeployDb": "[parameters('shouldDeployDb')]",
+    "databaseServerLocation": "[parameters('location')]",
+    "databaseServerAdminLogin": "[parameters('adminUser')]",
+    "databaseServerAdminLoginPassword": "[parameters('adminPassword')]",
+    "emailAddresses": "[parameters('emailAddresses')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers",
+      "name": "[variables('databaseServerName')]",
+      "location": "[variables('databaseServerLocation')]",
+      "apiVersion": "2015-05-01-preview",
+      "properties": {
+        "administratorLogin": "[variables('databaseServerAdminLogin')]",
+        "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
+        "version": "12.0"
+      },
+      "tags": {
+        "DisplayName": "[variables('databaseServerName')]"
+      },
+      "resources": [
+        {
+          "type": "securityAlertPolicies",
+          "name": "DefaultSecurityAlert",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[variables('databaseServerName')]"
+          ],
+          "properties": {
+            "state": "Enabled",
+            "emailAddresses": "[variables('emailAddresses')]",
+            "emailAccountAdmins": true
+          }
+        }
+      ]
+    },
+    {
+      "condition": "[equals(variables('shouldDeployDb'), 'Yes')]",
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(string(variables('databaseServerName')), '/', string(variables('databaseName')))]",
+      "location": "[variables('databaseServerLocation')]",
+      "apiVersion": "2017-10-01-preview",
+      "dependsOn": [
+        "[concat('Microsoft.Sql/servers/', variables('databaseServerName'))]"
+      ],
+      "properties": {},
+      "tags": {
+        "DisplayName": "[variables('databaseServerName')]"
+      }
+    }
+  ]
+}
+```
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-threat-detection-server-policy-optional-db%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatesql%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Selezionare o immettere i valori seguenti.  
 
