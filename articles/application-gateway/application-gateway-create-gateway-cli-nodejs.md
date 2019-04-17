@@ -1,44 +1,26 @@
 ---
-title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando classica di Azure | Microsoft Docs
+title: Creare un Gateway applicazione di Azure - della riga di comando di Azure classico
 description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando classica di Azure in Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974426"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608462"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
-> * [portale di Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [PowerShell per Azure classico](application-gateway-create-gateway.md)
-> * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interfaccia della riga di comando classica di Azure](application-gateway-create-gateway-cli.md)
-> * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Gateway applicazione offre le funzionalità di recapito di applicazioni seguenti: Bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload Secure Sockets Layer (SSL), probe di integrità personalizzati e supporto per più siti.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
+## <a name="prerequisite-install-the-azure-cli"></a>Prerequisiti: Installare l'interfaccia della riga di comando di Azure
 
-## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
-
-Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [accedere ad Azure](/cli/azure/authenticate-azure-cli). 
+Per eseguire i passaggi descritti in questo articolo, è necessario [installare Azure CLI](../xplat-cli-install.md) ed è necessario [Accedi Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../active-directory/fundamentals/sign-up-organization.md).
@@ -60,15 +42,15 @@ Questo scenario illustrerà come:
 
 Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una rete virtuale, assicurarsi di lasciare uno spazio indirizzi sufficiente per più subnet. Dopo che un gateway applicazione è stato distribuito in una subnet, alla subnet possono essere aggiunti solo altri gateway applicazione.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
-Aprire il **prompt dei comandi di Microsoft Azure**ed effettuare l'accesso. 
+Aprire il **prompt dei comandi di Microsoft Azure**ed eseguire l'accesso.
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare il processo di accesso.
+Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare l'accesso sul processo.
 
 ![Comando che illustra l'accesso al dispositivo][1]
 
@@ -86,7 +68,7 @@ Dopo avere immesso il codice ed effettuato l'accesso, chiudere il browser per co
 azure config mode arm
 ```
 
-## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Prima di creare il gateway applicazione viene creato un gruppo di risorse che contenga il gateway applicazione. Di seguito è riportato il comando.
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio seguente sono necessari anche un certificato PFX esportato prima e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
+Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Inoltre un certificato PFX esportato prima e la password per il certificato sono necessari per il passaggio seguente: Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \

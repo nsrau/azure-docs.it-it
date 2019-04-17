@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263316"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Esercitazione: Integrazione di Azure Active Directory con Velpic SAML
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Aggiungere Velpic SAML dalla raccolta
 
-Per configurare l'integrazione di Velpic SAML in Azure AD, è necessario aggiungere Velpic SAML dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Velpic SAML in Azure AD, è necessario aggiungere Velpic SAML dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Velpic SAML dalla raccolta, seguire questa procedura:**
 
@@ -75,12 +75,12 @@ Per configurare l'integrazione di Velpic SAML in Azure AD, è necessario aggiung
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Velpic SAML usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Velpic SAML.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Velpic SAML, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Velpic SAML, è necessario completare i seguenti blocchi predefiniti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Velpic SAML](#configure-velpic-saml-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Velpic SAML](#create-velpic-saml-test-user)**: per avere una controparte di Britta Simon in Velpic SAML collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Velpic SAML, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Velpic SAML](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<sub-domain>.velpicsaml.net`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<sub-domain>.velpicsaml.net`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
@@ -163,9 +163,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Velpic SAML, seguire qu
     
     f. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -187,7 +187,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Velpic SAML.
 
@@ -195,7 +195,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Velpic SAML**.
+2. Nell'elenco di applicazioni selezionare **Velpic SAML**.
 
     ![Collegamento di Velpic SAML nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -215,7 +215,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-velpic-saml-test-user"></a>Creare l'utente di test di Velpic SAML
 
-Questo passaggio in genere non è necessario perché l'applicazione supporta il provisioning utenti JIT. Se il provisioning automatico degli utenti non è abilitato, la creazione manuale dell'utente può essere eseguita come descritto di seguito.
+Questo passaggio in genere non è necessario poiché l'applicazione supporta il provisioning degli utenti just-in-time. Se il provisioning automatico degli utenti non è abilitato, la creazione manuale dell'utente può essere eseguita come descritto di seguito.
 
 Accedere al sito aziendale di Velpic SAML come amministratore e seguire questa procedura:
     
@@ -251,9 +251,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

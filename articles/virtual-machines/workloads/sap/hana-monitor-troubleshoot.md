@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014410"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616357"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoraggio e risoluzione dei problemi dal lato HANA
 
@@ -108,7 +108,7 @@ Fare riferimento al [di SAP HANA di risoluzione dei problemi: Problemi di connet
 
 ## <a name="storage"></a>Archiviazione
 
-Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) si esegue lentamente, non risponde o può anche sembrare bloccata se si verificano problemi di prestazioni dell'I/O. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
+Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) si esegue lentamente, non risponde o può anche sembrare bloccata se si verificano problemi con le prestazioni dei / o. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
 
 ![Nella scheda Volumes (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

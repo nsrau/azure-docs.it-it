@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243620"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617632"
 ---
 # <a name="encoding-with-media-services"></a>Codifica con Servizi multimediali
 
@@ -54,19 +54,38 @@ Attualmente Servizi multimediali supporta i set di impostazioni di codifica pred
 
 Attualmente sono supportati i set di impostazioni seguenti:
 
-- **EncoderNamedPreset.AdaptiveStreaming** (scelta consigliata). Per altre informazioni, vedere [Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente](autogen-bitrate-ladder.md).
 - **EncoderNamedPreset.AACGoodQualityAudio**: genera un singolo file MP4 contenente solo audio stereo con codifica a 192 kbps.
+- **EncoderNamedPreset.AdaptiveStreaming** (scelta consigliata). Per altre informazioni, vedere [Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente](autogen-bitrate-ladder.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -espone un set di impostazioni sperimentale per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli, con velocità in bit appropriati e le impostazioni di risoluzione per il recapito per lo streaming adattivo. Gli algoritmi sottostanti continuerà a evolversi nel tempo. L'output conterrà file MP4 con video e audio con interfogliati. Per altre informazioni, vedere [sperimentale set di impostazioni per la codifica compatibile con contenuto](cae-experimental.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: genera un set di 8 file MP4 con audio AAC stereo e allineamento GOP, con velocità compresa fra 6000 e 400 kbps. La risoluzione parte da 1080p e può scendere fino a 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: genera un set di 6 file MP4 con audio AAC stereo e allineamento GOP, con velocità compresa fra 3400 e 400 kbps. La risoluzione parte da 720p e può scendere fino a 360p.
-- **EncoderNamedPreset.H264MultipleBitrateSD**: genera un set di 5 file MP4 con audio AAC stereo e allineamento GOP, con velocità compresa fra 1600 e 400 kbps. La risoluzione parte da 480p e può scendere fino a 360p.<br/><br/>Per altre informazioni, vedere [Eseguire il caricamento, la codifica e lo streaming di video tramite API](stream-files-tutorial-with-api.md).
+- **EncoderNamedPreset.H264MultipleBitrateSD**: genera un set di 5 file MP4 con audio AAC stereo e allineamento GOP, con velocità compresa fra 1600 e 400 kbps. La risoluzione parte da 480p e può scendere fino a 360p.
+- **EncoderNamedPreset.H264SingleBitrate1080p** -genera un file MP4 in cui il video è codificato con codec H.264 a 6750 kbps e un'altezza immagine di 1080 pixel e l'audio stereo è codificato con codec AAC-LC a 64 kbps.
+- **EncoderNamedPreset.H264SingleBitrate720p** -genera un file MP4 in cui il video è codificato con codec H.264 a 4500 kbps e un'altezza immagine pari a 720 pixel e l'audio stereo è codificato con codec AAC-LC a 64 kbps.
+- **EncoderNamedPreset.H264SingleBitrateSD** -genera un file MP4 in cui il video è codificato con codec H.264 a 2200 kbps e un'altezza immagine di 480 pixel e l'audio stereo è codificato con codec AAC-LC a 64 kbps.
+
+Per visualizzare l'elenco di set di impostazioni più aggiornata, vedere [predefiniti incorporati da utilizzare per la codifica video](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+
+Per vedere come vengono usati i set di impostazioni, consultare [caricamento, codifica e streaming di file](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset-preset"></a>Set di impostazioni StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) descrive le impostazioni da usare per la codifica del video di input con il codificatore Standard. Usare questo set di impostazioni quando si personalizzano i set di impostazioni di trasformazione. 
 
-#### <a name="custom-presets"></a>Set di impostazioni personalizzati
+#### <a name="considerations"></a>Considerazioni
 
-Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Per personalizzare i set di impostazioni di trasformazione si usa il set di impostazioni **StandardEncoderPreset**. Per una descrizione dettagliata e un esempio, vedere [How to customize encoder presets](customize-encoder-presets-how-to.md) (Come personalizzare i set di impostazioni del codificatore).
+Durante la creazione di set di impostazioni personalizzati, si applicano le considerazioni seguenti:
+
+- Tutti i valori per l'altezza e larghezza su contenuto AVC devono essere un multiplo di 4.
+- In servizi multimediali di Azure v3, tutte le velocità in bit di codifica sono in bit al secondo. Ciò è diverso dal set di impostazioni con le nostre API v2, che usato kilobit al secondo come unità. Ad esempio, se la velocità in bit nella versione 2 è stato specificato come 128 (kilobit/sec), in v3 valore potrebbe essere impostato su 128000 (bit/sec).
+
+#### <a name="examples"></a>Esempi
+
+Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Per esempi che illustrano come personalizzare i set di impostazioni del codificatore, vedere:
+
+- [Personalizzare i set di impostazioni con .NET](customize-encoder-presets-how-to.md)
+- [Personalizzare i set di impostazioni con CLI](custom-preset-cli-howto.md)
+- [Personalizzare i set di impostazioni con REST](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>Ridimensionamento della codifica nella versione v3
 

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546399"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617397"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
 
@@ -25,7 +25,8 @@ Questo articolo illustra le regole che si applicano a entità e le API durante l
 
 ## <a name="accessing-the-azure-media-services-api"></a>L'accesso a API dei servizi di servizi multimediali di Azure
 
-Per accedere alle risorse di servizi multimediali di Azure, è consigliabile usare l'autenticazione dell'entità servizio di Azure Active Directory (AD). L'API di servizi multimediali di Azure richiede che l'utente o applicazione che effettua l'API REST richiede hanno accesso alla risorsa dell'account di servizi multimediali di Azure (in genere il **collaboratore** oppure **proprietario** ruolo). Per altre informazioni, vedere [controllo di accesso basato sui ruoli per gli account di servizi multimediali](rbac-overview.md).
+Per accedere alle risorse di servizi multimediali di Azure, è possibile usare l'autenticazione dell'entità servizio di Azure Active Directory (AD).
+L'API servizi multimediali è necessario che l'utente o applicazione che effettua l'API REST richiede hanno accesso alla risorsa dell'account di servizi multimediali e usare una **collaboratore** oppure **proprietario** ruolo. L'API è possibile accedere con il **Reader** ruolo ma solo **ottenere** o **elenco**   operazioni saranno disponibili. Per altre informazioni, vedere [controllo di accesso basato sui ruoli per gli account di servizi multimediali](rbac-overview.md).
 
 Anziché creare un'entità servizio, prendere in considerazione usando identità gestite per le risorse di Azure per accedere all'API servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestita per le risorse di Azure, vedere [What ' s identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

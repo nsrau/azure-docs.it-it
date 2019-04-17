@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef18d37dda605c0b6b176f7c95c9aaf5595d4d47
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 97eb016f1a77d4166976c6a4d7aebd073550e8c2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260449"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Esercitazione: Integrazione di Azure Active Directory con Workfront
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Workfront, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Workfront](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.attask-ondemand.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.attask-ondemand.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.attasksandbox.com/SAML2`
 
@@ -203,7 +203,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Workfront.
 
-**Per creare un utente di nome Britta Simon in Workfront, seguire questa procedura:**
+**Per creare un utente denominato Britta Simon in Workfront, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Workfront come amministratore.
  
@@ -231,9 +231,9 @@ Quando si fa clic sul riquadro di Workfront nel pannello di accesso, si dovrebbe
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

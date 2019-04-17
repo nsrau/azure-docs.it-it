@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662415"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045834"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>Regole per il routing dei messaggi
 
@@ -118,7 +120,7 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    **Selezionare l'hub IoT dalle sottoscrizioni correnti**: selezionare questa opzione del pulsante di opzione.
 
-   **Sottoscrizione**: selezionare la sottoscrizione usata per questa esercitazione.
+   **Sottoscrizione** selezionare la sottoscrizione usata per questa esercitazione.
 
    **Hub IoT**: selezionare l'hub IoT. Questa esercitazione usa **ContosoTestHub**.
 
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Usare PowerShell per pulire le risorse
 
-Per rimuovere il gruppo di risorse, usare il comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
+Per rimuovere il gruppo di risorse, usare il comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

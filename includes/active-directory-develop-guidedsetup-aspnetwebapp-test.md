@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919260"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528536"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -27,9 +27,9 @@ Per eseguire test dell'applicazione in Visual Studio, premere **F5** per eseguir
 
 Quando si è pronti per eseguire il test, usare un account Microsoft Azure Active Directory (Azure AD) (aziendale o dell'istituto di istruzione) o un account Microsoft personale (<span>live.</span>com oppure <span>outlook.</span>com) per accedere.
 
-![Accedere con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Effettuare l'accesso con l'account Microsoft.](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
+![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
@@ -45,8 +45,8 @@ Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizz
 
 |Proprietà |Valore |DESCRIZIONE |
 |---|---|---|
-|**NOME** |Nome e cognome dell'utente | Nome e cognome dell'utente.
-|**Username** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente.
+|**Nome** |Nome e cognome dell'utente | Nome e cognome dell'utente.
+|**Nome utente** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente.
 |**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente sul Web.|
 |**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente.|
 
@@ -96,5 +96,3 @@ Questa opzione è uno scenario comune per le *applicazioni line-of-business*: Se
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opzione 3: Usare un metodo personalizzato per convalidare le autorità di certificazione
 
 È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere la [classe TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

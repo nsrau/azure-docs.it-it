@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096861"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617214"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -136,7 +136,7 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
 4. L'utente immette il nome utente nella pagina **Accesso utente** e seleziona il pulsante **Avanti**.
 5. L'utente immette la password nella pagina **Accesso utente** e seleziona il pulsante **Accedi**.
 6. Il nome utente e la password vengono inviati a STS di Azure AD in una richiesta HTTPS POST.
-7. STS di Azure AD recupera le chiavi pubbliche per tutti gli agenti di autenticazione registrati nel tenant dal database SQL di Azure e con queste esegue la crittografa della password. 
+7. STS di Azure AD recupera le chiavi pubbliche per tutti gli agenti di autenticazione registrati nel tenant dal database SQL di Azure e con queste esegue la crittografa della password.
     - Produce "n" valori password crittografata per "n" agenti di autenticazione registrati nel tenant.
 8. STS di Azure AD inserisce la richiesta di convalida della password, che consiste dei valori del nome utente e della password crittografata, nella coda del bus di servizio specifica per il tenant.
 9. Poiché gli agenti di autenticazione inizializzati sono connessi in modo permanente alla coda del bus di servizio, uno degli agenti di autenticazione disponibili recupera la richiesta di convalida della password.
@@ -145,6 +145,9 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
     - Si tratta della stessa API utilizzata da Active Directory Federation Services per consentire agli utenti di effettuare l'accesso in uno scenario di accesso federato.
     - Questa API fa affidamento sul processo di risoluzione standard in Windows Server per individuare il controller di dominio.
 12. L'agente di autenticazione riceve il risultato da Active Directory, ad esempio risultati come operazione riuscita, nome utente o password errata o password scaduta.
+
+   > [!NOTE]
+   > Se l'agente di autenticazione non riesce durante il processo di accesso, viene eliminata la richiesta di accesso completamente. Non vi è alcun consegna di richieste di accesso da un agente di autenticazione a un altro agente di autenticazione locale. Questi agenti comunicano solo con il cloud e non tra loro.
 13. L'agente di autenticazione inoltra il risultato a STS di Azure AD su un canale HTTPS autenticato reciprocamente in uscita sulla porta 443. L'autenticazione reciproca usa il certificato emesso in precedenza per l'agente di autenticazione durante la registrazione.
 14. STS di Azure AD verifica che questo risultato si metta in correlazione con la richiesta di accesso specifica per il tenant.
 15. STS di Azure AD continua la procedura di accesso, come configurato. Ad esempio, se la convalida della password ha esito positivo, all'utente potrebbe essere richiesto di effettuare l'autenticazione a più fattori oppure potrebbe essere reindirizzato all'applicazione.
@@ -181,7 +184,7 @@ Per rinnovare l'attendibilità di un agente di autenticazione con Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Aggiornamento automatico degli agenti di autenticazione
 
-L'applicazione di aggiornamento aggiorna automaticamente l'agente di autenticazione quando viene rilasciata una nuova versione. L'applicazione non gestisce le richieste di convalida della password per il tenant. 
+L'applicazione di aggiornamento aggiorna automaticamente l'agente di autenticazione quando viene rilasciata una nuova versione (con correzioni di bug o miglioramenti delle prestazioni). L'applicazione di aggiornamento non gestisce le richieste di convalida della password per il tenant.
 
 Azure AD ospita la nuova versione del software come un **pacchetto di Windows Installer** firmato. Il pacchetto di Windows Installer viene firmato usando [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) con SHA256 come algoritmo di digest. 
 
@@ -203,7 +206,7 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
     - Riavvia il servizio agente di autenticazione
 
 >[!NOTE]
->Se più agenti di autenticazione sono registrati nel tenant, Azure AD non rinnova i certificati né li aggiorna contemporaneamente. Azure AD esegue invece questa operazione in modo graduale per assicurare la disponibilità elevata delle richieste di accesso.
+>Se più agenti di autenticazione sono registrati nel tenant, Azure AD non rinnova i certificati né li aggiorna contemporaneamente. Al contrario, Azure AD esegue quindi una alla volta per garantire la disponibilità elevata delle richieste di accesso.
 >
 
 

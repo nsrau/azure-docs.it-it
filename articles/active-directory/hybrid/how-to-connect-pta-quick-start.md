@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101007"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617802"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory: Avvio rapido
 
@@ -111,7 +111,15 @@ Se si prevede di distribuire l'autenticazione pass-through in un ambiente di pro
 >[!IMPORTANT]
 >Negli ambienti di produzione è consigliabile disporre di almeno 3 agenti di autenticazione in esecuzione nel proprio tenant. Esiste un limite di sistema di 40 agenti di autenticazione per ogni tenant. E come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Per scaricare il software dell'agente di autenticazione, seguire queste istruzioni:
+L'installazione di più agenti di autenticazione pass-through assicura la disponibilità elevata, ma non deterministica bilanciamento del carico tra gli agenti di autenticazione. Per determinare quanti agenti di autenticazione, è necessario per il tenant, prendere in considerazione il carico massimo e medio di richieste di accesso che si desidera vedere nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300 a 400 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM.
+
+Per stimare il traffico di rete, usare le indicazioni seguenti relative al dimensionamento:
+- Ogni richiesta ha una dimensione di payload di (0.5K + 1K * num_of_agents) byte. Ad esempio, i dati da Azure AD per l'agente di autenticazione. In questo caso, "num_of_agents" indica il numero di agenti di autenticazione registrati nel tenant.
+- Ogni risposta ha una dimensione di payload di 1 KB. Ad esempio, i dati dall'agente di autenticazione ad Azure AD.
+
+Nella maggior parte dei clienti, tre agenti di autenticazione in totale sono sufficienti per la capacità e disponibilità elevata. È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
+
+Per iniziare, seguire queste istruzioni per scaricare il software dell'agente di autenticazione:
 
 1. Per scaricare la versione più recente dell'agente di autenticazione (versione 1.5.193.0 o successive), accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant.
 2. Nel riquadro sinistro selezionare **Azure Active Directory**.
@@ -141,6 +149,13 @@ In secondo luogo è possibile creare ed eseguire uno script di distribuzione aut
 3. Passare a **C:\Programmi\Microsoft Azure AD Connect Authentication Agent** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>Se è installato un agente di autenticazione in una macchina virtuale, è possibile clonare la macchina virtuale per la configurazione di un altro agente di autenticazione. Questo metodo è **supportato**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>Passaggio 5: Configurare la funzionalità di blocco Smart
+
+Blocco Smart consente di bloccare gli attori dannosi che tentano di indovinare le password degli utenti o utilizzando metodi di attacchi di forza bruta a parteciparvi. Configurando le impostazioni di blocco Smart in Azure AD e / o le impostazioni di blocco appropriata di un'istanza locale di Active Directory, gli attacchi è possibile filtrare prima che raggiungano Active Directory. Lettura [questo articolo](../authentication/howto-password-smart-lockout.md) per altre informazioni su come configurare le impostazioni di blocco Smart nel tenant per proteggere gli account utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://aka.ms/adfstoptadp): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.

@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261616"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618176"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 
@@ -46,9 +46,9 @@ La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e 
 | [SAML](#saml-sso) | Cloud e locale | Scegliere SAML laddove possibile per le applicazioni esistenti che non usano OAuth o OpenID Connect. SAML funziona per le applicazioni che eseguono l'autenticazione usando uno dei protocolli SAML.|
 | [Basato su password](#password-based-sso) | Cloud e locale | Scegliere il metodo basato su password quando l'applicazione esegue l'autenticazione con nome utente e password. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questo metodo usa il processo di accesso esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password. |
 | [Collegato](#linked-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On collegato quando l'applicazione è configurata per Single Sign-On in un altro servizio di provider di identità. Questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services.|
-| [Disabled](#disabled-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On disabilitato se l'app non è pronta per essere configurata per Single Sign-On. Gli utenti devono immettere il nome utente e la password ogni volta che avviano l'applicazione.|
+| [Disabilitato](#disabled-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On disabilitato se l'app non è pronta per essere configurata per Single Sign-On. Gli utenti devono immettere il nome utente e la password ogni volta che avviano l'applicazione.|
 | [Autenticazione integrata di Windows](#integrated-windows-authentication-iwa-sso) | Solo in locale | Scegliere l'accesso Single Sign-On dell'autenticazione integrata di Windows per le applicazioni che usano l'[autenticazione integrata di Windows](/aspnet/web-api/overview/security/integrated-windows-authentication) o le applicazioni che riescono a riconoscere le attestazioni. Per l'autenticazione integrata di Windows, i connettori Application Proxy usano la delega vincolata Kerberos per autenticare gli utenti con l'applicazione. | 
-| [Basata su intestazione](#header-based-sso) | Solo in locale | Usare l'accesso Single Sign-On basato su intestazione quando l'applicazione usa le intestazioni per l'autenticazione. L'accesso Single Sign-On basato su intestazione richiede PingAccess per Azure AD. Application Proxy usa Azure AD per autenticare l'utente e quindi passa il traffico attraverso il servizio del connettore.  | 
+| [Basato su intestazione](#header-based-sso) | Solo in locale | Usare l'accesso Single Sign-On basato su intestazione quando l'applicazione usa le intestazioni per l'autenticazione. L'accesso Single Sign-On basato su intestazione richiede PingAccess per Azure AD. Application Proxy usa Azure AD per autenticare l'utente e quindi passa il traffico attraverso il servizio del connettore.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
 Quando si sviluppano nuove applicazioni, usare protocolli moderni quali OAuth e OpenID Connect per ottenere la migliore esperienza Single Sign-On per l'app su più piattaforme di dispositivo. OAuth consente agli utenti o agli amministratori di [concedere il consenso](configure-user-consent.md) per l'accesso a risorse protette come [MS Graph](/graph/overview). Offriamo [SDK](../develop/reference-v2-libraries.md) facili da usare per l'app e, inoltre, l'app sarà pronta a usare [MS Graph](/graph/overview).
@@ -70,9 +70,11 @@ L'accesso Single Sign-On basato su SAML è supportato per le applicazioni che us
 - SAML 2.0
 - WS-Federation
 
-Per configurare un'applicazione per l'accesso Single Sign-On basata su SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](configure-single-sign-on-portal.md). Inoltre, molte applicazioni SaaS (software come un servizio) hanno un'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md) che illustra la configurazione per l'accesso Single Sign-On basato su SAML.
+Per configurare un'applicazione SaaS basato su SAML single sign-on, vedere [configurare SAML single sign-on basato](configure-single-sign-on-portal.md). Inoltre, molte applicazioni SaaS (software come un servizio) hanno un'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md) che illustra la configurazione per l'accesso Single Sign-On basato su SAML.
 
 Per configurare un'applicazione per WS-Federation, seguire le stesse linee guida per configurare l'applicazione per basato su SAML single sign-on, vedere [configurare SAML single sign-on basato](configure-single-sign-on-portal.md). Nel passaggio per configurare l'applicazione per usare Azure AD, è necessario sostituire l'URL di accesso di Azure AD per l'endpoint di WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+
+Per configurare un'applicazione in locale basato su SAML single sign-on, vedere [SAML single sign-on per applicazioni locali con il Proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Per altre informazioni sul protocollo SAML, vedere [Protocollo SAML per Single Sign-On](../develop/single-sign-on-saml-protocol.md).
 
@@ -188,8 +190,8 @@ Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundament
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Esercitazione per la configurazione dell'accesso single sign-on](configure-single-sign-on-portal.md)
-* [Introduzione alla gestione degli accessi alle applicazioni](what-is-access-management.md)
+* [Esercitazione per configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
+* [Introduzione alla gestione dell'accesso alle applicazioni](what-is-access-management.md)
 * Collegamento di download: [piano di distribuzione di Single Sign-On](https://aka.ms/SSODeploymentPlan).
 
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895789"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616272"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
@@ -28,10 +28,12 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Utilizzo generico| 8| 1250|
 |Utilizzo generico| 16| 2500|
 |Utilizzo generico| 32| 5000|
+|Utilizzo generico| 64| 10000|
 |Con ottimizzazione per la memoria| 2| 600|
 |Con ottimizzazione per la memoria| 4| 1250|
 |Con ottimizzazione per la memoria| 8| 2500|
 |Con ottimizzazione per la memoria| 16| 5000|
+|Con ottimizzazione per la memoria| 32| 10000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > ERROR 1040 (08004): Troppe connessioni

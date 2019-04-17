@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: e53a6fcefb0f5370f6e24cc50fad2ad4ad4c64e3
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57876245"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616629"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>Importanza del carico di lavoro di SQL Data Warehouse (anteprima)
 
 Questo articolo illustra come priorità del carico di lavoro possono influenzare l'ordine di esecuzione per le richieste di SQL Data Warehouse.
 
 > [!Note]
-> Importanza del carico di lavoro è disponibile in SQL Data Warehouse Gen2.
+> La classificazione del carico di lavoro è disponibile in anteprima in SQL Data Warehouse Gen2. Anteprima carico di lavoro gestione classificazione e priorità è per le compilazioni con una data di rilascio di 9 aprile 2019 o versione successiva.  Gli utenti consigliabile evitare di usare le compilazioni precedenti a tale data per il test di carico di lavoro gestione.  Per determinare se la compilazione è in grado di gestione del carico di lavoro, eseguire select @@version quando si è connessi all'istanza di SQL Data Warehouse.
 
 ## <a name="importance"></a>priorità
 
@@ -64,4 +64,4 @@ Poiché mediumrc (domanda 5), richiede due slot di concorrenza.  (Domanda 5) dev
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse, vedere [classificazione del carico di lavoro di SQL Data Warehouse](sql-data-warehouse-workload-classification.md) e [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md). Visualizzare [DM pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la priorità assegnata.
+Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse, vedere [classificazione del carico di lavoro di SQL Data Warehouse](sql-data-warehouse-workload-classification.md) e [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

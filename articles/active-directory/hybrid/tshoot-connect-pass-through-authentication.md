@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184891"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616209"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -72,11 +72,14 @@ Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di ammini
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
 
+>[!IMPORTANT]
+>Gli agenti di autenticazione pass-through autenticare gli utenti di Azure AD, convalidando i relativi nomi utente e password in Active Directory tramite la chiamata di [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stato impostato l'impostazione di "Accesso a" in Active Directory per limitare l'accesso di workstation logon, è necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco di "Accesso" To"anche un server. Se non si esegue questo bloccherà l'accesso in Azure AD degli utenti.
+
 ## <a name="authentication-agent-installation-issues"></a>Problemi di installazione dell'agente di autenticazione
 
 ### <a name="an-unexpected-error-occurred"></a>Si è verificato un errore imprevisto
 
-[Raccogliere i registri dell'agente](#collecting-pass-through-authentication-agent-logs) dal server e contattare il supporto tecnico Microsoft per risolvere il problema.
+[Raccogliere i log dell'agente](#collecting-pass-through-authentication-agent-logs) dal server e contattare il supporto tecnico Microsoft per risolvere il problema.
 
 ## <a name="authentication-agent-registration-issues"></a>Problemi di registrazione dell'agente di autenticazione
 
@@ -90,7 +93,7 @@ Assicurarsi di usare un account amministratore globale solo cloud per tutte le o
 
 ### <a name="an-unexpected-error-occurred"></a>Si è verificato un errore imprevisto
 
-[Raccogliere i registri dell'agente](#collecting-pass-through-authentication-agent-logs) dal server e contattare il supporto tecnico Microsoft per risolvere il problema.
+[Raccogliere i log dell'agente](#collecting-pass-through-authentication-agent-logs) dal server e contattare il supporto tecnico Microsoft per risolvere il problema.
 
 ## <a name="authentication-agent-uninstallation-issues"></a>Problemi di disinstallazione dell'agente di autenticazione
 

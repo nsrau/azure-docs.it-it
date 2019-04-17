@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670898"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545230"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -103,7 +103,7 @@ import os
 
 Creare un oggetto area di lavoro dall'area di lavoro esistente. Un'[area di lavoro](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia.
 
-`Workspace.from_config()` legge il file **aml_config/config.json** e carica i dettagli in un oggetto denominato `ws`.  `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
+`Workspace.from_config()` legge il file **config.json** e carica i dettagli in un oggetto denominato `ws`.  `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
 
 Dopo aver creato un oggetto dell'area di lavoro, specificare un nome per l'esperimento. Creare e registrare una directory locale con l'area di lavoro. La cronologia di tutte le esecuzioni viene registrata all'interno dell'esperimento specificato e nel [portale di Azure](https://portal.azure.com).
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 

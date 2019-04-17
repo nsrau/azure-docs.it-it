@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001711"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618125"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Avvio rapido: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
 Questa guida consente di configurare SAP HANA a istanza singola nelle macchine virtuali di Azure quando si installano manualmente SAP NetWeaver 7.5 e SAP HANA 1.0 SP12. L'argomento principale di questa guida è la distribuzione di SAP HANA in Azure. Questa guida non sostituisce la documentazione SAP. 
 
@@ -269,7 +269,7 @@ Prima di iniziare a installare SAP, assicurarsi di includere i nomi host e gli i
 
 ### <a name="the-etcfstab-file"></a>File /etc/fstab
 
-È utile aggiungere il parametro **nofail** nel file fstab. In questo modo, se si verificano problemi con i dischi, la macchina virtuale non si blocca nel processo di avvio. Ricordare tuttavia che è possibile che non sia disponibile spazio su disco aggiuntivo e che i processi occupino interamente il file system radice. Se /hana non è presente, SAP HANA non viene avviato.
+È utile aggiungere il parametro **nofail** nel file fstab. In questo modo, se si verificano problemi con i dischi della macchina virtuale non si blocca nel processo di avvio. Ricordare tuttavia che è possibile che non sia disponibile spazio su disco aggiuntivo e che i processi occupino interamente il file system radice. Se /hana non è presente, SAP HANA non viene avviato.
 
 ![Aggiungere il parametro nofail nel file fstab](./media/hana-get-started/image000c.jpg)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 6ac16651e2d49dd903ff994b18a8f571bd92fbf6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272360"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617445"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (Python)
 
@@ -115,6 +115,4 @@ Impostazioni attivazione/disattivazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come connettere Raspberry Pi all'applicazione Azure IoT Central, ecco i passaggi successivi consigliati:
-
-* [Connettere un'applicazione client Node. js generica per Azure IoT Central](howto-connect-nodejs.md)
+Ora che si è appreso come connettere Raspberry Pi all'applicazione Azure IoT Central, il passaggio successivo consigliato sia per informazioni su come [configurare un modello di dispositivo personalizzata](howto-set-up-template.md) per dispositivo IoT.

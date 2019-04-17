@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857998"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617379"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -142,7 +142,7 @@ Se si verifica uno di questi problemi, verificare quanto segue:
 
 -   Provare di nuovo il processo di acquisizione manuale, assicurarsi che gli indicatori rossi si trovino sui campi corretti.
 
--   Se il processo di acquisizione manuale sembra bloccarsi o nella pagina di accesso non esegue alcuna operazione (caso 3 precedente), provare a eseguirlo nuovamente. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. A questo punto, aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, che termina il processo di acquisizione e archivia i campi acquisiti.
+-   Se il processo di acquisizione manuale sembra bloccarsi o la pagina di accesso non esegue alcuna operazione (caso 3 precedente), riprovare il processo di acquisizione manuale. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. A questo punto, aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, che termina il processo di acquisizione e archivia i campi acquisiti.
 
 Se nessuno di questi approcci risolve il problema, rivolgersi al supporto Microsoft. Aprire una richiesta di assistenza con i dettagli delle azioni tentate, nonché le informazioni raccolte nelle sezioni [Come visualizzare i dettagli di una notifica del portale](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se applicabile).
 

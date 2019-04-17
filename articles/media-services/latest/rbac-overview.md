@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548526"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617717"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controllo di accesso basato sui ruoli (RBAC) per gli account di servizi multimediali
 
-Attualmente, servizi multimediali di Azure non è definito uno specifico di ruoli personalizzati per il servizio. I clienti possono usare i ruoli predefiniti del **Owner** oppure **collaboratore** per ottenere accesso completo a un account servizi multimediali. È la differenza principale tra questi ruoli: il **proprietario** possono controllare chi può accedere a una risorsa e il **collaboratore** non è possibile. L'account lettore predefinito ha solo accesso in lettura all'account di servizi multimediali. 
+Attualmente, servizi multimediali di Azure non definisce tutti i ruoli personalizzati specifici per il servizio. Per ottenere accesso completo all'account di servizi multimediali, i clienti possono usare i ruoli predefiniti del **Owner** oppure **collaboratore**. È la differenza principale tra questi ruoli: il **proprietario** possono controllare chi può accedere a una risorsa e il **collaboratore** non è possibile. L'oggetto incorporato **lettore** ruolo può anche essere usato, ma l'utente o applicazione disporrà solo accesso in lettura per le API servizi multimediali. 
 
 ## <a name="design-principles"></a>Principi di progettazione
 
-Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. API v3 non restituiscono i segreti o le credenziali sul **ottenere** oppure **elenco** operazioni. Le chiavi sono sempre Null, vuote o purificate dalla risposta. L'utente deve chiamare un metodo di azione separata per ottenere i segreti o le credenziali. Il **lettore** ruolo non è possibile chiamare le operazioni in modo che non è possibile chiamare operazioni come ContentKeyPolicies.GetPolicyPropertiesWithSecrets Asset.ListContainerSas, StreamingLocator.ListContentKeys,. Con azioni separate consente di impostare le autorizzazioni di sicurezza più granulari RBAC in un ruolo personalizzato, se lo si desidera.
+Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. API v3 non restituiscono i segreti o le credenziali sul **ottenere** oppure **elenco** operazioni. Le chiavi sono sempre Null, vuote o purificate dalla risposta. L'utente deve chiamare un metodo di azione separata per ottenere i segreti o le credenziali. Il **lettore** ruolo non è possibile chiamare operazioni come ContentKeyPolicies.GetPolicyPropertiesWithSecrets Asset.ListContainerSas, StreamingLocator.ListContentKeys,. Con azioni separate consente di impostare le autorizzazioni di sicurezza più granulari RBAC in un ruolo personalizzato, se lo si desidera.
 
 Per visualizzare un elenco di servizi multimediali supporta le operazioni, eseguire:
 

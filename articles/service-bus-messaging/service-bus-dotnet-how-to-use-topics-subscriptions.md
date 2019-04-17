@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766944"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608895"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766944"
 
 Questa esercitazione illustra i passaggi seguenti:
 
-1. Creare uno spazio dei nomi del bus di servizio usando il portale di Azure.
-2. Creare un argomento del bus di servizio usando il portale di Azure.
-3. Creare una sottoscrizione a tale argomento del bus di servizio usando il portale di Azure.
-4. Scrivere un'applicazione console .NET Core per inviare un set di messaggi all'argomento.
-5. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla sottoscrizione.
+1. Scrivere un'applicazione console .NET Core per inviare un set di messaggi all'argomento.
+2. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
-2. Una sottoscrizione di Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+    1. Creare un Bus di servizio **dello spazio dei nomi**.
+    2. Ottenere il **stringa di connessione**.
+    3. Creare un **argomento** nello spazio dei nomi.
+    4. Creare **una sottoscrizione** all'argomento nello spazio dei nomi.
+3. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
+ 
 ## <a name="send-messages-to-the-topic"></a>Inviare messaggi all'argomento
 
 Per inviare messaggi all'argomento, scrivere un'applicazione console C# usando Visual Studio.
@@ -204,7 +200,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
 
 ## <a name="receive-messages-from-the-subscription"></a>Ricevere messaggi dalla sottoscrizione
 
-Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft.Azure.ServiceBus**, come per l'applicazione mittente precedente.
+Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il **Microsoft.Azure.ServiceBus** pacchetto NuGet, come per l'applicazione mittente precedente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Scrivere il codice per ricevere messaggi dalla sottoscrizione
 
