@@ -2,7 +2,7 @@
 title: Gestione di eventi esterni in Funzioni permanenti - Azure
 description: Informazioni su come gestire gli eventi esterni nell'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e4b52f0a3ca5e924d9d41e38e51f0cba8b75690
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: eb024e11b78d13d5ab4544c634acef2ade8141c2
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885814"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608982"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
 

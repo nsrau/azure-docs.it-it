@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311883"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279382"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Resource Manager
 
@@ -126,14 +126,14 @@ Vedere la sezione [Distribuire il modello](./resource-manager-quickstart-create-
 
 Per elencare tutti e tre gli account di archiviazione, omettere il --parametro nome:
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,7 +155,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione. Nella prossima esercitazione verrà illustrato come spostare una risorsa da un gruppo di risorse a un altro.
+In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione.  Nell'esercitazione successiva verrà sviluppato un modello con più risorse e più tipi di risorse. alcune con risorse dipendenti.
 
 > [!div class="nextstepaction"]
-> [Spostare le risorse](./resource-manager-tutorial-move-resources.md)
+> [Creare le risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

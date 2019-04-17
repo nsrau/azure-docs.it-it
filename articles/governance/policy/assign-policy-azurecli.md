@@ -1,7 +1,6 @@
 ---
 title: Creare un criterio per le risorse non conformi con l'interfaccia della riga di comando di Azure
 description: Usare l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi nell'ambiente.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1f80171e8987f92688d564713e29fbfe2e103335
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342185"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283546"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 
@@ -117,7 +116,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 In questa Guida introduttiva è stata assegnata una definizione dei criteri per identificare le risorse non conformi nell'ambiente Azure.
 
-Per altre informazioni sull'assegnazione di criteri per convalidare che le nuove risorse siano conformi, continuare con l'esercitazione seguente:
+Per altre informazioni sull'assegnazione di criteri per convalidare la conformità delle nuove risorse, continuare con l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 > [Creazione e gestione dei criteri](./tutorials/create-and-manage.md)

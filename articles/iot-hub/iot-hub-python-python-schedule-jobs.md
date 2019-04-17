@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: fe7c44df57b54fe3a152f4d35a2144fed8413314
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540114"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608810"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Pianificare e trasmettere processi (Python)
 
@@ -31,6 +31,7 @@ Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene 
 Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
 * Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-python-twin-getstarted.md) e [esercitazione: Come usare le proprietà del dispositivo gemello](tutorial-device-twins.md)
+
 * Metodi diretti: [Guida per gli sviluppatori dell'IoT Hub - metodi diretti](iot-hub-devguide-direct-methods.md) e [esercitazione: metodi diretti](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -38,6 +39,7 @@ Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 Questa esercitazione illustra come:
 
 * Creare un'app per dispositivo simulato Python con un metodo diretto che abilita **lockDoor**, che può essere chiamato dal back-end della soluzione.
+
 * Creare un'app console Python che chiama il metodo diretto **lockDoor** nell'app per dispositivo simulato tramite un processo e aggiorna le proprietà desiderate tramite un processo del dispositivo.
 
 Al termine di questa esercitazione si hanno due app Python:
@@ -49,13 +51,14 @@ Al termine di questa esercitazione si hanno due app Python:
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
+
 * Se si usa il sistema operativo Windows, usare il [pacchetto ridistribuibile di Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native da Python.
+
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 > [!NOTE]
 > **Azure IoT SDK per Python** non supporta direttamente la funzionalità **Processi**. Questa esercitazione offre invece una soluzione alternativa tramite l'uso dii timer e thread asincroni. Per altri aggiornamenti, vedere l'elenco delle funzionalità **Service Client SDK** nella pagina [Azure IoT SDK per Python](https://github.com/Azure/azure-iot-sdk-python). 
-> 
-> 
+>
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -70,18 +73,19 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
+
 In questa sezione viene creata un'applicazione console Python che risponde a un metodo chiamato dal cloud, che attiva un metodo **lockDoor** simulato.
 
 1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **azure-iot-device-client**:
-   
+
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Usando un editor di testo, creare un nuovo file **simDevice.py** nella directory di lavoro.
+2. Usando un editor di testo, creare un nuovo file **simDevice.py** nella directory di lavoro.
 
-1. Aggiungere le variabili e le istruzioni `import` seguenti all'inizio del file **simDevice.py**. Sostituire `deviceConnectionString` con la stringa di connessione del dispositivo creato in precedenza:
-   
+3. Aggiungere le variabili e le istruzioni `import` seguenti all'inizio del file **simDevice.py**. Sostituire `deviceConnectionString` con la stringa di connessione del dispositivo creato in precedenza:
+
     ```python
     import time
     import sys
@@ -98,8 +102,8 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Aggiungere il callback della funzione seguente per gestire il metodo **lockDoor**:
-   
+4. Aggiungere il callback della funzione seguente per gestire il metodo **lockDoor**:
+
     ```python
     def device_method_callback(method_name, payload, user_context):
         if method_name == "lockDoor":
@@ -111,7 +115,7 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
             return device_method_return_value
     ```
 
-1. Aggiungere un altro callback della funzione per gestire gli aggiornamenti dei dispositivi gemelli:
+5. Aggiungere un altro callback della funzione per gestire gli aggiornamenti dei dispositivi gemelli:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -120,8 +124,8 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
         print ( "payload: %s" % payload )
     ```
 
-1. Aggiungere il codice seguente per registrare il gestore per il metodo **lockDoor**. Includere anche la routine `main`:
-   
+6. Aggiungere il codice seguente per registrare il gestore per il metodo **lockDoor**. Includere anche la routine `main`:
+
     ```python
     def iothub_jobs_sample_run():
         try:
@@ -132,13 +136,13 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
             print ( "Direct method initialized." )
             print ( "Device twin callback initialized." )
             print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
-        
+
             while True:
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     time.sleep(10)
                     status_counter += 1
-            
+
         except IoTHubError as iothub_error:
             print ( "Unexpected error %s from IoTHub" % iothub_error )
             return
@@ -153,27 +157,26 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
         iothub_jobs_sample_run()
     ```
 
-1. Salvare e chiudere il file **simDevice.py**.
+7. Salvare e chiudere il file **simDevice.py**.
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
-> 
-> 
-
+>
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Pianificare i processi per chiamare un metodo diretto e aggiornare le proprietà dei dispositivi gemelli
+
 In questa sezione si creerà un'app console Python che avvia un **lockDoor** remoto su un dispositivo usando un metodo diretto e verranno aggiornate le proprietà del dispositivo gemello.
 
 1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **azure-iot-service-client**:
-   
+
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. Usando un editor di testo, creare un nuovo file **scheduleJobService.py** nella directory di lavoro.
+2. Usando un editor di testo, creare un nuovo file **scheduleJobService.py** nella directory di lavoro.
 
-1. Aggiungere le variabili e le istruzioni `import` seguenti all'inizio del file **scheduleJobService.py**:
-   
+3. Aggiungere le variabili e le istruzioni `import` seguenti all'inizio del file **scheduleJobService.py**:
+
     ```python
     import sys
     import time
@@ -194,15 +197,15 @@ In questa sezione si creerà un'app console Python che avvia un **lockDoor** rem
     WAIT_COUNT = 5
     ```
 
-1. Aggiungere la funzione seguente che viene usata per eseguire query per i dispositivi:
-   
+4. Aggiungere la funzione seguente che viene usata per eseguire query per i dispositivi:
+
     ```python
     def query_condition(device_id):
         iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
-    
+
         number_of_devices = 10
         dev_list = iothub_registry_manager.get_device_list(number_of_devices)
-    
+
         for device in range(0, number_of_devices):
             if dev_list[device].deviceId == device_id:
                 return 1
@@ -211,68 +214,68 @@ In questa sezione si creerà un'app console Python che avvia un **lockDoor** rem
         return 0
     ```
 
-1. Aggiungere i seguenti metodi per eseguire i processi che chiamano il metodo diretto e il dispositivo gemello:
-   
+5. Aggiungere i seguenti metodi per eseguire i processi che chiamano il metodo diretto e il dispositivo gemello:
+
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
         print ( "" )
         print ( "Scheduling job: " + str(job_id) )
         time.sleep(wait_time)
-    
+
         if query_condition(device_id):
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-    
+
             response = iothub_device_method.invoke(device_id, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
-        
+
             print ( "" )
             print ( "Direct method " + METHOD_NAME + " called." )
-        
+
     def device_twin_job(job_id, device_id, wait_time, execution_time):
         print ( "" )
         print ( "Scheduling job " + str(job_id) )
         time.sleep(wait_time)
-    
+
         if query_condition(device_id):
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
-    
+
             twin_info = iothub_twin_method.update_twin(DEVICE_ID, UPDATE_JSON)
-        
+
             print ( "" )
             print ( "Device twin updated." )
     ```
 
-1. Aggiungere il codice seguente per pianificare i processi e aggiornare lo stato del dispositivo. Includere anche la routine `main`:
-   
+6. Aggiungere il codice seguente per pianificare i processi e aggiornare lo stato del dispositivo. Includere anche la routine `main`:
+
     ```python
     def iothub_jobs_sample_run():
         try:
             method_thr_id = uuid.uuid4()
             method_thr = threading.Thread(target=device_method_job, args=(method_thr_id, DEVICE_ID, 20, TIMEOUT), kwargs={})
             method_thr.start()
-        
+
             print ( "" )
             print ( "Direct method called with Job Id: " + str(method_thr_id) )
-        
+
             twin_thr_id = uuid.uuid4()
             twin_thr = threading.Thread(target=device_twin_job, args=(twin_thr_id, DEVICE_ID, 10, TIMEOUT), kwargs={})
             twin_thr.start()
-        
+
             print ( "" )
             print ( "Device twin called with Job Id: " + str(twin_thr_id) )
-        
+
             while True:
                 print ( "" )
-            
+
                 if method_thr.is_alive():
                     print ( "...job " + str(method_thr_id) + " still running." )
                 else:
                     print ( "...job " + str(method_thr_id) + " complete." )
-            
+
                 if twin_thr.is_alive():
                     print ( "...job " + str(twin_thr_id) + " still running." )
                 else:
                     print ( "...job " + str(twin_thr_id) + " complete." )
-                
+
                 print ( "Job status posted, press Ctrl-C to exit" )
 
                 status_counter = 0
@@ -296,36 +299,32 @@ In questa sezione si creerà un'app console Python che avvia un **lockDoor** rem
         iothub_jobs_sample_run()
     ```
 
-1. Salvare e chiudere il file **scheduleJobService.py**.
-
+7. Salvare e chiudere il file **scheduleJobService.py**.
 
 ## <a name="run-the-applications"></a>Eseguire le applicazioni
+
 A questo punto è possibile eseguire le applicazioni.
 
 1. Al prompt dei comandi, eseguire il comando riportato di seguito nella directory di lavoro per iniziare l'ascolto del metodo diretto di riavvio:
-   
+
     ```cmd/sh
     python simDevice.py
     ```
 
-1. Al prompt dei comandi successivo, eseguire il comando riportato di seguito nella directory di lavoro per attivare i processi per bloccare la porta e aggiornare il dispositivo gemello:
-   
+2. Al prompt dei comandi successivo, eseguire il comando riportato di seguito nella directory di lavoro per attivare i processi per bloccare la porta e aggiornare il dispositivo gemello:
+  
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-1. Nella console vengono visualizzate le risposte del dispositivo al metodo diretto e l'aggiornamento dei dispositivi gemelli.
+3. Nella console vengono visualizzate le risposte del dispositivo al metodo diretto e l'aggiornamento dei dispositivi gemelli.
 
-    ![output dispositivo][1]
+    ![Esempio di IoT Hub Job 1--output dispositivo](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![output servizio][2]
-
+    ![IoT Hub Job esempio 2: dispositivo di output](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
 Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, vedere [come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
-
-<!-- images -->
-[1]: ./media/iot-hub-python-python-schedule-jobs/1.png
-[2]: ./media/iot-hub-python-python-schedule-jobs/2.png

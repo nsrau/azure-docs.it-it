@@ -1,19 +1,18 @@
 ---
 title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/06/2019
+ms.date: 03/29/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802323"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269289"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Panoramica del servizio Azure Resource Graph
 
@@ -32,7 +31,7 @@ In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato
 
 Attualmente, Azure Resource Manager invia i dati a una cache risorse limitata che rende disponibili diversi campi di risorse, in particolare il nome della risorsa, l'ID, il tipo, il gruppo di risorse, le sottoscrizioni e la posizione. In precedenza per usare varie proprietà delle risorse era necessario effettuare chiamate a ogni singolo provider di risorse e richiedere i dettagli delle proprietà per ogni risorsa.
 
-Con Azure Resource Graph, è possibile accedere a queste proprietà restituite dai provider di risorse senza la necessità di effettuare chiamate singole per ogni provider di risorse.
+Con Azure Resource Graph, è possibile accedere a queste proprietà restituite dai provider di risorse senza la necessità di effettuare chiamate singole per ogni provider di risorse. Per un elenco dei tipi di risorsa supportati, cercare un **Sì** nella tabella [Risorse per le distribuzioni in modalità completa](../../azure-resource-manager/complete-mode-deletion.md).
 
 ## <a name="the-query-language"></a>Il linguaggio di query
 
@@ -45,6 +44,9 @@ In primo luogo, per informazioni dettagliate sulle operazioni e le funzioni che 
 ## <a name="permissions-in-azure-resource-graph"></a>Autorizzazioni in Azure Resource Graph
 
 Per usare Resource Graph, è necessario avere i diritti appropriati nel [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) con almeno l'accesso in lettura alle risorse su cui eseguire le query. Senza almeno le autorizzazioni `read` per l'oggetto o il gruppo di oggetti di Azure, non verranno restituiti risultati.
+
+> [!NOTE]
+> Resource Graph usa le sottoscrizioni disponibili a un'entità di sicurezza durante l'accesso. Per visualizzare le risorse di una nuova sottoscrizione aggiunta durante una sessione attiva, l'entità deve aggiornare il contesto. Questa azione viene eseguita automaticamente quando ci si disconnette e si accede nuovamente.
 
 ## <a name="throttling"></a>Limitazione
 

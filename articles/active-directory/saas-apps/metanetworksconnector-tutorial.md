@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aa0d7828534c96d9bda85e80fb297c848cec6845
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887027"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: integrazione di Azure Active Directory con Meta Networks Connector
 
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Meta Networks Connector in Azure AD, è necessario aggiungere Meta Networks Connector dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Meta Networks Connector dalla raccolta, completare i passaggi seguenti:**
+**Per aggiungere Meta Networks Connector dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornare tali valori con i valori reali di identificatore, URL di risposta e URL di accesso. La procedura viene descritta più avanti nell'esercitazione.

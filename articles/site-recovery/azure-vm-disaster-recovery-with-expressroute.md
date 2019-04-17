@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272768"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618088"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -93,7 +93,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 - **Rete virtuale dell'hub**. È presente la rete virtuale hub **Source Hub vNet**: 10.10.10.0/24.
   - Questa rete virtuale hub opera come gatekeeper.
   - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
-    - ****Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
+    - **Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
     - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
@@ -104,7 +104,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direzione** | **Impostazione** | **Stato**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
 Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
 Da spoke a hub | Consenti traffico inoltrato | Attivato
@@ -115,7 +115,7 @@ Da spoke a hub | Usa gateway remoti | Attivato
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direzione** | **Impostazione** | **Stato**
+**Direzione** | **Impostazione** | **State**
 --- | --- | ---
 Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
 Da hub a spoke | Consenti traffico inoltrato | Attivato
