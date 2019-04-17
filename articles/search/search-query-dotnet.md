@@ -9,14 +9,14 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287010"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264948"
 ---
-# <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Avvio rapido: 3 - Eseguire query in un indice di Ricerca di Azure in C#
+# <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Guida introduttiva: 3 - Eseguire query in un indice di Ricerca di Azure in C#
 
 Questo articolo illustra come eseguire query in un [indice di Ricerca di Azure](search-what-is-an-index.md) usando C# e [.NET SDK](https://aka.ms/search-sdk). Per eseguire ricerche di documenti nell'indice, eseguire le attività seguenti:
 
@@ -157,4 +157,4 @@ Il codice di esempio precedente usa la console per restituire i risultati della 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, esaminare il codice di esempio di [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) in GitHub, oltre a leggere l'articolo su [come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md) per una descrizione più dettagliata del codice di esempio. 
+Se non è già stato fatto, esaminare il codice di esempio di [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) in GitHub, oltre a vedere l'articolo su [come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md) per una descrizione più dettagliata del codice di esempio. 

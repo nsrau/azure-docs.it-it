@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/24/2018
+ms.date: 04/09/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af30568d3ab35b35d2a0e0bef00921debb1ea451
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b15842d7157e8e5a691f37f846dd424bf308eae3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917805"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565185"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory
 
@@ -44,27 +44,27 @@ Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-2. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
+1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
 
     ![Aprire Applicazioni aziendali](media/add-application-portal/open-enterprise-apps.png)
 
-3. Verrà visualizzato il riquadro **Tutte le applicazioni**, contenente un campione casuale delle applicazioni nel tenant di Azure AD. Selezionare **Nuova applicazione** nella parte superiore del riquadro **Tutte le applicazioni**.
+1. Verrà visualizzato il riquadro **Tutte le applicazioni**, contenente un campione casuale delle applicazioni nel tenant di Azure AD. Selezionare **Nuova applicazione** nella parte superiore del riquadro **Tutte le applicazioni**.
 
     ![Nuova applicazione](media/add-application-portal/new-application.png)
 
-4. Nell'area **Applicazioni in primo piano** del riquadro **Categorie** sono visualizzate icone che sono un campione casuale delle applicazioni presenti nella raccolta.  Per visualizzare altre applicazioni, è possibile selezionare **Mostra altro**. Non è però consigliabile eseguire la ricerca in questo modo, perché nella raccolta sono presenti migliaia di applicazioni.
+1. Nell'area **Applicazioni in primo piano** del riquadro **Categorie** sono visualizzate icone che sono un campione casuale delle applicazioni presenti nella raccolta.  Per visualizzare altre applicazioni, è possibile selezionare **Mostra altro**. Non è però consigliabile eseguire la ricerca in questo modo, perché nella raccolta sono presenti migliaia di applicazioni.
 
     ![Ricerca per nome o categoria](media/add-application-portal/categories.png)
 
-5. Per cercare un'applicazione, immettere il nome dell'applicazione che si vuole aggiungere in **Aggiungi dalla raccolta**. Selezionare l'applicazione nei risultati e fare clic su **Aggiungi**. L'esempio seguente mostra il modulo **Aggiungi app** visualizzato dopo la ricerca di GitHub.com.
+1. Per cercare un'applicazione, immettere il nome dell'applicazione che si vuole aggiungere in **Aggiungi dalla raccolta**. Selezionare l'applicazione nei risultati e fare clic su **Aggiungi**. L'esempio seguente mostra il modulo **Aggiungi app** visualizzato dopo la ricerca di GitHub.com.
 
     ![Aggiungere un'applicazione](media/add-application-portal/add-an-application.png)
 
-6. Nel modulo specifico dell'applicazione è possibile modificare le informazioni delle proprietà. Ad esempio, si può modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. In questo esempio viene usato il nome **GitHub-test**.
+1. Nel modulo specifico dell'applicazione è possibile modificare le informazioni delle proprietà. Ad esempio, si può modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. In questo esempio viene usato il nome **GitHub-test**.
 
-7. Dopo aver apportato le modifiche alle proprietà, selezionare **Aggiungi**.
+1. Dopo aver apportato le modifiche alle proprietà, selezionare **Aggiungi**.
 
-8. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
+1. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
 
 L'aggiunta dell'applicazione è completata. È ora possibile fare una pausa. Le sezioni successive illustreranno come modificare il logo e altre proprietà dell'applicazione.
 
@@ -74,13 +74,13 @@ Si supponga di aver dovuto interrompere e di riprendere ora la configurazione de
 
 1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-2. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
+1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
 
-3. Nel menu a discesa **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**. Per altre informazioni sulle opzioni di visualizzazione, vedere [Visualizzare le applicazioni del tenant](view-applications-portal.md).
+1. Nel menu a discesa **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**. Per altre informazioni sulle opzioni di visualizzazione, vedere [Visualizzare le applicazioni del tenant](view-applications-portal.md).
 
-4. Verrà visualizzato un elenco di tutte le applicazioni nel tenant di Azure AD. L'elenco è un campione casuale. Per visualizzare altre applicazioni, selezionare **Mostra altro** una o più volte.
+1. Verrà visualizzato un elenco di tutte le applicazioni nel tenant di Azure AD. L'elenco è un campione casuale. Per visualizzare altre applicazioni, selezionare **Mostra altro** una o più volte.
 
-5. Per trovare rapidamente un'applicazione nel tenant, immettere il nome dell'applicazione nella casella di ricerca e selezionare **Applica**. In questo esempio viene trovata l'applicazione GitHub-test aggiunta in precedenza.
+1. Per trovare rapidamente un'applicazione nel tenant, immettere il nome dell'applicazione nella casella di ricerca e selezionare **Applica**. In questo esempio viene trovata l'applicazione GitHub-test aggiunta in precedenza.
 
     ![Cercare un'applicazione](media/add-application-portal/find-application.png)
 
@@ -92,17 +92,17 @@ Dopo aver trovato l'applicazione, è possibile aprirla e configurarne le proprie
 Per modificare le proprietà dell'applicazione:
 
 1. Selezionare l'applicazione per aprirla.
-2. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
+1. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
 
     ![Riquadro Modifica proprietà](media/add-application-portal/edit-properties.png)
 
-3. Esaminare le opzioni di accesso. Le opzioni determinano la modalità di accesso all'applicazione per gli utenti assegnati o non assegnati all'applicazione, nonché se un utente può visualizzare l'applicazione nel pannello di accesso.
+1. Esaminare le opzioni di accesso. Le opzioni determinano la modalità di accesso all'applicazione per gli utenti assegnati o non assegnati all'applicazione, nonché se un utente può visualizzare l'applicazione nel pannello di accesso.
 
     - **Abilitata per l'accesso degli utenti** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
     - **Visibile agli utenti** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365.
 
-4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
+1. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
 
    - Comportamento per gli utenti **assegnati**:
 
@@ -139,10 +139,10 @@ Per modificare le proprietà dell'applicazione:
 Per usare un logo personalizzato:
 
 1. Creare un logo di 215x215 pixel e salvarlo in formato PNG.
-2. Dal momento che l'applicazione è già stata trovata, fare clic su di essa.
-2. Nel riquadro di sinistra selezionare **Proprietà**.
-4. Caricare il logo.
-5. Al termine, fare clic su **Salva**.
+1. Dal momento che l'applicazione è già stata trovata, fare clic su di essa.
+1. Nel riquadro di sinistra selezionare **Proprietà**.
+1. Caricare il logo.
+1. Al termine, fare clic su **Salva**.
 
     ![Modificare il logo](media/add-application-portal/change-logo.png)
 
@@ -154,6 +154,6 @@ In questa guida introduttiva si è appreso come aggiungere un'applicazione della
 È ora possibile configurare l'applicazione per l'accesso Single Sign-On.
 
 > [!div class="nextstepaction"]
-> [Configura accesso Single Sign-On](configure-single-sign-on-portal.md)
+> [Configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
 
 

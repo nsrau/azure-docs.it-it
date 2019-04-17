@@ -2,7 +2,7 @@
 title: Modelli di funzioni durevoli e concetti tecnici in funzioni di Azure
 description: Informazioni su come l'estensione funzioni permanenti di funzioni di Azure offre i vantaggi con stato di esecuzione del codice nel cloud.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892756"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608732"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Modelli di funzioni durevoli e concetti tecnici (funzioni di Azure)
 
@@ -60,7 +60,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 > [!NOTE]
 > Esistono differenze minime tra la scrittura di una funzione permanente precompilata C# e la scrittura di una funzione permanente precompilata di C# script che viene visualizzato nell'esempio. In un C# funzione precompilati o meno parametri durevoli devono essere decorati con i rispettivi attributi. Un esempio è il `[OrchestrationTrigger]` dell'attributo per il `DurableOrchestrationContext` parametro. In un C# precompilato funzione permanente, se i parametri non sono decorati in modo corretto, il runtime non è possibile inserire le variabili nella funzione e si verifica un errore. Per altri esempi, vedere la [azure-functions-durable-extension esempi in GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -113,7 +113,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -199,7 +199,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -333,7 +333,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587158"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608876"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
 
@@ -35,9 +35,12 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 
 Per altre informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>Prerequisiti
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Node. js** in questa Guida introduttiva. 
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell o Sito Web con WebMatrix.

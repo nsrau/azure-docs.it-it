@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350913"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563371"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Esempio: Come chiamare l'API Visione artificiale
 
@@ -167,13 +167,13 @@ Ad esempio:
 
 Campo | Type | Content
 ------|------|------|
-Tag  | object | Oggetto di primo livello per la matrice di tag
-tags[].Name | stringa    | Parola chiave dal classificatore tags
-tags[].Score    | number    | Punteggio di attendibilità compreso tra 0 e 1.
-description  | object   | Oggetto di primo livello per una descrizione.
-description.tags[] |    stringa  | Elenco di tag.  Se l'attendibilità della capacità di produrre una didascalia non è sufficiente, i tag potrebbero essere l'unica informazione disponibile per il chiamante.
-description.captions[].text | stringa    | Frase che descrive l'immagine.
-description.captions[].confidence   | number    | Attendibilità per la frase.
+Tag  | `object` | Oggetto di primo livello per la matrice di tag
+tags[].Name | `string`  | Parola chiave dal classificatore tags
+tags[].Score    | `number`  | Punteggio di attendibilità compreso tra 0 e 1.
+description  | `object` | Oggetto di primo livello per una descrizione.
+description.tags[] |    `string`    | Elenco di tag.  Se l'attendibilità della capacità di produrre una didascalia non è sufficiente, i tag potrebbero essere l'unica informazione disponibile per il chiamante.
+description.captions[].text | `string`  | Frase che descrive l'immagine.
+description.captions[].confidence   | `number`  | Attendibilità per la frase.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperare e interpretare l'output JSON per i modelli specifici del dominio
 
@@ -229,10 +229,10 @@ Il campo categories è un elenco di una o più delle [86 categorie](../Category-
 
 Campo   | Type  | Content
 ------|------|------|
-Categorie | object | Oggetto di primo livello
-categories[].name    | stringa   | Nome dalla tassonomia di 86 categorie
-categories[].score  | number    | Punteggio di attendibilità compreso tra 0 e 1
-categories[].detail  | object?      | Oggetto dettaglio facoltativo
+Categorie | `object`   | Oggetto di primo livello
+categories[].name    | `string` | Nome dalla tassonomia di 86 categorie
+categories[].score  | `number`  | Punteggio di attendibilità compreso tra 0 e 1
+categories[].detail  | `object?`      | Oggetto dettaglio facoltativo
 
 Si noti che in caso di corrispondenza di più categorie (ad esempio, il classificatore delle 86 categorie restituisce un punteggio sia per people_ che per people_young quando model=celebrities), i dettagli vengono associati alla corrispondenza di livello più generale (people_ in questo esempio).
 

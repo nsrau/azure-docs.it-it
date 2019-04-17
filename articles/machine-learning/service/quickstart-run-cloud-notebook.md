@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 761ecefa768914e0c27f46d37050743e4f1f60ff
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362358"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358211"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
@@ -115,4 +115,4 @@ Sono state create le risorse necessarie per provare a usare e distribuire modell
 Per un'esperienza approfondita del flusso di lavoro, seguire le esercitazioni di Machine Learning riguardanti il training e la distribuzione di un modello:  
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Eseguire il training di un modello per la classificazione di immagini](tutorial-train-models-with-aml.md)
+> [Esercitazione: Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md)

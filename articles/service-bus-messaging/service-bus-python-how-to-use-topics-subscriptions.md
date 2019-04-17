@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351661"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607076"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure SDK per Python][Azure Python package]. Gli scenari presentati includono **la creazione di argomenti e sottoscrizioni**, **la creazione di filtri per le sottoscrizioni**, **l'invio di messaggi a un argomento**, **la ricezione di messaggi da una sottoscrizione** e **l'eliminazione di argomenti e sottoscrizioni**. Per altre informazioni sugli argomenti e sulle sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure SDK per Python][Azure Python package]. Gli scenari trattati includono:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Creazione di argomenti e sottoscrizioni 
+- Creazione di filtri di sottoscrizione 
+- Invio di messaggi a un argomento 
+- Ricezione di messaggi da una sottoscrizione
+- Eliminazione di argomenti e sottoscrizioni
 
-> [!NOTE] 
-> Se è necessario installare Python o il [pacchetto Azure per Python][Azure Python package], vedere la [guida all'installazione di Python](../python-how-to-install.md).
+## <a name="prerequisites"></a>Prerequisiti
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Python** in questa Guida introduttiva. 
+3. Installare [pacchetto Azure per Python][Azure Python package]. Vedere le [Guida all'installazione di Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Creare un argomento
 

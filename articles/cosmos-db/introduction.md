@@ -1,17 +1,17 @@
 ---
 title: Introduzione ad Azure Cosmos DB
 description: Informazioni su Azure Cosmos DB. Questo database multimodello distribuito a livello globale è pensato per garantire bassa latenza, scalabilità elastica, disponibilità elevata e offre il supporto nativo per i dati NoSQL.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294366"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280945"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 È possibile [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno.
 
 > [!div class="nextstepaction"]
-> [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+> [Provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
 ![Azure Cosmos DB è il servizio di database Microsoft distribuito a livello globale con scalabilità orizzontale elastica, bassa latenza garantita, cinque modelli di coerenza e contratti di servizio completi garantiti.](./media/introduction/azure-cosmos-db.png)
 
@@ -98,10 +98,10 @@ Altre informazioni sui concetti di base di Cosmos DB per la [distribuzione globa
 Per un'introduzione ad Azure Cosmos DB, fare riferimento alle guide introduttive seguenti:
 
 * [Introduzione all'API SQL di Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Come iniziare a usare l'API di Azure Cosmos DB per MongoDB](create-mongodb-nodejs.md)
+* [Introduzione all'API di Azure Cosmos DB per MongoDB](create-mongodb-nodejs.md)
 * [Introduzione all'API Cassandra di Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introduzione all'API Gremlin di Azure Cosmos DB](create-graph-dotnet.md)
-* [Introduzione all'API Tabelle di Azure Cosmos DB](create-table-dotnet.md)
+* [Introduzione all'API Tabella di Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)

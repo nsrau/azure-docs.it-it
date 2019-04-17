@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65badda86fa29dc68f2eef1e9c0883dc8b40107a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852893"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con GitHub
 
@@ -67,7 +67,7 @@ Per configurare l'integrazione di GitHub in Azure AD, è necessario aggiungere G
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **GitHub**, selezionare **GitHub** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **GitHub**, selezionare **GitHub.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![GitHub nell'elenco risultati](common/search-new-app.png)
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con GitHub, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di GitHub](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://github.com/orgs/<entity-id>/sso`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://github.com/orgs/<entity-id>/sso`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://github.com/orgs/<entity-id>`
 
@@ -220,7 +220,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-github-test-user"></a>Creare l'utente di test di GitHub
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](github-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](github-provisioning-tutorial.md).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 

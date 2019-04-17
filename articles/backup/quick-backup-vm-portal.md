@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535179"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275499"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Eseguire il backup di una macchina virtuale in Azure
 È possibile creare backup di Azure tramite il portale di Azure. Questo metodo offre un'interfaccia utente basata su browser per la creazione e la configurazione dei backup di Azure e di tutte le risorse correlate. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) con il portale di Azure. 

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470016"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491475"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Esercitazione sulla progettazione con Unreal/Wwise in Progetto Acustica
 Questa esercitazione descrive il flusso di lavoro e la configurazione della progettazione per Progetto Acustica in Unreal e Wwise.

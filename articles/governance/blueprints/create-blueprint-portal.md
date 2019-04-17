@@ -1,7 +1,6 @@
 ---
 title: Creare un progetto nel portale
 description: Usare Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
@@ -9,16 +8,16 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804395"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260664"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
+# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definire e assegnare un progetto nel portale
 
-Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
+Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto e aggiungere diversi elementi supportati
@@ -32,37 +31,73 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
-Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. In questo esempio si creerà un nuovo progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione, aggiungere un nuovo gruppo di risorse e creare un modello di Resource Manager e un'assegnazione di ruolo nel nuovo gruppo di risorse.
+Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. In questo esempio verrà creato un nuovo progetto denominato **MyBlueprint** per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verrà quindi aggiunto un nuovo gruppo di risorse e creato un modello di Resource Manager e un'assegnazione di ruolo nel nuovo gruppo di risorse.
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **Definizioni di progetto** nella pagina a sinistra e fare clic sul pulsante **+ Crea progetto** nella parte superiore della pagina.
+1. Selezionare **Definizioni di progetto** nella pagina a sinistra e quindi il pulsante **+ Crea progetto** nella parte superiore della pagina.
 
-   - In alternativa, fare clic su **Crea** nella pagina **Attività iniziali** per passare direttamente alla creazione di un progetto.
+   Selezionare **Crea** nella pagina **Attività iniziali** per passare direttamente alla creazione di un progetto.
 
-   ![Crea progetto nella pagina di definizioni del progetto](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Creare un progetto nella pagina Definizioni di progetto](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**. Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
+1. Indicare un **Nome progetto**, ad esempio **MyBlueprint**. Usare fino a 48 lettere e numeri, senza spazi o caratteri speciali. Per il momento, lasciare vuota la **Descrizione del progetto**. 
+   
+1. Nella casella **Località della definizione** selezionare i puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e scegliere **Seleziona**.
 
-1. Verificare che le informazioni siano corrette (i campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente) e fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
+1. Verificare che le informazioni siano corrette. I campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente. Selezionare quindi **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Verrà visualizzata la finestra "Aggiungi elemento" sul lato destro del browser. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Collaboratore" e lasciare il campo _Aggiungi utente, app o gruppo_ con la casella di controllo che indica un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di ruolo al livello di sottoscrizione: 
 
-   ![Artefatto del progetto - Assegnazione di ruolo](./media/create-blueprint-portal/add-role-assignment.png)
+   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**. Si aprirà la finestra **Aggiungi artefatto** sul lato destro del browser. 
+   
+   b. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**. 
+   
+   c. In **Ruolo** selezionare **Collaboratore**. Per la casella **Aggiungi utente, app o gruppo** lasciare la casella di controllo che indica un parametro dinamico. 
+   
+   d. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+
+   ![Assegnazione di ruolo per un artefatto del progetto](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > La maggior parte degli _elementi_ supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un **parametro statico**. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un **parametro dinamico**. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
+   > La maggior parte degli artefatti supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un *parametro statico*. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un *parametro dinamico*. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
 
-1. Aggiungere un'assegnazione di criteri alla sottoscrizione: Fare clic sulla riga **+ Aggiungi artefatto** sotto l'artefatto dell'assegnazione di ruolo. Selezionare "Assegnazione criteri" per _Tipo di elemento_. Modificare il valore di _Tipo_ in "Predefinito" e in _Cerca_ immettere "tag". Fare clic al di fuori di _Cerca_ per applicare il filtro. Selezionare "Applica tag e relativo valore predefinito ai gruppi di risorse". Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di criteri al livello di sottoscrizione: 
 
-1. Fare clic nella riga dell'assegnazione di criteri "Applica tag e relativo valore predefinito ai gruppi di risorse". Viene visualizzata la finestra per fornire i parametri per l'elemento come parte della definizione del progetto, in cui è possibile impostare i parametri per tutte le assegnazioni (**parametri statici**) in base a questo progetto anziché durante l'assegnazione (**parametri dinamici**). Poiché ai fini di questo esempio vengono usati **parametri dinamici** durante l'assegnazione del progetto, lasciare le impostazioni predefinite e fare clic su **Annulla**.
+   a. Selezionare **+ Aggiungi artefatto** sotto l'artefatto dell'assegnazione di ruolo. 
+   
+   b. Selezionare **Assegnazione criteri** per **Tipo di artefatto**. 
+   
+   c. Modificare **Tipo** in **Predefinito**. In **Ricerca** immettere **tag**. 
+   
+   d. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Applica tag e relativo valore predefinito ai gruppi di risorse**. 
+   
+   e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-1. Aggiungere un gruppo di risorse alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Selezionare "Gruppo di risorse" per _Tipo di elemento_. Lasciare vuoti i campi _Nome visualizzato dell'artefatto_, _Nome gruppo di risorse_ e _Località_, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà di parametro in modo che i parametri siano **parametri dinamici**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Selezionare la riga dell'assegnazione di criteri **Applica tag e relativo valore predefinito ai gruppi di risorse**. 
 
-1. Aggiungere un modello nel gruppo di risorse: fare clic su **+ Aggiungi artefatto...** sotto la voce **Gruppo di risorse**. Selezionare "Modello di Azure Resource Manager" per _Tipo di elemento_, impostare _Nome visualizzato dell'artefatto_ su "Account di archiviazione" e lasciare vuoto il campo _Descrizione_. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come **parametro dinamico**. Rimuovere il segno di spunta dalla casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Viene visualizzata la finestra per fornire i parametri per l'artefatto come parte della definizione del progetto, in cui è possibile impostare i parametri per tutte le assegnazioni (parametri statici) in base a questo progetto anziché durante l'assegnazione (parametri dinamici). Dal momento che ai fini di questo esempio vengono usati parametri dinamici durante l'assegnazione del progetto, lasciare le impostazioni predefinite e selezionare **Annulla**.
 
+1. Aggiungere un gruppo di risorse al livello di sottoscrizione: 
+
+   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**. 
+   
+   b. Selezionare **Gruppo di risorse** per **Tipo di artefatto**. 
+   
+   c. Lasciare vuote le caselle **Nome visualizzato dell'artefatto**, **Nome gruppo di risorse** e **Località**, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà di parametro in modo che i parametri siano parametri dinamici. 
+   
+   d. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+
+1. Aggiungere un modello nel gruppo di risorse: 
+
+   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Gruppo di risorse**. 
+   
+   b. Selezionare **Modello di Azure Resource Manager** per **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**. 
+   
+   c. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come parametro dinamico. 
+   
    > [!IMPORTANT]
-   > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver fatto clic su **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
+   > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver selezionato **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
 
    ```json
    {
@@ -113,13 +148,17 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
    }
    ```
 
-   ![Artefatto del progetto - Modello di Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   d. Deselezionare la casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un parametro dinamico. 
+   
+   e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha _x_ parametri popolati su _y_ nella colonna _Parametri_. I **parametri dinamici** vengono impostati durante ogni assegnazione del progetto.
+   ![Modello di Resource Manager per l'artefatto del progetto](./media/create-blueprint-portal/add-resource-manager-template.png)
+
+1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha **_x_ parametri popolati su _y_** nella colonna **Parametri**. I parametri dinamici vengono impostati durante ogni assegnazione del progetto.
 
    ![Definizione del progetto completata](./media/create-blueprint-portal/completed-blueprint.png)
 
-1. Ora che sono stati aggiunti tutti gli elementi pianificati, fare clic su **Salva bozza** nella parte inferiore della pagina.
+1. Ora che sono stati aggiunti tutti gli elementi pianificati, selezionare **Salva bozza** nella parte inferiore della pagina.
 
 ## <a name="edit-a-blueprint"></a>Modificare un progetto
 
@@ -129,19 +168,29 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza e scegliere **Modifica progetto**.
 
-1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono. In questo caso, immettere una descrizione simile a quella che segue: "Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce al suo interno un modello di risorsa e un'assegnazione di ruolo".
+1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono. In questo caso, immettere una descrizione simile a quella che segue: **Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce al suo interno un modello di risorsa e un'assegnazione di ruolo**.
 
-1. Fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
+1. Selezionare **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: fare clic sulla riga **+ Aggiungi artefatto...** direttamente sotto la voce **Gruppo di risorse**. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Proprietario", rimuovere il segno di spunta per il campo _Aggiungi utente, app o gruppo_ e quindi cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un **parametro statico** con la stessa impostazione in ogni assegnazione di questo progetto. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: 
 
-   ![Artefatto del progetto - Assegnazione di ruolo n. 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   a. Selezionare la riga **+ Aggiungi artefatto** direttamente sotto la voce **Gruppo di risorse**. 
+   
+   b. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**. 
+   
+   c. In **Ruolo** selezionare **Proprietario** e deselezionare la casella di controllo **Aggiungi utente, app o gruppo**. 
+   
+   d. Cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un parametro statico con la stessa impostazione in ogni assegnazione di questo progetto. 
+   
+   e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-1. Il progetto completo sarà simile al seguente. Si noti che l'assegnazione di ruolo appena aggiunta indica **1 parametro popolato su 1** e questo significa che si tratta di un **parametro statico**.
+   ![Seconda assegnazione di ruolo per l'artefatto del progetto](./media/create-blueprint-portal/add-role-assignment-2.png)
 
-   ![Definizione del progetto completata n. 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+1. Il progetto completo sarà simile al seguente. Si noti che l'assegnazione di ruolo appena aggiunta indica **1 parametro popolato su 1**. Questo significa che si tratta di un parametro statico.
 
-1. Fare clic su **Salva bozza** ora che il progetto è stato aggiornato.
+   ![Seconda definizione del progetto completato](./media/create-blueprint-portal/completed-blueprint-2.png)
+
+1. Selezionare **Salva bozza** ora che il progetto è stato aggiornato.
 
 ## <a name="publish-a-blueprint"></a>Pubblicare un progetto
 
@@ -152,9 +201,9 @@ La pubblicazione rende disponibile il progetto per l'assegnazione a una sottoscr
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza e scegliere **Pubblica progetto**.
 
-1. Nella finestra di dialogo visualizzata impostare i campi **Versione** (lettere, numeri e trattini con una lunghezza massima di 20 caratteri), ad esempio "v1", e **Modifica le note** (facoltativo), ad esempio "Prima pubblicazione".
+1. Nel riquadro visualizzato impostare il campo **Versione** (lettere, numeri e trattini con una lunghezza massima di 20 caratteri), ad esempio **v1**. Facoltativamente, immettere del testo in **Modifica le note**, ad esempio **Prima pubblicazione**.
 
-1. Fare clic su **Pubblica** nella parte inferiore della pagina.
+1. Selezionare **Pubblica** nella parte inferiore della pagina.
 
 ## <a name="assign-a-blueprint"></a>Assegnare un progetto
 
@@ -164,61 +213,61 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza (oppure fare clic sui puntini di sospensione) e scegliere **Assegna progetto**.
 
-1. Nella pagina **Assegna progetto** selezionare una o più sottoscrizioni in cui si vuole distribuire il progetto nell'elenco a discesa **Sottoscrizione**.
+1. Nell'elenco a discesa **Sottoscrizione** della pagina **Assegna progetto** selezionare una o più sottoscrizioni in cui si vuole distribuire il progetto.
 
-   - Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../billing/index.md), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**.
+   Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../billing/index.md), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**. A tale scopo, seguire questa procedura:
 
-     1. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
+   a. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
 
-        ![Assegnazione del progetto - creazione della sottoscrizione](./media/create-blueprint-portal/assignment-create-subscription.png)
+   b. Specificare un **nome visualizzato** per la nuova sottoscrizione.
 
-     1. Specificare un **nome visualizzato** per la nuova sottoscrizione.
+   c. Selezionare l'**offerta** disponibile nell'elenco a discesa.
 
-     1. Selezionare l'**offerta** disponibile nell'elenco a discesa.
+   d. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
 
-     1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
+   e. Selezionare **Crea** nella parte inferiore della pagina.
 
-     1. Selezionare **Crea** nella parte inferiore della pagina.
+   ![Creare una sottoscrizione per una sottoscrizione di assegnazione del progetto](./media/create-blueprint-portal/assignment-create-subscription.png)
 
-     > [!IMPORTANT]
-     > La nuova sottoscrizione viene creata appena si sceglie **Crea**.
+   > [!IMPORTANT]
+   > La nuova sottoscrizione viene creata subito dopo aver selezionato **Crea**.
 
    > [!NOTE]
    > Viene creata un'assegnazione per ogni sottoscrizione selezionata, permettendo successive modifiche a un'assegnazione a una sottoscrizione singola senza forzare modifiche nelle altre sottoscrizioni selezionate.
 
 1. In **Nome dell'assegnazione** specificare un nome univoco per l'assegnazione.
 
-1. In **Località** selezionare un'area per la creazione dell'identità gestita e dell'oggetto di distribuzione della sottoscrizione. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+1. In **Località** selezionare un'area per la creazione dell'identità gestita e dell'oggetto di distribuzione della sottoscrizione. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere l'articolo relativo alle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Lasciare l'elenco a discesa **Versione della definizione di progetto** per **Versioni pubblicate** impostato sulla voce "v1". L'impostazione predefinita corrisponde alla versione **pubblicata** più recente.
+1. Lasciare l'elenco a discesa **Versione della definizione di progetto** per **Versioni pubblicate** impostato sulla voce **v1**. L'impostazione predefinita corrisponde alla versione pubblicata più recente.
 
-1. Per **Blocca assegnazione**, lasciare il valore predefinito **Non bloccare**. Per altre informazioni, vedere [Blueprints resource locking](./concepts/resource-locking.md) (Blocco delle risorse del progetto).
+1. Per **Blocca assegnazione**, lasciare il valore predefinito **Non bloccare**. Per altre informazioni, vedere l'articolo sul [blocco risorse di Azure Blueprints](./concepts/resource-locking.md).
 
-   ![Assegnazione - Blocco e identità gestite](./media/create-blueprint-portal/assignment-locking-mi.png)
+   ![Blocco e identità gestite per l'assegnazione](./media/create-blueprint-portal/assignment-locking-mi.png)
 
 1. In **Identità gestita** lasciare invariata l'impostazione predefinita **Assegnata dal sistema**.
 
 1. Per l'assegnazione di ruolo a livello di sottoscrizione **[gruppo di utenti o nome applicazione]: Collaboratore**, cercare e selezionare un utente, un'app o un gruppo.
 
-1. Per l'assegnazione di criteri a livello di sottoscrizione, impostare **Nome tag** su "Centro di costo" e **Valore del tag** su "ContosoIT".
+1. Per l'assegnazione di criteri a livello di sottoscrizione, impostare **Nome tag** su **Centro di costo** e **Valore del tag** su **ContosoIT**.
 
-1. Per "Gruppo di risorse" specificare il nome "Account di archiviazione" in **Nome** e selezionare "Stati Uniti orientali 2" nell'elenco a discesa **Località**.
+1. Per **Gruppo di risorse** specificare il nome **Account di archiviazione** in **Nome** e selezionare **Stati Uniti orientali 2** nell'elenco a discesa **Località**.
 
    > [!NOTE]
-   > A ogni elemento aggiunto nel gruppo di risorse durante la definizione del progetto viene applicato un rientro per allinearlo al gruppo di risorse o a un oggetto con cui viene distribuito. Gli elementi che non accettano parametri o per cui non devono essere definiti parametri in fase di assegnazione vengono elencati solo per fornire informazioni contestuali.
+   > A ogni artefatto aggiunto nel gruppo di risorse durante la definizione del progetto viene applicato un rientro per allinearlo al gruppo di risorse o a un oggetto con cui verrà distribuito. Gli artefatti che non accettano parametri o per cui non devono essere definiti parametri in fase di assegnazione vengono elencati solo per fornire informazioni contestuali.
 
-1. Nel modello di Azure Resource Manager "Account di archiviazione" selezionare "Standard_GRS" per il parametro **storageAccountType**.
+1. Nel modello di Azure Resource Manager **Account di archiviazione** selezionare **Standard_GRS** per il parametro **storageAccountType**.
 
-1. Leggere la casella informativa nella parte inferiore della pagina e quindi fare clic su **Assegna**.
+1. Leggere la casella informativa nella parte inferiore della pagina e quindi selezionare **Assegna**.
 
 ## <a name="track-deployment-of-a-blueprint"></a>Monitorare la distribuzione di un progetto
 
 Quando un progetto è stato assegnato a una o più sottoscrizioni, vengono eseguite due operazioni:
 
-- Il progetto viene aggiunto alla pagina **Progetti assegnati** per ogni sottoscrizione assegnata
-- Viene avviato il processo di distribuzione di tutti gli elementi definiti in base al progetto
+- Il progetto viene aggiunto alla pagina **Progetti assegnati** per ogni sottoscrizione.
+- Viene avviato il processo di distribuzione di tutti gli elementi definiti in base al progetto.
 
-Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato di avanzamento della distribuzione.
+Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato di avanzamento della distribuzione:
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
@@ -226,26 +275,26 @@ Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato
 
    ![Visualizzare i dettagli dell'assegnazione nella finestra Progetti assegnati](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprint](./troubleshoot/general.md) (Risoluzione dei problemi relativi a un progetto) per istruzioni su come determinare gli eventuali problemi.
+1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprints](./troubleshoot/general.md) (Risoluzione dei problemi dei progetti) per istruzioni su come determinare gli eventuali problemi.
 
 ## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 
-Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più necessaria. Il progetto potrebbe sono stato sostituito da un progetto più recente con modelli, progettazioni e criteri aggiornati. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere l'assegnazione di un progetto, completare questi passaggi:
+Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più necessaria. Il progetto potrebbe essere stato sostituito da un progetto più recente con modelli, progettazioni e criteri aggiornati. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere l'assegnazione di un progetto, completare questi passaggi:
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
-1. Nell'elenco di progetti selezionare il progetto di cui si vuole annullare l'assegnazione e quindi fare clic sul pulsante **Annulla assegnazione progetto** nella parte superiore della pagina.
+1. Nell'elenco dei progetti, selezionare il progetto di cui si vuole annullare l'assegnazione. Selezionare quindi il pulsante **Annulla assegnazione progetto** nella parte superiore della pagina.
 
-1. Leggere il messaggio di conferma e quindi fare clic su **OK**.
+1. Leggere il messaggio di conferma e quindi selezionare **OK**.
 
 ## <a name="delete-a-blueprint"></a>Eliminare un progetto
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic con il pulsante destro del mouse sul progetto che si vuole eliminare, scegliere **Elimina progetto** e quindi fare clic su **Sì** nella finestra di dialogo di conferma.
+1. Fare clic con il pulsante destro del mouse sul progetto che si vuole eliminare e scegliere **Elimina progetto**. Quindi, selezionare **Sì** nella finestra di dialogo di conferma.
 
 > [!NOTE]
-> L'eliminazione di un progetto in questo modo comporta l'eliminazione anche di tutte le **versioni pubblicate** del progetto selezionato. Per eliminare una singola versione, aprire il progetto, fare clic sulla scheda **Versioni pubblicate**, selezionare e fare clic sulla versione che si vuole eliminare e quindi fare clic su **Delete This Version** (Elimina questa versione). Inoltre, un progetto con assegnazioni non può essere eliminato finché non vengono eliminate tutte le assegnazioni del progetto.
+> L'eliminazione di un progetto in questo modo comporta l'eliminazione anche di tutte le versioni pubblicate del progetto selezionato. Per eliminare una singola versione, aprire il progetto, selezionare la scheda **Versioni pubblicate**, selezionare la versione che si vuole eliminare e quindi fare clic su **Elimina questa versione**. Inoltre, non è possibile eliminare un progetto iniziale fino a quando non sono state eliminate tutte le assegnazioni progetto di tale definizione di progetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451791"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548589"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Usare i notebook di Jupyter per esplorare il servizio Azure Machine Learning
 
@@ -50,50 +50,6 @@ Usare questa proceduta per creare un server notebook Jupyter locale nel computer
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 Le istruzioni di questa guida introduttiva descrivono come installare i pacchetti necessari per eseguire i notebook della guida introduttiva e dell'esercitazione.  Per gli altri notebook di esempio, può essere necessario installare altri componenti.  Per altre informazioni su questi componenti, vedere [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install) (Installare Azure Machine Learning SDK per Python).
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Configurazione automatizzata di Machine Learning 
-
-_Questi passaggi si applicano solo ai notebook nella cartella **how-to-use-azureml/automated-machine-learning**._
-
-Oltre a usare una qualsiasi delle opzioni descritte sopra, è anche possibile installare l'ambiente e creare un'area di lavoro allo stesso tempo seguendo le istruzioni seguenti. 
-
-1. Installare [Mini-conda](https://conda.io/miniconda.html). Scegliere la versione 3.7 o una versione successiva. Seguire le istruzioni di installazione. 
-   >[!NOTE]
-   >È possibile usare un conda esistente purché nella versione 4.4.10 o successiva. Usare `conda -V` per visualizzare la versione. È possibile aggiornare una versione di conda con il comando `conda update conda`. Non è necessario installare specificamente mini-conda.
-
-1. Scaricare i notebook da [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) in formato ZIP ed estrarre il contenuto in una directory locale. I notebook per l'apprendimento automatico si trovano nella cartella `how-to-use-azureml/automated-machine-learning`.
-
-1. Configurare un nuovo ambiente Conda. 
-   1. Aprire un prompt dei comandi di Conda nel computer locale.
-   
-   1. Passare ai file estratti nel computer locale.
-   
-   1. Aprire la cartella **automated-machine-learning**.
-   
-   1. Eseguire `automl_setup.cmd` nella finestra del prompt dei comandi di Conda per Windows o il file `.sh` relativo al sistema operativo in uso. L'esecuzione può richiedere circa 10 minuti.
-
-      Lo script di configurazione:
-      + Crea un nuovo ambiente Conda
-      + Installa i pacchetti necessari
-      + Configura il widget
-      + Avvia un notebook di Jupyter
-      
-   >[!NOTE]
-   > Lo script accetta il nome dell'ambiente Conda come parametro facoltativo. Il nome dell'ambiente Conda predefinito è `azure_automl`. Il comando esatto dipende dal sistema operativo. Ciò è utile se si crea un nuovo ambiente o si esegue l’aggiornamento a una nuova versione. Ad esempio è possibile usare "automl_setup.cmd azure_automl_sandbox" per creare un nome ambiente azure_automl_sandbox. 
-      
-1. Dopo il completamento dello script, nel browser verrà aperta la home page di un notebook Jupyter.
-
-1. Passare al percorso in cui sono stati salvati i notebook. 
-
-1. Aprire la cartella automated-machine-learning, quindi aprire il notebook **configuration.ipynb**. 
-
-1. Eseguire le celle nel notebook per registrare il provider di risorse di Machine Learning Services e creare un'area di lavoro.
-
-A questo punto è possibile aprire ed eseguire i notebook salvati nel computer locale.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

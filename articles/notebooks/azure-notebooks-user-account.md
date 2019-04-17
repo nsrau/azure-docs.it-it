@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257009"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608011"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>L'account utente per Azure Notebooks
 
@@ -41,6 +41,9 @@ Gli account Microsoft consentono di accedere a qualsiasi numero di prodotti e se
 Se non se ne è certi, selezionare il comando **Create one** (Creane uno) nel prompt di account. È possibile creare un nuovo account Microsoft usando qualsiasi indirizzo di posta elettronica di qualunque provider.
 
 ![Comando per la creazione di un nuovo account Microsoft](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Se si prova a creare un nuovo account con un indirizzo di posta elettronica che è già associato un account, si può vedere il messaggio "non è possibile effettuare l'iscrizione qui con un lavoro o dell'istituto di istruzione indirizzo di posta elettronica. Usare un indirizzo e-mail personale, ad esempio Gmail o Yahoo!, oppure ottenere un nuovo indirizzo e-mail Outlook". In tal caso, provare ad accedere con l'indirizzo di posta elettronica di lavoro senza creare un nuovo account.
 
 In caso di account per bambini, l'accesso ad Azure Notebooks è bloccato per impostazione predefinita. Se si accede con un account per bambini, viene visualizzato l'errore seguente:
 
@@ -71,4 +74,4 @@ Per fornire il consenso come amministratore, usare la [pagina del consenso dell'
 ## <a name="next-steps"></a>Passaggi successivi  
 
 > [!div class="nextstepaction"]
-> [Modificare il profilo e un ID utente](azure-notebooks-user-profile.md)
+> [Modificare il profilo e l'ID utente](azure-notebooks-user-profile.md)

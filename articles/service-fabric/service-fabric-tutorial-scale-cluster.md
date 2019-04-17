@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669504"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278701"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
@@ -39,14 +39,17 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Eseguire il monitoraggio di un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Aumentare o ridurre un cluster
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Eliminazione di un cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) o [l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Considerazioni e indicazioni importanti
@@ -98,7 +101,7 @@ Se si ridimensiona un tipo di nodo con il [livello di durabilità][durability] B
 Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribuire il modello aggiornato, eseguire il comando seguente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 ```azure-cli
@@ -804,7 +807,7 @@ Nel file *parameters.json* aggiungere i nuovi parametri e valori seguenti:
 Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribuire il modello aggiornato, eseguire il comando seguente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente rimuovendo un tipo di nodo (set di scalabilità di macchine virtuali) e tutti i relativi nodi. È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster. Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
 
 > [!WARNING]
-> Non è consigliabile usare frequentemente il comando Remove-AzureRmServiceFabricNodeType per rimuovere un tipo di nodo da un cluster di produzione. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
+> Non è consigliabile usare frequentemente il comando Remove-AzServiceFabricNodeType per rimuovere un tipo di nodo da un cluster di produzione. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
 
-Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e il completamento del cmdlet tempo.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
+Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e il completamento del cmdlet tempo.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ Lo SKU della macchina virtuale per tutti e tre i tipi di nodo è impostato nel p
 Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribuire il modello aggiornato, eseguire il comando seguente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 ```azure-cli
@@ -874,6 +877,18 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Aggiungere e rimuovere nodi (aumento e riduzione)
+> * Aggiungere e rimuovere tipi di nodo (aumento e riduzione)
+> * Aumentare le risorse dei nodi (aumento)
+
+Procedere quindi con l'esercitazione seguente per scoprire come aggiornare il runtime di un cluster.
+> [!div class="nextstepaction"]
+> [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+nd scale in))
 > * Aggiungere e rimuovere tipi di nodo (aumento e riduzione)
 > * Aumentare le risorse dei nodi (aumento)
 

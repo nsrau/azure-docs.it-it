@@ -12,22 +12,22 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d492259a114d6574c4a81d1f9b97a0dcfcd8c5d3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd219e9aaf684600f76ed81eb45ed9a5bf78f62c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004044"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359992"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Usare l'interfaccia della riga di comando per ridimensionare un pool elastico nel database SQL di Azure
 
-Questo script di esempio dell'interfaccia della riga di comando di Azure crea pool elastici, sposta i database in pool e modifica le dimensioni di calcolo del pool elastico. 
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea pool elastici, sposta i database in pool e modifica le dimensioni di calcolo del pool elastico.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -35,7 +35,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
+Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

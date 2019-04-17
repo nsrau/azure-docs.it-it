@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855725"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280537"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 
@@ -131,7 +131,7 @@ Creare un sistema di riconoscimento delle finalità tramite `new IntentRecognize
 
 Ora importare il modello dalla app LUIS tramite `LanguageUnderstandingModel.FromAppId()` e aggiungere le finalità di LUIS che si desidera riconoscere tramite il metodo del sistema di riconoscimento `AddIntent()`. Questi due passaggi migliorano l'accuratezza del riconoscimento vocale, indicando le parole che l'utente, con probabilità, usa nelle richieste. Non è necessario aggiungere tutte le finalità dell'applicazione se non è necessario riconoscerle tutte nella propria applicazione.
 
-L'aggiunta di finalità richiede tre argomenti: il modello LUIS (che è stato appena creato e denominato `model`), il nome della finalità e un ID finalità. La differenza tra l'ID e il nome è come indicato di seguito.
+L'aggiunta di finalità richiede tre argomenti: il modello LUIS (che è stato creato e denominato `model`), il nome della finalità e un ID finalità. La differenza tra l'ID e il nome è come indicato di seguito.
 
 |`AddIntent()` argomento|Scopo|
 |--------|-------|
@@ -144,6 +144,8 @@ La app Automazione home di LUIS presenta due finalità: una per accendere il dis
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+Anziché aggiungere singole finalità, è anche possibile usare il metodo `AddAllIntents` per aggiungere tutte le finalità in un modello al sistema di riconoscimento.
 
 ## <a name="start-recognition"></a>Avviare il riconoscimento
 

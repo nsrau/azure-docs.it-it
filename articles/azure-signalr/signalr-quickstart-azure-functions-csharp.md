@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544974"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264995"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando C\#
 
@@ -36,7 +36,7 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurare ed eseguire l'app per le funzioni di Azure
 
-1. Avviare Visual Studio o un altro editor di codice e aprire la soluzione nella cartella *chat\src\csharp* del repository clonato.
+1. Avviare Visual Studio o un altro editor di codice e aprire la soluzione nella cartella *src/chat/csharp* del repository clonato.
 
 1. Nel browser in cui è aperto il portale di Azure, verificare che l'istanza del servizio SignalR distribuita in precedenza sia stata creata correttamente eseguendo una ricerca del nome nella casella di ricerca nella parte superiore del portale. Selezionare l'istanza per aprirla.
 

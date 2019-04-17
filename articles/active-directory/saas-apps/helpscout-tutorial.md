@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878041"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Esercitazione: Integrazione di Azure Active Directory con Help Scout
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire que
 
     ![Informazioni su URL e dominio per Single Sign-On di Help Scout](common/metadata-upload-additional-signon.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL come: `https://secure.helpscout.net/members/login/`
+    Nella casella di testo **URL di accesso** digitare un URL come indicato di seguito: `https://secure.helpscout.net/members/login/`
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -157,7 +157,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire que
 
     ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
-    a. Nella casella di testo **Single Sign-On URL** (URL Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    a. Nella casella di testo **Single Sign-On URL** (URL di Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     b. Fare clic sul pulsante **Browser** per caricare il **Certificato (Base64)** scaricato dal portale di Azure.
 

@@ -1,19 +1,18 @@
 ---
 title: Esempio - Controllare l'impostazione di controllo a livello di SQL Server
 description: Questa definizione di criteri di esempio verifica le impostazioni di controllo del server SQL se tali impostazioni non corrispondono a un'impostazione specifica.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: adb67f16dc76bb4e99b07a3bee42bb2ed3677aff
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: dcba50cc3ed30940c461312c7f09577e693f9b2e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805449"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269088"
 ---
 # <a name="sample---audit-sql-server-level-audit-setting"></a>Esempio - Controllare l'impostazione di controllo a livello di SQL Server
 
@@ -29,7 +28,7 @@ Questo criterio controlla le impostazioni di controllo di SQL Server se tali imp
 
 ## <a name="deploy-with-the-portal"></a>Eseguire la distribuzione con il portale
 
-[![Distribuire l'esempio di Criteri in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-auditing%2Fazurepolicy.json)
+[![DDistribuire l'esempio in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-auditing%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 

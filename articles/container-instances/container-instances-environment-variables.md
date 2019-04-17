@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904900"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606889"
 ---
-# <a name="set-environment-variables"></a>Impostare le variabili di ambiente
+# <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente in istanze di contenitore
 
-L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. È possibile impostare le variabili di ambiente quando si avvia un contenitore con l'[interfaccia della riga di comando di Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) e il [portale di Azure](#azure-portal-example).
+L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. È simile all'argomento della riga di comando `--env` per `docker run`. 
+
+Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. Questo articolo vengono illustrati esempi di impostazione delle variabili di ambiente quando si avvia un contenitore con il [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e il [portale di Azure](#azure-portal-example). 
 
 Ad esempio, se si esegue Microsoft [aci-wordcount] [ aci-wordcount] immagine del contenitore, è possibile modificare il comportamento specificando le variabili di ambiente seguenti:
 
@@ -143,7 +145,7 @@ Azure:\
 
 Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarle nella pagina **Configurazione** quando si crea il contenitore.
 
-Quando si distribuisce con il portale, si è attualmente limitato a tre variabili e devono immetterli nel formato seguente: `"variableName":"value"`
+Quando si esegue la distribuzione con il portale, il limite corrente è di tre variabili ed è necessario immetterle in questo formato: `"variableName":"value"`
 
 Per visualizzare un esempio, avviare il [aci-wordcount] [ aci-wordcount] contenitore con il *NumWords* e *MinLength* variabili.
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di Azure Container](container-instances-restart-policy.md).
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [eseguire le attività incluse in contenitori con criteri di riavvio](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

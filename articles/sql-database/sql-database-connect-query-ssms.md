@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447744"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359991"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
@@ -44,7 +44,7 @@ In questa Guida introduttiva, si userà [SQL Server Management Studio][ssms-inst
 
 ## <a name="install-the-latest-ssms"></a>Installare la versione di SSMS più recente
 
-Prima di iniziare, assicurarsi di aver installato l'ultima versione di [SSMS][ssms-install-latest-84g]. 
+Prima di iniziare, assicurarsi di aver installato l'ultima versione di [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Ottenere informazioni di connessione SQL Server
 
@@ -58,7 +58,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
-In SMSS connettersi al database SQL di Azure. 
+In SMSS connettersi al database SQL di Azure.
 
 > [!IMPORTANT]
 > Un server di Database SQL di Azure è in ascolto sulla porta 1433. Per connettersi a un server di database SQL protetto da un firewall aziendale, è necessario che nel firewall sia aperta tale porta.
@@ -68,12 +68,12 @@ In SMSS connettersi al database SQL di Azure.
 
 2. Immettere le seguenti informazioni:
 
-   | Impostazione      | Valore consigliato    | DESCRIZIONE | 
-   | ------------ | ------------------ | ----------- | 
+   | Impostazione      | Valore consigliato    | DESCRIZIONE |
+   | ------------ | ------------------ | ----------- |
    | **Tipo di server** | Motore di database | Valore obbligatorio. |
    | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net**. |
-   | **autenticazione** | Autenticazione di SQL Server | Questa esercitazione usa l'autenticazione SQL. |
-   | **Accesso** | ID utente dell'account amministratore del server | ID utente dell'account amministratore del server usato per creare il server. |
+   | **Authentication** | Autenticazione di SQL Server | Questa esercitazione usa l'autenticazione SQL. |
+   | **Login** | ID utente dell'account amministratore del server | ID utente dell'account amministratore del server usato per creare il server. |
    | **Password** | Password dell'account amministratore del server | Password dell'account amministratore del server usato per creare il server. |
    ||||
 
@@ -83,7 +83,7 @@ In SMSS connettersi al database SQL di Azure.
 
    ![connettersi al database nel server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Selezionare **Connessione**. Viene visualizzata la finestra Esplora oggetti. 
+4. Selezionare **Connessione**. Viene visualizzata la finestra Esplora oggetti.
 
 5. Per visualizzare gli oggetti del database, espandere **Database** e quindi **mySampleDatabase**.
 
@@ -140,15 +140,14 @@ Eseguire questo codice Transact-SQL [INSERT](https://msdn.microsoft.com/library/
 1. Sostituire la query precedente con questa.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Scegliere **Execute**(Esegui). Si ottiene il risultato seguente. 
+
+2. Scegliere **Execute**(Esegui). Si ottiene il risultato seguente.
 
    ![risultato](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>Aggiornare i dati
 
 Eseguire questo codice Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) per modificare il nuovo prodotto.
@@ -188,8 +187,6 @@ Eseguire questo codice Transact-SQL [DELETE](https://msdn.microsoft.com/library/
 - Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
 - Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

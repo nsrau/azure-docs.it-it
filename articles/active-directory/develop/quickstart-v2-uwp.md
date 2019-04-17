@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793170"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360125"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -86,9 +86,9 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 
 > [!div renderon="docs"]
 > Dove:
-> - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
-> - `Enter_the_Tenant_Info_Here` è una delle opzioni riportate di seguito.
->   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+> - `Enter_the_Application_Id_here` - è l'ID applicazione dell'applicazione registrata.
+> - `Enter_the_Tenant_Info_Here` - è una delle opzioni riportate di seguito:
+>   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.onmicrosoft.com)
 >   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
 >   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`
 >

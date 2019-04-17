@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311560"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470373"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Esercitazione sul bake in Unreal con Progetto Acustica
 Questo documento descrive il processo di invio di un bake dell'acustica con l'estensione dell'editor Unreal.
@@ -40,6 +40,8 @@ La scheda Objects (Oggetti) è la prima scheda che viene visualizzata quando si 
 
 Selezionare uno o più oggetti in World Outliner (Struttura globale) oppure usare la sezione **Bulk Selection** (Selezione in blocco) per selezionare tutti gli oggetti di una categoria specifica. Dopo aver selezionato gli oggetti, usare la sezione **Tagging** (Assegnazione tag) per applicare il tag desiderato agli oggetti selezionati.
 
+Se un oggetto non ha né il tag **AcousticsGeometry** né il tag **AcousticsNavigation**, verrà ignorato nella simulazione. Sono supportate solo le mesh statiche, le mesh di navigazione e gli orientamenti orizzontali. Se si taggano altri oggetti, verranno ignorati.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Informazioni di riferimento: parti della scheda Objects (Oggetti)
 
 ![Screenshot della scheda Objects della finestra Acoustics in Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Non includere elementi che non influiranno sull'acustica, come mesh di collision
 
 La trasformazione di un oggetto in fase di calcolo dei probe, tramite la scheda Probes (Probe) riportata di seguito, è fissa nei risultati del bake. Se si sposta uno qualsiasi degli oggetti contrassegnati nella scena, sarà necessario ripetere il calcolo dei probe ed effettuare di nuovo il bake della scena.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Creare o taggare una mesh di navigazione
+### <a name="create-or-tag-a-navigation-mesh"></a>Creare o taggare una mesh di navigazione
 
-Una mesh di navigazione viene usata per inserire i punti di probe per la simulazione. È possibile usare il [volume di delimitazione della mesh di navigazione](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) di Unreal oppure specificare una mesh di navigazione personalizzata. È necessario taggare almeno un oggetto come **Acoustics Navigation** (Navigazione acustica).
+Una mesh di navigazione viene usata per inserire i punti di probe per la simulazione. È possibile usare il [volume di delimitazione della mesh di navigazione](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) di Unreal oppure specificare una mesh di navigazione personalizzata. È necessario taggare almeno un oggetto come **Acoustics Navigation** (Navigazione acustica). Se si usa la mesh di navigazione di Unreal, assicurarsi di crearla prima.
+
+### <a name="acoustics-volumes"></a>Volumi di Acoustics ###
+
+È possibile personalizzare ulteriormente in modo avanzato le aree di navigazione con i **Volumi di Acoustics**. I **Volumi di Acoustics** sono attori che si possono aggiungere alla scena per consentire la selezione di aree da includere e ignorare nella mesh di navigazione. L'attore espone una proprietà che può essere alternata tra "Include" ed "Exclude". I volumi "Include" garantiscono l'inclusione solo delle aree della mesh navigazione all'interno e i volumi "Exclude" contrassegnano tali aree come da ignorare. I volumi "Exclude" vengono sempre applicati dopo i volumi "Include". Assicurarsi di taggare i **Volumi di Acoustics** come **Acoustics Navigation** usando la procedura consueta nella scheda Objects. Questi attori ***non*** vengono taggati automaticamente.
+
+![Screenshot delle proprietà del Volume di Acoustics in Unreal](media/unreal-acoustics-volume-properties.png)
+
+L'obiettivo dei volumi "Exclude" è principalmente conferire il controllo con granularità fine su dove non inserire probe per limitare l'utilizzo delle risorse.
+
+![Screenshot di Volume "Exclude" di Acoustics in Unreal](media/unreal-acoustics-volume-exclude.png)
+
+I volumi "Include" sono utili per creare sezioni manuali di una scena, ad esempio se si vuole suddividere una scena in più zone acustiche. Ad esempio, nel caso di una grande scena di molti chilometri quadrati, con due aree di interesse in cui effettuare il bake dell'acustica, è possibile trascinare due grandi volumi "Include" e produrre file ACE per ciascuno di essi, uno alla volta. Quindi, nel gioco, sarà possibile usare volumi trigger combinati con chiamate al progetto per caricare il file ACE appropriato quando il giocatore si avvicina a ciascun riquadro.
+
+I **Volumi di Acoustics** limitano solo la navigazione, ***non*** la geometria. Ogni probe all'interno di un **Volume di Acoustics** "Include" permette comunque di ottenere tutta la geometria necessaria all'esterno del volume durante l'esecuzione di simulazioni delle onde. Pertanto, non devono essere presenti eventuali discontinuità in occlusione o altra acustica risultanti dall'attraversamento da una sezione all'altra da parte del giocatore.
 
 ## <a name="select-acoustic-materials"></a>Selezionare i materiali acustici
 
@@ -87,6 +103,7 @@ Il tempo di riverbero di un determinato materiale in una stanza è inversamente 
 4. Mostra il materiale acustico a cui è stato assegnato il materiale della scena. Fare clic su un elenco a discesa per riassegnare un materiale della scena a un materiale acustico diverso.
 5. Mostra il coefficiente di assorbimento acustico del materiale selezionato nella colonna precedente. Un valore pari a zero indica un materiale perfettamente riflettente (nessun assorbimento), mentre un valore pari a 1 indica un materiale perfettamente assorbente (nessun riflesso). Se si modifica questo valore, il materiale acustico (passaggio 4) verrà aggiornato in **Custom** (Personalizzato).
 
+Se si apportano modifiche ai materiali nella scena, sarà necessario passare da una scheda all'altra nel plug-in Progetto Acustica per visualizzare le modifiche applicate nella scheda **Materials** (Materiali).
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Calcolare ed esaminare le posizioni dei probe per l'ascoltatore
 
@@ -98,7 +115,7 @@ Dopo aver assegnato i materiali, passare alla scheda **Probes** (Probe).
 
 1. Pulsante della scheda **Probes** (Probe) usato per visualizzare questa pagina
 2. Breve descrizione di che cosa fare quando si usa questa pagina
-3. Usare questa opzione per scegliere una risoluzione di simulazione grossolana o fine. Quella grossolana è più veloce, ma presenta alcuni svantaggi. Per informazioni dettagliate, vedere[Risoluzione grossolana o fine](#Coarse-vs-Fine-Resolution) più avanti.
+3. Usare questa opzione per scegliere una risoluzione di simulazione grossolana o fine. Quella grossolana è più veloce, ma presenta alcuni svantaggi. Per informazioni dettagliate, vedere[Risoluzione del bake](bake-resolution.md) più avanti.
 4. Questo campo consente di scegliere la posizione in cui i file di dati di acustica devono essere inseriti. Fare clic sul pulsante con "..." per usare la selezione cartelle. Per altre informazioni sui file di dati, vedere [File di dati](#Data-Files) più avanti.
 5. I file di dati per questa scena verranno denominati usando il prefisso fornito qui. L'impostazione predefinita è "[NomeLivello]_AcousticsData".
 6. Fare clic sul pulsante **Calculate** (Calcola) per voxelizzare la scena e calcolare le posizioni dei punti di probe. Questa operazione viene eseguita in locale sul computer e deve essere eseguita prima di creare un bake. Dopo il calcolo dei probe, i controlli precedenti verranno disabilitati e il testo di questo pulsante verrà modificato in **Clear** (Cancella). Fare clic sul pulsante **Clear** (Cancella) per cancellare i calcoli e abilitare i controlli per poter eseguire di nuovo i calcoli con nuove impostazioni.
@@ -147,21 +164,7 @@ I punti di probe corrispondono alle possibili posizioni del giocatore. Durante i
 
 ![Screenshot dell'anteprima dei probe di Progetto Acustica nell'editor Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Risoluzione grossolana o fine
-
-L'unica differenza tra le impostazioni di risoluzione grossolana e fine è la frequenza con cui viene eseguita la simulazione. La risoluzione fine usa una frequenza due volte superiore rispetto a quella grossolana.
-Anche se può sembrare semplice, le implicazioni per la simulazione acustica sono diverse:
-
-* La lunghezza d'onda per la risoluzione grossolana è il doppio rispetto a quella fine, quindi i voxel sono due volte più grandi.
-* Il tempo di simulazione è direttamente correlato alle dimensioni dei voxel, di conseguenza un bake grossolano è circa 16 volte più veloce di un bake fine.
-* I portali (ad esempio, porte o finestre) con dimensioni inferiori a quelle dei voxel non possono essere simulati. L'impostazione Coarse (Grossolana) può impedire la simulazione di alcuni di questi portali più piccoli, che quindi non lasceranno passare il suono in fase di esecuzione. Per verificare se ciò accade, visualizzare i voxel.
-* La frequenza di simulazione più bassa comporta meno diffrazione sui bordi e agli angoli.
-* Le sorgenti sonore non possono trovarsi all'interno di voxel "pieni", ovvero voxel che contengono una geometria, perché il suono non viene udito. Posizionare le sorgenti sonore evitando che si trovino all'interno dei voxel più grandi della risoluzione grossolana è più difficile rispetto a quando viene usata la risoluzione fine.
-* I voxel più grandi si estenderanno maggiormente nei portali, come illustrato di seguito. La prima immagine è stata creata con la risoluzione grossolana, mentre la seconda rappresenta la stessa entrata con la risoluzione fine. Come indicato dai contrassegni di colore rosso, l'intrusione è considerevolmente minore nell'entrata con l'impostazione Fine (Fine). La linea blu è l'entrata definita dalla geometria, mentre la linea rossa è il portale acustico effettivo definito dalle dimensioni dei voxel. Le conseguenze di questa intrusione in una determinata situazione dipendono interamente da come i voxel sono allineati alla geometria del portale, il che è determinato dalle dimensioni e dalle posizioni degli oggetti nella scena.
-
-![Screenshot dei voxel con risoluzione grossolana che riempiono un'entrata in Unreal](media/unreal-coarse-bake.png)
-
-![Screenshot dei voxel con risoluzione fine in un'entrata in Unreal](media/unreal-fine-bake.png)
+Per informazioni più dettagliate sulla risoluzione grossolana o fine, vedere [Risoluzione del bake](bake-resolution.md).
 
 ## <a name="bake-your-level-using-azure-batch"></a>Effettuare il bake del livello con Azure Batch
 

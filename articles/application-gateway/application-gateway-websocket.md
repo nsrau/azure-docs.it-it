@@ -1,18 +1,18 @@
 ---
 title: Supporto di WebSocket nel gateway applicazione di Azure | Microsoft Docs
 description: Questa pagina offre una panoramica del supporto di WebSocket nel gateway applicazione.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168120"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606906"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione
 
@@ -32,7 +32,7 @@ Per stabilire una connessione WebSocket, un handshake specifico basato su HTTP v
 
 ### <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 
-Per supportare il traffico WebSocket è possibile usare un listener HTTP esistente. Di seguito è riportato il frammento dell'elemento httpListeners di un file modello di esempio. Per supportare WebSocket e il traffico WebSocket sicuro saranno necessari listener sia HTTP che HTTPS. Per creare un gateway applicazione con listener sulla porta 80/443 per supportare il traffico WebSocket, è possibile usare in modo analogo il [portale](application-gateway-create-gateway-portal.md) o [PowerShell](application-gateway-create-gateway-arm.md).
+Per supportare il traffico WebSocket è possibile usare un listener HTTP esistente. Di seguito è riportato il frammento dell'elemento httpListeners di un file modello di esempio. Per supportare WebSocket e il traffico WebSocket sicuro saranno necessari listener sia HTTP che HTTPS. Allo stesso modo è possibile usare il portale o Azure PowerShell per creare un gateway applicazione con listener sulla porta 80 o 443 per supportare il traffico WebSocket.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Un altro motivo risiede nel fatto che il probe di integrità del back-end del ga
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver acquisito familiarità con il supporto di WebSocket, [creare un gateway applicazione](application-gateway-create-gateway.md) per iniziare a usare un'applicazione Web abilitata per WebSocket.
-
+Dopo aver acquisito familiarità con il supporto di WebSocket, [creare un gateway applicazione](quick-create-powershell.md) per iniziare a usare un'applicazione Web abilitata per WebSocket.

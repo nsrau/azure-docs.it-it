@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085066"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282356"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager
 
@@ -53,13 +53,13 @@ Un file BACPAC viene condiviso in un [account di archiviazione di Azure](https:/
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Azure SQL Server with Threat Detection](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/) (Server SQL Azure con rilevamento delle minacce).
+Il modello usato in questa esercitazione viene archiviato in un [account di archiviazione di Azure](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
 2. In **Nome file** incollare l'URL seguente:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Selezionare **Apri** per aprire il file.
 
@@ -175,4 +175,4 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC. Il file BACPAC viene archiviato nell'account di archiviazione di Azure. Chiunque abbia l'URL può accedere al file. Per informazioni su come proteggere il file BACPAC (elemento), vedere
 
 > [!div class="nextstepaction"]
-> [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md) (Proteggere gli elementi)
+> [Proteggere gli artefatti](./resource-manager-tutorial-secure-artifacts.md)

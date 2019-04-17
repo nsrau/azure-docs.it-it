@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08899ee8e30a2809bc76968be389dc4f37f70759
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b376288bc74e6282fcc8477408ae5835c049f75e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259372"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Qumu Cloud
 
@@ -52,9 +52,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-qumu-cloud-from-the-gallery"></a>Aggiunta di Qumu Cloud dalla raccolta
 
-Per configurare l'integrazione di Qumu Cloud in Azure AD, è necessario aggiungere Qumu Cloud dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Qumu Cloud in Azure AD, è necessario aggiungere Qumu Cloud dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Qumu Cloud dalla raccolta, seguire questa procedura:**
+**Per aggiungere Qumu Cloud dalla raccolta, eseguire queste operazioni:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -70,19 +70,19 @@ Per configurare l'integrazione di Qumu Cloud in Azure AD, è necessario aggiunge
 
 4. Nella casella di ricerca digitare **Qumu Cloud**, selezionare **Qumu Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Qumu Cloud nell'elenco risultati](common/search-new-app.png)
+    ![Qumu Cloud nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Qumu Cloud usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Qumu Cloud.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Qumu Cloud, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Qumu Cloud, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Qumu Cloud](#configure-qumu-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Qumu Cloud](#create-qumu-cloud-test-user)**: per avere una controparte di Britta Simon in Qumu Cloud collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,15 +106,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Qumu Cloud, seguire que
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Qumu Cloud](common/idp-intiated.png)
+    ![Informazioni su URL e dominio di Qumu Cloud per l'accesso Single Sign-On](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.qumucloud.com/saml/SSO`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.qumucloud.com/saml/SSO`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.qumucloud.com/saml/SSO`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Qumu Cloud](common/metadata-upload-additional-signon.png)
+    ![Informazioni su URL e dominio di Qumu Cloud per l'accesso Single Sign-On](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.qumucloud.com`
 
@@ -127,7 +127,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Qumu Cloud, seguire que
 
 7. Oltre quelli elencati in precedenza, l'applicazione Qumu Cloud prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | Nome | Attributo di origine|
+    | Nome | Source Attribute|
     | ---------------| --------------- |    
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4 | user.surname |
@@ -168,9 +168,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Qumu Cloud, seguire que
 
 Per configurare l'accesso Single Sign-On sul lato **Qumu Cloud**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Qumu Cloud](mailto:support@qumu.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,9 +192,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Qumu Cloud.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Qumu Cloud.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Qumu Cloud**.
 
@@ -233,9 +233,9 @@ Quando si fa clic sul riquadro di Qumu Cloud nel pannello di accesso, si dovrebb
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

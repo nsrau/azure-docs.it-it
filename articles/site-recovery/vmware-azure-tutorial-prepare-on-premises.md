@@ -6,35 +6,37 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 883e4cbc33ebbef0328bb1de47025e99e670f7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311036"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359379"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
+Questo articolo descrive come preparare i server VMware locali per il ripristino di emergenza in Azure usando i servizi [Azure Site Recovery](site-recovery-overview.md). 
 
-- Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nella prima esercitazione sono stati [configurati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware.
+Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nella prima esercitazione sono stati [configurati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware.
 
 
-> [!NOTE]
-> Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, consultare la sezione **Procedure** per lo scenario corrispondente.
-
-Questo articolo illustra come preparare l'ambiente VMware in locale, quando si vogliono replicare macchine virtuali VMware in Azure usando Azure Site Recovery. Si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
-> * Preparare un account nel server vCenter o nell'host ESXi vSphere per rendere automatica l'individuazione delle macchine virtuali
-> * Preparare un account per l'installazione automatica del servizio Mobility nelle macchine virtuali VMware
-> * Esaminare i requisiti dei server VMware e delle macchine virtuali
-> * Preparare la connessione alle macchine virtuali di Azure dopo il failover
+> * Preparare un account nel server vCenter o nell'host ESXi vSphere per rendere automatica l'individuazione delle macchine virtuali.
+> * Preparare un account per l'installazione automatica del servizio Mobility nelle macchine virtuali VMware.
+> * Esaminare i requisiti e il supporto dei server VMware e delle macchine virtuali.
+> * Preparare la connessione alle macchine virtuali di Azure dopo il failover.
 
+> [!NOTE]
+> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
 
+## <a name="before-you-start"></a>Prima di iniziare
+
+Assicurarsi di aver predisposto Azure come descritto nella [prima esercitazione di questa serie](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparare un account per l'individuazione automatica
 
@@ -107,13 +109,13 @@ Per connettersi alle macchine virtuali Linux tramite SSH dopo il failover, esegu
 
 
 ## <a name="failback-requirements"></a>Requisiti di failback
-Se si prevede di eseguire il failback in locale, è necessario assicurarsi anche che [siano soddisfatti alcuni prerequisiti](vmware-azure-reprotect.md##before-you-begin). Ciò tuttavia **non è necessario per iniziare ad abilitare il ripristino di emergenza** per le macchine virtuali e può essere verificato anche dopo il failover in Azure.
+Se si prevede di eseguire il failback nel proprio sito locale, esistono alcuni [prerequisiti](vmware-azure-reprotect.md##before-you-begin) di cui tener conto. Questi prerequisiti possono essere soddisfatti ora, ma non è indispensabile. È possibile soddisfare questi prerequisiti dopo aver eseguito il failover in Azure.
 
-## <a name="useful-links"></a>Collegamenti utili
 
-Se si esegue la replica di più macchine virtuali, è consigliabile pianificare la capacità e la distribuzione prima di iniziare. [Altre informazioni](site-recovery-deployment-planner.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Configurare il ripristino di emergenza. Se si esegue la replica di più macchine virtuali, pianificare la capacità.
 > [!div class="nextstepaction"]
-> [Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali](vmware-azure-tutorial.md)
+> [Configurare il ripristino di emergenza in Azure per macchine virtuali VMware](vmware-azure-tutorial.md)
+> [Eseguire la pianificazione della capacità](site-recovery-deployment-planner.md).
