@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59610136"
+---
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 
 Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo. Include la creazione di un'app ASP.NET MVC, l'aggiunta di una connessione di Servizi connessi, l'aggiunta di un controller e la specifica delle direttive degli spazi dei nomi necessarie.
@@ -20,7 +37,7 @@ Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto.
 
-2. Nel menu di scelta rapida selezionare **Aggiungi** > **Servizio connesso**.
+1. Nel menu di scelta rapida selezionare **Aggiungi** > **Servizio connesso**.
 
 1. Nella finestra di dialogo **Servizi connessi** selezionare **Archiviazione cloud con Archiviazione di Azure**.
 
@@ -28,8 +45,9 @@ Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo
 
 1. Nella finestra di dialogo **Archiviazione di Azure** selezionare l'account di archiviazione di Azure da usare per questa esercitazione. Per creare un nuovo account di archiviazione di Azure, selezionare **Crea un nuovo Account di archiviazione** e completare il modulo. Dopo aver selezionato un account di archiviazione esistente o averne creato uno nuovo, selezionare **Aggiungi**. Visual Studio installa il pacchetto NuGet per Archiviazione di Azure e una stringa di connessione di archiviazione a **Web.config**.
 
+1. Nelle **Esplora soluzioni**, fare clic su **dipendenze**, scegliere **Gestisci pacchetti NuGet**e aggiungere un riferimento al pacchetto NuGet per la versione più recente di Microsoft.Azure.ConfigurationManager.
+
 > [!TIP]
-> Per informazioni su come creare un account di archiviazione con il [portale di Azure](https://portal.azure.com), vedere [Creare un account di archiviazione](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Per informazioni su come creare un account di archiviazione con il [portale di Azure](https://portal.azure.com), vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 >
 > Si può creare un account di archiviazione anche tramite [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](../articles/storage/common/storage-azure-cli.md) o [Azure Cloud Shell](../articles/cloud-shell/overview.md).
-

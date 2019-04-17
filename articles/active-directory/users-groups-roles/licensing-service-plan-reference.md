@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495123"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609507"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
 
@@ -34,7 +34,7 @@ Quando si gestiscono le licenze [portale di Azure](https://portal.azure.com/#bla
 - **Piani di servizio inclusi (nomi descrittivi)**: Un elenco di piani di servizio (nomi descrittivi) all'interno del prodotto che corrispondono ai GUID e ID stringa
 
 >[!NOTE]
->Queste informazioni sono accurate e valide al 17 agosto 2018.
+>Queste informazioni sono accurate a partire dal 15 aprile 2019.
 
 | Nome prodotto | ID stringa | GUID | Piani di servizio inclusi | I piani di servizio inclusi (nomi descrittivi) |
 | --- | --- | --- |--- |
@@ -218,6 +218,6 @@ Per altre informazioni sulle funzionalità disponibili per la gestione delle lic
 * [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Come eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi in Azure Active Directory](licensing-groups-migrate-users.md)
-* [Come eseguire la migrazione degli utenti tra licenze di prodotti usano licenze basate su gruppo in Azure Active Directory](licensing-groups-change-licenses.md)
+* [Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con la gestione delle licenze basate su gruppo in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](licensing-group-advanced.md)
 * [Esempi di PowerShell per le licenze basate sui gruppi in Azure AD](licensing-ps-examples.md)

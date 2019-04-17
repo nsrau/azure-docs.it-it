@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807868"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607796"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 ==================================
@@ -149,7 +149,7 @@ La tabella seguente illustra le diverse aree che è possibile specificare per i 
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituania            | EUR               |
 | LU         | Lussemburgo           | EUR               |
-| MK         | Macedonia del Nord       | MKD               |
+| MK         | Macedonia del Nord      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Messico               | MXN               |

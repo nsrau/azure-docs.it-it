@@ -2,7 +2,7 @@
 title: Stato dell'orchestrazione personalizzato in Funzioni permanenti - Azure
 description: Informazioni su come configurare e usare lo stato dell'orchestrazione personalizzato per Funzioni permanenti.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8487eb9009529e023e06bf6a717fcb142f50305f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342800"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608045"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 

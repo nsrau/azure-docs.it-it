@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540823"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608863"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -155,6 +155,10 @@ Sì. Ogni appliance HSM è completamente dedicata a un singolo cliente e nessun 
 
 Microsoft non ha alcun controllo amministrativo o crittografico sui moduli di protezione hardware. Ha accesso a livello di monitoraggio attraverso una connessione alla porta seriale per recuperare dati di telemetria di base, ad esempio temperatura e integrità dei componenti. Questo consente a Microsoft di fornire la notifica tempestiva di eventuali problemi di integrità. Se necessario, il cliente può disabilitare questo account.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>D: Che cos'è l'account "tenantadmin" Microsoft Usa, sono abituato all'utente amministratore in corso "admin" in moduli HSM SafeNet?
+
+Il dispositivo HSM viene fornito con un utente predefinita dell'amministratore con la relativa password predefinito normale. Microsoft non desidera avere le password predefinite in uso, mentre qualsiasi dispositivo si trova in un pool in attesa di eseguire il provisioning da parte dei clienti. Ciò non soddisfano i requisiti di sicurezza restrittivi. Per questo motivo, abbiamo impostato una password complessa che viene eliminata in fase di provisioning. Inoltre, in fase di provisioning è creare un nuovo utente del ruolo di amministratore chiamato "tenantadmin". A questo utente è la password predefinita, i clienti di modificare il come la prima azione al primo accesso al dispositivo appena sottoposti a provisioning. Questo processo assicura livelli di protezione elevati e mantenga nostra aspirazione unico controllo amministrativo per i clienti. Si noti che l'utente "tenantadmin" consente di reimpostare la password dell'utente amministratore, se un cliente si preferisce usare tale account. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>D: Microsoft o chiunque in Microsoft può accedere alle chiavi in HSM dedicato?
 
  No. Microsoft non ha alcun accesso alle chiavi archiviate nei moduli di protezione hardware dedicati allocati ai clienti.
@@ -201,7 +205,7 @@ Sì. I moduli devono soddisfare i requisiti di disponibilità elevata per SafeNe
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>D: Qual è il contratto di servizio per il servizio HSM dedicato?
 
-Non è disponibile alcun guarentee specifico tempo di attività specificate per il servizio modulo di protezione hardware dedicati. Microsoft garantirà l'accesso a livello di rete al dispositivo e quindi sono applicabili i contratti di servizio standard della rete di Azure.
+Non è possibile garantire tempi di attività specifico fornito per il servizio modulo di protezione hardware dedicati. Microsoft garantirà l'accesso a livello di rete al dispositivo e quindi sono applicabili i contratti di servizio standard della rete di Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>D: Come vengono protetti i moduli di protezione hardware in HSM dedicato di Azure?
 
@@ -217,7 +221,7 @@ Il servizio HSM dedicato usa appliance SafeNet Network HSM 7. Queste appliance s
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>D: Come si può ottenere assistenza per HSM dedicato?
 
-Il supporto è fornito da Microsoft e Gemalto.  Se si verifica un problema con l'hardware o l'accesso alla rete, genera una richiesta di supporto con Microsoft e se si dispone di un problema con lo sviluppo di configurazione, software e applicazioni di moduli di protezione hardware, rasie personale del supporto della richiesta con Gemalto. Se si verifica un problema non determinato, generare un withg di richiesta di supporto tecnico Microsoft e quindi può essere avviato il Gemalto come necessario. 
+Il supporto è fornito da Microsoft e Gemalto.  Se si dispone di un problema con l'accesso di rete o l'hardware, genera una richiesta di supporto con Microsoft e, se si verifica un problema con la configurazione di modulo di protezione hardware, software e lo sviluppo di applicazioni, generare una richiesta di supporto con Gemalto. Se si verifica un problema non determinato, generare una richiesta di supporto con Microsoft e quindi può essere avviato il Gemalto come necessario. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>D: Come ottenere il client software, documentazione e l'accesso al materiale sussidiario sull'integrazione per il modulo di protezione hardware di SafeNet Luna 7?
 

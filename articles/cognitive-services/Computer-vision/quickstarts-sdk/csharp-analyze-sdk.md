@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Analizzare un'immagine - SDK, C#"
+title: "Guida introduttiva: Analizzare un'immagine - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542982"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609388"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Avvio rapido: Analizzare un'immagine usando SDK e C# di Visione artificiale
 
@@ -37,7 +37,7 @@ Per eseguire l'esempio, seguire questa procedura:
     1. Nel menu fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
     1. Fare clic sulla scheda **Sfoglia** e nella casella di **ricerca** digitare "Microsoft.Azure.CognitiveServices.Vision.ComputerVision".
     1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando viene visualizzata, quindi fare clic sulla casella di controllo accanto al nome del progetto e infine su **Installa**.
-1. Sostituire il contenuto del file *Program.cs* con il codice seguente. I metodi `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` eseguono il wrapping dell'[API REST di analisi delle immagini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), rispettivamente per le immagini locali e remote. 
+1. Sostituire il contenuto del file *Program.cs* con il codice seguente. I metodi `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` eseguono il wrapping dell'[API REST di analisi delle immagini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), rispettivamente per le immagini locali e remote.
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -135,7 +135,14 @@ Per eseguire l'esempio, seguire questa procedura:
             private static void DisplayResults(ImageAnalysis analysis, string imageUri)
             {
                 Console.WriteLine(imageUri);
-                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                if (analysis.Description.Captions.Count != 0)
+                {
+                    Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                }
+                else
+                {
+                    Console.WriteLine("No description generated.");
+                }
             }
         }
     }
@@ -153,7 +160,7 @@ Una risposta con esito positivo visualizza la didascalia più pertinente per ogn
 
 Vedere [Guide introduttive per API: Analizzare un'immagine locale con C#](../QuickStarts/CSharp-analyze.md#examine-the-response) per un esempio di output JSON non elaborato.
 
-```
+```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

@@ -304,8 +304,6 @@ items:
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostica
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Anteprime
-          href: app/previews.md
       - name: App ASP.NET
         items:
         - name: App Web
@@ -349,8 +347,6 @@ items:
         items:
         - name: App Web
           href: app/java-get-started.md
-        - name: App Web - Runtime
-          href: app/java-live.md
         - name: App Docker
           href: app/docker.md
         - name: Analisi di log
@@ -1072,9 +1068,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3b5ce979ac9643001aa18d7e41d005e03fabc057
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491101"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609116"
