@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400966"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282815"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Informazioni su Azure Data Box Gateway
 
@@ -29,6 +29,8 @@ Data Box Gateway consente di trasferire i dati nel cloud, ad esempio un archivio
 - **Inserimento dati continuo**: inserire continuamente dati nel dispositivo per la copia nel cloud, indipendentemente dalle dimensioni dei dati. Man mano che i dati vengono scritti nel dispositivo gateway, questo li carica in Archiviazione di Azure.  
 
 - **Trasferimento in blocco iniziale seguito da trasferimento incrementale**: usare Data Box per il trasferimento in blocco in modalità offline (seeding iniziale) e Data Box Gateway per i trasferimenti incrementali (feed continuo) tramite la rete.
+
+Per altre informazioni, vedere [Azure Data Box Gateway use cases](data-box-gateway-use-cases.md) (Casi d'uso di Azure Data Box Gateway).
 
 ## <a name="benefits"></a>Vantaggi
 

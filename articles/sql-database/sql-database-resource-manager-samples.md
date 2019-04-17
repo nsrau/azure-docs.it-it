@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 58513b77315badc52acbc0c5116343461b44fa08
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232963"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356829"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelli di Azure Resource Manager per Database SQL di Azure
 
@@ -53,4 +53,3 @@ La tabella seguente include collegamenti ai modelli di Azure Resource Manager pe
 | [Ambiente di rete per Istanza gestita](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Questa distribuzione crea una rete virtuale di Azure configurata con due subnet, una dedicata alle istanze gestite e l'altra in cui è possibile inserire altre risorse, ad esempio VM, ambienti di Servizio App e così via. Questo modello crea un ambiente di rete correttamente configurato in cui è possibile distribuire istanze gestite. |
 | [Istanza gestita con connessione da punto a sito](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Questa distribuzione crea una rete virtuale di Azure con due subnet `ManagedInstance` e `GatewaySubnet`. L'istanza gestita verrà distribuita nella subnet ManagedInstance. Nella subnet `GatewaySubnet` verrà creato un gateway di rete virtuale configurato per la connessione VPN da punto a sito. |
 | [Istanza gestita con macchina virtuale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Questa distribuzione crea una rete virtuale di Azure con due subnet `ManagedInstance` e `Management`. L'istanza gestita verrà distribuita nella subnet `ManagedInstance`. La macchina virtuale con l'ultima versione di SQL Server Management Studio (SSMS) verrà distribuita nella subnet `Management`. |
-

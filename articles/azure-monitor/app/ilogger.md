@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 615eaa3df7cabad72ac321978eb01d93a7bfa988
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263761"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608286"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>Per i log di .NET Core ILogger ApplicationInsightsLoggerProvider
 
@@ -414,16 +414,39 @@ Il codice seguente frammento di codice configura i log `Warning` e versioni succ
 
 * Applicazione acquisizioni Insights e invia `ILogger` accede utilizzando lo stesso `TelemetryConfiguration` usato per tutti i dati di telemetria. Si verifica un'eccezione a questa regola. Il valore predefinito `TelemetryConfiguration` non completamente set quando registra un elemento da `Program.cs` oppure `Startup.cs` stesso, in modo che i log da queste posizioni non avrà la configurazione predefinita e di conseguenza non verranno eseguiti tutti i `TelemetryInitializer`s e `TelemetryProcessor`s.
 
-*5. Quale tipo di dati di telemetria di Application Insights viene generato dal `ILogger` registri? o in cui è possibile vedere `ILogger` log in Application Insights?*
+*5. Utilizzo del pacchetto autonomo Microsoft.Extensions.Logging.ApplicationInsights e desidera registrare manualmente alcuni dati di telemetria personalizzati aggiuntivi. Modo in cui è necessario farlo?*
+
+* Quando si usa il pacchetto autonomo `TelemetryClient` non viene inserito al contenitore di inserimento delle dipendenze, in modo che gli utenti dovranno creare una nuova istanza della `TelemetryClient` usando la stessa configurazione utilizzata dal provider di logger, come illustrato di seguito. Ciò garantisce che la stessa configurazione viene usata per tutti i dati di telemetria personalizzati, oltre a quelli acquisiti da ILogger.
+
+```csharp
+public class MyController : ApiController
+{
+   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   private readonly TelemetryClient _telemetryClient;
+   private readonly ILogger _logger;
+
+   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   {
+        _telemetryClient = new TelemetryClient(options.Value);
+        _logger = logger;
+   }  
+}
+```
+
+> [!NOTE]
+> Si noti che, se il pacchetto Microsoft.ApplicationInsights.AspNetCore pacchetto viene usato per abilitare Application Insights, quindi l'esempio precedente deve essere modificato per ottenere `TelemetryClient` direttamente nel costruttore. Visualizzare [ciò](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) , ad esempio completo.
+
+
+*6. Quale tipo di dati di telemetria di Application Insights viene generato dal `ILogger` registri? o in cui è possibile vedere `ILogger` log in Application Insights?*
 
 * Consente di acquisire ApplicationInsightsLoggerProvider `ILogger` accede e crea `TraceTelemetry` da quest'ultimo. Se un oggetto eccezione viene passato al metodo di log () su ILogger, quindi al posto di `TraceTelemetry`, un `ExceptionTelemetry` viene creato. Questi elementi di telemetria sono reperibili nelle stesse posizioni come qualsiasi altra `TraceTelemetry` o `ExceptionTelemetry` per Application Insights, inclusi portale, analitica o debugger di Visual Studio locale.
 Se si vuole inviare sempre `TraceTelemetry`, quindi usare il frammento di codice ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
 
-*5. Non è installato SDK, e utilizzo dell'estensione App Web Azure per abilitare Application Insights per le applicazioni Asp.Net Core. Come si usa il nuovo provider?*
+*7. Non è installato SDK, e utilizzo dell'estensione App Web Azure per abilitare Application Insights per le applicazioni Asp.Net Core. Come si usa il nuovo provider?*
 
 * Estensione di Application Insights nell'App Web di Azure Usa il vecchio provider. Regole di filtro possono essere modificata in `appsettings.json` per l'applicazione. Se si desidera sfruttare i vantaggi del nuovo provider, utilizzare la strumentazione in fase di compilazione tramite l'aggiunta delle dipendenze di nuget di SDK. Questo documento verrà aggiornato quando l'estensione passa all'uso di provider di nuovo.
 
-*6. Sono con il pacchetto autonomo Microsoft.Extensions.Logging.ApplicationInsights e l'abilitazione di provider di Application Insights dal generatore di chiamata. AddApplicationInsights("ikey"). È disponibile un'opzione per ottenere una chiave di strumentazione dalla configurazione?*
+*8. Sono con il pacchetto autonomo Microsoft.Extensions.Logging.ApplicationInsights e l'abilitazione di provider di Application Insights dal generatore di chiamata. AddApplicationInsights("ikey"). È disponibile un'opzione per ottenere una chiave di strumentazione dalla configurazione?*
 
 
 * Modificare `Program.cs` e `appsettings.json` come illustrato di seguito.
