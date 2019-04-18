@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Sì |ID risorsa della risorsa in cui si vuole definire un'impostazione di diagnostica. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui devono essere salvati i log di diagnostica. |
-| Categorie |No  |Elenco delimitato da virgole di categorie di log da abilitare. |
-| Attivato |Sì |Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |
+| Categories |No  |Elenco delimitato da virgole di categorie di log da abilitare. |
+| Enabled |Sì |Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |
 | RetentionEnabled |No  |Valore booleano che indica se un criterio di conservazione è abilitato per questa risorsa. |
 | RetentionInDays |No  |Numero di giorni per cui gli eventi devono essere conservati, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
 
@@ -153,7 +153,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 | Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
-| ResourceId |ID risorsa della risorsa interessata. |
+| resourceId |ID risorsa della risorsa interessata. |
 | operationName |Nome dell'operazione. |
 | category |Categoria di log dell'evento. |
 | properties |Set di coppie `<Key, Value>` ad esempio Dictionary, che descrivono i dettagli dell'evento. |
