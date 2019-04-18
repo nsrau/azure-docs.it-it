@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496557"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Creare un'app Web a pagina singola con Ricerca visiva
@@ -123,4 +123,4 @@ Dopo avere inserito tutto il nuovo codice JavaScript e gli elementi HTML, è pos
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Ritagliare un'immagine con l'SDK di Ricerca visiva Bing per C#](tutorial-visual-search-crop-area-results.md)
+> [Esercitazione: Ritagliare un'immagine con il SDK di ricerca Visual Bing perC#](tutorial-visual-search-crop-area-results.md)

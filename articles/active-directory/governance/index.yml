@@ -37,7 +37,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Informazioni sulla verifica di accesso</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Informazioni sulle verifiche di accesso</a>
           - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gestire l'accesso utente con le verifiche di accesso</a>
           - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gestire l'accesso guest con le verifiche di accesso</a>
   - title: Condizioni per l'utilizzo
@@ -45,4 +45,4 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Quali operazioni si possono eseguire con Condizioni per l'utilizzo?</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Operazioni supportate da Condizioni per l'utilizzo</a>

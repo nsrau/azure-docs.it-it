@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916802"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
@@ -59,7 +59,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
    ![Pagina Regole di memorizzazione nella cache della rete CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Per impostare le intestazioni Cache-Control del servizio di archiviazione Blob tramite regole di memorizzazione nella cache globali:**
+**Per configurare le intestazioni Cache-Control di un servizio di archiviazione BLOB tramite regole di memorizzazione nella cache globali:**
 
 1. In **Regole di memorizzazione nella cache globali**, impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query** e impostare **Comportamento di memorizzazione nella cache** su **Ignora**.
       
@@ -71,7 +71,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 3. Selezionare **Salva**.
  
-**Per impostare un blob delle intestazioni Cache-Control del file tramite le regole di memorizzazione nella cache personalizzate:**
+**Per configurare le intestazioni Cache-Control di un file di BLOB tramite regole di memorizzazione nella cache personalizzate:**
 
 1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
 
@@ -173,13 +173,13 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 È possibile usare l'[API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/) per impostare in modo esplicito la prorpietà *x-ms-blob-cache-control* tramite le operazioni seguenti in una richiesta:
   
    - [Put Blob](/rest/api/storageservices/Put-Blob)
-   - [Put Block List](/rest/api/storageservices/Put-Block-List)
-   - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties)
+   - [Elenco Put Block](/rest/api/storageservices/Put-Block-List)
+   - [Impostare le proprietà BLOB](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control
 È possibile verificare facilmente le impostazioni di durata (TTL) del BLOB. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il BLOB includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
 
 ## <a name="next-steps"></a>Fasi successive
-* [Informazioni su come gestire la scadenza del contenuto del servizio Cloud nella rete CDN di Azure](cdn-manage-expiration-of-cloud-service-content.md)
-* [Scopri i concetti di memorizzazione nella cache](cdn-how-caching-works.md)
+* [Informazioni su come gestire la scadenza del contenuto di Servizi cloud nella rete CDN di Azure](cdn-manage-expiration-of-cloud-service-content.md)
+* [Informazioni sui concetti di memorizzazione nella cache](cdn-how-caching-works.md)
 

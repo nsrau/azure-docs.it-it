@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489349"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
@@ -73,7 +73,7 @@ Le richieste devono essere inviate solo come richieste HTTP POST.
 
 Di seguito vengono indicati i parametri di query da specificare nella richiesta. Come minimo, è necessario includere il `mkt` parametro di query:
 
-| Attività | Valore | Type | Obbligatorio |
+| NOME | Valore | Type | Obbligatorio |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Un codice paese di due caratteri che indica da dove provengono i risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi. | string | No        |
 | <a name="mkt" />mkt   | Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** È necessario specificare sempre sul mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi. | string | Sì      |
@@ -400,5 +400,5 @@ Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Informazioni sull'API Ricerca visiva Bing](../overview.md)
-- [Esercitazione: Creare un'app Web a pagina singola con Ricerca visiva](../tutorial-bing-visual-search-single-page-app.md)
+- [Che cos'è l'API ricerca visiva Bing?](../overview.md)
+- [Esercitazione: Creare un'app web a pagina singola di ricerca visiva](../tutorial-bing-visual-search-single-page-app.md)

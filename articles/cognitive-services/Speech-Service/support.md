@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358055"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
@@ -66,16 +66,16 @@ Se non si trova una risposta al problema tramite la ricerca, inviare una nuova d
 
 |Componente/Area  |Tag  |
 |---------|---------|
-|Riconoscimento vocale |[[microsoft-cognitivi +-vocale]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Sintesi vocale |[[microsoft-cognitivi +-a-sintesi vocale da testo]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Riconoscimento vocale |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Sintesi vocale |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Traduzione vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Finalità voce |[[microsoft-cognitivi + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Speech SDK generale |[[microsoft-cognitivi +--api traduzione vocale microsoft]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Finalità voce |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|Speech SDK generale |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
-> * [Come porre una domanda da porsi?](https://stackoverflow.com/help/how-to-ask)
-> * [Come creare un numero minimo, completo e verificabile esempio](https://stackoverflow.com/help/mcve)
+> * [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
+> * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub
 
@@ -86,11 +86,11 @@ Gli esempi vengono spesso pubblicati come open source. Per domande e problemi, s
 
 È possibile creare un report sui bug, una richiesta di funzionalità oppure porre una domanda di carattere generale e condividere le procedure consigliate. Per i report sui bug seguire il modello fornito:
 
-**Descrivere il bug**
+**Descrizione del bug**
 
 Descrizione chiara e concisa del bug.
 
-**Per riprodurre**
+**Riproduzione**
 
 Passaggi per riprodurre il comportamento:
 1. ...
@@ -100,17 +100,17 @@ Passaggi per riprodurre il comportamento:
 
 Descrizione chiara e concisa del comportamento previsto.
 
-**Versione del SDK la voce di servizi cognitivi**
+**Versione di Speech SDK di Servizi cognitivi**
 
 Versione dell'SDK usata.
 
-**Sistema operativo, piattaforma e linguaggio di programmazione**
+**Piattaforma, sistema operativo e linguaggio di programmazione**
 
  - Sistema operativo, ad esempio Windows, Linux, Android, iOS, ... - specificare
  - Hardware: x64, x86, ARM, ...
  - Browser, ad esempio Chrome, Safari (se applicabile) - specificare
 
-**Contesto aggiuntivo**
+**Altre informazioni di contesto**
 
  - Messaggi di errore, informazioni del log, analisi dello stack, ...
  - Se si segnala un errore per l'interazione con un servizio specifico, segnalare l'ID sessione e l'ora (tra cui fuso orario) di eventi imprevisti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.

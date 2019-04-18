@@ -56,7 +56,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Informazioni su come creare un notebook dall'inizio alla fine.</a>
+          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Informazioni dettagliate sui passaggi necessari per creare un notebook.</a>
   - title: Esempi
     items:
       - type: paragraph
@@ -65,4 +65,4 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/notebooks/azure-notebooks-samples">Esempi di Jupyter Notebook</a>
+          - html: <a href="/azure/notebooks/azure-notebooks-samples">Notebook di Jupyter di esempio</a>

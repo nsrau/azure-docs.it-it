@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918366"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Precaricamento di risorse in un endpoint della rete CDN di Azure
@@ -50,7 +50,7 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
    > Nel momento in cui si inizia a immettere il testo vengono visualizzate altre caselle di testo **Percorso contenuto**, che consentono di compilare un elenco di più asset. Per eliminare gli asset dall'elenco, selezionare il pulsante con i puntini di sospensione (...) e quindi scegliere **Elimina**.
    > 
    > Ogni percorso di contenuto deve essere un URL relativo che soddisfa le [espressioni regolari](/dotnet/standard/base-types/regular-expression-language-quick-reference) seguenti:  
-   > - Caricare un singolo percorso di file: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Caricare un singolo percorso di file `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Caricare un singolo file con stringa di query: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Poiché ogni asset deve avere il proprio percorso, non esiste alcuna funzionalità con caratteri jolly per il pre-caricamento degli asset.

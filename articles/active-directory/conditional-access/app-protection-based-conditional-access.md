@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496931"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Richiedono criteri di protezione delle app per accedere all'app cloud con l'accesso condizionale (anteprima)
@@ -206,9 +206,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
 
-   - **Richiedere che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedono criteri di protezione delle app (anteprima)**
 
    - **Richiedi uno dei controlli selezionati**   
  
@@ -238,9 +238,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
 
-   - **Richiedere che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedono criteri di protezione delle app (anteprima)**
 
    - **Richiedi uno dei controlli selezionati**
 
@@ -308,9 +308,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
 
-   - **Richiedere che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedono criteri di protezione delle app (anteprima)**
 
    - **Richiedi tutti i controlli selezionati**   
  
@@ -340,9 +340,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
 
-   - **Richiedere che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedono criteri di protezione delle app (anteprima)**
 
    - **Richiedi tutti i controlli selezionati**   
  
@@ -382,7 +382,7 @@ Questo scenario presuppone che un utente:
 
 Eventuali criteri di protezione app di Intune sono necessari prima di concessa l'accesso ai dati aziendali. I criteri potrebbero richiedere all'utente di riavviare l'applicazione o usare un PIN aggiuntivo. Ciò avviene se i criteri sono configurati per l'applicazione e piattaforma.
 
-**Osservazioni**
+**Osservazioni:**
 
 - Se si desidera supportano entrambi i criteri di accesso condizionale basato su protezione e basato su app, è possibile utilizzare questo scenario.
 - In questo *o* criteri, le app con un requisito dei criteri di protezione app vengono valutati per l'accesso prima di usare il requisito per le app client approvate.
@@ -415,9 +415,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
 
-   - **Richiedere app client approvata**
+   - **Richiedi app client approvata**
 
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedono criteri di protezione delle app (anteprima)**
 
    - **Richiedi uno dei controlli selezionati**
  

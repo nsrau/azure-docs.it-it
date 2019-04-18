@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494868"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli delle risorse di Azure in PIM
@@ -62,14 +62,14 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 | | |
 | --- | --- |
-| **Allow permanent eligible assignment (Consenti assegnazione idonea permanente)** | Gli amministratori delle risorse possono assegnare l'appartenenza idonea permanente. |
-| **Scadenza delle assegnazioni idonee dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
+| **Consenti le assegnazioni idonee permanenti** | Gli amministratori delle risorse possono assegnare l'appartenenza idonea permanente. |
+| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
 
 L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
 
 | | |
 | --- | --- |
-| **Allow permanent active assignment (Consenti assegnazione attiva permanente)** | Gli amministratori delle risorse possono assegnare l'appartenenza attiva permanente. |
+| **Consenti l'assegnazione permanente attiva** | Gli amministratori delle risorse possono assegnare l'appartenenza attiva permanente. |
 | **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine. |
 
 > [!NOTE] 
@@ -120,4 +120,4 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
-- [Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-alerts.md)
+- [Configurare gli avvisi di sicurezza per i ruoli delle risorse in PIM](pim-resource-roles-configure-alerts.md)

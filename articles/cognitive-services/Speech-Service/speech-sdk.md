@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
 ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425798"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
@@ -91,5 +91,5 @@ Java SDK fa inoltre parte di [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere la sottoscrizione di valutazione di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni su come riconoscimento vocale inC#](quickstart-csharp-dotnet-windows.md)
+* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

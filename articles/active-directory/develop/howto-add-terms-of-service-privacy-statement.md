@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500298"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
@@ -57,9 +57,9 @@ Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statem
 Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono pronte, è possibile aggiungere collegamenti a questi documenti nell'app con uno dei metodi seguenti:
 
 * [Tramite il portale di Azure](#registered-in-azure-portal)
-* [Nel portale di registrazione dell'applicazione o Dev Center](#registered-in-app-reg-portal)
-* [Uso dell'app oggetto JSON](#app-object-json)
-* [Utilizza la versione beta di Microsoft Graph API REST](#msgraph-beta-rest-api)
+* [Nel portale di registrazione delle applicazioni, o Dev Center](#registered-in-app-reg-portal)
+* [Con il codice JSON dell'oggetto app](#app-object-json)
+* [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se l'app è stata registrata nel portale di Azure
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Prestare attenzione a non sovrascrivere eventuali valori Pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl`, e `logoUrl`
+> * Prestare attenzione a non sovrascrivere eventuali valori pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl` e `logoUrl`
 > * La versione beta dell'API REST MSGraph funzionerà solo quando si accede con un account Azure AD. Gli account Microsoft personali non sono supportati.

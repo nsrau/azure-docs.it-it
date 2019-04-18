@@ -47,7 +47,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creare e gestire i criteri di Azure</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creare e gestire Criteri di Azure</a>
           - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creare una definizione di criteri personalizzata</a>
   - title: Esempi
     items:

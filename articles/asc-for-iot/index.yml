@@ -51,8 +51,8 @@ sections:
               src: media/index/tutorial.svg
               href: 'https://docs.microsoft.com/learn/azure'
       - type: paragraph
-        text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo...</a>
-  - title: Informazioni di riferimento
+        text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo</a>
+  - title: riferimento
     items:
       - type: list
         style: cards

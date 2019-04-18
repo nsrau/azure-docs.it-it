@@ -60,7 +60,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelli di Guida introduttiva di Azure</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelli di avvio rapido di Azure</a>'
           - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (anteprima)</a>'
   - title: riferimento
     items:
@@ -72,7 +72,7 @@ sections:
             html: <p><a href="/azure/templates/">Informazioni di riferimento sul modello</a></p><p><a href="/azure/resource-group-template-functions">Funzioni di modello</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funzioni di definizione dell'interfaccia utente</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementi di definizione dell'interfaccia utente</a></p>
           - title: Riga di comando
             html: <p><a href="/cli/azure/resource">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-          - title: Languages
+          - title: Lingue
             html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
           - title: REST
             html: <p><a href="/rest/api/resources/">API REST</a></p>
