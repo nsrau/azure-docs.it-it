@@ -143,9 +143,9 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Name |Sì |Nome del profilo di log. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+| Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
 | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
-| Categoria |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+| Category |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 #### <a name="remove-a-log-profile"></a>Rimozione di un profilo di log
 
