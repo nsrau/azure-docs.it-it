@@ -397,9 +397,9 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 | ReceivedBytes | Quantità di byte ricevuta |
 | ProtocolName | Nome del protocollo di rete usato |
 | IPVersion | Versione IP |
-| Direzione | In ingresso o in uscita |
+| Direction | In ingresso o in uscita |
 | MaliciousIP | Indirizzo IP di un'origine dannosa nota |
-| Gravità | Gravità del software dannoso sospetto |
+| Severity | Gravità del software dannoso sospetto |
 | RemoteIPCountry | Paese dell'indirizzo IP remoto |
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager |
 | SourceSystem | Origine in cui sono stati raccolti i dati |
