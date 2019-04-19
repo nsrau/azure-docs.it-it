@@ -270,7 +270,7 @@ Per copiare dati da un database SQL di Azure, impostare la proprietà **type** n
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Sì |
-| SqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
+| sqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No  |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No  |
 
@@ -609,7 +609,7 @@ Quando si copiano i dati da o verso il database SQL di Azure, vengono usati i ma
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -627,15 +627,15 @@ Quando si copiano i dati da o verso il database SQL di Azure, vengono usati i ma
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Oggetto |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.
