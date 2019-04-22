@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
 ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050476"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
@@ -203,6 +203,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
 * Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
-* [Aggiornare e gestire i certificati cluster](service-fabric-cluster-security-update-certs-azure.md)
+* [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

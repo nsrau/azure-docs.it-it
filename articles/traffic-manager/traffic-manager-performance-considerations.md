@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048300"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
@@ -56,7 +56,7 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [Monitoraggio sintetico App autorità di certificazione](https://asm.ca.com/en/checkit.php)
+* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
     Precedentemente noto come lo strumento di espressioni di controllo mouse Check Website, questo sito mostra i tempi di risoluzione DNS da più aree geografiche simultaneamente. Immettere l'URL per visualizzare i tempi di risoluzione DNS, i tempi di connessione e la velocità da diverse aree geografiche. Usare questo test per vedere quale servizio ospitato viene restituito per le diverse aree geografiche.
 
@@ -66,21 +66,21 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
     Questo strumento offre statistiche sulle prestazioni per ogni elemento di una pagina Web. La scheda Page Analysis (Analisi pagina) mostra la percentuale di tempo impiegato per la ricerca DNS.
 
-* [Che cos'è il DNS?](https://www.whatsmydns.net/)
+* [What's My DNS?](https://www.whatsmydns.net/)
 
     Questo sito esegue una ricerca DNS da 20 aree geografiche diverse e visualizza i risultati su una mappa.
 
-* [Esaminare l'interfaccia Web](https://www.digwebinterface.com)
+* [Dig Web Interface](https://www.digwebinterface.com)
 
     Mostra informazioni più dettagliate sul DNS, inclusi i record A e CNAME. Verificare di selezionare "Colorize output" (Colora output) e "Stats" (Statistiche) in Options (Opzioni) e di selezionare "All" (Tutti) in Nameservers (Server dei nomi).
 
 ## <a name="next-steps"></a>Fasi successive
 
-[Metodi di routing del traffico di gestione traffico](traffic-manager-routing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
-[Verificare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
+[Verifica delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
 
-[Operazioni per gestione traffico (riferimento all'API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlet di gestione traffico di Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
+[Cmdlet di Gestione traffico di Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

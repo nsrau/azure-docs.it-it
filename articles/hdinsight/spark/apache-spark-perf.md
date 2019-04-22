@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283070"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
@@ -33,7 +33,7 @@ Le versioni precedenti di Spark usano RDD per dati astratto, 1.3 di Spark, e 1.6
     * Accesso diretto alla memoria
     * Sovraccarico ridotto di Garbage Collection (GC)
     * Per gli sviluppatori non risultano efficienti quanto i set di dati, perché non sono presenti controlli in fase di compilazione né alcuna programmazione degli oggetti di dominio
-* **DataSets**
+* **Set di dati**
     * Ideali nelle pipeline ETL complesse in cui l'impatto sulle prestazioni è accettabile
     * Sconsigliati nelle aggregazioni in cui l'impatto sulle prestazioni può essere considerevole
     * Consentono l'ottimizzazione query tramite Catalyst
@@ -41,7 +41,7 @@ Le versioni precedenti di Spark usano RDD per dati astratto, 1.3 di Spark, e 1.6
     * Comportano un sovraccarico di serializzazione/deserializzazione
     * Sovraccarico GC elevato
     * Interrompono la generazione di codici whole-stage
-* **I set RDD**
+* **RDD**
     * Non è necessario usare RDD, a meno che non sia necessario compilare un nuovo RDD personalizzato.
     * Nessuna ottimizzazione query tramite Catalyst
     * Nessuna generazione di codici whole-stage
@@ -61,9 +61,9 @@ Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BL
 | Tipo di store | File system | speed | Temporaneo | Casi di utilizzo |
 | --- | --- | --- | --- | --- |
 | Archiviazione BLOB di Azure | **wasb [s]:**//url/ | **Standard** | Sì | Cluster temporaneo |
-| Azure Data Lake Store generazione 2| **abfs[s]:**//url/ | **Più rapida** | Sì | Cluster temporaneo |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Più rapida** | Sì | Cluster temporaneo |
-| Hadoop Distributed File System locale | **hdfs:**//url/ | **Più veloce** | No  | Cluster interattivo 24/7 |
+| Azure Data Lake Store generazione 2| **abfs[s]:**//url/ | **Più rapido** | Sì | Cluster temporaneo |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Più rapido** | Sì | Cluster temporaneo |
+| Hadoop Distributed File System locale | **hdfs:**//url/ | **Il più rapido** | No  | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache
 
@@ -78,7 +78,7 @@ Spark offre meccanismi di memorizzazione nella cache nativi che possono essere u
     * Usa una memorizzazione nella cache di unità SSD e interna alla memoria.
 
 * Hadoop Distributed File System locale (opzione consigliata)
-    * `hdfs://mycluster` percorso.
+    * Percorso `hdfs://mycluster`.
     * Usa la memorizzazione nella cache di unità SSD.
     * I dati memorizzati nella cache andranno persi quando si elimina il cluster, richiedendo così una ricompilazione della cache.
 
@@ -160,9 +160,9 @@ A seconda del carico di lavoro del cluster Spark, è possibile stabilire se una 
 
 Ecco alcuni parametri comuni che è possibile modificare:
 
-* `--num-executors` Imposta il numero appropriato di executor.
-* `--executor-cores` Imposta il numero di core per ogni executor. Di norma si useranno degli executor di dimensioni medie, giacché parte della memoria disponibile è già usata da altri processi.
-* `--executor-memory` Imposta le dimensioni della memoria per ogni executor, che controlla le dimensioni dell'heap in YARN. È consigliabile lasciare una certa quantità di memoria per l'overhead di esecuzione.
+* `--num-executors` imposta il numero appropriato di executor.
+* `--executor-cores` imposta il numero di core per ogni executor. Di norma si useranno degli executor di dimensioni medie, giacché parte della memoria disponibile è già usata da altri processi.
+* `--executor-memory` imposta le dimensioni della memoria per ogni executor, che controlla le dimensioni dell'heap in YARN. È consigliabile lasciare una certa quantità di memoria per l'overhead di esecuzione.
 
 ### <a name="select-the-correct-executor-size"></a>Selezionare le dimensioni corrette dell'executor
 
@@ -214,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight](apache-spark-job-debugging.md)
-* [Gestire le risorse per un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
-* [Usare l'API REST di Apache Spark per inviare processi remoti a un cluster Apache Spark](apache-spark-livy-rest-interface.md)
+* [Gestire le risorse di un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
+* [Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster Apache Spark](apache-spark-livy-rest-interface.md)
 * [Ottimizzazione di Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Come ottimizzare efficacemente Apache Spark processi quindi funzionano](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Come ottimizzare efficacemente i processi Apache Spark in modo che funzionino](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Serializzazione Kryo](https://github.com/EsotericSoftware/kryo)

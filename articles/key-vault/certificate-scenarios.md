@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275896"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
@@ -82,7 +82,7 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
       -   Informazioni relative al rinnovo, ad esempio 90 giorni prima della scadenza  
 
   - Il processo di creazione di un certificato è in genere asincrono e prevede il polling dell'insieme di credenziali delle chiavi per lo stato dell'operazione di creazione del certificato.  
-[Ottieni operazione relativa al certificato](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+[Operazione di recupero del certificato](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Stato: operazione completata, non riuscita con informazioni sull'errore o annullata  
       -   A causa del ritardo nella creazione può essere avviata un'operazione di annullamento. L'annullamento può essere applicato o meno.  
 

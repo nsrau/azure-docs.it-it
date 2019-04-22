@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047025"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Aggiungere un elemento in una macchina virtuale
@@ -168,5 +168,5 @@ Sugli elementi, vedere gli articoli seguenti:
 
 - [Specificare gli elementi obbligatori per l'ambiente lab](devtest-lab-mandatory-artifacts.md)
 - [Creare elementi personalizzati](devtest-lab-artifact-author.md)
-- [Aggiungere un repository di artefatti a un lab](devtest-lab-artifact-author.md)
+- [Aggiungere un repository di elementi a un lab](devtest-lab-artifact-author.md)
 - [Diagnosticare errori degli elementi](devtest-lab-troubleshoot-artifact-failure.md)

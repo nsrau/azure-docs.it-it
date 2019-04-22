@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279891"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Scoprire e usare i notebook di esempio
@@ -37,7 +37,7 @@ Dopo aver identificato un notebook da esplorare, ecco alcuni dettagli che è opp
 - [Raccolta di interessanti notebook](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (progetto Jupyter su GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Istruzioni di fisica del [Dipartimento di fisica dell'Imperial College di Londra](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning esempi introduttivi](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- [Esempi introduttivi su Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

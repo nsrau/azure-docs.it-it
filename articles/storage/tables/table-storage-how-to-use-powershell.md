@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273125"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell 
@@ -47,7 +47,7 @@ Dopo che Azure PowerShell è installato o aggiornato, è necessario installare u
 Install-Module AzTable
 ```
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Add-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -161,7 +161,7 @@ In questo articolo con procedure sono state illustrate le operazioni di Archivia
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-* [Cmdlet di PowerShell di archiviazione](/powershell/module/az.storage#storage)
+* [Cmdlet di PowerShell per l'archiviazione](/powershell/module/az.storage#storage)
 
 * [Utilizzo di tabelle di Azure da PowerShell - AzureRmStorageTable/AzTable PS modulo v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264540"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Creare cluster basati su Linux in HDInsight tramite Azure PowerShell
@@ -96,8 +96,8 @@ Dopo aver creato un cluster HDInsight, usare le risorse seguenti per acquisire f
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 
 * [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilizzare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Cluster Apache HBase
 
@@ -107,13 +107,13 @@ Dopo aver creato un cluster HDInsight, usare le risorse seguenti per acquisire f
 ### <a name="storm-clusters"></a>Cluster Storm
 
 * [Sviluppare topologie Java per Storm in HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Usare componenti Python in Storm in HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Usare i componenti di Python in Storm in HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="apache-spark-clusters"></a>Cluster Apache Spark
 
 * [Creare un'applicazione autonoma con Scala](spark/apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Apache Spark usando Livy Apache](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark con Business Intelligence: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Usare Spark in HDInsight per stimare i risultati dell'ispezione cibo](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](spark/apache-spark-machine-learning-mllib-ipython.md)
 

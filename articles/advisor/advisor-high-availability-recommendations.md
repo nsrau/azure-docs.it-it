@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881189"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699305"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Migliorare la disponibilità dell'applicazione con Azure Advisor
 
@@ -66,6 +66,10 @@ Abilitare l'[eliminazione temporanea](https://docs.microsoft.com/azure/storage/b
 
 Nella configurazione attivo / attivo, entrambe le istanze di un gateway VPN stabiliranno tunnel VPN S2S con il dispositivo VPN locale. Quando in un'istanza del gateway si verifica un evento di manutenzione pianificata o non pianificata, il traffico viene trasferito automaticamente sull'altro tunnel IPSec attivo. Azure Advisor identificherà i gateway VPN non configurati come attivo-attivo e consiglierà di configurarli per la disponibilità elevata.
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Usare i gateway VPN di produzione per eseguire i carichi di lavoro di produzione
+
+Azure Advisor controlla tutti i gateway VPN sono uno SKU Basic e consigliabile usare invece un SKU di produzione. Lo SKU Basic è progettato per scopi di sviluppo e test. Gli SKU di produzione offrono un numero maggiore di tunnel, supporto BGP, attivo-attivo opzioni di configurazione, personalizzato criteri Ipsec/IKE e maggiore stabilità e disponibilità.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
@@ -75,9 +79,9 @@ Nella configurazione attivo / attivo, entrambe le istanze di un gateway VPN stab
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
-* [Presentazione di Azure Advisor](advisor-overview.md)
-* [Introduzione ad Advisor](advisor-get-started.md)
-* [Consigli di Advisor sui costi](advisor-cost-recommendations.md)
-* [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
-* [Consigli di Advisor sulla sicurezza](advisor-security-recommendations.md)
+* [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
+* [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 

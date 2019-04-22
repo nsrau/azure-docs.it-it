@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
 ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045679"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
@@ -98,9 +98,9 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 
 |Scenario|API V2|API V3|
 |---|---|---|
-|Creare un asset e caricare un file |[esempio di .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[esempio di .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|Inviare un processo|[esempio di .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[esempio di .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|
-|Pubblicare un asset con crittografia AES |1. Creare ContentKeyAuthorizationPolicyOption<br/>2. Creare ContentKeyAuthorizationPolicy<br/>3. Creare AssetDeliveryPolicy<br/>4. Creare asset e caricare contenuto o inviare processi e usare asset di output<br/>5. Associare AssetDeliveryPolicy all'asset<br/>6. Creare ContentKey<br/>7. Collegare ContentKey all'asset<br/>8. Creare AccessPolicy<br/>9. Creare Locator<br/><br/>[esempio di .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Creare criteri di chiave simmetrica<br/>2. Creare asset<br/>3. Caricare contenuto o usare asset come JobOutput<br/>4. Creare il localizzatore di streaming<br/><br/>[esempio di .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Creare un asset e caricare un file |[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
+|Inviare un processo|[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|
+|Pubblicare un asset con crittografia AES |1. Creare ContentKeyAuthorizationPolicyOption<br/>2. Creare ContentKeyAuthorizationPolicy<br/>3. Creare AssetDeliveryPolicy<br/>4. Creare asset e caricare contenuto o inviare processi e usare asset di output<br/>5. Associare AssetDeliveryPolicy all'asset<br/>6. Creare ContentKey<br/>7. Collegare ContentKey all'asset<br/>8. Creare AccessPolicy<br/>9. Creare Locator<br/><br/>[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Creare criteri di chiave simmetrica<br/>2. Creare asset<br/>3. Caricare contenuto o usare asset come JobOutput<br/>4. Creare il localizzatore di streaming<br/><br/>[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Ottenere i dettagli dei processi e gestione dei processi |[Gestire i processi con v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gestire i processi con v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemi noti

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521619"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680724"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
@@ -32,7 +32,7 @@ Prima di usare i contenitori API Viso, è necessario soddisfare i prerequisiti s
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa di API Viso |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di _API Viso_ di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di API Viso nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Oggetto _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `face/v1.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
@@ -86,8 +86,10 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 | Placeholder | Valore |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina delle chiavi di API Viso del portale di Azure.  |
-|{BILLING_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina della panoramica di API Viso del portale di Azure.|
+|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile in Azure `Cognitive Services` pagina chiavi.  |
+|{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile in Azure `Cognitive Services` pagina Panoramica. L'esempio è: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+
+È necessario aggiungere il `face/v1.0` routing per l'URI dell'endpoint come illustrato nell'esempio BILLING_ENDPOINT_URI precedente. 
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 

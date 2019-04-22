@@ -14,15 +14,15 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050443"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Abilitare la crittografia del disco per i nodi del cluster Windows di Service Fabric 
 > [!div class="op_single_selector"]
-> * [Crittografia dischi per Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Crittografia del disco per Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 > * [Crittografia del disco per Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
@@ -75,7 +75,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 Usare i comandi seguenti per creare cluster e abilitare la crittografia del disco usando il modello di Azure Resource Manager e certificato autofirmato.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure 
+### <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
 ```powershell
 Login-AzAccount

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878231"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682968"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali tramite la CLI di Azure
 
@@ -57,6 +57,16 @@ Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
 * Europa occidentale (westeurope)
 * Stati Uniti occidentali (westus)
 
+## <a name="known-limitations"></a>Limitazioni note
+Funzionalità di nodi virtuali è dipende in larga misura dal set di funzionalità di ACI. Gli scenari seguenti non sono ancora supportati con i nodi virtuali
+
+* Utilizzo di entità servizio di pull le immagini di contenitori di AZURE. [Soluzione alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste nell'usare [segreti Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitazioni di rete virtuale](../container-instances/container-instances-vnet.md) inclusi peering reti virtuali, i criteri di rete Kubernetes e il traffico in uscita a internet con gruppi di sicurezza di rete.
+* Contenitori di Init
+* [Alias dell'host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Gli argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in ACI
+* [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i POD per nodo virtuale
+
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account.
@@ -93,7 +103,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.241.0.0/16
+    --address-prefixes 10.241.0.0/16
 ```
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
@@ -338,7 +348,7 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 

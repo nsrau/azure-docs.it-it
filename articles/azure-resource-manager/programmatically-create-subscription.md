@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256924"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Creare sottoscrizioni di Azure Enterprise a livello di programmazione (anteprima)
@@ -40,7 +40,7 @@ Dopo essere stato aggiunto a una registrazione di Azure EA come proprietario del
 
 Per eseguire i comandi seguenti è necessario che sia stato effettuato l'accesso nella *home directory* del proprietario dell'account, ovvero la directory in cui, per impostazione predefinita, vengono create le sottoscrizioni.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Richiesta dell'elenco di tutti gli account di registrazione:
 
@@ -73,7 +73,7 @@ Azure risponde con un elenco di tutti gli account di registrazione a cui si ha a
 }
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Usare il cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) per elencare tutti gli account di registrazione a cui si ha accesso.
 
@@ -89,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# [<a name="azure-cli"></a>Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) per elencare tutti gli account di registrazione a cui si ha accesso.
 
@@ -130,7 +130,7 @@ Usare la proprietà `principalName` per identificare l'account a cui si desidera
 
 L'esempio seguente crea una richiesta per creare la sottoscrizione denominata *Sottoscrizione team Dev* e l'offerta di sottoscrizione è *MS-AZR-0017P* (EA regolare). L'account di registrazione è `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valore segnaposto, il valore è un GUID), ovvero l'account di registrazione per SignUpEngineering@contoso.com. Aggiunge anche facoltativamente due utenti come proprietari con Controllo degli accessi in base al ruolo per la sottoscrizione.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Usare `id` di `enrollmentAccount` nel percorso della richiesta per creare la sottoscrizione.
 
@@ -159,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Nella risposta verrà restituito un oggetto `subscriptionOperation` per il monitoraggio. Al termine dell'operazione di creazione della sottoscrizione, l'oggetto `subscriptionOperation` restituirà un oggetto `subscriptionLink` che contiene l'ID della sottoscrizione.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per usare questo modulo di anteprima, installarlo eseguendo prima `Install-Module Az.Subscription -AllowPrerelease`. Per assicurarsi che `-AllowPrerelease` funzioni, installare una versione recente di PowerShellGet da [Ottenere il modulo PowerShellGet](/powershell/gallery/installing-psget).
 
@@ -180,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Per visualizzare un elenco completo di tutti i parametri, vedere [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# [<a name="azure-cli"></a>Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per usare questa estensione di anteprima, installarla eseguendo prima `az extension add --name subscription`.
 

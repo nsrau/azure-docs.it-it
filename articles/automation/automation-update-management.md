@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426490"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679075"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -135,9 +135,9 @@ Per altre informazioni sulle modalità di aggiornamento dei management pack, ved
 Per avviare l'applicazione di patch ai sistemi, è necessario abilitare la soluzione Gestione aggiornamenti. Esistono molti modi per eseguire l'onboarding dei computer in Gestione aggiornamenti. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti:
 
 * [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-* [Dall'esplorazione più computer](automation-onboard-solutions-from-browse.md)
-* [Dall'account di automazione](automation-onboard-solutions-from-automation-account.md)
-* [Con un runbook di automazione di Azure](automation-onboard-solutions.md)
+* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
+* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
+* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Verificare l'onboarding di computer non di Azure
 
@@ -208,9 +208,9 @@ Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggior
 
 ## <a name="install-updates"></a>Installare gli aggiornamenti
 
-Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [gruppi di Computer in Monitoraggio di Azure log](../azure-monitor/platform/computer-groups.md).
+Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Per creare una distribuzione degli aggiornamenti, è necessario disporre di accesso in scrittura all'Account di automazione e accesso in scrittura a qualsiasi VM di Azure che sono destinate nella distribuzione. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [gruppi di Computer in Monitoraggio di Azure log](../azure-monitor/platform/computer-groups.md).
 
- Quando si includono gruppi di computer nella distribuzione degli aggiornamenti, l'appartenenza ai gruppi viene valutata una sola volta al momento della creazione della pianificazione. Le modifiche successive a un gruppo non vengono riflesse. Per aggirare questo problema, usare i [gruppi dinamici](#using-dynamic-groups), che vengono risolti in fase di distribuzione e sono definiti da una query.
+Quando si includono gruppi di computer nella distribuzione degli aggiornamenti, l'appartenenza ai gruppi viene valutata una sola volta al momento della creazione della pianificazione. Le modifiche successive a un gruppo non vengono riflesse. Per ovviare a questo uso [i gruppi dinamici](#using-dynamic-groups), questi gruppi vengono risolti in fase di distribuzione e vengono definiti da una query per macchine virtuali di Azure o una ricerca salvata per le macchine virtuali Non Azure.
 
 > [!NOTE]
 > Per impostazione predefinita, le macchine virtuali di Windows distribuite da Azure Marketplace ricevono aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiunge questa soluzione o si aggiungono macchine virtuali di Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
@@ -219,13 +219,13 @@ Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra 
 
 Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta e disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure. Altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione seguendo i metodi supportati della distribuzione.
 
-Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la distribuzione di aggiornamenti**. Si apre il riquadro **Nuova distribuzione di aggiornamenti**. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
+Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la distribuzione di aggiornamenti**. Il **nuova distribuzione di aggiornamenti** verrà visualizzata la pagina. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
 | NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
-| Gruppi da aggiornare (anteprima)|Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)|
+| Gruppi per l'aggiornamento |Per macchine virtuali di Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, percorsi e i tag per creare un gruppo dinamico delle macchine virtuali di Azure da includere nella distribuzione. </br></br>Per i computer Non Azure, selezionare una ricerca per selezionare un gruppo di computer Non Azure da includere nella distribuzione salvata. </br></br>Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)|
 | Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
 |Includi/Escludi aggiornamenti|Apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior) |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Uso dei gruppi dinamici
 
-Gestione aggiornamenti consente di specificare come destinazione un gruppo dinamico di macchine virtuali di Azure per le distribuzioni degli aggiornamenti. Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. I gruppi dinamici non funzionano con le macchine virtuali classiche. Quando si definisce la query, gli elementi seguenti possono essere usati per popolare il gruppo dinamico
+Gestione degli aggiornamenti offre la possibilità di un gruppo dinamico delle macchine virtuali Non Azure o Azure per le distribuzioni degli aggiornamenti di destinazione. Questi gruppi vengono valutati in fase di distribuzione in modo che non è necessario modificare la distribuzione per aggiungere computer.
+
+> [!NOTE]
+> Quando si crea una distribuzione degli aggiornamenti, è necessario disporre delle autorizzazioni appropriate. Per altre informazioni, vedere [Installa aggiornamenti](#install-updates).
+
+### <a name="azure-machines"></a>Macchine di Azure
+
+Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. I gruppi dinamici non funzionano con le macchine virtuali classiche. Quando si definisce la query, gli elementi seguenti possono essere usati per popolare il gruppo dinamico
 
 * Sottoscrizione
 * Gruppi di risorse
@@ -579,6 +586,12 @@ Gestione aggiornamenti consente di specificare come destinazione un gruppo dinam
 Per visualizzare in anteprima i risultati di un gruppo dinamico, fare clic sul pulsante **Anteprima**. Questa anteprima mostra l'appartenenza al gruppo in quel momento. In questo esempio si esegue una ricerca dei computer con il tag **Ruolo** uguale a **BackendServer**. Se questo tag è stato aggiunto a più computer, tali computer verranno aggiunti alle distribuzioni future in quel gruppo.
 
 ![Visualizzare in anteprima i gruppi](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Computer non Azure
+
+Per Non Azure macchine, le ricerche salvate noto anche come gruppi di computer vengono utilizzati per creare il gruppo dinamico. Per informazioni su come creare una ricerca salvata, vedere [creazione di un gruppo di computer](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Dopo aver creato il gruppo è possibile selezionarlo nell'elenco delle ricerche salvate. Fare clic su **Preview** per visualizzare in anteprima i computer nella ricerca salvata in quel momento.
+
+![Selezionare i gruppi](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrazione con System Center Configuration Manager
 

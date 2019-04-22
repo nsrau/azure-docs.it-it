@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
 ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049698"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
@@ -68,7 +68,7 @@ Se non si sono aggiunte le credenziali durante la distribuzione OVF del server d
 
 1. Dopo l'[accesso](#access-configuration-server), selezionare **Gestisci credenziali della macchina virtuale**.
 2. Fare clic su **Aggiungi credenziali della macchina virtuale**.
-    ![Aggiungi credenziali di mobilità](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Immettere le nuove credenziali e fare clic su **Aggiungi**.
 
 È possibile aggiungere le credenziali anche tramite CSPSConfigtool.exe.

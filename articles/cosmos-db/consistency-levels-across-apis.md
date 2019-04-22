@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274774"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
@@ -33,7 +33,7 @@ A differenza di DB AzureCosmos, Apache Cassandra non fornisce in modo nativo con
 
 Nella tabella seguente viene illustrato come i livelli di coerenza Cassandra nativi vengono eseguito il mapping ai livelli di coerenza di Azure Cosmos DB quando si usa l'API Cassandra:  
 
-[![Cmapping del modello di coerenza assandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Mapping del modello di coerenza Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Il mapping tra i livelli di coerenza di MongoDB e Azure Cosmos DB
 
@@ -51,12 +51,12 @@ Quando si usa l'API di Azure Cosmos DB per MongoDB:
 
 La tabella seguente illustra come MongoDB nativo lettura/scrittura problemi vengono mappati a livelli di coerenza Cosmos Azure quando si usa l'API di Azure Cosmos DB per MongoDB:
 
-[![Mmapping del modello di coerenza ongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![Mapping del modello MongoDB coerenza](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Leggere altre informazioni sui livelli di coerenza e la compatibilità tra le API di Azure Cosmos DB e le API open source. Vedere gli articoli seguenti:
 
 * [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
-* [Funzionalità di MongoDB supportate dall'API di Azure Cosmos DB per MongoDB](mongodb-feature-support.md)
-* [Funzionalità di Apache Cassandra supportate dalle API Cassandra di Azure Cosmos DB](cassandra-support.md)
+* [Funzionalità di MongoDB supportate dall'API Azure Cosmos DB per MongoDB](mongodb-feature-support.md)
+* [Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB](cassandra-support.md)

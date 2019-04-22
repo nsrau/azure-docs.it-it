@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046071"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API Prediction
@@ -138,6 +138,6 @@ In questa Guida, si è appreso come inviare immagini personalizzati/rilevatore d
 
 * [Guida introduttiva: .NET SDK](csharp-tutorial.md)
 * [Guida introduttiva: Python SDK](python-tutorial.md)
-* [Guida introduttiva: SDK per Java](java-tutorial.md)
+* [Guida introduttiva: Java SDK](java-tutorial.md)
 * [Guida introduttiva: Node SDK](node-tutorial.md)
 * [Guida introduttiva: Go SDK](go-tutorial.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261395"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
@@ -82,5 +82,5 @@ Un altro set di API senza l'indice _LL_ viene definito livello dedicato, in cui 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'architettura dell'SDK C per l'hub IoT di Azure:
--   [Codice sorgente per Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)
--   [Azure IoT SDK per dispositivi per C introduzione](iot-hub-device-sdk-c-intro.md)
+-   [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Introduzione ad Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)

@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: 75b86ea028a500b6b358c468a1d10a830db01b6a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283750"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
@@ -165,6 +165,6 @@ A questo punto è possibile eseguire le app. In Esplora soluzioni in Visual Stud
 
 Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
 
-* [Creare l'identità del modulo e il modulo gemello dell'hub IoT usando il backup .NET e l'SDK per dispositivi .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Introduzione a IoT Hub modulo identità e il modulo gemello usando .NET backup e il dispositivo .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [Introduzione a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

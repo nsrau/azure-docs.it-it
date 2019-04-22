@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762685"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680805"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -56,7 +56,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile creare un'immagine di disco rigido virtuale da una VM di SQL Server?**
 
-   Sì, ma ci sono alcune considerazioni di cui tenere conto. Se si distribuisce questo disco rigido virtuale in una nuova VM in Azure, non è possibile accedere alla sezione Configurazione di SQL Server nel portale. Per gestire le opzioni di configurazione di SQL Server sarà quindi necessario usare PowerShell. Inoltre, verrà addebitato un costo alla tariffa della VM di SQL su cui si basava originariamente l'immagine. Questo vale anche se si rimuove SQL Server dal disco rigido virtuale prima della distribuzione. 
+   Sì, ma ci sono alcune considerazioni di cui tenere conto. Se si distribuisce questo disco rigido virtuale in una nuova macchina virtuale in Azure, non ottengono la sezione di configurazione di SQL Server nel portale. Per gestire le opzioni di configurazione di SQL Server sarà quindi necessario usare PowerShell. Inoltre, verrà addebitato un costo alla tariffa della VM di SQL su cui si basava originariamente l'immagine. Questo vale anche se si rimuove SQL Server dal disco rigido virtuale prima della distribuzione. 
 
 1. **È possibile impostare configurazioni non visualizzate nella raccolta di macchine virtuali, ad esempio Windows 2008 R2 + SQL Server 2012?**
 

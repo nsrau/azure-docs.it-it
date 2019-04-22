@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662908"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681523"
 ---
 # <a name="eventstore-service-overview"></a>Panoramica del servizio EventStore
 
@@ -72,7 +72,7 @@ In [fabricSettings.json nel cluster](service-fabric-cluster-fabric-settings.md) 
 
 ### <a name="azure-cluster"></a>Cluster di Azure
 
-Nel modello di Azure Resource Manager del cluster è possibile attivare il servizio di EventStore effettuando un [aggiornamento della configurazione del cluster](service-fabric-cluster-config-upgrade-azure.md) e aggiungendo il codice seguente. La sezione `upgradeDescription` configura l'aggiornamento della configurazione per attivare un riavvio sui nodi. È possibile rimuovere la sezione in un altro aggiornamento.
+Nel modello di Azure Resource Manager del cluster, è possibile attivare il servizio di EventStore mediante l'esecuzione di un [aggiornamento della configurazione del cluster](service-fabric-cluster-config-upgrade-azure.md) e aggiungendo il codice seguente, è possibile usare PlacementConstraints per inserire le repliche di EventStore servizio in un tipo di nodo specifico, ad esempio un tipo di nodo dedicato per i servizi di sistema. La sezione `upgradeDescription` configura l'aggiornamento della configurazione per attivare un riavvio sui nodi. È possibile rimuovere la sezione in un altro aggiornamento.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ Nel modello di Azure Resource Manager del cluster è possibile attivare il servi
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

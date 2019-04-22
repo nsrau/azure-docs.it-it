@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288712"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
@@ -117,9 +117,9 @@ Ogni sezione ha le proprie impostazioni avanzate, che sono accessibili tramite l
 
 |         |          |
 | ---------------- |:-----|
-| **Larghezza personalizzata**    | L'elemento è una dimensione arbitraria, pertanto è possibile inserire molti elementi in una singola riga consente di organizzare meglio le tabelle e grafici nel report interattivi avanzati.  |
-| **Visibilità condizionata** | Consente di nascondere i passaggi in base a un parametro quando in modalità di lettura. |
-| **Esporta un parametro**| Consentire una riga selezionata nella griglia o nel grafico per fare in modo i passaggi successivi modificare i valori o diverranno visibili.  |
+| **Imposta larghezza personalizzata per l'elemento**    | L'elemento è una dimensione arbitraria, pertanto è possibile inserire molti elementi in una singola riga consente di organizzare meglio le tabelle e grafici nel report interattivi avanzati.  |
+| **Imposta la visibilità condizionata per questo elemento** | Consente di nascondere i passaggi in base a un parametro quando in modalità di lettura. |
+| **Quando è selezionato un elemento del grafico, esporta un parametro**| Consentire una riga selezionata nella griglia o nel grafico per fare in modo i passaggi successivi modificare i valori o diverranno visibili.  |
 | **Mostra query quando non viene modificata** | Visualizza la query sopra il grafico o la tabella anche se in modalità di lettura.
 | **Mostra il pulsante Apri in Analisi quando non è attiva la modalità di modifica** | Aggiunge l'icona di Analitica blu nell'angolo a destra del grafico per consentire l'accesso con un clic.|
 

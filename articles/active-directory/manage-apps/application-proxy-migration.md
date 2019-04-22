@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279313"
 ---
 # <a name="compare-remote-access-solutions"></a>Confrontare le soluzioni di accesso remoto
@@ -64,5 +64,5 @@ Il proxy dell'applicazione Azure AD offre vantaggi esclusivi rispetto ai prodott
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare l'applicazione Azure AD per fornire accesso remoto sicuro alle applicazioni locali](application-proxy.md)
+- [Come fornire l'accesso remoto sicuro alle applicazioni locali](application-proxy.md)
 - [Transition from Forefront TMG and UAG to Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/) (Eseguire la transizione da Forefront TMG e UAG al proxy dell'applicazione).

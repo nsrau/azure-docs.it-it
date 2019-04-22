@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273108"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: rilevamento delle dipendenze
@@ -71,7 +71,7 @@ Il pannello Prestazioni visualizza la durata delle chiamate alle dipendenze effe
 I **numeri di errori** sono visualizzati nel pannello **Errori**. Un errore è un codice restituito non compreso nell'intervallo 200-399 o sconosciuto.
 
 > [!NOTE]
-> **100% di errori** indica probabilmente che si stanno ricevendo solo dati parziali sulle dipendenze. È necessario [configurare il monitoraggio delle dipendenze appropriato per la piattaforma](#set-up-dependency-monitoring).
+> Il **100% di errori** indica probabilmente che si stanno ricevendo solo dati parziali sulle dipendenze. È necessario [configurare il monitoraggio delle dipendenze appropriato per la piattaforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -152,9 +152,9 @@ Ad esempio, se si compila il codice con un assembly non scritto personalmente, s
 Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
-*Flag di operazione riuscita dipendenza sempre Mostra true o false.*
+*Il flag di operazione riuscita della dipendenza visualizza sempre true o false.*
 
-*Query SQL No visualizzate completamente.*
+*Query SQL no visualizzate completamente.*
 
 Consultare la tabella seguente e assicurarsi di aver scelto la configurazione corretta per abilitare il monitoraggio della dipendenza per l'applicazione.
 

@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277120"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Windows
@@ -51,7 +51,7 @@ Usare la [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azv
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Crittografare una macchina virtuale in esecuzione usando KEK:** 
+- **Crittografare una macchina virtuale in esecuzione usando una chiave di crittografia della chiave:** 
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -91,7 +91,7 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
     ```
 
-- **Crittografare una macchina virtuale in esecuzione usando KEK:**
+- **Crittografare una macchina virtuale in esecuzione usando una chiave di crittografia della chiave:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
@@ -131,7 +131,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | Parametro | DESCRIZIONE |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
-| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi.|
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave BitLocker generata. Questo parametro è facoltativo se si seleziona **nokek** dall'elenco a discesa UseExistingKek. Se si seleziona **kek** dall'elenco a discesa UseExistingKek, è necessario immettere il valore _keyEncryptionKeyURL_. |
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
@@ -198,7 +198,7 @@ Usare [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
     ```
 
--  **Scalabilità di macchine virtuali in esecuzione impostato utilizzando KEK per eseguire il wrapping della chiave di crittografia**
+-  **Crittografare un set di scalabilità di macchine virtuali in esecuzione usando una chiave di crittografia della chiave per eseguire il wrapping della chiave**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
@@ -305,7 +305,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
-- **Crittografare una macchina virtuale in esecuzione usando KEK:**
+- **Crittografare una macchina virtuale in esecuzione usando una chiave di crittografia della chiave:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
@@ -333,4 +333,4 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Abilitare la crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md)
+> [Abilitare Crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md)

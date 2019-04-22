@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048844"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
@@ -298,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Dopo aver creato questa chiave del Registro di sistema, è necessario riavviare il server per disabilitare SMB 1.
 
 ### <a name="smb-resources"></a>Risorse relative a SMB
-- [Interrompere l'uso di SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 prodotto Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Individuazione dell'ambiente con DSCEA tramite SMB 1](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [La disabilitazione di SMB 1 tramite criteri di gruppo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Interrompere l'uso di SMB 1)
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Prodotti che richiedono SMB 1)
+- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Individuare SMB 1 nell'ambiente con DSCEA)
+- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Disabilitazione di SMB 1 tramite Criteri di gruppo)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
-- [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
+- [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Domande frequenti](../storage-files-faq.md)
-- [Risoluzione dei problemi su Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

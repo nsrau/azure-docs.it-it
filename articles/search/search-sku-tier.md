@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270954"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681566"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
@@ -64,35 +64,36 @@ In ricerca di Azure, esistono tre modi di sostenere i costi in ricerca di Azure 
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. Costi dei servizi principali (fisse e variabile)
 
-Per il servizio stesso, l'addebito minimo è la prima unità di ricerca (partizione 1 replica x 1) e questa quantità è costante per la durata del servizio perché il servizio non è possibile eseguire su un valore minore di questa configurazione. 
+Per il servizio stesso, l'addebito minimo è la prima unità di ricerca (partizione 1 replica x 1) e questa quantità è fisso per la durata del servizio perché il servizio non è possibile eseguire su un valore minore di questa configurazione. 
 
-Nello screenshot seguente, per ogni ai prezzi unità sia indicato per Free, Basic e S1 (S2, S3, L1 e L2 non vengono visualizzati). Se è stato creato un **base**, **Standard**, o **ottimizzate per l'archiviazione** servizio, il costo mensile sarebbe Media il valore visualizzato per *prezzo-1*e *prezzo 2* rispettivamente. I costi unitari salire per ogni livello poiché il calcolo risparmio energia e capacità di archiviazione è maggiore di ogni livello consecutivi.
+Oltre il valore minimo, è possibile aggiungere in modo indipendente le repliche e partizioni. Ad esempio, è possibile aggiungere solo le repliche o partizioni. Aumento incrementale capacità tramite le repliche e partizioni costituisce il componente di costo variabile. 
+
+La fatturazione è basata su un [formula (repliche x partizioni x frequenza)](#search-units). La tariffa addebitata varia in base al piano tariffario che scelto.
+
+Nello screenshot seguente, per ogni ai prezzi unità sia indicato per Free, Basic e S1 (S2, S3, L1 e L2 non vengono visualizzati). Se è stato creato un **base**, **Standard**, o **ottimizzate per l'archiviazione** servizio, il costo mensile sarebbe Media il valore visualizzato per *prezzo-1*e *prezzo 2* rispettivamente. I costi unitari salire per ogni livello poiché il calcolo risparmio energia e capacità di archiviazione è maggiore di ogni livello consecutivi. Le tariffe per la ricerca di Azure sono state pubblicate nel [pagina dei prezzi di ricerca di Azure](https://azure.microsoft.com/pricing/details/search/).
 
 ![Per ogni unità dei piani tariffari](./media/search-sku-tier/per-unit-pricing.png "per ogni unità dei piani tariffari")
 
-Partizioni e repliche aggiuntive sono un componente aggiuntivo per il costo iniziale. Un servizio di ricerca richiede una replica e partizione in modo che la configurazione minima è uno di ciascuno. Oltre il valore minimo, si aggiungono repliche e partizioni in modo indipendente. Ad esempio, è possibile aggiungere solo le repliche o partizioni. 
+Quando una soluzione di ricerca un calcolo dei costi, si noti che sui prezzi e la capacità non lineare (raddoppiare la capacità più copie del costo). Per un esempio di come dei lavori formule, vedere ["Come allocare partizioni e repliche"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Partizioni e repliche aggiuntive vengono tariffate in base una [formula](#search-units). I costi non sono lineari (raddoppiare la capacità più copie del costo). Per un esempio di come dei lavori formule, vedere ["Come allocare partizioni e repliche"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Costi di uscita dei dati durante l'indicizzazione.
 
-Sfrutta [indicizzatori di ricerca di Azure](search-indexer-overview.md) può comportare l'impatto a seconda di dove si trovano i servizi di fatturazione. È possibile eliminare i costi di uscita dei dati completamente se si crea il servizio di ricerca di Azure nella stessa area dei dati.
+Sfrutta [indicizzatori di ricerca di Azure](search-indexer-overview.md) può comportare l'impatto sulla fatturazione a seconda di dove si trovano i servizi. È possibile eliminare i costi di uscita dei dati completamente se si crea il servizio di ricerca di Azure nella stessa area dei dati. Quanto riportato di seguito provengono dal [pagina dei prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ Nessun addebito per tutti i dati in ingresso a qualsiasi servizio in Azure.
++ Microsoft non prevede un addebito per tutti i dati in ingresso a qualsiasi servizio in Azure o per tutti i dati in uscita da ricerca di Azure.
 
-+ Nessun addebito per tutti i dati in uscita da ricerca di Azure.
++ Nelle soluzioni multi-service, non sono previsti addebiti per i dati che attraversa la rete quando tutti i servizi sono nella stessa area.
 
-+ Nessun addebito per i dati o i file in uscita dal database SQL, Cosmos, archiviazione Blob (in ingresso in ricerca di Azure), purché tutti i servizi sono nella stessa area.
-
-+ Gli addebiti si applicano per file o dei dati in uscita se archiviazione e ricerca di Azure si trovano in aree diverse.
-
-Durante il routing dei dati tra aree di Azure, questi saranno costi di larghezza di banda nella fattura per le risorse. Gli addebiti non fanno parte della fattura di ricerca di Azure, ma sono indicate qui perché se si usa gli indicizzatori per eseguire il pull di dati o file in rete, si noterà che carica la fattura complessiva.
-
-Se non si usa gli indicizzatori, non sono previsti costi di larghezza di banda. 
+Gli addebiti vengono applicati per i dati in uscita se servizi si trovano in aree diverse. Questi addebiti non fanno parte della fattura di ricerca di Azure per sé, ma sono indicate qui perché se si usano dati o indicizzatori migliorato per intelligenza artificiale per estrarre i dati da aree diverse, si noterà questi costi riflessi la fattura complessiva. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Intelligenza artificiale-indicizzazione arricchita con servizi cognitivi
 
-Per la [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md) solo, estrazione di immagini durante decifrazione del documento viene fatturato in base al numero di immagini estratti dai tuoi documenti. L'estrazione di testo è attualmente gratuita. Altri miglioramenti, ad esempio l'elaborazione in linguaggio naturale, si basano [competenze cognitive predefinite](cognitive-search-predefined-skills.md) vengono fatturate a una risorsa di servizi cognitivi. Gli arricchimenti vengono fatturati alla stessa tariffa che verrebbe usata se l'attività fosse stata eseguita usando direttamente Servizi cognitivi.
+Per la [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md), sarà necessario durante il collegamento di una risorsa servizi cognitivi fatturabile a S0 il piano tariffario per l'elaborazione con pagamento a consumo. Non è previsto alcun "costo fisso" associata al collegamento di servizi cognitivi. Si paga solo per l'elaborazione che è necessario.
+
+Estrazione di immagini durante decifrazione del documento è un addebito di ricerca di Azure, fatturato in base al numero di immagini estratti dai tuoi documenti. L'estrazione di testo è attualmente gratuita. 
+
+Altri miglioramenti, ad esempio l'elaborazione in linguaggio naturale, si basano [competenze cognitive predefinite](cognitive-search-predefined-skills.md) vengono fatturate in una risorsa di servizi cognitivi, alla stessa tariffa come se si ha eseguito l'attività Usa servizi cognitivi direttamente. Per altre informazioni, vedere [collegare una risorsa di servizi cognitivi con un insieme di competenze](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 
@@ -221,7 +222,7 @@ Il numero di indici e le dimensioni sono ugualmente rilevanti per l'analisi poic
 > I requisiti di archiviazione possono apparire maggiori del necessario se i documenti contengono dati estranei. In teoria, i documenti contengono solo i dati necessari per l'esperienza di ricerca. I dati binari non sono ricercabili e devono essere archiviati separatamente, ad esempio in una tabella o un archivio BLOB di Azure, con un campo nell'indice che contenga un riferimento URL ai dati esterni. Le dimensioni massime di un singolo documento sono pari a 16 MB o meno, se si caricano più documenti in una richiesta. Per altre informazioni, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
 >
 
-**Considerazioni sul volume di query**
+**Considerazioni sul volume delle query**
 
 Le query al secondo (QPS, Queries-Per-Second) sono una metrica rilevante per l'ottimizzazione delle prestazioni ma non lo sono per la scelta del livello, a meno che non si preveda un volume di query elevato sin dall'inizio.
 

@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267209"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
@@ -123,10 +123,10 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
    * *Integer*: l'attributo contiene un numero intero.
    * *Riferimento*: l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
    * *String*: l'attributo contiene una stringa di testo. 
-* **Chiave primaria?** : Indica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
+* **Chiave primaria?**: : Indica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
 * **Obbligatorio?** : Indica se l'attributo è necessario popolare nel sistema o applicazione di destinazione.
-* **Con più valori?** : Indica se l'attributo supporta più valori.
-* **Maiuscole/minuscole esatte?** : Indica se i valori degli attributi vengono valutati in modo distinzione maiuscole/minuscole.
+* **Multivalore?**: : Indica se l'attributo supporta più valori.
+* **Maiuscole/minuscole esatte?**: : Indica se i valori degli attributi vengono valutati in modo distinzione maiuscole/minuscole.
 * **Espressione API** -non usare, se non diversamente indicato a tale scopo, la documentazione relativa a un connettore di provisioning specifico (ad esempio Workday).
 * **Attributo oggetto di riferimento** : se è un attributo di tipo riferimento, quindi questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per una determinata applicazione sono preconfigurati e attualmente non può essere modificati usando il portale di Azure, ma possono essere modificati utilizzando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
@@ -153,10 +153,10 @@ Se si seleziona questa opzione Forza una risincronizzazione forzata di tutti gli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Automatizzare utente Provisioning/Deprovisioning alle App SaaS](user-provisioning.md)
+* [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
 * [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
-* [Filtri di ambito per il Provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md)
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS](../saas-apps/tutorial-list.md)
+* [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 
 

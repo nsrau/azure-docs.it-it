@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279772"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiche delle tabelle in Azure SQL Data Warehouse
@@ -78,7 +78,7 @@ Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle st
 |||
 |-|-|
 | **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: Giornaliera </br> Dopo il caricamento o la trasformazione dei dati |
-| **campionamento** |  Minore di 1 miliardo di righe, usare il campionamento predefinito (20 per cento). </br> Con oltre 1 miliardo di righe, usare il campionamento di % 2%. |
+| **Campionamento** |  Minore di 1 miliardo di righe, usare il campionamento predefinito (20 per cento). </br> Con oltre 1 miliardo di righe, usare il campionamento di % 2%. |
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 
@@ -411,9 +411,9 @@ Queste visualizzazioni di sistema forniscono informazioni sulle statistiche:
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Una riga per ogni colonna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Una riga per ogni oggetto del database. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Una riga per ogni schema del database. |
-| [Sys. Stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Una riga per ogni oggetto statistiche. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Una riga per ogni oggetto statistiche. |
 | [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Una riga per ogni colonna nell'oggetto statistiche. Si collega a sys.columns. |
-| [Sys. Tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Una riga per ogni tabella (include le tabelle esterne). |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Una riga per ogni tabella (include le tabelle esterne). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Una riga per ogni tipo di dati. |
 
 ### <a name="system-functions-for-statistics"></a>Funzioni di sistema per le statistiche

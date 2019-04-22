@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264064"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
@@ -135,10 +135,10 @@ Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.
 
 Per altre informazioni sulla fattura e i costi, vedere:
 
-- [Visualizzare e scaricare l'utilizzo e gli addebiti di Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Visualizzare e scaricare l'utilizzo di Microsoft Azure e negli addebiti](billing-download-azure-daily-usage.md)
 - [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md)
 - [Comprendere i termini nella fattura di Azure](billing-understand-your-invoice.md)
-- [Comprendere le condizioni in Microsoft Azure dettagliati sull'utilizzo](billing-understand-your-usage.md)
+- [Comprendere i termini sui dati di utilizzo dettagliato di Microsoft Azure](billing-understand-your-usage.md)
 - [Visualizzare i prezzi di Azure dell'organizzazione](billing-ea-pricing.md)
 
 Se si dispone di un contratto di clienti Microsoft, vedere:

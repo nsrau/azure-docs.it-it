@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065801"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679126"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -435,26 +435,6 @@ Per trovare i log eventi per il gateway, seguire questa procedura:
 
    ![Visualizzare i log eventi per il gateway](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>Telemetria
-
-Per attività aggiuntive di monitoraggio e risoluzione dei problemi, è possibile attivare e raccogliere i dati di telemetria. 
-
-1. Passare al percorso per il client del gateway dati locale, che in genere è: ```C:\Program Files\On-premises data gateway```
-
-   In alternativa, per trovare il percorso del client, aprire la console dei servizi nello stesso computer, eseguire una ricerca di **On-premises data gateway service** (Servizio gateway dati locale) e visualizzare la proprietà **Path to executable** (Percorso del file eseguibile).
-
-2. Aprire questo file di *configurazione*: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Impostare il valore **SendTelemetry** su **true**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Salvare le modifiche e quindi riavviare il servizio di Windows.
-
 ### <a name="review-slow-query-performance"></a>Esaminare le prestazioni delle query lente
 
 Se le query vengono eseguite lentamente tramite il gateway, è possibile attivare una registrazione aggiuntiva che restituisce le query e la relativa durata. Questi log potrebbero essere utili per individuare le query lente o a esecuzione prolungata. Per ottimizzare le prestazioni delle query, potrebbe essere necessario modificare l'origine dati, ad esempio regolando gli indici per le query di SQL Server.
@@ -526,7 +506,7 @@ Per determinare la durata di una query, seguire questa procedura:
 
 ### <a name="trace-traffic-with-fiddler"></a>Tracciare il traffico con Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) è uno strumento gratuito di Telerik che consente di monitorare il traffico HTTP. È possibile esaminare il traffico con il sevizio Power BI dal computer client. Questo servizio consente di visualizzare errori e altre informazioni correlate.
+[Fiddler](https://www.telerik.com/fiddler) è uno strumento gratuito di Telerik che consente di monitorare il traffico HTTP. È possibile esaminare il traffico con il sevizio Power BI dal computer client. Questo servizio consente di visualizzare errori e altre informazioni correlate.
 
 ## <a name="next-steps"></a>Passaggi successivi
     

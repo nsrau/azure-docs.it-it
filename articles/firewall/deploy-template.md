@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046275"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
@@ -71,4 +71,4 @@ Non rimuovere ancora il gruppo di risorse e il firewall se si prevede di continu
 È ora possibile monitorare i log di Firewall di Azure:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Controllare i log del Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

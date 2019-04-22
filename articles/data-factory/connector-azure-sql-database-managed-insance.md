@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272207"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso l'Istanza gestita di database SQL di Azure con Azure Data Factory
@@ -62,7 +62,7 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
 >[!TIP]
 >È possibile che venga visualizzato il codice di errore "UserErrorFailedToConnectToSqlServer" con un messaggio di questo tipo: "Il limite di sessioni per il database è XXX ed è stato raggiunto". Se si verifica questo errore, aggiungere `Pooling=false` alla stringa di connessione e riprovare.
 
-**Esempio 1: Usa autenticazione di SQL**
+**Esempio 1: Usare l'autenticazione di SQL**
 
 ```json
 {
@@ -83,7 +83,7 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
 }
 ```
 
-**Esempio 2 Usare l'autenticazione di SQL con password in Azure Key Vault**
+**Esempio 2: Usare l'autenticazione di SQL con la password in Azure Key Vault**
 
 ```json
 {
@@ -179,7 +179,7 @@ Per copiare i dati dall'Istanza gestita di database SQL di Azure, impostare il t
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Sì. |
-| sqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. | No. |
+| SqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. | No. |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No. |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. | No. |
 
@@ -292,7 +292,7 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 > [!TIP]
 > Quando si copiano dati in un'Istanza gestita di database SQL di Azure, per impostazione predefinita l'attività di copia accoda i dati alla tabella di sink. Per eseguire un'operazione di upsert o altra logica di business, usare la stored procedure in SqlSink. Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
-**Esempio 1: Aggiungere i dati**
+**Esempio 1: Accodare dati**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 ]
 ```
 
-**Esempio 2 Richiamare una stored procedure durante la copia per l'operazione upsert**
+**Esempio 2: Richiamare una stored procedure durante la copia per un'operazione di upsert**
 
 Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -514,7 +514,7 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -532,15 +532,15 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Oggetto |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

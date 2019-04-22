@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046683"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
@@ -29,8 +29,8 @@ Dopo aver caricato uno o più dischi rigidi virtuali, ovvero il disco rigido vir
 
 Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blog seguenti:
 
-- [Immagine di macchina virtuale](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Immagine VM con PowerShell 'Come'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Immagine VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [Procedure di PowerShell per immagini di macchina virtuale](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -53,16 +53,16 @@ Se non è già stato fatto, installare Azure PowerShell e l'interfaccia della ri
 Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine di macchina virtuale](./cpp-certify-vm.md).
 
 1. Fare clic su **Nuovo**, eseguire una ricerca in **Distribuzione modello** e quindi selezionare **Creare un modello personalizzato nell'editor**.  <br/>
-   ![Compilare il modello di distribuzione disco rigido virtuale nel portale di Azure](./media/publishvm_021.png)
+   ![Creare il modello di distribuzione del disco rigido virtuale nel portale di Azure](./media/publishvm_021.png)
 
 1. Copiare e incollare questo [modello JSON](./cpp-deploy-json-template.md) nell'editor e quindi fare clic su **Salva**. <br/>
-   ![Salvare il modello di distribuzione disco rigido virtuale nel portale di Azure](./media/publishvm_022.png)
+   ![Salvare il modello di distribuzione del disco rigido virtuale nel portale di Azure](./media/publishvm_022.png)
 
 1. Specificare i valori dei parametri per le pagine delle proprietà di **Distribuzione personalizzata**.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parametro**              |   **DESCRIZIONE**                                                            |
+   |  **Parametro**              |   **Descrizione**                                                            |
    |  -------------              |   ---------------                                                            |
    | Nome account di archiviazione utente   | Nome dell'account di archiviazione in cui si trova il disco rigido virtuale generalizzato                    |
    | Nome contenitore di archiviazione utente | Nome del contenitore in cui si trova il disco rigido virtuale generalizzato                          |
@@ -72,7 +72,7 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    | OS Type (Tipo di sistema operativo)                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
    | Località                    | Località geografica della distribuzione                                        |
-   | Dimensioni macchina virtuale                     | [Dimensioni di macchina virtuale Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
+   | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
    | Nome indirizzo IP pubblico      | Nome dell'indirizzo IP pubblico dell'utente                                               |
    | Nome macchina virtuale                     | Nome della nuova macchina virtuale                                                           |
    | Nome della rete virtuale        | Nome della rete virtuale usata dalla macchina virtuale                                   |

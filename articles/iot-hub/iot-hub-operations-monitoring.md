@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258114"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Operazioni dell'IoT Hub di monitoraggio (deprecata)
@@ -268,6 +268,6 @@ class Program
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide.md)
+* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
 
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

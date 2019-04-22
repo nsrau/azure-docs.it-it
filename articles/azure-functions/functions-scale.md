@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266932"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
@@ -42,7 +42,7 @@ Quando si crea un'app per le funzioni, si sceglie il piano di hosting per le fun
 
 Quando si usa il piano a consumo, in modo dinamico istanze dell'host di funzioni di Azure vengono aggiunti e rimossi in base al numero di eventi in ingresso. Questo piano senza server offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
 
-La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [pagina relativa ai prezzi per Funzioni di Azure].
+La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [Pagina dei prezzi di Funzioni di Azure].
 
 Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguenti:
 
@@ -157,11 +157,11 @@ Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accur
 
 ### <a name="billing-model"></a>Modello di fatturazione
 
-La fatturazione per il piano a consumo viene illustrata in modo dettagliato nella [pagina relativa ai prezzi per Funzioni di Azure]. L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti:
+La fatturazione per il piano a consumo viene illustrata in modo dettagliato nella [Pagina dei prezzi di Funzioni di Azure]. L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti:
 
 * **Utilizzo delle risorse in gigabyte al secondo (GB-s)**. Calcolato come combinazione di dimensioni di memoria e tempo di esecuzione per tutte le funzioni in un'app per le funzioni. 
 * **Esecuzioni**. Conteggiate ogni volta che una funzione viene eseguita in risposta a un trigger di evento.
 
 Query utili e informazioni su come comprendere la fattura di consumo reperibili [sulle domande frequenti su fatturazione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
-[Pagina dei prezzi funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
+[Pagina dei prezzi di Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339007"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678888"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
 
@@ -41,6 +41,9 @@ Le soglie dinamiche apprendono costantemente i dati della serie di metriche e pr
 
 Le soglie vengono selezionate in modo che un'eventuale deviazione da queste indichi un'anomalia nel comportamento delle metriche.
 
+> [!NOTE]
+> Rilevamento di modelli stagionali è impostato su intervallo ora, giorno o settimana. Ciò significa che gli altri modelli bihourly modello like o semiweekly potrebbero non essere rilevati.
+
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>A cosa serve l'impostazione "Sensibilità" per le soglie dinamiche?
 
 La sensibilità delle soglie di avviso è un concetto generale che controlla il grado di deviazione dal comportamento della metrica necessario per attivare un avviso.
@@ -48,7 +51,7 @@ Questa opzione non richiede una conoscenza della metrica a livello di dominio co
 
 - Alta: le soglie saranno estremamente vicine al modello della serie di metriche. La regola di avviso verrà attivata alla minima deviazione e verranno quindi generati più avvisi.
 - Media: le soglie saranno meno sensibili e più bilanciate, generando così meno avvisi rispetto alla sensibilità alta (impostazione predefinita).
-- Bassa: le soglie saranno meno rigorose, con maggiore distanza dal modello della serie di metriche. La regola di avviso verrà attivata solo in caso di ampia deviazione e verranno quindi generati meno avvisi.
+- Bassa: le soglie saranno meno rigorose, con maggiore distanza dal modello della serie di metriche. Regola di avviso si attiverà solo su deviazione di grandi dimensioni, generando un minor numero di avvisi.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quali sono le opzioni dell'impostazione "Operatore" per le soglie dinamiche?
 
@@ -73,13 +76,23 @@ Per attivare un avviso quando si è verificata una violazione di una soglia dina
 
 **Ignorare i dati precedenti**: gli utenti possono anche definire una data a partire dalla quale il sistema dovrebbe iniziare il calcolo delle soglie. Un tipico caso d'uso può verificarsi quando una risorsa era in esecuzione in modalità di test e ora è stata promossa per gestire un carico di lavoro di produzione, e pertanto il comportamento di qualsiasi metrica durante la fase di test deve essere ignorato.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Come scoprire il motivo per cui è stato attivato un avviso di soglie dinamiche?
+
+È possibile esplorare le istanze di avviso attivate nella vista avvisi uno facendo clic sul collegamento nell'indirizzo di posta elettronica o SMS o browser per visualizzare gli avvisi di visualizzare nel portale di Azure. [Altre informazioni sulla visualizzazione degli avvisi](alerts-overview.md#alerts-experience).
+
+Consente di visualizzare la vista avvisi:
+
+- Tutti i dettagli delle metriche nel momento in cui viene generato l'avviso soglie dinamiche.
+- Un grafico del periodo in cui l'avviso è stato trigger che include le soglie dinamiche utilizzate a questo punto nel tempo.
+- Possibilità di fornire commenti e suggerimenti su avviso soglie dinamiche e gli avvisi esperienza di visualizzazione, che potrebbe migliorare i rilevamenti future.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Una lenta variazione nel comportamento della metrica attiverà un avviso?
 
 La risposta è probabilmente negativa. Le soglie dinamiche sono utili per rilevare deviazioni significative anziché problemi che si evolvono lentamente.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quanti dati vengono usati per visualizzare in anteprima le soglie e quindi calcolarle?
 
-Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso sulla metrica, vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o quotidianamente modelli stagionali (10 giorni). Premendo su 'Pattern settimanale Display' acquisirà dati cronologici sufficienti per calcolare settimanali modelli stagionali (28 giorni). Dopo aver creata una regola di avviso, le soglie dinamiche utilizzerà necessari tutti i dati cronologici che sono disponibile e verranno illustrato in modo continuo e TEPSA basate sui nuovi dati per rendere più precisi le soglie.
+Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso sulla metrica, vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o quotidianamente modelli stagionali (10 giorni). Dopo aver creata una regola di avviso, le soglie dinamiche utilizzerà necessari tutti i dati cronologici che sono disponibile e verranno illustrato in modo continuo e TEPSA basate sui nuovi dati per rendere più precisi le soglie. Ciò significa che dopo il grafico di calcolo visualizzeranno anche modelli settimanali.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessarie per attivare un avviso?
 
