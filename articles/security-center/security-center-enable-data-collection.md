@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006748"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
@@ -137,7 +137,7 @@ Per selezionare l'area di lavoro Log Analytics esistente:
     a.  Nel menu principale del Centro sicurezza selezionare **Criteri di sicurezza**.
      
     b.  Selezionare l'area di lavoro desiderata in cui si vuole connettere l'agente facendo clic su **Modifica impostazioni** nella colonna Impostazioni della sottoscrizione desiderata nell'elenco.
-        ![Selezionare l'area di lavoro][8] c. Impostare il piano tariffario.
+        ![Selezionare un'area di lavoro][8] c. Impostare il piano tariffario.
         ![Selezionare un piano tariffario][9] 
    
    >[!NOTE]

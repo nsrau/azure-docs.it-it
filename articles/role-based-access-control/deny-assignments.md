@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006735"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
@@ -56,12 +56,12 @@ Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite
 
 ## <a name="system-defined-principal"></a>Entità definite dal sistema
 
-Per supportare tutte le assegnazioni di negazione è stata introdotta l'**entità definita dal sistema**. Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. `SystemDefined` può essere combinato con `ExcludePrincipals` negare tutte le entità, ad eccezione di alcuni utenti. `SystemDefined` presenta i vincoli seguenti:
+Per supportare tutte le assegnazioni di negazione è stata introdotta l'**entità definita dal sistema**. Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. `SystemDefined` può essere combinato con `ExcludePrincipals` per negare tutte le entità, ad eccezione di alcuni utenti. `SystemDefined` presenta i vincoli seguenti:
 
 - Può essere usata solo con `Principals` e non può essere usata con `ExcludePrincipals`.
 - `Principals[i].Type` deve essere impostato su `SystemDefined`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)
+* [Visualizzazione negare le assegnazioni per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)
 * [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md)

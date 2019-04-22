@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007148"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
@@ -61,7 +61,7 @@ Verificare la conformità ai requisiti sopra riportati con il provider dell'appl
 ### <a name="getting-started"></a>Introduzione
 Le applicazioni che supportano il profilo SCIM descritto in questo articolo possono essere connesse ad Azure Active Directory usando la funzionalità "Applicazione non nella raccolta" nella raccolta di applicazioni di Azure AD. Una volta stabilita la connessione, Azure AD esegue un processo di sincronizzazione ogni 40 minuti in cui interroga l'endpoint SCIM dell'applicazione in merito agli utenti e ai gruppi assegnati e li crea o li modifica in base alle istruzioni di assegnazione.
 
-**Connettere un'applicazione che supporta SCIM:**
+**Per connettere un'applicazione che supporta SCIM:**
 
 1. Accedi per il [portale di Azure Active Directory](https://aad.portal.azure.com). 
 
@@ -134,7 +134,7 @@ Quando si implementa un endpoint SCIM per garantire la compatibilità con Azure 
 La seguente figura illustra i messaggi che Azure Active Directory invia al servizio SCIM per gestire il ciclo di vita di un utente nell'archivio di identità dell'applicazione.  
 
 ![][4]
-*Figura 4: Il provisioning e deprovisioning sequenza*
+*Figura 4: Sequenza di provisioning e deprovisioning utenti*
 
 ### <a name="group-provisioning-and-de-provisioning"></a>Provisioning e deprovisioning gruppi
 Gruppo di provisioning e deprovisioning è facoltativo. Quando implementata e abilitata, la figura seguente mostra i messaggi che Azure AD invia al servizio SCIM per gestire il ciclo di vita di un gruppo di nell'archivio di identità dell'applicazione.  Questi messaggi si differenziano dai messaggi relativi agli utenti in due modi: 
@@ -143,7 +143,7 @@ Gruppo di provisioning e deprovisioning è facoltativo. Quando implementata e ab
 * Le richieste per determinare se un attributo reference ha un determinato valore sono richieste relative all'attributo members.  
 
 ![][5]
-*Figura 5: Gruppo di provisioning e deprovisioning sequenza*
+*Figura 5: Sequenza di provisioning e deprovisioning gruppi*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Richieste del protocollo SCIM e risposte
 Questa sezione vengono fornite le richieste SCIM di esempio generati da client SCIM di Azure AD e nell'esempio le risposte previste. Per ottenere risultati ottimali, è consigliabile codificare l'app per gestire le richieste in questo formato e generano risposte previsto.
@@ -170,14 +170,14 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
   - [Aggiornamento dell'utente [proprietà a valore singolo]](#update-user-single-valued-properties)
     - [Richiesta](#request-5)
     - [Risposta](#response-5)
-  - [Eliminazione di un utente.](#delete-user)
+  - [Elimina utente](#delete-user)
     - [Richiesta](#request-6)
     - [Risposta](#response-6)
 - [Operazioni sui gruppi](#group-operations)
-  - [Creare un gruppo](#create-group)
+  - [Creare gruppo](#create-group)
     - [Richiesta](#request-7)
     - [Risposta](#response-7)
-  - [Ottieni gruppo](#get-group)
+  - [Ottenere un gruppo](#get-group)
     - [Richiesta](#request-8)
     - [Risposta](#response-8)
   - [Ottieni gruppo da displayName](#get-group-by-displayname)
@@ -192,7 +192,7 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
   - [Gruppo di aggiornamento [rimuovere membri]](#update-group-remove-members)
     - [Richiesta](#request-12)
     - [Risposta](#response-12)
-  - [Eliminare un gruppo](#delete-group)
+  - [Elimina gruppo](#delete-group)
     - [Richiesta](#request-13)
     - [Risposta](#response-13)
 
@@ -440,7 +440,7 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
 #### <a name="delete-user"></a>Eliminazione di un utente.
 
 ##### <a name="request"></a>Richiesta
-*DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
+*Elimina /Users/5171a35d82074e068ce2 HTTP/1.1*
 
 ##### <a name="response"></a>Risposta
 *HTTP/1.1 204 No Content*
@@ -622,7 +622,7 @@ Per rendere più semplice, questo processo [esempi di codice](https://github.com
 * Visual Studio 2013 o versioni successive
 * [Azure SDK per .NET](https://azure.microsoft.com/downloads/)
 * Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. In questo computer deve essere accessibile dal cloud.
-* [Una sottoscrizione di Azure con una versione di valutazione o con licenza di Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
+* [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 
 ### <a name="getting-started"></a>Introduzione
 Il modo più semplice per implementare un endpoint SCIM in grado di accettare richieste di provisioning da Azure AD consiste nel compilare e distribuire l'esempio di codice che fornisce come output gli utenti con provisioning in un file CSV (Comma-Separated Value).
@@ -1260,12 +1260,12 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, `urn:ietf:
 
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Automatizzare utente Provisioning/Deprovisioning alle App SaaS](user-provisioning.md)
-* [Personalizzazione dei mapping degli attributi per il Provisioning utenti](customize-application-attributes.md)
-* [Scrittura di espressioni per il mapping degli attributi](functions-for-customizing-application-data.md)
-* [Filtri di ambito per il Provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
+* [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
+* [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+* [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifiche relative al provisioning dell'account](user-provisioning.md)
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS](../saas-apps/tutorial-list.md)
+* [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

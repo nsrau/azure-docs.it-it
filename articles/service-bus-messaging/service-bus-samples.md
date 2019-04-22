@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006549"
 ---
 # <a name="service-bus-messaging-samples"></a>Esempi di messaggistica del bus di servizio
@@ -38,6 +38,6 @@ Inoltre [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplo
 
 Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 
-* [Panoramica della messaggistica del Bus di servizio](service-bus-messaging-overview.md)
+* [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 * [Architettura del bus di servizio](service-bus-architecture.md)
 

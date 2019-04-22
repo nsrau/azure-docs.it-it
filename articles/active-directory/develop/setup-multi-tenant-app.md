@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff314e0bbf548c96c4f652213cdea21f86ed1125
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006119"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Come configurare una nuova applicazione multi-tenant
@@ -32,4 +32,4 @@ Di seguito è riportato un elenco di argomenti consigliati per altre informazion
 - Per altri dettagli, vedere le informazioni sulla [configurazione e sulla codifica end-to-end di un'applicazione multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluse le informazioni su come eseguire la registrazione, usare l'endpoint "comune", implementare il consenso di "utente" e "amministratore" e implementare scenari più avanzati multilivello
 
 ## <a name="next-steps"></a>Passaggi successivi
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

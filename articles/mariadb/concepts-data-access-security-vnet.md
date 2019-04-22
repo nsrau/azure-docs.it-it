@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006698"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB
@@ -91,7 +91,7 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servi
 - **Amministratore di rete:** &nbsp; attiva l'endpoint.
 - **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per MariaDB.
 
-*In alternativa RBAC:*
+*Alternativa del controllo degli accessi in base al ruolo:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole della rete virtuale. È necessario solo un subset delle relative funzionalità.
 
@@ -140,7 +140,7 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per articoli relativi alla creazione di regole di rete virtuale, vedere:
-- [Creare e gestire Database di Azure per le regole di MariaDB VNet usando il portale di Azure](howto-manage-vnet-portal.md)
+- [Creare e gestire le regole di rete virtuale per Database di Azure per MariaDB tramite il portale di Azure](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

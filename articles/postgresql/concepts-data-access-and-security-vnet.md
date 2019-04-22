@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006328"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL
@@ -92,7 +92,7 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servi
 - **Amministratore di rete:** &nbsp; attiva l'endpoint.
 - **Amministratore del database:** &nbsp; aggiorna l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al Database di Azure per il server PostgreSQL.
 
-*In alternativa RBAC:*
+*Alternativa del controllo degli accessi in base al ruolo:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole della rete virtuale. È necessario solo un subset delle relative funzionalità.
 
@@ -141,8 +141,8 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per articoli relativi alla creazione di regole di rete virtuale, vedere:
-- [Creare e gestire Database di Azure per PostgreSQL VNet regole usando il portale di Azure](howto-manage-vnet-using-portal.md)
-- [Creare e gestire Database di Azure per PostgreSQL VNet regole tramite la CLI di Azure](howto-manage-vnet-using-cli.md)
+- [Creare e gestire le regole di rete virtuale per Database di Azure per PostgreSQL tramite il portale di Azure](howto-manage-vnet-using-portal.md)
+- [Creare e gestire le regole di rete virtuale per Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
