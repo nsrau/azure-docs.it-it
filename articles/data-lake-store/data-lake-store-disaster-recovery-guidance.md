@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878112"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Materiale sussidiario per il ripristino di emergenza dei dati in Azure Data Lake Storage Gen1
@@ -42,6 +42,6 @@ Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutt
 Le organizzazioni possono anche abilitare la [registrazione diagnostica](data-lake-store-diagnostic-logs.md) per l'account Data Lake Storage Gen1 per raccogliere gli audit trail di accesso ai dati che forniscono informazioni su chi potrebbe avere eliminato o aggiornato un file.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione a Azure Data Lake Store Gen1](data-lake-store-get-started-portal.md)
-* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)
+* [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

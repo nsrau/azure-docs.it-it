@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879812"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Azure Data Lake Storage Gen1
@@ -179,6 +179,6 @@ AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. S
 * 1.0.13 - Se si copiano dati nello stesso account Azure Data Lake Storage Gen1 tramite più comandi adlcopy, non è più necessario immettere di nuovo le credenziali per ogni esecuzione. Adlcopy memorizza ora nella cache queste informazioni tra le diverse esecuzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)
-* [Usare Azure Data Lake Analitica con Data Lake Store Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usare Azure HDInsight con Data Lake Store Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

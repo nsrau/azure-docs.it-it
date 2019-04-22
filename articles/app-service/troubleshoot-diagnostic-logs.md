@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894919"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
@@ -57,9 +57,9 @@ Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Li
 
 | Level| Categorie di log incluse |
 |-|-|
-|**Disabled** | Nessuna |
-|**Tipi di errore** | Errore, Errore critico |
-|**Avviso** | Avviso, Errore, Errore critico|
+|**Disabilitato** | Nessuna |
+|**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
+|**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
 |**Dettagliato** | Analisi, Debug, Informazioni, Avviso, Errore, Errore critico (tutte le categorie) |
 |-|-|
@@ -132,7 +132,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 3. Caricare il progetto ed eseguire la generazione di dati del log.
 4. Nel [portale di Azure](https://portal.azure.com/) passare alla nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste e all'utilizzo e ad altri dati di telemetria. Alcuni dati di telemetria potrebbe richiedere alcuni minuti per arrivare: fare clic su Aggiorna. [Altre informazioni](../azure-monitor/app/diagnostic-search.md)
 
-[Altre informazioni sulle prestazioni di rilevamento con Application Insights](../azure-monitor/app/azure-web-apps.md)
+[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. È possibile eseguire lo streaming delle informazioni di registrazione al proprio ambiente di sviluppo tramite l'interfaccia della riga di comando di Azure.
@@ -230,6 +230,6 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 >
 
 ## <a name="nextsteps"></a> Passaggi successivi
-* [Come monitorare il servizio App di Azure](web-sites-monitor.md)
-* [Risoluzione dei problemi di servizio App di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analizzare i log dell'app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Come monitorare il Servizio app di Azure](web-sites-monitor.md)
+* [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

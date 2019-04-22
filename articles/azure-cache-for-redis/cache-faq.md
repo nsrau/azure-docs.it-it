@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895597"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Domande frequenti su Cache Redis di Azure
@@ -69,7 +69,7 @@ Le domande frequenti riportate di seguito riguardano i concetti e le domande di 
 * [Che cosa occorre prendere in considerazione quando si usano i comandi Redis comuni?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 * [In che modo è possibile valutare e testare le prestazioni della cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Informazioni importanti sulla crescita del pool di thread](#important-details-about-threadpool-growth)
-* [Abilitare il server Garbage Collection in modo da ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Abilitare il server Garbage Collection per poter ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 * [Considerazioni sulle prestazioni per le connessioni](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Domande sul monitoraggio e sulla risoluzione dei problemi
@@ -135,7 +135,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 
 | Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB | Dimensioni del valore di 1 KB |
 | --- | --- | --- | --- | --- | --- |
-| **Dimensioni di cache standard** | | |**Megabit al secondo (Mb/s) / megabyte al secondo (Mbps)** |**Richieste al secondo (RPS) Non-SSL** |**Richieste al secondo (RPS) SSL** |
+| **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL** |**Richieste al secondo (RPS) SSL** |
 | C0 |250 MB |Condiviso |100 / 12,5 |15.000 |7.500 |
 | C1 |1 GB |1 |500 / 62,5 |38.000 |20.720 |
 | C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
@@ -143,7 +143,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 | C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
 | C5 |26 GB |4 |1,000 / 125 |102.000 |93.000 |
 | C6 |53 GB |8 |2,000 / 250 |126.000 |120.000 |
-| **Dimensioni della cache Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / megabyte al secondo (Mbps)** |**Richieste al secondo (RPS) Non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
+| **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172.000 |
 | P2 |13 GB |4 |3,000 / 375 |350.000 |341.000 |
 | P3 |26 GB |4 |3,000 / 375 |350.000 |341.000 |
@@ -173,8 +173,8 @@ Sì, è possibile usare Cache Redis di Azure con il cloud Azure per enti pubblic
 
 Per altre informazioni sulle considerazioni relative all'uso di Cache Redis di Azure con altri cloud, vedere i collegamenti seguenti.
 
-- [Database di Azure per enti pubblici - Cache di Azure per Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure China Cloud - Cache di Azure per Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Database di Azure per enti pubblici - Cache Redis di Azure](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Cloud di Azure Cina - Cache Redis di Azure](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)
 
 Per informazioni sull'uso di Cache Redis di Azure con PowerShell nel cloud di Azure per enti pubblici, nel cloud di Azure Cina e in Microsoft Azure Germania, vedere [Come connettersi ad altri cloud - Powershell con Cache Redis di Azure](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
@@ -269,7 +269,7 @@ Sì, per usare Cache Redis di Azure come una cache di sessione PHP, specificare 
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Se la chiave non è codificato in URL, si può ricevere un'eccezione con un messaggio simile a: `Failed to parse session.save_path`
+> Se la chiave non è codificata in URL, può essere restituita un'eccezione con un messaggio simile al seguente: `Failed to parse session.save_path`
 >
 >
 
@@ -403,7 +403,7 @@ Come configurare questa impostazione:
 L'abilitazione del server Garbage Collection consente di ottimizzare il client e fornire velocità effettiva e prestazioni migliori quando si usa StackExchange.Redis. Per altre informazioni sul server Garbage Collection e sulla relativa abilitazione, vedere gli articoli seguenti:
 
 * [Per abilitare il server Garbage Collection](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [Principi fondamentali di Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
+* [Nozioni fondamentali di Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
 * [Garbage Collection e prestazioni](/dotnet/standard/garbage-collection/performance)
 
 
@@ -467,12 +467,12 @@ Un altro aspetto chiave del successo di Redis è l'ecosistema open source integr
 Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e la [documentazione di Cache Redis di Azure](index.md).
 
 ### <a name="managed-cache-service"></a>Servizio cache gestita
-[Servizio Cache gestita è stato ritirato il 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+Il [Servizio cache gestita è stato ritirato il 30 novembre 2016](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 Per visualizzare la documentazione archiviata, vedere [Documentazione archiviata di Servizio cache gestita di Azure](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Cache nel ruolo
-[Cache nel ruolo è stata ritirata il 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+Il [servizio Cache nel ruolo è stato ritirato il 30 novembre 2016](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 Per visualizzare la documentazione archiviata, vedere [Documentazione archiviata di Cache nel ruolo](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 

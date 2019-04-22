@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882413"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo con ambiti nelle App per la logica di Azure
@@ -67,8 +67,8 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       | Impostazione | Valore | DESCRIZIONE |
       | ------- | ----- | ----------- |
-      | **Connection Name (Nome connessione)** | BingMapsConnection | Specificare un nome per la connessione. | 
-      | **API key** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
+      | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
+      | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
       ||||  
 
    1. Configurare l'azione **Get route** (Ottieni itinerario), come illustrato nella tabella sotto questa immagine:
@@ -79,14 +79,14 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       | Impostazione | Valore | DESCRIZIONE |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*start*> | Immettere l'origine dell'itinerario. | 
-      | **Waypoint 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
-      | **Evitare** | Nessuna | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
-      | **Eseguire l'ottimizzazione** | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
-      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio Usa questo valore: "Miglio" | 
-      | **Modalità di viaggio** | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
-      | **Data e ora transito** | Nessuna | Si applica solo alla modalità di transito. | 
-      | **Tipo Data-Type di transito** | Nessuna | Si applica solo alla modalità di transito. | 
+      | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
+      | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
+      | **Avoid** (Evita) | Nessuna | Immettere gli elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via. Per i possibili valori, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario). | 
+      | **Optimize** (Ottimizza) | timeWithTraffic | Selezionare un parametro per ottimizzare l'itinerario, ad esempio distanza, tempo con le informazioni sul traffico corrente e così via. Questo esempio usa il valore "timeWithTraffic" | 
+      | **Unità distanza** | <*preferenza*> | Immettere l'unità di distanza per calcolare l'itinerario. Questo esempio Usa questo valore: "Miglia" | 
+      | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Immettere la modalità di viaggio per l'itinerario. Questo esempio usa il valore "Driving" | 
+      | **Transit Date-Time** (Data e ora transito) | Nessuna | Si applica solo alla modalità di transito. | 
+      | **Transit Date-Time Type** (Tipo di data e ora transito) | Nessuna | Si applica solo alla modalità di transito. | 
       ||||  
 
 1. [Aggiungere una condizione](../logic-apps/logic-apps-control-flow-conditional-statement.md) per verificare se il tempo di viaggio corrente con il traffico è superiore al tempo specificato. 
@@ -151,7 +151,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
   
        Il campo **Corpo** dovrebbe avere ora un aspetto simile all'esempio seguente:
 
-       ![Campo "Corpo" finale](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Campo "Corpo" completato](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Salvare l'app per la logica.
@@ -176,7 +176,7 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
 
 1. Aggiungere ora i passaggi o trascinare i passaggi esistenti che si vuole eseguire nell'ambito. Per questo esempio, trascinare le azioni seguenti nell'ambito:
       
-   * **Ottenere una route**
+   * **Get route** (Ottieni itinerario)
    * **If traffic time is more than specified time** (Se il tempo con il traffico è superiore al tempo specificato), che include entrambi i rami **true** e **false**
 
    L'app per la logica dovrebbe avere ora un aspetto simile all'esempio seguente:

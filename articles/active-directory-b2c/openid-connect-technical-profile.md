@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916768"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenId Connect in un criterio personalizzato di Azure Active Directory B2C
@@ -104,9 +104,9 @@ Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** ass
 
 Esempi:
 
-- [Aggiungere l'Account Microsoft (MSA) come provider di identità tramite criteri personalizzati](active-directory-b2c-custom-setup-msa-idp.md)
-- [Accedere usando account Azure AD.](active-directory-b2c-setup-aad-custom.md)
-- [Consentire agli utenti di accedere a un provider di identità AD Azure multi-tenant mediante criteri personalizzati](active-directory-b2c-setup-commonaad-custom.md)
+- [Aggiungere un account Microsoft come provider di identità tramite i criteri personalizzati](active-directory-b2c-custom-setup-msa-idp.md)
+- [Accedere usando gli account di Azure AD](active-directory-b2c-setup-aad-custom.md)
+- [Consentire agli utenti di accedere a un provider di identità Azure AD multi-tenant tramite i criteri personalizzati](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

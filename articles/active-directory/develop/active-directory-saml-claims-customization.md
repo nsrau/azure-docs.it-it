@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878571"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
@@ -61,10 +61,10 @@ Dal **formato identificatore nome scegliere** elenco a discesa, è possibile sel
 
 | Formato NameID | DESCRIZIONE |
 |---------------|-------------|
-| **Predefinito** | Azure AD Usa il formato di origine predefinito. |
+| **Default** | Azure AD Usa il formato di origine predefinito. |
 | **Persistente** | Azure AD userà persistente come formato di NameID. |
 | **EmailAddress** | Azure AD userà EmailAddress come formato di NameID. |
-| **Non specificata** | Azure AD userà non specificato come formato di NameID. |
+| **non è specificato** | Azure AD userà non specificato come formato di NameID. |
 | **Temporaneo** | Azure AD userà temporaneo come formato di NameID. |
 
 Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
@@ -122,8 +122,8 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 | **Extract () - tra corrispondenza** | Restituisce la sottostringa fino a quando non corrisponde a quello specificato.<br/>Ad esempio, se il valore dell'input è "Finance_BSimon_US", il primo valore corrisponda è "Finance_", il secondo valore corrisponda è "_US", quindi l'output dell'attestazione è "BSimon". |
 | **ExtractAlpha() - Prefix** | Restituisce la parte in ordine alfabetico di prefisso della stringa.<br/>Ad esempio, se il valore dell'input è "BSimon_123", viene restituito "BSimon". |
 | **ExtractAlpha() - Suffix** | Restituisce la parte alfabetico suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_Simon", viene restituito "BSimon". |
-| **ExtractNumeric() - prefisso** | Restituisce la parte numerica di prefisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_BSimon", viene restituito "123". |
-| **ExtractNumeric() - suffisso** | Restituisce la parte numerica suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "BSimon_123", viene restituito "123". |
+| **ExtractNumeric() - Prefix** | Restituisce la parte numerica di prefisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_BSimon", viene restituito "123". |
+| **ExtractNumeric() - Suffix** | Restituisce la parte numerica suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "BSimon_123", viene restituito "123". |
 | **IfEmpty()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un extensionattribute se il valore employeeid per un determinato utente è vuoto. A tale scopo, configurare i valori seguenti:<br/>Parametro 1(input): User. EmployeeID<br/>Il parametro 2 (output): user.extensionattribute1<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): User. EmployeeID |
 | **IfNotEmpty()** | Restituisce un attributo o una costante se l'input non è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un extensionattribute se il valore employeeid per un determinato utente non è vuoto. A tale scopo, configurare i valori seguenti:<br/>Parametro 1(input): User. EmployeeID<br/>Il parametro 2 (output): user.extensionattribute1 |
 
@@ -131,6 +131,6 @@ Se è necessario ulteriori trasformazioni, invia la tua idea nel [forum dei comm
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestione delle applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configura accesso single sign-on su applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Risoluzione dei problemi basato su SAML single sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Gestione di applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
+* [Configurare l'accesso Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)

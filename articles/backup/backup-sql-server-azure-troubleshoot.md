@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916686"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
@@ -169,8 +169,7 @@ Questi problemi possono verificarsi a causa di uno o più dei motivi seguenti:
   * Macchina virtuale è stata arrestata per un periodo prolungato a causa della quale la configurazione dell'estensione su di esso è scaduto
   * Macchina virtuale è stata eliminata e un'altra macchina virtuale è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminato
   * Uno dei nodi del gruppo di disponibilità non è stata ricevuta la configurazione del backup completata, ciò può verificarsi sia al momento della registrazione di gruppo di disponibilità per l'insieme di credenziali o quando viene aggiunto un nuovo nodo  <br>
-   
-Negli scenari precedenti, è consigliabile attivare registrare di nuovo l'operazione sulla macchina virtuale. Questa opzione è disponibile solo tramite PowerShell e sarà presto disponibile nel portale di Azure anche.
+    Negli scenari precedenti, è consigliabile attivare registrare di nuovo l'operazione sulla macchina virtuale. Questa opzione è disponibile solo tramite PowerShell e sarà presto disponibile nel portale di Azure anche.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

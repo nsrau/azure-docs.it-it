@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895038"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe rehosting in macchine virtuali di Azure
@@ -53,7 +53,7 @@ TmaxSoft OpenFrame è una soluzione di riallocazione mainframe diffuso usata neg
 Attività iniziali
 
 - [Introduzione a TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Scarica l'e-book](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Scarica l'ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
 
 ## <a name="ibm-zdt-120"></a>IBM zD&T 12.0
 
@@ -117,9 +117,9 @@ Chiedere a nostro [partner](partner-workloads.md) che consentono di eseguire la 
 Vedere anche la pagina relativa alla
 
 - [White paper su argomenti di mainframe](mainframe-white-papers.md)
-- [Migrazione dei mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [risoluzione dei problemi](/azure/virtual-machines/troubleshooting/)
-- [Spiegazione sulla migrazione di mainframe ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Risoluzione dei problemi](/azure/virtual-machines/troubleshooting/)
+- [Demistificazione di mainframe alla migrazione ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

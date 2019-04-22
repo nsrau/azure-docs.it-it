@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58889839"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
@@ -33,10 +33,10 @@ Considerare i seguenti esempi di come si può implementare diverse funzioni.
 
 | Scenario di esempio | Trigger | Associazione di input | Associazione di output |
 |-------------|---------|---------------|----------------|
-| Un nuovo messaggio di arrivo che esegue una funzione per scrivere in un'altra coda. | Queue<sup>*</sup> | *Nessuna* | Queue<sup>*</sup> |
+| Un nuovo messaggio di arrivo che esegue una funzione per scrivere in un'altra coda. | Queue<sup>*</sup> | *Nessuno* | Queue<sup>*</sup> |
 |Un processo pianificato legge il contenuto di archiviazione Blob e crea un nuovo documento di Cosmos DB. | Timer | Archiviazione BLOB | Cosmos DB |
 |Griglia di eventi consente di leggere un'immagine dall'archiviazione Blob e un documento da Cosmos DB per inviare un messaggio di posta elettronica. | Griglia di eventi | Archiviazione BLOB e Cosmos DB | SendGrid |
-| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuna* | Microsoft Graph |
+| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuno* | Microsoft Graph |
 
 <sup>\*</sup> Rappresenta diverse code
 
@@ -73,7 +73,7 @@ Altre opzioni per `dataType` sono `stream` e `string`.
 Tutti i trigger e le associazioni hanno una proprietà `direction` nel file [function.json](./functions-reference.md):
 
 - Per i trigger, la direzione è sempre `in`
-- Le associazioni di input e outpue usano `in` e `out`
+- Le associazioni di input e di output usano `in` e `out`
 - Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout`, solo le **editor avanzato** è disponibile tramite il **integra** scheda nel portale.
 
 Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione viene specificata in un costruttore di attributo o dedotta dal tipo di parametro.

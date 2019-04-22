@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879693"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
@@ -137,5 +137,5 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
-* [Introduzione all'hub IoT (Guida rapida)](quickstart-send-telemetry-dotnet.md)
-* [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)
+* [Introduzione agli hub IoT (guida introduttiva)](quickstart-send-telemetry-dotnet.md)
+* [Che cos'è l'hub IoT Azure?](about-iot-hub.md)

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878356"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connettere Operations Manager a monitoraggio di Azure
@@ -66,7 +66,7 @@ Le informazioni sotto l'elenco delle informazioni di configurazione del proxy e 
 
 |Risorsa | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
-|**Agente**|||  
+|**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Sì|  
 |\*.oms.opinsights.azure.com| 443|Sì|  
 |\*.blob.core.windows.net| 443|Sì|  
@@ -221,7 +221,7 @@ Management Pack per le soluzioni abilitate che si integrano con Operations Manag
     > 
 
 1. Dal prompt della shell dei comandi, digitare `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-1. Tipo successivo, `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Quindi digitare `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Per rimuovere tutti i Management pack rimanenti che presentano una dipendenza da altri Management pack di System Center Advisor, usare lo script *RecursiveRemove.ps1* scaricato in precedenza da TechNet Script Center.  
  
     > [!NOTE]

@@ -16,15 +16,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876923"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Risoluzione dei problemi: problemi di installazione di Azure AD Connect
 
-## **<a name="recommended-steps"></a>Procedure consigliate**
+## <a name="recommended-steps"></a>**Procedure consigliate**
 Individuare il [tipo di installazione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) adatto alle proprie esigenze. Se si soddisfano i criteri per l'installazione rapida, è consigliabile procedere con questo tipo di installazione. L'installazione rapida offre opzioni minime per completare l'installazione, pertanto è meno probabile che si verifichino problemi. 
 
 Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessario eseguire l'installazione personalizzata, di seguito vengono fornite alcune procedure consigliate che è possibile seguire per evitare problemi comuni. Per maggiore semplicità, vengono citate di seguito solo opzioni selettive:
@@ -39,7 +39,7 @@ Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessa
 
     ![Account della foresta AD](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
 
-### **<a name="common-issues"></a>Problemi comuni**
+### <a name="common-issues"></a>**Problemi comuni**
 
 * [Problemi di connettività con Active Directory locale](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
@@ -47,13 +47,13 @@ Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessa
 
 * [Problemi di autorizzazione con Active Directory locale](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
-## **<a name="recommended-documents"></a>Documenti consigliati**
+## <a name="recommended-documents"></a>**Documenti consigliati**
 * [Prerequisiti di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
 * [Selezionare il tipo di installazione da usare per Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation)
 * [Introduzione alle impostazioni rapide per Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-express)
 * [Installazione personalizzata di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)
-* [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)
-* [Azure AD Connect: Che cos'è server di gestione temporanea?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
+* [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)
+* [Azure AD Connect: Che cos'è un server di gestione temporanea?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
 * [Informazioni sul modulo ADConnectivityTool di PowerShell](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
 
 ## <a name="next-steps"></a>Passaggi successivi

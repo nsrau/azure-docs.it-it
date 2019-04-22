@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916972"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
@@ -218,9 +218,9 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
 ```
 
 ## <a name="see-also"></a>Vedere anche 
-+ [Creare un indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analizzare l'abilità di immagine](cognitive-search-skill-image-analysis.md)
-+ [Competenza OCR](cognitive-search-skill-ocr.md)
-+ [Competenze di tipo merge di testo](cognitive-search-skill-textmerger.md)
++ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
++ [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
++ [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)
++ [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Come eseguire il mapping campi arricchiti](cognitive-search-output-field-mapping.md)
++ [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

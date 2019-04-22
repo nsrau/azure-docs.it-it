@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892739"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
@@ -24,7 +24,7 @@ Questo articolo consente di trovare e correggere errori o guasti riscontrati dur
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 
-**Messaggio di errore: Non è possibile disinstallare 'PyYAML'**
+**Messaggio di errore: Impossibile installare "PyYAML"**
 
 Azure Machine Learning SDK per Python: PyYAML è un progetto installato da Distutils. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
 

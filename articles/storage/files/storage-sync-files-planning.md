@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918638"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
@@ -169,10 +169,10 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 > Perché la sincronizzazione funzioni correttamente, l'agente Sincronizzazione file di Azure deve essere installato in tutti i nodi di un cluster di failover.
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
-**Versione dell'agente 5.0.2.0**   
+**Agente versione 5.0.2.0**   
 La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione.
 
-**Windows Server 2012 R2 o versioni precedenti dell'agente**  
+**Agente di Windows Server 2012 R2 o di versioni precedenti**  
 Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
 
 ### <a name="distributed-file-system-dfs"></a>File system distribuito (DFS)
@@ -293,8 +293,8 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Prendere in considerazione le impostazioni di proxy e firewall](storage-sync-files-firewall-and-proxy.md)
-* [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
-* [Distribuire i file di Azure](storage-files-deployment-guide.md)
-* [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+* [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
+* [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
+* [Come distribuire i file di Azure](storage-files-deployment-guide.md)
+* [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 * [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

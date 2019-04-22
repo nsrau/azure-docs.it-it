@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876741"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Ottimizzare i costi per più aree in Azure Cosmos DB
 
 È possibile aggiungere e rimuovere aree nell'account Azure Cosmos in qualsiasi momento. La velocità effettiva che si configura per vari database e contenitori di Azure Cosmos è riservata in ogni area associata al proprio account. Se la velocità effettiva di cui è stato effettuato il provisioning ogni ora, data dalla somma di UR/s configurate in tutti i database e i contenitori per l'account Azure Cosmos, è `T` e il numero di aree di Azure associate all'account del database è `N`, la velocità effettiva totale con provisioning per l'account Cosmos per una determinata ora è uguale a:
 
-1. `T x N RU/s` Se l'account Azure Cosmos viene configurato con un'area singola operazione di scrittura. 
+1. `T x N RU/s`, se nell'account Azure Cosmos è configurata una singola area di scrittura. 
 
-1. `T x (N+1) RU/s` Se l'account Azure Cosmos viene configurato con tutte le aree in grado di elaborare operazioni di scrittura. 
+1. `T x (N+1) RU/s`, se nell'account Azure Cosmos sono configurate tutte le aree in grado di elaborare operazioni di scrittura. 
 
 La velocità effettiva di cui è stato effettuato il provisioning con un'area di scrittura singola costa $0,008/l'ora per 100 UR/s, mentre la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili costa $0,016/l'ora per 100 UR/s. Per altre informazioni, vedere la [Pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) di Azure Cosmos DB.
 
@@ -31,13 +31,13 @@ In un sistema multimaster, le UR nette disponibili per le operazioni di scrittur
 
 Si supponga di avere un contenitore nell'area Stati Uniti occidentali con provisioning con unità elaborate pari a 10.000 UR/s che sia stato archiviato 1 TB di dati questo mese. Si supponga quindi di aggiungere tre aree, Stati Uniti orientali, Europa settentrionale e Asia orientale, ciascuna con le stesse risorse di archiviazione e con la stessa velocità effettiva e che si desideri scrivere nei contenitori di tutte e quattro le aree dall'app distribuita a livello globale. La fattura mensile totale sarà la seguente (presupponendo un mese di 31 giorni):
 
-|**Elemento**|**Utilizzo (mensile)**|**Tariffa**|**Costo mensile**|
+|**Elemento**|**Uso (mensile)**|**Tariffa**|**Costo mensile**|
 |----|----|----|----|
 |Fattura per la velocità effettiva per contenitore negli Stati Uniti occidentali (operazioni di scrittura in più aree) |10K RU/s * 24 * 31 |$0,016 per 100 RU/s all'ora |$1.190,40 |
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in più aree) |(3 + 1) * 10K RU/s * 24 * 31 |$0,016 per 100 RU/s all'ora |$4.761,60 |
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali |100 GB |$0,25/GB |$25 |
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale |3 * 1 TB |$0,25/GB |$75 |
-|**Totale**|||**$6,052** |
+|**Totale**|||**$6.052** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Migliorare l'uso della velocità effettiva per singola area
 

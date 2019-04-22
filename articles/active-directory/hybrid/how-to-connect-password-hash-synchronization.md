@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916377"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
@@ -119,7 +119,7 @@ Se si usano impostazioni personalizzate quando si installa Azure AD Connect, la 
 ### <a name="password-hash-synchronization-and-fips"></a>Sincronizzazione dell'hash delle password e FIPS
 Se il server è stato bloccato in conformità allo standard FIPS (Federal Information Processing Standard), MD5 è disabilitato.
 
-**Per abilitare MD5 per la sincronizzazione dell'hash delle password, seguire i passaggi seguenti:**
+**Per abilitare MD5 per la sincronizzazione dell'hash delle password, seguire questa procedura:**
 
 1. Passare a %programmi%\Azure AD Sync\Bin.
 2. Aprire miiserver.exe.config.
@@ -143,6 +143,6 @@ Per informazioni sulla sicurezza e su FIPS, vedere [Azure AD password hash sync,
 In caso di problemi di sincronizzazione dell'hash delle password, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
-* [Ottenere un piano di distribuzione dettagliate per la migrazione da ad FS a sincronizzazione dell'Hash delle Password](https://aka.ms/authenticationDeploymentPlan)
+* [Ottenere un piano di distribuzione dettagliato per la migrazione dal file system distribuito di Azure alla sincronizzazione dell'hash delle password](https://aka.ms/authenticationDeploymentPlan)

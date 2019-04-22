@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
 ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905291"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
@@ -64,8 +64,8 @@ Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i ca
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sulla sicurezza e la protezione avanzate dalle minacce del livello Standard, vedere:
 
-- [Rilevamento avanzato delle minacce](security-center-threat-report.md)
-- [Just-in controllo di accesso della macchina virtuale ora](security-center-just-in-time.md)
+- [Rilevamento delle minacce avanzato](security-center-threat-report.md)
+- [Accesso JIT alla macchina virtuale](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

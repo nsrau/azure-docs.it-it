@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
 ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903676"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
@@ -171,7 +171,7 @@ sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-**OKD con singolo master**
+**OKD con un singolo master**
 
 ```bash
 sudo systemctl restart origin-master
@@ -351,5 +351,5 @@ Per installare OSBA su OpenShift, seguire le istruzioni disponibili qui: https:/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione a OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform) (Introduzione a OpenShift Container Platform)
 - [Introduzione a OKD](https://docs.okd.io/latest)

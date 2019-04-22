@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917477"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
@@ -703,7 +703,7 @@ Dopo ogni iterazione del ciclo, se non sono stati trovati messaggi di coda, il p
 
 A volte il contenuto di un messaggio di coda provoca un errore di elaborazione. Questo messaggio è definito un *messaggio non elaborabile*. Se è stato appena registrato un errore e il ciclo è stato riavviato, è possibile che si tenti di elaborare questo messaggio all'infinito.  Il blocco CATCH include quindi un'istruzione IF che verifica il numero di volte in cui l'app ha tentato di elaborare il messaggio corrente. Se il numero è superiore a 5, il messaggio sarà eliminato dalla coda.
 
-`ProcessQueueMessage` viene chiamato quando viene trovato un messaggio di coda.
+`ProcessQueueMessage` è chiamato quando viene trovato un messaggio della coda.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Per un video introduttivo relativo alle procedure consigliate e ai modelli per A
 
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Servizi Cloud di Azure-parte 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Come gestire i servizi Cloud](cloud-services-how-to-manage-portal.md)
+* [Azure Cloud Services Part 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917414"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Modalità di conteggio dei caratteri dell'API Traduzione testuale
@@ -24,8 +24,8 @@ L'API Traduzione testuale conteggia ogni elemento di codice Unicode del testo di
 Gli elementi importanti sono i seguenti:
 
 * Il testo passato all'API Traduzione testuale nel corpo della richiesta
-   * `Text` Quando si usano i metodi Translate, Transliterate e ricerca nei dizionari
-   * `Text` e `Translation` quando si usa il metodo esempi dizionario
+   * `Text` quando si usano i metodi relativi alla traduzione, alla traslitterazione e alla ricerca nel dizionario
+   * `Text` e `Translation` quando si usa il metodo relativo agli esempi di dizionari
 * Tutto il markup: HTML, tag XML e così via nel campo di testo del corpo della richiesta. La notazione JSON usata per compilare la richiesta, ad esempio "Text:", non viene conteggiata.
 * Una singola lettera
 * Punteggiatura

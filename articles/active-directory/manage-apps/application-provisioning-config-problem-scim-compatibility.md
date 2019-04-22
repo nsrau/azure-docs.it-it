@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880152"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
@@ -35,7 +35,7 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemi di conformità con SCIM 2.0 e stato
 
-| **Problema di conformità SCIM 2.0** |  **Corretta?** | **Correggere Data**  |  
+| **Problema di conformità con SCIM 2.0** |  **Risolto?** | **Data di risoluzione**  |  
 |---|---|---|
 | In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Sì  |  18 dicembre 2018 | 
 | Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | 
@@ -112,5 +112,5 @@ Sì. Se si è codificata un'applicazione precedente alle correzioni con il compo
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su provisioning e deprovisioning di applicazioni SaaS](user-provisioning.md)
+[Informazioni sul provisioning e il deprovisioning utenti in applicazioni SaaS](user-provisioning.md)
 

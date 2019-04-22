@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 478c261bb909cbc931a7dbbaa9cb6c61152970e4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885534"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
@@ -32,7 +32,7 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Concetti principali |Un account di Data Lake Storage Gen1 contiene cartelle, che a loro volta contengono dati archiviati come file |Un account di archiviazione include contenitori, che a loro volta contengono dati sotto forma di BLOB |
 | Structure |File system gerarchico |Archivio di oggetti con spazio dei nomi flat |
 | API |API REST su HTTPS |API REST su HTTP/HTTPS |
-| API lato server |[API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST di archiviazione Blob di Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API lato server |[API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST dell'archivio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Client del file system Hadoop |Sì |Sì |
 | Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-account-manage.md#access-keys) e [chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operazioni sui dati: protocollo di autenticazione |OAuth 2.0. Le chiamate devono contenere un token JSON Web (JWT) valido rilasciato da Azure Active Directory. |Hash-based Message Authentication Code (HMAC). Le chiamate devono contenere un hash SHA-256 con codifica Base64 su una parte della richiesta HTTP. |

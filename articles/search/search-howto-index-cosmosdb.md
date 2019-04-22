@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883395"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indicizzazione di Cosmos DB usando un indicizzatore di ricerca di Azure
@@ -171,10 +171,10 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 
 | Campo   | DESCRIZIONE |
 |---------|-------------|
-| **name** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
+| **nome** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
 |**type**| Richiesto. Deve essere `documentdb`. |
 |**credentials** | Richiesto. Deve essere una stringa di connessione di Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Per le raccolte di MongoDB, aggiungere **ApiKind = MongoDb** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.|
-| **Contenitore** | contiene gli elementi seguenti: <br/>**name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
+| **container** | contiene gli elementi seguenti: <br/>**name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 

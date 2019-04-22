@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905093"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come per l'esecuzione di funzioni permanenti come processi Web
@@ -31,9 +31,9 @@ L'esempio concatenamento di funzioni permanenti è disponibile in una versione d
 
 Questo articolo presuppone che si abbia familiarità con le nozioni di base relative a WebJobs SDK, allo sviluppo della libreria di classi C# per Funzioni di Azure e a Funzioni durevoli. Per un'introduzione a questi argomenti, vedere le risorse seguenti:
 
-* [Introduzione a WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
+* [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md) (Introduzione a WebJobs SDK)
 * [Creare la prima funzione con Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Funzioni permanenti](durable-functions-sequence.md)
+* [Funzioni durevoli](durable-functions-sequence.md)
 
 Per seguire la procedura descritta in questo articolo:
 
@@ -133,7 +133,7 @@ WebJobs SDK non supporta le funzionalità di Funzioni di Azure seguenti:
 
 * [Attributo FunctionName](#functionname-attribute)
 * [Trigger HTTP](#http-trigger)
-* [API di gestione HTTP di funzioni durevoli](#http-management-api)
+* [API di gestione HTTP per Funzioni durevoli](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Attributo FunctionName
 

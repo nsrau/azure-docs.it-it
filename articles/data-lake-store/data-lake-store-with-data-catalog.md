@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877885"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -80,4 +80,4 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 ## <a name="see-also"></a>Vedere anche 
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
-* [Integrare altri servizi di Azure Data Lake archiviazione Gen1](data-lake-store-integrate-with-other-services.md)
+* [Integrare Data Lake Storage Gen1 con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)

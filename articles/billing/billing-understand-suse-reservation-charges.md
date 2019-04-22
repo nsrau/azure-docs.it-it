@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917788"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Informazioni su come viene applicato lo sconto relativo piano di prenotazione del software SUSE Linux Enterprise per Azure
@@ -130,8 +130,8 @@ Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
 - [Pagare in anticipo per i piani software SUSE con le prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
-- [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

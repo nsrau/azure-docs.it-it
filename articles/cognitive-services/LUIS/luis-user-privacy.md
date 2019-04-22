@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895157"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
@@ -37,7 +37,7 @@ I contenuti dei clienti vengono archiviati e crittografati in archivi Azure a li
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 Gli utenti di LUIS hanno il controllo completo per eliminare qualsiasi contenuto, tramite il portale web di LUIS o le API LUIS (noto anche come a livello di codice) di creazione dell'utente. Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:
 
-| | **Account utente** | **Applicazione** | **Esempio Utterance(s)** | **Query degli utenti finali** |
+| | **Account utente** | **Applicazione** | **Esempio Utterance(s)** | **Query utente finale** |
 | --- | --- | --- | --- | --- |
 | **Portale** | [Collegamento](luis-concept-data-storage.md#delete-an-account) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-concept-data-storage.md#utterances-in-an-intent) | [Espressioni di apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Espressioni connessi](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +46,7 @@ Gli utenti di LUIS hanno il controllo completo per eliminare qualsiasi contenuto
 ## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 Gli utenti di LUIS hanno controllo completo per visualizzare i dati nel portale, ma deve essere esportato tramite le API (noto anche come a livello di codice) di creazione servizio LUIS. Nella tabella seguente vengono visualizzati i collegamenti ad assistere con le esportazioni di dati tramite le API (noto anche come livello di programmazione) LUIS creazione:
 
-| | **Account utente** | **Applicazione** | **Utterance(s)** | **Query degli utenti finali** |
+| | **Account utente** | **Applicazione** | **Espressione/i** | **Query utente finale** |
 | --- | --- | --- | --- | --- |
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -90,4 +90,4 @@ Durante la distribuzione di queste aree geografiche di Azure, le espressioni ric
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Riferimento di aree di LUIS](./luis-reference-regions.md)
+> [Informazioni di riferimento sulle aree di LUIS](./luis-reference-regions.md)

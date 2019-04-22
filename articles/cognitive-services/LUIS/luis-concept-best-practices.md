@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895816"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
@@ -36,14 +36,14 @@ L'elenco seguente include le procedure consigliate per le app LUIS:
 
 |Procedura consigliata|Procedura rischiosa|
 |--|--|
-|[Definire gli Intent distinti](#do-define-distinct-intents) |[Aggiungere molte espressioni di esempio per Intent](#dont-add-many-example-utterances-to-intents) |
-|[Trovare una condizione ideale tra troppo generico e troppo specifico per ogni intent](#do-find-sweet-spot-for-intents)|[Usare LUIS come piattaforma di formazione](#dont-use-luis-as-a-training-platform)|
-|[Compilare l'app in modo iterativo](#do-build-the-app-iteratively)|[Aggiungere molte espressioni di esempio con lo stesso formato, ignorando gli altri formati](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Aggiungere gli elenchi di frase e modelli in iterazioni successive](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
-|[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare elenchi di una frase con tutti i valori possibili](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Sfruttare la funzionalità Suggerisci per apprendimento attivo](#do-leverage-the-suggest-feature-for-active-learning)|[Aggiungere un numero eccessivo di modelli](#dont-add-many-patterns)|
-|[Monitorare le prestazioni dell'app](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicate con utterance ogni singola esempio aggiunto](#dont-train-and-publish-with-every-single-example-utterance)|
-|[Usare le versioni per ogni iterazione di app](#do-use-versions-for-each-app-iteration)||
+|[Definire le finalità distinte](#do-define-distinct-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents) |
+|[Trovare un compromesso tra troppo generico e troppo specifico per ogni finalità](#do-find-sweet-spot-for-intents)|[Usare LUIS come piattaforma di training](#dont-use-luis-as-a-training-platform)|
+|[Creare l'app in modo iterativo](#do-build-the-app-iteratively)|[Aggiungere molte espressioni di esempio dello stesso formato, ignorando gli altri](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Aggiungere elenchi di frasi e criteri nelle iterazioni successive](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
+|[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare elenchi di frasi con tutti i valori possibili](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Usare la funzionalità suggerimento per l'apprendimento attivo](#do-leverage-the-suggest-feature-for-active-learning)|[Aggiungere troppi criteri](#dont-add-many-patterns)|
+|[Monitorare le prestazioni dell'app](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicare con ogni singola espressione di esempio aggiunta](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Usare versioni per ogni iterazione di app](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>Definire finalità distinte
 Assicurarsi che il vocabolario per ogni finalità sia specifico di quella finalità e che non si sovrapponga a un'altra. Ad esempio, se si vuole realizzare un'app per gestire i viaggi, ad esempio i voli aerei e gli hotel, è possibile scegliere di definire queste aree di interesse come finalità separate o una sola finalità con entità per dati specifici all'interno dell'espressione.

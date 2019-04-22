@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915476"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportato dal servizio migrazione del Database di Azure
@@ -44,7 +44,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |  |
-| **Istanza gestita del database SQL di Azure** | SQL Server | ✔ | GA |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |   |
 | **VM di Azure SQL** | SQL Server | ✔ | GA |
@@ -63,7 +63,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Istanza gestita del database SQL di Azure** | SQL Server | ✔ | GA |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima privata |
 | **VM di Azure SQL** | SQL Server |   |   |

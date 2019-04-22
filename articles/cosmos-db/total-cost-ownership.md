@@ -8,10 +8,10 @@ ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879472"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
@@ -48,11 +48,11 @@ Il modello di provisioning serverless di Azure Cosmos DB elimina la necessità d
 
 * **È possibile utilizzare la velocità effettiva con provisioning fino a un limite massimo:** in virtù del sub-core multiplexing in Azure Cosmos DB, è possibile saturare la velocità effettiva con provisioning in misura maggiore rispetto alle opzioni ospitate su IaaS o alle offerte di terze parti. Questo metodo consente di risparmiare molto di più rispetto ad altre soluzioni.
 
-* **Integrazione di Azure Cosmos DB con altri servizi di Azure.** Azure Cosmos DB offre un'integrazione nativa con funzionalità di rete, ambiente di calcolo, Funzioni di Azure (serverless), Azure IoT e altri servizi di Azure. Con questa integrazione, è possibile ottenere le migliori prestazioni e una velocità di replica dei dati in tutto il mondo con solide garanzie. Le soluzioni di terze parti non saranno in grado di eguagliare tali prestazioni o prevedono in genere un addebito aggiuntivo per offrire tali funzionalità.
+* **Stretta integrazione di Azure Cosmos DB con altri servizi di Azure:** Azure Cosmos DB offre un'integrazione nativa con funzionalità di rete, ambiente di calcolo, Funzioni di Azure (serverless), Azure IoT e altri servizi di Azure. Con questa integrazione, è possibile ottenere le migliori prestazioni e una velocità di replica dei dati in tutto il mondo con solide garanzie. Le soluzioni di terze parti non saranno in grado di eguagliare tali prestazioni o prevedono in genere un addebito aggiuntivo per offrire tali funzionalità.
 
 * **È possibile ottenere automaticamente una disponibilità elevata, con almeno 10-20 domini di errore per impostazione predefinita:** Azure Cosmos DB supporta la distribuzione dei carichi di lavoro nei domini di errore, una funzionalità che è fondamentale per la disponibilità elevata. Offre una disponibilità elevata del 99,999 per letture e scritture al 99° percentile in qualsiasi parte del mondo. Il costo dell'implementazione di una caratteristica simile autonomamente o tramite una soluzione di terze parti sarebbe elevato.
 
-* **Si ottengono automaticamente tutte le funzionalità aziendali, senza costi aggiuntivi.** Azure Cosmos DB offre il set più completo di certificazioni di conformità, sicurezza e crittografia di dati inattivi e in transito senza costi aggiuntivi (rispetto alla concorrenza). È possibile ottenere automaticamente la disponibilità a livello di area in qualsiasi parte del mondo. È possibile estendere il database in qualsiasi numero di aree di Azure e aggiungere o rimuovere aree in qualsiasi momento.
+* **È possibile ottenere automaticamente tutte le funzionalità aziendali, senza costi aggiuntivi:** Azure Cosmos DB offre il set più completo di certificazioni di conformità, sicurezza e crittografia di dati inattivi e in transito senza costi aggiuntivi (rispetto alla concorrenza). È possibile ottenere automaticamente la disponibilità a livello di area in qualsiasi parte del mondo. È possibile estendere il database in qualsiasi numero di aree di Azure e aggiungere o rimuovere aree in qualsiasi momento.
 
 * **È possibile risparmiare fino al 65% dei costi con capacità di riserva:** La [capacità di riserva](cosmos-db-reserved-capacity.md) di Azure Cosmos DB permette di risparmiare grazie al pagamento anticipato delle risorse di Azure Cosmos DB per un anno o tre anni. È possibile ridurre significativamente i costi con impegni inziali di un anno o di tre anni e risparmiare tra il 20 e il 65% rispetto al prezzo normale. Nei carichi di lavoro mission-critical è possibile ottenere i contratti di servizio migliori in termini di capacità di provisioning.
 

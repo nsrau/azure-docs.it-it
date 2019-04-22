@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905308"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
@@ -163,7 +163,7 @@ Per controllare un'assegnazione di ruolo specifica, inviare una richiesta HTTP G
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valore del parametro** | **Obbligatorio** |  **Type** |  **DESCRIZIONE** |
+| **Valore del parametro** | **Obbligatorio** |  **Tipo** |  **Descrizione** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True  | string |   objectId dell'objectIdType UserId. |
 | YOUR_PATH | True  | string |   Percorso per cui verificare l'accesso. |

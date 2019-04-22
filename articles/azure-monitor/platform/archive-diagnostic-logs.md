@@ -76,7 +76,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | Proprietà | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- |
-| ResourceId |Sì |ID risorsa della risorsa in cui si vuole definire un'impostazione di diagnostica. |
+| resourceId |Sì |ID risorsa della risorsa in cui si vuole definire un'impostazione di diagnostica. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui devono essere salvati i log di diagnostica. |
 | Categories |No  |Elenco delimitato da virgole di categorie di log da abilitare. |
 | Enabled |Sì |Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |

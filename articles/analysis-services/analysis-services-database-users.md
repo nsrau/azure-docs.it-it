@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891685"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
@@ -45,10 +45,10 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
     |Autorizzazione|DESCRIZIONE|  
     |----------------|-----------------|  
-    |**Nessuna**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
+    |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
     |**Lettura ed elaborazione**|I membri possono eseguire query su dati in base ai filtri a livello di riga ed eseguire operazioni Elabora ed Elabora tutto, ma non possono modificare lo schema del modello.|  
-    |**Process**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
+    |**Processo**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
     |**Amministratore**|I membri possono modificare lo schema del modello ed eseguire query su tutti i dati.|   
   
 5.  Se il ruolo che si sta creando dispone delle autorizzazioni Lettura o Lettura ed elaborazione, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic sulla scheda **Filtri di riga**, quindi selezionare una tabella, quindi scegliere il campo **Filtro DAX** e quindi digitare una formula DAX.
@@ -75,7 +75,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
    |Autorizzazione|DESCRIZIONE|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
-   |**Elaborazione database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
+   |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
    |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
@@ -88,7 +88,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 È possibile eseguire uno script TMSL nella finestra XMLA in SSMS o usando PowerShell. Usare il comando [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) e l'oggetto [Ruoli](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl).
 
-**Esempio di script TMSL**
+**Script di esempio del linguaggio di scripting del modello tabulare**
 
 In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo analista con autorizzazioni Lettura per il database SalesBI. Sia il gruppo che l'utente esterno devono trovarsi nello stesso tenant di Azure AD.
 
@@ -150,7 +150,7 @@ I filtri di riga si applicano alle righe specificate e alle righe correlate. Qua
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-  [Gestire gli amministratori del server](analysis-services-server-admins.md)   
+  [Gestire gli amministratori di server](analysis-services-server-admins.md)   
   [Gestire Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
-  [Scripting Language (TMSL) Reference del modello tabulare](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [Riferimento al Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 

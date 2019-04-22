@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916037"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
@@ -89,11 +89,11 @@ Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, �
 
 - [Codificatori live consigliati](recommended-on-premises-live-encoders.md)
 - [Utilizzo di un DVR cloud](live-event-cloud-dvr.md)
-- [Confronto tra le funzionalità tipi di eventi in tempo reale](live-event-types-comparison.md)
+- [Confronto tra le funzionalità dei tipi di eventi live](live-event-types-comparison.md)
 - [Stati e fatturazione](live-event-states-billing.md)
-- [Latenza](live-event-latency.md)
+- [Latency](live-event-latency.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione di streaming in tempo reale](stream-live-tutorial-with-api.md)
+* [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
 * [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md)

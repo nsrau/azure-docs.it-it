@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007558"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Attributi di sicurezza comuni per servizi di Azure
@@ -23,7 +23,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-## [<a name="azure-backup"></a>Backup di Azure](../backup/backup-security-attributes.md)
+## <a name="azure-backupbackupbackup-security-attributesmd"></a>[Backup di Azure](../backup/backup-security-attributes.md)
 
 ### <a name="preventative"></a>Prevenzione
 
@@ -71,7 +71,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 |---|---|--|
 | Supporto di Gestione configurazione (controllo delle versioni di configurazione e così via).| Sì|  |
 
-## [<a name="azure-key-vault"></a>Azure Key Vault](../key-vault/key-vault-security-attributes.md)
+## <a name="azure-key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Insieme di credenziali chiave Azure](../key-vault/key-vault-security-attributes.md)
 
 ### <a name="preventative"></a>Prevenzione
 
@@ -120,7 +120,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Piano di gestione/controllo - Controlli di accesso | Sì | Controllo degli accessi in base al ruolo di Azure Resource Manager |
 | Piano dati - Controlli di accesso (a ogni livello di servizio) | Sì | Criteri di accesso insieme di credenziali delle chiavi |
 
-## [<a name="azure-service-fabric"></a>Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+## <a name="azure-service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
 ### <a name="preventative"></a>Prevenzione
 

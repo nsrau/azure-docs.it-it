@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916655"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
@@ -31,7 +31,7 @@ Per comprendere il funzionamento delle attività di avvio e in particolare la mo
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definire le variabili di ambiente prima dell'avvio di un ruolo
-Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Task].
+Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Attività].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ Il secondo controlla le connessioni tra la macchina virtuale e i processi al suo
 
 In Azure vengono create regole di firewall per i processi avviati nei ruoli. Quando si avvia un servizio o un programma, ad esempio, in Azure vengono create automaticamente le regole di firewall necessarie per consentire la comunicazione del servizio con Internet. Tuttavia, se si crea un servizio che viene avviato da un processo esterno al ruolo, come un servizio COM+ o un'attività pianificata di Windows, è necessario creare manualmente una regola di firewall per consentire l'accesso al servizio. Queste regole di firewall possono essere create usando un'attività di avvio.
 
-In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][Task] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
+In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][attività] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -472,12 +472,12 @@ Esempio di output nel file **StartupLog.txt**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Impostare l'attributo executionContext in modo appropriato per le attività di avvio
 Impostare i privilegi in modo appropriato per l'attività di avvio. In alcuni casi le attività di avvio devono essere eseguite con privilegi elevati anche se il ruolo viene eseguito con privilegi normali.
 
-Lo strumento da riga di comando [executionContext][Task] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
+Lo strumento da riga di comando [executionContext][attività] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
 
 Un esempio di attività di avvio che richiede privilegi elevati è un'attività di avvio che usa **AppCmd.exe** per configurare IIS. **AppCmd.exe** richiede `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usare l'attributo taskType appropriato
-Lo strumento da riga di comando [taskType][Task] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
+Lo strumento da riga di comando [taskType][attività] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
 
 Con le attività di avvio **simple** è possibile impostare l'ordine in cui le attività si verificano in base all'ordine in cui le attività sono elencate nel file ServiceDefinition.csdef. Se un'attività **simple** termina con un codice di uscita diverso da zero, la procedura di avvio viene arrestata e il ruolo non viene avviato.
 
@@ -511,10 +511,10 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoint]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
 ms.openlocfilehash: c6b8e61f3b5dc8ce3623c9ee6654a1befdc1e924
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877211"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento esterno tramite Azure PowerShell
@@ -169,4 +169,4 @@ In questo articolo si è appreso come:
 > * Creare un gateway applicazione
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle operazioni eseguibili con il gateway applicazione](./application-gateway-introduction.md)
+> [Altre informazioni sulle operazioni che è possibile eseguire con il gateway applicazione](./application-gateway-introduction.md)

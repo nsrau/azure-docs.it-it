@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893521"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
@@ -81,7 +81,7 @@ Aggiunge un `AlternativeSecurityId` a un'attestazione `alternativeSecurityIdColl
 L'esempio seguente collega una nuova identità di social networking a un account esistente. Per collegare una nuova identità di social networking:
 1. Nei profili tecnici **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId**, viene fornita l'attestazione **alternativeSecurityIds** dell'utente.
 1. Chiedere all'utente di accedere con uno dei provider di identità che non sono associati a tale utente.
-1. Usando il **CreateAlternativeSecurityId** attestazioni di trasformazione, creare un nuovo **alternativeSecurityId** con un nome del tipo di attestazione `AlternativeSecurityId2`
+1. Usando la trasformazione delle attestazioni **CreateAlternativeSecurityId**, creare un nuovo tipo di attestazione **alternativeSecurityId** con un nome di `AlternativeSecurityId2`
 1. Chiamare la trasformazione delle attestazioni **AddItemToAlternativeSecurityIdCollection** per aggiungere l'attestazione **AlternativeSecurityId2** all'attestazione esistente **AlternativeSecurityIds**.
 1. Mantenere l'attestazione **alternativeSecurityIds** per l'account utente
 

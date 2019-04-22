@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917618"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
@@ -99,9 +99,9 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **executionContext** : specifica il livello di privilegio per l'attività di avvio. Il livello di privilegio può essere limitato o elevato:
 
-* **Limited**  
+* **limitato**  
   : l'attività di avvio viene eseguita con gli stessi privilegi del ruolo. Quando anche l'attributo **executionContext** dell'elemento [Runtime] è **limitato**, vengono usati i privilegi utente.
-* **elevated**  
+* **elevato**  
   : l'attività di avvio viene eseguita con privilegi di amministratore. In questo modo attraverso le attività di avvio è possibile installare programmi, apportare modifiche alla configurazione di IIS, effettuare modifiche al Registro di sistema e altre attività a livello di amministratore senza aumentare il livello di privilegio del ruolo.  
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **taskType** : specifica la modalità di esecuzione di un'attività di avvio.
 
-* **Semplice**  
+* **simple**  
   vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef] . Quando un'attività di avvio **simple** termina con un valore **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
   
   > [!NOTE]
@@ -122,7 +122,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 * **background**  
    vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
-* **In primo piano**  
+* **foreground**  
    vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
@@ -161,10 +161,10 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [Creare il pacchetto](cloud-services-model-and-package.md) del servizio cloud.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

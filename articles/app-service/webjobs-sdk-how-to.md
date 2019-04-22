@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895208"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
@@ -80,7 +80,7 @@ In quanto versione 3. *x* Usa la configurazione di .NET Core predefinito le API,
 
 | Proprietà | Impostazione di sviluppo |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Per ottimizzare l'output del log. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` per massimizzare l'output del log. |
 | `Queues.MaxPollingInterval`  | Un valore basso per garantire che i metodi di coda vengano attivati immediatamente.  |
 | `Singleton.ListenerLockPeriod` | 15 secondi per rendere più rapido lo sviluppo iterativo. |
 
@@ -369,10 +369,10 @@ Queste impostazioni specifico dell'associazione sono equivalenti alle impostazio
 È possibile configurare le associazioni seguenti:
 
 * [Trigger di Azure COSMOS DB](#azure-cosmosdb-trigger-configuration-version-3x)
-* [Trigger per Hub eventi](#event-hubs-trigger-configuration-version-3x)
+* [Trigger di hub eventi](#event-hubs-trigger-configuration-version-3x)
 * Trigger per l'archiviazione code
 * [Associazione di SendGrid](#sendgrid-binding-configuration-version-3x)
-* [Trigger di bus di servizio](#service-bus-trigger-configuration-version-3x)
+* [Trigger del Bus di servizio](#service-bus-trigger-configuration-version-3x)
 
 ### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configurazione del trigger di Azure COSMOS DB (versione 3. *x*)
 
@@ -849,7 +849,7 @@ Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [`Log
 
 Versione 3. *x* del SDK si basa sui filtri incorporati in .NET Core. La classe `LogCategories` consente di definire categorie per funzioni, trigger o utenti specifici. Definisce anche i filtri per gli stati di host specifico, ad esempio `Startup` e `Results`. In questo modo è possibile ottimizzare l'output di registrazione. Se non vengono trovate corrispondenze nelle categorie definite, il filtro resta al valore `Default` quando stabilisce se filtrare il messaggio.
 
-`LogCategories` richiede la seguente istruzione using:
+`LogCategories` richiede l'istruzione using seguente:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884993"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory
@@ -102,9 +102,9 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata creata un'applicazione Web di Azure AD e sono state raccolte le informazioni necessarie nelle applicazioni client create tramite .NET SDK, Java, Python, API REST e così via. È ora possibile passare agli articoli seguenti che illustrano come usare l'applicazione nativa di Azure AD per eseguire prima l'autenticazione con Data Lake Storage Gen1 e quindi altre operazioni sull'archivio.
 
-* [Autenticazione da servizio a con Data Lake archiviazione Gen1 con Java](data-lake-store-service-to-service-authenticate-java.md)
-* [Autenticazione da servizio a con Data Lake archiviazione Gen1 con .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
-* [Autenticazione da servizio a con Data Lake archiviazione Gen1 con Python](data-lake-store-service-to-service-authenticate-python.md)
-* [Autenticazione da servizio a con Data Lake archiviazione Gen1 usando l'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+* [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite Java](data-lake-store-service-to-service-authenticate-java.md)
+* [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+* [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite Python](data-lake-store-service-to-service-authenticate-python.md)
+* [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 
 

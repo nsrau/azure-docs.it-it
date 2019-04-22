@@ -8,10 +8,10 @@ ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877637"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
@@ -100,9 +100,9 @@ Si supponga di avere un contenitore Azure Cosmos negli Stati Uniti occidentali. 
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale       | 3 * 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora  |$ 1.728|
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali      | 250 GB    |$ 0,25/GB  |$ 62,50|
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$ 0,25/GB  |$ 187,50|
-|**Totale**     |     |  |**$2,554**|
+|**Totale**     |     |  |**$ 2.554**|
 
-*Si supponga inoltre che in uscita da 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati nell'area Stati Uniti orientali, Europa settentrionale e Asia orientale. Vengono addebitati in uscita in base alle tariffe di trasferimento dei dati.*
+*Si supponga anche che vengano trasmessi 100 GB di dati in uscita ogni mese dal contenitore negli Stati Uniti occidentali verso gli Stati Uniti orientali, l'Europa settentrionale e l'Asia orientale. Viene fatturato il traffico in uscita in base alle tariffe per il trasferimento di dati.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in più aree
 
@@ -114,9 +114,9 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in tutte le aree)        | (3+1) * 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora   |$ 4.608 |
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali      | 250 GB    |$ 0,25/GB  |$ 62,50|
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$ 0,25/GB  |$ 187,50|
-|**Totale**     |     |  |**$6,010**|
+|**Totale**     |     |  |**$ 6.010**|
 
-*Si supponga inoltre che in uscita da 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati nell'area Stati Uniti orientali, Europa settentrionale e Asia orientale. Vengono addebitati in uscita in base alle tariffe di trasferimento dei dati.*
+*Si supponga anche che vengano trasmessi 100 GB di dati in uscita ogni mese dal contenitore negli Stati Uniti occidentali verso gli Stati Uniti orientali, l'Europa settentrionale e l'Asia orientale. Viene fatturato il traffico in uscita in base alle tariffe per il trasferimento di dati.*
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Esempio di fatturazione: Account Azure Cosmos con velocità effettiva multimaster a livello di database, inclusa la modalità di velocità effettiva dedicata per alcuni contenitori
 
@@ -178,7 +178,7 @@ Le modifiche della velocità effettiva totale durante le 720 ore del mese sono i
 
 La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calcolata come segue:
 
-|**Ore**  |**UR/s** |**Elemento** |**Utilizzo (ogni ora)** |**Costi** |
+|**Ore**  |**UR/sec** |**Elemento** |**Utilizzo (orario)** |**Costii** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1: 10 K <br/>D2: 30 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$ 960  |
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
@@ -194,7 +194,7 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$ 7.680  |
 |[701-720] |D1: 20 K <br/>D2: 50 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$ 224  |
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$ 224  |
-|| |**Costo mensile totale**  | |**$38,688**   |
+|| |**Costo mensile totale**  | |**$38.688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Stima proattiva della fattura mensile  
 
@@ -210,7 +210,7 @@ Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fatt
 
 <br>
 
-|**Costo della velocità effettiva** | | | |
+|**Costi della velocità effettiva** | | | |
 |----|----|----|----|
 |Tipo di operazione| Richieste/sec| Avg. UR/richiesta| UR necessarie|
 |Scrittura| 100 | 5 | 500|
@@ -222,7 +222,7 @@ Totale UR/sec: 500 + 400 = 900 Costo orario: 900/100 * $ 0,008 = $ 0,072 Costo m
 
 Costo mensile totale = Costo mensile per l'archiviazione + Costo mensile per la velocità effettiva Costo mensile totale = $ 25,00 + $ 53,57 = $ 78,57
 
-*Prezzi possono variare per area. Per informazioni sui prezzi aggiornati, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).*
+*I prezzi possono variare a seconda dell'area. Per i prezzi aggiornati, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).*
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Fatturazione con capacità riservata di Azure Cosmos DB
 
@@ -234,7 +234,7 @@ La capacità riservata di Azure Cosmos DB consente di acquistare in anticipo vel
 
 La fattura totale (senza capacità riservata) è (presupponendo 30 giorni o 720 ore): 
 
-|**Region**| **Costo orario per 100 UR/sec**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
+|**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
 |Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
@@ -248,7 +248,7 @@ Si supponga invece di aver acquistato capacità riservata. È possibile acquista
 
 Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per 100 K UR/sec in base al prezzo di listino degli Stati Uniti orientali, a 6,40 dollari all'ora. È quindi possibile utilizzare questa prenotazione prepagata su base oraria per il provisioning della capacità di velocità effettiva in qualsiasi area di Azure globale al prezzo di listino impostato per ciascuna area per la sottoscrizione. In questo esempio, effettuando il provisioning di 50 UR/sec sia nell'area Stati Uniti orientali sia nell'area Giappone orientale, è possibile dedurre un valore di 8,00 dollari all'ora di velocità effettiva di cui è stato effettuato il provisioning e verrà fatturata un'eccedenza di 0,50 dollari all'ora (o 360 dollari al mese). 
 
-|**Region**| **Costo orario per 100 UR/sec**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
+|**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
 |Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |

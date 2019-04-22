@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877517"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
@@ -30,9 +30,9 @@ In Azure Batch un'attività viene sempre eseguita con un account utente. Per imp
 
 Azure Batch offre due tipi di account utente per l'esecuzione di attività:
 
-- **Account utente automatico.** Gli account utente automatici sono predefiniti e vengono creati automaticamente dal servizio Batch. Per impostazione predefinita, le attività vengono eseguite con un account utente automatico. È possibile configurare la specifica di utente automatico per un'attività per indicare con quale account utente automatico l'attività deve essere eseguita. La specifica di utente automatico consente di specificare il livello di elevazione dei privilegi e l'ambito dell'account utente automatico con cui verrà eseguita l'attività. 
+- **Account utente automatici.** Gli account utente automatici sono predefiniti e vengono creati automaticamente dal servizio Batch. Per impostazione predefinita, le attività vengono eseguite con un account utente automatico. È possibile configurare la specifica di utente automatico per un'attività per indicare con quale account utente automatico l'attività deve essere eseguita. La specifica di utente automatico consente di specificare il livello di elevazione dei privilegi e l'ambito dell'account utente automatico con cui verrà eseguita l'attività. 
 
-- **Un account utente non anonimo.** È possibile specificare uno o più account utente non anonimi per un pool al momento della creazione del pool stesso. Ogni account utente viene creato in ogni nodo del pool. Oltre al nome, specificare la password dell'account utente, il livello di elevazione dei privilegi e, per i pool Linux, la chiave privata SSH. Quando si aggiunge un'attività, è possibile specificare l'account utente non anonimo con cui eseguirla.
+- **Account utente non anonimi.** È possibile specificare uno o più account utente non anonimi per un pool al momento della creazione del pool stesso. Ogni account utente viene creato in ogni nodo del pool. Oltre al nome, specificare la password dell'account utente, il livello di elevazione dei privilegi e, per i pool Linux, la chiave privata SSH. Quando si aggiunge un'attività, è possibile specificare l'account utente non anonimo con cui eseguirla.
 
 > [!IMPORTANT] 
 > Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modifica significativa che richiede l'aggiornamento del codice per chiamare tale versione. Se si esegue la migrazione di codice da una versione precedente di Batch, si noti che la proprietà **runElevated** non è più supportata nelle librerie client API REST o Batch. Per specificare il livello di elevazione dei privilegi, usare la nuova proprietà **userIdentity** di un'attività. Per linee guida rapide sull'aggiornamento del codice Batch se si usa una delle librerie client, vedere la sezione [Aggiornare il codice alla libreria client Batch più recente](#update-your-code-to-the-latest-batch-client-library).
@@ -314,7 +314,7 @@ Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modific
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` Non è specificato | Non sono necessari aggiornamenti                                                                                               |
+| `CloudTask.RunElevated` non specificato | Non sono necessari aggiornamenti                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -322,7 +322,7 @@ Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modific
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` Non è specificato | Non sono necessari aggiornamenti                                                                                                                     |
+| `CloudTask.withRunElevated` non specificato | Non sono necessari aggiornamenti                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
@@ -330,7 +330,7 @@ Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modific
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
-| `run_elevated` Non è specificato | Non sono necessari aggiornamenti                                                                                                                                  |
+| `run_elevated` non specificato | Non sono necessari aggiornamenti                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

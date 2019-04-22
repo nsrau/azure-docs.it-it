@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
 ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884874"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
@@ -97,7 +97,7 @@ La gamma di ambienti di sviluppo è enorme e la configurazione di ambienti parti
 
 In sintesi, usare l'Utilità preparazione sistema (Sysprep) e arrestare la macchina virtuale in esecuzione, quindi acquisire *(figura 1)* la macchina virtuale come immagine tramite l'interfaccia utente del portale di Azure. Azure salva il file `.vhd` contenente l'immagine nell'account di archiviazione selezionato e la nuova immagine verrà quindi visualizzata come risorsa Immagine nell'elenco delle risorse della sottoscrizione.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite il portale di Azure dell'interfaccia utente.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.*</center>
 
 Per altre informazioni, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource).
 
@@ -112,5 +112,5 @@ Inoltre, le attività o le tecnologie di sviluppo possono richiedere maggiore sc
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta acquisite le nozioni di base sulle immagini di Visual Studio preconfigurate, il passaggio successivo consiste nel creare una nuova macchina virtuale:
 
-* [Creare una macchina virtuale tramite il portale di Azure](quick-create-portal.md)
-* [Panoramica delle macchine virtuali Windows](overview.md)
+* [Creare una macchina virtuale Windows con il portale di Azure](quick-create-portal.md)
+* [Panoramica di Macchine virtuali di Azure](overview.md)

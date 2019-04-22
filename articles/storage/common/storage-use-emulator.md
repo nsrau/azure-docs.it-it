@@ -9,10 +9,10 @@ ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878588"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -140,7 +140,7 @@ Ad esempio, l'indirizzo seguente può essere usato per accedere a un BLOB nell'e
 Gli endpoint di servizio per l'emulatore di archiviazione sono:
 
 * Servizio BLOB: `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Servizio di Accodamento: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Servizio di accodamento: `http://127.0.0.1:10001/<account-name>/<resource-path>`
 * Servizio tabelle: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Indirizzamento dell'account secondario con RA-GRS
@@ -170,9 +170,9 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 | Opzione | DESCRIZIONE | Comando | Argomenti |
 | --- | --- | --- | --- |
 | **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Avvia l'emulatore nel processo corrente anziché creare un nuovo processo. |
-| **Arresto** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
-| **Stato** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
-| **Cancellazione** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
+| **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
+| **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
+| **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
 | **Init** |Esegue l'inizializzazione una tantum per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate*: ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports*: tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports*: tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Differenze tra l'emulatore di archiviazione e Archiviazione di Azure

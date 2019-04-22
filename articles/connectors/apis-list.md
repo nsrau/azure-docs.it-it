@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895884"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
@@ -77,7 +77,7 @@ Ecco le azioni predefinite per l'utilizzo degli output di dati e i relativi form
 |   |   | 
 |---|---| 
 | [![Icona predefinita][data-operations-icon]<br/>**Operazioni dati**][data-operations-doc] | Eseguire operazioni con i dati: <p>- **Comporre**: Creare un singolo output da più input con tipi diversi. <br>- **Crea tabella CSV**: Creare una tabella di valori delimitati da virgole (CSV) da una matrice di oggetti JSON. <br>- **Crea tabella HTML**: Creare una tabella HTML da una matrice di oggetti JSON. <br>- **Filtra matrice**: Creare una matrice da elementi che soddisfano i criteri in un'altra matrice. <br>- **Join**: Creare una stringa da tutti gli elementi in una matrice e separare gli elementi con il delimitatore specificato. <br>- **Analizzare JSON**: Creare token descrittivi da proprietà e i relativi valori nel contenuto JSON in modo che è possibile usare tali proprietà nel flusso di lavoro. <br>- **Selezionare**: Creare una matrice con gli oggetti JSON da trasformare gli elementi o valori in un'altra matrice ed eseguire il mapping di tali elementi per le proprietà specificate. | 
-| ![Icona predefinita di][date-time-icon]<br/>**Data/Ora** | Eseguire operazioni con i timestamp: <p>- **Aggiungere ora**: Aggiungere il numero di unità specificato a un timestamp. <br>- **Converti fuso orario**: Converte un timestamp dal fuso orario di origine al fuso orario di destinazione. <br>- **Ora corrente**: Restituisce il timestamp corrente come stringa. <br>- **Recupera ora futura**: Restituisce il timestamp corrente più le unità di tempo specificate. <br>- **Recupera ora precedente**: Restituisce il timestamp corrente meno le unità di tempo specificate. <br>- **Sottrarre dall'ora**: Sottrae un numero di unità di tempo da un timestamp. |
+| ![Icona predefinita][date-time-icon]<br/>**Data Ora** | Eseguire operazioni con i timestamp: <p>- **Aggiungere ora**: Aggiungere il numero di unità specificato a un timestamp. <br>- **Converti fuso orario**: Converte un timestamp dal fuso orario di origine al fuso orario di destinazione. <br>- **Ora corrente**: Restituisce il timestamp corrente come stringa. <br>- **Recupera ora futura**: Restituisce il timestamp corrente più le unità di tempo specificate. <br>- **Recupera ora precedente**: Restituisce il timestamp corrente meno le unità di tempo specificate. <br>- **Sottrarre dall'ora**: Sottrae un numero di unità di tempo da un timestamp. |
 | [![Icona predefinita][variables-icon]<br/>**Variabili**][variables-doc] | Eseguire operazioni con le variabili: <p>- **Accoda a variabile di matrice**: Inserire un valore come l'ultimo elemento nella matrice archiviata da una variabile. <br>- **Accoda a variabile di stringa**: Inserire un valore come l'ultimo carattere in una stringa archiviata da una variabile. <br>- **Decrementa variabile**: Ridurre una variabile di un valore costante. <br>- **Incrementa variabile**: Aumentare una variabile da un valore costante. <br>- **Inizializza variabile**: Creare una variabile e dichiarare il tipo di dati e il valore iniziale. <br>- **Impostare la variabile**: Assegnare un valore diverso in una variabile esistente. |
 |  |  | 
 
@@ -177,7 +177,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 
 * Cercare l'[elenco completo di connettori](https://docs.microsoft.com/connectors)
 * [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Creare connettori personalizzati per App per la logica](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Creare connettori personalizzati per app per la logica](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Creare API personalizzate per app per la logica](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->

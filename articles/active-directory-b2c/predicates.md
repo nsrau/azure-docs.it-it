@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881002"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
@@ -194,7 +194,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
 - **Uppercase** con il metodo `IncludesCharacters` convalida che la password contiene una lettera maiuscola.
 - **Number** con il metodo `IncludesCharacters` convalida che la password contiene una cifra.
-- **Simbolo** utilizzando il `IncludesCharacters` (metodo), verifica che la password contenga una di simboli seguenti `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Symbol** con il metodo `IncludesCharacters` convalida che la password contiene uno dei seguenti simboli `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN** con il metodo `MatchesRegex` convalida che la password contiene solo numeri.
 - **AllowedAADCharacters** con il metodo `MatchesRegex` convalida che la password è costituita solo da caratteri non validi.
 - **DisallowedWhitespace** con il metodo `MatchesRegex` convalida che la password non inizia o non finisce con un carattere di spazio.

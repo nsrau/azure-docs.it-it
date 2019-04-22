@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Esercitazione: Integrazione di Azure Active Directory con Workpath
@@ -58,7 +58,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 ## <a name="adding-workpath-from-the-gallery"></a>Aggiunta di Workpath dalla raccolta
 Per configurare l'integrazione di Workpath in Azure AD, è necessario aggiungere Workpath dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Workpath dalla raccolta, seguire i passaggi seguenti:**
+**Per aggiungere Workpath dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -99,7 +99,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Workpath, è 
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Workpath.
 
-**Per configurare single sign-on di Azure con Workpath, seguire i passaggi seguenti:**
+**Per configurare l'accesso Single Sign-On di Azure AD con Workpath, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Workpath** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -113,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente: `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -121,7 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: `https://<subdomain>.workpath.com/`
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere tali valori, contattare il [team di supporto di Workpath](https://help.workpath.com).
@@ -175,7 +175,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ![Creare un utente di Azure AD][100]
 
-**Per creare un utente test di Azure AD, seguire i passaggi seguenti:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -212,7 +212,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a Workpath, seguire i passaggi seguenti:**
+**Per assegnare Britta Simon a Workpath, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

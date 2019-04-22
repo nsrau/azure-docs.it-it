@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/02/2019
 ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862999"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Compilare la prima app senza server con App per la logica di Azure e Funzioni di Azure - Visual Studio
@@ -29,18 +29,18 @@ Per compilare un'app senza server in Visual Studio, sono necessari questi elemen
 
 * Scaricare e installare questi strumenti, se non sono già disponibili:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community edition o versione successiva</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community Edition o superiore</a>. 
   Questa guida introduttiva usa Visual Studio Community 2017, disponibile gratuitamente.
 
     > [!IMPORTANT]
-    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il **sviluppo di Azure** carico di lavoro.
-    > Per Visual Studio 2019, Cloud Explorer è possibile aprire la finestra di progettazione di App per la logica nel portale di Azure, ma ancora non è possibile aprire la finestra di progettazione di App per la logica incorporata.
+    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
+    > Per Visual Studio 2019, Cloud Explorer consente di aprire la finestra di progettazione delle app per la logica nel portale di Azure, ma non ancora di aprire quella incorporata.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK per .NET (2.9.1 o versione successiva)</a>. Altre informazioni su <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK per .NET</a>.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Strumenti App per la logica per la versione di Visual Studio da Azure:
+  * Strumenti App per la logica di Azure per la versione di Visual Studio desiderata:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
 
@@ -73,11 +73,11 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
    > [!NOTE]
    > Se la categoria **Cloud** o il progetto **Gruppo di risorse di Azure** non esistono, verificare che sia installato Azure SDK per Visual Studio.
 
-   Se si usa Visual Studio 2019, seguire questa procedura:
+   Se si usa Visual Studio 2019, procedere come segue:
 
-   1. Nel **creare un nuovo progetto** , quindi selezionare il **gruppo di risorse di Azure** modello di progetto per l'oggetto visivo C# o Visual Basic, scegliere **successivo**.
+   1. Nella finestra di dialogo **Crea un nuovo progetto** selezionare il modello di progetto **Gruppo di risorse di Azure** per Visual C# o per Visual Basic, quindi scegliere **Avanti**.
 
-   1. Specificare il nome per il gruppo di risorse di Azure da usare e altre informazioni sul progetto. Al termine dell'operazione, scegliere **Crea**.
+   1. Specificare il nome del gruppo di risorse di Azure da usare e altre informazioni sul progetto. Al termine dell'operazione, scegliere **Crea**.
 
 1. Assegnare un nome e un percorso al progetto e quindi fare clic su **OK**.
 
@@ -157,4 +157,4 @@ Ora è possibile scaricare l'app per la logica già pubblicata nel progetto Grup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire le app per la logica con Visual Studio](manage-logic-apps-with-visual-studio.md)
+* [Gestire app per la logica con Visual Studio](manage-logic-apps-with-visual-studio.md)

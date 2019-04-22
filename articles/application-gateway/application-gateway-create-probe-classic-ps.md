@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861880"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-probe-portal.md)
-> * [Azure PowerShell per Resource Manager](application-gateway-create-probe-ps.md)
-> * [Azure PowerShell classico](application-gateway-create-probe-classic-ps.md)
+> * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
+> * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
 Questo articolo illustra come aggiungere un probe personalizzato a un gateway applicazione esistente con PowerShell. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
@@ -150,7 +150,7 @@ I parametri di configurazione sono:
 
 |Parametro|DESCRIZIONE|
 |---|---|
-|**NOME** |Nome di riferimento del probe personalizzato. |
+|**Nome** |Nome di riferimento del probe personalizzato. |
 | **Protocollo** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|
 | **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Ad esempio, se si dispone di un sito Web http:\//contoso.com/, quindi il probe personalizzato può essere configurato per "http:\//contoso.com/path/custompath.htm" controlli del probe ottengano una risposta HTTP corretta.|
 | **Interval** | Configura i controlli dell'intervallo di probe, in secondi.|

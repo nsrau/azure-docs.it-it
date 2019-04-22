@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887016"
 ---
 **Requisiti del server di configurazione/elaborazione per la replica di server fisici**
@@ -27,7 +27,7 @@ Numero di dischi | 3, inclusi disco del sistema operativo, disco della cache del
 Spazio libero su disco (cache del server di elaborazione) | 600 GB
 Spazio libero su disco (disco di conservazione) | 600 GB
  | 
-**IMPOSTAZIONI DEL SOFTWARE** | 
+**IMPOSTAZIONI SOFTWARE** | 
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Impostazioni locali del sistema operativo | Inglese (en-us)
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
@@ -37,14 +37,14 @@ Tipo di indirizzo IP | statico
 | 
 **IMPOSTAZIONI DI ACCESSO** | 
 MYSQL | MySQL deve essere installato nel server di configurazione. È possibile eseguire l'installazione manualmente o con Site Recovery durante la distribuzione. Per l'installazione con Site Recovery, verificare che il computer possa raggiungere http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
-URL | Il server di configurazione deve poter accedere a questi URL (direttamente o tramite proxy):<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Trasferimento dati con replica: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> La gestione delle repliche: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Accesso all'archiviazione: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronizzazione dell'ora: `time.nist.gov`; `time.windows.com`<br/><br/> Dati di telemetria (facoltativo): `dc.services.visualstudio.com`
-Firewall | Le regole del firewall basate sull'indirizzo IP devono consentire la comunicazione con gli URL di Azure. Per semplificare e limitare gli intervalli IP, è consigliabile usare il filtraggio degli URL.<br/><br/>**Per gli indirizzi IP commerciale:**<br/><br/>- Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).<br/><br/> - Consentire gli intervalli di indirizzi IP per gli Stati Uniti occidentali (usati per il Servizio di controllo di accesso e la gestione delle identità).<br/><br/> - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione per supportare gli URL necessari per Azure Active Directory, il backup, la replica e l'archiviazione.<br/><br/> **Per il governo degli indirizzi IP:**<br/><br/> - Consentire gli intervalli IP del data center di Azure per enti pubblici e la porta HTTPS (443).<br/><br/> - Consentire gli intervalli di indirizzi IP per le aree di Azure per enti pubblici degli Stati Uniti (Virginia, Texas, Arizona e Iowa) per supportare gli URL necessari per Azure Active Directory, il backup, la replica e l'archiviazione.
+URL | Il server di configurazione deve poter accedere a questi URL (direttamente o tramite proxy):<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Trasferimento dati di replica: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gestione delle repliche: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Accesso alle risorse di archiviazione `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronizzazione dell'ora: `time.nist.gov`; `time.windows.com`<br/><br/> Dati di telemetria (facoltativo): `dc.services.visualstudio.com`
+Firewall | Le regole del firewall basate sull'indirizzo IP devono consentire la comunicazione con gli URL di Azure. Per semplificare e limitare gli intervalli IP, è consigliabile usare il filtraggio degli URL.<br/><br/>**Per gli indirizzi IP commerciali:**<br/><br/>- Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).<br/><br/> - Consentire gli intervalli di indirizzi IP per gli Stati Uniti occidentali (usati per il Servizio di controllo di accesso e la gestione delle identità).<br/><br/> - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione per supportare gli URL necessari per Azure Active Directory, il backup, la replica e l'archiviazione.<br/><br/> **Per gli indirizzi IP per enti pubblici:**<br/><br/> - Consentire gli intervalli IP del data center di Azure per enti pubblici e la porta HTTPS (443).<br/><br/> - Consentire gli intervalli di indirizzi IP per le aree di Azure per enti pubblici degli Stati Uniti (Virginia, Texas, Arizona e Iowa) per supportare gli URL necessari per Azure Active Directory, il backup, la replica e l'archiviazione.
 Porte | Consentire 443 (orchestrazione del canale di controllo)<br/><br/> Consentire 9443 (trasporto dei dati) 
 
 
-**Requisiti di ridimensionamento del server di configurazione/elaborazione**
+**Requisiti di dimensione del server di configurazione/elaborazione**
 
-**CPU** | **Memoria** | **Disco della cache** | **Frequenza di modifica dei dati** | **Computer replicati**
+**CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati**
 --- | --- | --- | --- | ---
 8 vCPU<br/><br/> 2 socket * 4 core \@ 2,5 GHz | 16 GB | 300 GB | 500 GB o inferiore | < 100 computer
 12 vCPU<br/><br/> 2 socket * 6 core \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | Da 100 a 150 computer

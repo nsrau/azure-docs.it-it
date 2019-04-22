@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896410"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Le scene, scatti e fotogrammi chiave
+# <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
 
 Video Indexer supporta segmentando i video in unità temporali in base alle proprietà strutturale e semantica. Questa funzionalità consente ai clienti di esplorare, gestire e modificare i contenuti video basato su variabile con la granularità. Ad esempio, in base scene, scatti e fotogrammi chiave, descritte in questo argomento. Il **rilevamento di scena** funzionalità è attualmente in anteprima.   
 
-![Le scene, scatti e fotogrammi chiave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Scene, scatti e fotogrammi chiave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>Rilevamento della scena (anteprima)
 

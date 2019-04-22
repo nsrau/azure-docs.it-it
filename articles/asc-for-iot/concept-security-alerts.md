@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861979"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Il Centro sicurezza di Azure per gli avvisi di sicurezza IoT
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il Centro sicurezza di Azure (ASC) per IoT analizza continuamente della soluzione IoT con funzionalità di intelligence analitica e minacce avanzate che consentono all'attività dannose.
@@ -93,6 +93,6 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Panoramica](overview.md)
+- [Overview](overview.md)
 - [Accedere ai dati di sicurezza](how-to-security-data-access.md)
-- [Analizzare un dispositivo](how-to-investigate-device.md)
+- [Provare a utilizzare un dispositivo](how-to-investigate-device.md)

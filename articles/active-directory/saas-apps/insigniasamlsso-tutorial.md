@@ -17,10 +17,10 @@ ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Insignia SAML SSO
@@ -59,7 +59,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 ## <a name="adding-insignia-saml-sso-from-the-gallery"></a>Aggiunta di Insignia SAML SSO dalla raccolta
 Per configurare l'integrazione di Insignia SAML SSO in Azure AD, è necessario aggiungere Insignia SAML SSO dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Insignia SAML SSO dalla raccolta, seguire i passaggi seguenti:**
+**Per aggiungere Insignia SAML SSO dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -97,7 +97,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Insignia SAML
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Insignia SAML SSO.
 
-**Per configurare single sign-on di Azure con Insignia SAML SSO, seguire i passaggi seguenti:**
+**Per configurare l'accesso Single Sign-On di Azure AD con Insignia SAML SSO, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Insignia SAML SSO** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -119,7 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<customername>.insigniails.com/` |
     | `https://<customername>.insigniailsusa.com/` |
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<customername>.insigniailsusa.com/<uniqueid>`
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). 
@@ -149,7 +149,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
    ![Creare un utente test di Azure AD][100]
 
-**Per creare un utente test di Azure AD, seguire i passaggi seguenti:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
@@ -185,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon a Insignia SAML SSO, seguire i passaggi seguenti:**
+**Per assegnare Britta Simon a Insignia SAML SSO, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

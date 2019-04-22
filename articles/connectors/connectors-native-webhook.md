@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895580"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
@@ -33,7 +33,7 @@ Un [*trigger*](../connectors/apis-list.md) è un evento che avvia un flusso di l
 
 Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo all'API che segue il [modello di "subscribe" e "unsubscribe" del webhook nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
-**Per aggiungere il trigger di webhook**
+**Per aggiungere il trigger webhook**
 
 1. Aggiungere il trigger **HTTP Webhook** come primo passaggio in un'app per la logica.
 2. Specificare i parametri per le chiamate "subscribe" e "unsubscribe" del webhook.
@@ -104,9 +104,9 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 | Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
-**Dettagli output**
+**Dettagli dell'output**
 
 Richiesta Webhook
 
@@ -140,9 +140,9 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 | Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
-**Dettagli output**
+**Dettagli dell'output**
 
 Richiesta Webhook
 

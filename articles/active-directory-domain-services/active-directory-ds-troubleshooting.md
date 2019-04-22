@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
 ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893113"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
@@ -32,15 +32,15 @@ Seguire la procedura di risoluzione dei problemi corrispondente al messaggio di 
 
 | **Messaggio di errore** | **Risoluzione** |
 | --- |:--- |
-| *Il nome contoso100.com è già in uso su questa rete. Specificare un nome che non sia in uso.* |[Conflitto di nomi di dominio nella rete virtuale](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Eliminare l'applicazione denominata "Azure Active Directory Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD.* |[Servizi di dominio non dispone di autorizzazioni adeguate per l'applicazione di Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Eliminare l'applicazione con d87dcbc6-a371-462e-88e3-28ad15ec4e64 l'identificatore dell'applicazione e quindi tentare di abilitare Domain Services per il tenant di Azure AD.* |[L'applicazione di servizi di dominio non è configurato correttamente nel tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant. (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant di Azure AD. Abilitare l'applicazione con l'identificatore di applicazione 00000002-0000-0000-c000-000000000000 e quindi tentare di abilitare Domain Services per il tenant di Azure AD).* |[L'applicazione di Microsoft Graph è disabilitata nel tenant di Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *The name contoso100.com is already in use on this network. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso). |[Conflitto di nomi di dominio nella rete virtuale](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. Il servizio non dispone di autorizzazioni adeguate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata "Azure AD Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[Domain Services non dispone di autorizzazioni adeguate per l'applicazione Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Domain Services presente nel tenant di Azure AD non dispone delle autorizzazioni necessarie per abilitare Domain Services. Eliminare l'applicazione con l'identificatore di applicazione d87dcbc6-a371-462e-88e3-28ad15ec4e64 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Servizi di dominio non è configurata in modo appropriato per il tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant di Azure AD. Abilitare l'applicazione con l'identificatore di applicazione 00000002-0000-0000-c000-000000000000 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Microsoft Graph è disabilitata nel tenant di Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflitto di nomi di dominio
 **Messaggio di errore:**
 
-*Il nome contoso100.com è già in uso su questa rete. Specificare un nome che non sia in uso.*
+*The name contoso100.com is already in use on this network. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso).
 
 **Correzione:**
 
@@ -51,7 +51,7 @@ L'errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtual
 ### <a name="inadequate-permissions"></a>Autorizzazioni non adeguate
 **Messaggio di errore:**
 
-*Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Eliminare l'applicazione denominata "Azure Active Directory Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD.*
+*Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. Il servizio non dispone di autorizzazioni adeguate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata "Azure AD Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD).
 
 **Correzione:**
 
@@ -67,7 +67,7 @@ Per verificare se l'applicazione è presente e per eliminarla, se esiste, seguir
 ### <a name="invalid-configuration"></a>Configurazione non valida.
 **Messaggio di errore:**
 
-*Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Eliminare l'applicazione con d87dcbc6-a371-462e-88e3-28ad15ec4e64 l'identificatore dell'applicazione e quindi tentare di abilitare Domain Services per il tenant di Azure AD.*
+*Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Domain Services presente nel tenant di Azure AD non dispone delle autorizzazioni necessarie per abilitare Domain Services. Eliminare l'applicazione con l'identificatore di applicazione d87dcbc6-a371-462e-88e3-28ad15ec4e64 e quindi tentare di abilitare Domain Services per il tenant di Azure AD).
 
 **Correzione:**
 

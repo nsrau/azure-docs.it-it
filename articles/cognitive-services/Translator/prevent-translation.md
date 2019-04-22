@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: a9590a9a38859818e0b609d64fc12e30afd2e09e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915272"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Come impedire la traduzione del contenuto con l'API Traduzione testuale
@@ -42,4 +42,4 @@ L'API Traduzione testuale consente di aggiungere tag ai contenuti in modo che no
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Evitare la conversione nella chiamata API Microsoft Translator](reference/v3-0-translate.md)
+> [Evitare la traduzione nella chiamata dell'API Traduzione](reference/v3-0-translate.md)

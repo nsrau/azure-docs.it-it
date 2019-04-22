@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862115"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio delle metriche e log nel servizio di ingresso principale di Azure
@@ -56,7 +56,7 @@ Attività di accesso effettua l'accesso al servizio di ingresso principale o tut
 
 3. Scegliere un ambito di filtro e quindi selezionare **applica**.
 
-## <a name="diagnostic-logging"></a>Registri di diagnostica
+## <a name="diagnostic-logging"></a>Log di diagnostica
 I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori che sono importanti per il controllo e la risoluzione dei problemi. I log di diagnostica differiscono dai log attività.
 
 I log attività offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
@@ -92,5 +92,5 @@ Il servizio di ingresso principale offre attualmente i log di diagnostica (in ba
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un profilo Frontdoor](quickstart-create-front-door.md)
+- [Creare un profilo di porta principale](quickstart-create-front-door.md)
 - [Funzionamento di ingresso principale](front-door-routing-architecture.md)

@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883921"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione su Integrazione log di Azure: Elaborare gli eventi di Azure Key Vault tramite Hub eventi
@@ -43,9 +43,9 @@ Le informazioni offerte consentono di comprendere i motivi di ogni passaggio. I 
 
 Per altre informazioni sui servizi citati in questa esercitazione, vedere: 
 
-- [Azure Key Vault](../key-vault/key-vault-whatis.md)
+- [Insieme di credenziali chiave Azure](../key-vault/key-vault-whatis.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Integrazione Log di Azure](security-azure-log-integration-overview.md)
+- [Integrazione dei log di Azure](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>Configurazione iniziale
@@ -89,13 +89,13 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 1. Al termine dell'autenticazione, è connessi. Annotare l'ID e il nome della sottoscrizione, necessari per completare i passaggi successivi.
 
 1. Creare variabili per archiviare i valori che verranno usati successivamente. Immettere ognuna delle seguenti righe di PowerShell. Potrebbe essere necessario regolare i valori per adattarli all'ambiente.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
-    - ```$location = 'West US'``` (Questa variabile verrà usata per passare il percorso in cui le risorse devono essere create. È possibile modificare questa variabile con qualsiasi località di propria scelta.
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
+    - ```$location = 'West US'``` (Verrà usata questa variabile per passare la posizione in cui si devono creare le risorse. È possibile modificare questa variabile con qualsiasi località di propria scelta.
     - ```$random = Get-Random```
-    - ```$name = 'azlogtest' + $random``` (Il nome può contenere qualsiasi elemento, ma deve contenere solo lettere minuscole e numeri).
-    - ```$storageName = $name``` (Verrà utilizzata questa variabile per il nome di account di archiviazione).
-    - ```$rgname = $name``` (Verrà utilizzata questa variabile per il nome del gruppo di risorse).
-    - ```$eventHubNameSpaceName = $name``` (Si tratta del nome dello spazio dei nomi dell'hub eventi).
+    - ```$name = 'azlogtest' + $random``` Si può indicare qualsiasi nome, ma deve contenere solo numeri e lettere minuscole.
+    - ```$storageName = $name``` Questa variabile verrà usata per il nome dell'account di archiviazione.
+    - ```$rgname = $name``` Questa variabile verrà usata per il nome del gruppo di risorse.
+    - ```$eventHubNameSpaceName = $name``` Nome dello spazio dei nomi dell'hub eventi.
 1. Specificare la sottoscrizione che si userà:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -157,8 +157,7 @@ Le richieste devono essere inviate a Key Vault per generare l'attività dei log.
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Impostare e leggere un segreto per generare voci di log aggiuntive:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
-   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Segreto restituito](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -181,6 +180,6 @@ Dopo circa un minuto di esecuzione degli ultimi comandi, verranno visualizzati i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md)
-- [Introduzione a integrazione Log di Azure](security-azure-log-integration-get-started.md)
-- [Integrare i log dalle risorse di Azure nei sistemi SIEM](security-azure-log-integration-overview.md)
+- [Domande frequenti su Integrazione dei log di Azure](security-azure-log-integration-faq.md)
+- [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md)
+- [Integrare i log delle risorse di Azure nei sistemi SIEM](security-azure-log-integration-overview.md)

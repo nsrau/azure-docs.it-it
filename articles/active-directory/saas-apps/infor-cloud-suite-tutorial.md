@@ -17,10 +17,10 @@ ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Esercitazione: Integrazione di Azure Active Directory con Infor CloudSuite
@@ -61,7 +61,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 
 Per configurare l'integrazione di Infor CloudSuite in Azure AD, è necessario aggiungere Infor CloudSuite dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Infor CloudSuite dalla raccolta, seguire i passaggi seguenti:**
+**Per aggiungere Infor CloudSuite dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -97,7 +97,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Infor CloudSu
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Infor CloudSuite.
 
-**Per configurare single sign-on di Azure con Infor CloudSuite, procedere come segue:**
+**Per configurare Single Sign-On di Azure AD con Infor CloudSuite, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Infor CloudSuite** del portale di Azure fare clic su **Single Sign-On**.
 

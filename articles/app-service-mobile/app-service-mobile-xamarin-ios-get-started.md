@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892433"
 ---
 # <a name="create-a-xamarinios-app"></a>Creare un'app per Xamarin.iOS
@@ -71,10 +71,10 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Aggiungere la sincronizzazione Offline all'App](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Aggiungere la sincronizzazione offline all'app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Come usare il client gestito per le app per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

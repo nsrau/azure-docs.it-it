@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893624"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
@@ -108,7 +108,7 @@ Usare la procedura seguente per includere il servizio [Controllo ortografico Bin
 3. Quando si apre il pannello **Published** (Pubblicata) selezionare **[Additional Settings](#additional-settings-in-test-panel)** (Impostazioni aggiuntive).
 
 4. Nella finestra di dialogo popup immettere la **chiave del servizio** Controllo ortografico Bing. 
-    ![Inserisci chiave di servizio di controllo ortografico Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Immettere la chiave del servizio Controllo ortografico Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. Immettere una query con un'ortografia errata, ad esempio `book flite to seattle` e premere Invio. L'ortografia errata della parola `flite` viene sostituita nella query inviata a LUIS e il JSON risultante mostra sia la query originale, `query`, sia l'ortografia corretta nella query, `alteredQuery`.
 
@@ -132,5 +132,5 @@ Vedere i [concetti](luis-concept-batch-test.md) del test in batch e imparare a [
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare l'accuratezza dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Assegnare un'etichetta di espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usare funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
+* [Etichettare espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 

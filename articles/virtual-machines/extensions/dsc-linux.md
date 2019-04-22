@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904475"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
@@ -57,14 +57,14 @@ L'estensione DSCForLinux richiede che la macchina virtuale di destinazione sia c
 
 Di seguito sono riportati tutti i parametri della configurazione pubblica supportati:
 
-* `FileUri`: (facoltativa, stringa) l'uri del file ZIP risorsa MOF Meta/file MOF file/personalizzato.
-* `ResourceName`: (facoltativa, stringa) il nome del modulo di risorsa personalizzata
-* `ExtensionAction`: (facoltativa, stringa) specifica che cosa non è un'estensione. Valori validi: Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
-* `NodeConfigurationName`: (facoltativa, stringa) il nome di una configurazione nodo da applicare.
-* `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) tenta di ottenere la configurazione dal server di pull DSC. 
+* `FileUri`: (facoltativo, stringa) URI del file MOF/file meta.MOF/file di risorse personalizzato con estensione zip.
+* `ResourceName`: (facoltativo, stringa) nome del modulo di risorse personalizzato
+* `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. Valori validi: Register, Push, Pull, Install, Remove. Se non specificato, viene considerata l'azione Push per impostazione predefinita.
+* `NodeConfigurationName`: (facoltativo, stringa) nome di una configurazione del nodo da applicare.
+* `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC tenta di ottenere la configurazione dal server di pull. 
        Se la configurazione nel server di pull è diversa da quella corrente nel nodo di destinazione, viene copiata nell'archivio di elementi in sospeso e applicata.
-* `ConfigurationMode`: (facoltativa, stringa) consente di specificare in quale modo DSC applicherà la configurazione. I valori validi sono: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
-* `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) DSC assicura che la configurazione è nello stato desiderato.
+* `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC verifica che la configurazione si trovi nello stato desiderato.
 
 > [!NOTE]
 > Se si usa una versione precedente alla 2.3, il parametro relativo alla modalità equivale a ExtensionAction. Modalità sembra un termine in overload. Di conseguenza, per evitare confusione, dalla versione 2.3 in avanti viene usato ExtensionAction. Per garantire la compatibilità con le versioni precedenti, l'estensione li supporta entrambi. 
@@ -74,10 +74,10 @@ Di seguito sono riportati tutti i parametri della configurazione pubblica suppor
 
 Di seguito sono riportati tutti i parametri della configurazione protetta supportati:
 
-* `StorageAccountName`: (facoltativa, stringa) il nome dell'account di archiviazione che contiene il file
-* `StorageAccountKey`: (facoltativa, stringa) chiave dell'account di archiviazione che contiene il file
-* `RegistrationUrl`: (facoltativa, stringa) l'URL dell'account di automazione di Azure
-* `RegistrationKey`: (facoltativa, stringa) la chiave di accesso dell'account di automazione di Azure
+* `StorageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione che contiene il file
+* `StorageAccountKey`: (facoltativo, stringa) chiave dell'account di archiviazione che contiene il file
+* `RegistrationUrl`: (facoltativo, stringa) URL dell'account di Automazione di Azure
+* `RegistrationKey`: (facoltativo, stringa) chiave di accesso dell'account di Automazione di Azure
 
 
 ## <a name="scenarios"></a>Scenari

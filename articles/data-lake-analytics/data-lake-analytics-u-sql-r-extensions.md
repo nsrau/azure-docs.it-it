@@ -10,10 +10,10 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885027"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estendere gli script U-SQL con il codice R in Azure Data Lake Analytics
@@ -93,7 +93,7 @@ Usare uno script U-SQL per distribuire lo script R con l'istruzione DEPLOY RESOU
 ### <a name="datatypes"></a>Tipi di dati
 * Le colonne di tipo stringa e numeriche di U-SQL vengono convertite così come sono tra DataFrame R e U-SQL [tipi supportati: `double`, `string`, `bool`, `integer`, `byte`].
 * Il datatype `Factor` non è supportato in U-SQL.
-* `byte[]` deve essere serializzato come una codifica base64 `string`.
+* `byte[]` deve essere serializzato come `string` con codifica Base 64.
 * Le stringhe U-SQL possono essere convertite in fattori nel codice R, una volta che U SQL crea il frame di dati R di input o impostando il parametro riduttore `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Schemi
@@ -207,6 +207,6 @@ Innanzitutto, creare un modulo personalizzato R fare lo zip e quindi caricare il
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>Fasi successive
-* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Sviluppare script U-SQL usando strumenti Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)

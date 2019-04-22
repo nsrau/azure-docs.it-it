@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896426"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>Eseguire la migrazione di Azure Service Bus Standard spazi dei nomi esistenti al livello Premium
@@ -185,7 +185,7 @@ Migrazione può essere interrotti o utilizzando il comando 'Interrompi' tramite 
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-![Interrompere il flusso: abort sincronizzazione][]
+![Interrompere il flusso: abort sync][]
 ![Abort flow - interruzione completa][]
 
 Quando il processo di migrazione viene interrotta, viene effettivamente interrompe il processo di copia sulle entità (argomenti, sottoscrizioni e i filtri) dal livello Standard per spazio dei nomi Premium e interrompe l'associazione.

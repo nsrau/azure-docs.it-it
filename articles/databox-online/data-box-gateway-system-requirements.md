@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: alkohli
 ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881767"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Gateway di dati finestra Azure
@@ -95,5 +95,5 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* [Distribuire il Gateway di casella dei dati di Azure](data-box-gateway-deploy-prep.md)
+* [Distribuire Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

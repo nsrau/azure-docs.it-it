@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880781"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure
@@ -61,7 +61,7 @@ Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Con
 |Data Lake Analytics|15|Abilita la crittografia dei dati inattivi di Data Lake Analytics|Abilitare Transparent Data Encryption per proteggere i dati inattivi in Data Lake Analytics. La crittografia dei dati inattivi è trasparente. In altre parole, Data Lake Analytics crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. Non sono necessarie modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Analytics a causa della crittografia. La crittografia dei dati inattivi riduce al minimo il rischio di perdita di dati in caso di furto ed è anche utile per rispettare i requisiti di conformità alle normative.|
 |Data Lake Store|15|Abilita la crittografia dei dati inattivi per Data Lake Store|Abilitare Transparent Data Encryption per proteggere i dati inattivi in Data Lake Store. La crittografia dei dati inattivi è trasparente. In altre parole, Data Lake Store crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. Per supportare la crittografia non è necessario apportare modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Store. La crittografia dei dati inattivi riduce al minimo il rischio di perdita di dati in caso di furto ed è anche utile per rispettare i requisiti di conformità alle normative.|
 |Data Lake Analytics|5|Abilita i log di diagnostica in Data Lake Analytics|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Data Lake Store|5|Abilita i log di diagnostica in Azure Data Lake Store|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Data Lake Store|5|Abilita i log di diagnostica in Azure Data Lake Store|Abilitare i log e conservarli per un periodo massimo di un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |SQL|30|Risolvi le vulnerabilità nei database SQL|La funzionalità di valutazione della vulnerabilità di SQL analizza il database per individuare vulnerabilità a livello di sicurezza ed espone eventuali scostamenti dalle procedure consigliate, ad esempio configurazioni errate, autorizzazioni eccessive e dati sensibili non protetti. La risoluzione delle vulnerabilità rilevate può migliorare significativamente il livello di sicurezza del database.|
 |SQL|20|Effettua il provisioning di un amministratore di Azure AD per SQL Server|Effettuare il provisioning di un amministratore di Azure AD per il server SQL per abilitare l'autenticazione di Azure AD. Questo tipo di autenticazione consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.|
 |Account di archiviazione|15|Disabilita l'accesso alla rete senza restrizioni per gli account di archiviazione|Controllare l'accesso alla rete senza restrizioni nelle impostazioni del firewall dell'account di archiviazione. Configurare invece regole di rete in modo che l'account di archiviazione sia accessibile solo alle applicazioni provenienti da reti consentite. Per consentire le connessioni da Internet specifici o ai client in locale, è possibile concedere l'accesso per il traffico proveniente da reti virtuali di Azure specifiche o a intervalli di indirizzi IP Internet pubblici.|
@@ -71,7 +71,7 @@ Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Con
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
-* [Protezione delle applicazioni nel Centro sicurezza di Azure](security-center-application-recommendations.md)
+* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
 * [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

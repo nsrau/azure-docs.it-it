@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915783"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un criterio personalizzato di Azure Active Directory B2C
@@ -93,7 +93,7 @@ Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** ass
 
 Esempi:
 
-- [Aggiungere Twitter come provider di identità OAuth1 tramite criteri personalizzati](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Aggiungere Twitter come provider di identità OAuth1 usando i criteri personalizzati](active-directory-b2c-custom-setup-twitter-idp.md)
 
 
 

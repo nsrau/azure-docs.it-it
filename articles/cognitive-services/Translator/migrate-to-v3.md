@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916717"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
@@ -45,10 +45,10 @@ L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi del
 |:----------- |:-------------|
 | `Translate`     | [Translate](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Servizio riconoscimento vocale di Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Servizio riconoscimento vocale di Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguageNames`      | [Linguaggi](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Linguaggi](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | La funzionalità non è più supportata       |
@@ -65,7 +65,7 @@ Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API 
 
 Il metodo Languages non richiede l'autenticazione. Facendo clic sul collegamento seguente è possibile visualizzare tutte le informazioni sulla lingua per la V3 in formato JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, dizionario, traslitterazione](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chiave di autenticazione
 
@@ -112,7 +112,7 @@ Globale
 > 
 > Microsoft Translator Hub verrà ritirato il 30 aprile 2019. [Visualizzare le date e le informazioni sulla migrazione importante](https://www.microsoft.com/translator/business/hub/).   
 
-Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione traduzione automatica neurale](custom-translator/overview.md)
+Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione della traduzione automatica neurale](custom-translator/overview.md)
 
 La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, tecnologia, generalnn).
 
@@ -140,11 +140,11 @@ Nessuna versione dell'API Translator crea un record delle traduzioni. Le traduzi
 
 ## <a name="links"></a>Collegamenti
 
-* [Informativa sulla Privacy Microsoft](https://privacy.microsoft.com/privacystatement)
+* [Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Informazioni legali su Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Condizioni per Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Condizioni per i servizi online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Visualizzare la documentazione di V3.0](reference/v3-0-reference.md)
+> [Visualizza la documentazione sulla V3.0](reference/v3-0-reference.md)

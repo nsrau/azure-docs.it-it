@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005734"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -92,7 +92,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 
     ![In Visual Studio Enterprise creare un progetto dal modello di test di carico e prestazioni Web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Non visualizzeranno il modello di Test di carico e prestazioni Web?* chiudere Visual Studio Enterprise. Aprire il **programma di installazione di Visual Studio** per modificare l'installazione di Visual Studio Enterprise. In **Singoli componenti** selezionare **Strumenti per test di carico e delle prestazioni Web**.
+   * *Se il modello di test di carico e prestazioni Web non viene visualizzato*, chiudere Visual Studio Enterprise. Aprire il **programma di installazione di Visual Studio** per modificare l'installazione di Visual Studio Enterprise. In **Singoli componenti** selezionare **Strumenti per test di carico e delle prestazioni Web**.
 
 2. Aprire il file con estensione webtest e iniziare la registrazione.
 
@@ -175,8 +175,8 @@ Selezionare **Visualizza dettagli test** da un test specifico per visualizzare i
 
 Può essere necessario disabilitare i test di disponibilità o le regole di avviso associate ai test durante le operazioni di manutenzione del servizio.
 
-![Disabilitare un test web](./media/monitor-web-app-availability/6disable.png)
-![modifica test](./media/monitor-web-app-availability/8edittest.png)
+![Disabilitare un test Web](./media/monitor-web-app-availability/6disable.png)
+![Modificare test](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>In caso di errori
 Fare clic su un punto rosso.
@@ -293,7 +293,7 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 ## <a name="qna"></a> Domande frequenti
 
-* *Sito ha un aspetto corretto ma vedo errori di test? Il motivo per cui è Application Insights avvisi me?*
+* *Il sito sembra funzionare correttamente, ma i test segnalano errori. Perché Application Insights invia avvisi?*
 
     * Se nel test è abilitata l'opzione "Analizza richieste dipendenti", viene eseguito un controllo rigoroso sulle risorse, ad esempio script, immagini e così via. Questi tipi di errori possono non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
 
@@ -305,44 +305,44 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
     * Valutare se sono stati segnalati errori in tutte le località e solo in alcune. Se gli errori sono stati segnalati solo in alcune località, potrebbero essere causati da errori di rete/CDN. Anche in questo caso, facendo clic sui puntini rossi dovrebbe essere possibile comprendere perché nella località sono stati segnalati errori.
 
-* *Non hanno ricevuto un messaggio di posta elettronica quando l'avviso attivato o risolti o entrambi?*
+* *Non si è ricevuto un messaggio di posta elettronica quando l'avviso è stato attivato o risolto o in entrambi i casi?*
 
     Controllare la configurazione degli avvisi classici per verificare se l'indirizzo di posta elettronica è inserito direttamente nell'elenco o se per la ricezione delle notifiche è configurata una lista di distribuzione che include tale indirizzo. In quest'ultimo caso, controllare la configurazione della lista di distribuzione per verificare che possa ricevere messaggi di posta elettronica esterni. Controllare anche se l'amministratore di posta elettronica ha eventualmente configurato criteri che possono causare questo problema.
 
-* *Non ricevuto la notifica di webhook?*
+* *Non si è ricevuto la notifica webhook?*
 
     Verificare che l'applicazione che riceve la notifica webhook sia disponibile e che riesca a elaborare le richieste di un webhook. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
 
-* *Negativo intermittente dei test con un errore di violazione del protocollo?*
+* *Esito negativo intermittente dei test con un errore di violazione del protocollo?*
 
     Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" indica un problema relativo al server o alle dipendenze. Questa situazione si verifica quando nella risposta vengono impostate intestazioni in formato non valido e può essere causata da servizi di bilanciamento del carico o reti per la distribuzione di contenuti. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando così la specifica HTTP e non superando quindi la convalida a livello di WebRequest .NET. Controllare la risposta per individuare le intestazioni in cui potrebbe trovarsi la violazione.
     
     Note: l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Non vengono visualizzati i dati di telemetria lato server correlati per diagnosticare gli errori dei test?*
+* *Non vengono visualizzati dati di telemetria lato server correlati per eseguire la diagnosi per i test non superati?*
     
     Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](../../azure-monitor/app/sampling.md). Selezionare un risultato di disponibilità diverso.
 
-* *È possibile chiamare codice da un test web?*
+* *È possibile chiamare codice da un test Web?*
 
-     No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
+    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
 
 * *HTTPS è supportato?*
 
     Sono supportati TLS 1.1 e TLS 1.2. Attualmente non viene verificato per errori relativi al certificato HTTPS.  
 
-* *È presente una differenza tra "test web" e "test di disponibilità"?*
+* *Esiste una differenza tra "test Web" e "test di disponibilità"?*
 
     I due termini vengono usati in modo intercambiabile. Test di disponibilità è un termine più generico che include i singoli test di ping URL oltre ai test Web in più passaggi.
     
-* *Mi piacerebbe utilizzare test di disponibilità nel server interno che esegue un firewall.*
+* *È possibile usare test di disponibilità nel server interno protetto da un firewall?*
 
     Le soluzioni possono essere due:
     
     * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](../../azure-monitor/app/ip-addresses.md).
     * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati non verranno visualizzati nei pannelli dei test Web di disponibilità, ma verranno mostrati come risultati relativi alla disponibilità in Analisi, Ricerca ed Esplorazione metriche.
 
-* *Si verifica un errore di caricamento di un test web in più passi*
+* *Non è possibile caricare un test Web in più passi*
 
     Di seguito sono riportate alcune delle possibili cause:
     * È previsto un limite di dimensioni pari a 300 KB.
@@ -350,11 +350,11 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
     * I riferimenti ad altri test Web non sono supportati.
     * Le origini dati non sono supportate.
 
-* *Non viene completato il test in più passi*
+* *Il test in più passi non viene completato*
 
     È previsto un limite di 100 richieste per ogni test. Inoltre, il test viene arrestato se la durata dell'esecuzione è superiore a due minuti.
 
-* *Come è possibile eseguire un test con certificati client?*
+* *È possibile eseguire un test con certificati client?*
 
     Questa funzionalità non è supportata.
 
@@ -376,11 +376,11 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 
 ## <a name="next"></a>Passaggi successivi
-[Ricerca nei registri di diagnostica][diagnostic]
+[Ricerca nei log di diagnostica][diagnostic]
 
 [Risoluzione dei problemi][qna]
 
-[Indirizzi IP degli agenti di test web](../../azure-monitor/app/ip-addresses.md)
+[Indirizzi IP degli agenti di test Web](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

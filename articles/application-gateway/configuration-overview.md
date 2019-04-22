@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
 ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906124"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
@@ -346,4 +346,4 @@ Ora che sai sui componenti di Gateway applicazione, è possibile:
 
 - [Creare un gateway applicazione nel portale di Azure](quick-create-portal.md)
 - [Creare un gateway applicazione usando PowerShell](quick-create-powershell.md)
-- [Creare un gateway applicazione con l'interfaccia della riga di comando di Azure](quick-create-cli.md)
+- [Creare un gateway applicazione tramite la CLI di Azure](quick-create-cli.md)

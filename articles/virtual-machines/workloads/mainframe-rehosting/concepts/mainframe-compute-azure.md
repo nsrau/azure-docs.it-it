@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896380"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Spostare il calcolo di mainframe in Azure
@@ -114,7 +114,7 @@ Ogni livello può anche fornire servizi di ripristino di emergenza appropriato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Migrazione dei mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting in macchine virtuali di Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Spostare risorse di archiviazione di mainframe in Azure](mainframe-storage-Azure.md)
 
@@ -122,8 +122,8 @@ Ogni livello può anche fornire servizi di ripristino di emergenza appropriato. 
 
 - [Sysplex parallele in IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
 - [IBM CICS e la funzionalità di controllo libero: Oltre le nozioni di base](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Creazione di utenti necessari per un'installazione della funzionalità di pureScale Db2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt - istanza comando Create](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Creating required users for a Db2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2) (Creazione degli utenti necessari per l'installazione della funzionalità Db2 pureScale)
+- [Db2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html) (Db2icrt - Comando Crea istanza)
 - [DB2 pureScale Clustered soluzione di Database](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
@@ -134,6 +134,6 @@ Ogni livello può anche fornire servizi di ripristino di emergenza appropriato. 
 
 ### <a name="more-migration-resources"></a>Altre risorse per la migrazione
 
-- [Alliance modernizzazione di piattaforma: IBM Db2 in Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Azure Data Center virtuale Lift- and -Shift Guida](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [Platform Modernization Alliance: IBM Db2 in Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+- [Data center virtuale di Azure: guida al lift and shift](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) (iSCSI in GlusterFS)

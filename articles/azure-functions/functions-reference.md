@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891890"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
@@ -85,9 +85,9 @@ Quando si verificano rapidamente più eventi di trigger di quanti il runtime del
 Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:
 
 * [Funzioni di Azure](https://github.com/Azure/Azure-Functions)
-* [Host di funzioni di Azure](https://github.com/Azure/azure-functions-host/)
-* [portale di Funzioni di Azure](https://github.com/azure/azure-functions-ux)
-* [Modelli di funzioni di Azure](https://github.com/azure/azure-functions-templates)
+* [Host di Funzioni di Azure](https://github.com/Azure/azure-functions-host/)
+* [Portale Funzioni di Azure](https://github.com/azure/azure-functions-ux)
+* [Modelli di Funzioni di Azure](https://github.com/azure/azure-functions-templates)
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
 * [Estensioni Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
@@ -104,8 +104,8 @@ In caso di problemi con errori provenienti dalle associazioni, rivedere la docum
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Associazioni e trigger delle funzioni di azure](functions-triggers-bindings.md)
+* [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 * [Scrivere codici per Funzioni di Azure e testarle in locale](./functions-develop-local.md)
-* [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
+* [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)

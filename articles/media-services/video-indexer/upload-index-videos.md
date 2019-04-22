@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893453"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
@@ -85,9 +85,9 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 
 Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
-- `Default` : Indicizzare ed estrarre informazioni dettagliate tramite audio e video
-- `AudioOnly` : Indicizzare e di estrarre informazioni approfondite con solo audio (video ignorato)
-- `DefaultWithNoiseReduction` : Indicizzare e di estrarre informazioni approfondite da audio e video, applicando gli algoritmi di riduzione del rumore nel flusso audio
+- `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
+- `AudioOnly`: indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video)
+- `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 

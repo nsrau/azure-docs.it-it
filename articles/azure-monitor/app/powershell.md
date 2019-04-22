@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883412"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creazione di risorse Application Insights con PowerShell
@@ -168,9 +168,9 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
 
     ``` 
    
-   * `-ResourceGroupName` è il gruppo in cui si desidera creare le nuove risorse.
+   * `-ResourceGroupName` è il gruppo in cui si vogliono creare le nuove risorse.
    * `-TemplateFile` deve precedere i parametri personalizzati.
-   * `-appName` Il nome della risorsa da creare.
+   * `-appName` è il nome della risorsa da creare.
 
 È possibile aggiungere altri parametri le cui descrizioni sono disponibili nella sezione del modello dedicata ai parametri.
 
@@ -447,9 +447,9 @@ Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un progra
 Altri articoli di automazione:
 
 * [Creare una risorsa di Application Insights](powershell-script-create-resource.md) : metodo rapido che esclude l'uso di un modello.
-* [Impostare gli avvisi](powershell-alerts.md)
-* [Creare test web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [L'invio della diagnostica di Azure ad Application Insights](powershell-azure-diagnostics.md)
-* [Distribuire in Azure da GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
-* [Creare annotazioni sulla versione](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Configurare avvisi](powershell-alerts.md)
+* [Creare test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](powershell-azure-diagnostics.md)
+* [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx) (Distribuire in Azure da GitHub)
+* [Creare annotazioni di rilascio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

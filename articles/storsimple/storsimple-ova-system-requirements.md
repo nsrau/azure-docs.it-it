@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876837"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -39,7 +39,7 @@ Le informazioni sui requisiti di sistema StorSimple pubblicate in questo articol
 I requisiti software includono le informazioni su Web browser supportati, versioni SMB, piattaforme di virtualizzazione e i requisiti minimi del dispositivo virtuale.
 
 ### <a name="supported-virtualization-platforms"></a>Piattaforme di virtualizzazione supportate
-| **hypervisor** | **Versione** |
+| **Hypervisor** | **Versione** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
@@ -133,4 +133,4 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.data.microsoft.com` |Servizio Telemetria in Windows; vedere [Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Preparare il portale per distribuire l'Array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

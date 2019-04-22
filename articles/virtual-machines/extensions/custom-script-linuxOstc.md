@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882430"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
@@ -133,11 +133,11 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 
-* `fileUris`: (facoltativa, matrice di stringhe) l'elenco di uri degli script
-* `enableInternalDNSCheck`: (facoltativo, booleano) valore predefinito è True, impostare su False per disabilitare la verifica DNS.
-* `commandToExecute`: (facoltativa, stringa) script di punto di ingresso da eseguire
-* `storageAccountName`: (facoltativa, stringa) nome dell'account di archiviazione
-* `storageAccountKey`: (facoltativa, stringa) la chiave di accesso dell'account di archiviazione
+* `fileUris`: (facoltativo, matrice di stringhe) elenco di URI degli script
+* `enableInternalDNSCheck`: (facoltativo, bool) il valore predefinito è True. Impostare su False per disabilitare il controllo DNS.
+* `commandToExecute`: (facoltativo, stringa) script del punto di ingresso da eseguire
+* `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione
+* `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
 
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette, ma non devono essere specificati contemporaneamente nelle impostazioni pubbliche e in quelle protette.
 

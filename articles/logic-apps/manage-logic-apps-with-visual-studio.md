@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/02/2019
 ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862744"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
@@ -32,11 +32,11 @@ Sebbene sia possibile creare, modificare, gestire e distribuire le App per la lo
 
 * Scaricare e installare questi strumenti, se non sono già disponibili: 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community edition o versione successiva</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community Edition o superiore</a>. 
   Questa guida introduttiva usa Visual Studio Community 2017, disponibile gratuitamente.
 
     > [!IMPORTANT]
-    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il **sviluppo di Azure** carico di lavoro.
+    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
     > Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
     >
     > In Visual Studio 2019, Cloud Explorer è possibile aprire la finestra di progettazione di App per la logica nel portale di Azure, ma ancora non è possibile aprire la finestra di progettazione di App per la logica incorporata.
@@ -48,7 +48,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire le App per la lo
 
   * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * Strumenti App per la logica per la versione di Visual Studio da Azure:
+  * Strumenti App per la logica di Azure per la versione di Visual Studio desiderata:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
     

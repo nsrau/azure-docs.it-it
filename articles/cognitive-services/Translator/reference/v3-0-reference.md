@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918808"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
@@ -58,7 +58,7 @@ Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizion
 |Headers|DESCRIZIONE|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
-|Authorization|*Usare con servizi cognitivi sottoscrizione se si passa un token di autenticazione.*<br/>Il valore è il token di connessione: `Bearer <token>`.|
+|Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Usare con servizi cognitivi multiservizio sottoscrizione se si passa una chiave privata multiservizio.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si usa una sottoscrizione di multi-service.|
 
 ###  <a name="secret-key"></a>Chiave privata

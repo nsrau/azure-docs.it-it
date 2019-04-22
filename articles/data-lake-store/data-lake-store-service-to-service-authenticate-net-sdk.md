@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881155"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite .NET SDK
@@ -54,8 +54,8 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
    2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
    3. Cercare e installare i pacchetti NuGet seguenti:
 
-      * `Microsoft.Azure.Management.DataLake.Store` -Questa esercitazione Usa v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Questa esercitazione Usa la versione 2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` - Questa esercitazione usa v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Questa esercitazione usa la versione 2.2.12.
 
         ![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creare un nuovo account Azure Data Lake")
    4. Chiudere **Gestione pacchetti NuGet**.
@@ -122,5 +122,5 @@ Il frammento precedente usa una funzione helper `GetCreds_SPI_Cert`. Il codice p
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Data Lake Storage Gen1 usando .NET SDK. È ora possibile leggere gli articoli seguenti per informazioni su come usare .NET SDK in Data Lake Storage Gen1.
 
-* [Operazioni di gestione account in Data Lake archiviazione Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Operazioni sui dati in Data Lake archiviazione Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Operazioni dati in Data Lake Storage Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md)

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862914"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione di sicurezza dell'agente 
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra i diversi metodi di autenticazione che è possibile usare con l'agente AzureIoTSecurity per eseguire l'autenticazione con l'IoT Hub.
@@ -114,4 +114,4 @@ Modificare _LocalConfiguration.json_ con i parametri seguenti:
 ## <a name="see-also"></a>Vedere anche 
 - [Panoramica degli agenti protezione](security-agent-architecture.md)
 - [Distribuire l'agente protezione](how-to-deploy-agent.md)
-- [Accedere a dati non elaborati sulla sicurezza](how-to-security-data-access.md)
+- [Accedere ai dati di sicurezza non elaborati](how-to-security-data-access.md)

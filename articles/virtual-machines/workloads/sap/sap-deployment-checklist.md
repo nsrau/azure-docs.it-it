@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878724"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP in Azure 
@@ -50,7 +50,7 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
         2.  Nota di supporto SAP [2039619](https://launchpad.support.sap.com/#/notes/2039619). La nota definisce la matrice di supporto di Oracle in Azure. Tenere presente che Oracle supporta solo Windows e Oracle Linux come sistema operativo guest in Azure per carichi di lavoro SAP. Questa informativa sul supporto è applicabile per il livello applicazione SAP che esegue anche istanze di SAP. Oracle, tuttavia, non supporta la disponibilità elevata per SAP Central Services in Oracle Linux tramite Pacemaker. Se è necessaria la disponibilità elevata per ASCS in Oracle Linux, è necessario usare SIOS Protection Suite for Linux. Per i dati di certificazione SAP dettagliati, vedere la nota del supporto SAP [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (N. 1662610 - Dettagli di supporto per SIOS Protection Suite for Linux). Per Windows, la soluzione di failover del cluster di failover Windows con supporto SAP è supportata solo in combinazione con Oracle come livello DBMS. 
         3.  Nota di supporto SAP [2235581](https://launchpad.support.sap.com/#/notes/2235581) per ottenere la matrice di supporto SAP HANA nelle diverse versioni di sistema operativo
         4.  Le [istanze Large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e le macchine virtuali di Azure supportate da SAP HANA sono elencate [qui](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-        5.  [SAP Product Availability Matrix](https://support.sap.com/en/)
+        5.  [Product Availability Matrix (PAM) SAP](https://support.sap.com/en/)
         6.  Altre note SAP relative ad altri prodotti specifici di SAP  
     5.  È consigliabile rispettare rigorosamente la progettazione a 3 livelli per i sistemi di produzione SAP. La combinazione di server ASCS + APP nella stessa macchina virtuale non è consigliata.  L'uso di configurazioni di cluster multi-SID per SAP Central Services è supportato con Windows come sistema operativo guest in Azure. Queste configurazioni non sono invece supportate con i sistemi operativi Linux in Azure. Documentazione per il caso di Windows come sistema operativo guest sono reperibili negli articoli seguenti:
         1.  [Disponibilità elevata multi-SID dell'istanza SAP ASCS/SCS con Windows Server Failover Clustering e i dischi condivisi in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -72,13 +72,13 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
     2.  Topologia di rete all'interno di Azure e assegnazione di diversi sistemi SAP
     3.  Struttura degli [accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) per i diversi team che gestiscono l'infrastruttura e le applicazioni SAP in Azure
     3.  Topologia dei gruppi di risorse 
-    4.  [Strategia di assegnazione di tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+    4.  [Strategia di assegnazione dei tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
     5.  Convenzione di denominazione per le macchine virtuali e altri componenti e/o nomi logici dell'infrastruttura
 5.  Contratto di supporto tecnico Premier Microsoft: identificare il Microsoft Technical Account Manager (TAM). Per i requisiti del supporto di SAP, leggere la nota di supporto SAP [2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.  Definire il numero di sottoscrizioni di Azure e la quota di core per le diverse sottoscrizioni. [Aprire richieste di supporto per aumentare le quote delle sottoscrizioni di Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) in base alle esigenze 
 7.  Piano di riduzione e migrazione dei dati per la migrazione dei dati SAP in Azure. Per i sistemi SAP NetWeaver, SAP include linee guida su come mantenere limitato il volume di un numero elevato di dati. SAP ha pubblicato [questa guida di approfondimento](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) sulla gestione dei dati nei sistemi SAP ERP. Alcuni contenuti, tuttavia, si applicano ai sistemi NetWeaver e S/4HANA in generale.
 8.  Definire l'approccio da adottare per la distribuzione automatizzata. L'obiettivo dell'automazione per le distribuzioni di infrastruttura in Azure è quello di distribuire in modo deterministico e ottenere risultati deterministici. Molti clienti usano script basati su Power Shell o sull'interfaccia della riga di comando. Esistono tuttavia varie tecnologie open source che possono essere usate per distribuire l'infrastruttura di Azure per SAP e anche installare il software SAP. Sono disponibili esempi in GitHub:
-    1.  [Distribuzioni SAP automatizzati nel Cloud di Azure](https://github.com/Azure/sap-hana)
+    1.  [Distribuzioni SAP automatizzate nel cloud di Azure](https://github.com/Azure/sap-hana)
     2.  [Installazione di SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definire un piano per verificare con frequenza regolare la progettazione e la distribuzione insieme all'integratore di sistemi, a Microsoft e a eventuali altre parti coinvolte
 
@@ -270,7 +270,7 @@ Le attività di questa fase riguardano principalmente il monitoraggio, il funzio
 ## <a name="next-steps"></a>Fasi successive
 Consultare la documentazione:
 
-- [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
+- [Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+- [Distribuzione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

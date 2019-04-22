@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918791"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
@@ -25,7 +25,7 @@ Il controllo degli accessi in base al ruolo consente di gestire gli accessi per 
 
 In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo degli accessi in base al ruolo appropriato a utenti, gruppi e applicazioni nell'ambito dell'account di automazione. Di seguito sono elencati i ruoli predefiniti supportati da un account di automazione:
 
-| **Ruolo** | **DESCRIZIONE** |
+| **Ruolo** | **Descrizione** |
 |:--- |:--- |
 | Proprietario |Il ruolo Proprietario consente l'accesso a tutte le risorse e le azioni in un account di Automazione, inclusa la possibilità di concedere l'accesso ad altri utenti e gruppi e ad altre applicazioni per gestire l'account di Automazione. |
 | Collaboratore |Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
@@ -55,7 +55,7 @@ Un proprietario può gestire tutto, compresi gli accessi. La tabella seguente il
 
 Un collaboratore può gestire tutto a eccezione degli accessi. La tabella seguente illustra le autorizzazioni concesse e negate per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|È in grado di creare e gestire ogni tipo di risorsa|
 |**Non azioni**||
@@ -67,7 +67,7 @@ Un collaboratore può gestire tutto a eccezione degli accessi. La tabella seguen
 
 Un lettore può visualizzare tutte le risorse in un account di Automazione, ma non apportare modifiche.
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Visualizza tutte le risorse in un account di Automazione. |
 
@@ -75,7 +75,7 @@ Un lettore può visualizzare tutte le risorse in un account di Automazione, ma n
 
 Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Note: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Legge l'autorizzazione.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Legge le risorse del ruolo di lavoro ibrido per runbook.|
@@ -102,7 +102,7 @@ Il ruolo Operatore di automazione può creare e gestire i processi, oltre che le
 
 Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'account di Automazione. In questo modo vengono concesse all'operatore le autorizzazioni per creare e gestire i processi per tutti i runbook nell'account. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Legge l'autorizzazione.|
 |Microsoft.Automation/automationAccounts/jobs/read|Elenca i processi del runbook.|
@@ -120,7 +120,7 @@ Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'accou
 
 Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook. Un ruolo Operatore runbook di automazione può visualizzare il nome e le proprietà del runbook.  Questo ruolo, combinato con il ruolo "Operatore processo di automazione" consente all'operatore anche di creare e gestire i processi per il runbook. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Elenca i runbook.        |
 |Microsoft.Authorization/*/read      | Legge l'autorizzazione.        |
@@ -133,7 +133,7 @@ Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook
 
 Un collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e modificare le impostazioni di monitoraggio. La modifica delle impostazioni di monitoraggio include l'aggiunta di estensioni delle VM alle VM, la lettura delle chiavi dell'account di archiviazione per potere configurare la raccolta di log dall'Archiviazione di Azure, la creazione e la configurazione degli account di Automazione, l'aggiunta di soluzioni e la configurazione di Diagnostica di Azure in tutte le risorse di Azure. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
 |Microsoft.Automation/automationAccounts/*|Gestisce gli account di Automazione.|
@@ -153,7 +153,7 @@ Un collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e mo
 
 Un ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutti i dati di monitoraggio e può visualizzare le impostazioni di monitoraggio, inclusa la visualizzazione della configurazione di Diagnostica di Azure in tutte le risorse di Azure. La tabella seguente illustra le autorizzazioni concesse o negate per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gestire le query nei log di monitoraggio di Azure.|
@@ -166,7 +166,7 @@ Un ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutt
 
 Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monitoraggio e aggiornare le impostazioni di monitoraggio. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
 |Microsoft.AlertsManagement/alerts/*|Gestisce gli avvisi.|
@@ -192,7 +192,7 @@ Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monit
 
 Un ruolo Monitoraggio del ruolo Lettore può leggere tutti i dati di monitoraggio. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
 |Microsoft.OperationalInsights/workspaces/search/action|Cercare aree di lavoro di Log Analytics.|
@@ -202,7 +202,7 @@ Un ruolo Monitoraggio del ruolo Lettore può leggere tutti i dati di monitoraggi
 
 Un amministratore Accesso utenti può gestire l'accesso degli utenti alle risorse di Azure. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|**Azioni**  |**DESCRIZIONE**  |
+|**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge tutte le risorse|
 |Microsoft.Authorization/*|Gestire l'autorizzazione|
@@ -251,7 +251,7 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Collegare una soluzione a una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Soluzione         |
-|**Passaggio 2: caricare più macchine virtuali**     |         |         |
+|**Passaggio 2: Caricare più VM**     |         |         |
 |Pannello VMOnboarding - Creare un'estensione MMA     | Microsoft.Compute/virtualMachines/write           | Macchina virtuale        |
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write           | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito  | Microsoft.OperationalInsights/workspaces/write   | Area di lavoro|
@@ -260,7 +260,7 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 
 La gestione degli aggiornamenti copre più servizi per fornire il proprio servizio. La tabella seguente illustra le autorizzazioni necessarie per gestire le distribuzioni di gestione degli aggiornamenti:
 
-|**Risorsa**  |**Ruolo**  |**Scope**  |
+|**Risorsa**  |**Ruolo**  |**Ambito**  |
 |---------|---------|---------|
 |Account di Automazione     | Collaboratore di Log Analytics       | Account di Automazione        |
 |Account di Automazione    | Collaboratore macchine virtuali        | Gruppo di risorse per l'account        |

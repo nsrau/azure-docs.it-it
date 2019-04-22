@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886081"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
@@ -75,7 +75,7 @@ Incorporare i seguenti controlli di accesso nei criteri di accesso condizionale 
 L'esempio seguente descrive i criteri da creare per fornire un controllo di accesso resiliente all'utente che vuole accedere alle app e risorse. In questo esempio, saranno necessari un gruppo di sicurezza **AppUsers** con gli utenti di destinazione ai quali si vuole consentire l'accesso, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato  **EmergencyAccess** con gli account di accesso di emergenza.
 Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUsers**, l'accesso alle app selezionate se sono connessi da un dispositivo attendibile OPPURE se forniscono un'autenticazione avanzata, come l'autenticazione a più fattori. Il criterio esclude gli account di emergenza e gli amministratori di core.
 
-**Impostare criteri di mitigazione dei rischi di accesso Condizionale:**
+**Set di criteri di mitigazione dell'accesso condizionale:**
 
 * Criterio 1: Blocca l'accesso a persone all'esterno dei gruppi di destinazione
   * Utenti e gruppi: Includere tutti gli utenti. Escludi AppUsers CoreAdmins ed EmergencyAccess
@@ -86,7 +86,7 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
   * Utenti e gruppi: Includi AppUsers. Escludi CoreAdmins ed EmergencyAccess
   * App cloud: Includi tutte le app
   * Condizioni: (nessuna)
-  * Concedere controllo: Concedi l'accesso, richiedi l'autenticazione a più fattori, richiedi la conformità del dispositivo. Per più controlli: Richiedi uno dei controlli selezionati.
+  * Concedi controlli: Concedi l'accesso, richiedi l'autenticazione a più fattori, richiedi la conformità del dispositivo. Per più controlli: Richiedi uno dei controlli selezionati.
 
 ### <a name="contingencies-for-user-lockout"></a>Contingenze per blocco dell'utente
 
@@ -137,7 +137,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 L'esempio seguente: **L'esempio A: criteri di accesso condizionale di emergenza per il ripristino dell'accesso alle app di collaborazione di importanza strategica fondamentale** è una tipica emergenza aziendale. In questo scenario, l'organizzazione in genere richiede l'autenticazione a più fattori per tutti gli accessi a Exchange Online e SharePoint Online. In questo caso, l'interruzione coinvolge il servizio del provider di autenticazione a più fattori per il cliente (Azure, provider locale o terze parti). Questo criterio riduce l'interruzione permettendo a utenti di destinazione specifici di accedere a tali app da dispositivi Windows attendibili esclusivamente quando l'accesso all'app si verifica tramite la rete aziendale attendibile. Anche gli account di emergenza e degli amministratori di core saranno esclusi da queste restrizioni. Gli utenti di destinazione otterranno quindi l'accesso a Exchange Online e SharePoint Online, mentre gli altri utenti continueranno a non poter accedere alle app a causa dell'interruzione del servizio. In questo esempio, saranno necessari un percorso di rete denominato **CorpNetwork**, un gruppo di sicurezza **ContingencyAccess** con gli utenti di destinazione, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato **EmergencyAccess** con gli account di accesso di emergenza. L'emergenza richiede quattro criteri per garantire l'accesso desiderato. 
 
-**Esempio A - i criteri di autorità di certificazione di emergenza per ripristinare l'accesso alle App per la collaborazione critici:**
+**Esempio A: criteri di accesso condizionale di emergenza per il ripristino dell'accesso alle app di collaborazione di importanza strategica fondamentale:**
 
 * Criterio 1: Richiedere dispositivi aggiunti a un dominio per Exchange e SharePoint
   * Nome: EM001 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[1/4] - Exchange SharePoint - Richiedi Aggiunta ad Azure AD ibrido
@@ -179,7 +179,7 @@ Ordine di attivazione:
 
 In questo esempio successivo, **Esempio B: criteri di accesso condizionale di emergenza per consentire l'accesso a Salesforce da dispositivi mobili**, viene ripristinata l'accesso a un app aziendale. In questo scenario, in genere, il cliente richiede che l'accesso a Salesforce (configurato per l'accesso singolo con Azure AD) da parte degli addetti alla vendita con dispositivi mobili sia consentito solo se tramite dispositivi conformi. L'interruzione, in questo caso, consiste in un problema nella valutazione della conformità dei dispositivi. Si è verificata un'interruzione a un orario delicato, dove il team vendite deve accedere a Salesforce per chiudere delle operazioni commerciali. Questi criteri di emergenza concederanno l'accesso a Salesforce da un dispositivo mobile agli utenti fondamentali, in modo da poter continuare a chiudere operazioni commerciali senza interrompere le attività. In questo esempio, **SalesforceContingency** contiene tutti gli addetti alle vendite che hanno bisogno di mantenere l'accesso, mentre **SalesAdmins** include gli amministratori di Salesforce necessari.
 
-**Esempio B - criteri di emergenza autorità di certificazione:**
+**Esempio B: criteri di accesso condizionale di emergenza:**
 
 * Criterio 1: Bloccare tutti gli utenti non inclusi nel team SalesContingency
   * Nome: EM001 - ENABLE IN EMERGENCY: Interruzione conformità dispositivi[1/2] - Salesforce - Blocca tutti gli utenti tranne SalesforceContingency
@@ -266,7 +266,7 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 * [Configurare località denominate in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * [Indicazioni sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
+  * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Quali sono le condizioni dell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

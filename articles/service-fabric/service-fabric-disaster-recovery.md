@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883242"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
@@ -70,8 +70,8 @@ Si supponga, ad esempio, che un guasto all'alimentazione determini un errore in 
 I domini di aggiornamento sono utili per la creazione di aree in cui il software viene aggiornato nello stesso momento. Per questo motivo, i domini di aggiornamento spesso definiscono anche i limiti in cui software viene disattivato durante gli aggiornamenti pianificati. Gli aggiornamenti sia di Service Fabric che dei servizi seguono lo stesso modello. Per altre informazioni sulla distribuzione degli aggiornamenti, i domini di aggiornamento e il modello di integrità di Service Fabric che aiuta a impedire che eventuali modifiche accidentali abbiano ripercussioni sul cluster e sul servizio, vedere questi documenti:
 
  - [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
- - [Esercitazione sull'aggiornamento dell'applicazione](service-fabric-application-upgrade-tutorial.md)
- - [Modello di integrità di Service Fabric](service-fabric-health-introduction.md)
+ - [Esercitazione sull'aggiornamento di un'applicazione ](service-fabric-application-upgrade-tutorial.md)
+ - [Service Fabric Health Model](service-fabric-health-introduction.md) (Modello di integrità di Service Fabric)
 
 È possibile visualizzare il layout del cluster usando la mappa del cluster disponibile in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
@@ -140,7 +140,7 @@ Sia nei cluster di Service Fabric autonomi che in Azure il "tipo di nodo primari
 - Informazioni su come simulare diversi errori con il [framework di verificabilità](service-fabric-testability-overview.md)
 - Lettura di altre risorse sul ripristino di emergenza e sulla disponibilità elevata. Microsoft ha pubblicato molti documenti su questi argomenti. Sebbene alcuni di questi documenti si riferiscano a tecniche specifiche da applicare in altri prodotti, contengono anche molte procedure consigliate generali valide anche per Service Fabric:
   - [Elenco di controllo della disponibilità](../best-practices-availability-checklist.md)
-  - [Un'esercitazione sul ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Esercitazione nel ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure][dr-ha-guide]
 - Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 

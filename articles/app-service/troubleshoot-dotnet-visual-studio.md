@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895014"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
@@ -85,7 +85,7 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
-**Il sito Web non è possibile visualizzare la pagina**
+**Impossibile visualizzare la pagina**
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
@@ -259,11 +259,11 @@ Un'applicazione ASP.NET in esecuzione in un'app del Servizio app può creare i t
 
 * **Log di traccia dell'applicazione**<br/>
   L'applicazione crea questi log chiamando i metodi della classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) .
-* **Web Server Logs**<br/>
+* **Log del server Web**<br/>
   Il server Web crea una voce di registro per ogni richiesta HTTP inviata all'app.
 * **Log dei messaggi di errore dettagliati**<br/>
   Il server Web crea una pagina HTML con alcune informazioni aggiuntive relative alle richieste HTTP non riuscite, ovvero quelle che generano un codice di stato pari ad almeno 400.
-* **Log di traccia richieste non riuscite**<br/>
+* **Log di traccia delle richieste non riuscite**<br/>
    Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
 
 Poiché la registrazione influisce sulle prestazioni dell'app, Azure offre la possibilità di abilitare o disabilitare ogni tipo di log in base alle necessità. Per i log dell'applicazione, è possibile specificare che vengano creati solo quelli superiori a un determinato livello di gravità. Quando si crea una nuova app, per impostazione predefinita la registrazione è disabilitata.
@@ -622,7 +622,7 @@ Questo articolo ha illustrato come Visual Studio semplifica la visualizzazione d
 ### <a name="app-service-troubleshooting"></a>Risoluzione dei problemi relativi al Servizio app
 Per altre informazioni sulla risoluzione dei problemi di app nel Servizio app di Azure, consultare le risorse seguenti:
 
-* [Come monitorare le app](web-sites-monitor.md)
+* [Informazioni su come monitorare le app](web-sites-monitor.md)
 * [Analisi delle perdite di memoria nel Servizio app di Azure con Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
 * [Strumenti online del Servizio app di Azure che è necessario conoscere](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Post del blog di Amit Apple.
 
@@ -639,8 +639,8 @@ Per altre informazioni su come usare la modalità debug in Visual Studio, vedere
 Per altre informazioni sul debug remoto per app del Servizio app e per i processi Web, consultare le risorse seguenti:
 
 * [Introduzione al debug remoto del Servizio app di Azure](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introduzione a parte di Remote Debugging servizio App di Azure 2: all'interno di debug remoto](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introduzione al debug remoto su parte del servizio App di Azure 3 - ambiente a più istanze e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduzione al debug remoto del Servizio app di Azure parte 2 - Informazioni di approfondimento](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduzione al debug remoto del Servizio app di Azure parte 3 - Ambiente a istanza multipla e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Debug di processi Web (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se l'app usa un back-end di Servizi mobili o di API Web di Azure di cui è necessario eseguire il debug, consultare [Debugging .NET Backend in Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx) (Debug di back-end .NET in Visual Studio).
@@ -650,11 +650,11 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
 
 * [Monitoraggio e telemetria (creazione di app per cloud funzionanti con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
    Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
-* [Analisi ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
+* [Traccia in ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
    Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
 * [Listener di traccia](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Procedura dettagliata: Integrazione della traccia ASP.NET con la traccia System. Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](/previous-versions/b0ectfxd(v=vs.140)) (Procedura dettagliata: Integrazione della traccia ASP.NET con la traccia System.Diagnostics)<br/>
   Questo articolo non è molto recente, ma contiene informazioni aggiuntive non trattate nell'articolo introduttivo.
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
    Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
@@ -671,7 +671,7 @@ catch (Exception ex)
 }
 ```
 
-* [Registrazione dalla riga di comando di Azure (oltre a Glimpse) streaming traccia diagnostica](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
 * [Utilizzo delle funzionalità di registrazione e diagnostica di app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video con David Ebbo, di Scott Hanselman e David Ebbo.
@@ -687,8 +687,8 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
 * [Risoluzione dei problemi di prestazioni di IIS o errori dell'applicazione mediante log parser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
-* [Post di blog da Robert McMurray sull'uso di log parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [Il codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
+* [Post di blog di Robert McMurray sull'uso di Log Parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisi dei log di traccia delle richieste non riuscite
 Il sito Web Microsoft TechNet include la sezione [Uso della traccia delle richieste non riuscite](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing), che potrebbe risultare utile per informazioni su come usare questi log. Tuttavia, questa documentazione è incentrata principalmente sulla configurazione della traccia delle richieste non riuscite in IIS, che non è possibile eseguire nel Servizio app di Azure.

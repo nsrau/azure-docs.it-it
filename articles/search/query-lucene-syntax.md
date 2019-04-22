@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885605"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
@@ -167,6 +167,6 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 
 ## <a name="see-also"></a>Vedere anche   
 
-+ [ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Sintassi delle espressioni OData per i filtri e l'ordinamento](query-odata-filter-orderby-syntax.md)   
++ [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   
 + [Sintassi di query semplice in Ricerca di Azure](query-simple-syntax.md)   

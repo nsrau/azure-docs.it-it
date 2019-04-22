@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: d1c5f906fef495f7ef1dde5df38a84629a6d6c61
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915952"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Come creare e individuare gli ancoraggi usando Azure spaziali ancoraggi in Unity
@@ -25,7 +25,7 @@ ms.locfileid: "58915952"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta diversi ambienti di sviluppo diversi. In questo articolo verrà esaminato come utilizzare Azure spaziali Anchor SDK, in Unity per:
+Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. In questo articolo verrà esaminato come utilizzare Azure spaziali Anchor SDK, in Unity per:
 
 - In modo corretto, configurare e gestire una sessione di Azure gli ancoraggi spaziale.
 - Creare e impostare le proprietà Anchor locale.
@@ -36,10 +36,10 @@ Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancor
 
 Per completare questa Guida, assicurarsi di avere:
 
-- Leggere con attenzione il [Panoramica di Azure gli ancoraggi spaziali](../overview.md).
-- Completare una delle [guide introduttive di 5 minuti](../index.yml).
-- Conoscenza di base C# e Unity.
-- Conoscenza di base <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se si vuole usare Android, o <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> se si desidera usare iOS.
+- Letto la [Panoramica di ancoraggi nello spazio di Azure](../overview.md).
+- Completato uno degli argomenti di [avvio rapido di 5 minuti](../index.yml).
+- Conoscenze di base di C# e Unity.
+- Conoscenza di base di <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se si vuole usare Android o di <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> se si vuole usare iOS.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

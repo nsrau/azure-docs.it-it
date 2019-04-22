@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
 ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904442"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
@@ -100,7 +100,7 @@ A seconda del tipo di prenotazione, potrebbe essere possibile annullare o scambi
 
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
 - [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifica l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate
 
@@ -130,7 +130,7 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 Acquista un piano di servizio:
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
+- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Pagare in anticipo le risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Acquista un piano software:
@@ -138,10 +138,10 @@ Acquista un piano software:
 - [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Comprendere lo sconto e utilizzo:
-- [Informazioni su come viene applicato lo sconto di prenotazione della macchina virtuale](billing-understand-vm-reservation-charges.md)
+- [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](billing-understand-vm-reservation-charges.md)
 - [Informazioni su come viene applicato lo sconto relativo piano software Red Hat Enterprise Linux](../billing/billing-understand-rhel-reservation-charges.md)
 - [Informazioni su come viene applicato lo sconto relativo al piano software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
-- [Comprendere come vengono applicati ulteriori sconti di prenotazione](billing-understand-reservation-charges.md)
-- [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
-- [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Costi del software Windows non inclusi con le prenotazioni](billing-reserved-instance-windows-software-costs.md)
+- [Informazioni su come vengono applicati gli altri sconti sulla prenotazione](billing-understand-reservation-charges.md)
+- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)

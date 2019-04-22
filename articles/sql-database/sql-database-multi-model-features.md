@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892467"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
@@ -140,7 +140,7 @@ Vedere [come BWin sta usando OLTP in memoria per ottenere prestazioni e ridimens
 ## <a name="next-steps"></a>Passaggi successivi
 Le funzionalità multimodello nei database SQL di Azure sono anche le funzionalità principali del motore di database di SQL Server condivise tra database SQL di Azure e SQL Server. Per informazioni dettagliate su queste funzionalità, visitare le pagine di documentazione sul database relazionale SQL:
 
-* [Elaborazione di grafici](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [Elaborazione del grafico](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Dati JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [Supporto spaziale](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [Dati XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

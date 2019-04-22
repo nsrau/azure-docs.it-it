@@ -8,10 +8,10 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 01c351ad08399c0b42e831e325b3f818741d1d83
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904373"
 ---
 # <a name="manage-azure-cosmos-resources-using-powershell"></a>Gestire le risorse di Azure Cosmos DB usando PowerShell
@@ -41,13 +41,13 @@ Questo comando consente di creare un account del database di Azure Cosmos DB. Co
     
 * `<write-region-location>` Nome della località dell'area di scrittura dell'account del database. La località è necessaria per impostare il valore della priorità di failover su 0. Deve essere presente esattamente un'area di scrittura per ogni account di database.
 * `<read-region-location>` Nome della località dell'area di lettura dell'account del database. La località è necessaria per impostare il valore della priorità di failover come maggiore di 0. Possono essere presenti più aree di lettura per ogni account di database.
-* `<ip-range-filter>` Specifica il set di indirizzi IP o intervalli di indirizzi IP nel formato CIDR da includere come elenco di IP client per un determinato account di database consentiti. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Azure Cosmos DB Firewall Support](firewall-support.md) (Supporto al firewall di Azure Cosmos DB)
-* `<default-consistency-level>` Il livello di coerenza predefinito dell'account Azure Cosmos DB. Per altre informazioni, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
-* `<max-interval>` Se usato con la coerenza con obsolescenza associata, questo valore rappresenta la quantità di tempo di decadimento (in secondi) tollerata. L'intervallo consentito per questo valore è compreso tra 1 e 100.
-* `<max-staleness-prefix>` Se usato con la coerenza con obsolescenza associata, questo valore rappresenta il numero di richieste non aggiornate tollerate. L'intervallo consentito per questo valore è compreso tra 1 e 2.147.483.647.
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<resource-group-location>` Il percorso del gruppo di risorse di Azure a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB da creare. Può contenere solo lettere minuscole, numeri, il carattere "-" e deve essere compreso fra 3 e 50 caratteri.
+* `<ip-range-filter>` Specifica il set di indirizzi IP e di intervalli di indirizzi IP nel formato CIDR da includere come elenco consentito di IP client per un determinato account di database. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Azure Cosmos DB Firewall Support](firewall-support.md) (Supporto al firewall di Azure Cosmos DB)
+* `<default-consistency-level>` Livello di coerenza predefinito dell'account di Azure Cosmos DB. Per altre informazioni, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
+* `<max-interval>` Quando è usato con il livello di coerenza Decadimento ristretto, questo valore rappresenta l'intervallo di tempo di decadimento (in secondi) tollerato. L'intervallo consentito per questo valore è compreso tra 1 e 100.
+* `<max-staleness-prefix>` Quando è usato con il livello di coerenza Decadimento ristretto, questo valore rappresenta il numero di richieste non aggiornate tollerate. L'intervallo consentito per questo valore è compreso tra 1 e 2.147.483.647.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<resource-group-location>` Posizione del gruppo di risorse di Azure a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB da creare. Può contenere solo lettere minuscole, numeri, il carattere "-" e deve essere compreso fra 3 e 50 caratteri.
 
 Esempio: 
 
@@ -76,13 +76,13 @@ Questo comando consente di aggiornare le proprietà di un account del database A
     
 * `<write-region-location>` Nome della località dell'area di scrittura dell'account del database. La località è necessaria per impostare il valore della priorità di failover su 0. Deve essere presente esattamente un'area di scrittura per ogni account di database.
 * `<read-region-location>` Nome della località dell'area di lettura dell'account del database. La località è necessaria per impostare il valore della priorità di failover come maggiore di 0. Possono essere presenti più aree di lettura per ogni account di database.
-* `<default-consistency-level>` Il livello di coerenza predefinito dell'account Azure Cosmos DB. Per altre informazioni, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
-* `<ip-range-filter>` Specifica il set di indirizzi IP o intervalli di indirizzi IP nel formato CIDR da includere come elenco di IP client per un determinato account di database consentiti. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Azure Cosmos DB Firewall Support](firewall-support.md) (Supporto al firewall di Azure Cosmos DB)
-* `<max-interval>` Se usato con la coerenza con obsolescenza associata, questo valore rappresenta la quantità di tempo di decadimento (in secondi) tollerata. L'intervallo consentito per questo valore è compreso tra 1 e 100.
-* `<max-staleness-prefix>` Se usato con la coerenza con obsolescenza associata, questo valore rappresenta il numero di richieste non aggiornate tollerate. L'intervallo consentito per questo valore è compreso tra 1 e 2.147.483.647.
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<resource-group-location>` Il percorso del gruppo di risorse di Azure a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB da aggiornare.
+* `<default-consistency-level>` Livello di coerenza predefinito dell'account di Azure Cosmos DB. Per altre informazioni, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
+* `<ip-range-filter>` Specifica il set di indirizzi IP e di intervalli di indirizzi IP nel formato CIDR da includere come elenco consentito di IP client per un determinato account di database. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Azure Cosmos DB Firewall Support](firewall-support.md) (Supporto al firewall di Azure Cosmos DB)
+* `<max-interval>` Quando è usato con il livello di coerenza Decadimento ristretto, questo valore rappresenta l'intervallo di tempo di decadimento (in secondi) tollerato. L'intervallo consentito per questo valore è compreso tra 1 e 100.
+* `<max-staleness-prefix>` Quando è usato con il livello di coerenza Decadimento ristretto, questo valore rappresenta il numero di richieste non aggiornate tollerate. L'intervallo consentito per questo valore è compreso tra 1 e 2.147.483.647.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<resource-group-location>` Posizione del gruppo di risorse di Azure a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB da aggiornare.
 
 Esempio: 
 
@@ -98,8 +98,8 @@ Questo comando consente di eliminare un account del database Azure Cosmos DB esi
 
     Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB da eliminare.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB da eliminare.
 
 Esempio:
 
@@ -111,8 +111,8 @@ Questo comando consente di ottenere le proprietà di un account del database Azu
 
     Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB.
 
 Esempio:
 
@@ -136,8 +136,8 @@ Quando si crea un account Azure Cosmos DB, il servizio genera due chiavi di acce
 
     $keys = Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB.
 
 Esempio:
 
@@ -149,8 +149,8 @@ Per gli account di MongoDB, è possibile recuperare la stringa di connessione pe
 
     $keys = Invoke-AzResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB.
 
 Esempio:
 
@@ -162,9 +162,9 @@ Esempio:
 
     Invoke-AzResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB.
-* `<key-kind>` Uno dei quattro tipi di chiavi: ["Primary" | " Secondario "|" PrimaryReadonly "|" SecondaryReadonly"] che si desidera rigenerare.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB.
+* `<key-kind>` Uno dei quattro tipi di chiavi: ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] che si vuole rigenerare.
 
 Esempio:
 
@@ -179,8 +179,8 @@ Per gli account del database tra più aree, è possibile modificare la priorità
 
 * `<write-region-location>` Nome della località dell'area di scrittura dell'account del database. La località è necessaria per impostare il valore della priorità di failover su 0. Deve essere presente esattamente un'area di scrittura per ogni account di database.
 * `<read-region-location>` Nome della località dell'area di lettura dell'account del database. La località è necessaria per impostare il valore della priorità di failover come maggiore di 0. Possono essere presenti più aree di lettura per ogni account di database.
-* `<resource-group-name>` Il nome del [gruppo di risorse di Azure] [ azure-resource-groups] a cui appartiene il nuovo account di database di Azure Cosmos DB.
-* `<database-account-name>` Il nome dell'account del database Azure Cosmos DB.
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database Azure Cosmos DB.
+* `<database-account-name>` Nome dell'account del database Azure Cosmos DB.
 
 Esempio:
 

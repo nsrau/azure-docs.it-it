@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885724"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite API REST
@@ -52,6 +52,6 @@ Questo articolo usa l'approccio **non interattivo** . Per altre informazioni sul
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Data Lake Storage Gen1 usando l'API REST. È ora possibile leggere gli articoli seguenti per informazioni su come usare l'API REST in Data Lake Storage Gen1.
 
-* [Operazioni di gestione account in Data Lake archiviazione Gen1 usando l'API REST](data-lake-store-get-started-rest-api.md)
-* [Operazioni sui dati in Data Lake archiviazione Gen1 usando l'API REST](data-lake-store-data-operations-rest-api.md)
+* [Operazioni di gestione di account in Data Lake Storage Gen1 con API REST](data-lake-store-get-started-rest-api.md)
+* [Operazioni dati in Data Lake Storage Gen1 con API REST](data-lake-store-data-operations-rest-api.md)
 

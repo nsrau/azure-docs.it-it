@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862778"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra Azure Security Center (Centro sicurezza di AZURE) per l'agente di sicurezza IoT, come modificare tali configurare Centro sicurezza di AZURE per gli agenti di sicurezza IoT.
@@ -140,4 +140,4 @@ I valori predefiniti sono disponibili nello schema appropriata [Github](https://
 
 - [Informazioni sul Centro sicurezza di AZURE di consigli di IoT](concept-recommendations.md)
 - [Esplorazione di Centro sicurezza di AZURE per IoT avvisi](concept-security-alerts.md)
-- [Accedere a dati non elaborati sulla sicurezza](how-to-security-data-access.md)
+- [Accedere ai dati di sicurezza non elaborati](how-to-security-data-access.md)

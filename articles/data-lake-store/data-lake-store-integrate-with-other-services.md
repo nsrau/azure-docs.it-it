@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879304"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrazione di Azure Data Lake Storage Gen1 con altri servizi di Azure
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 può essere usato in combinazione con altri servizi
 
 Per istruzioni su come eseguire il provisioning di un cluster HDInsight con Data Lake Storage Gen1, vedere:
 
-* [Effettuare il provisioning di un cluster HDInsight con Data Lake archiviazione Gen1 usando il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Effettuare il provisioning di un cluster HDInsight con Data Lake archiviazione Gen1 come archivio predefinito mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Effettuare il provisioning di un cluster HDInsight con Data Lake archiviazione Gen1 come archivio aggiuntivo mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Effettuare il provisioning di un cluster HDInsight con Data Lake Storage Gen1 tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Effettuare il provisioning di un cluster HDInsight con Data Lake Storage Gen1 come risorsa di archiviazione predefinita usando Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Effettuare il provisioning di un cluster HDInsight con Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva usando Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 ## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>Usare Data Lake Storage Gen1 con Azure Data Lake Analytics
 [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) consente di usare i Big Data a livello di cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati che possono essere archiviati nelle numerose origini dati supportate, ad esempio Data Lake Storage Gen1. Data Lake Analytics è ottimizzato in modo specifico per usare Data Lake Storage Gen1 in modo da offrire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione per i carichi di lavoro dei Big Data.
@@ -67,6 +67,6 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, ch
 
 ## <a name="see-also"></a>Vedere anche 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Introduzione ad Data Lake archiviazione Gen1 tramite portale](data-lake-store-get-started-portal.md)
-* [Introduzione a Data Lake archiviazione Gen1 con PowerShell](data-lake-store-get-started-powershell.md)  
+* [Introduzione a Data Lake Storage Gen1 con il portale](data-lake-store-get-started-portal.md)
+* [Iniziare a usare Data Lake Storage Gen1 tramite PowerShell](data-lake-store-get-started-powershell.md)  
 

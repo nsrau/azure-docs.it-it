@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894407"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
@@ -57,14 +57,14 @@ Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funziona
     
 Il **servizio di Provisioning di Azure AD** effettua il provisioning agli utenti di App SaaS e altri sistemi connettendosi agli endpoint di gestione API di utente forniti dal produttore dell'applicazione. Gli endpoint dell'API di gestione utenti consentono ad Azure AD di creare, aggiornare e rimuovere utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può inoltre creare, aggiornare e rimuovere oggetti aggiuntivi relative alle identità, ad esempio gruppi e ruoli. 
 
-![Il provisioning](./media/user-provisioning/provisioning0.PNG)
-*figura 1: Provisioning del servizio di Azure AD*
+![Provisioning](./media/user-provisioning/provisioning0.PNG)
+*Figura 1: Provisioning del servizio di Azure AD*
 
 ![Provisioning in uscita](./media/user-provisioning/provisioning1.PNG)
-*figura 2: Flusso di lavoro di provisioning degli utenti "in uscita" da Azure AD verso applicazioni SaaS comuni*
+*Figura 2: Flusso di lavoro di provisioning degli utenti "in uscita" da Azure AD verso applicazioni SaaS comuni*
 
 ![Provisioning in ingresso](./media/user-provisioning/provisioning2.PNG)
-*figura 3: Flusso di lavoro di provisioning degli utenti "in ingresso" da applicazioni di gestione delle risorse umane (HCM) comuni verso Azure Active Directory e Windows Server Active Directory*
+*Figura 3: Flusso di lavoro di provisioning degli utenti "in ingresso" da applicazioni di gestione delle risorse umane (HCM) comuni verso Azure Active Directory e Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quali applicazioni e sistemi è possibile usare con il provisioning utenti automatico di Azure AD?
@@ -277,9 +277,9 @@ In alternativa, è necessario assegnare in modo esplicito (o in caso contrario [
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS](../saas-apps/tutorial-list.md)
-- [Personalizzazione dei mapping degli attributi per il Provisioning utenti](customize-application-attributes.md)
-- [Scrittura di espressioni per il mapping degli attributi](functions-for-customizing-application-data.md)
-- [Filtri di ambito per il Provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
+- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
+- [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+- [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md)
-- [Panoramica di API di sincronizzazione Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)

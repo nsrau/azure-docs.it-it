@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895969"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
@@ -79,6 +79,6 @@ Ecco alcuni scenari in cui Video Indexer può risultare utile.
 
 È ora possibile iniziare a usare Video Indexer. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Iniziare con il sito Web indicizzatore Video](video-indexer-get-started.md)
-- [Elaborano contenuto con l'API REST dell'indicizzatore Video](video-indexer-use-apis.md)
-- [Incorporare widget visual nell'applicazione](video-indexer-embed-widgets.md)
+- [Introduzione al sito Web di Video Indexer](video-indexer-get-started.md)
+- [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)
+- [Embed visual widgets in your application](video-indexer-embed-widgets.md) (Incorporare i widget visivi nell'applicazione)

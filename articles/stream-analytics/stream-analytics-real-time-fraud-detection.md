@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883718"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
@@ -184,7 +184,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
  
 3. Fare clic su **Aggiungi input del flusso** e selezionare **Hub eventi**. Compilare quindi la nuova pagina di input con le informazioni seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |**DESCRIZIONE**  |
+   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input  |  CallStream   |  Immettere un nome per identificare l'input del processo.   |
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi.   |
@@ -354,7 +354,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
 
 4. Nel riquadro **Output**, fare clic su **Aggiungi**, quindi selezionare **Archiviazione BLOB**. Compilare quindi la nuova pagina di output con le informazioni seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |**DESCRIZIONE**  |
+   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di output  |  CallStream-FraudulentCalls   |  Immettere un nome per identificare l'output del processo.   |
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
@@ -416,6 +416,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Ridimensionare i processi di Azure Stream Analitica](stream-analytics-scale-jobs.md)
-* [Riferimenti al linguaggio di Query Analitica Stream di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Riferimento di API REST di gestione di Azure Stream Analitica](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

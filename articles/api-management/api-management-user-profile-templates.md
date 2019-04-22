@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903761"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
@@ -30,9 +30,9 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 -   [Sottoscrizioni](#Subscriptions)  
   
--   [APPLICAZIONI](#Applications)  
+-   [Applicazioni](#Applications)  
   
--   [Aggiorna info account](#UpdateAccountInfo)  
+-   [Aggiornare le informazioni sull'account](#UpdateAccountInfo)  
   
 > [!NOTE]
 >  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -318,7 +318,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
--   [annullamento di sottoscrizione](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -481,7 +481,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
--   [azioni delle App](api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modello di dati  
   

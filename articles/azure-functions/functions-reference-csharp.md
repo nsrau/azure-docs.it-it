@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892416"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
@@ -216,9 +216,9 @@ public class Order
 
 È possibile usare un percorso relativo con la direttiva `#load` :
 
-* `#load "mylogger.csx"` Carica un file che si trova nella cartella della funzione.
-* `#load "loadedfiles\mylogger.csx"` Carica un file che si trova in una cartella nella cartella della funzione.
-* `#load "..\shared\mylogger.csx"` Carica un file che si trova in una cartella allo stesso livello della cartella della funzione, vale a dire, direttamente sotto *wwwroot*.
+* `#load "mylogger.csx"` carica un file che si trova nella cartella della funzione.
+* `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una sottocartella della cartella della funzione.
+* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
 
 La direttiva `#load` è compatibile solo con i file con estensione *.csx* e non lo è con i file con estensione *.cs*.
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un' `out` tipo di parametro (ad esempio `out JObject`). L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -527,7 +527,7 @@ Nella tabella seguente vengono elencati gli attributi .NET per ogni tipo di asso
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sui trigger e associazioni](functions-triggers-bindings.md)
+> [Altre informazioni sui trigger e le associazioni](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle procedure consigliate per funzioni di Azure](functions-best-practices.md)
+> [Altre informazioni sulle procedure consigliate per Funzioni di Azure](functions-best-practices.md)
