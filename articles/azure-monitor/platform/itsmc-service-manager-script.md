@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903104"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785228"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
 Usare lo script seguente per creare l'app Web per l'istanza di Service Manager. Per altre informazioni sulla connessione di Service Manager, vedere qui: [App Web di Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Eseguire lo script, fornendo i dettagli richiesti seguenti:
+Eseguire lo script, fornendo i seguenti dettagli richiesti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
