@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496096"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
@@ -28,7 +28,7 @@ Altre matrici di supporto:
 
 Di seguito viene illustrato come è possibile eseguire il backup e il ripristino di macchine virtuali di Azure con il servizio Backup di Azure.
 
-**Scenario** | **Backup** | **Agente** |**Restore**
+**Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
 backup diretto di macchine virtuali di Azure  | Eseguire il backup dell'intera macchina virtuale.  | Non è necessario alcun agente nella macchina virtuale di Azure. Backup di Azure installa e usa un'estensione per il [agente di macchine Virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) che è in esecuzione nella macchina virtuale. | È possibile eseguire il ripristino nel modo seguente:<br/><br/> - **Creare una macchina virtuale di base**. Ciò è utile se la macchina virtuale non dispone di alcuna configurazione speciale, ad esempio più indirizzi IP.<br/><br/> - **Ripristinare il disco della macchina virtuale**. Ripristinare il disco Quindi collegarlo a una VM esistente o creare una nuova macchina virtuale dal disco tramite PowerShell.<br/><br/> - **Sostituire il disco della macchina virtuale**. Se è presente una macchina virtuale che usa dischi gestiti (non crittografati), è possibile ripristinare un disco e usarlo per sostituire un disco esistente nella macchina virtuale.<br/><br/> - **Ripristinare cartelle e file specifici**. È possibile ripristinare file e cartelle da una macchina virtuale anziché da dell'intera macchina virtuale.
 Eseguire direttamente backup di macchine virtuali di Azure (solo Windows)  | Eseguire il backup di file/cartelle/volumi specifico. | Installare il [agente di servizi di ripristino di Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> È possibile eseguire l'agente di Servizi di ripristino di Microsoft Azure insieme all'estensione di backup per l'agente di macchine virtuali di Azure per eseguire il backup della macchina virtuale a livello di file o di cartella. | Ripristino di cartelle e file specifici.
@@ -53,7 +53,7 @@ Backup al giorno (tramite l'agente di Servizi di ripristino di Microsoft Azure) 
 Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due backup pianificati al giorno.
 Backup mensile/annuale   | Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
 Regolazione automatica dell'orologio | Non supportati.<br/><br/> Backup di Azure non viene regolata automaticamente per l'ora legale durante il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
-[Funzionalità di sicurezza per i backup ibridi](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  La disabilitazione della funzionalità di sicurezza non è supportata.
+[Funzionalità di sicurezza per il backup ibrido](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  La disabilitazione della funzionalità di sicurezza non è supportata.
 
 ## <a name="operating-system-support-windows"></a>Supporto dei sistemi operativi (Windows)
 
@@ -100,7 +100,7 @@ Punti di ripristino su disco DPM/MABS | 64 per file server e 448 per i server ap
 
 ## <a name="supported-restore-methods"></a>Metodi di ripristino supportati
 
-**Metodo Restore** | **Dettagli**
+**Metodo di ripristino** | **Dettagli**
 --- | ---
 Creare una nuova VM | È possibile creare una macchina virtuale durante il processo di ripristino. <br/><br/> Questa opzione consente di avere in esecuzione una macchina virtuale di base. È possibile specificare il nome, il gruppo di risorse, la rete virtuale, la subnet e l'archiviazione della macchina virtuale.  
 Ripristinare un disco | È possibile ripristinare un disco e usarlo per creare una macchina virtuale.<br/><br/> Quando si seleziona questa opzione, il servizio Backup di Azure copia i dati dall'insieme di credenziali in un account di archiviazione selezionato dall'utente. Il processo di ripristino genera un modello. È possibile scaricare questo modello, utilizzata per specificare le impostazioni della macchina virtuale personalizzate e creare una macchina virtuale.<br/><br/> Questa opzione consente di specificare un numero di impostazioni maggiore rispetto all'opzione precedente per la creazione di una macchina virtuale.<br/><br/>
@@ -212,7 +212,7 @@ Sicurezza dei dati:
 - Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
 
 
-**Machine** | **In transito** | **Inattivi**
+**Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
 Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
@@ -228,7 +228,7 @@ Backup supporta la compressione dei backup del traffico, come riepilogato nella 
 - Per le VM di Azure, l'estensione macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione. Non è necessario comprimere il traffico.
 - Se si usa DPM e MABS, è possibile risparmiare larghezza di banda con la compressione dei dati prima di cui viene eseguito il backup per DPM/MABS.
 
-**Machine** | **Comprimere i backup di Microsoft AZURE/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
+**Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND

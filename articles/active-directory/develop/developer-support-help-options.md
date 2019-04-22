@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501590"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
@@ -75,7 +75,7 @@ Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova 
 
 I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
-* [Come porre una domanda da porsi](https://stackoverflow.com/help/how-to-ask)
+* [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
 * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub

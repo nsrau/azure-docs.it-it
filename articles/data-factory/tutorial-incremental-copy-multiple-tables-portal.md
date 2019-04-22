@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257434"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566006"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -491,11 +491,12 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 1. Passare alla scheda **Sink** e selezionare **SinkDataset** in **Sink Dataset** (Set di dati sink). 
         
     ![Attività di copia: impostazioni sink](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Passare alla scheda **Parametri** e seguire questa procedura:
+1. Seguire anche questa procedura:
 
-    1. Per la proprietà **Sink Stored Procedure Name** (Nome stored procedure sink) immettere `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Per la proprietà **Sink Table Type** (Tipo di tabella sink) immettere `@{item().TableType}`.
-    1. Nella sezione **Sink Dataset** (Set di dati sink), per il parametro **SinkTableName**, immettere `@{item().TABLE_NAME}`.
+    1. Nella proprietà **Dataset**, per il parametro **SinkTableName**, immettere `@{item().TABLE_NAME}`.
+    1. Per la proprietà **Stored Procedure Name** (Nome stored procedure) immettere `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Per la proprietà **Table Type** (Tipo di tabella) immettere `@{item().TableType}`.
+
 
         ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. Connettere l'attività **Copia** all'attività **Stored procedure**. 

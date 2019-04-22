@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621482"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678667"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partner di business intelligence per SQL Data Warehouse
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo vengono evidenziate le aziende partner Microsoft con soluzioni di ufficiale business intelligence (BI) che supportano Azure SQL Data Warehouse.
@@ -26,7 +26,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Birst][1] |**Birst**<br>Birst si connette l'intera organizzazione tramite una rete di interconnessa virtualizzato BI istanze in alto di un'infrastruttura di analitica comune condivisa|[Pagina del prodotto][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![Dati clearStory][2] |**Dati clearStory (informazioni dettagliate aziendali continua)**<br>ClearStory Data permette l'analisi a ciclo rapido in diversi dati archiviati in SQL Data Warehouse. La piattaforma basata su Spark e l'applicazione di analisi integrate di ClearStory velocizzano l'accesso ai dati e l'armonizzazione di set di dati diversi. Permettono l'esplorazione rapida e collaborativa, che consente agli utenti aziendali di essere autonomi per ottenere approfondimenti utili. |[Pagina del prodotto][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Dundas Data Visualization è un importante fornitore globale di software per business intelligence e visualizzazione dei dati.  I dashboard, i report e le analisi visuali dei dati di Dundas offrono un'integrazione semplificata nelle applicazioni aziendali, permettendo di ottenere decisioni migliori e approfondimenti più rapidi.|[Pagina del prodotto][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**IBM Cognos Analitica**< brCognos Analitica include funzionalità self-service intelligente che rendono semplice, chiaro e facile da usare se si ha un analista di business esperto esaminando i potenziali problemi in una catena di fornitura vast o un addetti al marketing si ottimizzazione di un singola campagna. Cognos Analitica Usa intelligenza artificiale e altre funzionalità intelligenti per effettuare le operazioni necessarie per guidare l'esplorazione dei dati e rendono più semplice per gli utenti ottenere le risposte che necessarie|[Pagina del prodotto][cognosanalytics_website]<br>|
+| ![IBM Cognos][3] |**IBM Cognos Analitica**<br>Cognos Analitica include le funzionalità self-service intelligente che rendono semplice, chiaro e facile da usare se si ha un analista di business esperto esaminando i potenziali problemi in una catena di fornitura vast o un addetti al marketing si ottimizzare una campagna singola. Cognos Analitica Usa intelligenza artificiale e altre funzionalità intelligenti per effettuare le operazioni necessarie per guidare l'esplorazione dei dati e rendono più semplice per gli utenti ottenere le risposte che necessarie|[Pagina del prodotto][cognosanalytics_website]<br>|
 | ![Generatori di informazioni][13] |**Generatori di informazioni (WebFOCUS)**<br>WebFOCUS la business intelligence consente alle aziende di usare i dati in modo strategico tra all'esterno dell'azienda. Consente agli utenti e amministratori di creare rapidamente dashboard che combina il contenuto da più origini dati e formati e offre una protezione robusta e governance completo che consente facile, sicura diverly e condivisione dei server di analitica e BI contenuto|[Pagina del prodotto][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport è una soluzione di business intelligence incorporabile per le aziende. La soluzione permette agli utenti di creare report, dashboard e analisi di dati sul cloud, Big Data e origini dati transazionali. La visualizzazione dei dati permette di creare report personalizzati e individuare personalmente i dati per ottenere un processo decisionale agile e rapido. |[Pagina del prodotto][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>L'uso combinato di Logi Analytics e Azure SQL Data Warehouse consente alle organizzazioni di raccogliere, analizzare e prendere decisioni immediate in base ai set di dati più grandi e più diversificati al mondo. |[Pagina del prodotto][logianalytics_website]<br>|
@@ -40,7 +40,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_partners] e [Partner di gestione di dati][dm_partners].
 
 <!--Image references-->

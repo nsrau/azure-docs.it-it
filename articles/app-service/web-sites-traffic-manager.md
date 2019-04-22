@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599809"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677443"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -43,7 +43,7 @@ Gestione traffico di Azure usa quattro metodi di routing diversi. Questi metodi 
 Per altre informazioni, vedere [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>Servizio app e profili di Gestione traffico
-Per configurare il controllo del traffico app del servizio app, è possibile creare un profilo in Gestione traffico di Azure che utilizzi uno dei tre metodi di bilanciamento del carico, descritti in precedenza, e quindi aggiungere gli endpoint (in questo caso, il servizio app) per i quali si desidera controlla il traffico diretto al profilo. Lo stato dell'app (in esecuzione, interrotta o eliminata) viene comunicato regolarmente al profilo in modo che Gestione traffico di Azure possa instradare il traffico di conseguenza.
+Per configurare il controllo del traffico app del servizio, si crea un profilo di gestione di traffico di Azure che utilizzi uno dei quattro carico bilanciamento del carico i metodi descritti in precedenza e quindi aggiungere gli endpoint (in questo caso, servizio App) per il quale si desidera controllare il traffico verso la profilo. Lo stato dell'app (in esecuzione, interrotta o eliminata) viene comunicato regolarmente al profilo in modo che Gestione traffico di Azure possa instradare il traffico di conseguenza.
 
 Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i fattori seguenti:
 
@@ -55,7 +55,7 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 * I nomi di dominio personalizzato funzionano come previsto, ma oltre ad aggiungerli alle app, è necessario configurare la mappa DNS in modo che punti all'URL di Gestione traffico. Per informazioni sulla configurazione di un dominio personalizzato per un'app del servizio app, vedere [Eseguire il mapping di un nome DNS personalizzato esistente con il Servizio app di Azure](app-service-web-tutorial-custom-domain.md).
 * È possibile aggiungere a un profilo di Gestione traffico di Azure solo app in modalità Standard o Premium.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per una panoramica concettuale e tecnica di Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
 Per altre informazioni sull'uso di Gestione traffico con il servizio app, vedere i post di blog relativi all'[uso di Gestione traffico di Azure con Siti Web di Azure](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [all'integrazione di Gestione traffico di Azure con Siti Web di Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

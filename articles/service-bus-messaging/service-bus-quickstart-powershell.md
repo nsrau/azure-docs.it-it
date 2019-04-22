@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045242"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499802"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
-Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e completa affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi e il trasferimento delle modifiche apportate ai dati o allo stato. Scenari di questo tipo potrebbero comportare la pianificazione di più processi batch in un'altra applicazione o servizio oppure l'attivazione dell'evasione degli ordini. Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo scenario l'app client invia e riceve messaggi verso e da una coda del bus di servizio.
-
-![coda](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando PowerShell per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima di iniziare.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
-- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima di iniziare. 
+- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive. Si usa Visual Studio per compilare un esempio che invia messaggi a e riceve messaggi da una coda. L'esempio consiste nel testare la coda creata nel portale. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
-Ai fini di questa guida introduttiva, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell][].
+Ai fini di questa guida introduttiva, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell][]. Se si ha familiarità con Azure Cloud Shell, è possibile usarlo senza installare Azure PowerShell nel computer. Per informazioni su Azure Cloud Shell, vedere [Panoramica di Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 1. Installare prima di tutto il modulo PowerShell del bus di servizio, se non è già stato fatto:
 
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e altre risorse necessarie per inviare e ricevere messaggi da una coda. Per altre informazioni sulla scrittura di codice per inviare e ricevere messaggi, continuare per l'esercitazione seguente per il bus di servizio:
+In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e altre risorse necessarie per inviare e ricevere messaggi da una coda. Per altre informazioni sulla scrittura di codice per inviare e ricevere messaggi, procedere alle esercitazioni nella sezione **Inviare e ricevere messaggi**. 
 
 > [!div class="nextstepaction"]
-> [Aggiornare l'inventario usando Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Inviare e ricevere messaggi](service-bus-dotnet-get-started-with-queues.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Installare e configurare Azure PowerShell]: /powershell/azure/install-Az-ps

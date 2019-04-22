@@ -5,29 +5,29 @@ services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.author: davidmu
-ms.date: 02/04/2019
+ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cae9d51bbe1d67734e9c2163140ec3b969122bc2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c1c640fa2c03f584aa9be62ae6ad123377ef53cd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671489"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680758"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C
 
-Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
+ Registrare le risorse API Web nel tenant in modo che possano accettare e rispondere alle richieste dalle applicazioni client che presentano un token di accesso. Questo articolo illustra come registrare l'applicazione in Azure Active Directory (Azure AD) B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
 6. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
-7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
+7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. Nell'applicazione di produzione, è possibile impostare l'URL di risposta su un valore, ad esempio `https://localhost:44332`. A scopo di test, impostare l'URL di risposta `https://jwt.ms`.
 8. Per **URI ID app** immettere l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. Ad esempio: `https://contosotenant.onmicrosoft.com/api`.
 9. Fare clic su **Create**(Crea).
 10. Nella pagina delle proprietà prendere nota dell'ID applicazione, che verrà usato durante la configurazione dell'applicazione Web.

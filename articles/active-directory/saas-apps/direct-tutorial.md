@@ -4,200 +4,188 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/06/2018
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576a79c79d7c3990140b93543bc30f833207a6ba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 18519c64e1bba82e60cc431cb5f634a30ad68e92
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172519"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Esercitazione: Integrazione di Azure Active Directory con direct
 
 Questa esercitazione descrive come integrare direct con Azure Active Directory (Azure AD).
+L'integrazione di direct con Azure AD offre i vantaggi seguenti:
 
-L'integrazione di direct con Azure AD offre i seguenti vantaggi:
+* È possibile controllare in Azure AD chi può accedere a direct.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a direct con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-- È possibile controllare in Azure AD chi può accedere a direct
-- È possibile abilitare gli utenti per l'accesso automatico Single Sign-On a direct con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con direct, sono necessari i seguenti elementi:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di direct abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di direct abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
-Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-1. Aggiunta di direct dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+* direct supporta l'accesso SSO avviato da **SP** e **IDP**
 
 ## <a name="adding-direct-from-the-gallery"></a>Aggiunta di direct dalla raccolta
 
-Per configurare l'integrazione di direct in Azure AD, è necessario aggiungere Direct dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di direct in Azure AD, è necessario aggiungere Direct dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere direct dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![APPLICAZIONI][3]
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **direct**. Selezionare **direct** nel pannello dei risultati e quindi il pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **direct**, selezionare **direct** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Creazione di un utente test di Azure AD](./media/direct-tutorial/tutorial_direct_addfromgallery.png)
+     ![direct nell'elenco risultati](common/search-new-app.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con direct mediante un utente test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con direct usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in direct.
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere quale utente di direct corrisponde a un determinato utente di Azure AD. In altre parole, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in direct.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con direct è necessario completare le procedure di base seguenti:
 
-Per stabilire la relazione di collegamento, in direct assegnare il valore di **nome utente** di Azure AD come valore dell'attributo **Username** (Nome utente).
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di direct](#configure-direct-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di direct](#create-direct-test-user)**: per avere una controparte di Britta Simon in direct collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con direct è necessario completare i seguenti blocchi predefiniti:
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di direct](#creating-a-direct-test-user)**: per avere una controparte di Britta Simon in direct collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+Per configurare l'accesso Single Sign-On di Azure AD con direct, seguire questa procedura:
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione direct.
+1. Nella pagina di integrazione dell'applicazione **Skytap** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con direct, seguire questa procedura:**
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella pagina di integrazione dell'applicazione **direct** del portale di Azure, fare clic su **Single Sign-On**.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-    ![Configure Single Sign-On][4]
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_samlbase.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-3. Nella sezione **URL e dominio direct** per configurare l'applicazione in modalità avviata da **IDP**:
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url.png)
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    Nella casella di testo **Identificatore** digitare l'URL: `https://direct4b.com/`
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di direct](common/idp-identifier.png)
 
-4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
+    Nella casella di testo **Identificatore** digitare un URL: `https://direct4b.com/`
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-     Nella casella di testo **URL accesso** digitare l'URL: `https://direct4b.com/sso` 
+    ![image](common/both-preintegrated-signon.png)
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+    Nella casella di testo **URL di accesso** digitare un URL: `https://direct4b.com/sso`
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_certificate.png) 
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-6. Fare clic sul pulsante **Salva** .
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_general_400.png)
+7. Nella sezione **Configura direct** copiare gli URL appropriati in base alle esigenze.
 
-7. Per configurare l'accesso Single Sign-On sul lato **direct**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry).
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+    a. URL di accesso
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+    b. Identificatore Azure AD
 
-![Creare un utente di Azure AD][100]
+    c. URL di chiusura sessione
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+### <a name="configure-direct-single-sign-on"></a>Configurare l'accesso Single Sign-On di direct
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+Per configurare l'accesso Single Sign-On sul lato **direct**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-    ![Creazione di un utente test di Azure AD](./media/direct-tutorial/create_aaduser_01.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/direct-tutorial/create_aaduser_02.png) 
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-    ![Creazione di un utente test di Azure AD](./media/direct-tutorial/create_aaduser_03.png) 
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/direct-tutorial/create_aaduser_04.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+3. In Proprietà utente seguire questa procedura.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="creating-a-direct-test-user"></a>Creazione di un utente test di direct
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si crea un utente di nome Britta Simon in direct. Rivolgersi al [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry) per aggiungere gli utenti alla piattaforma di direct. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a direct.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **direct**.
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a direct.
-
-![Assegna utente][200] 
-
-**Per assegnare Britta Simon a direct, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **direct**.
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_app.png) 
+    ![Collegamento di direct nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Assegna utente][202] 
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Assegna utente][203]
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="create-direct-test-user"></a>Creare l'utente di test di direct
+
+In questa sezione si crea un utente di nome Britta Simon in direct. Collaborare con il [team di supporto di direct](https://direct4b.com/ja/support.html#inquiry) per aggiungere gli utenti alla piattaforma direct. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
@@ -211,23 +199,13 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
     b. Digitare il `subdomain` nella casella di testo visualizzata e premere 次へ (Avanti) per accedere automaticamente all'applicazione **direct**.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro di direct nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Skytap per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/direct-tutorial/tutorial_general_01.png
-[2]: ./media/direct-tutorial/tutorial_general_02.png
-[3]: ./media/direct-tutorial/tutorial_general_03.png
-[4]: ./media/direct-tutorial/tutorial_general_04.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/direct-tutorial/tutorial_general_100.png
-
-[200]: ./media/direct-tutorial/tutorial_general_200.png
-[201]: ./media/direct-tutorial/tutorial_general_201.png
-[202]: ./media/direct-tutorial/tutorial_general_202.png
-[203]: ./media/direct-tutorial/tutorial_general_203.png

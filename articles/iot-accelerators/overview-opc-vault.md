@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla gestione certificati OPC UA di Azure IoT | Microsoft Docs
+title: Informazioni su OPC Vault - Azure | Microsoft Docs
 description: Panoramica di OPC Vault
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759771"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490377"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>Informazioni sulla gestione certificati OPC (Open Platform Communications) UA di Azure IoT
+# <a name="what-is-opc-vault"></a>Informazioni su OPC Vault
 
-Il servizio di gestione certificati OPC UA di Azure IoT, anche detto OPC Vault, è un microservizio che consente di configurare, registrare e gestire il ciclo di vita dei certificati per le applicazioni server e client OPC UA nel cloud. Questo articolo descrive i semplici casi d'uso di OPC Vault.
+OPC Vault è un microservizio che consente di configurare, registrare e gestire il ciclo di vita dei certificati per le applicazioni server e client OPC UA nel cloud. Questo articolo descrive i semplici casi d'uso di OPC Vault.
 
 ## <a name="certificate-management"></a>Gestione dei certificati
 

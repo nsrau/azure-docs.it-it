@@ -3,7 +3,7 @@ title: Avvio rapido di Centro sicurezza di Azure - Onboarding delle macchine vir
 description: Questa guida di avvio rapido mostra come effettuare il provisioning dell'estensione macchina virtuale Monitoraggio di Azure, Gestione aggiornamenti e configurazione nelle macchine virtuali di Azure Stack.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904016"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563795"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva:  Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
 Dopo l'onboarding della sottoscrizione di Azure, è possibile abilitare il Centro sicurezza per proteggere le macchine virtuali in esecuzione in Azure Stack aggiungendo l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** dal Marketplace di Azure Stack.
@@ -32,7 +32,7 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 
 Prima di iniziare questo argomento di avvio rapido, è necessario avere una sottoscrizione al piano Standard del Centro sicurezza. Vedere [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare gratuitamente il livello Standard del Centro sicurezza per 30 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Aggiungere una macchina virtuale di Azure Stack
+## <a name="select-your-workspace-in-azure-security-center"></a>Selezionare l'area di lavoro nel Centro sicurezza di Azure
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**. 
@@ -65,6 +65,10 @@ Prima di iniziare questo argomento di avvio rapido, è necessario avere una sott
 3. Selezionare **Estensioni**. Viene visualizzato l'elenco delle estensioni macchina virtuale installate in questa macchina virtuale.
 4. Fare clic sulla scheda **Add** (Aggiungi). Viene visualizzato il pannello del menu **Nuova risorsa** che contiene un elenco delle estensioni macchina virtuale disponibili. 
 5. Selezionare l'estensione **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** e fare clic su **Crea**. Verrà visualizzato il pannello di configurazione **Installa estensione**.
+
+>[!NOTE]
+> Se l'estensione **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** non è elencata nel marketplace, contattare un operatore di Azure Stack per ottenerla.
+
 6. Nel pannello di configurazione **Installa estensione** incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
 7.  Dopo aver specificato le impostazioni di configurazione necessarie, fare clic su **OK**.
 8. Una volta completata l'installazione dell'estensione, il relativo stato risulterà **Provisioning completato**. La visualizzazione della macchina virtuale nel portale del Centro sicurezza potrebbe richiedere fino a un'ora.

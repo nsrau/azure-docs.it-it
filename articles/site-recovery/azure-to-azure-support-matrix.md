@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609405"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679007"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a altra
 
@@ -225,6 +225,7 @@ Disco P10 o P15 Premium | 16 KB | 4 MB/s |  336 GB per disco
 Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per disco
+
 ## <a name="replicated-machines---networking"></a>Computer replicati - Reti
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
@@ -236,6 +237,7 @@ Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Assoc
 Gruppo di sicurezza di rete o subnet | Supportato | Associare il gruppo di sicurezza di rete alla subnet tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP riservato (statico) | Supportato | Se la scheda di rete sulla macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione dispone dello stesso IP, viene assegnato alla macchina virtuale di failover.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP, uno degli IP disponibili nella subnet viene riservato per la macchina virtuale.<br/><br/> È anche possibile specificare un indirizzo IP fisso e una subnet in **Elementi replicati** > **Impostazioni** > **Calcolo e rete** > **Interfacce di rete**.
 Indirizzo IP dinamico | Supportato | Se la scheda di interfaccia di rete nella macchina virtuale di origine ha indirizzi IP dinamici, anche la scheda sulla macchina virtuale di failover è dinamica per impostazione predefinita.<br/><br/> Se necessario, è possibile modificare questa opzione in un indirizzo IP fisso.
+Più indirizzi IP | Non supportate | Quando esegue il failover una macchina virtuale con un'interfaccia di rete con più indirizzi IP, viene mantenuto solo l'indirizzo IP primaria dell'interfaccia di rete nell'area di origine. Per assegnare più indirizzi IP, è possibile aggiungere VM a un [piano di ripristino](recovery-plan-overview.md) e allegare uno script per assegnare indirizzi IP aggiuntivi al piano oppure è possibile apportare la modifica manualmente o tramite uno script dopo il failover. 
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato  | Supportato |

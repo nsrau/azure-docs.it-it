@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496574"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
@@ -54,7 +54,7 @@ Se vengono create o eliminate entità durante la restituzione delle pagine della
 
 La tabella seguente illustra come le opzioni di filtro e ordinamento possono essere applicate alle proprietà dell'[asset](https://docs.microsoft.com/rest/api/media/assets): 
 
-|Attività|Filtro|Ordine|
+|NOME|Filtro|Ordine|
 |---|---|---|
 |id|||
 |name|eq, gt, lt| crescente e decrescente|
@@ -141,7 +141,7 @@ Per altri esempi REST, vedere [Assets - List](https://docs.microsoft.com/rest/ap
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei [criteri di chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies): 
 
-|Attività|Filtro|Ordine|
+|NOME|Filtro|Ordine|
 |---|---|---|
 |id|||
 |name|eq, ne, ge, le, gt, lt|crescente e decrescente|
@@ -176,7 +176,7 @@ Per esempi di REST, vedere [Content Key Policies - List](https://docs.microsoft.
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei [processi](https://docs.microsoft.com/rest/api/media/jobs): 
 
-| Attività    | Filtro                        | Ordine |
+| NOME    | Filtro                        | Ordine |
 |---------|-------------------------------|-------|
 | name                    | eq            | crescente e decrescente|
 | properties.state        | eq, ne        |                         |
@@ -223,7 +223,7 @@ Per esempi di REST, vedere [Jobs - List](https://docs.microsoft.com/rest/api/med
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei localizzatori di streaming: 
 
-|Attività|Filtro|Ordine|
+|NOME|Filtro|Ordine|
 |---|---|---|
 |id |||
 |name|eq, ne, ge, le, gt, lt|crescente e decrescente|
@@ -262,7 +262,7 @@ Per esempi REST, vedere [Localizzatori di streaming - Elenco](https://docs.micro
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà dei criteri di streaming: 
 
-|Attività|Filtro|Ordine|
+|NOME|Filtro|Ordine|
 |---|---|---|
 |id|||
 |name|eq, ne, ge, le, gt, lt|crescente e decrescente|
@@ -298,7 +298,7 @@ Per esempi REST, vedere [Criteri di streaming - Elenco](https://docs.microsoft.c
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà delle [trasformazioni](https://docs.microsoft.com/rest/api/media/transforms): 
 
-| Attività    | Filtro                        | Ordine |
+| NOME    | Filtro                        | Ordine |
 |---------|-------------------------------|-------|
 | name                    | eq            | crescente e decrescente|
 | properties.created      | gt, ge, lt, le| crescente e decrescente|
@@ -306,4 +306,4 @@ La tabella seguente illustra come queste opzioni possono essere applicate alle p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Un file di Stream](stream-files-dotnet-quickstart.md)
+[Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione - Ricerca di Azure'
-description: Procedura di esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini con intelligenza artificiale nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati su BLOB JSON.
+title: 'Esercitazione: Chiamare le API REST Servizi cognitivi in una pipeline di indicizzazione - Ricerca di Azure'
+description: Procedura di esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini con intelligenza artificiale nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati su BLOB JSON con Postman e API REST.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261922"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528374"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Esercitazione: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure (anteprima)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Esercitazione REST: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure (anteprima)
 
 In questa esercitazione vengono illustrati i meccanismi di programmazione dell'arricchimento dei dati in Ricerca di Azure usando *competenze cognitive*. Le competenze sono supportate da funzionalità di elaborazione del linguaggio naturale e analisi delle immagini in Servizi cognitivi. Tramite la composizione e la configurazione del set di competenze, è possibile estrarre testo e rappresentazioni di testo da un'immagine o da un file di documento digitalizzato. È anche possibile rilevare lingue, entità, frasi chiave e altro ancora. Il risultato finale è contenuto aggiuntivo elaborato in un indice di Ricerca di Azure, creato da una pipeline di indicizzazione basato intelligenza artificiale. 
 
@@ -43,31 +43,37 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+In questa esercitazione vengono usati i servizi, gli strumenti e i dati seguenti. 
+
 [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
+
+[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
 
 L'[app desktop Postman](https://www.getpostman.com/) viene usata per eseguire le chiamate REST a Ricerca di Azure.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Ottenere una chiave API e un endpoint di Ricerca di Azure
+I [dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) sono costituiti da un piccolo set di file di tipi diversi. 
+
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
 Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-1. Ottenere l'URL nella pagina **Panoramica** del servizio di ricerca nel portale di Azure. Un endpoint di esempio potrebbe essere simile a `https://my-service-name.search.windows.net`.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
-2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
+1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
 ![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurare il servizio BLOB di Azure e caricare i dati di esempio
+## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
-La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Nota bene: il servizio tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
+La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Archiviazione tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
 
-1. [Scaricare i dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) costituiti da un piccolo set di file di tipi diversi. 
+1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
 
-1. [Iscriversi ad archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), creare un account di archiviazione, aprire le pagine dei servizi BLOB e creare un contenitore. Creare l'account di archiviazione nella stessa area di Ricerca di Azure.
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
 
-1. Nel contenitore creato fare clic su **Carica** per caricare i file di esempio nel passaggio precedente.
+1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi per caricare i file di esempio scaricati in un passaggio precedente.
 
    ![File di origine nell'archivio BLOB di Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati d
 
 Esistono altri modi per specificare la stringa di connessione, ad esempio una firma di accesso condiviso. Per altre informazioni sulle credenziali dell'origine dati, vedere [Indicizzazione in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
 
+## <a name="set-up-postman"></a>Configurare Postman
+
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-fiddler.md) per altre informazioni.
+
+I metodi di richiesta usati in questa esercitazione sono **POST**, **PUT** e **GET**. Le chiavi di intestazione sono "Content-type" impostata su "application/json" e "api-key" impostata su una chiave di amministratore del servizio Ricerca di Azure. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. 
+
+  ![Ricerca su dati semistrutturati](media/search-semi-structured-data/postmanoverview.png)
+
+Viene usato Postman per effettuare quattro chiamate API al servizio di ricerca per creare un'origine dati, un set di competenze, un indice e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante il caricamento dei dati.
+
+
 ## <a name="create-a-data-source"></a>Creare un'origine dati
 
 Ora che i servizi e i file di origine sono pronti, iniziare ad assemblare i componenti della pipeline di indicizzazione. Iniziare con un [oggetto origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) che indica a Ricerca di Azure come recuperare i dati di origine esterni.
 
-Per questa esercitazione, usare l'API REST e uno strumento che consenta di formulare e inviare richieste HTTP, ad esempio PowerShell, Postman o Fiddler. Nell'intestazione della richiesta specificare il nome di servizio usato durante la creazione del servizio Ricerca di Azure e l'api-key generata per il servizio di ricerca. Nel corpo della richiesta specificare il nome e la stringa di connessione per il contenitore BLOB.
+Nell'intestazione della richiesta specificare il nome di servizio usato durante la creazione del servizio Ricerca di Azure e l'api-key generata per il servizio di ricerca. Nel corpo della richiesta specificare il nome e la stringa di connessione per il contenitore BLOB.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 Inviare la richiesta. Lo strumento di test Web dovrebbe restituire un codice di stato 201 a conferma del corretto completamento dell'operazione. 
 
-Trattandosi della prima richiesta, controllare nel portale di Azure per verificare che l'origine dati sia stata creata in Ricerca di Azure. Nella pagina del dashboard del servizio di ricerca, verificare che nel riquadro Origini dati sia disponibile un nuovo elemento. Potrebbe essere necessario attendere alcuni minuti per l'aggiornamento della pagina del portale. 
+Trattandosi della prima richiesta, controllare nel portale di Azure per verificare che l'origine dati sia stata creata in Ricerca di Azure. Nella pagina del dashboard del servizio di ricerca, verificare che nell'elenco Origini dati sia disponibile un nuovo elemento. Potrebbe essere necessario attendere alcuni minuti per l'aggiornamento della pagina del portale. 
 
   ![Riquadro Origini dati nel portale](./media/cognitive-search-tutorial-blob/data-source-tile.png "Riquadro Origini dati nel portale")
 
@@ -122,7 +139,7 @@ In questo passaggio viene definito un set di passaggi di arricchimento da applic
 
 + [Suddivisione del testo](cognitive-search-skill-textsplit.md) per suddividere il contenuto di grandi dimensioni in blocchi più piccoli prima di chiamare la competenza di estrazione delle frasi chiave. L'estrazione delle frasi chiave accetta input di al massimo 50.000 caratteri. Alcuni dei file di esempio devono essere suddivisi per rispettare questo limite.
 
-+ [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md) per estrarre i nomi di organizzazioni dal contenuto nel contenitore BLOB.
++ [Riconoscimento di entità](cognitive-search-skill-entity-recognition.md) per estrarre i nomi di organizzazioni dal contenuto nel contenitore BLOB.
 
 + [Estrazione di frasi chiave](cognitive-search-skill-keyphrases.md) per estrarre le frasi chiave principali. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 Inviare la richiesta. Lo strumento di test Web dovrebbe restituire un codice di stato 201 a conferma del corretto completamento dell'operazione. 
 
-#### <a name="about-the-request"></a>Informazioni sulla richiesta
+#### <a name="explore-the-request-body"></a>Esplorare il corpo della richiesta
 
 Si noti come viene applicata la competenza di estrazione delle frasi chiave per ogni pagina. Impostando il contesto su ```"document/pages/*"``` si esegue questo meccanismo di arricchimento per ogni membro della matrice document/pages (per ogni pagina nel documento).
 
@@ -306,11 +323,13 @@ Per altre informazioni sulla definizione di un indice, vedere [Create Index (Azu
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Creare un indicizzatore, mappare i campi ed eseguire le trasformazioni
 
-Finora sono stati creati un'origine dati, un set di competenze e un indice. Questi tre componenti diventano parte di un [indicizzatore](search-indexer-overview.md) che riunisce tutti i dati in un'unica operazione in più fasi. Per unire questi elementi in un indicizzatore, è necessario definire mapping dei campi. I mapping dei campi fanno parte della definizione dell'indicizzatore ed eseguono le trasformazioni quando si invia la richiesta.
+Finora sono stati creati un'origine dati, un set di competenze e un indice. Questi tre componenti diventano parte di un [indicizzatore](search-indexer-overview.md) che riunisce tutti i dati in un'unica operazione in più fasi. Per unire questi elementi in un indicizzatore, è necessario definire mapping dei campi. 
 
-Per l'indicizzazione senza arricchimenti, la definizione dell'indicizzatore include una sezione facoltativa *fieldMappings* se i nomi dei campi o i tipi di dati non corrispondono esattamente o se si vuole usare una funzione.
++ Gli oggetti fieldMappings vengono elaborati prima del set di competenze, eseguendo il mapping dei campi di origine dall'origine dati ai campi di destinazione in un indice. Se i nomi e i tipi di campo sono uguali alle due estremità, non è necessario alcun mapping.
 
-Per i carichi di lavoro di ricerca cognitivi con una pipeline di arricchimento, l'indicizzatore richiede *outputFieldMappings*. Questi mapping vengono usati quando un processo interno (pipeline di arricchimento) è l'origine dei valori dei campi. I comportamenti univoci per *outputFieldMappings* includono la possibilità di gestire tipi complessi creati come parte dell'arricchimento (tramite la competenza shaper). Inoltre, possono essere presenti molti elementi per ogni documento (ad esempio, più organizzazioni in un documento). Il costrutto *outputFieldMappings* può indicare al sistema di rendere flat le raccolte di elementi in un singolo record.
++ Gli oggetti outputFieldMappings vengono elaborati dopo il set di competenze facendo riferimento agli oggetti sourceFieldNames che non esistono fino a quando non vengono creati dall'individuazione o dall'arricchimento dei documenti. L'oggetto targetFieldName è un campo in un indice.
+
+Oltre ad associare gli input agli output, è anche possibile usare i mapping dei campi per rendere flat le strutture dei dati. Per altre informazioni, vedere [Come eseguire il mapping dei campi migliorati a un indice ricercabile](cognitive-search-output-field-mapping.md).
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -378,7 +397,7 @@ Il completamento di questa operazione può richiedere alcuni minuti. Anche se il
 > [!TIP]
 > La creazione di un indicizzatore richiama la pipeline. Eventuali problemi a raggiungere i dati, per il mapping di input e output o nell'ordine delle operazioni vengono visualizzati in questa fase. Per eseguire di nuovo la pipeline con modifiche per codice o script, potrebbe essere necessario eliminare prima gli oggetti. Per altre informazioni, vedere [Reimpostare ed eseguire di nuovo](#reset).
 
-### <a name="explore-the-request-body"></a>Esplorare il corpo della richiesta
+#### <a name="explore-the-request-body"></a>Esplorare il corpo della richiesta
 
 Lo script imposta ```"maxFailedItems"``` su -1, che indica al motore di indicizzazione di ignorare gli errori durante l'importazione dei dati. Ciò è utile dato che l'origine dati di esempio include pochi documenti. Per un'origine dati più grande sarebbe necessario impostare un valore maggiore di 0.
 

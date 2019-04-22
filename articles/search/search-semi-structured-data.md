@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: indicizzazione di dati semistrutturati in BLOB JSON - Ricerca di Azure'
-description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con Ricerca di Azure e Postman.
+description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con le API REST Ricerca di Azure e Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471461"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525348"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Esercitazione: indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca di Azure
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Esercitazione REST: indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca di Azure
 
 Ricerca di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
 
@@ -39,7 +39,7 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 
 [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
 
-Per l'invio di richieste a Ricerca di Azure viene usata l'[app desktop Postman](https://www.getpostman.com/).
+L'[app desktop Postman](https://www.getpostman.com/) per inviare richieste a Ricerca di Azure.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contiene i dati usati in questa esercitazione. Scaricare e decomprimere il file nella propria cartella. I dati provengono da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) e sono stati convertiti in JSON per questa esercitazione.
 
@@ -59,9 +59,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
 
-1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. Dato che si useranno una chiave e un nome di account di archiviazione per la connessione, assicurarsi che il livello di accesso pubblico del contenitore sia impostato su "Contenitore (accesso in lettura anonimo per contenitori)".
-
-   ![Impostare il livello di accesso pubblico](media/search-semi-structured-data/container-public-access-level.png "Impostare il livello di accesso pubblico")
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
 
@@ -295,7 +293,7 @@ Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'el
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile collegare gli algoritmi di Servizi cognitivi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
+Esistono diversi approcci e più opzioni all'indicizzazione dei BLOB JSON. Nel passaggio successivo si esamineranno e testeranno le varie opzioni per determinare quale si adatta meglio al proprio scenario.
 
 > [!div class="nextstepaction"]
-> [Indicizzazione con intelligenza artificiale](cognitive-search-tutorial-blob.md)
+> [Come indicizzare i BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)

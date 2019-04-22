@@ -1,6 +1,6 @@
 ---
 title: Distribuzione di DBMS di macchine virtuali di Azure di IBM Db2 per carico di lavoro SAP | Microsoft Docs
-description: Distribuzione di DBMS di macchine virtuali di Azure di IBM Db2 per carico di lavoro SAP
+description: Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -17,13 +17,13 @@ ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496863"
 ---
-# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione di DBMS di macchine virtuali di Azure di IBM Db2 per carico di lavoro SAP
+# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -325,7 +325,7 @@ Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area copert
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
 | [1999351] |Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
 | [2178632] |Metriche chiave del monitoraggio per SAP in Microsoft Azure |
-| [1409604] |Virtualizzazione in Windows: monitoraggio avanzato |
+| [1409604] |Virtualizzazione in Windows: Enhanced Monitoring |
 | [2191498] |SAP in Linux con Azure: monitoraggio avanzato |
 | [2233094] |DB6: informazioni aggiuntive sulle applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows |
 | [2243692] |Linux in una macchina virtuale di Microsoft Azure (IaaS): problemi delle licenze SAP |

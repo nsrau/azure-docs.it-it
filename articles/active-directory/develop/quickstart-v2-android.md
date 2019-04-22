@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per Android di Azure AD v2 | Microsoft Docs
-description: Informazioni su come le applicazioni Android possono chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2.0
+title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app Android | Azure
+description: Informazioni su come le applicazioni Android possono chiamare un'API che richiede token di accesso generati dall'endpoint di Microsoft Identity Platform.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862761"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495312"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862761"
 
 Questa guida introduttiva contiene un esempio di codice che illustra come un'applicazione Android può concedere l'accesso ad account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Graph di Microsoft.
 
-![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-android/android-intro-updated.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Prerequisiti**
@@ -47,7 +47,7 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 > Per registrare l'app
-> 1. Passare alla [registrazione delle applicazioni (anteprima) nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
+> 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >
@@ -58,8 +58,9 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
+> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+> 1. Selezionare **Nuova registrazione**.
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `Android-Quickstart`.
 >      - Premere il pulsante `Register`.
 > 1. Passare a `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients` e selezionare l'URI di reindirizzamento nel formato **msal{AppId}://auth**. Salvare la modifica.
@@ -145,7 +146,7 @@ Leggere le sezioni seguenti per altre informazioni su questa guida introduttiva.
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Azure Active Directory (Azure AD). È possibile usare Gradle per l'installazione aggiungendo quanto segue in **Gradle Scripts** > **build.gradle (Module: app)** in **Dependencies**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. È possibile usare Gradle per l'installazione aggiungendo quanto segue in **Gradle Scripts** > **build.gradle (Module: app)** in **Dependencies**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ In MSAL sono disponibili due metodi per acquisire i token: `acquireToken` e `acq
 
 #### <a name="getting-a-user-token-interactively"></a>Acquisizione di un token utente in modo interattivo
 
-Alcune situazioni richiedono di forzare gli utenti a interagire con l'endpoint v2.0 di Azure AD, determinando un cambio di contesto per il browser del sistema per convalidare le credenziali dell'utente o per il consenso. Di seguito sono riportati alcuni esempi:
+In alcune situazioni è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform, determinando un cambio di contesto nel browser del sistema per convalidare le relative credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
 
 * La prima volta che gli utenti accedono all'applicazione
 * Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta

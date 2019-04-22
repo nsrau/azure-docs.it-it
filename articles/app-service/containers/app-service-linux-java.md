@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500465"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680877"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guida dello sviluppatore Java per il servizio app in Linux
 
@@ -28,9 +28,9 @@ Questa guida contiene i concetti chiave e le istruzioni per gli sviluppatori Jav
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
-È possibile usare il plug-in Maven per distribuire entrambi i tipi di file con estensione jar e war. Per altre informazioni sul plug-in Maven, vedere [questa documentazione](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable).
+È possibile usare [plug-in Maven per il servizio App di Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) per distribuire file con estensione jar sia con estensione WAR. La distribuzione con gli IDE più comuni è anche supportata con [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) oppure [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Se non si usa Maven, il metodo di distribuzione dipenderà dal tipo di archivio:
+In caso contrario, il metodo di distribuzione variano in base al tipo di archivio:
 
 - Per distribuire file con estensione war in Tomcat, usare l'endpoint `/api/wardeploy/` per eseguire il comando POST per il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Per distribuire file con estensione jar nelle immagini di Java SE, usare l'endpoint `/api/zipdeploy/` del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -79,11 +79,11 @@ Immagini predefinite Java si basano le [Alpine Linux](https://alpine-linux.readt
 
 ## <a name="customization-and-tuning"></a>Personalizzazione e ottimizzazione
 
-Il Servizio app di Azure per Linux supporta l'ottimizzazione e la personalizzazione predefinite tramite l'interfaccia della riga di comando e il portale di Azure. Per la configurazione delle app Web non specifiche di Java, vedere gli articoli seguenti:
+Servizio App di Azure per Linux supporta la casella di ottimizzazione e personalizzazione tramite il portale di Azure e della riga di comando. Per la configurazione delle app Web non specifiche di Java, vedere gli articoli seguenti:
 
-- [Configurare le impostazioni del servizio App](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configurare un dominio personalizzato](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Abilita SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare le impostazioni del servizio app](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare un nome di dominio](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Abilitare SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Aggiungere una rete CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurare il sito Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
@@ -93,7 +93,7 @@ Per impostare la memoria allocata o ad altre opzioni di runtime JVM negli ambien
 
 Nel portale di Azure, sotto **Impostazioni applicazione** per l'app Web creare una nuova impostazione dell'app denominata `JAVA_OPTS` che includa le impostazioni aggiuntive, ad esempio `-Xms512m -Xmx1204m`.
 
-Per configurare l'impostazione dell'app dal plug-in Maven, aggiungere i tag/valore dell'impostazione della sezione plug-in Azure. L'esempio seguente imposta le dimensioni heap Java specifiche minime e massime:
+Per configurare l'impostazione dell'app dal plug-in Maven, aggiungere i tag/valore dell'impostazione della sezione plug-in Azure. L'esempio seguente imposta una specifiche minime e massime dimensioni dell'heap Java:
 
 ```xml
 <appSettings>
@@ -156,7 +156,7 @@ Le applicazioni Java in esecuzione nel servizio app per Linux hanno lo stesso se
 
 ### <a name="authenticate-users"></a>Autenticare gli utenti
 
-Configurare l'autenticazione dell'app nel portale di Azure con l'opzione **Authentication and Authorization** (Autenticazione e autorizzazione), che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione.  Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) e gli articoli correlati per gli altri provider di identità.
+Configurare l'autenticazione di app nel portale di Azure con il **autenticazione e autorizzazione** opzione. che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione.  Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) e gli articoli correlati per gli altri provider di identità.
 
 Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
 
@@ -182,9 +182,9 @@ Queste istruzioni si applicano a tutte le connessioni di database. È necessario
 
 | Database   | Nome della classe del driver                             | Driver JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Scaricare](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Scaricare](https://dev.mysql.com/downloads/connector/j/) (selezionare "Indipendente dalla piattaforma") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Scaricare](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Per configurare Tomcat per l'uso di Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalizzare prima la variabile di ambiente `CATALINA_OPTS` letta da Tomcat all'avvio. Impostare questi valori tramite un'impostazione app nel [plug-in Maven del servizio app](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 

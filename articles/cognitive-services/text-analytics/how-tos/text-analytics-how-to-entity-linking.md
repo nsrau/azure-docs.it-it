@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505576"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
@@ -96,7 +96,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Collegamento entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Impostare l'endpoint HTTP per l'estrazione di entità. Deve includere il `/entities` risorsa: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Impostare l'endpoint HTTP per l'estrazione di entità. È necessario includere la risorsa `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
@@ -288,8 +288,8 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il colle
 ## <a name="see-also"></a>Vedere anche  
 
  [Panoramica di Analisi del testo](../overview.md)  
- [Domande frequenti](../text-analytics-resource-faq.md)</br>
- [Pagina del prodotto Analitica testo](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Pagina del prodotto Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

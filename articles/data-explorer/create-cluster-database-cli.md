@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 1fb9027ab3301bb860d260aed737ab7674039d9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043973"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524719"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure
 
@@ -32,7 +32,7 @@ Per completare questa guida introduttiva è necessaria una sottoscrizione di Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per controllare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per controllare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Configurare i parametri dell'interfaccia della riga di comando
 
@@ -79,7 +79,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
 1. Creare il database tramite il comando seguente:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
@@ -87,8 +87,8 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    | cluster-name | *azureclitest* | Nome del cluster in cui verrà creato il database.|
    | name | *clidatabase* | Nome del database.|
    | resource-group | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
-   | soft-delete-period | *3650:00:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
-   | hot-cache-period | *3650:00:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |
+   | soft-delete-period | *P365D* | Indica il periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. Per altre informazioni, vedere [Criteri di conservazione](/azure/kusto/concepts/retentionpolicy). |
+   | hot-cache-period | *P31D* | Indica il periodo di tempo in cui i dati verranno conservati nella cache. Per altre informazioni, vedere [Criteri della cache](/azure/kusto/concepts/cachepolicy). |
 
 1. Eseguire il comando seguente per vedere il database creato:
 

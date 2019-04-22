@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493026"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento sulle parti della visualizzazione Progettazione viste in Monitoraggio di Azure
@@ -41,7 +41,7 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 | [Informazioni](#information-part) |L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici. |
 | [Grafico a linee, callout ed elenco](#line-chart-callout-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Grafico a linee ed elenco](#line-chart-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Stack dei grafici a linee](#stack-of-line-charts-part) |Visualizza tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo. |
+| [Parte relativa allo stack dei grafici a linee](#stack-of-line-charts-part) |Visualizza tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo. |
 
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
@@ -76,7 +76,7 @@ L'intestazione presenta un singolo numero che visualizza il numero di record res
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
-| **Title** | |
+| **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
@@ -88,9 +88,9 @@ L'intestazione presenta un singolo numero che visualizza il numero di record res
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Parte relativa a Due numeri ed elenco
@@ -107,7 +107,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Navigazione nel titolo** | |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
-| **Title** | |
+| **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | **Elenco** | |
@@ -119,9 +119,9 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Parte relativa a Grafico ad anello ed elenco
@@ -142,13 +142,13 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | **Anello** | |
 | Query |Query da eseguire per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
-| **Anello** |**> Center** |
+| **Anello** |**> Centro** |
 | Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: aggiunge i valori di tutti i record.</li><li>Percentuale: rapporto tra i record restituiti in base ai valori in **Valori dei risultati usati nell'operazione relativa al centro** e il totale dei record nella query.</li></ul> |
 | I valori dei risultati usati nell'operazione centrale |Facoltativamente, fare clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
-| **Opzioni aggiuntive** |**> I colori** |
+| **Opzioni aggiuntive** |**&gt; Colors** (Colori) |
 | Colore 1<br>Colore 2<br>Colore 3 |Selezionare il colore per ognuno dei valori visualizzati nel grafico ad anello. |
-| **Opzioni aggiuntive** |**> Mapping dei colori avanzate** |
+| **Opzioni aggiuntive** |**> Mappa colori avanzata** |
 | Valore campo |Digitare il nome di un campo da visualizzare con un colore diverso, se incluso nell'anello. |
 | Colore |Selezionare il colore da assegnare al campo univoco. |
 | **Elenco** | |
@@ -160,9 +160,9 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Parte relativa a Due sequenze temporali ed elenco
@@ -192,9 +192,9 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="information-part"></a>Parte relativa alle informazioni
@@ -211,7 +211,7 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | **Intestazione** | |
 | Image |File di immagine che viene visualizzato nell'intestazione. |
 | Etichetta |Testo che viene visualizzato nell'intestazione. |
-| **Intestazione** |**> Collegamento** |
+| **Intestazione** |**&gt; Collegamento** |
 | Etichetta |Testo del collegamento. |
 | Url |URL del collegamento. |
 | **Elementi informazioni** | |
@@ -240,7 +240,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Titolo del callout |Testo che viene visualizzato sopra il valore del callout. |
 | Nome della serie |Il valore della proprietà per la serie da usare per il valore di callout. Se non viene fornita alcuna serie, vengono usati tutti i record prodotti dalla query. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li><li>Min: valore minimo derivante dagli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori da tutti i record.</li></ul> |
-| **Grafico a linee** |**> Asse y** |
+| **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
 | Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
@@ -253,9 +253,9 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Parte relativa a Grafico a linee ed elenco
@@ -276,7 +276,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
-| **Grafico a linee** |**> Asse y** |
+| **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
 | Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
@@ -289,9 +289,9 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Attività |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
-| **Elenco** |**> Le soglie** |
+| **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Stack dei grafici a linee
@@ -305,13 +305,13 @@ Lo stack presenta tre grafici a linee separati con più serie provenienti da una
 | Titolo gruppo |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
-| **Grafico 1<br>Grafico 2<br>Grafico 3** |**> Intestazione** |
+| **Grafico 1<br>Grafico 2<br>Grafico 3** |**&gt; Header** (Intestazione) |
 | Title |Testo che viene visualizzato nella parte superiore del grafico. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore del grafico. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**Grafico a linee** |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
-| **Grafico** |**> Asse y** |
+| **Grafico** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
 | Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
@@ -359,7 +359,7 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | Abilitare le soglie |Selezionare questo collegamento per visualizzare un'icona colorata a sinistra di ogni valore. L'icona indica l'integrità del valore in relazione alle soglie specificate. |
-| Attività |Nome del valore di soglia. |
+| NOME |Nome del valore di soglia. |
 | Soglia |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
 | Colore |Colore che indica il valore di soglia. |
 

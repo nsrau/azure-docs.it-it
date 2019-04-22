@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497067"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
@@ -97,7 +97,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Attività       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
@@ -105,7 +105,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Attività       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
 |mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
@@ -122,7 +122,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|Attività|Prefisso indirizzo|Hop successivo|
+|NOME|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Rete virtuale|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

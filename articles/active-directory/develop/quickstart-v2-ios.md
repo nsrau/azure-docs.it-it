@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Azure AD v2 per iOS | Microsoft Docs
+title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app iOS | Azure
 description: Informazioni su come effettuare l'accesso degli utenti ed eseguire una query Microsoft Graph in un'applicazione nativa iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439263"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496130"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app nativa iOS
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439263"
 
 Questa guida introduttiva contiene un esempio di codice che illustra come un'applicazione nativa iOS può eseguire l'accesso di account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
-![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-ios/ios-intro-updated.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registrazione e download
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |Dove: ||
 > |---------|---------|
 > | `clientId` | ID dell'applicazione registrata in *portal.azure.com* |
-> | `authority` | Endpoint di Azure AD v2.0 Nella maggior parte dei casi sarà *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Endpoint di Microsoft Identity Platform. Nella maggior parte dei casi sarà *https<span/>://login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>Richiesta di token
 
@@ -155,7 +155,7 @@ La libreria MSAL dispone di due metodi per acquisire i token: `acquireToken` e `
 
 #### <a name="getting-an-access-token-interactively"></a>Acquisizione di un token di accesso in modo interattivo
 
-In alcune situazioni è necessario indurre gli utenti a interagire con l'endpoint di Azure AD v2.0, determinando così un cambio di contesto nel browser del sistema per convalidare le credenziali dell'utente o per ottenere il consenso. Di seguito sono riportati alcuni esempi:
+In alcune situazioni è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform, determinando un cambio di contesto nel browser del sistema per convalidare le relative credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
 
 * La prima volta che gli utenti accedono all'applicazione
 * Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta
@@ -190,6 +190,6 @@ Provare l'esercitazione per iOS per una guida dettagliata completa sulla creazio
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Informazioni sulla procedura per creare l'applicazione usata in questa guida introduttiva
 
 > [!div class="nextstepaction"]
-> [Chiamare l'API Microsoft Graph da un'applicazione iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Esercitazione su come chiamare l'API Graph da iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

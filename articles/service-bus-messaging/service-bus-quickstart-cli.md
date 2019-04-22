@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076888"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500635"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
-
-Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi (non è necessario che le applicazioni siano online contemporaneamente), il trasferimento delle modifiche apportate ai dati o allo stato e l'invio di messaggi tra le applicazioni. 
-
-Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo caso l'app client invia e riceve messaggi verso e da una coda del bus di servizio:
-
-![coda](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 Questa guida introduttiva descrive come inviare e ricevere messaggi con il bus di servizio, usando l'interfaccia della riga di comando di Azure e la libreria Java del bus di servizio. Per dettagli più tecnici, è [vedere la spiegazione](#understand-the-sample-code) degli elementi chiave del codice di esempio.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][] prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
+Se si usa il pulsante **Prova** per avviare Cloud Shell, accedere ad Azure con le proprie credenziali. 
 
-Fare clic sul pulsante Cloud Shell del menu nell'angolo in alto a destra del portale di Azure e nell'elenco a discesa **Seleziona ambiente** selezionare **Bash**. 
+Se Cloud Shell è stato avviato nel Web browser direttamente oppure nel portale di Azure, passare a **Bash** se in alto a sinistra di Cloud Shell è visualizzato **PowerShell**. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Usare l'interfaccia della riga di comando di Azure per creare risorse
-
-In Cloud Shell, dal prompt di Bash eseguire i comandi seguenti per il provisioning delle risorse del bus di servizio. Assicurarsi di sostituire tutti i segnaposto con i valori appropriati: Il programma di esempio Java prevede che il nome della coda sia BasicQueue, pertanto questo nome non deve essere cambiato. 
+In Cloud Shell, dal prompt di Bash eseguire i comandi seguenti per il provisioning delle risorse del bus di servizio. Assicurarsi di sostituire tutti i segnaposto con i valori appropriati: Il programma di esempio Java prevede che il nome della coda sia BasicQueue, pertanto questo nome non deve essere cambiato. Può essere opportuno copiare/incollare i comandi uno alla volta per poter sostituire i valori prima di eseguirli. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,10 +369,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e altre risorse necessarie per inviare e ricevere messaggi da una coda. Per altre informazioni sulla scrittura di codice per inviare e ricevere messaggi, continuare per l'esercitazione seguente per il bus di servizio:
+In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e altre risorse necessarie per inviare e ricevere messaggi da una coda. Per altre informazioni sulla scrittura di codice per inviare e ricevere messaggi, procedere alle esercitazioni nella sezione **Inviare e ricevere messaggi**. 
 
 > [!div class="nextstepaction"]
-> [Aggiornare l'inventario con l'interfaccia della riga di comando di Azure e Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Inviare e ricevere messaggi](service-bus-dotnet-get-started-with-queues.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva di Windows Desktop per Azure AD v2 | Microsoft Docs
-description: Informazioni su come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Azure Active Directory v2.0
+title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app Windows Desktop | Microsoft Docs
+description: Informazioni su come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84564f4a230b402a56a29920cac90a0403cc5c7a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793423"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520758"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -30,7 +30,7 @@ ms.locfileid: "58793423"
 
 Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (WPF) di Windows che potrà consentire l'accesso ad account personali, aziendali e dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
-![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-windows-desktop/windesktop-intro-updated.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -40,7 +40,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Passare alla [registrazione delle applicazioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >
@@ -51,8 +51,8 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
+> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+> 1. Selezionare **Nuova registrazione**.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `Win-App-calling-MsGraph`.
 >      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
 >      - Selezionare **Registra** per creare l'applicazione.
@@ -71,7 +71,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
-[Scaricare il progetto di Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)
+[Scaricare il progetto di Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
@@ -99,10 +99,10 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Azure Active Directory (Azure AD). È possibile installare MSAL eseguendo questo comando in **Console di Gestione pacchetti** in Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. È possibile installare MSAL eseguendo questo comando in **Console di Gestione pacchetti** in Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="msal-initialization"></a>Inizializzazione della libreria MSAL
@@ -116,7 +116,10 @@ using Microsoft.Identity.Client;
 Inizializzare quindi la libreria MSAL usando il codice seguente:
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .Build();
 ```
 
 > |Dove: ||
@@ -125,11 +128,11 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### <a name="requesting-tokens"></a>Richiesta di token
 
-In MSAL sono disponibili due metodi per acquisire i token: `AcquireTokenAsync` e `AcquireTokenSilentAsync`.
+In MSAL sono disponibili due metodi per acquisire i token: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-In alcune situazioni è necessario imporre agli utenti di interagire con l'endpoint di Azure AD v2.0 tramite una finestra popup per convalidare le credenziali o concedere il consenso. Di seguito sono riportati alcuni esempi:
+In alcune situazioni è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform tramite una finestra popup per convalidare le relative credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
 
 - La prima volta che gli utenti accedono all'applicazione
 - Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta
@@ -137,7 +140,8 @@ In alcune situazioni è necessario imporre agli utenti di interagire con l'endpo
 - Quando è necessaria l'autenticazione a due fattori
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
+                                      .ExecuteAsync();
 ```
 
 > |Dove:||
@@ -146,17 +150,19 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
-Non si desidera richiedere all'utente di convalidare le proprie credenziali ogni volta che deve accedere a una risorsa. La maggior parte delle volte si desidera che le acquisizioni e i rinnovi dei token avvengano senza alcuna interazione da parte dell'utente. È possibile usare il metodo `AcquireTokenSilentAsync` per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenAsync` iniziale:
+Non si desidera richiedere all'utente di convalidare le proprie credenziali ogni volta che deve accedere a una risorsa. La maggior parte delle volte si desidera che le acquisizioni e i rinnovi dei token avvengano senza alcuna interazione da parte dell'utente. È possibile usare il metodo `AcquireTokenSilentAsync` per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenInteractive` iniziale:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |Dove: ||
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ad esempio `{ "user.read" }` per Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` per le API Web personalizzate. |
-> | `accounts.FirstOrDefault()` | Specifica il primo utente nella cache (MSAL supporta più utenti in una singola app). |
+> | `firstAccount` | Specifica il primo utente nella cache (MSAL supporta più utenti in una singola app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

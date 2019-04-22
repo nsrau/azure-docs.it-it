@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549426"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528294"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
 
-Questa guida di avvio rapido illustra come usare il portale di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una semplice configurazione con un IP front-end pubblico, un listener di base che ospita un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di gestione delle richieste di base.
+Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una configurazione semplice con un indirizzo IP pubblico front-end, un listener di base per ospitare un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di routing delle richieste di base.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -25,7 +25,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="azure-powershell-module"></a>Modulo di Azure PowerShell
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire **az --version**. Per informazioni sull'installazione o sull'aggiornamento, vedere [Installare l'interfaccia da riga di comando di Azure]( /cli/azure/install-azure-cli).
 

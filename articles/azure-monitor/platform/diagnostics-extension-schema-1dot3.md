@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497084"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.3 e versioni successive
@@ -408,7 +408,7 @@ PublicConfig e PrivateConfig sono separati perché vengono passati come variabil
 
 
 ## <a name="diagnosticsconfiguration-element"></a>Elemento DiagnosticsConfiguration  
- *Albero: Radice - DiagnosticsConfiguration*
+ *Albero: radice - DiagnosticsConfiguration*
 
 Aggiunto nella versione 1.3.  
 
@@ -425,7 +425,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**IsEnabled**|Booleano. Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig*
 
  Descrive la configurazione della diagnostica pubblica.  
 
@@ -433,17 +433,17 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**WadCfg**|Richiesto. Vedere la descrizione altrove in questa pagina.|  
 |**StorageAccount**|Nome dell'account di archiviazione di Azure in cui archiviare i dati. Può anche essere specificato come parametro quando si esegue il cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**StorageType**|Può essere *Table*, *Blob* o *TableAndBlob*. Table è il valore predefinito. Quando si sceglie TableAndBlob, i dati di diagnostica vengono scritti due volte, una volta per ogni tipo.|  
-|**LocalResourceDirectory**|Directory nella macchina virtuale in cui l'agente di monitoraggio archivia i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo web/di lavoro: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> - **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
+|**Tipo di archiviazione**|Può essere *Table*, *Blob* o *TableAndBlob*. Table è il valore predefinito. Quando si sceglie TableAndBlob, i dati di diagnostica vengono scritti due volte, una volta per ogni tipo.|  
+|**LocalResourceDirectory**|Directory nella macchina virtuale in cui l'agente di monitoraggio archivia i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo di lavoro/Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> - **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  Identifica e configura i dati di telemetria da raccogliere.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  Obbligatorio
 
@@ -460,7 +460,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumps**|Vedere la descrizione altrove in questa pagina.|  
 |**DiagnosticInfrastructureLogs**|Abilita la raccolta dei log generati da Diagnostica di Azure. I log dell'infrastruttura di diagnostica sono utili per la risoluzione dei problemi del sistema di diagnostica stesso. Gli attributi facoltativi sono i seguenti:<br /><br /> - **scheduledTransferLogLevelFilter**: consente di configurare il livello di gravità minimo dei log raccolti.<br /><br /> - **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
-|**Directory**|Vedere la descrizione altrove in questa pagina.|  
+|**Directories**|Vedere la descrizione altrove in questa pagina.|  
 |**EtwProviders**|Vedere la descrizione altrove in questa pagina.|  
 |**Metriche**|Vedere la descrizione altrove in questa pagina.|  
 |**PerformanceCounters**|Vedere la descrizione altrove in questa pagina.|  
@@ -470,7 +470,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
 
  Abilitare la raccolta di dump di arresto anomalo del sistema.  
 
@@ -485,7 +485,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**CrashDumpConfiguration**|Richiesto. Definisce i valori di configurazione di ogni processo.<br /><br /> Anche l'attributo seguente è obbligatorio:<br /><br /> **processName**: nome del processo per il quale Diagnostica di Azure dovrà raccogliere un dump di arresto anomalo del sistema.|  
 
 ## <a name="directories-element"></a>Elemento Directories
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
 
  Abilita la raccolta del contenuto di una directory, dei log delle richieste di accesso IIS non riuscite e/o dei log IIS.  
 
@@ -501,7 +501,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="datasources-element"></a>Elemento DataSources  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
 
  Elenco di directory da monitorare.  
 
@@ -514,19 +514,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
  Può includere l'elemento **Absolute** o **LocalResource**, ma non entrambi.  
 
 |Elementi figlio|DESCRIZIONE|  
 |--------------------|-----------------|  
-|**Assoluto**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> - **Path**: percorso assoluto della directory da monitorare.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
+|**Absolute**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> - **Path**: percorso assoluto della directory da monitorare.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
 |**LocalResource**|Percorso relativo di una risorsa locale da monitorare. Gli attributi obbligatori sono i seguenti:<br /><br /> - **Name**: nome della risorsa locale che contiene la directory da monitorare<br /><br /> - **relativePath**: percorso relativo del nome che contiene la directory da monitorare|  
 
 
 
 ## <a name="etwproviders-element"></a>Elemento EtwProviders  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
 
  Configura la raccolta di eventi ETW da EventSource e/o da provider basati su manifesti ETW.  
 
@@ -538,7 +538,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwEventSourceProviderConfiguration*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  Configura la raccolta di eventi generati dalla [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
@@ -550,7 +550,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Elementi figlio|DESCRIZIONE|  
 |--------------------|-----------------|  
@@ -560,7 +560,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="metrics-element"></a>Elemento Metrics  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  Consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni.  
 
@@ -573,7 +573,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
 
  Abilita la raccolta dei contatori delle prestazioni.  
 
@@ -590,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
  Abilita la raccolta dei log eventi di Windows.  
 
@@ -604,7 +604,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Elemento Logs  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  Presente nella versione 1.0 e 1.1. Assente nella versione 1.2. Aggiunto nuovamente nella versione 1.3.  
 
@@ -613,21 +613,21 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|**stringa**|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferLogLevelFilter**|**string**|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
 |**scheduledTransferPeriod**|**duration**|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
-|**sinks** |**stringa**| Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
+|**sinks** |**string**| Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  Elementi aggiunti nella versione 1.9.
 
 |Nome dell'elemento|DESCRIZIONE|  
 |------------------|-----------------|  
-|**Statistiche**|Indica al sistema di raccogliere statistiche per i contenitori Docker|  
+|**Stats**|Indica al sistema di raccogliere statistiche per i contenitori Docker|  
 
 ## <a name="sinksconfig-element"></a>Elemento SinksConfig  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  Elenco di posizioni a cui inviare i dati di diagnostica e la configurazione associata a tali posizioni.  
 
@@ -636,7 +636,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Sink**|Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="sink-element"></a>Elemento Sink
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  Aggiunto nella versione 1.5.  
 
@@ -644,15 +644,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributo|Type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**name**|stringa|Stringa che identifica il nome del sink.|  
+|**nome**|stringa|Stringa che identifica il nome del sink.|  
 
 |Elemento|Type|DESCRIZIONE|  
 |-------------|----------|-----------------|  
 |**Application Insights**|stringa|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
-|**Canali**|stringa|Uno per ogni filtro aggiuntivo per i flussi|  
+|**Channels**|stringa|Uno per ogni filtro aggiuntivo per i flussi|  
 
 ## <a name="channels-element"></a>Elemento Channels  
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  Aggiunto nella versione 1.5.  
 
@@ -660,10 +660,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento|Type|DESCRIZIONE|  
 |-------------|----------|-----------------|  
-|**Canale**|stringa|Vedere la descrizione altrove in questa pagina.|  
+|**Channel**|stringa|Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="channel-element"></a>Elemento Channel
- *Albero: Radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+ *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
 
  Aggiunto nella versione 1.5.  
 
@@ -671,12 +671,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributi|Type|DESCRIZIONE|  
 |----------------|----------|-----------------|  
-|**logLevel**|**stringa**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**name**|**stringa**|Nome univoco per fare riferimento al canale|  
+|**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**nome**|**string**|Nome univoco per fare riferimento al canale|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig
- *Albero: Radice - DiagnosticsConfiguration - PrivateConfig*
+ *Albero: radice - DiagnosticsConfiguration - PrivateConfig*
 
  Aggiunto nella versione 1.3.  
 
@@ -690,7 +690,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
- *Albero: Radice - DiagnosticsConfiguration - IsEnabled*
+ *Albero: radice - DiagnosticsConfiguration - IsEnabled*
 
  Booleano. Usare `true` per abilitare la diagnostica o `false` per disabilitarla.
 

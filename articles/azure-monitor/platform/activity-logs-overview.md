@@ -9,10 +9,10 @@ ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496880"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
@@ -48,7 +48,7 @@ Il log attività contiene diverse categorie di dati. Per informazioni dettagliat
 
 ## <a name="event-schema-per-category"></a>Schema di eventi per categoria
 
-[Vedere questo articolo per comprendere lo schema di eventi del Log attività per categoria.](../../azure-monitor/platform/activity-log-schema.md)
+[Vedere questo articolo per comprendere lo schema di eventi del log attività per categoria.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Che cosa si può fare con il log attività
 
@@ -58,7 +58,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 
 
 * Eseguire query e visualizzarlo nel **portale di Azure**.
-* [Creare un avviso per un evento del Log attività.](../../azure-monitor/platform/activity-log-alerts.md)
+* [Creare un avviso per un evento del log attività](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream per un' **Hub eventi** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione analitica personalizzata come Power BI.
 * Analizzarlo in Power BI usando il [ **pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvarlo in un **account di archiviazione** per fini di archiviazione o di ispezione manuale](../../azure-monitor/platform/archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni usando il **profilo di log**.
@@ -92,7 +92,7 @@ Per eseguire operazioni più avanzate è possibile fare clic sull'icona **Log**,
 Un **profilo di log** controlla la modalità di esportazione del log attività. Un profilo di log permette di configurare quanto segue:
 
 * Destinazione del log attività, ad esempio un account di archiviazione o un hub eventi.
-* Categorie di eventi da inviare (scrittura, eliminazione o azione). *Il significato di "categoria" nei profili di Log e gli eventi del Log attività è diverso. Nel profilo del log, la "Categoria" rappresenta il tipo di operazione (scrittura, eliminazione, azione). In un evento del Log attività, la proprietà "category" rappresenta l'origine o un tipo di evento (ad esempio, amministrazione, ServiceHealth, avviso e altro ancora).*
+* Categorie di eventi da inviare (scrittura, eliminazione o azione). *Il significato di "categoria" nei profili del log è diverso da quello negli eventi del log attività. Nel profilo del log, la "Categoria" rappresenta il tipo di operazione (scrittura, eliminazione, azione). In un evento del log attività, la proprietà "categoria" rappresenta l'origine o il tipo di evento (ad esempio, amministrazione, ServiceHealth, avviso e altro).*
 * Aree o località da esportare. Assicurarsi di includere "global", perché molti eventi del log attività sono eventi globali.
 * Per quanto tempo il log attività deve essere mantenuto nell'account di archiviazione.
     - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. In caso contrario, il valore può essere qualsiasi numero di giorni compreso tra 1 e 365.
@@ -183,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>Fasi successive
 
-* [Altre informazioni sul Log attività (noto in precedenza come log di controllo)](../../azure-resource-manager/resource-group-audit.md)
+* [Altre informazioni sul log attività (in precedenza, log di controllo)](../../azure-resource-manager/resource-group-audit.md)
 * [Trasmettere il log attività di Azure a Hub eventi](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

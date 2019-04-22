@@ -5,7 +5,7 @@ keywords: Servizio app di Azure, app Web, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278514"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543894"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Creare un'app ASP.NET Core nel Servizio app in Linux
 
@@ -148,7 +148,7 @@ Il codice di esempio .NET Core è in esecuzione nel servizio app in Linux con un
 
 ![App di esempio in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Congratulazioni!** La distribuzione della prima app .NET Core nel Servizio app in Linux è stata completata.
+**Congratulazioni** La distribuzione della prima app .NET Core nel Servizio app in Linux è stata completata.
 
 ## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 
@@ -188,4 +188,7 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Compilare un'app .NET Core e database SQL nel servizio app di Azure in Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Esercitazione: App ASP.NET Core con database SQL](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurare l'app ASP.NET Core](configure-language-dotnetcore.md)

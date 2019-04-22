@@ -1,6 +1,6 @@
 ---
 title: Proteggere un database singolo o in pool in Database SQL di Azure | Microsoft Docs
-description: Informazioni sulle tecniche e le funzionalità per proteggere un database singolo o in pool in Database SQL di Azure.
+description: Esercitazione che illustra le tecniche e le funzionalità per proteggere un database singolo o in pool in Database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893272"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496438"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
+
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> - Creare regole del firewall a livello di server e di database
+> - Configurare un amministratore di Azure Active Directory (AD)
+> - Gestire l'accesso degli utenti con l'autenticazione SQL, l'autenticazione di Azure AD e le stringhe di connessione sicure
+> - Abilitare funzionalità di sicurezza come la sicurezza dei dati avanzata, il controllo, la maschera dati e la crittografia
 
 Database SQL di Azure protegge i dati in un database singolo o in pool consentendo di:
 
@@ -28,14 +37,6 @@ Database SQL di Azure protegge i dati in un database singolo o in pool consenten
 
 > [!NOTE]
 > Per proteggere un database SQL di Azure in un'istanza gestita si usano regole di sicurezza di rete ed endpoint privati come descritto in [Istanza gestita di database SQL di Azure](sql-database-managed-instance-index.yml) e in [Architettura della connettività di Istanza gestita di database SQL di Azure](sql-database-managed-instance-connectivity-architecture.md).
-
-Con pochi semplici passaggi, è possibile migliorare la sicurezza del database. In questa esercitazione si apprenderà come:
-
-> [!div class="checklist"]
-> - Creare regole del firewall a livello di server e di database
-> - Configurare un amministratore di Azure Active Directory (AD)
-> - Gestire l'accesso degli utenti con l'autenticazione SQL, l'autenticazione di Azure AD e le stringhe di connessione sicure
-> - Abilitare funzionalità di sicurezza come la sicurezza dei dati avanzata, il controllo, la maschera dati e la crittografia
 
 Per altre informazioni, vedere gli articoli [Database SQL di Azure - Sicurezza avanzata](/azure/sql-database/sql-database-security-index) e [Panoramica della funzionalità di sicurezza del database SQL di Azure](sql-database-security-overview.md).
 

@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501596"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Piattaforma delle identità Microsoft e il flusso di OAuth 2.0 On-Behalf-Of
@@ -227,4 +227,4 @@ Altre informazioni sul protocollo OAuth 2.0 e su un altro modo per eseguire l'au
 
 * [Concessione delle credenziali client di OAuth 2.0 nella piattaforma delle identità Microsoft](v2-oauth2-client-creds-grant-flow.md)
 * [Flusso del codice OAuth 2.0 nella piattaforma delle identità Microsoft](v2-oauth2-auth-code-flow.md)
-* [Uso di `/.default` ambito](v2-permissions-and-consent.md#the-default-scope)
+* [Uso dell'ambito `/.default`](v2-permissions-and-consent.md#the-default-scope)

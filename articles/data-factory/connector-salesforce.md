@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578476"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680707"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ In particolare, il connettore Salesforce supporta:
 - Le edizioni Developer, Professional, Enterprise o Unlimited di Salesforce.
 - La copia di dati da e nell'ambiente di produzione, nella sandbox e nel dominio personalizzato di Salesforce.
 
-Il connettore Salesforce è basato sull'API REST di Salesforce, con [v39](https://developer.salesforce.com/docs/atlas.en-us.206.0.api_rest.meta/api_rest/resources_list.htm) come origine della copia dei dati e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) come destinazione della copia dei dati.
+Il connettore Salesforce si basa l'API REST di Salesforce con [R45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare dati da e [R40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -186,7 +186,7 @@ Per copiare dati da Salesforce, impostare il tipo di origine nell'attività di c
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SalesforceSource**. | Sì |
 | query |Usare la query personalizzata per leggere i dati. È possibile usare una query SQL-92 o una query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Vedere altri suggerimenti nella sezione [Suggerimenti di query](#query-tips). Se la proprietà query non viene specificata, tutti i dati dell'oggetto Salesforce specificato in "objectApiName" nel set di dati verranno recuperati. | No (se "objectApiName" è specificato nel set di dati) |
-| readBehavior | Indica se eseguire query sui record esistenti o su tutti i record inclusi quelli eliminati. Se non specificato, il comportamento predefinito è quello indicato per primo. <br>Valori consentiti: **query** (predefinito), **queryAll**.  | N. |
+| readBehavior | Indica se eseguire query sui record esistenti o su tutti i record inclusi quelli eliminati. Se non specificato, il comportamento predefinito è quello indicato per primo. <br>Valori consentiti: **query** (predefinito), **queryAll**.  | No  |
 
 > [!IMPORTANT]
 > La parte "__c" del**nome dell'API** è necessaria per qualsiasi oggetto personalizzato.
@@ -295,8 +295,8 @@ Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. S
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
-| Ridenominazione delle colonne | Non supportato. | Supportata, ad es. `SELECT a AS b FROM …`. |
-| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportato. |
+| Ridenominazione delle colonne | Non supportati. | Supportata, ad es. `SELECT a AS b FROM …`. |
+| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportati. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
@@ -317,15 +317,15 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 |:--- |:--- |
 | Numero automatico |string |
 | Casella di controllo |boolean |
-| Valuta |Decimale |
+| Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
 | Email |string |
 | ID |string |
 | Relazione di ricerca |string |
 | Elenco a discesa seleziona multipla |string |
-| Numero |Decimale |
-| Percentuale |Decimale |
+| Number |Decimal |
+| Percentuale |Decimal |
 | Telefono |string |
 | Elenco a discesa |string |
 | Text |string |

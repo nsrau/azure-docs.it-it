@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495977"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
@@ -88,5 +88,5 @@ La creazione di Cosmos DB come output nell'analisi di flusso genera una richiest
 |Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
 |Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
 |Database        | Nome del database Azure Cosmos DB.|
-|Modello nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio valido di input - una raccolta denominata `MyCollection` deve esistere.  |
+|Modello nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio di input valido. Una raccolta denominata `MyCollection` deve essere presente.  |
 |Document ID     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.|

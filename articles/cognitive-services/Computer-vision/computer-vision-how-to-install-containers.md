@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520650"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679602"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -34,7 +34,7 @@ Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare 
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa di richiesta di riconoscimento del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di [_Riconoscimento del testo_](vision-api-how-to-topics/howtosubscribe.md) di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di Riconoscimento del testo nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Oggetto _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `vision/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
@@ -91,8 +91,10 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 | Placeholder | Valore |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina delle chiavi di Riconoscimento del testo del portale di Azure.  |
-|{BILLING_ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione.|
+|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile in Azure `Cognitive Services` pagina chiavi.  |
+|{BILLING_ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione. L'esempio è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+È necessario aggiungere il `vision/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI.
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 

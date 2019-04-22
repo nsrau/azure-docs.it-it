@@ -2,16 +2,17 @@
 title: 'Continuità aziendale e ripristino di emergenza (BCDR): Aree abbinate di Azure | Microsoft Docs'
 description: Informazioni sulle coppie di aree di Azure per assicurare la resilienza delle applicazioni in caso di errori del data center.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792320"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678871"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza (BCDR): Aree abbinate di Azure
 
@@ -37,6 +38,7 @@ Figura 1: coppie di aree di Azure
 | Europa |Europa settentrionale |Europa occidentale |
 | Francia |Francia centrale|Francia meridionale|
 | Germania |Germania centrale |Germania nord-orientale |
+| Germania |Germania settentrionale | Germania centro-occidentale
 | India |India centrale |India meridionale |
 | India |India occidentale |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
@@ -45,7 +47,14 @@ Figura 1: coppie di aree di Azure
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali 
+| America del Nord |Stati Uniti occidentali 3 |Stati Uniti orientali
+| Norvegia |Norvegia orientale |Norvegia occidentale
+| Sud Africa | Sudafrica settentrionale | Sudafrica occidentale
+| Svezia |Svezia centrale |Svezia meridionale
+| Svizzera | Svizzera settentrionale | Svizzera occidentale
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
+| Regno Unito |Regno Unito settentrionale |Regno Unito meridionale 2
+| Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti Center
 | Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
 | Governo degli Stati Uniti |US Gov Arizona |US Gov Texas |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
@@ -53,10 +62,11 @@ Figura 1: coppie di aree di Azure
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
-- L'area India occidentale è diversa perché è abbinata a un'altra area in una sola direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.
-- L'area Brasile meridionale è unica perché è abbinata a un'area esterna alla specifica area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
-- L'area secondaria per US Gov Iowa è US Gov Virginia, ma l'area secondaria per US Gov Virginia non è US Gov Iowa.
-- L'area secondaria per US Gov Virginia è US Gov Texas, ma l'area secondaria per US Gov Texas non è US Gov Virginia.
+- India occidentale è associato in una sola direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.
+- L'area Brasile meridionale è unica perché è abbinata a un'area esterna alla specifica area geografica. L'area secondaria del Brasile meridionale è South Central US. Del South Central US area secondaria non è il Brasile meridionale.
+- L'area secondaria per US Gov Iowa è US Gov Virginia.
+- L'area secondaria US Gov Virginia è US Gov Texas.
+- L'area secondaria US Gov Texas è US Gov Arizona.
 
 
 È consigliabile configurare la continuità aziendale e il ripristino di emergenza (BCDR) tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Per le applicazioni che supportano più aree attive, è consigliabile usare entrambe le aree in una coppia di aree, laddove possibile. Per le applicazioni che supportano più regioni attive, si consiglia di utilizzare entrambe le regioni in una coppia, ove possibile. 

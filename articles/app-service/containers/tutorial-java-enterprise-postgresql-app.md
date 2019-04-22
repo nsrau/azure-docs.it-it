@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772059"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545351"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Esercitazione: Compilare un'app Web Java EE e Postgres in Azure
 
@@ -158,7 +158,9 @@ Successivamente, è necessario modificare la configurazione di Java Transaction 
 
 ## <a name="configure-the-wildfly-application-server"></a>Configurare il server applicazioni WildFly
 
-Prima di distribuire l'applicazione riconfigurata, è necessario aggiornare il server applicazioni WildFly con il modulo Postgres e le relative dipendenze. Per configurare il server, saranno necessari i quattro file presenti nella directory `wildfly_config/`.
+Prima di distribuire l'applicazione riconfigurata, è necessario aggiornare il server applicazioni WildFly con il modulo Postgres e le relative dipendenze. Altre informazioni di configurazione sono reperibili in [Configure WildFly server](configure-language-java.md#configure-wildfly-server) (Configurare il server WildFly).
+
+Per configurare il server, saranno necessari i quattro file presenti nella directory `wildfly_config/`.
 
 - **postgresql-42.2.5.jar**: questo file JAR è il driver JDBC per Postgres. Per altre informazioni, vedere il [sito Web ufficiale](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: questo file XML dichiara un nome per il modulo Postgres (org.postgres). Specifica anche le risorse e le dipendenze necessarie per usare il modulo.
@@ -172,7 +174,6 @@ Prima di distribuire l'applicazione riconfigurata, è necessario aggiornare il s
 È necessario distribuire tramite FTP il contenuto di `wildfly_config/` all'istanza del servizio app. Per ottenere le credenziali FTP, fare clic sul pulsante **Recupera profilo di pubblicazione** nel pannello del servizio app nel portale di Azure. Il nome utente e la password FTP saranno riportati nel documento XML scaricato. Per altre informazioni sul profilo di pubblicazione, vedere [questo documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Usando uno strumento FTP di propria scelta, trasferire i quattro file di `wildfly_config/` in `/home/site/deployments/tools/`. Si noti che si devono trasferire solo i file, non la directory.
-
 
 ### <a name="finalize-app-service"></a>Finalizzare il servizio app
 
@@ -195,9 +196,26 @@ Congratulazioni! L'applicazione usa ora un database Postgres e tutti i record cr
 Se queste risorse non sono necessarie per un'altra esercitazione (vedere Passaggi successivi), è possibile eliminarle eseguendo questo comando:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si ha un'applicazione Java EE distribuita nel servizio app, vedere la [guida per sviluppatori Java Enterprise](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) per altre informazioni sulla configurazione dei servizi, la risoluzione dei problemi e il ridimensionamento dell'applicazione.
+Questa esercitazione illustra come:
+
+> [!div class="checklist"]
+> * Distribuire un'app Java EE in Azure con Maven
+> * Creare un database Postgres in Azure
+> * Configurare il server WildFly per l'uso di Postgres
+> * Aggiornare e ridistribuire l'app
+> * Eseguire unit test in WildFly
+
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
+
+> [!div class="nextstepaction"]
+> [Esercitazione: Eseguire il mapping di un nome DNS personalizzato all'app Web](../app-service-web-tutorial-custom-domain.md)
+
+In alternativa, consultare altre risorse:
+
+> [!div class="nextstepaction"]
+> [Configurare l'app Java](configure-language-java.md)

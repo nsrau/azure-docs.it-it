@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494902"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Usa l'autenticazione a più fattori AAD con Database SQL di Azure e Azure SQL Data Warehouse (supporto SSMS per MFA)
@@ -32,8 +32,8 @@ Per tutte le funzionalità descritte in questo articolo, usare almeno luglio 201
 ## <a name="the-five-authentication-options"></a>Le cinque opzioni di autenticazione  
 
 Autenticazione universale di Active Directory supporta due metodi di autenticazione non interattiva:
-    - `Active Directory - Password` authentication
-    - `Active Directory - Integrated` authentication
+    - `Active Directory - Password` Autenticazione
+    - `Active Directory - Integrated` Autenticazione
 
 Esistono due autenticazione non interattive modelli, che possono essere usati in svariate applicazioni (ADO.NET, JDCB, ODC e così via). Questi due metodi non aprono mai finestre di dialogo popup: 
 - `Active Directory - Password` 

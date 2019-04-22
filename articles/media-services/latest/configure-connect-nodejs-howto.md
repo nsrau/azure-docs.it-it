@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495089"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi all'API servizi multimediali di v3 - Node. js
@@ -122,8 +122,8 @@ node index.js
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Concetti relativi a servizi multimediali](concepts-overview.md)
-- [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
+- [Concetti relativi ai Servizi multimediali](concepts-overview.md)
+- [Installazione di NPM tramite azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

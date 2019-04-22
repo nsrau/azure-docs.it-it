@@ -1,6 +1,6 @@
 ---
-title: Daemon .NET Core di Azure AD v2 | Microsoft Docs
-description: Informazioni su come un processo .NET Core può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Azure Active Directory v2.0 usando l'identità dell'app
+title: Daemon .NET Core di Microsoft Identity Platform | Azure
+description: Informazioni su come un processo .NET Core può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Microsoft Identity Platform usando l'identità dell'app
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200517"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491322"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console usando l'identità dell'app
 
@@ -30,11 +30,11 @@ ms.locfileid: "58200517"
 
 In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
 
-![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
+Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -47,7 +47,7 @@ Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/downl
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Passare alla [registrazione delle applicazioni (anteprima) nel portale di Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
+> 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >
@@ -59,7 +59,9 @@ Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/downl
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
+> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+> 1. Selezionare **Nuova registrazione**.
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione. 
 > 1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato dagli utenti dell'app, ad esempio `Daemon-console`, quindi sezionare **Registra** per creare l'applicazione.
 > 1. Dopo la registrazione, selezionare il menu **Certificati e segreti**.
 > 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice.
@@ -80,7 +82,7 @@ Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/downl
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
-[Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+[Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
@@ -98,9 +100,9 @@ Questo avvio rapido richiede [.NET Core 2.1](https://www.microsoft.com/net/downl
     
     > [!div renderon="docs"]
     >> Dove:
-    >> * `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
-    >> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here`: sostituire questo valore con il segreto client creato nel passaggio 1.
+    >> * `Enter_the_Application_Id_Here` - è l'**ID applicazione (client)** per l'applicazione registrata.
+    >> * `Enter_the_Tenant_Id_Here` - sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here` - sostituire questo valore con il segreto client creato nel passaggio 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
@@ -130,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Dove:
->> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+>> * `Enter_the_Tenant_Id_Here` - sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` - è l'**ID applicazione (client)** per l'applicazione registrata.
 
 > [!NOTE]
 > Dopo aver concesso il consenso all'app usando l'URL precedente, potrebbe essere visualizzato l'errore *'AADSTS50011: No reply address is registered for the application'* (AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione). Ciò accade perché questa applicazione e l'URL non hanno un URI di reindirizzamento. Ignorare l'errore.
@@ -157,12 +159,12 @@ Come risultato si dovrebbe vedere un elenco di utenti nel tenant di Azure AD.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Azure Active Directory (Azure AD). Come descritto, questo avvio rapido richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)*. Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Come descritto, questo avvio rapido richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)*. Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
 
  È possibile installare MSAL.NET eseguendo questo comando in **Console di Gestione pacchetti** in Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client
+Install-Package Microsoft.Identity.Client -Pre
 ```
 
 In alternativa, se non si usa Visual Studio, è possibile eseguire il comando seguente per aggiungere MSAL al progetto:
@@ -182,47 +184,43 @@ using Microsoft.Identity.Client;
 Inizializzare quindi la libreria MSAL usando il codice seguente:
 
 ```csharp
-ClientCredential clientCredentials = new ClientCredential(secret: config.ClientSecret);
-
-var app = new ConfidentialClientApplication(
-    clientId: config.ClientId, 
-    authority: config.Authority, 
-    redirectUri: "https://daemon", 
-    clientCredential: clientCredentials, 
-    userTokenCache: null, 
-    appTokenCache: new TokenCache()
+IConfidentialClientApplication app;
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientSecret(config.ClientSecret)
+                                          .WithAuthority(new Uri(config.Authority))
+                                          .Build();
 );
 ```
 
 > | Dove: ||
 > |---------|---------|
-> | `secret` | È il segreto client creato per l'applicazione nel portale di Azure. |
-> | `clientId` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
-> | `Authority`    | (Facoltativo) Endpoint del servizio token di sicurezza per l'utente da autenticare, in genere <https://login.microsoftonline.com/{tenant}> per il cloud pubblico, dove {tenant} è il nome del tenant o l'ID tenant.|
-> | `redirectUri`  | URL a cui vengono indirizzati gli utenti dopo l'autenticazione. In questo caso, poiché si tratta di un'applicazione console/non interattiva, questo parametro non viene usato |
-> | `clientCredentials`  | Oggetto credenziali client, che contiene il certificato o il segreto |
-> | `userTokenCache`  | Istanza di una cache dei token per l'utente. In questo caso, poiché questa app viene eseguita nel contesto dell'app e non dell'utente, questo valore è null|
-> | `appTokenCache`  | Istanza di una cache dei token per l'app|
+> | `config.ClientSecret` | È il segreto client creato per l'applicazione nel portale di Azure. |
+> | `config.ClientId` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
+> | `config.Authority`    | (Facoltativo) Endpoint del servizio token di sicurezza per l'utente da autenticare, in genere <https://login.microsoftonline.com/{tenant}> per il cloud pubblico, dove {tenant} è il nome del tenant o l'ID tenant.|
 
-Per altre informazioni, vedere la [documentazione di riferimento`ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
+Per altre informazioni, vedere la [documentazione di riferimento`ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Richiesta di token
 
-Per richiedere un token con l'identità dell'app, usare il metodo `AcquireTokenForClientAsync`:
+Per richiedere un token con l'identità dell'app, usare il metodo `AcquireTokenForClient`:
 
 ```csharp
-result = await app.AcquireTokenForClientAsync(scopes);
+result = await app.AcquireTokenForClient(scopes)
+                  .ExecuteAsync();
 ```
 
 > |Dove:| |
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti. Per i client riservati, dovrebbe essere usato un formato simile a `{Application ID URI}/.default` per indicare che gli ambiti che vengono richiesti sono quelli definiti in modo statico nell'oggetto app impostato nel portale di Azure. Per Microsoft Graph, `{Application ID URI}` punta a `https://graph.microsoft.com`. Per le API Web personalizzate, `{Application ID URI}` è definito nella sezione **Esporre un'API** della registrazione dell'applicazione (anteprima) del portale di Azure. |
 
-Per altre informazioni, vedere la [documentazione di riferimento`AcquireTokenForClientAsync`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+Per altre informazioni, vedere la [documentazione di riferimento`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Esempio di daemon di .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Altre informazioni sulle autorizzazioni e sul consenso:
 

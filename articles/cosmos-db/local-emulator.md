@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470917"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525423"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -153,7 +153,7 @@ Avviare l'emulatore dal prompt dei comandi come amministratore con “/EnableCas
 
 * [Installare Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [Installare l'interfaccia della riga di comando di Cassandra/CQLSH](http://cassandra.apache.org/download/)
+* [Installare Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
 
 * Eseguire i comandi seguenti in una normale finestra del prompt dei comandi:
 
@@ -236,7 +236,7 @@ Dal percorso di installazione è possibile usare la riga di comando per avviare 
 
 Per visualizzare l'elenco di opzioni, digitare `CosmosDB.Emulator.exe /?` al prompt dei comandi.
 
-|**Opzione** | **DESCRIZIONE** | **Comando**| **Argomenti**|
+|**Opzione** | **Descrizione** | **Comando**| **Argomenti**|
 |---|---|---|---|
 |[Nessun argomento] | Avvia l'emulatore Azure Cosmos con le impostazioni predefinite. |CosmosDB.Emulator.exe| |
 |[Help] |Visualizza l'elenco di argomenti della riga di comando supportati.|CosmosDB.Emulator.exe /? | |
@@ -252,7 +252,7 @@ Per visualizzare l'elenco di opzioni, digitare `CosmosDB.Emulator.exe /?` al pro
 | GremlinPort | Numero di porta da usare per l'endpoint Gremlin. Il valore predefinito è 8901. | CosmosDB.Emulator.exe /GremlinPort=\<porta\> | \<porta\>: numero di porta singolo |
 |TablePort | Numero di porta da usare per l'endpoint Tabella di Azure. Il valore predefinito è 8902. | CosmosDB.Emulator.exe /TablePort=\<porta\> | \<porta\>: numero di porta singolo|
 | KeyFile | Legge la chiave di autorizzazione dal file specificato. Usare l'opzione /GenKeyFile per generare un file di chiave | CosmosDB.Emulator.exe /KeyFile=\<nome_file\> | \<nome_file\>: percorso del file |
-| ResetDataPath | Rimuove in modo ricorsivo tutti i file nel percorso specificato. Se non si specifica un percorso, per impostazione predefinita viene usato %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<percorso\>: Percorso del file  |
+| ResetDataPath | Rimuove in modo ricorsivo tutti i file nel percorso specificato. Se non si specifica un percorso, per impostazione predefinita viene usato %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<percorso\>: Percorso del file  |
 | StartTraces  |  Avvia la raccolta dei log di traccia di debug. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Arresta la raccolta dei log di traccia di debug. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Abilita l'API Tabella di Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |
@@ -313,7 +313,7 @@ Ecco un riepilogo dei comandi per il controllo dell'emulatore da PowerShell:
 
 `Get-CosmosDbEmulatorStatus`
 
-**Osservazioni**
+**Osservazioni:**
 
 Restituisce uno di questi valori per ServiceControllerStatus: ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running o ServiceControllerStatus.Stopped.
 
@@ -323,7 +323,7 @@ Restituisce uno di questi valori per ServiceControllerStatus: ServiceControllerS
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-**Osservazioni**
+**Osservazioni:**
 
 Avvia l'emulatore. Per impostazione predefinita, il comando attende fino a quando l'emulatore è pronto per accettare richieste. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo avere avviato l'emulatore.
 
@@ -333,7 +333,7 @@ Avvia l'emulatore. Per impostazione predefinita, il comando attende fino a quand
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
-**Osservazioni**
+**Osservazioni:**
 
 Attesta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
 
@@ -343,7 +343,7 @@ Attesta l'emulatore. Per impostazione predefinita, questo comando attende fino a
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-**Osservazioni**
+**Osservazioni:**
 
 Disinstalla l'emulatore e facoltativamente rimuove i contenuti completi di $env:LOCALAPPDATA\CosmosDbEmulator.
 Il cmdlet verifica che l'emulatore sia arrestato prima di disinstallarlo.

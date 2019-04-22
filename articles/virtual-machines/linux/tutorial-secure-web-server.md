@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750920"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524371"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Linux in Azure con i certificati SSL archiviati nell'insieme di credenziali delle chiavi
 Per proteggere i server Web, è possibile usare un certificato Secure Sockets Layer (SSL) per crittografare il traffico Web. Questi certificati SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali Linux in Azure. In questa esercitazione si apprenderà come:
@@ -50,7 +50,7 @@ Per poter creare un insieme di credenziali delle chiavi e i certificati, è prim
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Creare quindi un insieme di credenziali delle chiavi con il comando [az keyvault create](/cli/azure/keyvault) e abilitarlo all'uso quando si distribuisce una macchina virtuale. Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente sostituire *<mykeyvault>* con il nome univoco del proprio Key Vault:
+Creare quindi un insieme di credenziali delle chiavi con il comando [az keyvault create](/cli/azure/keyvault) e abilitarlo all'uso quando si distribuisce una macchina virtuale. Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente sostituire *\<mykeyvault>* con il nome univoco del proprio Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -137,7 +137,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testare l'applicazione Web protetta
-È ora possibile aprire un Web browser e immettere *https://<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. Se è stato usato un certificato autofirmato, accettare l'avviso di sicurezza:
+È ora possibile aprire un Web browser e immettere *https:\/\/\<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. Se è stato usato un certificato autofirmato, accettare l'avviso di sicurezza:
 
 ![Accettare l'avviso di sicurezza del Web browser](./media/tutorial-secure-web-server/browser-warning.png)
 

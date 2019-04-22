@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496184"
 ---
 # <a name="export-a-u-sql-database"></a>Esportare un database U-SQL
@@ -84,7 +84,7 @@ Se attualmente si seleziona l'opzione **Schema e dati** nel passaggio 3, lo stru
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottieni informazioni sui database U-SQL](/u-sql/data-definition-language-ddl-statements) 
+* [Informazioni sui database U-SQL](/u-sql/data-definition-language-ddl-statements) 
 * [Eseguire test e debug di processi U-SQL tramite l'esecuzione locale e l'SDK U-SQL di Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 
 

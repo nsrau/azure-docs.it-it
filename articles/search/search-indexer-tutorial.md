@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528051"
 ---
-# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione in C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione per C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 
 Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 
@@ -87,7 +87,7 @@ In questo passaggio viene creata un'origine dati esterna che può essere sottopo
 
 L'esercizio seguente presuppone che non sia disponibile alcun server o database e richiede la creazione di entrambi nel Passaggio 2. Se è presente una risorsa esistente, è facoltativamente possibile aggiungere ad essa la tabella relativa agli hotel, a partire dal Passaggio 4.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). 
+1. [Accedere al portale di Azure](https://portal.azure.com/). 
 
 2. Cercare o creare un **database SQL di Azure** per creare un database, un server e un gruppo di risorse. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
 
@@ -99,7 +99,7 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
    ![Pagina Database SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Sulla barra dei comandi fare clic su **Strumenti** > **Editor di query**.
+4. Nel riquadro di spostamento fare clic su **Editor di query (anteprima)**.
 
 5. Fare clic su **Accedi** e immettere nome utente e password dell'amministratore del server.
 
@@ -137,7 +137,7 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-Il codice è ora pronto per la compilazione e l'esecuzione. Prima di eseguire queste operazioni, esaminare l'indice e le definizioni dell'indicizzatore per questo esempio. Il codice rilevante è disponibile in due file:
+Dopo aver definito dati e impostazioni di configurazione, il programma di esempio in **DotNetHowToIndexers.sln** è pronto per la compilazione e l'esecuzione. Prima di eseguire queste operazioni, esaminare l'indice e le definizioni dell'indicizzatore per questo esempio. Il codice rilevante è disponibile in due file:
 
   + **hotel.cs**, contenente lo schema che definisce l'indice
   + **Program.cs**, contenente le funzioni per la creazione e la gestione delle strutture nel servizio
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 Uno schema può includere anche altri elementi, tra cui l'assegnazione di punteggi ai profili per il boosting del punteggio di una ricerca, analizzatori personalizzati e altri costrutti. Per le finalità specifiche di questa esercitazione, tuttavia, lo schema è scarsamente definito ed è costituito solo dai campi disponibili nel set di dati di esempio.
 
-In questa esercitazione l'indicizzatore esegue il pull di dati da un'origine dati. In pratica, è possibile associare più indicizzatori allo stesso indice, creando un indice ricercabile consolidato da più origini dati e indicizzatori. È possibile usare la stessa coppia indice-indicizzatore, modificando solo le origini dati, oppure un indice con diverse combinazioni di indicizzatore e origine dati, in base al tipo di flessibilità necessario.
+In questa esercitazione l'indicizzatore esegue il pull di dati da un'origine dati. In pratica, è possibile associare più indicizzatori allo stesso indice, creando un indice ricercabile consolidato da più origini dati. È possibile usare la stessa coppia indice-indicizzatore, modificando solo le origini dati, oppure un indice con diverse combinazioni di indicizzatore e origine dati, in base al tipo di flessibilità necessario.
 
 ### <a name="in-programcs"></a>In Program.cs
 
-Il programma principale include funzioni per tutte e tre le origini dati rappresentative. Se ci si concentra solo sul database SQL di Azure, vengono evidenziati gli oggetti seguenti:
+Il programma principale include la logica per la creazione di un client, un indice, un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
+
+L'oggetto origine dati è configurato con le impostazioni specifiche nelle risorse del database SQL di Azure, tra cui l'[indicizzazione incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca di Azure.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-In Ricerca di Azure gli oggetti che possono essere visualizzati, configurati o eliminati in modo indipendente includono indici, indicizzatori e origini dati (*hotels*, *azure-sql-indexer*, *azure-sql*, rispettivamente). 
-
-La colonna *AzureSqlHighWaterMarkColumnName* merita un'attenzione specifica, perché fornisce informazioni sul rilevamento delle modifiche, usate dall'indicizzatore per determinare se una riga è stata modificata dopo il carico di lavoro di indicizzazione più recente. I [criteri di rilevamento delle modifiche](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) sono supportati solo negli indicizzatori e dipendono dall'origine dati. Per il database SQL di Azure è possibile scegliere tra due criteri, in base ai requisiti del database.
-
-Il codice seguente mostra i metodi nel file Program.cs usato per la creazione di un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
+Un oggetto indicizzatore non dipende dalla piattaforma, ovvero la configurazione, la pianificazione e la chiamata sono uguali, indipendentemente dall'origine. Questo esempio di indicizzatore include una pianificazione, un'opzione di ripristino che cancella la cronologia dell'indicizzatore e chiama un metodo per creare ed eseguire immediatamente l'indicizzatore.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Si noti che le chiamate API dell'indicizzatore sono indipendenti dalla piattaforma, ad eccezione di [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet), che specifica il tipo di crawler da richiamare.
+
 
 ## <a name="run-the-indexer"></a>Eseguire l'indicizzatore
 
@@ -236,12 +256,10 @@ Nella pagina Panoramica del servizio di ricerca nel portale di Azure fare clic s
 
 Tutti gli indicizzatori, incluso quello appena creato a livello di codice, vengono elencati nel portale. È possibile aprire una definizione dell'indicizzatore e visualizzare la rispettiva origine dati oppure configurare una pianificazione di aggiornamento per rilevare le righe nuove e modificate.
 
-1. Aprire la pagina Panoramica del servizio Ricerca di Azure.
-2. Scorrere verso il basso per trovare i riquadri per **Indicizzatori** e **Origini dati**.
-3. Fare clic su un riquadro per aprire un elenco di ogni risorsa. È possibile selezionare singoli indicizzatori o singole origini dati per visualizzare o modificare le impostazioni di configurazione.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e, nella pagina **Panoramica** del servizio di ricerca, fare clic sui collegamenti per **Indici**, **Indicizzatori** e **Origini dati**.
+3. Selezionare i singoli oggetti per visualizzare o modificare le impostazioni di configurazione.
 
    ![Riquadri dell'indicizzatore e dell'origine dati](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

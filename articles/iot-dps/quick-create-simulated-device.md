@@ -3,18 +3,18 @@ title: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di
 description: Questa guida introduttiva usa registrazioni singole. In questa guida introduttiva verrà creato ed effettuato il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485313"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500193"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
 
@@ -44,23 +44,7 @@ Questo articolo descrive le registrazioni singole.
 
 In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) e l'esempio del simulatore di dispositivo [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview).
 
-1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/). Verificare il file binario scaricato usando il valore hash di crittografia corrispondente alla versione scaricata. I valori hash di crittografia vengono anche individuati con il collegamento per il download di CMake già fornito.
-
-    Nell'esempio seguente è stato usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.13.4 della distribuzione MSI x64:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    I seguenti valori hash per la versione 3.13.4 venivano elencati nel sito di CMake al momento della stesura di questo articolo:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
     È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
@@ -69,7 +53,7 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Le dimensioni di questo repository sono attualmente di circa 220 MB. Il completamento di questa operazione richiederà alcuni minuti.
+    Il completamento di questa operazione richiederà alcuni minuti.
 
 
 3. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. 
@@ -235,5 +219,5 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client del disposi
 In questa guida introduttiva è stato creato un dispositivo simulato TPM nel computer e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT. Per informazioni su come registrare il dispositivo TPM a livello di codice, passare alla guida introduttiva per la registrazione a livello di codice di un dispositivo TPM. 
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-tpm-java.md)
+> [Avvio rapido di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-tpm-java.md)
 

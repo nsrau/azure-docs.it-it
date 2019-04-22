@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 66293d6d6d0e15af7d879e6784d85f9e85457aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649709"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544331"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -39,7 +39,7 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
 ## <a name="create-a-classroom-lab"></a>Creare un lab per le classi
 
-1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). 
+1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
 3. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
     1. Specificare un **nome** per il lab. 

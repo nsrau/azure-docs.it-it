@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ae0aefe194ca8bca6ea62420314b4fbdb1e0187
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357905"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Server
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tableau Server, seguire
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://azure.<domain name>.link`
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://azure.<domain name>.link`
+    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://azure.<domain name>.link`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tableau Server, seguire
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -206,7 +206,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`  
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -256,9 +256,9 @@ Quando si fa clic sul riquadro di Tableau Server nel pannello di accesso, si dov
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [ Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878211"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678820"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -30,7 +30,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
 > [!IMPORTANT]
 > 
-> Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+> Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione. È inoltre necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi a managed identità](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
@@ -52,7 +52,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
    > [!IMPORTANT]
    > 
-   > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+   > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione. È inoltre necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi a managed identità](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Finestra di dialogo Trasferisci sottoscrizione](./media/billing-subscription-transfer/image2.PNG)
 

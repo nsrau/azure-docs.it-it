@@ -1,21 +1,19 @@
 ---
 title: Panoramica di Analisi di flusso di Azure
 description: Informazioni su Analisi di flusso, un servizio gestito che consente di analizzare i dati di streaming di Internet delle cose (IoT) in tempo reale.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
-ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 09f402f81700b53eb9e4a95e36545ef02850660a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295505"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524481"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
@@ -51,9 +49,9 @@ Analisi di flusso di Azure è progettato in modo da essere facile da usare, fles
 
 ## <a name="ease-of-getting-started"></a>Semplicità delle operazioni iniziali
 
-È possibile iniziare a usare Analisi di flusso di Azure in tutta semplicità. Sono necessari solo pochi clic per connettersi a più origini o sink e creare una pipeline end-to-end. Analisi di flusso può connettersi a [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/) o all'[hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/) per l'inserimento di dati in streaming. Può anche connettersi al servizio [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/storage-introduction) per l'inserimento di dati cronologici. Può combinare dati da hub eventi con altre origini dati e motori di elaborazione. L'input del processo può anche includere dati di riferimento statici o dati a modifica lenta ed è possibile unire dati in streaming a questi dati di riferimento per eseguire operazioni di ricerca.
+È possibile iniziare a usare Analisi di flusso di Azure in tutta semplicità. Sono necessari solo pochi clic per connettersi a più origini o sink e creare una pipeline end-to-end. Analisi di flusso può connettersi a [Hub eventi di Azure](/azure/event-hubs/) o all'[hub IoT di Azure](/azure/iot-hub/) per l'inserimento di dati in streaming. Può anche connettersi al servizio [Archiviazione BLOB di Azure](/azure/storage/storage-introduction) per l'inserimento di dati cronologici. Può combinare dati da hub eventi con altre origini dati e motori di elaborazione. L'input del processo può anche includere dati di riferimento statici o dati a modifica lenta ed è possibile unire dati in streaming a questi dati di riferimento per eseguire operazioni di ricerca.
 
-Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [BLOB di Azure](https://docs.microsoft.com/azure/storage/storage-introduction), il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Stores](https://docs.microsoft.com/azure/data-lake-store/) o [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). Al termine dell'archiviazione, è possibile eseguire analisi in batch con Azure HDInsight o inviare l'output a un altro servizio, ad esempio gli hub eventi per l'utilizzo o a [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale con l'API di streaming di Power BI.
+Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [BLOB di Azure](/azure/storage/storage-introduction), il [database SQL di Azure](/azure/sql-database/), [Azure Data Lake Stores](/azure/data-lake-store/) o [Azure Cosmos DB](/azure/cosmos-db/introduction). Al termine dell'archiviazione, è possibile eseguire analisi in batch con Azure HDInsight o inviare l'output a un altro servizio, ad esempio gli hub eventi per l'utilizzo o a [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale con l'API di streaming di Power BI.
 
 ## <a name="programmer-productivity"></a>Produttività per i programmatori
 
@@ -79,7 +77,8 @@ Come servizio cloud, Analisi di flusso è ottimizzato in funzione del costo. Non
 ## <a name="mission-critical-ready"></a>Supporto di carichi di lavoro cruciali
 Analisi di flusso di Azure è disponibile in più aree geografiche del mondo ed è progettato per l'esecuzione di carichi di lavoro cruciali, perché soddisfa i requisiti di affidabilità, sicurezza e conformità.
 ### <a name="reliability"></a>Affidabilità
-Analisi di flusso di Azure garantisce un'elaborazione di eventi di tipo exactly-once e il recapito di eventi at-least-once, quindi non vengono mai persi eventi. L'elaborazione exactly-once è garantita con uno specifico output, come descritto nell'articolo sulle [garanzie di recapito degli eventi](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Analisi di flusso di Azure include funzionalità di ripristino predefinite in caso di errori di recapito degli eventi. Analisi di flusso fornisce anche checkpoint predefiniti per mantenere lo stato del proprio lavoro e fornire risultati ripetibili.
+Analisi di flusso di Azure garantisce un'elaborazione di eventi di tipo exactly-once e il recapito di eventi at-least-once, quindi non vengono mai persi eventi. L'elaborazione exactly-once è garantita con uno specifico output, come descritto nell'articolo sulle [garanzie di recapito degli eventi](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
+Analisi di flusso di Azure include funzionalità di ripristino predefinite in caso di errori di recapito degli eventi. Analisi di flusso fornisce anche checkpoint predefiniti per mantenere lo stato del proprio lavoro e fornire risultati ripetibili.
 
 Come servizio gestito, Analisi di flusso garantisce l'elaborazione di eventi con una disponibilità del 99,9% a livello di minuto. Per altre informazioni, vedere la pagina del [contratto di servizio di Analisi di flusso](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 

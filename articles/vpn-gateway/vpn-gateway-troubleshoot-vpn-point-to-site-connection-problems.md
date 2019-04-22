@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492380"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
@@ -31,7 +31,7 @@ Questo articolo elenca i problemi comuni di connessione da punto a sito che l'ut
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile trovare un certificato che può essere utilizzato con questo Extensible Authentication Protocol. (Errore 798)**
+**Impossibile trovare un certificato utilizzabile con il protocollo EAP (Extensible Authentication Protocol). (Errore 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -116,7 +116,7 @@ Per risolvere il problema, seguire questa procedura:
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Una catena di certificati elaborata, ma termina con un certificato radice non considerato attendibile dal provider di attendibilità.**
+**Una catena di certificati è stata elaborata correttamente, ma termina con un certificato radice considerato non attendibile dal provider di attendibilità.**
 
 ### <a name="solution"></a>Soluzione
 
@@ -136,7 +136,7 @@ Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN,
 
 Viene visualizzato il messaggio di errore seguente:
 
-**Errore di download di file. L'URI di destinazione non è specificato.**
+**Errore di download del file. L'URI di destinazione non è specificato.**
 
 ### <a name="cause"></a>Causa 
 
@@ -152,7 +152,7 @@ Il tipo di gateway VPN deve essere **VPN** e il tipo di VPN deve essere **RouteB
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Lo script personalizzato (per aggiornare la tabella di routing) non è riuscita. (Errore 8007026f)**
+**Custom script (to update your routing table) failed. (Impossibile eseguire lo script personalizzato per aggiornare la tabella di routing). (Errore 8007026f)**
 
 ### <a name="cause"></a>Causa
 
@@ -185,7 +185,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile salvare il gateway di rete virtuale &lt; *nome del gateway*&gt;. Dati certificato &lt; *ID certificato* &gt; non è valido.**
+**Non è stato possibile salvare il gateway di rete virtuale &lt;*nome gateway*&gt;. I dati per il certificato &lt;*ID certificato*&gt; non sono validi.**
 
 ### <a name="cause"></a>Causa 
 
@@ -232,7 +232,7 @@ Questo problema si verifica perché il nome del certificato contiene caratteri n
 
 Quando si prova a scaricare il pacchetto di configurazione del client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Non è possibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
+**Non è stato possibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
  
 ### <a name="solution"></a>Soluzione
 

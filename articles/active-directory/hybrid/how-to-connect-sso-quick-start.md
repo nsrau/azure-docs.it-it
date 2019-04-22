@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256890"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680902"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
@@ -93,7 +93,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 ![Portale di Azure: riquadro di Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L'accesso SSO facile crea un account computer denominato `AZUREADSSOACC` in locale Active Directory (AD) in ogni foresta di Active Directory. Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali e solo gli amministratori di dominio hanno accesso.
+> L'accesso SSO facile crea un account computer denominato `AZUREADSSOACC` in locale Active Directory (AD) in ogni foresta di Active Directory. Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` account del computer. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali e solo gli amministratori di dominio hanno accesso.
 
 >[!NOTE]
 > Se si usa le architetture di Pass-the-Hash e mitigazione dei rischi di furto delle credenziali in locale nell'ambiente in uso, apportare le modifiche appropriate per garantire che il `AZUREADSSOACC` account computer non termina nel contenitore di quarantena. 
@@ -125,7 +125,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a **configurazione utente** > **criteri** > **modelli amministrativi** > **Windows I componenti** > **Internet Explorer** > **Pannello di controllo Internet** > **pagina sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: è l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.

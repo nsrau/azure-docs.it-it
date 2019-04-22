@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181351"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678789"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -196,6 +196,9 @@ Il controller DaemonSet può pianificare i pod nei nodi in una delle prime fasi 
 Come gli oggetti StatefulSet, un oggetto DaemonSet viene definito come parte di una definizione YAML usando `kind: DaemonSet`.
 
 Per altre informazioni, vedere [Oggetti DaemonSet di Kubernetes][kubernetes-daemonset].
+
+> [!NOTE]
+> Se si usa la [componente aggiuntivo di nodi virtuali](virtual-nodes-cli.md#enable-virtual-nodes-addon), Daemonset non creerà i POD nel nodo virtuale.
 
 ## <a name="namespaces"></a>Spazi dei nomi
 

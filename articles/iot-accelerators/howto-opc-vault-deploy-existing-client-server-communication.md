@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495295"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Secure OPC UA OPC UA server applicazioni e del client 
@@ -37,11 +37,11 @@ Script OPC dell'insieme di credenziali:
 **Guida introduttiva**
 1. Andare alla [sito Web di archivio OPC](https://opcvault.azurewebsites.net/)
 
-1. Select `Register New`
+1. Selezionare `Register New`.
 
 1. Immettere le informazioni di OPC PLC come visualizzato nell'output del log del banco di prova precedente `CreateSigningRequest information` area nei campi di input nel `Register New OPC UA Application` pagina, selezionare `Server` come ApplicationType.
 
-1. Select `Register`
+1. Selezionare `Register`.
 
 1. Nella pagina successiva, `Request New Certificate for OPC UA Application` selezionare `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ Script OPC dell'insieme di credenziali:
 
 1. Nella pagina successiva `Generate a new KeyPair and for an OPC UA Application` immettere `CN=OpcPlc` come SubjectName, `opcplc-<_OPCVAULTID>` (Sostituisci `<_OPCVAULTID>` con i propri) come nome di dominio, selezionare `PEM` come PrivateKeyFormat e immettere una password (si fa riferimento in un secondo momento come `<certpassword-string>`)
 
-1. Select `Generate New KeyPair`
+1. Selezionare `Generate New KeyPair`.
 
 1. Ora procedano a `View Certificate Request Details`. In questa pagina, è possibile scaricare tutte le informazioni necessarie per eseguire il provisioning gli archivi di certificati di `opc-plc`.
 

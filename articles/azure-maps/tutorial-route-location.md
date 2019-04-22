@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260885"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544603"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -218,13 +218,13 @@ Questa esercitazione illustra come:
 > * Impostare le coordinate di un indirizzo
 > * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
 
-È possibile accedere all'esempio di codice per questa esercitazione qui:
+> [!div class="nextstepaction"]
+> [Visualizzare codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [Trovare un itinerario con Mappe di Azure](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[Vedere qui l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [Visualizzare esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 L'esercitazione successiva illustra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
 
 > [!div class="nextstepaction"]
-> [Trovare itinerari per diverse modalità di trasporto](./tutorial-prioritized-routes.md)
+> [Find routes for different modes of travel (Trovare i percorsi per diverse modalità di trasporto)](./tutorial-prioritized-routes.md)

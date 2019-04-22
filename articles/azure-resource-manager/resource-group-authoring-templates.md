@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492195"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
@@ -44,10 +44,10 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 | Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--- |:--- |:--- |
-| $schema |Sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello.<br><br> Per distribuzioni di gruppi di risorse, usare: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni di sottoscrizione, usare: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello.<br><br> Per le distribuzioni del gruppo di risorse, usare: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
 | apiProfile |No  | Una versione API che funge da una raccolta di versioni dell'API per i tipi di risorse. Utilizzare questo valore per evitare di dover specificare versioni dell'API per ogni risorsa nel modello. Quando si specifica una versione del profilo di API e non specifica una versione dell'API per il tipo di risorsa, Resource Manager usa la versione dell'API per quel tipo di risorsa che viene definito nel profilo.<br><br>La proprietà del profilo è particolarmente utile quando si distribuisce un modello in ambienti diversi, ad esempio Azure Stack e Azure globale. Usare la versione API del profilo per assicurarsi che il modello usa automaticamente le versioni supportate in entrambi gli ambienti. Per un elenco delle versioni di profilo API corrente e le versioni di API definite nel profilo di risorse, vedere [profilo API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Per altre informazioni, vedere [tiene traccia delle versioni tramite API profili](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [Parametri](#parameters) |No  |Valori forniti durante la distribuzione per personalizzare la distribuzione di risorse. |
+| [parameters](#parameters) |No  |Valori forniti durante la distribuzione per personalizzare la distribuzione di risorse. |
 | [variables](#variables) |No  |Valori usati come frammenti JSON nel modello per semplificare le espressioni di linguaggio del modello. |
 | [functions](#functions) |No  |Funzioni definite dall'utente disponibili nel modello. |
 | [resources](#resources) |Sì |Tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse o sottoscrizione. |
@@ -129,7 +129,7 @@ Le proprietà disponibili per un parametro sono:
 | maxValue |No  |Il valore massimo per i parametri di tipo int, questo valore è inclusivo. |
 | minLength |No  |Lunghezza minima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
 | maxLength |No  |Lunghezza massima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
-| Descrizione |No  |Descrizione del parametro visualizzato agli utenti nel portale. Per altre informazioni, consultare la sezione [Comments in templates](#comments) (Commenti nel modello). |
+| description |No  |Descrizione del parametro visualizzato agli utenti nel portale. Per altre informazioni, consultare la sezione [Comments in templates](#comments) (Commenti nel modello). |
 
 ### <a name="define-and-use-a-parameter"></a>Definire e usare un parametro
 
@@ -267,8 +267,8 @@ Questi modelli di esempio illustrano alcuni scenari per l'uso dei parametri. Dis
 
 |Modello  |DESCRIZIONE  |
 |---------|---------|
-|[parametri con le funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Illustra come usare le funzioni di modello quando si definiscono valori predefiniti per i parametri. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
-|[Oggetto Parameter](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Illustra l'uso di un oggetto per un parametro. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
+|[parametri con funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Illustra come usare le funzioni di modello quando si definiscono valori predefiniti per i parametri. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
+|[oggetto parametro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Illustra l'uso di un oggetto per un parametro. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
 
 ## <a name="variables"></a>Variabili
 
@@ -669,7 +669,7 @@ All'interno di alcuni tipi di risorsa è anche possibile definire una matrice di
 
 Quando annidata, il tipo è impostato su `databases`, ma il tipo di risorsa completo è `Microsoft.Sql/servers/databases`. Non si specifica `Microsoft.Sql/servers/` perché viene ottenuto dal tipo della risorsa padre. Il nome della risorsa figlio è impostato su `exampledatabase`, ma il nome completo include il nome della risorsa padre. Non si specifica `exampleserver` perché viene ottenuto dalla risorsa padre.
 
-Il formato del tipo di risorsa figlio è: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Il formato del tipo della risorsa figlio è: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
 Il formato del nome della risorsa figlio è: `{parent-resource-name}/{child-resource-name}`
 
@@ -700,7 +700,7 @@ Quando si crea un riferimento completo a una risorsa, l'ordine di combinazione d
 
 Ad esempio: 
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` sia corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` è corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
 
 ## <a name="outputs"></a>Output
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282866"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680486"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -116,6 +116,14 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>In caso di errore di un collegamento a ExpressRoute, verrà persa la connettività?
 
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete e offrire disponibilità elevata per il circuito ExpressRoute. Per ottenere resilienza a livello di circuito, è possibile anche creare un circuito in una sede di peering diversa.
+
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Come implementare la ridondanza nel peering privato?
+
+Più circuiti ExpressRoute dalla località di peering diverse possono essere connesse alla stessa rete virtuale per fornire la disponibilità elevata nel caso che un singolo circuito non è più disponibile. È quindi possibile [assegnare un peso maggiore](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) per la connessione locale al Ottimizza per preferire un circuito specifico. È consigliabile che i clienti di configurare almeno due circuiti ExpressRoute per evitare singoli punti di errore. 
+
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Come implementare la ridondanza nel peering Microsoft?
+
+È consigliabile quando i clienti usano peering per accedere a servizi pubblici di Azure, ad esempio archiviazione di Azure o SQL di Azure, nonché i clienti che usano peering Microsoft per Office 365 che implementano più circuiti in diversi peering Microsoft posizioni per evitare singoli punti di faiure. I clienti possono pubblicizzare il medesimo prefisso in entrambi i circuiti e utilizzare [anteposizione di As Path](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o annunciare i prefissi diversi per determinare percorso locale.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Come è possibile garantire la disponibilità elevata in una rete virtuale connessa a ExpressRoute?
 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278548"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679993"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -93,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-I dati intermedi (o output di un passaggio) sono rappresentati da un oggetto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` viene generato come output di un passaggio e usato come input una o più passaggi futuri. `PipelineData` introduce una dipendenza dei dati tra i vari passaggi e crea un ordine di esecuzione implicita nella pipeline.
+I dati intermedi (o output di un passaggio) sono rappresentati da un oggetto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` viene generato come output di un passaggio e usato come input di uno o più passaggi successivi. `PipelineData` introduce una dipendenza dei dati tra i vari passaggi e crea un ordine di esecuzione implicito nella pipeline.
 
 ```python
 output_data1 = PipelineData(
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Dopo la definizione dei passaggi, si crea la pipeline usando alcuni o tutti i passaggi definiti.
 
->[!NOTE]
->Quando si definiscono i passaggi o si crea la pipeline, nel servizio Azure Machine Learning non viene eseguito alcun caricamento di file o dati.
+> [!NOTE]
+> Quando si definiscono i passaggi o si crea la pipeline, nel servizio Azure Machine Learning non viene eseguito alcun caricamento di file o dati.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Per altre informazioni, vedere la [pacchetto azure-pipeline-steps](https://docs.
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
-Quando si invia la pipeline, il servizio Azure Machine Learning controlla le dipendenze per ogni passaggio e carica uno snapshot della directory di origine specificata. Se la directory di origine non è specificata, viene caricata la directory locale corrente.
+Quando si invia la pipeline, il servizio Azure Machine Learning controlla le dipendenze per ogni passaggio e carica uno snapshot della directory di origine specificata. Se la directory di origine non è specificata, viene caricata la directory locale corrente. Lo snapshot viene archiviato anche come parte dell'esperimento nell'area di lavoro.
 
+> [!IMPORTANT]
+> Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
+>
+> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run
@@ -361,7 +365,7 @@ Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
 1. Accedere al [portale di Azure](https://portal.azure.com/).  
 
 1. [Visualizzare l'area di lavoro](how-to-manage-workspace.md#view) per trovare l'elenco delle pipeline.
- ![elenco di pipeline di machine learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![elenco delle pipeline di Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
 

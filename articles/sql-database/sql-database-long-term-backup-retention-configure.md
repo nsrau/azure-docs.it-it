@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/17/2019
+ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855470"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680520"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -43,6 +43,9 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
    ![Configurare criteri](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 3. Al termine, fare clic su **Applica**.
+
+> [!IMPORTANT]
+> Quando si abilita un criterio di conservazione dei backup a lungo termine, potrebbe richiedere fino a 7 giorni per il backup prima di diventare visibile e disponibile per il ripristino. Per i dettagli di cadance backup con conservazione a lungo termine, vedere [conservazione backup a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visualizzare i backup e ripristinare da un backup usando il portale di Azure
 

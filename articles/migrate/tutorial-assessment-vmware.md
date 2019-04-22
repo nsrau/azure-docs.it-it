@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313108"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490320"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -194,6 +194,9 @@ Importare il file scaricato nel server vCenter.
     - Specificare il nome completo o l'indirizzo IP del server vCenter.
     - In **User name** (Nome utente) e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. [Altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente più grande.
+
+       > [!NOTE]
+       > **Ambito raccolta** elenca solo le cartelle di host e cluster. Le cartelle delle macchine virtuali non possono essere selezionate direttamente come ambito raccolta. Tuttavia, è possibile individuarlo con un account vCenter dotato di accesso alle singole macchine virtuali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) sull'ambito in una cartella di macchine virtuali.
 
 7. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
 8. In **Visualizza lo stato della raccolta** monitorare lo stato di individuazione. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501369"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
@@ -242,7 +242,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 
 | Nome dell'elemento | Obbligatoria | Type | DESCRIZIONE |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` si trova in e, `2` è disattivata. |
+| `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
 
 ## <a name="query-and-visualize"></a>Eseguire una query e visualizzare
@@ -276,7 +276,7 @@ Per informazioni sui diversi tipi di log, vedere [Log di diagnostica dell'hub Io
 Per visualizzare il flusso dei messaggi IoT, configurare l'app di esempio di Mappa delle applicazioni. L'app di esempio invia i log della traccia distribuita a [Mappa delle applicazioni](../application-insights/app-insights-app-map.md) usando una funzione di Azure e un hub eventi.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ottenere l'esempio su Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ottenere l'esempio in GitHub</a>
 
 L'immagine seguente mostra la traccia distribuita in Mappa delle applicazioni con tre endpoint di routing:
 

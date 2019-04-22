@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549688"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678939"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -25,7 +25,7 @@ Il Database SQL di Azure fornisce diversi metodi per la creazione di una copia c
 
 ## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso, il relativo livello di servizio e la relativa dimensione di calcolo o una diversa all'interno dello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
+Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare il server stesso o un altro server. È anche possibile scegliere mantenere il livello di servizio e le dimensioni di calcolo oppure usare una dimensione di calcolo diversi all'interno del livello di servizio stesso (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
 
 > [!NOTE]
 > [I backup di database automatizzati](sql-database-automated-backups.md) vengono usati quando si crea una copia del database.

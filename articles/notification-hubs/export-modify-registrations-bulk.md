@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490844"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
@@ -290,4 +290,4 @@ Per altre informazioni sulle registrazioni, vedere gli articoli seguenti:
 
 - [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md)
 - [Tag per le registrazioni](notification-hubs-tags-segment-push-message.md)
-- [Registrazioni modello](notification-hubs-templates-cross-platform-push-messages.md)
+- [Registrazioni dei modelli](notification-hubs-templates-cross-platform-push-messages.md)

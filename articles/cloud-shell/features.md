@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500618"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
@@ -40,7 +40,7 @@ Al termine, Cloud Shell assocerà automaticamente la risorsa di archiviazione (m
 Inoltre, la directory `$HOME` viene resa persistente come un .img nella condivisione file di Azure.
 I file all'esterno di `$HOME` e lo stato della macchina non sono persistenti tra le sessioni. Usare le procedure consigliate per l'archiviazione dei segreti, ad esempio le chiavi SSH. Servizi, ad esempio [Azure Key Vault dispongono di esercitazioni per l'installazione](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Altre informazioni sulla persistenza dei file in Cloud Shell.](persisting-shell-storage.md)
+[Altre informazioni sulla persistenza dei file all’interno di Cloud Shell.](persisting-shell-storage.md)
 
 ### <a name="azure-drive-azure"></a>Unità Azure (Azure:)
 
@@ -57,7 +57,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="tools"></a>Strumenti
 
-|Categoria   |Attività   |
+|Categoria   |NOME   |
 |---|---|
 |Strumenti di Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -80,7 +80,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Bash in Cloud Shell Quickstart](quickstart.md) <br>
-[PowerShell in avvio rapido di Cloud Shell](quickstart-powershell.md) <br>
-[Informazioni su Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>
+[Avvio rapido di PowerShell in Cloud Shell](quickstart-powershell.md) <br>
+[Informazioni sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

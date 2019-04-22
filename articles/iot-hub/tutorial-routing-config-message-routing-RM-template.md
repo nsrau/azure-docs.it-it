@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663027"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543749"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare un modello di Azure Resource Manager per configurare il routing dei messaggi per l'hub IoT
 
@@ -74,7 +74,7 @@ La maggior parte di questi parametri hanno valori predefiniti. Quelli che termin
 
 **AuthRules_sb_queue**: indica le regole di autorizzazione per la coda del bus di servizio, usate per recuperare la stringa di connessione per la coda.
 
-### <a name="variables"></a>Variabili
+### <a name="variables"></a>variables
 
 Questi valori vengono usati nel modello e derivano prevalentemente dai parametri.
 
@@ -324,7 +324,7 @@ La regola di autorizzazione per la coda del bus di servizio viene usata per recu
 },
 ```
 
-### <a name="resources-consumer-group"></a>Risorse: gruppo di consumer
+### <a name="resources-consumer-group"></a>Risorse: Gruppo di consumer
 
 In questa sezione viene creato il gruppo di consumer per i dati dell'hub IoT che verranno usati da Analisi di flusso di Azure nella seconda parte dell'esercitazione.
 
@@ -339,7 +339,7 @@ In questa sezione viene creato il gruppo di consumer per i dati dell'hub IoT che
 }
 ```
 
-### <a name="resources-outputs"></a>Risorse: output
+### <a name="resources-outputs"></a>Risorse: Output
 
 Se si vuole inviare un valore allo script di distribuzione da visualizzare, usare una sezione di output. Questa parte del modello restituisce la stringa di connessione per la coda del bus di servizio. Non è necessario che venga restituito un valore. L'esempio viene incluso solo per illustrare come vengono restituiti i risultati allo script chiamante.
 

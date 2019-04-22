@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014123"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496795"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -75,6 +75,10 @@ Esistono tre tipi di opzioni di esportazione:
 
 **Personalizzata**: consente di pianificare esportazioni settimanali e mensili con le opzioni da inizio settimana e da inizio mese. *L'esportazione iniziale verrà eseguita immediatamente.*
 
+Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per tali tipi di sottoscrizioni e gruppi di risorse, è possibile creare un'esportazione allineata al periodo di fatturazione o ai mesi di calendario. Per creare un'esportazione allineata al mese di fatturazione, passare a **Personalizzato**, quindi selezionare **Periodo di fatturazione a oggi**.  Per creare un'esportazione allineata al mese di calendario, selezionare **Da inizio mese**.
+>
+>
+
 ![Nuova esportazione - scheda Informazioni di base in cui è illustrata la selezione dell'opzione personalizzata per l'esportazione settimanale da inizio settimana](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verificare che i dati vengano raccolti
@@ -92,6 +96,7 @@ In Storage Explorer passare al contenitore che si vuole aprire e selezionare la 
 Il file viene aperto con l'applicazione o il programma impostato per aprire le estensioni di file CSV. Ecco un esempio in Excel.
 
 ![Esempio di esportazione di dati CSV visualizzati in Excel](./media/tutorial-export-acm-data/example-export-data.png)
+
 
 ## <a name="access-exported-data-from-other-systems"></a>Accedere a dati esportati da altri sistemi
 

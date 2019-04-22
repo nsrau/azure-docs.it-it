@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492346"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
@@ -51,8 +51,8 @@ L'esempio riportato in questo documento richiede la creazione delle risorse segu
 Per istruzioni, fare riferimento ai documenti seguenti:
 
 1. [Creare un gateway VPN in una rete virtuale](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Creare il peering reti virtuali con lo stesso modello di distribuzione](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Creare il peering reti virtuali con modelli di distribuzione diversi](../virtual-network/create-peering-different-deployment-models.md)
+2. [Creare un peering di rete virtuale con lo stesso modello di distribuzione](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Creare un peering di rete virtuale con modelli di distribuzione diversi](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Autorizzazioni
 

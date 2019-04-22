@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001269"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526742"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creare un modello Terraform di base in Azure con Yeoman
 
@@ -73,8 +73,8 @@ Da un prompt dei comandi:
 1. Passare alla directory padre in cui includere la nuova directory vuota che sarà creata.
 1. Immettere `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Sostituire <nuovo-nome-directory> con il nome della nuova directory. In questo esempio la nuova directory viene denominata `GeneratorDocSample`.
+    > [!NOTE]
+    > Sostituire `<new-directory-name>` con il nome della nuova directory. In questo esempio la nuova directory viene denominata `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Tutti questi elementi sono preinstallati in Cloud Shell.
 
 1. Creare la cartella $GOPATH, se non ne esiste già una: Immettere `mkdir ~/go`.
 
-1. Creare una cartella all'interno della cartella $GOPATH: Immettere `mkdir ~/go/src`. In questa cartella verranno inserite e organizzate le diverse cartelle di progetto eventualmente create, come la cartella <your-module-name> che verrà creata nel passaggio successivo.
+1. Creare una cartella all'interno della cartella $GOPATH: Immettere `mkdir ~/go/src`. In questa cartella verranno inserite e organizzate le diverse cartelle di progetto eventualmente create, come la cartella `<your-module-name>` che verrà creata nel passaggio successivo.
 
 1. Creare una cartella in cui inserire il modulo Terraform: Immettere `mkdir ~/go/src/<your-module-name>`.
 

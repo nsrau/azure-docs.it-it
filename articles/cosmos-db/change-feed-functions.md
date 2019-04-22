@@ -4,65 +4,51 @@ description: Usare il feed di modifiche di Azure Cosmos DB con Funzioni di Azure
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469482"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680775"
 ---
-# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Attivare Funzioni di Azure da Azure Cosmos DB
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architetture senza server basata su eventi con Azure Cosmos DB e funzioni di Azure
 
-Se si usa Funzioni di Azure, il modo più semplice per connettersi a un feed di modifiche è quello di aggiungere un [trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) all'app Funzioni di Azure. Quando si crea un trigger di Cosmos DB in un'app di Funzioni di Azure, si sceglie il contenitore di Cosmos a cui connettersi e la funzione viene attivata ogni volta che viene apportata una modifica al contenitore.
+Funzioni di Azure fornisce il modo più semplice per la connessione per il [feed di modifiche](). È possibile creare piccole reattivo funzioni di Azure che verrà attivato automaticamente per ogni nuovo evento nel feed di modifiche del contenitore di Azure Cosmos.
 
-I trigger possono essere creati nel portale di Funzioni di Azure, nel portale di Azure Cosmos DB o a livello di codice. Per altre informazioni, vedere [Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure](serverless-computing-database.md).
+![Funzioni senza server basata su eventi funziona con il Trigger di Azure Cosmos DB](./media/change-feed-functions/functions.png)
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+Con il [Trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), è possibile sfruttare le [processore dei Feed delle modifiche](./change-feed-processor.md)scalabilità dell'e funzionalità di rilevamento di eventi affidabile senza la necessità di mantenere qualsiasi [ruolo di lavoro infrastruttura](./change-feed-processor.md#implementing-the-change-feed-processor-library). Concentrati solo sulla logica della funzione di Azure senza doversi preoccupare il resto della pipeline-sourcing di eventi. È anche possibile combinare il Trigger con qualsiasi altro [associazioni di funzioni di Azure](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region"></a>Come si configura Funzioni di Azure per la lettura da una determinata area?
+> [!NOTE]
+> Attualmente, il trigger di Azure Cosmos DB è supportato per l'uso con il Core (API SQL) solo.
 
-È possibile definire la proprietà [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations) quando si usa il trigger di Azure Cosmos DB per specificare un elenco di aree. Equivale a personalizzare ConnectionPolicy per consentire al trigger di eseguire operazioni di lettura dalle aree preferite. Idealmente, si vogliono eseguire operazioni di lettura dall'area più vicina a quella in cui è distribuito Funzioni di Azure.
+## <a name="requirements"></a>Requisiti
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Qual è la dimensione predefinita dei batch in Funzioni di Azure?
+Per implementare un flusso basato su eventi senza server, è necessario:
 
-La dimensione predefinita è 100 elementi per ogni chiamata di Funzioni di Azure. Tuttavia, il numero è configurabile all'interno del file function.json. Qui è disponibile un [elenco completo delle opzioni di configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Se si eseguono attività di sviluppo in locale, aggiornare le impostazioni dell'applicazione all'interno del file local.settings.json.
+* **Contenitore monitorato**: Contenitore monitorato è il contenitore di Azure Cosmos monitorato, e archivia i dati da cui viene generato il feed delle modifiche. Eventuali inserimenti e modifiche (ad esempio, CRUD) al contenitore monitorato vengono riflesse nel feed di modifiche del contenitore.
+* **Il contenitore di lease**: Il contenitore di lease gestisce lo stato tra più e istanze di funzione di Azure senza server dinamica e consente la scalabilità dinamica. Questo contenitore del lease può essere manualmente o automaticamente creato dal Trigger.To DB Cosmos Azure automaticamente creare il contenitore di lease, impostare il *CreateLeaseCollectionIfNotExists* flag nel [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). I contenitori partizionati lease sono necessari per avere una `/id` definizione della chiave di partizione.
 
-### <a name="i-am-monitoring-a-container-and-reading-its-change-feed-however-i-dont-get-all-the-inserted-documents-some-items-are-missing"></a>Durante il monitoraggio di un contenitore e la lettura del relativo feed di modifiche non è possibile vedere tutti i documenti inseriti, alcuni mancano. Perché?
+## <a name="create-your-azure-cosmos-db-trigger"></a>Creare il Trigger di Azure Cosmos DB
 
-Verificare che nessun'altra istanza di Funzioni di Azure stia leggendo lo stesso contenitore con lo stesso contenitore di lease. I documenti mancanti vengono elaborati da altre istanze di Funzioni di Azure che usano lo stesso lease.
+Creare una funzione di Azure con un Trigger di Azure Cosmos DB è ora supportato in tutti i IDE funzioni di Azure e le integrazioni della riga di comando:
 
-Di conseguenza, se si creano più istanza di Funzioni di Azure per leggere lo stesso feed di modifiche, tali istanze devono usare contenitori di lease diversi oppure devono usare la configurazione "leasePrefix" per condividere lo stesso contenitore. Tuttavia, quando si usa la libreria del processore dei feed di modifiche, è possibile avviare più istanze di Funzioni di Azure e l'SDK provvederà a suddividere automaticamente i documenti tra le diverse istanze.
+* [Estensione di Visual Studio](../azure-functions/functions-develop-vs.md) per gli utenti di Visual Studio.
+* [Estensione di Visual Studio Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) per gli utenti di Visual Studio Code.
+* E infine [gli strumenti CLI Core](../azure-functions/functions-run-local.md#create-func) per un'esperienza agnostica IDE lo sviluppo multipiattaforma.
 
-### <a name="azure-cosmos-item-is-updated-every-second-and-i-dont-get-all-the-changes-in-azure-functions-listening-to-change-feed"></a>L'elemento di Cosmos viene aggiornato ogni secondo, ma Funzioni di Azure in ascolto sul feed di modifiche non riceve tutte le modifiche. Perché?
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Eseguire il Trigger di Azure Cosmos DB in locale
 
-Funzioni di Azure esegue continuamente il polling del feed per verificare la presenza di modifiche, con un ritardo massimo predefinito di 5 secondi. Se non sono presenti modifiche in sospeso per la lettura o sono presenti modifiche in sospeso dopo l'applicazione del trigger, la funzione le leggerà immediatamente. Tuttavia, se non sono presenti modifiche in sospeso, la funzione attenderà 5 secondi ed eseguirà il polling per verificare la presenza di altre modifiche.
+È possibile eseguire la [funzione di Azure in locale](../azure-functions/functions-develop-local.md) con il [emulatore Azure Cosmos DB](./local-emulator.md) per creare e sviluppare i flussi senza server basata su eventi senza una sottoscrizione di Azure né sostenere costi.
 
-Se il documento subisce più modifiche nello stesso intervallo di tempo che ha impiegato il trigger per eseguire il polling delle nuove modifiche, è possibile che venga inviata la versione più recente del documento e non quella intermedia.
-
-Se si vuole eseguire il polling del feed di modifiche per un intervallo di tempo inferiore a 5 secondi, ad esempio ogni secondo, è possibile configurare l'intervallo di polling "feedPollDelay". Vedere la [configurazione completa](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Il valore è definito in millisecondi e l'impostazione predefinita è 5000. L'esecuzione del polling per un intervallo di tempo inferiore a 1 secondo è possibile ma non consigliabile perché si inizierà a usare una maggior quantità di memoria CPU.
-
-### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Più istanze di Funzioni di Azure possono leggere il feed di modifiche di un solo contenitore?
-
-Sì. Più istanze di Funzioni di Azure possono leggere il feed di modifiche dello stesso contenitore. Tuttavia, per ogni istanza dovrà essere definita una proprietà "leaseCollectionPrefix" separata.
-
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-in-a-batch-of-10-documents-and-i-get-an-error-at-seventh-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-document-ie-seventh-document-in-my-next-feed"></a>Se si elabora un feed di modifiche usando Funzioni di Azure, ad esempio su un batch di 10 documenti, e si verifica un errore nel settimo documento, gli ultimi tre documenti non vengono elaborati. In che modo è possibile riprendere l'elaborazione dal documento contenente l'errore, ovvero il settimo, nel feed successivo?
-
-Per gestire l'errore, il modello consigliato è quello di eseguire il wrapping del codice con blocco try-catch e, se si esegue l'iterazione sull'elenco di documenti, eseguire il wrapping di ogni iterazione nel rispettivo blocco try-catch. Questa procedura consiste nel rilevare l'errore, inserire il documento in questione in una coda di documenti non recapitabili e quindi definire la logica per gestire i documenti che hanno generato l'errore. Se il batch comprende 200 documenti e l'errore riguarda un solo documento, questo metodo consente di evitare di invalidare l'intero batch.
-
-In caso di errore, non si dovrà riportare il punto di controllo all'inizio altrimenti i documenti che hanno generato l'errore verranno continuamente recuperati dal feed di modifiche. Tenere presente che il feed di modifiche mantiene l'ultimo snapshot finale dei documenti, quindi, per questo motivo, si potrebbe perdere lo snapshot precedente del documento. Il feed di modifiche mantiene solo l'ultima versione del documento e nel frattempo altri processi possono intervenire a modificare il documento.
-
-Man mano che si continua a correggere il codice, la coda dei documenti non recapitabili si svuoterà. Funzioni di Azure viene chiamato automaticamente dal sistema del feed di modifiche e il punto di controllo viene gestito internamente da Funzioni di Azure. Se si desidera eseguire il rollback del punto di controllo e controllarne tutti gli aspetti, considerare di utilizzare l'SDK processore del feed di modifiche.
-
-### <a name="are-there-any-extra-costs-for-using-the-azure-cosmos-db-trigger"></a>Sono previsti costi aggiuntivi per l'uso del trigger di Azure Cosmos DB?
-
-Il trigger di Azure Cosmos DB sfrutta i vantaggi offerti dalla libreria del processore dei feed di modifiche internamente. Di conseguenza, è necessaria una raccolta aggiuntiva, definita raccolta di lease, per gestire lo stato e i checkpoint parziali. Questa gestione dello stato è necessaria per la scalabilità dinamica e per continuare nel caso in cui si voglia arrestare Funzioni di Azure e continuare l'elaborazione in un secondo momento. Per altre informazioni, vedere [Uso della libreria del processore dei feed di modifiche di Azure Cosmos DB](change-feed-processor.md).
+Se si desidera testare gli scenari in tempo reale nel cloud, puoi [prova gratuitamente per Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza alcuna carta di credito o una sottoscrizione di Azure necessari.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
+È ora possibile continuare a ulteriori informazioni sui feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
 * [Metodi per leggere il feed di modifiche](read-change-feed.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100293"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526566"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -48,7 +48,7 @@ Un'entità semplice è una scelta appropriata per questo tipo di dati quando:
 * I dati non sono formattati in modo corretto, ad esempio un'espressione regolare.
 * I dati non sono comuni, ad esempio un'entità predefinita riguardante un numero di telefono o dati.
 * I dati non corrispondono esattamente a un elenco di parole conosciute, ad esempio un'entità elenco.
-* I dati non contengono altri elementi di dati, ad esempio un'entità composta o gerarchica.
+* I dati non contengono altri elementi di dati, ad esempio un'entità composta o ruoli contestuali.
 
 Considerare le espressioni seguenti di un chatbot:
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493145"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679279"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -45,8 +45,9 @@ Distribuzioni di server Linux non approvate da Azure non supportano crittografia
 
 | Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
+| Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5</br>[con Azure ottimizzati aggiornati a 4.15 o versione successiva di kernel](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
 | RHEL | 7.6 | Disco del sistema operativo e dati* |
 | RHEL | 7.5 | Disco del sistema operativo e dati* |
 | RHEL | 7.4 | Disco del sistema operativo e dati* |
@@ -170,6 +171,6 @@ Backup di Azure fornisce un meccanismo per eseguire il backup e ripristinare VM 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento sono state fornite le risposte alle domande più frequenti relative a Crittografia dischi di Azure. Per altre informazioni sul servizio, vedere gli articoli seguenti:
 
-- [Panoramica su crittografia dischi di Azure](azure-security-disk-encryption-overview.md)
-- [Applicare la crittografia del disco nel Centro sicurezza Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Crittografia dei dati di Azure quando sono inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md)
+- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

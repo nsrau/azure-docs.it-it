@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523733"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680348"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrare un'app per le funzioni con una rete virtuale di Azure
 
-Questa esercitazione dettagliata illustra come usare Funzioni di Azure per collegarsi alle risorse in una rete virtuale di Azure.
+Questa esercitazione illustra come usare funzioni di Azure per connettersi alle risorse in una rete virtuale di Azure.
 
 Per questa esercitazione si distribuirà un sito WordPress in una VM in una privata, non internet accessibile, rete virtuale. Verrà quindi distribuita una funzione con accesso sia a Internet sia alla rete virtuale. Si userà tale funzione per accedere alle risorse dal sito WordPress distribuito all'interno della rete virtuale.
 

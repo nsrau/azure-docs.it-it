@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491357"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuire il modulo gemello OPC e le dipendenze da zero
@@ -189,7 +189,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    ```
 
    Il `device id` parametro è tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
-    ![output di set di moduli di IoT Edge AZ](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti con il comando seguente:
 

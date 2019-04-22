@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495533"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
@@ -136,7 +136,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` supporta le opzioni seguenti, che sono versione 2.x-only, se non diversamente specificato:
+`func init` supporta le opzioni seguenti, che sono disponibili solo nella versione 2.x, se non specificato diversamente:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -192,9 +192,9 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
 
-* [C#precompilato](functions-dotnet-class-library.md#environment-variables)
+* [C# precompilato](functions-dotnet-class-library.md#environment-variables)
 * [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
-* [F#script (fsx)](functions-reference-fsharp.md#environment-variables)
+* [Script F# (file con estensione fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -294,7 +294,7 @@ func host start
 
 Il comando `host` è richiesto solo nella versione 1.x.
 
-`func host start` supporta le seguenti opzioni:
+`func host start` supporta le opzioni seguenti:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -386,7 +386,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 È anche possibile richiamare una funzione direttamente tramite `func run <FunctionName>` e offrire dati di input per la funzione. Questo comando è simile all'esecuzione di una funzione con la scheda **Test** nel portale di Azure.
 
-`func run` supporta le seguenti opzioni:
+`func run` supporta le opzioni seguenti:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -469,9 +469,9 @@ Sono disponibili le opzioni di distribuzione del contenitore personalizzato segu
 
 ## <a name="monitoring-functions"></a>Monitoraggio delle funzioni
 
-È consigliabile monitorare l'esecuzione delle funzioni grazie all'integrazione con Azure Application Insights. Quando si crea un'app per le funzioni nel portale di Azure, questa integrazione avviene automaticamente per impostazione predefinita. Tuttavia, quando si crea l'app per le funzioni usando il comando di Azure, non viene eseguita l'integrazione in app per le funzioni in Azure.
+È consigliabile monitorare l'esecuzione delle funzioni grazie all'integrazione con Azure Application Insights. Quando si crea un'app per le funzioni nel portale di Azure, questa integrazione avviene automaticamente per impostazione predefinita. Quando tuttavia si crea l'app per le funzioni usando l'interfaccia della riga di comando di Azure, l'integrazione nell'app per le funzioni in Azure non viene eseguita.
 
-Per abilitare Application Insights per app per le funzioni:
+Per abilitare Application Insights per l'app per le funzioni:
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -484,7 +484,7 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 
 <!-- LINKS -->
 
-[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
+[Strumenti di base di Funzioni di Azure]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portale di Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime

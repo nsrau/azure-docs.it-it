@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469642"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495038"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Creare un'istanza gestita di database SQL di Azure
 
@@ -52,6 +52,7 @@ I passaggi seguenti mostrano come creare un'istanza gestita.
    |**Collation**|Le regole di confronto da usare per l'istanza gestita|In caso di migrazione di database da SQL Server, controllare le regole di confronto di origine con `SELECT SERVERPROPERTY(N'Collation')` e usare tale valore. Per informazioni sulle regole di confronto, vedere l'articolo relativo alle [regole di confronto a livello di server](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Località**|La posizione in cui creare l'istanza gestita|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
    |**Rete virtuale**|Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete/subnet non è disponibile, prima di selezionarla come destinazione per la nuova istanza gestita è necessario [modificarla per soddisfare i requisiti di rete](sql-database-managed-instance-configure-vnet-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita, vedere [Configurare una rete virtuale per Istanza gestita](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Tipo di connessione**|Scegliere tra il tipo di connessione Proxy e Reindirizzamento|Per altre informazioni sui tipi di connessione, vedere i [Criteri di connessione di Azure SQL](sql-database-connectivity-architecture.md#connection-policy).|
    |**Gruppo di risorse**|Gruppo di risorse nuovo o esistente|Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![modulo istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

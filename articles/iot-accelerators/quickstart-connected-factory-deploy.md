@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 2d759dbfc9b38aae00dd8c3a51a6c0ee2dbe523f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176566"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491271"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Avvio rapido: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Connected Factory di Azure IoT per l'esecuzione di una simulazione del monitoraggio e della gestione basati sul cloud per dispositivi IoT industriali. Nel momento in cui viene distribuito, l'acceleratore di soluzione Connected Factory viene prepopolato con risorse simulate che consentono di esaminare uno scenario IoT industriale comune. Diversi stabilimenti simulati connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'efficienza complessiva delle attrezzature e gli indicatori di prestazioni chiave (KPI). Questa guida introduttiva illustra come usare il dashboard della soluzione per:
 
@@ -64,7 +64,7 @@ Fare clic su **Accetta** per accettare la richiesta di autorizzazioni. Il dashbo
 
 La visualizzazione predefinita è il *dashboard*. Per passare ad altre aree del portale, usare il menu a sinistra della pagina:
 
-[![Dashboard della soluzione](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
+[![SDashboard della soluzione](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
 Usare il dashboard per gestire i dispositivi IoT industriali. Connected Factory usa una gerarchia per visualizzare una configurazione globale degli stabilimenti. Il livello superiore della gerarchia è l'azienda che contiene uno o più stabilimenti. Ogni stabilimento contiene linee di produzione e ogni linea di produzione è costituita da stazioni. A ogni livello è possibile visualizzare l'efficienza complessiva delle attrezzature e gli indicatori KPI, pubblicare nuovi nodi per la telemetria e rispondere agli avvisi.
 
@@ -74,13 +74,13 @@ Nel dashboard è possibile visualizzare:
 
 Il pannello **Efficienza complessiva delle attrezzature** mostra i valori di efficienza complessiva delle attrezzature (OEE, Overall Equipment Efficiency) per l'intera azienda o per lo stabilimento, la linea di produzione o la stazione in esame. Questo valore viene aggregato dalla vista della postazione fino al livello aziendale. Il valore OEE e i relativi elementi costitutivi possono essere analizzati nei dettagli.
 
-[![Efficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![OEfficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del processo di produzione usando parametri operativi correlati alla produzione. Il valore di OEE è una misura standard del settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: Valore di OEE = disponibilità x prestazioni x qualità.
 
 È possibile analizzare ulteriormente l'efficienza complessiva delle attrezzature per qualsiasi livello della gerarchia dei dati. Fare clic sul comando radiale della percentuale di efficienza complessiva, disponibilità, prestazioni o qualità. Viene visualizzato un pannello contestuale con visualizzazioni che mostrano i dati su scale cronologiche diverse:
 
-[![Dettagli dell'efficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![ODettagli dell'efficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 È possibile fare clic su un grafico per eseguire ulteriori analisi dei dati.
 
@@ -88,11 +88,11 @@ Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del p
 
 Il pannello **Indicatori di prestazioni chiave** visualizza il numero di unità prodotte all'ora e l'energia (kWh) usata dall'intera azienda o dallo stabilimento, dalla linea di produzione o dalla stazione in esame. Questi valori vengono aggregati dalla vista della postazione fino al livello aziendale.
 
-[![Indicatori di prestazioni chiave](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![KIndicatori di prestazioni chiave](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 È possibile analizzare ulteriormente gli indicatori KPI per qualsiasi livello della gerarchia dei dati. Fare clic sul comando radiale della percentuale di efficienza complessiva, disponibilità, prestazioni o qualità. Viene visualizzato un pannello contestuale con visualizzazioni che mostrano i dati su scale cronologiche diverse:
 
-[![Dettagli degli indicatori KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KDettagli degli indicatori KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 È possibile fare clic su un grafico per eseguire ulteriori analisi dei dati.
 
@@ -100,7 +100,7 @@ Il pannello **Indicatori di prestazioni chiave** visualizza il numero di unità 
 
 Un pannello **Factory locations** (Posizioni factory) che visualizza stato, località e configurazione di produzione corrente nella soluzione. Alla prima esecuzione dell'acceleratore di soluzione, il dashboard mostra un set di stabilimenti simulato. Ogni simulazione delle linee di produzione è costituita da tre server OPC UA reali che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [domande frequenti su Connected Factory](iot-accelerators-faq-cf.md):
 
-[![Località della fabbrica](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![FLocalità della fabbrica](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 È possibile spostarsi all'interno della gerarchia della soluzione e visualizzare i valori di efficienza complessiva delle attrezzature e gli indicatori KPI a ogni livello:
 
@@ -112,19 +112,19 @@ Un pannello **Factory locations** (Posizioni factory) che visualizza stato, loca
 
 1. Fare clic su **EnergyConsumption** (Consumo energetico). Verranno visualizzati alcuni grafici che rappresentano questo valore su scale cronologiche diverse. È possibile fare clic su un grafico per eseguire ulteriori analisi dei dati.
 
-[![Visualizzare il consumo energetico](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![VVisualizzare il consumo energetico](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Mappa
 
 Se la sottoscrizione ha accesso all'[API di Bing Mappe](iot-accelerators-faq-cf.md), la mappa degli *stabilimenti* visualizza la posizione geografica e lo stato di tutti gli stabilimenti presenti nella soluzione. Per esaminare i dettagli, fare clic sulle località visualizzate sulla mappa.
 
-[![Mappa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![MMappa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Avvisi
 
 Il pannello **Avvisi** mostra gli avvisi generati quando un valore restituito o un valore OEE/KPI calcolato è superiore a una soglia configurata. Questo pannello visualizza gli avvisi per ogni livello della gerarchia, dal livello delle stazioni a quello dell'azienda. Ogni avviso include descrizione, data, ora, località e numero di occorrenze:
 
-[![Avvisi](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
+[![AAvvisi](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
 È possibile analizzare i dati che hanno causato l'avviso dal dashboard. Gli amministratori possono eseguire azioni predefinite sugli avvisi, ad esempio:
 
@@ -133,7 +133,7 @@ Il pannello **Avvisi** mostra gli avvisi generati quando un valore restituito o 
 
 Fare clic su uno degli avvisi nell'elenco a discesa **Scegliere un'azione**, scegliere **Conferma avviso** e quindi fare clic su **Applica**:
 
-[![Conferma avviso](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![AConferma avviso](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Per eseguire altre analisi sui dati dell'avviso, fare clic sul grafico nel pannello degli avvisi.
 
@@ -154,4 +154,4 @@ In questa guida introduttiva è stato distribuito l'acceleratore di soluzione Co
 Per informazioni su come usare altre funzionalità nel dashboard per gestire dispositivi IoT industriali, continuare con la guida pratica seguente:
 
 > [!div class="nextstepaction"]
-> [Use the Connected Factory dashboard](iot-accelerators-connected-factory-dashboard.md) (Usare il dashboard di Connected Factory)
+> [Usare il dashboard di connected factory](iot-accelerators-connected-factory-dashboard.md)

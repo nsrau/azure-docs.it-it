@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437123"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524545"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 Un account di archiviazione è un pool condiviso di spazio di archiviazione in cui è possibile distribuire condivisioni file di Azure o altre risorse di archiviazione, ad esempio BLOB o code. Un account di archiviazione può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
 
-Questo esempio crea un account di archiviazione con il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). L'account di archiviazione viene denominato *mystorageaccount<random number>* e nella variabile **$storageAcct** viene inserito un riferimento a tale account di archiviazione. I nomi degli account di archiviazione devono essere univoci, quindi usare `Get-Random` per aggiungere un numero al nome e renderlo univoco. 
+Questo esempio crea un account di archiviazione con il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). L'account di archiviazione viene denominato *mystorageaccount\<numero casuale>* e nella variabile **$storageAcct** viene inserito un riferimento a tale account di archiviazione. I nomi degli account di archiviazione devono essere univoci, quindi usare `Get-Random` per aggiungere un numero al nome e renderlo univoco. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

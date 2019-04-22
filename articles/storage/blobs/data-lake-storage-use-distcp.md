@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864061"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678381"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Microsoft Azure e i Data Lake Storage Gen2 di Azure
 
@@ -27,7 +27,7 @@ DistCp fornisce una serie di parametri della riga di comando e si consiglia di l
 * **Un account di archiviazione di Azure senza le funzionalità di Data Lake Storage Gen2 (spazio dei nomi gerarchico) abilitate**.
 * **Un account di Archiviazione di Azure con la funzionalità Data Lake Storage Gen2 abilitata**. Per istruzioni sulla creazione di un account, vedere [Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Un file system** creato nell'account di archiviazione con lo spazio dei nomi gerarchico abilitato.
-* **Cluster HDInsight di Azure** con accesso a un account di archiviazione con Data Lake Storage Gen2 abilitato. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](data-lake-storage-use-hdi-cluster.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
+* **Cluster HDInsight di Azure** con accesso a un account di archiviazione con Data Lake Storage Gen2 abilitato. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Assicurarsi di abilitare il Desktop remoto per il cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usare DistCp da un cluster HDInsight Linux
 

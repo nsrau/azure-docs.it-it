@@ -13,26 +13,26 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203676"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679109"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 
 Durante il rilevamento di codice di autenticazione precedente, il server di connessione di Active Directory ha rilevato un tipo di autenticazione non compatibile.
 
-Per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia compilato.  Se si è verificato questo errore e non si ha il precedente codice di autenticazione del progetto, ricompilare e riprovare.
+Per rilevare correttamente il precedente codice di autenticazione in un progetto, è necessario che il progetto sia compilato.  Se viene visualizzato questo errore e non hai un codice di autenticazione precedente nel progetto, ricompilare e riprovare.
 
 ## <a name="project-types"></a>Tipi di progetto
 
-Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente un controller che deriva da `ApiController`, il progetto verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
+Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se è presente un controller che deriva da `ApiController` nel progetto, il progetto verrà considerato come un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
 
 ## <a name="compatible-authentication-code"></a>Codice di autenticazione compatibile
 
-Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, viene considerato come caso rientrante. Il servizio connesso verrà aperto e visualizzerà le impostazioni.  Se sono presenti solo alcune impostazioni, verrà considerato come caso di errore.
+Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, viene considerata come caso rientrante e il servizio connesso verrà aperto il impostazioni di visualizzazione.  Se solo alcune impostazioni sono presenti, viene considerata un caso di errore.
 
 In un progetto MVC il servizio connesso cerca le impostazioni seguenti che derivano da usi precedenti del servizio:
 
@@ -41,7 +41,7 @@ In un progetto MVC il servizio connesso cerca le impostazioni seguenti che deriv
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Il servizio connesso cerca inoltre le impostazioni seguenti di un progetto API Web che derivano da usi precedenti del servizio:
+Inoltre, il servizio connesso cerca le impostazioni seguenti in un progetto API Web, che derivano da usi precedenti del servizio:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -60,7 +60,7 @@ Per individuare Autenticazione di Windows in un progetto MVC, il servizio connes
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ Per individuare Autenticazione di Windows in un progetto WebAPI, il servizio con
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ Per individuare l'autenticazione per singoli account utente, il servizio conness
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ Per individuare una precedente forma di autenticazione di tipo account aziendale
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

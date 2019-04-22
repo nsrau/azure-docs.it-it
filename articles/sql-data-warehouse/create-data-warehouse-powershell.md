@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900608"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545129"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
 
 Creare rapidamente un'istanza di Azure SQL Data Warehouse con Azure PowerShell.
 
@@ -103,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>Creare un data warehouse con dati di esempio
-Questo esempio crea un data warehouse usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW400, ovvero un punto iniziale a basso costo per il data warehouse. 
+## <a name="create-a-data-warehouse"></a>Creare un data warehouse
+Questo esempio crea un data warehouse usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW100c, ovvero un punto iniziale a basso costo per il data warehouse. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -112,7 +112,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -128,7 +128,7 @@ I parametri obbligatori sono:
 I parametri facoltativi sono:
 
 - **CollationName**: se non specificate, le regole di confronto predefinite sono SQL_Latin1_General_CP1_CI_AS. Non è possibile modificare le regole di confronto in un database.
-- **MaxSizeBytes**: la dimensione massima predefinita di un database è 10 GB.
+- **MaxSizeBytes**: la dimensione massima predefinita di un database è 240 TB. Le dimensioni massime limitano i dati rowstore. Lo spazio di archiviazione dei dati a colonne è illimitato.
 
 Per altre informazioni sulle opzioni dei parametri, vedere [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
