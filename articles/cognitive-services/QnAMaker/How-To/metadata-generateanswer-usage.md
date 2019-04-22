@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579411"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683593"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta della Knowledge base con l'API di GenerateAnswer e metadati
 
@@ -64,7 +64,7 @@ Per ottenere i dettagli dell'endpoint:
 Il **URL della richiesta** ha il formato seguente: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |Proprietà della richiesta HTTP|NOME|Type|Scopo|
@@ -84,7 +84,7 @@ Il corpo JSON presenta diverse impostazioni:
 |`top`|Facoltativo|numero intero|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
 |`userId`|Facoltativo|stringa|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
 |`isTest`|Facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
-|`strictFilters`|Facoltativo|stringa|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati.|
+|`strictFilters`|Facoltativo|stringa|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
 
 Un esempio del corpo JSON sarà simile a:
 

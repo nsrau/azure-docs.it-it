@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482947"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699014"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
@@ -260,6 +260,18 @@ Quando si installa IoT Edge in un dispositivo per la prima volta, viene avviato 
    ```
 
 6. Nel passaggio **Rivedi modello** selezionare **Invia**.
+
+## <a name="open-ports-on-gateway-device"></a>Porte aperte sul dispositivo gateway
+
+I dispositivi IoT Edge standard non necessitano disponibile la connettività in ingresso alla funzione, perché tutte le comunicazioni con l'IoT Hub viene eseguita tramite le connessioni in uscita. Tuttavia, i dispositivi gateway sono diversi perché devono essere in grado di ricevere messaggi dai dispositivi downstream.
+
+Per uno scenario di gateway a funzionare, almeno uno dei protocolli supportati dell'hub IoT Edge deve essere aperto per il traffico in ingresso dai dispositivi downstream. Il portocols supportate sono MQTT, AMQP e HTTPS.
+
+| Porta | Protocollo |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Instradare i messaggi da dispositivi downstream
 Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstream come i messaggi inviati dai moduli. In questo modo è possibile eseguire analisi in un modulo in esecuzione nel gateway prima di inviare dati al cloud. 

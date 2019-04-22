@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901526"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698400"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -119,6 +119,7 @@ Nella pagina Migration History (Cronologia migrazione) vengono visualizzate le i
 Se si vuole un report di migrazione più dettagliato su progetti, training e documenti, è possibile esportare i dettagli come file con estensione csv.
 
 ## <a name="implementation-notes"></a>Note sull'implementazione
+* I sistemi con linguaggio coppie non ancora disponibili in Microsoft Translator personalizzato sarà disponibile solo per accedere ai dati o annullare la distribuzione tramite Microsoft Translator personalizzato. Questi progetti verranno contrassegnati come "Non disponibile" nella pagina dei progetti. Come verranno abilitate nuove coppie di linguaggi con funzione di conversione personalizzata, diventerà attivi per il training e distribuire i progetti. 
 * La migrazione di un progetto dall'hub al traduttore personalizzato non ha alcun impatto sui training o sui progetti dell'hub. I progetti o i documenti non vengono eliminati dall'hub durante una migrazione e la distribuzione dei modelli non viene annullata.
 * È possibile eseguire la migrazione una sola volta per ogni progetto. Se è necessario ripetere la migrazione di un progetto, è necessario contattare Microsoft.
 * Funzione di conversione personalizzata supporta coppie di linguaggi NMT da e in lingua inglese. [Visualizzare l'elenco completo dei linguaggi supportati](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue. È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti. Non sarà possibile eseguire il training del nuovo modello. Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.

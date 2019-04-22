@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004598"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697890"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali (anteprima)
 
-Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e integrità delle macchine virtuali Linux e Windows e consente di monitorare i processi e dipendenze da altre risorse e processi esterni. 
+Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. 
 
 La soluzione Monitoraggio di Azure per le macchine virtuali include il supporto per il monitoraggio delle prestazioni e delle dipendenze delle applicazioni per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud. Tre funzionalità chiave offrono informazioni dettagliate:
 
@@ -39,7 +39,7 @@ Le funzionalità sono organizzate in tre prospettive:
 * Mappa
 
 >[!NOTE]
->Attualmente, la funzionalità Integrità è offerta solo per le macchine virtuali e i set di scalabilità di macchine virtuali di Azure. Prestazioni e funzionalità della mappa supportano le macchine virtuali di Azure e macchine virtuali ospitate nell'ambiente o altro provider cloud.
+>Attualmente, la funzionalità di integrità è disponibile solo per macchine virtuali di Azure. Prestazioni e funzionalità di mappa supporta macchine virtuali di Azure, set di scalabilità di macchine Virtuali di Azure e macchine virtuali ospitate nell'ambiente o altro provider cloud.
 
 L'integrazione con i log di Monitoraggio di Azure offre efficaci caratteristiche di aggregazione e filtro e la possibilità di eseguire analisi delle tendenze dei dati nel tempo. Un monitoraggio così completo dei carichi di lavoro non può essere realizzato solo con Monitoraggio di Azure o Mapping dei servizi.  
 

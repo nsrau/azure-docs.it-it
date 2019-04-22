@@ -7,36 +7,35 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880416"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683971"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
-Gli algoritmi di intelligenza artificiale guidano le [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) usate per l'elaborazione di dati non strutturati in un'operazione di indicizzazione di Ricerca di Azure. Questi algoritmi sono basati sulle [risorse di Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/), tra cui [Visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [Analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento di entità, l'estrazione di frasi chiave e altri arricchimenti.
+Unità di algoritmi di intelligenza artificiale il [pipeline di indicizzazione cognitive](cognitive-search-concept-intro.md) utilizzate per l'elaborazione dati non strutturati in ricerca di Azure. Questi algoritmi sono basati sulle [risorse di Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/), tra cui [Visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [Analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento di entità, l'estrazione di frasi chiave e altri arricchimenti.
 
 È possibile arricchire gratuitamente un numero limitato di documenti oppure è possibile collegare una risorsa di Servizi cognitivi fatturabile per carichi di lavoro più grandi e più frequenti. L'articolo illustra come associare una risorsa di Servizi cognitivi al set di competenze cognitive per arricchire i dati durante l'[indicizzazione di Ricerca di Azure](search-what-is-an-index.md).
 
 Se la pipeline è costituita da competenze non correlate alle API Servizi cognitivi, è comunque necessario collegare una risorsa Servizi cognitivi. In questo modo, si esegue l'override della risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno. Non sono previsti addebiti per le competenze non associate alle API Servizi cognitivi, tra cui: [competenze personalizzate](cognitive-search-create-custom-skill-example.md), [di unione testo](cognitive-search-skill-textmerger.md), [di divisione testo](cognitive-search-skill-textsplit.md) e [di shaping](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
-> Dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. Ciò ci consente di addebitare i costi per l'esecuzione di set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
+> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario collegare una risorsa fatturabile di Servizi cognitivi. Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento a consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. L'estrazione di immagini è un addebito previsto in Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
+> Esecuzione di [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata alla tariffa di esecuzione il [servizi cognitivi pay-capacità di passare prezzo](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa frequenza come se si ha eseguito l'attività direttamente. Estrazione di immagini è un addebito di ricerca di Azure, riflettono nella [pagina dei prezzi di ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="use-free-resources"></a>Usare risorse gratuite
 
 È possibile usare un'opzione di elaborazione limitata e gratuita per eseguire gli esercizi di esercitazione e l'avvio rapido di ricerca cognitiva. 
 
-> [!Important]
-> A partire dal 1° febbraio 2019, l'opzione **Gratuito (miglioramenti limitati)** è limitata a 20 documenti al giorno. 
+**Gratuito (miglioramenti limitati)** sono limitate a 20 documenti al giorno, per ogni sottoscrizione.
 
 1. Aprire la procedura guidata **Importa dati**.
 
@@ -56,15 +55,21 @@ Per carichi di lavoro di oltre 20 arricchimenti al giorno, è necessario collega
 
 Vengono addebitate solo le competenze che chiamano le API Servizi cognitivi. Le competenze non basate sull'API, ad esempio [competenze personalizzate](cognitive-search-create-custom-skill-example.md), [di unione testo](cognitive-search-skill-textmerger.md), [di divisione testo](cognitive-search-skill-textsplit.md) e [di shaping](cognitive-search-skill-shaper.md) non vengono addebitate.
 
-1. Nella procedura guidata **Importa dati**, in **Collega Servizi cognitivi** selezionare una risorsa esistente oppure fare clic su **Crea nuova risorsa Servizi cognitivi**.
+1. Aprire il **Importa dati** procedura guidata, scegliere un'origine dati e continuare a **Aggiungi ricerca cognitiva (facoltativo)**. 
 
-1. Selezionando **Crea nuova risorsa Servizi cognitivi** viene aperta una nuova scheda in cui è possibile creare la risorsa. Assegnare alla risorsa un nome univoco.
+1. Espandere **collegare servizi cognitivi** e quindi selezionare **Crea nuova risorsa di servizi cognitivi**. Verrà visualizzata una nuova scheda in modo che sia possibile creare la risorsa. 
 
-1. Se si crea una nuova risorsa, servizi cognitivi **scegliere la stessa regione** come risorsa di ricerca di Azure.
+   ![Crea una risorsa di servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "crea una risorsa di servizi cognitivi")
 
-1. Scegliere il piano tariffario tutto in uno, **S0**. Questo piano offre le funzionalità di Visione artificiale e Lingua che supportano le competenze predefinite nella ricerca cognitiva.
+1. Nel percorso, scegliere la stessa area di ricerca di Azure per evitare costi di larghezza di banda in uscita tra aree.
 
-    ![Creare una nuova risorsa Servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creare una nuova risorsa Servizi cognitivi")
+1. Nel piano tariffario, scegliere **S0** per ottenere la raccolta all-in-one delle funzionalità di servizi cognitivi, incluse le funzionalità di visione artificiale e linguaggio che supportano le competenze predefinite usate dalla ricerca di Azure. 
+
+   Per il livello S0, è possibile trovare tariffe per carichi di lavoro specifici nel [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
+  
+   + Nelle **seleziona offrono**, assicurarsi che *servizi cognitivi* sia selezionata.
+   + In funzionalità del linguaggio, le tariffe per la *testo Analitica Standard* si applicano all'indicizzazione di intelligenza artificiale. 
+   + In funzionalità di visione artificiale, le tariffe per la *Computer Vision S1* vengono applicati.
 
 1. Fare clic su **Crea** per effettuare il provisioning della nuova risorsa Servizi cognitivi. 
 

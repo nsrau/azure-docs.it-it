@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517539"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699032"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedura: Configurare i criteri di rischio in Azure Active Directory Identity Protection (procedura aggiornata)
 
@@ -41,7 +41,8 @@ Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevar
 
 I criteri di rischio di accesso sono costituiti da una risposta automatica che è possibile configurare per un determinato livello di rischio di accesso. Nella risposta è possibile bloccare l'accesso alle risorse o richiedere il passaggio a una richiesta di autenticazione a più fattori per ottenere l'accesso.
 
-   
+Quando l'utente completa correttamente una richiesta di autenticazione a più fattori attivata dai criteri di rischio di accesso, consente di commenti e suggerimenti a Identity Protection accesso da cui ha origine l'utente legittimo. In questo modo, verrà chiusi automaticamente l'evento di rischio di accesso che ha attivato la richiesta di autenticazione a più fattori e Identity Protection impedirà questo evento di aggiunta come contributo per l'elevazione di rischio utente. Abilitazione del criterio di rischio di accesso è possibile ridurre una eccessiva confusione attorno nella visualizzazione gli accessi rischiosi che consente agli utenti di eseguire l'autocorrezione quando viene richiesta la MFA e successivamente automaticamente chiudendo l'associato accesso rischioso.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Com'è possibile accedere ai criteri di rischio di accesso?
    
 I criteri di rischio di accesso si trovano nella sezione di **configurazione** della [pagina di Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

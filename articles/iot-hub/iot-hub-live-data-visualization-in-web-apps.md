@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 070f37a969411cfc4caf5f2d2b089ccfae759ca2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270881"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683195"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure usando la funzionalità App Web del Servizio App di Azure
 
@@ -35,13 +35,13 @@ In questa esercitazione si imparerà a visualizzare i dati del sensore in tempo 
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-* [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che presenta i seguenti requisiti:
+* Completare la [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) esercitazione, oppure una delle esercitazioni dispositivo; ad esempio [Raspberry Pi con Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi descrivono i requisiti seguenti:
 
   * Una sottoscrizione di Azure attiva
   * Un hub IoT nella sottoscrizione
   * Un'applicazione client che invia messaggi all'hub IoT
 
-* [Download GIT](https://www.git-scm.com/downloads)
+* [Scaricare Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891430"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679646"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.
@@ -59,7 +59,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 ## <a name="import-an-app-from-file"></a>Importare un'app da file
 
 1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
-1. Nella finestra di dialogo popup, selezionare un file JSON dell'app valido, quindi ****.
+1. Nella finestra di dialogo popup, selezionare un file JSON dell'app valido, quindi . ****
 
 ### <a name="import-errors"></a>Errori di importazione
 
@@ -67,10 +67,19 @@ Gli errori possibili sono:
 
 * Un'app con lo stesso nome esiste già. Reimportare le app e impostare il **nome facoltativo** a un nuovo nome. 
 
-## <a name="export-app"></a>Esportare l'applicazione
+## <a name="export-app-for-backup"></a>Esportare l'app per il backup
 
-1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
-1. Nella finestra di dialogo **Importa una nuova applicazione**, seleziona il file JSON che definisce l'applicazione LUIS.
+1. Sul **My Apps** pagina, selezionare **esportare**.
+1. Selezionare **esportare in formato JSON**. Il browser scarica la versione dell'app attiva.
+1. Aggiungere questo file per il sistema di backup per archiviare il modello.
+
+## <a name="export-app-for-containers"></a>Esportare l'app per contenitori
+
+1. Sul **My Apps** pagina, selezionare **esportare**.
+1. Selezionare **esportare come contenitore** quindi selezionare quale slot pubblicato (produzione o fase) che si desidera esportare.
+1. Usare questo file con il [contenitore LUIS](luis-container-howto.md). 
+
+    Se è interessati a esportando un sottoposto a training ma non ancora un modello pubblicato da utilizzare con il contenitore di LUIS, passare al **versioni** pagina ed esportare da tale posizione. 
 
 ## <a name="delete-app"></a>Eliminare l'applicazione
 

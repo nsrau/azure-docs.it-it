@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
 ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006093"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784382"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Query per avvisi del log in Monitoraggio di Azure
 Le [regole di avviso basate sui log di Monitoraggio di Azure](alerts-unified-log.md) vengono eseguite a intervalli regolari, pertanto è necessario assicurarsi che siano scritte in modo da ridurre al minimo il sovraccarico e la latenza. Questo articolo include consigli per la scrittura di query efficienti per gli avvisi del log e un processo per la conversione delle query esistenti. 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541028"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683954"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -29,13 +29,13 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Principali domande frequenti sui set di scalabilità
 
-**D.** Quante VM si possono includere in un set di scalabilità?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Quante VM si possono includere in un set di scalabilità?
 
-**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 600 VM basate su immagini personalizzate.
+Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 600 VM basate su immagini personalizzate.
 
-**D.** I dischi dati sono supportati nei set di scalabilità?
+### <a name="are-data-disks-supported-within-scale-sets"></a>I dischi dati sono supportati nei set di scalabilità?
 
-**R.** Sì. Un set di scalabilità può definire una configurazione dei dischi dati collegati che si applica a tutte le VM del set. Per altre informazioni, vedere l'articolo relativo a [set di scalabilità di Azure e dischi dati collegati](virtual-machine-scale-sets-attached-disks.md). Le altre opzioni per l'archiviazione dei dati includono:
+Sì. Un set di scalabilità può definire una configurazione dei dischi dati collegati che si applica a tutte le VM del set. Per altre informazioni, vedere l'articolo relativo a [set di scalabilità di Azure e dischi dati collegati](virtual-machine-scale-sets-attached-disks.md). Le altre opzioni per l'archiviazione dei dati includono:
 
 * File di Azure (unità condivise SMB)
 * Unità del sistema operativo
@@ -43,33 +43,33 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 * Servizio dati di Azure (ad esempio, tabelle di Azure e BLOB di Azure)
 * Servizio dati esterno (ad esempio, un database remoto)
 
-**D.** Quali aree di Azure supportano i set di scalabilità?
+### <a name="which-azure-regions-support-scale-sets"></a>Quali aree di Azure supportano i set di scalabilità?
 
-**R.** Tutte le aree supportano i set di scalabilità.
+Tutte le aree supportano i set di scalabilità.
 
-**D.** Come si crea un set di scalabilità con un'immagine personalizzata?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Come si crea un set di scalabilità con un'immagine personalizzata?
 
-**R.** Creare e acquisire un'immagine di VM, quindi usarla come origine per il set di scalabilità. Per un'esercitazione sulla creazione e sull'uso dell'immagine di una macchina virtuale personalizzata, è possibile usare l'[interfaccia della riga di comando di Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Creare e acquisire un'immagine di VM, quindi usarla come origine per il set di scalabilità. Per un'esercitazione sulla creazione e sull'uso dell'immagine di una macchina virtuale personalizzata, è possibile usare l'[interfaccia della riga di comando di Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**D.** Se si riduce la capacità del set di scalabilità da 20 a 15, quali VM vengono rimosse?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Se si riduce la capacità del set di scalabilità da 20 a 15, quali VM vengono rimosse?
 
-**R.** Le macchine virtuali vengono rimosse dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più elevato vengono rimosse per prime.
+Le macchine virtuali vengono rimosse dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più elevato vengono rimosse per prime.
 
-**D.** Cosa accade se successivamente si aumenta la capacità da 15 a 18?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Cosa accade se successivamente si aumenta la capacità da 15 a 18?
 
-**R.** Se si aumenta la capacità a 18, vengono create 3 nuove VM. Ogni volta, l'ID istanza della VM viene ottenuto incrementando il valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di errore e domini di aggiornamento.
+Se si aumenta la capacità a 18, vengono create 3 nuove VM. Ogni volta, l'ID istanza della VM viene ottenuto incrementando il valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di errore e domini di aggiornamento.
 
-**D.** Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
 
-**R.** Sì, è possibile usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md) nei set di scalabilità.
+Sì, è possibile usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md) nei set di scalabilità.
 
-**D.** I set di scalabilità si integrano con i set di disponibilità di Azure?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>I set di scalabilità si integrano con i set di disponibilità di Azure?
 
-**R.** Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizionamento* che fungono da set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 macchine virtuali includono più gruppi di posizionamento. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
+Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizionamento* che fungono da set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 macchine virtuali includono più gruppi di posizionamento. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
 
-**D.** I set di scalabilità si integrano con le zone di disponibilità di Azure?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
-**R.**  Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
+ Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale

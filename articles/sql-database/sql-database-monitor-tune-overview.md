@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875139"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683174"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -103,7 +103,6 @@ Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle qu
 Per altre informazioni sulla risoluzione di questi tipi di problemi, vedere:
 
 - Post di blog sull'[analisi di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)
-- Post di blog sul [problema di analisi dei parametri e soluzioni alternative](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/)
 - Post di blog [sull'analisi dei parametri per il problema dell'elefante e del topo](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)
 - Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191648"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681608"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -30,7 +30,9 @@ Fare riferimento ai documenti seguenti per informazioni dettagliate su come assi
 - [Aggiornare la versione di Service Fabric in un cluster di Azure](service-fabric-cluster-upgrade.md)
 - [Aggiornare la versione di Service Fabric in un cluster autonomo in windows server](service-fabric-cluster-upgrade-windows-server.md)
 
-Di seguito è riportato un elenco delle versioni di Service Fabric supportate con le relative date di fine supporto.
+## <a name="supported-versions"></a>Versioni supportate
+
+La tabella seguente elenca le versioni di Service Fabric supportate e le date di fine supporto.
 
 | **Runtime di Service Fabric nel cluster** | **Possibilità di aggiornamento diretto dalla versione del cluster** |**Versioni di SDK / pacchetto NuGet compatibili** | **Data di fine supporto** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | 6.2.* | 6.0.232.* |Versione 3.1 o precedente |26 ottobre 2018   |
 | 6.3.* | 6.1.480.* |Versione 3.2 o precedente |Marzo 31,2019  |
 | 6.4.* | 6.2.301.* |Versione 3.3 o precedente |Versione corrente, nessuna data di fine supporto |
+
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+
+ La tabella seguente elenca i sistemi operativi supportati per le versioni supportate di Service Fabric.
+
+| **Sistema operativo** | **Versione di meno recente supportata di Service Fabric** |
+| --- | --- |
+| Windows Server 2012 R2 | Tutte le versioni |
+| Windows Server 2016 | Tutte le versioni |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

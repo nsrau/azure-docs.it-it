@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505601"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698316"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
@@ -274,7 +274,7 @@ Per reindirizzare i fusi orari:
 1. Nel server di Active Directory, aprire il **Console Gestione criteri di gruppo**.
 2. Espandere il dominio e oggetti Criteri di gruppo.
 3. Fare doppio clic il **oggetto Criteri di gruppo** creata per le impostazioni dei criteri di gruppo e selezionare **modificare**.
-4. Nel **Editor Gestione criteri di gruppo**, passare alla **configurazione del Computer** > **criteri** > **amministrazione I modelli** > **i componenti di Windows** > **orizzonte visualizzare i servizi host sessione Desktop remoto** > **sessione Desktop remoto Host** > **dispositivo e il reindirizzamento della risorsa**.
+4. Nel **Editor Gestione criteri di gruppo**, passare alla **configurazione del Computer** > **criteri** > **amministrazione I modelli** > **i componenti di Windows** > **Servizi Desktop remoto** > **Host sessione Desktop remoto**   >  **Dispositivo e il reindirizzamento della risorsa**.
 5. Abilitare la **consentire il reindirizzamento di fuso orario** impostazione.
 
 È anche possibile eseguire questo comando nell'immagine master per reindirizzare i fusi orari:
@@ -367,7 +367,7 @@ Le istruzioni seguenti indicano come caricare l'immagine master in un account di
 
 Dopo aver creato un'immagine, è possibile creare o aggiornare i pool di host. Per altre informazioni su come creare e aggiornare i pool di host, vedere gli articoli seguenti:
 
-- [Creare un pool di host con un modello di Azure Resource Manager](create-host-pools-arm-template.md)
+- [Creare un pool di host con un modello Azure Resource Manager](create-host-pools-arm-template.md)
 - [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Configurare una condivisione di profilo utente per un pool di host](create-host-pools-user-profile.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243774"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698273"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -100,7 +100,7 @@ La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si b
 * Le macchine virtuali monitorate sono ora incluse nel nodo del gruppo client e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
 * Le macchine virtuali monitorate sono ora incluse nei nodi del gruppo di porte server e il grafico ad anello mostra la proporzione tra le macchine monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
 * Lo stile della mappa è stato aggiornato per maggiore coerenza con la mappa delle app di Application Insights.
-* I pannelli laterali sono stati aggiornati, ma non dispongono ancora del set completo di integrazioni supportate in Mapping dei servizi, ovvero Gestione aggiornamenti, Rilevamento modifiche, Sicurezza e Service Desk. 
+* I pannelli lato sono stati aggiornati e non è il set completo di integrazione che erano supportate in mapping dei servizi - gestione degli aggiornamenti, rilevamento delle modifiche, sicurezza e Service Desk. 
 * L'opzione per la scelta dei gruppi e delle macchine di cui eseguire il mapping è stata aggiornata e ora supporta sottoscrizioni, gruppi di risorse, set di scalabilità delle macchine virtuali di Azure e servizi cloud.
 * Non è possibile creare nuovi gruppi di macchine di Mapping dei servizi nella funzionalità Monitoraggio di Azure per le macchine virtuali.  
 
@@ -125,6 +125,12 @@ Anche se sono stati apportati miglioramenti alla mappa per gestire le configuraz
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Perché il grafico di rete nella scheda Prestazioni ha un aspetto diverso rispetto al grafico di rete nella pagina di panoramica della VM di Azure?
 
 La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla VM guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale VM, incluso quello tra reti virtuali.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Come viene misurato il tempo di risposta per i dati archiviati in VMConnection e visualizzato nel Pannello di connessione e le cartelle di lavoro?
+
+Tempo di risposta è un'approssimazione. Poiché non abbiamo instrumentare il codice dell'applicazione, non realmente conosciamo quando inizia una richiesta e all'arrivo della risposta. In alternativa è osservare dati inviati su una connessione e quindi i dati restituiti in tale connessione. Agente tiene traccia di queste Invia e riceve e tenta di associarle: una sequenza delle trasmissioni, seguita da una sequenza di riceve viene interpretato come una coppia richiesta-risposta. L'intervallo tra queste operazioni è il tempo di risposta. Includerà la latenza di rete e il tempo di elaborazione server.
+
+Questa approssimazione funziona bene per i protocolli basati su richiesta/risposta: una singola richiesta viene trasmessa nella connessione e un'unica risposta arriva. Questo è il caso per HTTP (S) (senza l'utilizzo di pipeline), ma non soddisfatta per altri protocolli.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Sono previste limitazioni se è in vigore il piano tariffario Gratuito di Log Analytics?
 Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  

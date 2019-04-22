@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434462"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683033"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Metriche e avvisi di DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Questo articolo descrive le metriche e gli avvisi per il servizio DNS di Azure.
 
 ## <a name="azure-dns-metrics"></a>Metriche di DNS di Azure
 
-DNS di Azure offre le metriche ai clienti per consentire loro di monitorare aspetti specifici delle metriche di DNS ospitate nel servizio. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
+DNS di Azure fornisce le metriche per i clienti consentire loro di monitorare aspetti specifici delle relative zone DNS ospitate nel servizio. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ Il livello granulare delle dimensioni per queste metriche è la zona DNS.
 
 ### <a name="query-volume"></a>Volume delle query
 
-La metrica *Query Volume* (Volume delle query) in DNS di Azure mostra il volume delle query DNS, ovvero il traffico di query, che è stato ricevuto da DNS di Azure per la propria zona DNS. L'unità di misura è Conteggio e l'aggregazione è data dal totale di tutte le query ricevute in un periodo di tempo. Per visualizzare questa metrica, selezionare l'esperienza di esplorazione Metriche (anteprima) nella scheda Monitoraggio del portale di Azure. Selezionare la zona DNS dall'elenco a discesa Risorsa, quindi la metrica Query volume (Volume delle query) e selezionare Somma come aggregazione. Lo screenshot seguente illustra un esempio.  Per altre informazioni sull'esperienza e i grafici di Esplora metriche, vedere [Esplora metriche di Monitoraggio di Azure](../azure-monitor/platform/metrics-charts.md).
+La metrica *Query Volume* (Volume delle query) in DNS di Azure mostra il volume delle query DNS, ovvero il traffico di query, che è stato ricevuto da DNS di Azure per la propria zona DNS. L'unità di misura è Conteggio e l'aggregazione è data dal totale di tutte le query ricevute in un periodo di tempo. 
+
+Per visualizzare questa metrica, selezionare l'esperienza di esplorazione Metriche (anteprima) nella scheda Monitoraggio del portale di Azure. Selezionare la zona DNS dall'elenco a discesa Risorsa, quindi la metrica Query volume (Volume delle query) e selezionare Somma come aggregazione. Lo screenshot seguente illustra un esempio.  Per altre informazioni sull'esperienza e i grafici di Esplora metriche, vedere [Esplora metriche di Monitoraggio di Azure](../azure-monitor/platform/metrics-charts.md).
 
 ![Volume delle query](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 

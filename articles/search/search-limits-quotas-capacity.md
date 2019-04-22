@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273397"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699167"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che si [ricerca di Azure](search-create-service-portal.md) alla **gratuito**, **base**,  **Standard**, oppure **ottimizzate per l'archiviazione** piani tariffari.
@@ -55,7 +55,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 | Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
+<sup>1</sup> servizi basic creati prima di dicembre 2017 hanno limiti inferiori (5 invece 15) sugli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
 <a name="document-limits"></a>
 
@@ -81,7 +81,7 @@ Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi s
 
 |  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
+|  10,000 |1&nbsp;milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
 Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
 
@@ -99,9 +99,8 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 
 ## <a name="indexer-limits"></a>Limiti dell'indicizzatore
 
-Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati, set di competenze e indicizzatori è stato aumentato a 15.
+Numero massimo di occorrenze esecuzione esistenza per fornire il saldo e stabilità per il servizio nel suo complesso, ma più grandi set di dati potrebbe richiedere tempi più indicizzazione maggiore di quello massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
-Le operazioni a elevato utilizzo di risorse, ad esempio l'analisi delle immagini nell'indicizzazione BLOB di Azure o l'elaborazione del linguaggio naturale nella ricerca cognitiva, hanno tempi di esecuzione massimi più brevi. Ciò consente di inserire altri processi di indicizzazione. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
 | Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
@@ -109,14 +108,15 @@ Le operazioni a elevato utilizzo di risorse, ad esempio l'analisi delle immagini
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
+| Pianificazione minimo | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 milioni |4 milioni |4 milioni |N/D |4 milioni |4 milioni |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milione |4&nbsp;milione |4&nbsp;milione |N/D |4&nbsp;milione |4&nbsp;milione |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'intelligenza artificiale di indicizzazione che effettua chiamate in servizi cognitivi, servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come un documento in cui vengano passate correttamente attraverso la pipeline enrichment.
 
-<sup>2</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5.
+<sup>2</sup> servizi basic creati prima di dicembre 2017 hanno limiti inferiori (5 invece 15) sugli indicizzatori, origini dati e competenze.
 
 <sup>3</sup> I servizi del livello S3 HD non includono il supporto per l'indicizzatore.
 
@@ -136,7 +136,7 @@ Per i livelli di ottimizzazione dell'archiviazione, è possibile aspettarsi una 
 
 Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
-## <a name="api-request-limits"></a>Limiti delle richieste API
+## <a name="api-request-limits"></a>Limiti delle richieste di API
 * 16 MB al massimo per <sup>1</sup> richiesta
 * 8 KB al massimo per la lunghezza dell'URL
 * 1000 documenti al massimo per ogni batch di carichi, unioni o eliminazioni di indice
@@ -145,12 +145,12 @@ Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effet
 
 <sup>1</sup> In Ricerca di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati).
 
-## <a name="api-response-limits"></a>Limiti delle risposte API
+## <a name="api-response-limits"></a>Limiti di risposta API
 * 1000 documenti al massimo restituiti per pagina di risultati della ricerca
 * 100 suggerimenti al massimo restituiti per richiesta di API di suggerimento
 
-## <a name="api-key-limits"></a>Limiti delle chiavi API
-Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi amministratore, specificate nell'intestazione della richiesta, consentono l'accesso completo in lettura e scrittura al servizio. Le chiavi di query sono di sola lettura, sono specificate nell'URL e in genere sono distribuite ad applicazioni client.
+## <a name="api-key-limits"></a>Limiti chiave API
+Chiavi API vengono usate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi amministratore, specificate nell'intestazione della richiesta, consentono l'accesso completo in lettura e scrittura al servizio. Le chiavi di query sono di sola lettura, sono specificate nell'URL e in genere sono distribuite ad applicazioni client.
 
 * 2 chiavi di amministrazione al massimo per ogni servizio
 * 50 chiavi di query al massimo per ogni servizio

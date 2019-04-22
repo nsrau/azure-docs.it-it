@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491580"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698946"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 
@@ -74,6 +74,25 @@ Eseguire la migrazione del modello di distribuzione dell'account di archiviazion
 
 > [!NOTE]
 > Il ritiro degli avvisi classici in Monitoraggio di Azure è previsto per il mese di giugno 2019. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per altre informazioni, vedere [Disattivazione avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
+
+Un'area di Azure può supportare un massimo di 250 account di archiviazione per ogni sottoscrizione. Una volta raggiunto il limite, non sarà possibile creare qualsiasi altri account di archiviazione in tale combinazione di area o una sottoscrizione. Advisor consente di rilevare le sottoscrizioni e consigli della superficie per progettare un minor numero degli account di archiviazione per qualsiasi che siano per raggiungere il limite massimo.
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Ottimizzare le prestazioni dei server MySQL di Azure e Azure PostgreSQL Azure MariaDB 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Correggere la pressione della CPU del server MySQL di Azure e Azure PostgreSQL Azure MariaDB con i colli di bottiglia della CPU
+Un utilizzo molto elevato della CPU per un periodo prolungato può provocare prestazioni di query lente per il carico di lavoro. Aumento delle dimensioni della CPU sarà consentono di ottimizzare il runtime di query di database e migliorare le prestazioni complessive. Azure Advisor identifica i server con un utilizzo elevato della CPU che è probabile che eseguono carichi di lavoro della CPU vincolata e consigliabile ridimensionare le risorse di calcolo.
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Ridurre i vincoli di memoria nei server Azure MySQL, PostgreSQL di Azure e Azure MariaDB o verso una memoria con ottimizzazione per la SKU
+Una percentuale di riscontri cache basso può comportare un maggiore IOPS e rallentamento delle prestazioni di query. Probabilmente a causa di un piano di query non valida o l'esecuzione di un carico di lavoro con utilizzo intensivo di memoria. Correggere il piano di query oppure [aumentando la memoria](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) del Database di Azure per server di database PostgreSQL, il server di database di Azure MySQL o MariaDB Azure server consente di ottimizzare l'esecuzione del carico di lavoro database. Azure Advisor identifica i server interessati a causa di questa varianza di pool di buffer è elevato e consiglia una risoluzione il piano di query, lo spostamento di uno SKU superiore con più memoria o aumento delle dimensioni di archiviazione per ottenere una quantità maggiore di IOPS.
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Usare un MySQL di Azure o Azure PostgreSQL lettura della Replica per aumentare le operazioni di lettura per la lettura dei carichi di lavoro con utilizzo intensivo
+Azure Advisor sfrutta l'euristica in base al carico di lavoro, ad esempio la percentuale di letture e scritture nel server negli ultimi sette giorni per identificare i carichi di lavoro a elevato utilizzo di lettura. Il database di Azure per PostgreSQL risorsa o un database di Azure per MySQL risorse con un rapporto molto elevato di operazioni di lettura/scrittura può comportare conflitti di CPU e/o memoria portano a rallentare le prestazioni delle query. Aggiunta di un [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) aiuterà a scalabilità orizzontale di letture e del server di replica, impedendo i vincoli di CPU e/o memoria nel server primario. Advisor identifica i server con tali carichi di lavoro elevati di operazioni di lettura intense e consiglia di aggiungere un [replica di lettura](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) per trasferire una parte i carichi di lavoro di lettura.
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Ridimensionare il server Azure MySQL, PostgreSQL di Azure o Azure MariaDB a uno SKU superiore per evitare che i vincoli di connessione
+Ogni nuova connessione al server di database occupa una certa quantità di memoria. Comporta una riduzione delle prestazioni del server di database se le connessioni al server hanno esito negativo a causa di un [limite massimo](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) in memoria. Azure Advisor verranno identificati i server che eseguono con molti errori di connessione e consigliabile eseguire l'aggiornamento dei limiti di connessioni del server per fornire maggiore quantità di memoria al server di scalabilità verticale di calcolo o utilizzando SKU con ottimizzazione per la memoria, che hanno maggiore capacità di calcolo per ogni core.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor
 

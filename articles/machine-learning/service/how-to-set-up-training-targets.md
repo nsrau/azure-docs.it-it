@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046156"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683903"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello
 
@@ -41,11 +41,11 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 |Destinazione di calcolo per il training| Accelerazione GPU | Automatizzata<br/> Ottimizzazione degli iperparametri | Automatizzata</br> Machine Learning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Computer locale](#local)| È possibile | &nbsp; | ✓ | &nbsp; |
-|[Ambiente di calcolo di Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
+|[Ambiente di calcolo di Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Macchina virtuale remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[HDInsight di Azure](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Tutte le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
@@ -90,9 +90,9 @@ Il codice seguente illustra un esempio di configurazione di esecuzioni di traini
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
 * [Computer locale](#local)
-* [Ambiente di calcolo di Azure Machine Learning](#amlcompute)
+* [Ambiente di calcolo di Machine Learning](#amlcompute)
 * [Macchine virtuali remote](#vm)
-* [HDInsight di Azure](#hdinsight)
+* [Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Computer locale
@@ -361,8 +361,8 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
     > [!NOTE]
     > Microsoft consiglia di usare le chiavi SSH, che sono più sicure rispetto alle password. Le password sono intuibili e vulnerabili ad attacchi di forza bruta. Le chiavi SSH si basano sulle firme di crittografia. Per informazioni sulla creazione di chiavi SSH per l'uso con Macchine virtuali di Azure, vedere i documenti seguenti:
     >
-    > * [Creare e usare chiavi SSH in Linux o macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Creare e usare chiavi SSH in Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Create and use SSH keys on Linux or macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) (Creare e usare chiavi SSH in Linux o macOS)
+    > * [Create and use SSH keys on Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) (Creare e usare chiavi SSH in Windows)
 
 1. Selezionare __Allega__. 
 1. Visualizzare lo stato dell'operazione di collegamento selezionando la destinazione di calcolo dall'elenco.
@@ -377,7 +377,6 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 Per altre informazioni consultare [Gestione delle risorse](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Inviare l'esecuzione di training
 
 Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzione dell'esperimento.  Il criterio di codice per inviare l'esecuzione di un training è uguale per tutti i tipi di destinazioni di calcolo:
@@ -385,6 +384,13 @@ Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzion
 1. Creare un esperimento da eseguire
 1. Inviare l'esecuzione.
 1. Attendere il completamento dell'esecuzione.
+
+> [!IMPORTANT]
+> Quando si invia l'esecuzione di training, uno snapshot della directory che contiene gli script di training viene creato e inviato per la destinazione di calcolo. Sono anche archiviati come parte dell'esperimento nell'area di lavoro. Se si modificano i file e invia l'esecuzione anche in questo caso, verranno caricati solo i file modificati.
+>
+> Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
+> 
+> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 
@@ -399,8 +405,6 @@ Inviare l'esperimento con un oggetto `ScriptRunConfig`.  Questo oggetto include:
 * **source_directory**: la directory di origine che contiene lo script di training
 * **script**: identifica lo script di training
 * **run_config**: la configurazione di esecuzione, che a sua volta definisce dove verrà eseguito il training.
-
-Quando si invia un'esecuzione di training, viene creato uno snapshot della directory contenente gli script di training e viene inviato alla destinazione di calcolo. Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
 
 Ad esempio, per usare la configurazione [destinazione locale](#local):
 
@@ -418,7 +422,7 @@ In alternativa, è possibile:
 ## <a name="notebook-examples"></a>Esempi di notebook
 
 Consultare questi notebook per esempi di training con varie destinazioni di calcolo:
-* [How-to-uso-azureml/formazione](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
@@ -428,4 +432,4 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usare il servizio di Azure Machine Learning con reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

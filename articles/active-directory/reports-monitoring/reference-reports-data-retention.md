@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438819"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683734"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 
@@ -32,7 +32,7 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | Al momento dell'accesso a una sottoscrizione |
+| Azure AD Premium P1 <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
 | Azure AD Free <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
@@ -66,17 +66,17 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 **Report attività**    
 
-| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Directory Audit (Controllo directory)        | 7 giorni        |  7 giorni        | 30 giorni             | 30 giorni             |
-| Attività di accesso       | N/D           |  N/D           | 30 giorni             | 30 giorni             |
-| Uso di Azure MFA        | 30 giorni       |  30 giorni       | 30 giorni             | 30 giorni             |
+| Log di controllo             | 7 giorni        |  7 giorni        | 30 giorni             | 30 giorni             |
+| Accessi               | N/D           |  N/D           | 30 giorni             | 30 giorni             |
+| Utilizzo di Azure MFA        | 30 giorni       |  30 giorni       | 30 giorni             | 30 giorni             |
 
 È possibile mantenere i dati relativi alle attività di controllo e accesso per più tempo rispetto al periodo di conservazione predefinito descritto in precedenza instradandoli a un account di archiviazione di Azure con Monitoraggio di Azure. Per altre informazioni, vedere [Archiviare i log di Azure AD in un account di archiviazione di Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Segnali di sicurezza**
 
-| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
 | :--            | :--           | :--            | :--                 | :--                 |
 | Utenti a rischio.  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
 | Accessi a rischio | 7 giorni        | 7 giorni         |  30 giorni            | 90 giorni             |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407420"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684226"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipi di conflitto e criteri di risoluzione dei conflitti
 
@@ -37,11 +37,11 @@ Azure Cosmos DB offre un meccanismo basato sui criteri flessibile per risolvere 
   > [!NOTE]
   > La priorità dell'ultima scrittura è il criterio di risoluzione dei conflitti predefinito. È disponibile per le API seguenti: SQL, MongoDB, Cassandra, Gremlin e tabella.
 
-  Per altre informazioni, vedere gli [esempi d'uso dei criteri di risoluzione dei conflitti LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Per altre informazioni, vedere gli [esempi d'uso dei criteri di risoluzione dei conflitti LWW](how-to-manage-conflicts.md).
 
 - **Personalizzato**: questo criterio di risoluzione è stato progettato per la semantica definita dall'applicazione per la riconciliazione dei conflitti. Quando si imposta questo criterio per il contenitore di Azure Cosmos, è anche necessario registrare un' *stored procedure di tipo merge*. Questa procedura viene richiamata automaticamente quando vengono rilevati i conflitti in una transazione di database nel server. Il sistema fornisce esattamente una volta la garanzia per l'esecuzione di una routine di tipo merge come parte del protocollo di impegno.  
 
-  Se si configura il contenitore con l'opzione di risoluzione personalizzato e non si riesce a registrare una procedura di tipo merge per il contenitore o la procedura di tipo merge viene generata un'eccezione in fase di esecuzione, i conflitti vengono scritti i *conflitti feed*. L'applicazione deve quindi risolvere manualmente i conflitti nel feed dei conflitti. Per altre informazioni, vedere gli [esempi di utilizzo dei criteri di risoluzione personalizzati e del feed dei conflitti](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Se si configura il contenitore con l'opzione di risoluzione personalizzato e non si riesce a registrare una procedura di tipo merge per il contenitore o la procedura di tipo merge viene generata un'eccezione in fase di esecuzione, i conflitti vengono scritti i *conflitti feed*. L'applicazione deve quindi risolvere manualmente i conflitti nel feed dei conflitti. Per altre informazioni, vedere gli [esempi di utilizzo dei criteri di risoluzione personalizzati e del feed dei conflitti](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > Il criterio personalizzato per la risoluzione dei conflitti è disponibile solo per gli account API SQL.
@@ -51,6 +51,5 @@ Azure Cosmos DB offre un meccanismo basato sui criteri flessibile per risolvere 
 Informazioni su come configurare i criteri di risoluzione conflitto:
 
 * [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
-* [Come usare il criterio di risoluzione dei conflitti LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Come usare il criterio di risoluzione dei conflitti personalizzato](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Come gestire i criteri di risoluzione dei conflitti](how-to-manage-conflicts.md)
 * [Come leggere dal feed in conflitto](how-to-manage-conflicts.md#read-from-conflict-feed)

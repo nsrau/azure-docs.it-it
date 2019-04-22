@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501257"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698163"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Correggere le regole predefinite modificate in Azure AD Connect
 
@@ -76,12 +76,12 @@ Regola di sincronizzazione in entrata significa che l'origine per l'attributo è
 
  ![regole predefinite](media/how-to-connect-fix-default-rules/default3a.png)
 
-Seguire una convenzione di denominazione per denominare la regola, qui abbiamo utilizzato **personalizzate In from AD - utente**, ciò significa che la regola sia una regola personalizzata e una regola in ingresso dallo spazio connettore di Active Directory al Metaverse. 
+Seguire una convenzione di denominazione per denominare la regola, qui abbiamo utilizzato **personalizzate In from AD - utente**, ciò significa che la regola sia una regola personalizzata e una regola in ingresso dallo spazio connettore di Active Directory al Metaverse.   
 
  ![regole predefinite](media/how-to-connect-fix-default-rules/default3b.png)
 
 Fornire una propria descrizione della regola in modo che sia semplice, ad esempio qual è l'obiettivo di questa regola e perché è stata necessaria la manutenzione futura della regola.
-Sistema connesso (la foresta) selezionato l'origine dell'attributo. Quindi il tipo di oggetto sistema connesso e il tipo di oggetto Metaverse.
+Selezionare un sistema connesso (la foresta): l'origine dell'attributo. Quindi, selezionare il tipo di oggetto sistema connesso e il tipo di oggetto Metaverse.
 
 Specificare il valore di priorità compreso tra 0 a 99 (ridurre il numero, maggiore precedenza). Mantenere gli altri campi, ad esempio 'Tag', 'Enable Password Sync' e 'Disabled' come valore predefinito.
 

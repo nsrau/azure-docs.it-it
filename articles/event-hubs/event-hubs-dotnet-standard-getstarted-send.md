@@ -1,5 +1,5 @@
 ---
-title: Inviare eventi tramite .NET Core - Hub eventi di Azure | Microsoft Docs
+title: Inviare e ricevere eventi usando .NET Core - hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione .NET Core in grado di inviare eventi ad Hub eventi di Azure.
 services: event-hubs
 documentationcenter: na
@@ -13,46 +13,46 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 2bf5825d3f13044d1c9bde2b05d1c93ecd967a0f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ce98502113e75aea8deef7dbc7363662827634f3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782038"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682237"
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>Avvio rapido all'invio di messaggi a Hub eventi di Azure in .NET Core
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Inviare eventi a o ricevere eventi da hub eventi di Azure usando .NET Core
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT). Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
-Questa esercitazione descrive come inviare eventi a un hub eventi usando un'applicazione console scritta in C# con .NET Core. 
+Questa esercitazione illustra come creare applicazioni .NET Core in C# per inviare eventi a o ricevere eventi da un hub eventi. 
 
 > [!NOTE]
 > È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Microsoft Visual Studio 2015 o 2017](https://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
-* [Strumenti di Visual Studio 2015 o 2017 per .NET Core](https://www.microsoft.com/net/core). 
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
-Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md).
+- [Microsoft Visual Studio 2015 o 2017](https://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
+- [Strumenti di Visual Studio 2015 o 2017 per .NET Core](https://www.microsoft.com/net/core). 
+- **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Quindi, ottenere il **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
 
-Ottenere la stringa di connessione per lo spazio dei nomi dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione. 
+## <a name="send-events"></a>Inviare eventi 
+Questa sezione illustra come creare un'applicazione console .NET Core per inviare eventi a un hub eventi. 
 
-## <a name="create-a-console-application"></a>Creare un'applicazione console
+### <a name="create-a-console-application"></a>Creare un'applicazione console
 
 Avviare Visual Studio. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**. Creare un'applicazione console di .NET Core.
 
-![Nuovo progetto][1]
+![Nuovo progetto](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
 
-## <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
+### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
 Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) al progetto eseguendo i passaggi descritti di seguito: 
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.EventHubs" e selezionare il pacchetto **Microsoft.Azure.EventHubs**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
-## <a name="write-code-to-send-messages-to-the-event-hub"></a>Scrivere codice per inviare messaggi all'hub eventi
+### <a name="write-code-to-send-messages-to-the-event-hub"></a>Scrivere codice per inviare messaggi all'hub eventi
 
 1. Aggiungere le istruzioni `using` seguenti all'inizio del file Program.cs:
 
@@ -194,9 +194,182 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
 
 6. Eseguire il programma e assicurarsi che non siano presenti errori.
 
-Congratulazioni. Sono stati inviati messaggi a un hub eventi.
+## <a name="receive-events"></a>Ricevere eventi
+In questa sezione viene illustrato come scrivere un'applicazione console .NET Core che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) illustra come usare l'host processore di eventi con più ricevitori.
+
+> [!NOTE]
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), sostituire le stringhe `EventHubConnectionString`, `EventHubName`, `StorageAccountName`, `StorageAccountKey` e `StorageContainerName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+
+### <a name="create-a-console-application"></a>Creare un'applicazione console
+
+Avviare Visual Studio. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**. Creare un'applicazione console di .NET Core.
+
+![Nuovo progetto](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
+
+### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
+
+Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) della libreria .NET Standard seguendo questa procedura: 
+
+1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
+2. Fare clic sulla scheda **Sfoglia**, cercare **Microsoft.Azure.EventHubs** e quindi selezionare il pacchetto **Microsoft.Azure.EventHubs**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+3. Ripetere i passaggi 1 e 2 e installare il pacchetto **Microsoft.Azure.EventHubs.Processor**.
+
+### <a name="implement-the-ieventprocessor-interface"></a>Implementare l'interfaccia IEventProcessor
+
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Aggiungi** e fare clic su **Classe**. Assegnare il nome **SimpleEventProcessor** alla nuova classe.
+
+2. Aprire il file SimpleEventProcessor.cs e aggiungere le istruzioni `using` seguenti all'inizio del file.
+
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
+
+3. Implementare l'interfaccia `IEventProcessor`. Sostituire l'intero contenuto della classe `SimpleEventProcessor` con il codice seguente:
+
+    ```csharp
+    public class SimpleEventProcessor : IEventProcessor
+    {
+        public Task CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+            return Task.CompletedTask;
+        }
+
+        public Task OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessErrorAsync(PartitionContext context, Exception error)
+        {
+            Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (var eventData in messages)
+            {
+                var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+                Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
+            }
+
+            return context.CheckpointAsync();
+        }
+    }
+    ```
+
+### <a name="update-the-main-method-to-use-simpleeventprocessor"></a>Aggiornare il metodo Main per l'uso di SimpleEventProcessor
+
+1. Aggiungere le istruzioni `using` seguenti all'inizio del file Program.cs.
+
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
+
+2. Aggiungere le costanti alla classe `Program` per la stringa di connessione dell'hub eventi, il nome dell'hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori:
+
+    ```csharp
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
+    private const string StorageContainerName = "{Storage account container name}";
+    private const string StorageAccountName = "{Storage account name}";
+    private const string StorageAccountKey = "{Storage account key}";
+
+    private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+    ```   
+
+3. Aggiungere alla classe `Program` un nuovo metodo denominato `MainAsync` come da esempio seguente:
+
+    ```csharp
+    private static async Task MainAsync(string[] args)
+    {
+        Console.WriteLine("Registering EventProcessor...");
+
+        var eventProcessorHost = new EventProcessorHost(
+            EventHubName,
+            PartitionReceiver.DefaultConsumerGroupName,
+            EventHubConnectionString,
+            StorageConnectionString,
+            StorageContainerName);
+
+        // Registers the Event Processor Host and starts receiving messages
+        await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+
+        Console.WriteLine("Receiving. Press ENTER to stop worker.");
+        Console.ReadLine();
+
+        // Disposes of the Event Processor Host
+        await eventProcessorHost.UnregisterEventProcessorAsync();
+    }
+    ```
+
+3. Aggiungere la riga di codice seguente al metodo `Main`:
+
+    ```csharp
+    MainAsync(args).GetAwaiter().GetResult();
+    ```
+
+    Ecco l'aspetto che avrà il file Program.cs:
+
+    ```csharp
+    namespace SampleEphReceiver
+    {
+
+        public class Program
+        {
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
+            private const string StorageContainerName = "{Storage account container name}";
+            private const string StorageAccountName = "{Storage account name}";
+            private const string StorageAccountKey = "{Storage account key}";
+
+            private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+
+            public static void Main(string[] args)
+            {
+                MainAsync(args).GetAwaiter().GetResult();
+            }
+
+            private static async Task MainAsync(string[] args)
+            {
+                Console.WriteLine("Registering EventProcessor...");
+
+                var eventProcessorHost = new EventProcessorHost(
+                    EventHubName,
+                    PartitionReceiver.DefaultConsumerGroupName,
+                    EventHubConnectionString,
+                    StorageConnectionString,
+                    StorageContainerName);
+
+                // Registers the Event Processor Host and starts receiving messages
+                await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+
+                Console.WriteLine("Receiving. Press ENTER to stop worker.");
+                Console.ReadLine();
+
+                // Disposes of the Event Processor Host
+                await eventProcessorHost.UnregisterEventProcessorAsync();
+            }
+        }
+    }
+    ```
+
+4. Eseguire il programma e assicurarsi che non siano presenti errori.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo avvio rapido si sono inviati messaggi a un hub eventi usando .NET Core. Per informazioni su come ricevere eventi da un hub eventi usando .NET Core, vedere [Ricevere eventi da Hub eventi - .NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md).
+Leggere gli articoli seguenti:
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Le funzionalità e la terminologia nell'hub eventi di Azure](event-hubs-features.md)
+- [Domande frequenti su Hub eventi](event-hubs-faq.md)
+
+

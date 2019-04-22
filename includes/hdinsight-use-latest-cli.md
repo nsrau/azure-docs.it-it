@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 60ea945a70f7660fb0f3b8b8c82d9317eabadeb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114543"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59685862"
 ---
 > [!IMPORTANT]
 > Il supporto dell'interfaccia della riga di comando di Azure per la gestione delle risorse HDInsight tramite Azure Service Manager è **deprecato** ed è stato rimosso il 1° gennaio 2017. La procedura descritta in questo documento usa i nuovi comandi dell'interfaccia della riga di comando di Azure, compatibili con Azure Resource Manager.

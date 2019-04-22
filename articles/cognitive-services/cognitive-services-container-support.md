@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: c6cf3f188309891b0456b034e3809a0f0209c124
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489434"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681812"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -25,7 +25,7 @@ La containerizzazione è un approccio alla distribuzione del software in cui un'
 
 Il video seguente illustra l'uso di un contenitore di Servizi cognitivi.
 
-[![Cdimostrazione di ontainer per servizi cognitivi](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+[![Dimostrazione relativa ai contenitori per Servizi cognitivi](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 I servizi [Visione artificiale](Computer-vision/Home.md), [Viso](Face/Overview.md), [Analisi del testo](text-analytics/overview.md) e [Language Understanding (LUIS)](LUIS/what-is-luis.md) sono disponibili in [Microsoft Azure](https://azure.microsoft.com). Accedere al [portale di Azure](https://portal.azure.com/) per creare ed esplorare le risorse di Azure per questi servizi.
 
@@ -46,9 +46,9 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 |[Visione artificiale](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Riconoscimento del testo** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita.<br/><br/>**Importante:** Il contenitore di riconoscimento del testo attualmente funziona solo con la lingua inglese.<br>[Richiedere l'accesso](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Viso](Face/face-how-to-install-containers.md) |F0, S0|**Viso** |Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.<br>[Richiedere l'accesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204))|Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app.|
-|[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757)) |Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
-|[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759)) |Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
-|[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Analisi del sentiment** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo. Viene eseguito un training preliminare dei modelli di analisi usando un ampio corpus di testi e tecnologie per l'elaborazione del linguaggio naturale di Microsoft. Per [alcune lingue](./text-analytics/language-support.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. |
+|[Analisi del testo](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757)) |Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
+|[Analisi del testo](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759)) |Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
+|[Analisi del testo](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Analisi del sentiment** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo. Viene eseguito un training preliminare dei modelli di analisi usando un ampio corpus di testi e tecnologie per l'elaborazione del linguaggio naturale di Microsoft. Per [alcune lingue](./text-analytics/language-support.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. |
 
 Inoltre, i contenitori sono supportati in servizi cognitivi [All-In-One offerta](https://azure.microsoft.com/pricing/details/cognitive-services/). È possibile creare una singola risorsa All-In-One per servizi cognitivi e usare la stessa chiave di fatturazione per tutti i tipi di contenitore indicato in precedenza.
 
@@ -81,7 +81,7 @@ Gli esempi per gli sviluppatori sono disponibili nel [repository GitHub](https:/
 
 Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cognitivi di Azure:
 
-* [Installare e usare i contenitori di visione artificiale](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Installare e usare i contenitori di viso](Face/face-how-to-install-containers.md)
-* [Installare e usare i contenitori di Analitica di testo](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Installare e usare i contenitori di LUIS (Language Understanding)](LUIS/luis-container-howto.md)
+* [Installare e usare i contenitori di Visione artificiale](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Installare e usare i contenitori di Viso](Face/face-how-to-install-containers.md)
+* [Installare e usare i contenitori di Analisi del testo](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [Installare e usare contenitori Language Understanding (LUIS)](LUIS/luis-container-howto.md)

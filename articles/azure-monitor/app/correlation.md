@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493638"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683020"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -147,7 +147,7 @@ La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i mode
 | `Dependency`                          | `Span` con `span.kind = client`                  |
 | `Id` di `Request` e `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (intervallo padre)   |
+| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (l'intervallo padre)   |
 
 Per altre informazioni, vedere [Modello di dati di Application Insights Telemetry](../../azure-monitor/app/data-model.md). 
 
@@ -157,18 +157,18 @@ Per le definizioni dei concetti di OpenTracing, vedere la [specifica](https://gi
 
 Il linguaggio .NET ha definito nel corso del tempo diversi modi per correlare i log di diagnostica e di telemetria:
 
-- `System.Diagnostics.CorrelationManager` Consente di eseguire verifiche della [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
-- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono i [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) (metodo).
-- `ILogger` viene utilizzato [ambiti dei Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
+- `System.Diagnostics.CorrelationManager` consente il monitoraggio di [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
+- `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono il metodo [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
+- `ILogger` usa gli [ambiti dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
 - Windows Communication Foundation (WCF) e HTTP creano la propagazione del contesto "corrente".
 
-Queste soluzioni non consentono tuttavia il supporto automatico della traccia distribuita. `DiagnosticSource` è un modo per supportare correlazione automatica tra computer. Le librerie .NET supportano "DiagnosticSource" e consentono la propagazione automatica tra computer del contesto di correlazione tramite il protocollo di trasporto, ad esempio HTTP.
+Queste soluzioni non consentono tuttavia il supporto automatico della traccia distribuita. `DiagnosticSource` rappresenta un modo per supportare la correlazione automatica tra computer. Le librerie .NET supportano "DiagnosticSource" e consentono la propagazione automatica tra computer del contesto di correlazione tramite il protocollo di trasporto, ad esempio HTTP.
 
 La [guida alle attività](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) di `DiagnosticSource` fornisce le nozioni fondamentali delle attività di monitoraggio.
 
 ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio di una nuova attività.
 
-`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni di correlazione HTTP e rilevamento delle chiamate HTTP come attività.
+`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
 
 È disponibile un nuovo modulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando `DiagnosticSource`. Avvia un'attività in base alle intestazioni di richiesta in ingresso. Correla anche i dati di telemetria dalle diverse fasi dell'elaborazione delle richieste, anche quando ogni fase dell'elaborazione di Internet Information Services (IIS) viene eseguita in un thread gestito diverso.
 
@@ -217,7 +217,7 @@ Potrebbe a volte essere necessario personalizzare il modo in cui i nomi dei comp
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scrivere [dati di telemetria personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
-- Altre informazioni sull'[impostazione di cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) per altri SDK.
+- Altre informazioni sull'[impostazione di cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) per altri SDK.
 - Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](../../azure-monitor/app/platforms.md).
 - Per informazioni sui tipi di Application Insights, vedere il [modello di dati](../../azure-monitor/app/data-model.md).
 - Informazioni su come [estendere e filtrare i dati di telemetria](../../azure-monitor/app/api-filtering-sampling.md).

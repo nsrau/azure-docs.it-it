@@ -1,110 +1,103 @@
-items:
 - name: Documentazione del servizio Azure SignalR
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sul servizio Azure SignalR
-    href: signalr-overview.md
+    - name: Informazioni sul servizio Azure SignalR
+      href: signalr-overview.md
 - name: Guide introduttive
-  items:
-  - name: ASP.NET Core - C#
-    href: signalr-quickstart-dotnet-core.md
-  - name: Funzioni di Azure - JavaScript
-    href: signalr-quickstart-azure-functions-javascript.md
-  - name: Funzioni di Azure - C#
-    href: signalr-quickstart-azure-functions-csharp.md
-  - name: Funzioni di Azure - Java
-    href: signalr-quickstart-azure-functions-java.md
-  - name: API REST
-    href: signalr-quickstart-rest-api.md
   expanded: true
+  items:
+    - name: 'ASP.NET Core - C#'
+      href: signalr-quickstart-dotnet-core.md
+    - name: Funzioni di Azure - JavaScript
+      href: signalr-quickstart-azure-functions-javascript.md
+    - name: 'Funzioni di Azure - C#'
+      href: signalr-quickstart-azure-functions-csharp.md
+    - name: Funzioni di Azure - Java
+      href: signalr-quickstart-azure-functions-java.md
+    - name: API REST
+      href: signalr-quickstart-rest-api.md
 - name: Esercitazioni
   items:
-  - name: Creare un'app in tempo reale serverless con l'autenticazione
-    href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Creare un'app in tempo reale serverless con l'autenticazione
+      href: signalr-tutorial-authenticate-azure-functions.md
 - name: Esempi
   items:
-  - name: Esempi di codice
-    href: https://github.com/aspnet/AzureSignalR-samples
-  - name: Interfaccia della riga di comando di Azure
-    href: signalr-reference-cli.md
+    - name: Esempi di codice
+      href: 'https://github.com/aspnet/AzureSignalR-samples'
+    - name: Interfaccia della riga di comando di Azure
+      href: signalr-reference-cli.md
 - name: Concetti
   items:
-  - name: Elementi interni del Servizio Azure SignalR
-    href: signalr-concept-internals.md
-  - name: Ridimensionare ASP.NET Core SignalR
-    href: signalr-concept-scale-aspnet-core.md
-  - name: Senza server
-    items:
-    - name: Creare app in tempo reale con Funzioni di Azure
-      href: signalr-concept-azure-functions.md
-    - name: Sviluppare e configurare app del servizio SignalR serverless
-      href: signalr-concept-serverless-development-config.md
-    - name: Informazioni di riferimento sulle associazioni del servizio SignalR per Funzioni di Azure
-      href: ../azure-functions/functions-bindings-signalr-service.md
-  - name: Disponibilità elevata
-    items:
-    - name: Resilienza e ripristino di emergenza
-      href: signalr-concept-disaster-recovery.md
-  - name: Messaggi e connessioni
-    href: signalr-concept-messages-and-connections.md
-  - name: Considerazioni sulle prestazioni
-    href: signalr-concept-performance.md
-  - name: Authentication
-    href: signalr-concept-authenticate-oauth.md
+    - name: Elementi interni del Servizio Azure SignalR
+      href: signalr-concept-internals.md
+    - name: Ridimensionare ASP.NET Core SignalR
+      href: signalr-concept-scale-aspnet-core.md
+    - name: Senza server
+      items:
+        - name: Creare app in tempo reale con Funzioni di Azure
+          href: signalr-concept-azure-functions.md
+        - name: Sviluppare e configurare app del servizio SignalR serverless
+          href: signalr-concept-serverless-development-config.md
+        - name: Informazioni di riferimento sulle associazioni del servizio SignalR per Funzioni di Azure
+          href: ../azure-functions/functions-bindings-signalr-service.md
+    - name: Disponibilità elevata
+      items:
+        - name: Resilienza e ripristino di emergenza
+          href: signalr-concept-disaster-recovery.md
+    - name: Messaggi e connessioni
+      href: signalr-concept-messages-and-connections.md
+    - name: Considerazioni sulle prestazioni
+      href: signalr-concept-performance.md
+    - name: Authentication
+      href: signalr-concept-authenticate-oauth.md
 - name: Guide alle procedure
   items:
-  - name: Scalabilità
-    items:
-    - name: Più istanze
-      href: signalr-howto-scale-multi-instances.md
-  - name: Proteggere
-    items:
-    - name: Rotazione delle chiavi di accesso
-      href: signalr-howto-key-rotation.md
-  - name: Integrare
-    items:
-    - name: Associazioni di Funzioni di Azure
-      href: signalr-concept-azure-functions.md
+    - name: Scalabilità
+      items:
+        - name: Più istanze
+          href: signalr-howto-scale-multi-instances.md
+    - name: Proteggere
+      items:
+        - name: Rotazione delle chiavi di accesso
+          href: signalr-howto-key-rotation.md
+    - name: Integrare
+      items:
+        - name: Associazioni di Funzioni di Azure
+          href: signalr-concept-azure-functions.md
 - name: Riferimenti
   items:
-  - name: Interfaccia della riga di comando di Azure
-    href: signalr-reference-cli.md
-  - name: API REST
-    href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
-  - name: ASP.NET Core SignalR
-    href: https://docs.microsoft.com/aspnet/core/signalr
-  - name: Protocollo del servizio Azure SignalR
-    href: https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md
+    - name: Interfaccia della riga di comando di Azure
+      href: signalr-reference-cli.md
+    - name: API REST
+      href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
+    - name: ASP.NET Core SignalR
+      href: 'https://docs.microsoft.com/aspnet/core/signalr'
+    - name: Protocollo del servizio Azure SignalR
+      href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
 - name: Risorse
   items:
-  - name: Soluzioni
-    href: https://docs.microsoft.com/azure/architecture/
-  - name: Casi di successo dei clienti
-    href: https://customers.microsoft.com/en-us/search?sq=signalr
-  - name: Roadmap per SignalR
-    href: https://github.com/aspnet/Home/wiki/Roadmap
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/
-  - name: Aree di disponibilità
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service
-  - name: Domande frequenti
-    href: signalr-resource-faq.md
-  - name: Limiti dei livelli di sottoscrizione del Servizio SignalR
-    href: https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/signalr-service/
-  - name: Video
-    href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
-  - name: StackOverflow
-    href: https://stackoverflow.com/search?q=signalr+service
-  - name: Twitter
-    href: https://twitter.com/SignalR
-  - name: Forum di ASP.NET
-    href: https://forums.asp.net/1254.aspx
-ms.openlocfilehash: 281dbb4a5342fe4ea322eacefe7fa01c91388d0b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59497033"
+    - name: Soluzioni
+      href: 'https://docs.microsoft.com/azure/architecture/'
+    - name: Casi di successo dei clienti
+      href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
+    - name: Roadmap per SignalR
+      href: 'https://github.com/aspnet/Home/wiki/Roadmap'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
+    - name: Domande frequenti
+      href: signalr-resource-faq.md
+    - name: Limiti dei livelli di sottoscrizione del Servizio SignalR
+      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
+    - name: Video
+      href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
+    - name: StackOverflow
+      href: 'https://stackoverflow.com/search?q=signalr+service'
+    - name: Twitter
+      href: 'https://twitter.com/SignalR'
+    - name: Forum di ASP.NET
+      href: 'https://forums.asp.net/1254.aspx'

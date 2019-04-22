@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501315"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698453"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Flusso di concessione implicita e piattaforma delle identità Microsoft
 
@@ -52,7 +52,7 @@ Il diagramma seguente mostra come appare l'intero flusso di accesso implicito e 
 
 ## <a name="send-the-sign-in-request"></a>Inviare la richiesta di accesso
 
-Per l'accesso iniziale dell'utente nell'app, è possibile inviare un' [OpenID Connect](v2-protocols-oidc.md) richiesta di autorizzazione e ottenere un `id_token` dall'endpoint di Microsoft identity platform.
+Per l'accesso iniziale dell'utente nell'app, è possibile inviare un' [OpenID Connect](v2-protocols-oidc.md) richiesta di autenticazione e ottenere un `id_token` dall'endpoint di Microsoft identity platform.
 
 > [!IMPORTANT]
 > Per richiedere un token ID, la registrazione dell'app nel [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina deve avere il flusso di concessione implicita abilitato correttamente, selezionando **i token di accesso** e**Token ID** sotto il **concessione implicita** sezione. Se non è abilitato, un `unsupported_response` viene restituito l'errore: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'** (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | Facoltativo |Specifica il metodo da usare per restituire il token risultante all'app. L'impostazione predefinita è la query per un token di accesso, ma è un frammento se la richiesta include un id_token. |
 | `state` | Consigliato |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | `nonce` | Obbligatoria |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un id_token. |
-| `prompt` | Facoltativo |Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono "login", "none", "select_account" e "consent". `prompt=login` si imporrà all'utente di immettere le credenziali alla richiesta, negando single sign-on. `prompt=none` è l'opposto: garantisce che l'utente non riceve alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite single sign-on, l'endpoint di Microsoft identity platform restituirà un errore. `prompt=select_account` Invia all'utente a un selettore di account in cui tutti gli account memorizzati nella sessione verranno visualizzati. `prompt=consent` Attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, in cui viene chiesto all'utente di concedere le autorizzazioni per l'app. |
+| `prompt` | Facoltativo |Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono "login", "none", "select_account" e "consent". `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. `prompt=none` è l'opposto: garantisce che l'utente non riceve alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite single sign-on, l'endpoint di Microsoft identity platform restituirà un errore. `prompt=select_account` invia l'utente a un selettore di account in cui verranno visualizzati tutti gli account memorizzati nella sessione. `prompt=consent` attiverà la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
 | `login_hint`  |Facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username` .|
 | `domain_hint` | Facoltativo |Può essere uno di `consumers` o `organizations`. Se incluso, non verrà eseguito il processo di individuazione basata sulla posta elettronica che l'utente passa attraverso nella pagina di accesso comporta un'esperienza utente leggermente semplificata. Le app usano spesso questo parametro durante la riautenticazione, estraendo l'attestazione `tid` dall'id_token. Se il valore di attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad` (tenant consumer dell'account Microsoft), usare `domain_hint=consumers`. In caso contrario, è possibile usare `domain_hint=organizations` durante la riautenticazione. |
 

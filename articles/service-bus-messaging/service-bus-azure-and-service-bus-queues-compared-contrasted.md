@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856023"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699048"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le analogie e le differenze tra i due tipi di code offerti attualmente da Microsoft Azure: Code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -84,7 +84,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 * Il modello FIFO garantito nelle code del bus di servizio richiede l'uso di sessioni di messaggistica. Se l'applicazione termina di funzionare in maniera anomala durante l'elaborazione di un messaggio ricevuto nella modalità **Visualizzazione e blocco**, la prossima volta che un ricevitore di code accetta una sessione di messaggistica, l'applicazione verrà avviata con il messaggio non recapitato dopo la scadenza della relativa durata (TTL).
 * Le code di archiviazione sono progettate per supportare scenari di accodamento standard, ad esempio il disaccoppiamento di componenti dell'applicazione per aumentare la scalabilità e la tolleranza di errore, il livellamento del carico e la creazione di flussi di lavoro di elaborazione.
 * Le code del bus di servizio supportano la garanzia di recapito *At-Least-Once*. 
-* È possibile evitare inconsistenze per quanto riguarda la gestione dei messaggi nel contesto delle sessioni del Bus di servizio usando lo stato della sessione per archiviare lo stato dell'applicazione relativo lo stato di avanzamento della sequenza di messaggi della sessione di gestione e tramite le transazioni intorno a finalizzazione delle ha ricevuto i messaggi e l'aggiornamento dello stato della sessione. Questo tipo di funzionalità di coerenza in alcuni casi viene etichettato *esattamente-l'elaborazione di una volta* in prodotti di altri fornitori, ma transazione errori causerà ovviamente i messaggi vengano redeliveried e pertanto il termine è non esattamente adeguato.
+* È possibile evitare inconsistenze per quanto riguarda la gestione dei messaggi nel contesto delle sessioni del Bus di servizio usando lo stato della sessione per archiviare lo stato dell'applicazione relativo lo stato di avanzamento della sequenza di messaggi della sessione di gestione e tramite le transazioni intorno a finalizzazione delle ha ricevuto i messaggi e l'aggiornamento dello stato della sessione. Questo tipo di funzionalità di coerenza in alcuni casi viene etichettato *esattamente-l'elaborazione di una volta* in prodotti di altri fornitori, ma transazione errori ovviamente i messaggi essere recapitato una seconda volta e pertanto il termine è non esattamente adeguato.
 * Le code di archiviazione offrono un modello di programmazione uniforme e coerente tra code, tabelle e BLOB, sia per i team di sviluppo che per i team operativi.
 * Le code del bus di servizio offrono supporto per le transazioni locali nel contesto di una singola coda.
 * La modalità **Ricezione ed eliminazione** supportata dal bus di servizio offre la possibilità di ridurre il numero di operazioni di messaggistica (e relativo costo) in cambio di una garanzia di recapito più bassa.

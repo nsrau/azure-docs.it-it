@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544147"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682681"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il Gateway applicazione
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di realizzare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione di sicurezza, ad esempio HSTS / X-XSS-Protection, la rimozione di un'intestazione di risposta di campi che potrebbe rivelare informazioni riservate, le informazioni sulla porta stripping da Le intestazioni X-Forwarded-For, e così via. Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP durante la richiesta e spostare pacchetti di risposta tra il pool back-end e client. Fornisce inoltre la possibilità di aggiungere le condizioni per garantire che le intestazioni specificate vengono riscritti solo quando vengono soddisfatte determinate condizioni.
+Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di realizzare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione di sicurezza, ad esempio HSTS / X-XSS-Protection, la rimozione di un'intestazione di risposta di campi che potrebbe rivelare informazioni riservate, rimuovendo le informazioni sulla porta da Le intestazioni X-Forwarded-For, e così via. Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP durante la richiesta e spostare pacchetti di risposta tra il pool back-end e client. Fornisce la possibilità di aggiungere le condizioni per garantire che le intestazioni specificate vengono riscritti solo quando vengono soddisfatte determinate condizioni. La funzionalità supporta anche diversi [variabili server](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) che contribuiscono a memorizzare informazioni aggiuntive richieste e risposte, permettendo quindi di verificare le regole di riscrittura potenti.
 > [!NOTE]
 >
 > Il supporto alla riscrittura dell'intestazione HTTP è disponibile solo per il [nuovo SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Intestazioni di riscrittura](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Intestazioni supportate per riscrivere
 
@@ -35,7 +37,7 @@ Tramite la riscrittura condizioni è possibile valutare il contenuto delle richi
 - Intestazioni HTTP nella risposta
 - Variabili del server gateway applicazione
 
-Una condizione è utilizzabile per valutare se la variabile specificata è presente, indica se la variabile specificata corrisponde esattamente a un valore specifico oppure se la variabile specificata corrisponde esattamente a un modello specifico. [Libreria Perl compatibile regolare le espressioni (PCRE)](https://www.pcre.org/) viene usato per implementare il modello di espressione regolare nelle condizioni di corrispondenza. Per altre informazioni sulla sintassi delle espressioni regolari, vedere la [uomo con espressioni regolari Perl pagina](http://perldoc.perl.org/perlre.html).
+Una condizione è utilizzabile per valutare se la variabile specificata è presente, indica se la variabile specificata corrisponde esattamente a un valore specifico oppure se la variabile specificata corrisponde esattamente a un modello specifico. [Libreria Perl compatibile regolare le espressioni (PCRE)](https://www.pcre.org/) viene usato per implementare il modello di espressione regolare nelle condizioni di corrispondenza. Per altre informazioni sulla sintassi delle espressioni regolari, vedere la [uomo con espressioni regolari Perl pagina](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Riscrivere le azioni
 
@@ -124,6 +126,18 @@ Questo problema può essere risolto tramite l'impostazione del nome host nell'in
 Le vulnerabilità di sicurezza diversi possono essere risolti mediante l'implementazione di intestazioni necessarie nella risposta dell'applicazione. Alcune di queste intestazioni di sicurezza sono X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, e così via. È possibile usare il gateway applicazione per impostare queste intestazioni per tutte le risposte.
 
 ![Intestazione di sicurezza](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Eliminazione delle intestazioni indesiderate
+
+È possibile rimuovere tali intestazioni dalla risposta HTTP che rivelare informazioni riservate, ad esempio nome del server back-end del sistema operativo, i dettagli della libreria, e così via. È possibile utilizzare il gateway applicazione per rimuovere questi elementi.
+
+![L'eliminazione di intestazione](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Controllare se è presente un'intestazione di
+
+È possibile valutare l'intestazione di richiesta o risposta HTTP per la presenza di una variabile di intestazione o un server. Ciò è utile quando si prevede di eseguire una riscrittura intestazione solo quando è presente un'intestazione determinata.
+
+![Controllo della presenza di un'intestazione](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limitazioni
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: c2f6d8262d47a537667ef7b25333a3beff425bbe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878690"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698488"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -200,9 +200,11 @@ Server properties updated successfully.
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino.
 
+È necessario generare un pin di sicurezza selezionando **genera**, in **impostazioni** > **proprietà** > **PINdisicurezza** nella **insieme di credenziali dei servizi di ripristino** sezione del portale di Azure. Quindi, usare questo valore come la `generatedPIN` nel comando:
+
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
-Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
+Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
 ```Output
@@ -732,5 +734,5 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
-* [Introduzione al Backup di Azure](backup-introduction-to-azure-backup.md)
-* [Backup di Windows Server](backup-configure-vault.md)
+* [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
+* [Backup di server Windows](backup-configure-vault.md)

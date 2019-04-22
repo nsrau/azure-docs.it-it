@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964180"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684651"
 ---
 Le query per il contenitore vengono fatturate al piano tariffario della risorsa di Azure usato per il `<ApiKey>`.
 
@@ -26,7 +26,7 @@ Tutte e tre delle seguenti opzioni deve essere specificati con i valori validi p
 | Opzione | DESCRIZIONE |
 |--------|-------------|
 | `ApiKey` | La chiave API della risorsa Servizio cognitivo usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa di cui è stato effettuato il provisioning specificata in `Billing`. |
-| `Billing` | L'endpoint della risorsa Servizio cognitivo usato per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato sull'URI dell'endpoint di una risorsa LUIS di Azure di cui è stato effettuato il provisioning.|
+| `Billing` | L'endpoint della risorsa Servizio cognitivo usato per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato per l'URI di una risorsa di Azure con provisioning dell'endpoint.|
 | `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
 
 

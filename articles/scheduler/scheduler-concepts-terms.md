@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651270"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683053"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
@@ -39,21 +39,27 @@ A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure e
 
 ### <a name="job-management"></a>Gestione dei processi
 
-Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Di seguito, l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Di seguito è l'indirizzo URI per queste operazioni:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>Gestione delle raccolte di processi
 
-Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Di seguito, l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Di seguito è l'indirizzo URI per queste operazioni:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>Gestione della cronologia dei processi
 
-Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Di seguito, l'indirizzo URI per questa operazione:
+Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Di seguito è l'indirizzo URI per questa operazione:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>Tipi di processo
 
@@ -245,7 +251,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 | **interval** | No  | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
 | **schedule** | No  | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
 | **hours** | No  | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
-| **minutes** | No  | Da 1 a 24 | Una matrice con i minuti segna quando eseguire il processo | 
+| **minutes** | No  | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
 | **months** | No  | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
 | **monthDays** | No  | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
 | **weekDays** | No  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 

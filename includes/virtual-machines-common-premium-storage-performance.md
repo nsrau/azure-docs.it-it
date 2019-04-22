@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542332"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737143"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -67,7 +67,7 @@ La latenza è il tempo necessario perché un'applicazione riceva una singola ric
 
 Quando si ottimizza l'applicazione per ottenere valori più elevati per IOPS e velocità effettiva, ciò influirà sulla latenza dell'applicazione. Dopo il perfezionamento delle prestazioni dell'app, è necessario valutare sempre la latenza dell'applicazione per evitare comportamenti imprevisti con latenza elevata.
 
-Le seguenti operazioni del piano di controllo su Managed Disks potrebbero comportare lo spostamento del disco da una posizione di archiviazione a un altro. Questa operazione viene gestita tramite copia in background dei dati che possono richiedere diverse ore, in genere meno di 24 ore a seconda della quantità di dati nei dischi. Durante questo periodo, l'applicazione può riscontrare una latenza di lettura maggiore del solito poiché alcune operazioni di lettura possono essere reindirizzate alla posizione originale e possono quindi richiedere più tempo. Non è previsto alcun impatto sulla latenza di scrittura durante questo periodo.
+Le seguenti operazioni del piano di controllo su Managed Disks potrebbero comportare lo spostamento del disco da una posizione di archiviazione a un altro. Questa operazione viene gestita tramite copia in background dei dati che possono richiedere diverse ore, in genere meno di 24 ore a seconda della quantità di dati nei dischi. Durante questo periodo l'applicazione può subire superiore al normale latenza di lettura come alcune operazioni di lettura possano venire reindirizzate al percorso originale e può richiedere più tempo per il completamento. Non è previsto alcun impatto sulla latenza di scrittura durante questo periodo.
 
 - Aggiornare il tipo di archiviazione.
 - Scollegare e collegare un disco da una macchina virtuale a un altro.
@@ -261,7 +261,8 @@ Occorre ricordare che i dischi di Archiviazione Premium hanno capacità di prest
 Le VM a scalabilità elevata che sfruttano i vantaggi dell'Archiviazione Premium di Azure includono una tecnologia di memorizzazione nella cache multilivello denominata BlobCache. BlobCache usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. Questa cache è disponibile per i dischi persistenti di Archiviazione Premium e i dischi locali della VM. Per impostazione predefinita, questa impostazione della cache viene configurata su Read/Write per dischi del sistema operativo e ReadOnly per i dischi dati ospitati nell'Archiviazione Premium. Quando la memorizzazione nella cache su disco è abilitata nei dischi di Archiviazione Premium, le VM a scalabilità elevata possono raggiungere livelli estremamente elevati di prestazioni che superano le prestazioni sottostanti del disco.
 
 > [!WARNING]
-> La memorizzazione nella cache del disco è supportata solo per dimensioni di disco fino a 4 TiB.
+> Memorizzazione nella cache del disco non è supportato per i dischi di dimensioni superiori a 4 TiB. Se più dischi sono collegati alla macchina virtuale, a ogni disco è 4 TiB o più piccolo verrà supporta la memorizzazione nella cache.
+>
 > La modifica dell'impostazione della cache di un disco di Azure scollega e ricollega il disco di destinazione. Se si tratta del disco del sistema operativo, la VM viene riavviata. Arrestare tutte le applicazioni/i servizi che potrebbero essere interessati da questa interruzione prima di modificare l'impostazione della cache del disco.
 
 Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog relativo all' [Archiviazione Premium di Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
@@ -353,7 +354,7 @@ In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni det
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server, configurare le dimensioni di striping di 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Mentre per i/o sequenziali grandi le richieste di usano una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server, configurare le dimensioni di striping di 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
 
 > [!NOTE]
 >  è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.

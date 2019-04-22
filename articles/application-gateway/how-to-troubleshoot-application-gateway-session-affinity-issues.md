@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 0c1c466149b4992d99e18cfb1fd5d8416834df35
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904526"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683150"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Risolvere i problemi di affinità sessione Gateway applicazione di Azure
 
@@ -96,7 +96,7 @@ Questo problema si verifica perché Internet Explorer e altri browser non vengan
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, è necessario accedere al Gateway applicazione usando un nome di dominio completo. Ad esempio, usare [ http://website.com ](http://website.com/) oppure [ http://appgw.website.com ](http://appgw.website.com/) .
+Per risolvere questo problema, è necessario accedere al Gateway applicazione usando un nome di dominio completo. Ad esempio, usare [ http://website.com ](https://website.com/) oppure [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Log per risolvere i problemi
 
