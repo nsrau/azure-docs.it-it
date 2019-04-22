@@ -10,10 +10,10 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: 312d3abad2ee2c9e668f8b354aaba96f8a652698
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259287"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end Node.js e i dispositivi Node.js
@@ -199,6 +199,6 @@ In questa sezione, nel dispositivo simulato viene creata un'app Node.js che aggi
 
 Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
 
-* [Introduzione a gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md)
+* [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md)
 
 * [Introduzione a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

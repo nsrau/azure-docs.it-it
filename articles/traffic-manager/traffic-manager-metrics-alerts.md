@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
 ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268286"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
@@ -33,13 +33,13 @@ Nell'esempio seguente, la Figura 1 visualizza tutte le risposte alle query resti
   
 ![Visualizzazione aggregata con tutte le query](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: Visualizzazione aggregazione con tutte le query*
+*Figura 1: visualizzazione aggregata con tutte le query*
   
 La Figura 2 mostra le stesse informazioni, suddivise tuttavia per endpoint. È quindi visibile il volume di risposte alle query nelle quali è stato restituito un endpoint specifico.
 
 ![Metriche di Gestione traffico: visualizzazione del volume di query suddiviso per endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: Doppia visualizzazione con volumi di query visualizzati per ogni endpoint restituite*
+*Figura 2: visualizzazione suddivisa con volume di query mostrato per ogni endpoint restituito*
 
 ## <a name="endpoint-status-by-endpoint"></a>Stato endpoint per endpoint
 Usare [questa metrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
@@ -51,12 +51,12 @@ Questa metrica può essere visualizzata sia come valore aggregato che rappresent
 
 ![Metriche di Gestione traffico: visualizzazione composita dello stato degli endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figura 3: Visualizzazione composta di metrica relativa allo stato di endpoint: aggregazione "Avg" selezionata*
+*Figura 3: visualizzazione composita delle metriche di stato degli endpoint - aggregazione "Avg" selezionata*
 
 
 ![Metriche di Gestione traffico: visualizzazione suddivisa dello stato degli endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figura 4: Doppia visualizzazione delle metriche di stato di endpoint*
+*Figura 4: visualizzazione suddivisa delle metriche di stato degli endpoint*
 
 È possibile utilizzare queste metriche tramite il portale del [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md), l'[API REST](https://docs.microsoft.com/rest/api/monitor/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights) oppure tramite la sezione delle metriche dell'esperienza del portale di Gestione traffico.
 

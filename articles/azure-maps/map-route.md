@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264523"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visualizzare le indicazioni stradali da A a B
@@ -29,7 +29,7 @@ Questo articolo illustra come effettuare una richiesta di pianificazione percors
 
 Nel codice precedente, il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione da usare la chiave di sottoscrizione. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP per le mappe di Azure con la chiave di sottoscrizione. Il `atlas.service.MapsURL.newPipeline()` accetta il `SubscriptionKeyCredential` dei criteri e consente di creare un [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) istanza. Il `routeURL` rappresenta un URL di mappe di Azure [Route](https://docs.microsoft.com/rest/api/maps/route) operazioni.
+Il secondo blocco di codice crea un `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP per le mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
 
 Il terzo blocco di codice crea e aggiunge un [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) oggetto alla mappa.
 
@@ -79,4 +79,4 @@ Per esempi di codice completi, vedere gli articoli seguenti:
 > [Mostrare il traffico sulla mappa](./map-show-traffic.md)
 
 > [!div class="nextstepaction"]
-> [L'interazione con la mappa - eventi del mouse](./map-events.md)
+> [Interazione con la mappa - eventi del mouse](./map-events.md)

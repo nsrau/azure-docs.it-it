@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
 ms.openlocfilehash: 4a1586d965a51a3c655346994274159b99ab0a9a
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010635"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Roadmap di Azure Marketplace e AppSource
@@ -42,7 +42,7 @@ Una volta che una funzionalità è attiva, verrà rimosso dal programma. La funz
 * [Contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract)
 * [Evasione SaaS API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis)
 * [Valute e aree geografiche di marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
-* [Informazioni dettagliate per il venditore](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Informazioni dettagliate del venditore](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

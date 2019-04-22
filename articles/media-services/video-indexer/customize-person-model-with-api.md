@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360514"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizzare un modello Persona con l'API Video Indexer
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>Parametri della richiesta 
 
-|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
+|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
+|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
+|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-|**NOME**|**Type**|**Obbligatorio**|**DESCRIZIONE**|
+|**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
 |location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
 |accountId|stringa|Sì|Identificatore univoco globale per l'account|
@@ -212,4 +212,4 @@ Non viene restituito alcun contenuto quando il viso viene aggiornato correttamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Personalizzare il modello di persona usando il sito Web indicizzatore Video](customize-person-model-with-website.md)
+[Personalizzare il modello Persona usando il sito Web di Video Indexer](customize-person-model-with-website.md)

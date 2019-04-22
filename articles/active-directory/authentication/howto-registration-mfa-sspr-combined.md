@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280571"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registrazione di informazioni sicurezza Abilita combinata (anteprima)
@@ -55,8 +55,8 @@ Se è stato configurato il sito all'elenco di assegnazione di zona in Internet E
 
 [Metodi disponibili per multi-Factor Authentication e SSPR](concept-authentication-methods.md)
 
-[Configurare la reimpostazione self-service delle password](howto-sspr-deployment.md)
+[Configurare la reimpostazione password self-service](howto-sspr-deployment.md)
 
-[Configurazione di Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurare Azure multi-Factor Authentication](howto-mfa-getstarted.md)
 
 [Risoluzione dei problemi di registrazione info di sicurezza combinati](howto-registration-mfa-sspr-combined-troubleshoot.md)

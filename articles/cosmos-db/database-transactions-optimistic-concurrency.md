@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279510"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
@@ -20,7 +20,7 @@ Le transazioni di database offrono un modello di programmazione sicuro e prevedi
 
 Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito di un contenitore [partizione logica](partition-data.md) vengono eseguite a livello di transazione all'interno del motore di database ospitato da parte della replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente vengono illustrate diverse operazioni e i tipi di transazione:
 
-| **Operazione**  | **Tipo di operazione** | **Singola o una transazione con più elementi** |
+| **operazione**  | **Tipo di operazione** | **Transazione singola o con più elementi** |
 |---------|---------|---------|
 | Inserimento (senza un trigger di pre/post) | Scrittura | Transazione di un singolo elemento |
 | Inserimento (con un trigger di pre/post) | Lettura e scrittura | Transazione di più elementi |
@@ -61,7 +61,7 @@ L'elemento `_etag` modifiche ai valori ogni volta che l'elemento è aggiornato. 
 
 Altre informazioni sulle transazioni del database e il controllo della concorrenza ottimistica negli articoli seguenti:
 
-- [Utilizzo dei database, dei contenitori e degli elementi di Azure Cosmos DB](databases-containers-items.md)
+- [Usare database, contenitori ed elementi di Azure Cosmos](databases-containers-items.md)
 - [Livelli di coerenza](consistency-levels.md)
 - [Tipi di conflitto e criteri di risoluzione dei conflitti](conflict-resolution-policies.md)
 - [Stored procedure, trigger e funzioni definite dall'utente](stored-procedures-triggers-udfs.md)

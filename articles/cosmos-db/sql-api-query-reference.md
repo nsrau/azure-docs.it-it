@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283648"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Informazioni di riferimento sul linguaggio SQL per Azure Cosmos DB 
@@ -34,7 +34,7 @@ SELECT <select_specification>
     [ ORDER BY <sort_specification> ]  
 ```  
   
- **Osservazioni**  
+ **Osservazioni:**  
   
  Per i dettagli su ogni clausola, vedere le sezioni seguenti:  
   
@@ -62,7 +62,7 @@ Tutti i caratteri di spazio vuoto che non fanno parte di una stringa o un identi
 
 Il linguaggio di query supporta i commenti in stile T-SQL come  
 
--   Istruzione SQL `-- comment text [newline]`  
+-   istruzione SQL `-- comment text [newline]`  
 
 Anche se i commenti e gli spazi vuoti non hanno alcun significato nella grammatica, devono essere usati per separare i token. Ad esempio: `-1e5` è un token numero singolo, mentre `: – 1 e5` è un token meno seguito dal numero 1 e dall'identificatore e5.  
 
@@ -106,9 +106,9 @@ SELECT <select_specification>
 
   Espressione che rappresenta il valore da calcolare. Vedere la sezione [Espressioni scalari](#bk_scalar_expressions) per informazioni dettagliate.  
   
-**Osservazioni**  
+**Osservazioni:**  
   
-La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esattamente un alias. `SELECT *` fornisce una proiezione di identità, che può essere utile se è necessaria alcuna proiezione. SELECT * è valida solo se viene specificata la clausola FROM e se viene introdotta solo una singola origine di input.  
+La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esattamente un alias. `SELECT *` offre una proiezione dell'identità, che può essere utile se non è necessaria alcuna proiezione. SELECT * è valida solo se viene specificata la clausola FROM e se viene introdotta solo una singola origine di input.  
   
 `SELECT <select_list>` e `SELECT *` sono "zucchero sintattico" e possono essere espressi in alternativa usando semplici istruzioni SELECT, come illustrato di seguito.  
   
@@ -194,7 +194,7 @@ FROM <from_specification>
   
   Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di contenitore specificata.  
   
-**Osservazioni**  
+**Osservazioni:**  
   
 Tutti gli alias specificati o dedotti in `<from_source>(` devono essere univoci. La sintassi `<container_expression>.`nome proprietà equivale a `<container_expression>' ['"property_name"']'`. Tuttavia, la seconda sintassi può essere usata se un nome di proprietà contiene un carattere non identificatore.  
   
@@ -304,7 +304,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   > [!NOTE]
   > Viene generato un prodotto incrociato tra `<from_source2>` e `<from_source3>` perché entrambi hanno come ambito lo stesso elemento `<from_source1>`.  Sono state create 4 (2x2) tuple con valore A, 0 tuple con valore B (1 x 0) e 2 (2x1) tuple con valore C.  
   
-**Vedere anche **  
+**Vedere anche**  
   
  [Clausola SELECT](#bk_select_query)  
   
@@ -329,7 +329,7 @@ WHERE <filter_condition>
   
    Espressione che rappresenta il valore da calcolare. Vedere la sezione [Espressioni scalari](#bk_scalar_expressions) per informazioni dettagliate.  
   
-  **Osservazioni**  
+  **Osservazioni:**  
   
   Affinché il documento venga restituito, un'espressione specificata come condizione di filtro deve restituire true. Solo un valore booleano true soddisferà la condizione, i valori non definiti, null, false, numero, matrice o oggetto non soddisfano la condizione.  
   
@@ -367,7 +367,7 @@ ORDER BY <sort_specification>
   
    Specifica che i valori presenti nella colonna specificata devono essere ordinati in ordine crescente o decrescente. ASC (crescente) esegue l'ordinamento dal valore più basso a quello più alto. DESC (decrescente) esegue l'ordinamento dal valore più alto a quello più basso. L'ordinamento predefinito è ASC (crescente). I valori Null vengono considerati come i valori più bassi possibile.  
   
-  **Osservazioni**  
+  **Osservazioni:**  
   
   Benché la sintassi di query supporti più proprietà di ordinamento, il runtime di query di Cosmos DB supporta l'ordinamento solo in base a una singola proprietà e solo in base ai nomi di proprietà, non in base a proprietà calcolate. L'ordinamento richiede anche che i criteri di indicizzazione includano un indice di intervallo per la proprietà e il tipo specificato, con la massima precisione. Per informazioni dettagliate, fare riferimento alla documentazione sui criteri di indicizzazione.  
   
@@ -456,7 +456,7 @@ ORDER BY <sort_specification>
   
    Rappresenta un valore del nome di parametro specificato. I nomi di parametro devono avere un singolo carattere \@ come primo carattere.  
   
-  **Osservazioni**  
+  **Osservazioni:**  
   
   Quando si chiama una funzione scalare predefinita o definita dall'utente è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
   
@@ -473,55 +473,55 @@ ORDER BY <sort_specification>
   
 |**Categoria**|**Dettagli**|  
 |-|-|  
-|**operazioni aritmetiche**|L'operatore prevede che gli input siano numerici. Anche l'output è un numero. Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.|  
-|**OR bit per bit**|L'operatore prevede che gli input siano numeri interi con segno a 32 bit. Anche l'output è un numero intero con segno a 32 bit.<br /><br /> Gli eventuali valori non interi vengono arrotondati. I valori positivi verranno arrotondati per difetto, i valori negativi per eccesso.<br /><br /> Qualsiasi valore esterno all'intervallo di interi a 32 bit verrà convertito prendendo gli ultimi 32 bit della relativa notazione di complemento a due.<br /><br /> Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.<br /><br /> **Nota:** il comportamento descritto sopra è compatibile con il comportamento di un operatore bit per bit di JavaScript.|  
-|**Logica**|L'operatore prevede che gli input siano valori booleani. Anche l'output è un valore booleano.<br />Se uno degli input è **non definito** o di tipo diverso da un valore booleano, il risultato sarà **non definito**.|  
-|**Confronto**|L'operatore prevede che gli input abbiano lo stesso tipo e non siano indefiniti. L'output è un valore booleano.<br /><br /> Se uno degli input è **non definito** o gli input hanno tipi diversi, il risultato è **non definito**.<br /><br /> Vedere la tabella dell'**ordinamento dei valori per il confronto** per informazioni dettagliate sull'ordinamento dei valori.|  
-|**stringa**|L'operatore prevede che gli input siano stringhe. Anche l'output è una stringa.<br />Se uno degli input è **non definito** o di tipo diverso da una stringa, il risultato è **non definito**.|  
+|**aritmetico**|L'operatore prevede che gli input siano numerici. Anche l'output è un numero. Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.|  
+|**bit per bit**|L'operatore prevede che gli input siano numeri interi con segno a 32 bit. Anche l'output è un numero intero con segno a 32 bit.<br /><br /> Gli eventuali valori non interi vengono arrotondati. I valori positivi verranno arrotondati per difetto, i valori negativi per eccesso.<br /><br /> Qualsiasi valore esterno all'intervallo di interi a 32 bit verrà convertito prendendo gli ultimi 32 bit della relativa notazione di complemento a due.<br /><br /> Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.<br /><br /> **Nota:** il comportamento descritto sopra è compatibile con il comportamento di un operatore bit per bit di JavaScript.|  
+|**logico**|L'operatore prevede che gli input siano valori booleani. Anche l'output è un valore booleano.<br />Se uno degli input è **non definito** o di tipo diverso da un valore booleano, il risultato sarà **non definito**.|  
+|**confronto**|L'operatore prevede che gli input abbiano lo stesso tipo e non siano indefiniti. L'output è un valore booleano.<br /><br /> Se uno degli input è **non definito** o gli input hanno tipi diversi, il risultato è **non definito**.<br /><br /> Vedere la tabella dell'**ordinamento dei valori per il confronto** per informazioni dettagliate sull'ordinamento dei valori.|  
+|**string**|L'operatore prevede che gli input siano stringhe. Anche l'output è una stringa.<br />Se uno degli input è **non definito** o di tipo diverso da una stringa, il risultato è **non definito**.|  
   
  **Operatori unari:**  
   
-|**NOME**|**Operatore**|**Dettagli**|  
+|**Nome**|**Operatore**|**Dettagli**|  
 |-|-|-|  
-|**operazioni aritmetiche**|+<br /><br /> -|Restituisce il valore numerico.<br /><br /> Negazione bit per bit. Restituisce il valore numerico negato.|  
-|**OR bit per bit**|~|Complemento a uno. Restituisce un complemento di un valore numerico.|  
+|**aritmetico**|+<br /><br /> -|Restituisce il valore numerico.<br /><br /> Negazione bit per bit. Restituisce il valore numerico negato.|  
+|**bit per bit**|~|Complemento a uno. Restituisce un complemento di un valore numerico.|  
 |**Logico**|**NOT**|Negazione. Restituisce un valore booleano negato.|  
   
  **Operatori binari:**  
   
-|**NOME**|**Operatore**|**Dettagli**|  
+|**Nome**|**Operatore**|**Dettagli**|  
 |-|-|-|  
-|**operazioni aritmetiche**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
-|**OR bit per bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit per bit.<br /><br /> AND bit per bit.<br /><br /> XOR bit per bit.<br /><br /> Spostamento a sinistra.<br /><br /> Spostamento a destra.<br /><br /> Spostamento a destra riempimento zero.|  
-|**Logica**|**AND**<br /><br /> **Oppure**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Disgiunzione logica. Restituisce **true** se almeno un argomento è **true**, altrimenti restituisce **false**.|  
-|**Confronto**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
-|**string**|**&#124;&#124;**|Concatenazione. Restituisce una concatenazione di entrambi gli argomenti.|  
+|**aritmetico**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
+|**bit per bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit per bit.<br /><br /> AND bit per bit.<br /><br /> XOR bit per bit.<br /><br /> Spostamento a sinistra.<br /><br /> Spostamento a destra.<br /><br /> Spostamento a destra riempimento zero.|  
+|**logico**|**AND**<br /><br /> **OR**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Disgiunzione logica. Restituisce **true** se almeno un argomento è **true**, altrimenti restituisce **false**.|  
+|**confronto**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
+|**Stringa**|**&#124;&#124;**|Concatenazione. Restituisce una concatenazione di entrambi gli argomenti.|  
   
  **Operatori ternari:**  
 
-|**NOME**|**Operatore**|**Dettagli**| 
+|**Nome**|**Operatore**|**Dettagli**| 
 |-|-|-|  
 |Operatore ternario|?|Restituisce il secondo argomento se il primo argomento restituisce **true**, altrimenti restituisce il terzo argomento.|  
 
   
  **Ordinamento dei valori per il confronto**  
   
-|**Type**|**Ordine dei valori**|  
+|**Tipo**|**Ordine dei valori**|  
 |-|-|  
 |**Undefined**|Non confrontabile.|  
 |**Null**|Singolo valore: **null**|  
 |**Number**|Numero reale naturale.<br /><br /> Il valore infinito negativo è minore di qualsiasi altro valore numerico.<br /><br /> Il valore infinito positivo è maggiore di qualsiasi altro valore numerico. il valore **NaN** non è confrontabile. Il confronto con **NaN** restituisce un valore **non definito**.|  
-|**string**|Ordine lessicografico.|  
+|**String**|Ordine lessicografico.|  
 |**Array**|Nessun ordinamento, ma equo.|  
-|**Oggetto**|Nessun ordinamento, ma equo.|  
+|**Object**|Nessun ordinamento, ma equo.|  
   
- **Osservazioni**  
+ **Osservazioni:**  
   
  In Cosmos DB i tipi di valori sono spesso sconosciuti finché non vengono recuperati dal database. Per supportare un'esecuzione efficiente delle query, gran parte degli operatori presentano rigorosi requisiti di tipi. Inoltre, gli operatori di per sé non eseguono conversioni implicite.  
   
  Ciò significa che una query come: SELECT * FROM ROOT r WHERE r.Age = 21 restituisce solo documenti con la proprietà Age uguale al numero 21. I documenti con la proprietà Age uguale alla stringa "21" o alla stringa "0021" non corrispondono, poiché l'espressione "21" = 21 restituisce un valore non definito. Questo consente un uso migliore degli indici, poiché la ricerca di un valore specifico, ovvero il numero 21, è più veloce rispetto alla ricerca di un numero indefinito di possibili corrispondenze (il numero 21 o le stringhe "21", "021", "21.0" e così via). Ciò si differenzia dal modo in cui JavaScript valuta gli operatori per valori di tipi diversi.  
   
- **Confronto e uguaglianza di matrici e oggetti**  
+ **Confronto e uguaglianza di oggetti e matrici**  
   
  Il confronto dei valori di oggetto o matrice con gli operatori di intervallo (>, >=, <, <=) produce un risultato indefinito poiché non è definito un ordine per i valori di oggetto o matrice. Tuttavia l'uso degli operatori di uguaglianza/disuguaglianza (=,! =, <>) è supportato e i valori vengono confrontati strutturalmente.  
   
@@ -534,15 +534,15 @@ ORDER BY <sort_specification>
   
  **Tipi di dati scalari supportati:**  
   
-|**Type**|**Ordine dei valori**|  
+|**Tipo**|**Ordine dei valori**|  
 |-|-|  
 |**Undefined**|Singolo valore: **non definito**|  
 |**Null**|Singolo valore: **null**|  
 |**Boolean**|Valori: **false**, **true**.|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
-|**string**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
+|**String**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
 |**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalare, tranne Undefined.|  
-|**Oggetto**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
+|**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   
  **Sintassi**  
   
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   Sono consentite le sequenze di escape seguenti:  
   
-|**Sequenza di escape**|**DESCRIZIONE**|**Carattere Unicode**|  
+|**Sequenza di escape**|**Descrizione**|**Carattere Unicode**|  
 |-|-|-|  
 |\\'|apostrofo (')|U + 0027|  
 |\\"|virgolette doppie (")|U + 0022|  
@@ -658,7 +658,7 @@ ORDER BY <sort_specification>
   
      La tabella seguente indica le convenzioni usate per descrivere la sintassi nel riferimento SQL seguente.  
   
-    |**Convenzione**|**Usato per**|  
+    |**Convenzione**|**Usata per**|  
     |-|-|    
     |LETTERE MAIUSCOLE|Parole chiave che non fanno distinzione tra maiuscole e minuscole.|  
     |lettere minuscole|Parole chiave che fanno distinzione tra maiuscole e minuscole.|  
@@ -689,12 +689,12 @@ ORDER BY <sort_specification>
   
 ||||  
 |-|-|-|  
-|[abs](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
+|[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[GRADI](#bk_degrees)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[FUNZIONE ROUND](#bk_round)|[SIN](#bk_sin)|  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
@@ -717,7 +717,7 @@ ABS (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente vengono illustrati i risultati dell'uso della funzione ABS su tre numeri diversi.  
   
@@ -750,7 +750,7 @@ ACOS(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce l'arcocoseno di -1.  
   
@@ -783,7 +783,7 @@ ASIN(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce l'arcoseno di -1.  
   
@@ -816,7 +816,7 @@ ATAN(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce l'arcotangente del valore specificato.  
   
@@ -849,7 +849,7 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente calcola l'arcotangente per i componenti x e y specificati.  
   
@@ -882,7 +882,7 @@ CEILING (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente usa valori numerici positivi, negativi e zero con la funzione CEILING.  
   
@@ -915,7 +915,7 @@ COS(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente calcola il coseno dell'angolo specificato.  
   
@@ -948,7 +948,7 @@ COT(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente calcola la cotangente dell'angolo specificato.  
   
@@ -981,7 +981,7 @@ DEGREES (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce il numero di gradi di un angolo di PI/2 radianti.  
   
@@ -1014,7 +1014,7 @@ FLOOR (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente usa valori numerici positivi, negativi e zero con la funzione FLOOR.  
   
@@ -1047,7 +1047,7 @@ EXP (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Osservazioni**  
+  **Osservazioni:**  
   
   La costante **e** (2,718281 …) è la base dei logaritmi naturali.  
   
@@ -1055,7 +1055,7 @@ EXP (<numeric_expression>)
   
   Il valore esponenziale del logaritmo naturale di un numero è il numero stesso: EXP (LOG (n)) = n. E il logaritmo naturale del valore esponenziale di un numero è il numero stesso: LOG (EXP (n)) = n.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore esponenziale della variabile specificata (10).  
   
@@ -1112,7 +1112,7 @@ LOG (<numeric_expression> [, <base>])
   
   Il logaritmo naturale del valore esponenziale di un numero è il numero stesso: LOG( EXP( n ) ) = n. E il valore esponenziale del logaritmo naturale di un numero è il numero stesso: EXP( LOG( n ) ) = n.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il logaritmo della variabile specificata (10).  
   
@@ -1157,11 +1157,11 @@ LOG10 (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Osservazioni**  
+  **Osservazioni:**  
   
   Le funzioni LOG10 e POWER sono inversamente correlate tra loro. Ad esempio, 10 ^ LOG10(n) = n.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore LOG10 della variabile specificata (100).  
   
@@ -1194,7 +1194,7 @@ PI ()
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce il valore di pi greco.  
   
@@ -1231,7 +1231,7 @@ POWER (<numeric_expression>, <y>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene elevato un numero alla potenza di 3 (cubo del numero).  
   
@@ -1264,7 +1264,7 @@ RADIANS (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente accetta alcuni angoli come input e restituisce i valori in radianti corrispondenti.  
   
@@ -1303,7 +1303,7 @@ ROUND(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente arrotonda numeri positivi e negativi al numero intero più prossimo.  
   
@@ -1336,7 +1336,7 @@ SIGN(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce i valori SIGN dei numeri da -2 a 2.  
   
@@ -1369,7 +1369,7 @@ SIN(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente calcola il seno dell'angolo specificato.  
   
@@ -1402,7 +1402,7 @@ SQRT(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce le radici quadrate dei numeri da 1 a 3.  
   
@@ -1435,7 +1435,7 @@ SQUARE(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce i quadrati dei numeri da 1 a 3.  
   
@@ -1468,7 +1468,7 @@ TAN (<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente calcola la tangente di PI()/2.  
   
@@ -1501,7 +1501,7 @@ TRUNC(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente tronca numeri positivi e negativi al numero intero più prossimo.  
   
@@ -1543,7 +1543,7 @@ IS_ARRAY(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_ARRAY.  
   
@@ -1583,7 +1583,7 @@ IS_BOOL(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_BOOL.  
   
@@ -1623,7 +1623,7 @@ IS_DEFINED(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente verifica la presenza di una proprietà all'interno del documento JSON specificato. La prima parte restituisce true perché "a" è presente, ma la seconda restituisce false perché "b" è assente.  
   
@@ -1656,7 +1656,7 @@ IS_NULL(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_NULL.  
   
@@ -1696,7 +1696,7 @@ IS_NUMBER(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_NULL.  
   
@@ -1736,7 +1736,7 @@ IS_OBJECT(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_OBJECT.  
   
@@ -1776,7 +1776,7 @@ IS_PRIMITIVE(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_PRIMITIVE.  
   
@@ -1816,7 +1816,7 @@ IS_STRING(<expression>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione IS_STRING.  
   
@@ -1842,10 +1842,10 @@ SELECT
   
 ||||  
 |-|-|-|  
-|[CONCAT](#bk_concat)|[CONTIENE](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[A SINISTRA](#bk_left)|[LUNGHEZZA](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[SOSTITUIRE](#bk_replace)|  
-|[REPLICA](#bk_replicate)|[ORDINE INVERSO](#bk_reverse)|[OK](#bk_right)|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
@@ -1870,7 +1870,7 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce la stringa concatenata dei valori specificati.  
   
@@ -1903,7 +1903,7 @@ CONTAINS(<str_expr>, <str_expr>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene verificato se "abc" contiene "ab" e contiene "d".  
   
@@ -1936,7 +1936,7 @@ ENDSWITH(<str_expr>, <str_expr>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce "abc" che termina con "b" e "bc".  
   
@@ -1969,7 +1969,7 @@ INDEX_OF(<str_expr>, <str_expr>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce l'indice di diverse sottostringhe all'interno di "abc".  
   
@@ -2006,7 +2006,7 @@ LEFT(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce la parte sinistra di "abc" per diversi valori di lunghezza.  
   
@@ -2039,7 +2039,7 @@ LENGTH(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce la lunghezza di una stringa.  
   
@@ -2072,7 +2072,7 @@ LOWER(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare LOWER in una query.  
   
@@ -2106,7 +2106,7 @@ LTRIM(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare LTRIM all'interno di una query.  
   
@@ -2139,7 +2139,7 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare REPLACE in una query.  
   
@@ -2179,7 +2179,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare REPLICATE in una query.  
   
@@ -2212,7 +2212,7 @@ REVERSE(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare REVERSE in una query.  
   
@@ -2249,7 +2249,7 @@ RIGHT(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce la parte destra di "abc" per diversi valori di lunghezza.  
   
@@ -2282,7 +2282,7 @@ RTRIM(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare RTRIM all'interno di una query.  
   
@@ -2315,7 +2315,7 @@ STARTSWITH(<str_expr>, <str_expr>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente verifica se la stringa "abc" inizia con "b" e "a".  
   
@@ -2348,7 +2348,7 @@ StringToArray(<expr>)
   
   Restituisce un'espressione di matrice o non definito.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente mostra il comportamento StringToArray in tipi diversi. 
   
@@ -2423,7 +2423,7 @@ StringToBoolean(<expr>)
   
   Restituisce un'espressione booleana o non definito.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente mostra il comportamento StringToBoolean in tipi diversi. 
  
@@ -2496,7 +2496,7 @@ StringToNull(<expr>)
   
   Restituisce un'espressione null o non definito.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente mostra il comportamento StringToNull in tipi diversi. 
 
@@ -2568,7 +2568,7 @@ StringToNumber(<expr>)
   
   Restituisce un'espressione numerica o non definito.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente mostra il comportamento StringToNumber in tipi diversi. 
 
@@ -2638,7 +2638,7 @@ StringToObject(<expr>)
   
   Restituisce un'espressione di oggetto o non definito.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente mostra il comportamento StringToObject in tipi diversi. 
   
@@ -2733,7 +2733,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente restituisce la sottostringa di "abc" a partire da 1 e per una lunghezza di 1 carattere.  
   
@@ -2765,7 +2765,7 @@ ToString(<expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente mostra il comportamento di ToString con tipi diversi.   
   
@@ -2847,7 +2847,7 @@ TRIM(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare TRIM all'interno di una query.  
   
@@ -2879,7 +2879,7 @@ UPPER(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come usare UPPER in una query  
   
@@ -2920,7 +2920,7 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
   Restituisce un'espressione di matrice.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come concatenare due matrici.  
   
@@ -2961,7 +2961,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
   Restituisce un valore booleano.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come verificare l'appartenenza a una matrice usando ARRAY_CONTAINS.  
   
@@ -3015,7 +3015,7 @@ ARRAY_LENGTH(<arr_expr>)
   
   Restituisce un'espressione numerica.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come ottenere la lunghezza di una matrice usando ARRAY_LENGTH.  
   
@@ -3056,7 +3056,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   Restituisce un'espressione di matrice.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente illustra come ottenere sezioni diverse di una matrice usando ARRAY_SLICE.  
   
@@ -3113,7 +3113,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
   Restituisce un'espressione numerica che contiene la distanza. È espressa in metri per il sistema di riferimento predefinito.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente indica come restituire tutti i documenti della famiglia che si trovano entro 30 km dalla posizione specificata usando la funzione predefinita ST_DISTANCE. .  
   
@@ -3154,7 +3154,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   Restituisce un valore booleano.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente indica come trovare tutti i documenti della famiglia all'interno di un poligono usando ST_WITHIN.  
   
@@ -3196,7 +3196,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
   Restituisce un valore booleano.  
   
-  **Esempi**  
+  **esempi**  
   
   L'esempio seguente indica come individuare tutte le aree che intersecano il poligono dato.  
   
@@ -3234,7 +3234,7 @@ ST_ISVALID(<spatial_expr>)
   
   Restituisce un'espressione booleana.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene illustrato come controllare se un punto è valido usando ST_VALID.  
   
@@ -3271,7 +3271,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
   Restituisce un valore JSON che contiene un valore booleano valore se l'espressione punto o poligono GeoJSON specificata è valida e, se non valida, anche il motivo come valore stringa.  
   
-  **Esempi**  
+  **esempi**  
   
   Nell'esempio seguente viene illustrato come controllare la validità (con i dettagli) usando ST_ISVALIDDETAILED.  
   
@@ -3295,6 +3295,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [SQL query e sintassi SQL per Cosmos DB](how-to-sql-query.md)
+- [Query e sintassi SQL per Cosmos DB](how-to-sql-query.md)
 
-- [Documentazione di COSMOS DB](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Documentazione di Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

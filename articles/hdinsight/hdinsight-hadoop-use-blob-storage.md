@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360789"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
@@ -297,25 +297,25 @@ Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 azure storage blob
 ```
 
-**Esempio di utilizzo di comando di Azure classico per caricare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per caricare un file**
 
 ```cli
 azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Esempio di utilizzo di comando di Azure classico per scaricare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per scaricare un file**
 
 ```cli
 azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Esempio di utilizzo di comando di Azure classico per eliminare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per eliminare un file**
 
 ```cli
 azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Esempio di utilizzo di comando di Azure classico per elencare i file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per elencare file**
 
 ```cli
 azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>

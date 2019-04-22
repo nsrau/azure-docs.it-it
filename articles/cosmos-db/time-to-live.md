@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271272"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB 
@@ -50,4 +50,4 @@ L'eliminazione di elementi in base alla durata (TTL) è gratuita. Non vengono ap
 
 Informazioni su come configurare Time to Live negli articoli seguenti:
 
-* [Jak nakonfigurovat Time to Live](how-to-time-to-live.md)
+* [Come configurare la durata (TTL)](how-to-time-to-live.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361347"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -255,7 +255,7 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 * [Riepilogo ambiente locale](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Consigli](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [Raccomandazioni](hyper-v-deployment-planner-analyze-report.md#recommendations)
 * [Selezione host di archiviazione delle VM](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [VM compatibili](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)

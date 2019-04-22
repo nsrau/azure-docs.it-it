@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360436"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste 
@@ -71,12 +71,12 @@ Quando si usa un modello di Resource Manager per distribuire un blocco, utilizza
 Quando si applica un blocco a un **risorsa**, usare i formati seguenti:
 
 * nome: `{resourceName}/Microsoft.Authorization/{lockName}`
-* tipo: `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Quando si applica un blocco a un **gruppo di risorse** oppure **sottoscrizione**, usare i formati seguenti:
 
 * nome: `{lockName}`
-* tipo: `Microsoft.Authorization/locks`
+* type - `Microsoft.Authorization/locks`
 
 L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. Il tipo di risorsa del blocco corrisponde al tipo di risorsa della risorsa da bloccare e a **/providers/locks**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco stesso.
 

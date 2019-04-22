@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048759"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
@@ -81,8 +81,8 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Sottoscrizione**|[Sottoscrizione] sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Località**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
-    |**Account di archiviazione**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
+    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
 3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** >**+**.
 
@@ -91,7 +91,7 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Impostazione** | **Valore** | **Dettagli** |
     |---|---|---|
     |**Scenario**|Sperimentale|Tipo di scenario|
-    |**Assegnare un nome alla funzione**|AlertPacketCapturePowerShell|Nome della funzione|
+    |**Dare un nome alla funzione**|AlertPacketCapturePowerShell|Nome della funzione|
     |**Livello di autorizzazione**|Funzione|Livello di autorizzazione per la funzione|
 
 ![Esempio di funzioni][functions1]
@@ -346,13 +346,13 @@ Passare a una macchina virtuale esistente, quindi aggiungere una regola di avvis
 
   |**Impostazione** | **Valore** | **Dettagli** |
   |---|---|---|
-  |**NOME**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
-  |**DESCRIZIONE**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.|
+  |**Nome**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
+  |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.|
   |**Metrica**|Segmenti TCP inviati| La metrica da utilizzare per attivare l'avviso. |
-  |**Condizione**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
+  |**Condition**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
   |**Soglia**|100| Valore della metrica che attiva l'avviso. Deve trattarsi di un valore valido per l'ambiente in uso.|
   |**Periodo**|Negli ultimi cinque minuti| Determina il periodo in cui cercare la soglia per la metrica.|
-  |**webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
+  |**Webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
 
 > [!NOTE]
 > La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

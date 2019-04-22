@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276644"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Anteprima di onboarding Sentinel di Azure
@@ -49,7 +49,7 @@ Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di
 1. Passare al portale di Azure.
 2. Assicurarsi che sia selezionata la sottoscrizione in cui Azure Sentinel viene creato. 
 3. Ricerca di Azure Sentinel. 
-   ![ricerca](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Fare clic su **+Aggiungi**.
 1. Selezionare l'area di lavoro che si desidera usare o crearne uno nuovo. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.

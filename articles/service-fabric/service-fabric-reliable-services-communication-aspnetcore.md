@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268518"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys in un servizio con stato
 
-`HttpSysCommunicationListener` attualmente non progettato per l'utilizzo nei servizi con stato a causa di problemi con l'oggetto sottostante *HTTP. sys* funzionalità di condivisione delle porte. Per altre informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HttpSys. Per i servizi con stato, Kestrel è il server Web consigliato.
+`HttpSysCommunicationListener` non è attualmente progettato per l'uso in servizi con stato, a causa di problemi con la funzionalità di condivisione delle porte *http.sys* sottostante. Per altre informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HttpSys. Per i servizi con stato, Kestrel è il server Web consigliato.
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 

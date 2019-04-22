@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256057"
 ---
 # <a name="get-information-from-a-coordinate"></a>Ottenere informazioni su una coordinata
@@ -29,7 +29,7 @@ Esistono due modi per eseguire una ricerca di indirizzi inversa. Un modo consist
 
 Nel codice precedente, il primo blocco di codice costruisce un oggetto map e imposta il meccanismo di autenticazione da usare la chiave di sottoscrizione. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP per le mappe di Azure con la chiave di sottoscrizione. Il `atlas.service.MapsURL.newPipeline()` accetta il `SubscriptionKeyCredential` dei criteri e consente di creare un [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) istanza. Il `searchURL` rappresenta un URL di mappe di Azure [ricerca](https://docs.microsoft.com/rest/api/maps/search) operazioni.
+Il secondo blocco di codice crea un `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP per le mappe di Azure con la chiave di sottoscrizione. Il `atlas.service.MapsURL.newPipeline()` accetta il `SubscriptionKeyCredential` dei criteri e consente di creare un [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) istanza. `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
 
 Il terzo blocco di codice aggiorna lo stile del cursore del mouse in un puntatore e crea un [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) oggetto. Per le istruzioni, è possibile vedere [Aggiungere un popup sulla mappa](./map-add-popup.md).
 
@@ -62,7 +62,7 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Controllo popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 Per esempi di codice completi, vedere gli articoli seguenti:
 

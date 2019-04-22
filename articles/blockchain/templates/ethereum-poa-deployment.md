@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274791"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
@@ -220,7 +220,7 @@ Sottoscrizione|La sottoscrizione sul quale eseguire la distribuzione della rete 
 Gruppo di risorse|Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio.||ND
 Località|La regione di Azure per gruppo di risorse.||ND
 
-Di seguito è riportata una distribuzione di esempio: ![pannello base](./media/ethereum-poa-deployment/basic-blade.png)
+Di seguito è illustrata una distribuzione di esempio: ![Pannello Informazioni di base](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>Regioni di distribuzione
 
@@ -237,7 +237,7 @@ Segue una descrizione dettagliata di ogni parametro:
   Quarta regione|Quarta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 4 come numero di regioni)|Tutte le aree di Azure consentite|ND
   Quinta regione|Quinta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 5 come numero di regioni)|Tutte le aree di Azure consentite|ND
 
-Di seguito è riportata una distribuzione di esempio: ![aree di distribuzione](./media/ethereum-poa-deployment/deployment-regions.png)
+Di seguito è illustrata una distribuzione di esempio: ![Aree di distribuzione](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>Dimensioni e prestazioni della rete
 
@@ -254,7 +254,7 @@ Segue una descrizione dettagliata di ogni parametro:
 
 [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-[Dettagli prezzi-macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+[Prezzi di Macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
 Macchina virtuale e il livello di archiviazione influirà sulle prestazioni di rete.  Sono consigliabili gli SKU seguenti basati sull'efficienza desiderata in termini economici:
 
@@ -264,7 +264,7 @@ Macchina virtuale e il livello di archiviazione influirà sulle prestazioni di r
   D2_v3|SSD Standard|medio|medio|media
   F16s|SSD Premium|elevata|elevata|bassa
 
-Di seguito è riportata una distribuzione di esempio: ![dimensioni e le prestazioni di rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
+Di seguito è illustrata una distribuzione di esempio: ![Dimensioni e prestazioni di rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Impostazioni Ethereum
 
@@ -283,7 +283,7 @@ Block Gas Limit (Advanced Options = Enable) (Limite gas blocco (Opzioni avanzate
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec))|Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori.|Qualsiasi valore numerico|15
 Transaction Permission Contract (Contratto autorizzazione transazione) (Opzioni avanzate = Abilita)|Bytecode per il contratto di concessione delle autorizzazioni per le transazioni. Limita contratto intelligente distribuzione ed esecuzione per un elenco consentito di account Ethereum.|Bytecode del contratto|ND
 
-Di seguito è riportata una distribuzione di esempio: ![ethereum impostazioni](./media/ethereum-poa-deployment/ethereum-settings.png)
+Di seguito è illustrata una distribuzione di esempio: ![Impostazioni di Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Monitoraggio
 
@@ -300,7 +300,7 @@ ID area di lavoro di analitica log esistenti (connettersi a log di monitoraggio 
 Chiave primaria esistente log analitica (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|La chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||ND
 
 
-Di seguito è riportata una distribuzione di esempio: ![monitoraggio di azure](./media/ethereum-poa-deployment/azure-monitor.png)
+Di seguito è illustrata una distribuzione di esempio: ![Monitoraggio di Azure](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Summary
 

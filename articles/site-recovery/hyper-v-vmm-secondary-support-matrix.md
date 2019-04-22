@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360802"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
@@ -108,7 +108,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il provider coordina le comunicazioni tra server VMM. 
 
-**Ultimo** | **Aggiornamenti**
+**Più recente** | **Aggiornamenti**
 --- | --- 
 5.1.19 ([disponibile dal portale](https://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ Il provider coordina le comunicazioni tra server VMM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Replicare VM Hyper-V nei cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
+[Eseguire la replica di VM Hyper-V nel cloud VMM in un sito secondario](tutorial-vmm-to-vmm.md)
 

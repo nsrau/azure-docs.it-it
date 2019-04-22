@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359640"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
@@ -48,7 +48,7 @@ Per i carichi di lavoro Premium RS a elevato utilizzo di calcolo, è consigliabi
 
 ### <a name="premium-rs-databases"></a>Database Premium RS
 
-|**Se sono attualmente attivati...**|**Eseguire la migrazione a confrontabili basato su vCore...**|**Eseguire la migrazione a confrontabili basato su DTU...**|
+|**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
 |Premium RS 1|Uso generico 1 vCore (Gen4)|Standard 3|
 |Premium RS 2|Uso generico 2 vCore (Gen 4)|Standard 4|
@@ -57,7 +57,7 @@ Per i carichi di lavoro Premium RS a elevato utilizzo di calcolo, è consigliabi
 
 ### <a name="premium-rs-pools"></a>Pool Premium RS
 
-|**Se sono attualmente attivati...**|**Eseguire la migrazione a confrontabili basato su vCore...**|**Eseguire la migrazione a confrontabili basato su DTU...**|
+|**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
 |Pool Premium RS 125 DTU|Uso generico 1 vCore (Gen4)|Pool Standard 100 eDTU|
 |Pool Premium RS 250 DTU|Uso generico 2 vCore (Gen 4)|Pool Standard 250 eDTU|
@@ -68,14 +68,14 @@ Per i carichi di lavoro Premium RS a elevato utilizzo di calcolo, è consigliabi
 
 Per ottenere una combinazione ideale di prestazioni e costi, è consigliabile eseguire la migrazione dei database singoli con I/O elevato al livello Con iperscalabilità basato su vCore, attualmente in anteprima, e i pool di database con I/O elevato al livello Business critical disponibile a livello generale.  Le opzioni basate su vCore riportate di seguito consentono di mantenere o migliorare le prestazioni correnti, ma anche di risparmiare se combinate con le offerte Vantaggio Azure Hybrid e capacità di riserva.
 
-|**Se sono attualmente attivati...**|**Eseguire la migrazione a confrontabili basato su vCore...**|**Eseguire la migrazione a confrontabili basato su DTU...**|
+|**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
 |Premium RS 1|(Anteprima) Con iperscalabilità 1 vCore (Gen 4) o Business critical 1 vCore (Gen 4)|Premium 1|
 |Premium RS 2|(Anteprima) Con iperscalabilità 2 vCore (Gen 4) o Business critical 2 vCore (Gen 4)|Premium 2|
 |Premium RS 4|(Anteprima) Con iperscalabilità 4 vCore (Gen 4) o Business critical 4 vCore (Gen 4)|Premium 4
 |Premium RS 6|(Anteprima) Con iperscalabilità 6 vCore (Gen 4) o Business critical 6 vCore (Gen 4)|Premium 6|
 
-|**Se sono attualmente attivati...**|**Eseguire la migrazione a confrontabili basato su vCore...**|**Eseguire la migrazione a confrontabili basato su DTU...**|
+|**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
 |Pool Premium RS 125 DTU|Business critical 2 vCore (Gen4)|Pool Premium 125 eDTU|
 |Pool Premium RS 250 DTU|Business critical 2 vCore (Gen4)|Pool Premium 250 eDTU|

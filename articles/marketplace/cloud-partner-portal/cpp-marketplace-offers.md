@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010584"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offerte di Azure Marketplace e del marketplace di AppSource
@@ -29,7 +29,7 @@ Il video seguente presenta le varie funzionalità e i diversi tipi di offerta di
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Creazione di App e servizi per Azure Marketplace e AppSource - Build 2018**
+**Creazione di app e servizi per Azure Marketplace e AppSource - Build 2018**
 
 Per altre informazioni su questi marketplace, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](../marketplace-publishers-guide.md).
 
@@ -57,9 +57,9 @@ La tabella seguente contiene l'elenco dei tipi di offerta correnti supportati da
 | [Contenitore](./containers/cpp-containers-offer.md)  | Azure | La soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come servizio basato su Kubernetes o come Istanze di Azure Container. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Pacchetto che estende il sistema ERP (Enterprise Resource Planning) e di gestione aziendale. |
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Un pacchetto che estende questo cliente risorse sistema CRM (management), tramite relative vendite, service, servizio di progetto e moduli del servizio campo  |
-| [Dynamics 365 per Finanza e operazioni](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un pacchetto che estende questa pianificazione del servizio (ERP) delle risorse aziendali che supporta avanzato finance, operazioni, produzione e gestione della supply chain |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un pacchetto che estende questa pianificazione del servizio (ERP) delle risorse aziendali che supporta avanzato finance, operazioni, produzione e gestione della supply chain |
 | [Modulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Contenitore compatibile con Docker in esecuzione in un dispositivo IoT Edge.  Contiene moduli di calcolo di piccole dimensioni che usano una combinazione di codice personalizzato, altri servizi di Azure e servizi di terze parti. |
-| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Un'app di Power BI che crea un pacchetto di contenuto di Power BI personalizzabile, inclusi i set di dati, report e dashboard |
+| [App Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Un'app di Power BI che crea un pacchetto di contenuto di Power BI personalizzabile, inclusi i set di dati, report e dashboard |
 | [App SaaS](./saas-app/cpp-saas-offer.md) | Azure | Soluzione è una sottoscrizione di software-as-a-service, gestita dal server di pubblicazione, gli utenti che l'accesso tramite un'interfaccia personalizzata che usa Azure Active Directory. |
 | [Macchina virtuale](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La soluzione è inclusa in una singola macchina virtuale distribuita nella sottoscrizione del cliente.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

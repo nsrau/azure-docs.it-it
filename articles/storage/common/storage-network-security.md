@@ -9,10 +9,10 @@ ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280741"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
@@ -362,7 +362,7 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...**, ai s
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 
-In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete. È possibile autorizzare eccezioni alle regole di rete per consentire l'accesso in lettura ai file di log, alle tabelle di metrica o a entrambi gli elementi dell'account di archiviazione. [Altre informazioni sull'uso di analitica di archiviazione.](/azure/storage/storage-analytics)
+In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete. È possibile autorizzare eccezioni alle regole di rete per consentire l'accesso in lettura ai file di log, alle tabelle di metrica o a entrambi gli elementi dell'account di archiviazione. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestione delle eccezioni
 

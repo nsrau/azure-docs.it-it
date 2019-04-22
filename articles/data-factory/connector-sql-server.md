@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283410"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiare dati da e in SQL Server usando Azure Data Factory
@@ -64,7 +64,7 @@ Per il servizio collegato di SQL Server sono supportate le proprietà seguenti:
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
 
-**Esempio 1: uso dell'autenticazione di SQL Server**
+**Esempio 1: uso dell'autenticazione di SQL**
 
 ```json
 {
@@ -85,7 +85,7 @@ Per il servizio collegato di SQL Server sono supportate le proprietà seguenti:
 }
 ```
 
-**Esempio 2: uso dell'autenticazione SQL con password in Azure Key Vault**
+**Esempio 2: uso dell'autenticazione di SQL con la password in Azure Key Vault**
 
 ```json
 {
@@ -181,7 +181,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SqlSource** | Sì |
-| sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. |No  |
+| SqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. |No  |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No  |
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No  |
 
@@ -190,7 +190,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 - Se per SqlSource è specificata la proprietà **sqlReaderQuery**, l'attività di copia esegue questa query nell'origine SQL Server per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
 - Se non si specifica né "sqlReaderQuery" né "sqlReaderStoredProcedureName", le colonne definite nella sezione "struttura" del set di dati JSON vengono usate per creare una query, `select column1, column2 from mytable`, da eseguire in SQL Server. Se nella definizione del set di dati non è inclusa la "struttura", vengono selezionate tutte le colonne della tabella.
 
-**Esempio: uso di query SQL**
+**Esempio: uso della query SQL**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 ]
 ```
 
-**Esempio: utilizzo di stored procedure**
+**Esempio: uso della stored procedure**
 
 ```json
 "activities":[
@@ -516,7 +516,7 @@ Quando si copiano dati da/in SQL Server, vengono usati i mapping seguenti tra i 
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -534,15 +534,15 @@ Quando si copiano dati da/in SQL Server, vengono usati i mapping seguenti tra i 
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Oggetto |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

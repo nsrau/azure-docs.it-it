@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268025"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Guida introduttiva: Creare un indice di ricerca di Azure con PowerShell e l'API REST
@@ -29,17 +29,17 @@ Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I servizi e gli strumenti seguenti vengono usati in questa Guida introduttiva. 
+In questa guida di avvio rapido vengono usati i servizi e gli strumenti seguenti. 
 
 [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 [PowerShell 5.1 o versione successiva](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) per i passaggi sequenziali e interattivi.
 
-## <a name="get-a-key-and-url"></a>Ottenere una chiave e URL
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
 Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-1. [Accedere al portale di Azure](https://portal.azure.com/)e nel servizio di ricerca **Cenni preliminari su** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
@@ -47,7 +47,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-## <a name="connect-to-azure-search"></a>Connettersi a ricerca di Azure
+## <a name="connect-to-azure-search"></a>Connettersi a Ricerca di Azure
 
 In PowerShell, creare un **$headers** oggetto usato per archiviare il tipo di contenuto e la chiave API. È sufficiente impostare questa intestazione di una volta per la durata della sessione, ma si aggiungerà a ogni richiesta. 
 

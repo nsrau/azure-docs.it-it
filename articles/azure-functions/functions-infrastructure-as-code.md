@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270904"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
@@ -27,8 +27,8 @@ ms.locfileid: "59270904"
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per i modelli di esempio, vedere:
-- [App per le funzioni nel piano a consumo]
-- [App per le funzioni nel piano di servizio App di Azure]
+- [App per le funzioni in un piano a consumo]
+- [App per le funzioni in un piano di servizio app di Azure]
 
 > [!NOTE]
 > Il piano Premium per l'hosting di funzioni di Azure è attualmente in anteprima. Per altre informazioni, vedere [funzioni di Azure Premium-piano](functions-premium-plan.md).
@@ -41,7 +41,7 @@ Una distribuzione di funzioni di Azure è in genere costituita da queste risorse
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Un'app per le funzioni                                                                     | Obbligatorio    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Un' [Application Insights](../azure-monitor/app/app-insights-overview.md) componente | Facoltativo    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| Un' [Application Insights](../azure-monitor/app/app-insights-overview.md) componente | Facoltativo    | [Insights/Components](/azure/templates/microsoft.insights/components)         |   |
 | Oggetto [piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup>è solo un piano di hosting necessarie quando si sceglie di eseguire l'app per le funzioni in un [Premium-piano](./functions-premium-plan.md) (in anteprima) o in un [piano di servizio App](../app-service/overview-hosting-plans.md).
@@ -187,7 +187,7 @@ Queste proprietà sono specificate nella `appSettings` insieme nella `siteConfig
 
 Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non devi pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [scalabilità di funzioni di Azure e l'hosting](functions-scale.md#consumption-plan).
 
-Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano a consumo].
+Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni in un piano a consumo].
 
 ### <a name="create-a-consumption-plan"></a>Creare un piano a consumo
 
@@ -384,7 +384,7 @@ Deve avere un'app per le funzioni in un piano Premium di `serverFarmId` propriet
 
 Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard e Premium, analogamente alle app Web. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/overview-hosting-plans.md).
 
-Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano di servizio app di Azure].
+Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni in un piano di servizio app di Azure].
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
@@ -668,11 +668,11 @@ Di seguito è riportato un esempio che usa HTML:
 
 Altre informazioni su come sviluppare e configurare le Funzioni di Azure.
 
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
-* [Come configurare le impostazioni dell'app funzioni di Azure](functions-how-to-use-azure-function-app-settings.md)
-* [Creare la prima funzione di Azure](functions-create-first-azure-function.md)
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
+* [Come configurare le impostazioni dell'app per le funzioni di Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Create your first Azure function](functions-create-first-azure-function.md) (Creare la prima funzione di Azure)
 
 <!-- LINKS -->
 
-[App per le funzioni nel piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[App per le funzioni nel piano di servizio App di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[App per le funzioni in un piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[App per le funzioni in un piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

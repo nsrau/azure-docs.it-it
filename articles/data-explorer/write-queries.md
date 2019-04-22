@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274629"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Scrivere query per Esplora dati di Azure
@@ -901,7 +901,7 @@ StormEvents
 
 [**Plug-in funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): calcola il grafico a imbuto dei passaggi della sequenza completati all'interno di diversi periodi di tempo.
 
-La query seguente controlla il grafico a imbuto di completamento della sequenza: `Hail -> Tornado -> Thunderstorm -> Wind` nei periodi "generale" di un'ora, quattro ore e un giorno (`[1h, 4h, 1d]`).
+La query seguente controlla il grafico a imbuto del completamento della sequenza: `Hail -> Tornado -> Thunderstorm -> Wind` in periodi "complessivi" di un'ora, quattro ore e un giorno (`[1h, 4h, 1d]`).
 
 **\[**[**Fare clic per eseguire la query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -948,4 +948,4 @@ L'esempio seguente elimina la funzione che è stata creata nel primo passaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Riferimenti al linguaggio di Query Kusto](https://aka.ms/kustolangref)
+[Informazioni di riferimento sul linguaggio di query Kusto](https://aka.ms/kustolangref)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
 ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256788"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 in Gen2 con Azure Data Factory
@@ -140,4 +140,4 @@ Quando si copia un volume considerevole di dati dall'archivio dati basato su fil
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica dell'attività di copia](copy-activity-overview.md)
-* [Connettore Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+* [Connettore di Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

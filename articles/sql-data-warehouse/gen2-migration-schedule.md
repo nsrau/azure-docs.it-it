@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361137"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
@@ -30,7 +30,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 \* indica che una pianificazione specifica per l'area non è attualmente disponibile.
 
-| **Region** | **Gen2 più basso disponibile** | **Iniziano agli aggiornamenti automatici** |
+| **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
 | Australia orientale |Disponibile |1 giugno 2019 |
 | Australia sud-orientale |Dal 15 aprile 2019 |1 maggio 2019 |
@@ -101,47 +101,47 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 ## <a name="migration-frequently-asked-questions"></a>Domande frequenti sulla migrazione
 
-**D: Gen2 costa identico Gen1?**
+**D: Il costo di Gen2 è uguale a quello di Gen1?**
 
 - R: Sì.
 
-**D: Saranno l'impatto degli aggiornamenti gli script di automazione?**
+**D: Quale effetto avranno gli aggiornamenti sugli script di automazione?**
 
 - R: Tutti gli script di automazione che fanno riferimento a un obiettivo del livello di servizio devono essere modificati in modo da corrispondere all'equivalente di Gen2.  Vedere i dettagli [qui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**D: Quanto tempo un aggiornamento automatico in genere necessario?**
+**D: Quanto tempo richiede normalmente un aggiornamento autonomo?**
 
 - R: È possibile eseguire l'aggiornamento sul posto o da un punto di ripristino.  
    - Con l'aggiornamento sul posto l'esecuzione del data warehouse dovrà essere momentaneamente sospesa e quindi ripresa.  Un processo in background continuerà mentre il data warehouse è online.  
    - L'aggiornamento da un punto di ripristino richiede più tempo, in quanto deve essere eseguito l'intero processo di ripristino.
 
-**D: Quanto tempo l'aggiornamento automatico impiegherà?**
+**D: Quanto tempo richiede l'aggiornamento automatico?**
 
 - R: Il tempo di inattività effettivo per l'aggiornamento corrisponde al tempo necessario per sospendere e riprendere l'esecuzione del servizio, ossia tra i 5 e i 10 minuti. Dopo questa breve interruzione, un processo in background eseguirà una migrazione delle risorse di archiviazione. La durata del processo in background dipende dalle dimensioni del data warehouse.
 
-**D: Quando questo aggiornamento automatico verrà eseguita?**
+**D: Quando avverrà questo aggiornamento automatico?**
 
 - R: Durante la pianificazione della manutenzione. Sfruttando la pianificazione della manutenzione scelta dal cliente si ridurrà al minimo l'interruzione delle attività aziendali.
 
-**D: Cosa devo fare se il processo di aggiornamento in background sembra bloccato?**
+**D: Cosa occorre fare se il processo di aggiornamento in background sembra bloccato?**
 
  - R: Attivare una reindicizzazione delle tabelle Columnstore. Si noti che durante l'operazione di reindicizzazione le tabelle saranno offline.
 
-**D: Cosa accade se Gen2 non ha l'obiettivo del livello di servizio attivato Gen1?**
+**D: Cosa occorre fare se Gen2 non ha lo stesso obiettivo del livello di servizio di cui si dispone con Gen1?**
 - R: Se si esegue un DW600 o un DW1200 in Gen1, è consigliabile usare rispettivamente DW500c o DW1000c, in quanto Gen2 offre una quantità maggiore di memoria e risorse, oltre a prestazioni superiori rispetto a Gen1.
 
-**D: È possibile disabilitare backup geografico?**
+**D: È possibile disabilitare il backup geografico?**
 - R:  No. Il backup geografico è una funzionalità aziendale che mantiene la disponibilità del data warehouse nell'eventualità in cui un'area diventi non disponibile. Aprire una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) in caso di ulteriori problemi.
 
-**D: È presente una differenza nella sintassi T-SQL tra Gen1 e Gen2?**
+**D: La sintassi T-SQL di Gen1 è diversa da quella di Gen2?**
 
 - R: La sintassi del linguaggio T-SQL è rimasta invariata da Gen1 a Gen2.
 
-**D: Gen2 supporta Windows manutenzione?**
+**D: Gen2 supporta le finestre di manutenzione?**
 
 - R: Sì.
 
-**D: Sarà in grado di creare una nuova istanza di Gen1 dopo l'aggiornamento di mia area?**
+**D: Sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
 
 - R:  No. Dopo l'aggiornamento di un'area, la creazione di nuove istanze di Gen1 verrà disabilitata.
 
@@ -149,9 +149,9 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 - [Passaggi dell'aggiornamento](upgrade-to-latest-generation.md)
 - [Finestre di manutenzione](maintenance-scheduling.md)
-- [Monitoraggio stato risorsa](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Esaminare prima di iniziare la migrazione](upgrade-to-latest-generation.md#before-you-begin)
-- [Aggiornamento sul posto e da un punto di ripristino](upgrade-to-latest-generation.md)
+- [Monitoraggio dell'integrità delle risorse](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Elementi da verificare prima di iniziare una migrazione](upgrade-to-latest-generation.md#before-you-begin)
+- [Aggiornamento sul posto e aggiornamento da un punto di ripristino](upgrade-to-latest-generation.md)
 - [Creare un punto di ripristino definito dall'utente](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Informazioni su come ripristinare a Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Aprire una richiesta di supporto di SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Informazioni su come eseguire il ripristino a Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Aprire una richiesta di supporto per SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360494"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Avvio rapido: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
@@ -45,14 +45,14 @@ La procedura seguente illustra come creare una nuova subnet nella rete virtuale 
 
 3. Compilare il modulo usando le informazioni riportate nella tabella seguente:
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ---------------- | ----------------- | ----------- |
-   | **NOME** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nome** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervallo di indirizzi (blocco CIDR)** | Un intervallo valido | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Gruppo di sicurezza di rete** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Tabella di route** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Endpoint di servizio** | 0 selezionato | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Delegazione subnet** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Endpoint servizio** | 0 selezionato | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Delega subnet** | Nessuna | Il valore predefinito è appropriato per questa guida introduttiva.|
 
    ![Nuova subnet dell'istanza gestita per la macchina virtuale client](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -78,16 +78,16 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    | ---------------- | ----------------- | ----------- |
    | **Sottoscrizione** | Una sottoscrizione valida | Deve trattarsi di una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse. |
    | **Gruppo di risorse** |Il gruppo di risorse specificato nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|
-   | **Località** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. |
+   | **Posizione** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. |
    | **Nome macchina virtuale**  | Qualsiasi nome valido | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Nome utente amministratore**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Non usare "serveradmin" perché è un ruolo a livello di server riservato.<br>Questo nome utente viene usato ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Questa password viene usata ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
-   | **Dimensioni della macchina virtuale** | Qualsiasi dimensione valida | Il valore predefinito in questo modello, **Standard_B2s**, è sufficiente per questo argomento di avvio rapido. |
-   | **Località**|[resourceGroup().location].| Non modificare questo valore. |
-   | **Nome della rete virtuale**|La rete virtuale in cui viene creata l'istanza gestita.|
+   | **Dimensioni macchina virtuale** | Qualsiasi dimensione valida | Il valore predefinito in questo modello, **Standard_B2s**, è sufficiente per questo argomento di avvio rapido. |
+   | **Posizione**|[resourceGroup().location].| Non modificare questo valore. |
+   | **Nome rete virtuale**|La rete virtuale in cui viene creata l'istanza gestita.|
    | **Nome della subnet**|Nome della subnet creata nella procedura precedente| Non scegliere la subnet in cui è stata creata l'istanza gestita.|
-   | **Posizione degli elementi** | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
-   | **token di firma di accesso condiviso posizione elementi** | lasciare vuoto | Non modificare questo valore. |
+   | **artifacts Location** (Posizione elementi) | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
+   | **artifacts location SAS token** (Token di firma di accesso condiviso posizione elementi) | lasciare vuoto | Non modificare questo valore. |
 
    ![Creare una VM client](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

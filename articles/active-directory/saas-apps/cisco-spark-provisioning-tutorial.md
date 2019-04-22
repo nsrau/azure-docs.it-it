@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278413"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Esercitazione: configurare Cisco Spark per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 Prima di configurare Cisco Spark per il provisioning utenti automatico con Azure AD, è necessario aggiungerlo dalla raccolta di applicazioni di Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-**Per aggiungere Cisco Spark dalla raccolta di applicazioni di Azure AD, seguire i passaggi seguenti:**
+**Per aggiungere Cisco Spark dalla raccolta di applicazioni di Azure AD, eseguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -179,7 +179,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione di provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

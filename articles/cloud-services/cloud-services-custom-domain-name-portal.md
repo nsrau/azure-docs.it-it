@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267146"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
@@ -68,7 +68,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
        ![Sezione quick glance in cui è visualizzato l'URL del sito][csurl]
 
-       **Oppure**
+       **OR**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -101,7 +101,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
        ![Sezione quick glance in cui è visualizzato l'indirizzo VIP][vip]
 
-       **Oppure**
+       **OR**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -131,7 +131,7 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
-* [Come eseguire il mapping della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
+* [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).

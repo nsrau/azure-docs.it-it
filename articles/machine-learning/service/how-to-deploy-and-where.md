@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280894"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
@@ -32,7 +32,7 @@ Usare il SDK di Azure Machine Learning per distribuire il modello sottoposto a t
 | [Azure Machine Learning di calcolo (amlcompute)](#azuremlcompute) | Inferenza del batch | Eseguire una stima in batch a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
 | [Istanze di Azure Container](#aci) | Test | Soluzione ideale per lo sviluppo o il test. **Non è adatto per i carichi di lavoro di produzione.** |
 | [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
-| [Field-programmable Gate Array (FPGA)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
+| [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
 
 ## <a name="deployment-workflow"></a>Flusso di lavoro per la distribuzione
 
@@ -252,7 +252,7 @@ Quando si raggiunge la fase di distribuzione, il processo varia leggermente a se
 | [Calcolo di Azure Machine Learning](#azuremlcompute) | Servizio Web (l'inferenza del Batch)| Eseguire una stima in batch a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
 | [Istanze di Azure Container](#aci) | Servizio Web (sviluppo/test)| Soluzione ideale per lo sviluppo o il test. **Non è adatto per i carichi di lavoro di produzione.** |
 | [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
-| [Field-programmable Gate Array (FPGA)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
+| [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
 
 > [!IMPORTANT]
 > La condivisione di risorse tra le origini (CORS) non è attualmente supportata quando si distribuisce un modello come servizio Web.
@@ -385,7 +385,7 @@ aks_target.wait_for_completion(True)
 
 Per altre informazioni sulla creazione di un cluster del servizio contenitore di AZURE di fuori di Azure Machine Learning SDK, vedere gli articoli seguenti:
 
-* [Creare un cluster del servizio Azure Container](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Creare un cluster del servizio contenitore di AZURE](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Creare un cluster del servizio contenitore di AZURE (portale)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Distribuire l'immagine
@@ -645,11 +645,11 @@ Per altre informazioni, vedere la documentazione di riferimento per [WebService.
 
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
-* [Utilizzare un modello di Machine Learning distribuito come servizio web](how-to-consume-web-service.md)
-* [Come eseguire stime in batch](how-to-run-batch-predictions.md)
+* [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
+* [Come eseguire previsioni in batch](how-to-run-batch-predictions.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
-* [Azure SDK per servizi Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Usare il servizio di Azure Machine Learning con reti virtuali di Azure](how-to-enable-virtual-network.md)
-* [Le procedure consigliate per la creazione di sistemi di raccomandazione](https://github.com/Microsoft/Recommenders)
+* [SDK del servizio Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders) (Procedure consigliate per creare sistemi di raccomandazione)
 * [Creare un'API per raccomandazioni in tempo reale in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

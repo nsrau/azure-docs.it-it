@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105302"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489315"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -95,11 +95,10 @@ Creare un servizio di bilanciamento del carico interno Basic usando il portale. 
     | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
-    | Type          | Selezionare **Pubblica**.                                        |
+    | Type          | Selezionare **Interno**.                                        |
     | SKU           | Selezionare **Basic**.                          |
     | Rete virtuale           | Selezionare *MyVNet*.                          |    
-| Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
-    | Assegnazione di un indirizzo IP pubblico              | Selezionare **Statico**.   |
+    | Assegnazione indirizzi IP              | Selezionare **Statico**.   |
     | Indirizzo IP privato|Digitare un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, per esempio *10.3.0.7*.  |
 
 3. Nella scheda **Rivedi e crea** fare clic su **Crea**. 
@@ -266,4 +265,4 @@ Questa esercitazione ha illustrato come creare un servizio di bilanciamento del 
 È ora possibile apprendere come bilanciare il carico delle macchine virtuali tra zone di disponibilità.
 
 > [!div class="nextstepaction"]
-> [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Bilanciare il carico delle VM tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

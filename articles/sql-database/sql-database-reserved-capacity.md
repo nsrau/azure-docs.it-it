@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359736"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure
@@ -86,10 +86,10 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 - [Informazioni sulle prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md)
 - [Gestire le prenotazioni di Azure](../billing/billing-manage-reserved-vm-instance.md)
-- [Comprendere che le prenotazioni di Azure di sconto](../billing/billing-understand-reservation-charges.md)
-- [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](../billing/billing-understand-reserved-instance-usage.md)
-- [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) di Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Comprendere lo sconto sulle prenotazioni di Azure](../billing/billing-understand-reservation-charges.md)
+- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../billing/billing-understand-reserved-instance-usage.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

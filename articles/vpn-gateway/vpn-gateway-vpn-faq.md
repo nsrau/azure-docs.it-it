@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281050"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
@@ -182,7 +182,7 @@ Questa sezione si applica al modello di distribuzione Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>È possibile usare un gateway VPN di Azure per il transito del traffico tra i siti locali o verso un'altra rete virtuale?
 
-**Modello di distribuzione di Gestione risorse**<br>
+**Modello di distribuzione Resource Manager**<br>
 Sì. Per altre informazioni, vedere la sezione [BGP](#bgp).
 
 **Modello di distribuzione classica**<br>

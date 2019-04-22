@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050646"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
@@ -42,7 +42,7 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 Per risolvere gli errori di probe, è necessario uno strumento che mostri il codice di stato HTTP restituito dall'URL del probe. Sono disponibili numerosi strumenti che mostrano la risposta HTTP non elaborata.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [CURL](https://curl.haxx.se/)
+* [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 È inoltre possibile utilizzare la scheda Rete in Strumenti F12 per il debug di Internet Explorer per visualizzare le risposte HTTP.
@@ -80,15 +80,15 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Fasi successive
 
-[Metodi di routing del traffico di gestione traffico](traffic-manager-routing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
-[Che cos'è Gestione traffico](traffic-manager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
 [Servizi cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operazioni per gestione traffico (riferimento all'API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlet di Gestione traffico di Azure][1]
 

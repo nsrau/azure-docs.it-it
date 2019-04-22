@@ -12,10 +12,10 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010414"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
@@ -96,7 +96,7 @@ La registrazione viene abilitata dopo il salvataggio del profilo. I contenitori 
 * insights-logs-operationlogs: per i log relativi al traffico ricerca
 * insights-metrics-pt1m: per le metriche
 
-**È richiesta un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB ogni ora per ciascun contenitore.**
+**Richiede un'ora prima verranno visualizzati i contenitori nell'archivio Blob. È disponibile un blob ogni ora, per ogni contenitore.**
 
 È possibile usare [Visual Studio Code](#download-and-open-in-visual-studio-code) o un altro editor JSON per visualizzare i file. 
 
@@ -168,10 +168,10 @@ Dopo aver scaricato il file, aprirlo in un editor JSON per visualizzare il conte
 ## <a name="use-system-apis"></a>Usare le API del sistema
 Sia l'API REST di Ricerca di Azure che .NET SDK consentono l'accesso a livello di codice alle metriche del servizio, a informazioni su indice e indicizzatore e ai conteggi di documenti.
 
-* [Recupero statistiche dei servizi](/rest/api/searchservice/get-service-statistics)
+* [Ottenere le statistiche del servizio](/rest/api/searchservice/get-service-statistics)
 * [Ottenere le statistiche di un indice](/rest/api/searchservice/get-index-statistics)
-* [Contare i documenti](/rest/api/searchservice/count-documents)
-* [ottenere lo stato di un indicizzatore](/rest/api/searchservice/get-indexer-status)
+* [Conteggio documenti](/rest/api/searchservice/count-documents)
+* [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
 
 Per abilitare il monitoraggio tramite PowerShell o l'interfaccia della riga di comando di Azure, vedere la documentazione [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 

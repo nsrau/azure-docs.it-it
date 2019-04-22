@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276491"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
@@ -95,12 +95,12 @@ Il primo passo per una migliore visibilità delle risorse consiste nel creare e 
    Sostituire _ContosoRG_ con il nome del gruppo di risorse previsto.
 
    Il **ambito** parametro `New-AzPolicyAssignment` funziona con gruppo di gestione, sottoscrizione, gruppo di risorse o una singola risorsa. Il parametro usa un percorso di risorsa completo, restituito dalla proprietà **ResourceId** in `Get-AzResourceGroup`. Il modello per **Scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione.
-   `{rType}` verrebbe sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
+   `{rType}` può essere sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
 
-   - Risorsa: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Gruppo di risorse: `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Sottoscrizione: `/subscriptions/{subId}/`
-   - Gruppo di gestione- `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Gruppo di risorse - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Sottoscrizione - `/subscriptions/{subId}/`
+   - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Per altre informazioni sulla gestione dei criteri di risorse con il modulo PowerShell di Azure Resource Manager, vedere [Az.Resources](/powershell/module/az.resources/#policies).
 
@@ -223,12 +223,12 @@ Per creare una definizione dei criteri, usare la procedura seguente:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Il parametro **--scope** in `az policy assignment create` funziona con gruppo di gestione, sottoscrizione, gruppo di risorse o un'unica risorsa. Il parametro usa un percorso di risorsa completo. Il modello per **--scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione. `{rType}` verrebbe sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
+   Il parametro **--scope** in `az policy assignment create` funziona con gruppo di gestione, sottoscrizione, gruppo di risorse o un'unica risorsa. Il parametro usa un percorso di risorsa completo. Il modello per **--scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione. `{rType}` può essere sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
 
-   - Risorsa: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Gruppo di risorse: `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Sottoscrizione: `/subscriptions/{subID}`
-   - Gruppo di gestione- `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Gruppo di risorse - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Sottoscrizione - `/subscriptions/{subID}`
+   - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 È possibile ottenere l'ID definizione dei criteri usando PowerShell con il comando seguente:
 
@@ -248,8 +248,8 @@ Per altre informazioni su come gestire i criteri di risorse con l'interfaccia de
 
 Esaminare gli articoli seguenti per altre informazioni sui comandi e sulle query di questo articolo.
 
-- [Risorse dell'API REST di Azure](/rest/api/resources/)
+- [Risorse di API REST di Azure](/rest/api/resources/)
 - [Moduli di Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Comandi CLI di Azure dei criteri](/cli/azure/policy?view=azure-cli-latest)
-- [Provider di risorse Policy Insights riferimento all'API REST](/rest/api/policy-insights)
-- [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- [Comandi dei criteri dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest)
+- [Policy Insights resource provider REST API reference (Informazioni di riferimento sull'API REST del provider di risorse Policy Insights)](/rest/api/policy-insights)
+- [Organizzare le risorse con i gruppi di gestione di Azure ](../../management-groups/overview.md)

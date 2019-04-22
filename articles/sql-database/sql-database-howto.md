@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359701"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Come usare il database SQL di Azure
@@ -28,8 +28,8 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Copiare un database singolo o un database in pool all'interno di Azure](sql-database-copy.md)
 - [Importare un database da un file BACPAC](sql-database-import.md)
 - [Esportare un database in un file BACPAC](sql-database-export.md)
-- [Caricare dati con BCP](sql-database-load-from-csv-with-bcp.md)
-- [Caricare dati con ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
+- [Caricare i dati con BCP](sql-database-load-from-csv-with-bcp.md)
+- [Caricare i dati con ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
 
@@ -43,7 +43,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 ## <a name="monitoring-and-tuning"></a>Monitoraggio e ottimizzazione
 
 - [Ottimizzazione manuale](sql-database-performance-guidance.md)
-- [Usare le viste a gestione dinamica per monitorare le prestazioni](sql-database-monitoring-with-dmvs.md)
+- [Usare le DMV per monitorare le prestazioni](sql-database-monitoring-with-dmvs.md)
 - [Usare Query Store per monitorare le prestazioni](sql-database-operate-query-store.md)
 - [Risolvere i problemi delle prestazioni con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Usare il log di diagnostica di Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
@@ -52,15 +52,15 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 ### <a name="extended-events"></a>Eventi estesi
 
 - [Eventi estesi](sql-database-xevent-db-diff-from-svr.md)
-- [Store gli eventi estesi nel file di eventi](sql-database-xevent-code-event-file.md)
-- [Store gli eventi estesi nel buffer circolare](sql-database-xevent-code-ring-buffer.md)
+- [Archiviare gli eventi estesi nel file di eventi](sql-database-xevent-code-event-file.md)
+- [Archiviare gli eventi estesi nel buffer circolare](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Configurare le funzionalità
 
 - [Configurare l'autorizzazione di Azure AD](sql-database-aad-authentication-configure.md)
 - [Configurare l'accesso condizionale](sql-database-conditional-access.md)
 - [Multi-Factor Authentication di AAD](sql-database-ssms-mfa-authentication.md)
-- [Configurare l'autenticazione a più fattori](sql-database-ssms-mfa-authentication-configure.md)
+- [Configurare multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
 - [Configurare i criteri di conservazione temporale](sql-database-temporal-tables-retention-policy.md)
 - [Configurare TDE con BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
 - [Eseguire la rotazione delle chiavi TDE BYOK](transparent-data-encryption-byok-azure-sql-key-rotation.md)
@@ -72,13 +72,13 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 
 - [Connettività](sql-database-libraries.md)
 - [Usare il connettore Spark](sql-database-spark-connector.md)
-- [Autenticare l'app](sql-database-client-id-keys.md)
-- [messaggi di errore](sql-database-develop-error-messages.md)
-- [Usare l'invio in batch per migliorare le prestazioni](sql-database-use-batching-to-improve-performance.md)
+- [Autenticare l'app ](sql-database-client-id-keys.md)
+- [Messaggi di errore](sql-database-develop-error-messages.md)
+- [Usare l'invio in batch per ottenere prestazioni migliori](sql-database-use-batching-to-improve-performance.md)
 - [Linee guida per la connettività](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)
-- [Configurare DNS alias PowerShell](dns-alias-powershell.md)
-- [Porte: ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
+- [Impostare PowerShell per l'alias DNS](dns-alias-powershell.md)
+- [Porte - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C e C++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 

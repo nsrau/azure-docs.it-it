@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359040"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
@@ -107,21 +107,21 @@ Per aggiungere manualmente le VM:
 
 1. Compilare le colonne seguenti in base alle dimensioni approssimative delle VM e al numero di VM corrispondenti alla configurazione: 
 
-    a. **Numero di macchine virtuali**
+    a. **Number of VMs** (Numero di VM)
 
-    b. **IaaS size (la selezione)**
+    b. **IaaS size (Your selection)** (Dimensioni IaaS selezionate)
 
-    c. **Tipo di archiviazione Standard o Premium**
+    c. **Storage type - Standard/Premium** (Tipo di archiviazione - Standard/Premium)
 
-    d. **VM total storage size (GB) (Spazio di archiviazione totale VM - GB)**
+    d. **VM total storage size (GB)** (Spazio di archiviazione totale VM - GB)
 
-    e. **Numero di esercitazioni in un anno**
+    e. **Number of DR-Drills in a year** (N. esercitazioni ripristino di emergenza in un anno)
 
-    f. **Ogni DR-Drill duration (giorni)**
+    f. **Each DR-Drill duration (Days)** (Durata di ogni esercitazione sul ripristino di emergenza - giorni)
 
-    g. **OS Type (Tipo di sistema operativo)**
+    g. **OS Type** (Tipo di sistema operativo)
 
-    h. **Ridondanza dei dati**
+    h. **Data redundancy** (Ridondanza dei dati)
 
     i. **Vantaggio Azure Hybrid Use**
 

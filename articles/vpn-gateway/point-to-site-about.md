@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282101"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
@@ -47,7 +47,7 @@ La convalida del certificato client viene eseguita dal gateway VPN quando viene 
 
 L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.   
   
-Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS è presente in locale, sarà necessaria per la raggiungibilità una connessione VPN S2S da Azure al sito locale.  
+Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
   
 È anche possibile integrare il server RADIUS con Servizi certificati AD. Ciò consente di usare il server RADIUS e la distribuzione di certificati dell'organizzazione per l'autenticazione del certificato da punto a sito in alternativa all'autenticazione del certificato di Azure. Il vantaggio è che non è necessario caricare i certificati radice e i certificati revocati in Azure.
 
@@ -90,9 +90,9 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 
 La configurazione di una connessione da punto a sito richiede alcuni passaggi specifici. Gli articoli seguenti illustrano le procedure di configurazione di una connessione da punto a sito e contengono collegamenti per la configurazione dei dispositivi client VPN:
 
-* [Configurare una connessione P2S - autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
 
-* [Configurare una connessione P2S - autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 * [Configurare OpenVPN](vpn-gateway-howto-openvpn.md)
 
@@ -106,8 +106,8 @@ La configurazione di una connessione da punto a sito richiede alcuni passaggi sp
 
 ## <a name="next-steps"></a>Fasi successive
 
-* [Configurare una connessione P2S - autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
 
-* [Configurare una connessione P2S - autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN" è un marchio registrato di OpenVPN Inc.**

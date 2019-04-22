@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278565"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
@@ -70,7 +70,7 @@ Di seguito sono i casi d'uso più comune quando si desidera aggiornare un criter
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
-* [Cenni preliminari sull'indicizzazione](index-overview.md)
+* [Panoramica dell'indicizzazione](index-overview.md)
 * [Tipi di indice](index-types.md)
 * [Percorsi di indice](index-paths.md)
 * [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)

@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258743"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?
@@ -78,7 +78,7 @@ Il dispositivo deve essere registrato in Azure AD prima che possa essere contras
 
 - [Dispositivi registrati in Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Dispositivi aggiunti ad Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivi aggiunti all'identità ibrida di Azure AD](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivi aggiunti ad Azure AD ibrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Per altre informazioni, vedere [Come richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](require-managed-devices.md).
 
@@ -124,7 +124,7 @@ Questi controlli consentono l'utilizzo di determinati servizi esterni o personal
 Di seguito sono elencati i provider che attualmente offrono un servizio compatibile:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Datacard di Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)

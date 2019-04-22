@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
 ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361352"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
@@ -186,8 +186,8 @@ I dischi dinamici sono supportati durante la replica di macchine virtuali Hyper-
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>È possibile limitare la larghezza di banda assegnata per il traffico di replica?
 Sì. Altre informazioni sulla limitazione della larghezza di banda in questi articoli:
 
-* [Pianificazione della capacità per la replica di macchine virtuali VMware e server fisici](site-recovery-plan-capacity-vmware.md)
-* [Pianificazione della capacità per la replica di VM Hyper-V in Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Pianificazione della capacità per la replica da VM VMware e server fisici](site-recovery-plan-capacity-vmware.md)
+* [Pianificazione della capacità per la replica da VM Hyper-V in Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 
 
@@ -215,17 +215,17 @@ Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>Se l'host locale non risponde o è bloccato, è possibile eseguire nuovamente in un host diverso?
 Sì, è possibile usare il ripristino nel percorso alternativo per eseguire il failback in un host diverso da Azure.
 
-* [Per le macchine virtuali VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Per le macchine virtuali Hyper-V](hyper-v-azure-failback.md#perform-failback)
+* [Per macchine virtuali VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Per macchine virtuali Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="automation"></a>Automazione
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>È possibile automatizzare gli scenari di Site Recovery con un SDK?
 Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. Scenari attualmente supportati per la distribuzione di Site Recovery tramite PowerShell:
 
-* [Replicare VM Hyper-V nei cloud VMM ad Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
-* [Replicare VM Hyper-V senza VMM in Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
-* [La replica VMware in Azure con PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
+* [Replica da VM Hyper-V nei cloud VMM ad Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Replica da VM Hyper-V senza VMM ad Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [Replicare VMware in Azure con PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="componentprovider-upgrade"></a>Aggiornamento provider/componente
 

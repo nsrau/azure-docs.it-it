@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358162"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Le procedure consigliate per usare il servizio di ricerca mappe di Azure
@@ -136,7 +136,7 @@ Per trovare più corrispondenze per le query parziale, `typeHead` parametro deve
 
 Nell'esempio di query seguente è possibile vedere che il servizio di indirizzo di ricerca viene eseguita una query per "Microso" con il `typehead` parametro è impostato su **true**. Se si osserva la risposta, si noterà che il servizio di ricerca interpretata la query come query parziale e risposta contiene i risultati di query suggerite automaticamente.
 
-**Esempio di query:**
+**Query di esempio:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
@@ -318,7 +318,7 @@ Per migliorare la pertinenza dei risultati e le informazioni nella risposta, ris
 
 Creiamo un [ricerca di categoria di punto di interesse](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) richiesta per le stazioni di servizio in prossimità del campus Microsoft (Redmond, WA). Se si osserva la risposta, è possibile visualizzare informazioni del marchio per ogni punto di interesse restituito.
 
-**Esempio di query:**
+**Query di esempio:**
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
@@ -497,7 +497,7 @@ Per recuperare solo i risultati di punto di interesse in una posizione specifica
 
 È possibile effettuare una richiesta di ricerca di indirizzo per le mappe di Azure [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) per un indirizzo di Seattle. Se si osserva con attenzione l'URL della richiesta riportato di seguito, è stato impostato il `countrySet` parametro per **Stati Uniti** per la ricerca dell'indirizzo negli Stati Uniti d'America.
 
-**Esempio di query:**
+**Query di esempio:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US

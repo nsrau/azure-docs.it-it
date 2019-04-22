@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010573"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione API versione 2 
@@ -296,7 +296,7 @@ Internal Server Error<br>
 
 L'endpoint di risoluzione consente agli utenti di risolvere un token di marketplace a un ID di risorsa permanente. L'ID risorsa è l'identificatore univoco per la sottoscrizione SAAS.  Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un token nei parametri di query. Si presuppone che l'ISV usi questo token ed esegua una richiesta per risolverlo. La risposta contiene l'ID di sottoscrizione SAAS univoco, il nome, l'ID dell'offerta e il piano per la risorsa. Questo token è valido solo per un'ora. 
 
-**messaggio:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -354,7 +354,7 @@ Internal Server Error
 
 #### <a name="activate-a-subscription"></a>Attivare una sottoscrizione
 
-**messaggio:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
+**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -478,7 +478,7 @@ Internal Server Error
 
 Annullare la sottoscrizione ed eliminare la sottoscrizione specificata.
 
-**Delete (Elimina):<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+**Delete:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 

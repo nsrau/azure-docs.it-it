@@ -14,10 +14,10 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046582"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
@@ -401,7 +401,7 @@ I vantaggi principali del campionamento sono:
 
 ### <a name="which-type-of-sampling-should-i-use"></a>Quale tipo di campionamento è opportuno usare?
 
-**Usare campionamento per inserimento se:**
+**Usare il campionamento per inserimento se:**
 
 * Si supera spesso la quota mensile dei dati di telemetria.
 * Si usa una versione dell'SDK che non supporta il campionamento, ad esempio le versioni di ASP.NET precedenti alla 2.
@@ -455,7 +455,7 @@ Il campionamento adattivo aggiunge un componente che monitora la frequenza corre
 
 L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insieme all'SDK lato server. Le pagine instrumentate invieranno solo la telemetria lato client dagli stessi utenti per cui il lato server ha preso la decisione di "eseguire il campionamento internamente". Questa logica è concepita per mantenere l'integrità della sessione utente sui lati client e server. Di conseguenza, da un particolare elemento della telemetria in Application Insights è possibile trovare tutti gli altri elementi della telemetria per questa sessione utente. 
 
-*Il client e i dati di telemetria lato server non mostra i campioni coordinati come descritto sopra.*
+*La telemetria lato e client e server non mostra i campioni coordinati, come descritto sopra.*
 
 * Verificare di avere abilitato il campionamento a frequenza fissa sia sul server che sul client.
 * Assicurarsi che la versione dell'SDK sia 2.0 o successiva.
@@ -487,15 +487,15 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
 *  No. SamplingTelemetryProcessors ignora gli elementi da considerazioni di campionamento se l'elemento è già campionato. Lo stesso vale per il campionamento per inserimento come, che non verranno applicate campionamento agli elementi già campionati nel SDK stesso.'
 
-*Il motivo per cui campionamento non è una semplice "raccolta percentuale X di ogni tipo di dati di telemetria"?*
+*Perché il campionamento non è una semplice "raccolta di percentuale X di ogni tipo di telemetria"?*
 
 * Sebbene questo approccio al campionamento offre con un elevato livello di precisione nelle approssimazioni delle metriche, interrompono permette di correlare i dati di diagnostica per ogni utente, sessione e richiesta, che è fondamentale per la diagnostica. Il campionamento quindi funziona meglio come logica di "raccolta di tutti gli elementi della telemetria per una percentuale X di utenti dell'app" o di "raccolta di tutta la telemetria per una percentuale X di richieste app". Per gli elementi di telemetria non associati alle richieste (ad esempio, l'elaborazione asincrona in background), il fallback consiste nel "raccolta percentuale X di tutti gli elementi per ogni tipo di dati di telemetria". 
 
-*La percentuale di campionamento può cambiare nel tempo?*
+*La percentuale di campionamento può variare nel tempo?*
 
 * Sì, il campionamento adattivo modifica gradualmente la percentuale di campionamento, in base al volume attualmente osservato della telemetria.
 
-*Se si usa il campionamento a frequenza fissa, come si capisce quali campionamento percentuale più adatta alla mia app?*
+*Se si usa il campionamento a frequenza fissa, come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
 
 * Una modalità è quella di iniziare con il campionamento adattivo, scoprire quale frequenza è impostata (vedere la domanda precedente) e quindi cambiarla a campionamento a frequenza fissa usando quella frequenza. 
   
@@ -515,7 +515,7 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 * Se si usa ASP.NET SDK versione 2.0.0 e versioni successive o ASP.NET CORE SDK versione 2.2.0 e versioni successive (ospitato in Azure o nel proprio server), viene visualizzato per impostazione predefinita di campionamento adattivo, ma è possibile passare a frequenza fissa, come descritto in precedenza. Con il campionamento a frequenza fissa, l'SDK del browser si sincronizza automaticamente con gli eventi correlati al campione. 
 * Se si usa Java SDK versione 2.0.1 o versione successiva, è possibile configurare applicationinsights. XML per attivare campionamento a frequenza fissa. Il campionamento viene disattivato per impostazione predefinita. Con il campionamento a frequenza fissa, l'SDK del browser si sincronizza automaticamente con gli eventi correlati al campione.
 
-*Esistono alcuni eventi rari che vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
+*Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
 * Il modo migliore per ottenere questo risultato consiste nello scrivere un oggetto personalizzato [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), che imposta il `SamplingPercentage` a 100 per l'elemento di telemetria da mantenuto, come illustrato di seguito. Ciò garantisce che tutte le tecniche di campionamento ignorerà questo elemento dall'alcuna considerazione di campionamento.
 

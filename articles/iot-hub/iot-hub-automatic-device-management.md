@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012951"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestione automatica dei dispositivi IoT su larga scala usando il portale di Azure
@@ -203,12 +203,12 @@ Quando si elimina una configurazione, gli eventuali dispositivi gemelli ricevono
 In questo articolo si appreso come configurare e monitorare i dispositivi IoT su larga scala. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco le identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di Hub IoT](iot-hub-metrics.md)
+* [Metriche di hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide.md)
+* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 

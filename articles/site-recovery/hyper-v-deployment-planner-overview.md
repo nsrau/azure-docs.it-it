@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360265"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -51,13 +51,13 @@ Lo strumento indica i dettagli seguenti:
 * Spazio di archiviazione libero necessario in ogni volume di archiviazione di Hyper-V per la replica iniziale e la replica delta corrette per assicurare che la replica delle VM non provochi tempi di inattività non desiderati per le applicazioni di produzione
 * Frequenza di copia massima da impostare per la replica Hyper-V
 
-**Indicazioni per l'invio in batch della replica iniziale** 
+**Linee guida sull'invio in batch della replica iniziale** 
 * Numero di batch di VM da usare per la protezione
 * Elenco delle VM in ogni batch
 * Ordine in cui ogni batch deve essere protetto
 * Tempo stimato per il completamento della replica iniziale di ogni batch
 
-**Stima dei costi di ripristino di emergenza in Azure**
+**Stima dei costi del ripristino di emergenza in Azure**
 * Stima dei costi totali del ripristino di emergenza in Azure: costi di calcolo, archiviazione, rete e licenza di Azure Site Recovery
 * Analisi dei costi dettagliata per ogni VM
 
@@ -70,7 +70,7 @@ Lo strumento indica i dettagli seguenti:
 
 ## <a name="support-matrix"></a>Matrice di supporto
 
-| | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Hyper-V al sito secondario**|**VMware al sito secondario**
+| | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
 Scenari supportati |Sì|Sì|No |Sì*|No 
 Versione supportata | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND

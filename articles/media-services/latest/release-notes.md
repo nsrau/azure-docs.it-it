@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266988"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
@@ -69,12 +69,12 @@ Il modulo dell'interfaccia della riga di comando 2.0 è ora disponibile per [Ser
 
 ### <a name="new-commands"></a>Nuovi comandi
 
-- [account di ams AZ](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
 - [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
 - [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
 - [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
 - [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [processo di AZ servizi multimediali di Azure](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
 - [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
@@ -85,31 +85,31 @@ Il modulo dell'interfaccia della riga di comando 2.0 è ora disponibile per [Ser
 
 #### <a name="asset-commands"></a>Comandi per gli asset
 
-- ```--storage-account``` e ```--container``` argomenti aggiunta.
+- Sono stati aggiunti gli argomenti ```--storage-account``` e ```--container```.
 - Sono stati aggiunti i valori predefiniti per l'ora di scadenza (Now+23h) e per le autorizzazioni (lettura) nel comando ```az ams asset get-sas-url```.
 
 #### <a name="job-commands"></a>Comandi per i processi
 
-- ```--correlation-data``` e ```--label``` argomenti aggiunta
-- ```--output-asset-names``` rinominato in ```--output-assets```. Ora accetta un elenco di asset separati da spazi nel formato 'assetName=label'. Un asset senza etichetta può essere inviato nel formato seguente: "assetName=".
+- Sono stati aggiunti gli argomenti ```--correlation-data``` e ```--label```.
+- ```--output-asset-names``` è stato rinominato in ```--output-assets```. Ora accetta un elenco di asset separati da spazi nel formato 'assetName=label'. Un asset senza etichetta può essere inviato nel formato seguente: "assetName=".
 
 #### <a name="streaming-locator-commands"></a>Comandi per i localizzatori di streaming
 
-- ```az ams streaming locator``` comando base comparso ```az ams streaming-locator```.
-- ```--streaming-locator-id``` e ```--alternative-media-id support``` argomenti aggiunta.
-- ```--content-keys argument``` argomento aggiornato.
-- ```--content-policy-name``` rinominato in ```--content-key-policy-name```.
+- Il comando base ```az ams streaming locator``` è stato sostituito con ```az ams streaming-locator```.
+- Sono stati aggiunti gli argomenti ```--streaming-locator-id``` e ```--alternative-media-id support```.
+- L'argomento ```--content-keys argument``` è stato aggiornato.
+- ```--content-policy-name``` è stato rinominato in ```--content-key-policy-name```.
 
 #### <a name="streaming-policy-commands"></a>Comandi per i criteri di streaming
 
-- ```az ams streaming policy``` comando base comparso ```az ams streaming-policy```.
+- Il comando base ```az ams streaming policy``` è stato sostituito con ```az ams streaming-policy```.
 - È stato aggiunto il supporto dei parametri di crittografia in ```az ams streaming-policy create```.
 
 #### <a name="transform-commands"></a>Comandi di trasformazione
 
-- ```--preset-names``` argomento è comparso ```--preset```. Ora è possibile impostare solo 1 output/set di impostazioni alla volta (per aggiungerne altri, è necessario eseguire ```az ams transform output add```). Inoltre, è possibile impostare il set di impostazioni StandardEncoderPreset personalizzato passando il percorso del file JSON personalizzato.
-- ```az ams transform output remove``` può essere eseguita passando l'indice di output da rimuovere.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` gli argomenti aggiunti in ```az ams transform create``` e ```az ams transform output add``` comandi.
+- L'argomento ```--preset-names``` è stato sostituito con ```--preset```. Ora è possibile impostare solo 1 output/set di impostazioni alla volta (per aggiungerne altri, è necessario eseguire ```az ams transform output add```). Inoltre, è possibile impostare il set di impostazioni StandardEncoderPreset personalizzato passando il percorso del file JSON personalizzato.
+- ```az ams transform output remove``` può essere eseguito passando l'indice di output da rimuovere.
+- Gli argomenti ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` sono stati aggiunti nei comandi ```az ams transform create``` e ```az ams transform output add```.
 
 ## <a name="october-2018---ga"></a>Ottobre 2018 - Disponibilità generale
 
@@ -203,4 +203,4 @@ Le funzionalità seguenti sono disponibili in .NET SDK:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](media-services-overview.md)
+[Overview](media-services-overview.md)

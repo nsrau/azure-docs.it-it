@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359641"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio: Distribuzione e utilizzo
@@ -37,7 +37,7 @@ I collegamenti seguenti offrono informazioni generali su come distribuire un nuo
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
   * [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
-  * [Come distribuire un servizio web in più aree](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [Come distribuire un servizio Web in più aree](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con le API del provider di risorse di servizi Web (API di Azure Resource Manager)
 
@@ -95,8 +95,8 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 È possibile scaricare un modello di Excel che usa il servizio Web:
 
-* [Utilizzo di un servizio web di Azure Machine Learning da Excel](consuming-from-excel.md)
-* [Componente aggiuntivo di Excel per servizi Web di Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Utilizzo di un servizio Web di Azure Machine Learning da Excel](consuming-from-excel.md)
+* [Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>Da un client basato su REST
 

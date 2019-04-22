@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274043"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
@@ -502,5 +502,5 @@ Per altre informazioni su come interpretare i dati di integrità, vedere [Panora
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Comprendere le metriche dell'hub IoT](iot-hub-metrics.md)
-* [Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Comprendere le metriche dell'IoT Hub](iot-hub-metrics.md)
+* [Monitoraggio remoto IoT e notifiche con App per la logica di Azure ci si connette all'hub IoT e cassetta postale](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

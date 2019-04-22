@@ -12,10 +12,10 @@ ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264319"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
@@ -63,4 +63,4 @@ Non è possibile eseguire la migrazione dei chatlog, poiché la nuova knowledge 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Modificare una Knowledge Base](../How-To/edit-knowledge-base.md)
+> [Modificare una knowledge base](../How-To/edit-knowledge-base.md)

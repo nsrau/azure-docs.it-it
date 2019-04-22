@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357629"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
@@ -26,8 +26,8 @@ Si consiglia di testare tutto il codice, tuttavia si potrebbero ottenere risulta
 
 Il contenuto seguente è suddiviso in due sezioni diverse con lo scopo di ottenere diversi linguaggi e ambienti di destinazione. È possibile imparare a compilare i test in:
 
-- [C#in Visual Studio con xUnit](#c-in-visual-studio)
-- [JavaScript in Visual Studio Code con Jest](#javascript-in-vs-code)
+- [C# in Visual Studio con xUnit](#c-in-visual-studio)
+- [JavaScript in Visual Studio Code with Jest](#javascript-in-vs-code)
 
 Il repository di esempio è disponibile in [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 

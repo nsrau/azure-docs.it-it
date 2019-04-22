@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357108"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Distribuire le App per la logica con modelli Azure Resource Manager
@@ -24,8 +24,8 @@ Dopo aver creato un modello di Azure Resource Manager per la distribuzione di ap
 * [Portale di Azure](#portal)
 * [Azure PowerShell](#powershell)
 * [Interfaccia della riga di comando di Azure](#cli)
-* [API REST di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Azure DevOps Pipelines](#azure-pipelines)
+* [API REST di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Pipeline di DevOps di Azure, Azure](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -33,7 +33,7 @@ Dopo aver creato un modello di Azure Resource Manager per la distribuzione di ap
 
 Per distribuire automaticamente un modello di app per la logica in Azure, è possibile scegliere le opzioni seguenti **Distribuisci in Azure** pulsante che si accede al portale di Azure e richiede le informazioni sulle app per la logica. È quindi possibile apportare le modifiche necessarie per il modello di app per la logica o i parametri.
 
-[![Distribuisci ad Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Ad esempio, viene chiesto di queste informazioni dopo l'accesso al portale di Azure:
 

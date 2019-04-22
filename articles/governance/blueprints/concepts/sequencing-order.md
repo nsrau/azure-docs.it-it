@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266189"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
@@ -25,7 +25,7 @@ Azure Usa linee guida per un **ordine di sequenziazione** per determinare l'ordi
 
 Sono presenti variabili negli esempi JSON che è necessario sostituire con i propri valori:
 
-- `{YourMG}` -Sostituire con il nome del gruppo di gestione
+- `{YourMG}` - Sostituire con il nome del gruppo di gestione
 
 ## <a name="default-sequencing-order"></a>Ordine di sequenziazione predefinito
 
@@ -46,7 +46,7 @@ In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine d
 
 Durante la composizione di definizioni di progetto di grandi dimensioni, potrebbe essere necessario per le risorse da creare in un ordine specifico. Il modello di uso più comune di questo scenario è quando una definizione di progetto include vari modelli di Azure Resource Manager. I progetti gestiscono questo criterio consentendo di definire l'ordine di sequenziamento.
 
-Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione di progetto, per i gruppi di risorse e gli oggetti dell'elemento supporta questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creato prima che venga creato l'elemento specifico.
+Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione di progetto, per i gruppi di risorse e gli oggetti dell'elemento supporta questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
 
 ### <a name="example---ordered-resource-group"></a>Esempio - ordinati in gruppo di risorse
 

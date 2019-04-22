@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361480"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare Azure-SSIS Integration Runtime in Azure Data Factory
@@ -69,7 +69,7 @@ La tabella seguente mette a confronto alcune funzionalità del server di databas
 | Funzionalità | Database singolo/pool elastico| Istanza gestita |
 |---------|--------------|------------------|
 | **Pianificazione** | SQL Server Agent non è disponibile.<br/><br/>Vedere [Pianificare un pacchetto nell'ambito di una pipeline di ADF](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agente di istanza gestita è disponibile. |
-| **Authentication** | È possibile creare SSISDB con un utente di database indipendente che rappresenta un gruppo AAD qualsiasi con l'identità gestita di ADF come membro del ruolo **db_owner**.<br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB nel server di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare SSISDB con un utente di database indipendente che rappresenta l'identità gestita di ADF. <br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB in Istanza gestita di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **autenticazione** | È possibile creare SSISDB con un utente di database indipendente che rappresenta un gruppo AAD qualsiasi con l'identità gestita di ADF come membro del ruolo **db_owner**.<br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB nel server di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare SSISDB con un utente di database indipendente che rappresenta l'identità gestita di ADF. <br/><br/>Vedere [Abilitare l'autenticazione di Azure AD per creare SSISDB in Istanza gestita di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Livello di servizio** | Quando si crea Azure-SSIS IR con il server di database SQL di Azure, è possibile selezionare il livello di servizio per SSISDB. Sono disponibili più livelli di servizio. | Quando si crea Azure-SSIS IR con la propria istanza gestita, non è possibile selezionare il livello di servizio per SSISDB. Tutti i database nell'istanza gestita condividono la stessa risorsa allocata a tale istanza. |
 | **Rete virtuale** | Supporta solo le reti virtuali di Azure Resource Manager per l'aggiunta di Azure-SSIS IR se si usa il server di database SQL di Azure con endpoint del servizio di rete virtuale o si richiede l'accesso ad archivi dati in locale. | Supporta solo le reti virtuali di Azure Resource Manager per l'aggiunta di Azure-SSIS IR. La rete virtuale è sempre obbligatoria.<br/><br/>Se si aggiunge Azure-SSIS IR alla stessa rete virtuale della propria istanza gestita, assicurarsi che Azure-SSIS IR si trovi in una subnet diversa rispetto all'istanza gestita. Se si aggiunge Azure-SSIS IR a una rete virtuale diversa da quella della propria istanza gestita, è consigliabile effettuare un peering di rete virtuale o stabilire una connessione tra reti virtuali. Vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Transazioni distribuite** | Supportate tramite transazioni elastiche. Le transazioni di Microsoft Distributed Transaction Coordinator (MSDTC) non sono supportate. Se i pacchetti SSIS usano MSDTC per coordinare le transazioni distribuite, è consigliabile eseguire la migrazione a Transazioni elastiche per il database SQL di Azure. Per altre informazioni, vedere [Transazioni distribuite in database cloud](../sql-database/sql-database-elastic-transactions-overview.md). | Non supportati. |

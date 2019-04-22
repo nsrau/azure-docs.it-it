@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361285"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
 Questo articolo descrive come abilitare la replica per le macchine virtuali Hyper-V locali gestite da System Center Virtual Machine Manager (VMM), per il ripristino di emergenza in Azure usando il [Azure Site Recovery](site-recovery-overview.md) servizio. Se non si usa VMM, quindi [seguire questa esercitazione](hyper-v-azure-tutorial.md).
 
-Questa è la terza esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali. Nell'esercitazione precedente, abbiamo [preparato l'ambiente Hyper-V on-premises](hyper-v-prepare-on-premises-tutorial.md) per il ripristino di emergenza in Azure. 
+Questa è la terza esercitazione di una serie che mostra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nell'esercitazione precedente, abbiamo [preparato l'ambiente Hyper-V on-premises](hyper-v-prepare-on-premises-tutorial.md) per il ripristino di emergenza in Azure. 
 
 In questa esercitazione si apprenderà come:
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione procedure di Site Recovery sommario.
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -45,11 +45,11 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
-1. In **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali. Abbiamo preparato l'insieme di credenziali **ContosoVMVault** nell'esercitazione precedente.
+1. In **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali. L'insieme di credenziali **ContosoVMVault** è stato preparato nell'esercitazione precedente.
 2. In **Attività iniziali** fare clic su **Site Recovery** e quindi su **Preparare l'infrastruttura**.
 3. Nelle **obiettivo di protezione** > **i computer che si trova dove sono?**, selezionare **On-premises**.
-4. Nelle **in cui si desidera replicare le macchine?**, selezionare **To Azure**.
-5. Nelle **i computer sono virtualizzati?** selezionate **Sì con Hyper-V**.
+4. In **In quale destinazione si vuole eseguire la replica dei computer?** selezionare **In Azure**.
+5. In **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 6. In **Si sta usando System Center VMM per gestire gli host Hyper-V** selezionare **Sì**. Fare quindi clic su **OK**.
 
     ![Obiettivo di replica](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,8 +57,8 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 
 ## <a name="confirm-deployment-planning"></a>Confermare la pianificazione della distribuzione
 
-1. Nelle **pianificazione della distribuzione**, se si prevede una distribuzione di grandi dimensioni, scaricare lo strumento Deployment Planner per Hyper-V dal collegamento nella pagina. [Altre informazioni](hyper-v-deployment-planner-overview.md) sulla pianificazione della distribuzione di Hyper-V.
-2. Ai fini di questa esercitazione, non occorre deployment planner. Nelle **è stata completata la pianificazione della distribuzione?**, selezionare **verrà faccio tutto in un secondo momento**. Fare quindi clic su **OK**.
+1. Se si sta pianificando una distribuzione di grandi dimensioni, in **Pianificazione della distribuzione** scaricare Deployment Planner per Hyper-V usando il collegamento presente nella pagina. [Altre informazioni](hyper-v-deployment-planner-overview.md) sulla pianificazione della distribuzione di Hyper-V.
+2. Per questa esercitazione non è necessario Deployment Planner. Nelle **è stata completata la pianificazione della distribuzione?**, selezionare **verrà faccio tutto in un secondo momento**. Fare quindi clic su **OK**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
@@ -119,7 +119,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** > **+Crea e associa**.
-2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Utilizziamo **ContosoReplicationPolicy**.
+2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
 3. Lasciare le impostazioni predefinite e fare clic su **OK**.
     - **Frequenza di copia**: indica che i dati delta (dopo la replica iniziale) verranno replicati ogni 5 minuti.
     - **Conservazione del punto di ripristino** indica per ogni punto di ripristino verrà conservato per due ore.
@@ -142,4 +142,4 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Eseguire una verifica del ripristino di emergenza](tutorial-dr-drill-azure.md)
+> [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)

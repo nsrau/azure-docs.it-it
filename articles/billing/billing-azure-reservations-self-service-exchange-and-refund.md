@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281982"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Gli scambi di self-servizi e rimborsi per le prenotazioni di Azure
@@ -88,8 +88,8 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
     - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
     - [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
-    - [Informazioni su come viene applicato lo sconto di prenotazione](billing-understand-vm-reservation-charges.md)
-    - [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
-    - [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-    - [Costi del software Windows non inclusi con le prenotazioni](billing-reserved-instance-windows-software-costs.md)
-    - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) di Partner Center](/partner-center/azure-reservations)
+    - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
+    - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+    - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+    - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
+    - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](/partner-center/azure-reservations)

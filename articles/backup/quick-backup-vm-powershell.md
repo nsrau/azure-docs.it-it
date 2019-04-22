@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906073"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489383"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -29,7 +29,7 @@ Per questo argomento di avvio rapido è necessario il modulo Azure PowerShell ve
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Accesso e registrazione
+## <a name="sign-in-and-register"></a>Accesso e registrazione
 
 1. Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -53,10 +53,10 @@ Quando viene creato l'insieme di credenziali:
 - Se la VM è stata creata usando lo [script di esempio](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json), il gruppo di risorse è **myResourceGroup**, la VM è ***myVM** e le risorse si trovano nell'area **WestEurope**.
 - Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
 
-Creare un insieme di credenziali.
+Creare ora un insieme di credenziali:
 
 
-1. A questo scopo, usare il cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault):
+1. usare il cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) per creare l'insieme di credenziali:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -162,7 +162,7 @@ Se non è più necessario eseguire il backup della VM, è possibile eseguire la 
 - Se si vuole provare a ripristinare la VM, ignorare questo passaggio.
 - Se è stata usata una VM esistente, si può ignorare il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) finale e mantenere così il gruppo di risorse e la VM.
 
-Disabilitare la protezione, rimuovere i punti di ripristino e l'insieme di credenziali. Quindi eliminare il gruppo di risorse e le risorse della VM associate, come segue:
+Disabilitare la protezione, rimuovere i punti di ripristino e l'insieme di credenziali. Quindi, eliminare il gruppo di risorse e le risorse VM associate, come segue:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

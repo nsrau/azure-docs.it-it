@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358001"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
@@ -33,9 +33,9 @@ Durante la replica, i dati vengono replicati in Archiviazione di Azure e non vie
 
 Gli elementi necessari per il server host Hyper-V dipendono dallo scenario di distribuzione. Verificare i prerequisiti di Hyper-V in:
 
-* [La replica di VM Hyper-V (senza VMM) in Azure](site-recovery-hyper-v-site-to-azure.md)
-* [La replica di VM Hyper-V (con VMM) in Azure](site-recovery-vmm-to-azure.md)
-* [La replica di VM Hyper-V in un Data Center secondario](site-recovery-vmm-to-vmm.md)
+* [Replica di macchine virtuali Hyper-V in Azure (senza VMM)](site-recovery-hyper-v-site-to-azure.md)
+* [Replica di macchine virtuali Hyper-V in Azure (con VMM)](site-recovery-vmm-to-azure.md)
+* [Replica di macchine virtuali Hyper-V in un data center secondario](site-recovery-vmm-to-vmm.md)
 * Se si esegue la replica in un centro dati secondario, vedere [Sistemi operativi guest supportati per le VM Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
 * Se si esegue la replica in Azure, Site Recovery supporta tutti i sistemi operativi guest [supportati da Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -114,8 +114,8 @@ Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima du
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>È possibile automatizzare gli scenari di Site Recovery con un SDK?
 Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. Scenari attualmente supportati per la replica da Hyper-V ad Azure con PowerShell:
 
-- [Eseguire la replica Hyper-V senza VMM con PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [La replica Hyper-V con VMM tramite Powershell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replica di Hyper-V senza VMM tramite PowerShell](hyper-v-azure-powershell-resource-manager.md)
+- [Replica di Hyper-V con VMM tramite PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Replica
 

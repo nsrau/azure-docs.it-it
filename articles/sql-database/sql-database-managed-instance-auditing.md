@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357435"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
@@ -60,7 +60,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ![Pulsante delle proprietà del contenitore BLOB](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato di URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato dell'URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![URL da copiare del contenitore BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -131,7 +131,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. (Facoltativo) Accedere all'account di Azure:
 
-        ![Accedere ad Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Accedi ad Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
@@ -141,8 +141,8 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 1. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione dei log di controllo, creare una specifica di controllo server o una specifica di controllo database come nel caso di SQL Server:
 
-   - [Creare la Guida di T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Creare la Guida di T-SQL specifica controllo Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 1. Abilitare il controllo server creato nel passaggio 6:
 
@@ -154,7 +154,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 Per altre informazioni:
 
-- [Controllo delle differenze tra i database singoli, pool elastico, s e istanze gestite nei database in SQL Server e Database SQL di Azure](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Differenze di controllo tra database singoli, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -187,8 +187,8 @@ I log di controllo da un'istanza gestita possono essere inviati a log di monitor
 
 9. Creare una specifica di controllo server o di controllo database come si farebbe per SQL Server:
 
-   - [Creare la Guida di T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Creare la Guida di T-SQL specifica controllo Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Abilitare il controllo del server creato nel passaggio 8:
  
@@ -237,7 +237,7 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archi
 - Una nuova sintassi `TO EXTERNAL MONITOR` viene fornito per consentire alle destinazioni di log anche Hub e monitoraggio di Azure.
 - La sintassi `TO FILE` **non è supportata** perché il database SQL non può accedere alle condivisioni file di Windows.
 - L'opzione Shutdown **non è supportata**.
-- `queue_delay` pari a 0 rappresenta **non è supportato**.
+- Un valore di `queue_delay` uguale a 0 **non è supportato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

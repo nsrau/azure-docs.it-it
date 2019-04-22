@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262551"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
@@ -148,4 +148,4 @@ Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità ope
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare i domini personalizzati con il proxy di applicazione Azure AD](application-proxy-configure-custom-domain.md) per avere gli stessi URL interni ed esterni
 
-[Configurare il mapping di accesso alternativo per SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurare i mapping di accesso alternativo per for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358326"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Che cos'è servizio di Database SQL di Azure
@@ -255,9 +255,9 @@ I clienti di database SQL possono beneficiare dei diritti seguenti associati al 
 - Per iniziare, vedere queste guide introduttive:
 
   - [Creare un database SQL nel portale di Azure](sql-database-single-database-get-started.md)  
-  - [Creare un database SQL con la CLI di Azure](sql-database-get-started-cli.md)
+  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md)
   - [Creare un database SQL usando PowerShell](sql-database-get-started-powershell.md)
 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
-  - [Esempi di riga di comando di Azure per il Database SQL](sql-database-cli-samples.md)
-  - [Esempi di Azure PowerShell per il Database SQL](sql-database-powershell-samples.md)
+  - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)
+  - [Esempi di Azure PowerShell per database SQL](sql-database-powershell-samples.md)

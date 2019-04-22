@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009870"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurare identità gestita per le risorse di Azure in una scala di macchine virtuali di Azure usando un modello
@@ -123,11 +123,11 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
 
 2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachineScaleSets`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità gestita assegnata dal sistema, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.
 
-   **COMPUTE/virtualmachinescalesets API versione 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
    Se la versione API è `2018-06-01` e la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme ai valori di dizionario userAssignedIdentities.
 
-   **COMPUTE/virtualmachinescalesets API versione 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
    Se la versione API è `2017-12-01` e il set di scalabilità di macchine virtuali ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente. 
    
@@ -158,7 +158,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
 
 1. Nell'elemento `resources` aggiungere la voce seguente per associare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità gestita assegnata dall'utente che è stata creata.
    
-   **COMPUTE/virtualmachinescalesets API versione 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
    Se la versione API è `2018-06-01`, le identità gestite assegnate dall'utente vengono archiviate nel formato dizionario `userAssignedIdentities` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione `variables` del modello.
 
@@ -177,7 +177,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
    }
    ```   
 
-   **COMPUTE/virtualmachinescalesets API versione 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2017-12-01**
     
    Se `apiVersion` è `2017-12-01` o una versione precedente, le identità gestite assegnate dall'utente vengono archiviate nella matrice `identityIds` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione variabili del modello.
 
@@ -200,7 +200,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
 
 3. Al termine il modello dovrebbe essere simile al seguente:
    
-   **COMPUTE/virtualmachinescalesets API versione 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
     ]
    ```
 
-   **COMPUTE/virtualmachines API versione 2017-12-01**
+   **Microsoft.Compute/virtualMachines versione API 2017-12-01**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
    }
    ```
    
-   **COMPUTE/virtualmachinescalesets API versione 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
     
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dal dizionario `userAssignedIdentities`.
 
    Se si dispone di un'identità assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
 
-   **COMPUTE/virtualmachinescalesets API versione 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2017-12-01**
 
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dalla matrice `identityIds`.
 

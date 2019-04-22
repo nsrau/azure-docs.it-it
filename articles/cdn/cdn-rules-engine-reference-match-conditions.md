@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283478"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
@@ -62,7 +62,7 @@ Le condizioni di corrispondenza Origine identificano le richieste che puntano al
 
 NOME | Scopo
 -----|--------
-[Origine CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
+[Origine rete CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
 [Origine cliente](#customer-origin) | Identifica le richieste di contenuto in uno specifico server di origine del cliente.
 
 ## <a name="request-match-conditions"></a>Condizioni di corrispondenza Richiesta
@@ -74,7 +74,7 @@ NOME | Scopo
 [Indirizzo IP client](#client-ip-address) | Identifica le richieste che hanno origine da un determinato indirizzo IP.
 [Parametro cookie](#cookie-parameter) | Controlla il valore specificato nei cookie associati a ogni richiesta.
 [Espressione regolare parametro cookie](#cookie-parameter-regex) | Controlla l'espressione regolare specificata nei cookie associati a ogni richiesta.
-[CNAME periferico](#edge-cname) | Identifica le richieste che fanno riferimento a un CNAME periferico specifico.
+[CNAME perimetrale](#edge-cname) | Identifica le richieste che fanno riferimento a un CNAME periferico specifico.
 [Dominio di riferimento](#referring-domain) | Identifica le richieste con riferimenti dai nomi host specificati.
 [Valore letterale intestazione richiesta](#request-header-literal) | Identifica le richieste che contengono l'intestazione specificata impostata su un valore specificato.
 [Espressione regolare intestazione richiesta](#request-header-regex) | Identifica le richieste che contengono l'intestazione specificata impostata su un valore che corrisponde all'espressione regolare specificata.
@@ -88,16 +88,16 @@ Le condizioni di corrispondenza URL identificano le richieste in base ai relativ
 
 NOME | Scopo
 -----|--------
-[Directory percorso URL](#url-path-directory) | Identifica le richieste in base al percorso relativo.
-[Estensione percorso URL](#url-path-extension) | Identifica le richieste in base all'estensione del nome file.
-[Nome file percorso URL](#url-path-filename) | Identifica le richieste in base al nome del file.
-[Valore letterale percorso URL](#url-path-literal) | Confronta il percorso relativo di una richiesta con il valore specificato.
-[Espressione regolare percorso URL](#url-path-regex) | Confronta il percorso relativo di una richiesta con l'espressione regolare specificata.
-[Carattere jolly percorso URL](#url-path-wildcard) | Confronta il percorso relativo di una richiesta con il modello specificato.
-[Valore letterale query URL](#url-query-literal) | Confronta la stringa di query di una richiesta con il valore specificato.
-[Parametro query URL](#url-query-parameter) | Identifica le richieste che contengono il parametro della stringa di query specificato impostato su un valore che corrisponde a un modello specificato.
-[Espressione regolare query URL](#url-query-regex) | Identifica le richieste che contengono il parametro della stringa di query specificato impostato su un valore che corrisponde a un'espressione regolare specificata.
-[Carattere jolly query URL](#url-query-wildcard) | Confronta uno o più valori specificati con la stringa di query della richiesta.
+[URL Path Directory](#url-path-directory) (Directory percorso URL) | Identifica le richieste in base al percorso relativo.
+[URL Path Extension](#url-path-extension) (Estensione percorso URL) | Identifica le richieste in base all'estensione del nome file.
+[URL Path Filename](#url-path-filename) (Nome file percorso URL) | Identifica le richieste in base al nome del file.
+[URL Path Literal](#url-path-literal) (Valore letterale percorso URL) | Confronta il percorso relativo di una richiesta con il valore specificato.
+[URL Path Regex](#url-path-regex) (Espressione regolare percorso URL) | Confronta il percorso relativo di una richiesta con l'espressione regolare specificata.
+[URL Path Wildcard](#url-path-wildcard) (Carattere jolly percorso URL) | Confronta il percorso relativo di una richiesta con il modello specificato.
+[URL Query Literal](#url-query-literal) (Valore letterale query URL) | Confronta la stringa di query di una richiesta con il valore specificato.
+[URL Query Parameter](#url-query-parameter) (Parametro query URL) | Identifica le richieste che contengono il parametro della stringa di query specificato impostato su un valore che corrisponde a un modello specificato.
+[URL Query Regex](#url-query-regex) (Espressione regolare query URL) | Identifica le richieste che contengono il parametro della stringa di query specificato impostato su un valore che corrisponde a un'espressione regolare specificata.
+[URL Query Wildcard](#url-query-wildcard) (Carattere jolly query URL) | Confronta uno o più valori specificati con la stringa di query della richiesta.
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Riferimento per le condizioni di corrispondenza del motore regole
@@ -970,7 +970,7 @@ user=joe              | La corrispondenza a questo modello viene soddisfatta qua
 </br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica della rete CDN di Azure](cdn-overview.md)
+* [Panoramica della rete per la distribuzione di contenuti di Azure](cdn-overview.md)
 * [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)

@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279976"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
@@ -76,8 +76,8 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}` -Sostituire con il nome del gruppo di gestione
-- `{subscriptionId}` -Sostituire con l'ID sottoscrizione
+- `{YourMG}`: sostituire con il nome del gruppo di gestione
+- `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 ##### <a name="blueprint-level-parameter"></a>Parametro a livello di progetto
 

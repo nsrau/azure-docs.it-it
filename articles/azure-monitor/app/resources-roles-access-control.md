@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361866"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
@@ -85,8 +85,8 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 | --- | --- |
 | [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Può apportare qualsiasi modifica, incluso l'accesso utente. |
 | [Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Può apportare qualsiasi modifica, incluse tutte le risorse. |
-| [collaboratore componente di Application Insights ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Può modificare risorse, test Web e avvisi di Application Insights. |
-| [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
+| [Collaboratore componente di Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Può modificare risorse, test Web e avvisi di Application Insights. |
+| [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
 | [Debugger di snapshot di Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per l'uso delle funzionalità di Snapshot Debugger di Application Insights. Si noti che questo ruolo non è incluso nei ruoli Proprietario e Collaboratore. |
 | Collaboratore alla gestione delle versioni di distribuzione dei servizi di Azure | Ruolo di collaboratore per i servizi di distribuzione tramite la distribuzione dei servizi di Azure. |
 | [Pulizia dati](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Ruolo speciale per l'eliminazione dei dati personali. Vedere le [linee guida per i dati personali](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) per altre informazioni.   |
@@ -115,7 +115,7 @@ Se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, hanno
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [In base al ruolo controllo degli accessi in Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Controllo di accesso basato sui ruoli in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Query di PowerShell per determinare l'appartenenza al ruolo
 

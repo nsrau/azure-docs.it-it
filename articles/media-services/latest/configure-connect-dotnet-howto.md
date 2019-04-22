@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361249"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API servizi multimediali di v3 - .NET
@@ -225,18 +225,18 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Caricare, codificare e trasmettere in streaming video - .NET](stream-files-tutorial-with-api.md) 
-- [Esercitazione: Stream live con servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
-- [Esercitazione: Analizzare i video con servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Esercitazione: Caricare, codificare ed eseguire lo streaming dei video - .NET](stream-files-tutorial-with-api.md) 
+- [Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
+- [Esercitazione: Analizzare i video con Servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
 - [Creare un input del processo da un file locale - .NET](job-input-from-local-file-how-to.md)
 - [Creare un input del processo da un URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Codificare contenuti con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
+- [Codificare con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
 - [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi - .NET](protect-with-aes128.md)
-- [Usare DRM dinamico crittografia e la licenza distribuzione servizio - .NET](protect-with-drm.md)
+- [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM - .NET](protect-with-drm.md)
 - [Ottenere una chiave di firma dai criteri esistenti - .NET](get-content-key-policy-dotnet-howto.md)
-- [Creare filtri con servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Advanced video on demand esempi di funzioni di Azure v2 con servizi multimediali v3](https://aka.ms/ams3functions)
+- [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Informazioni di riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+[Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

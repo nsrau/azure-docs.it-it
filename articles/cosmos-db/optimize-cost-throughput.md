@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009768"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
@@ -39,13 +39,13 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 4. Anziché impostare la velocità effettiva specifica per i singoli contenitori, si è interessati a ottenere la velocità effettiva aggregata in un set di contenitori all'interno del database.
 
-**Se il provisioning della velocità effettiva in un singolo contenitore, tenere presente:**
+**Considerare di effettuare il provisioning della velocità effettiva in un singolo contenitore se:**
 
 1. Si dispone di alcuni contenitori Azure Cosmos. Poiché Azure Cosmos DB è indipendente dallo schema, un contenitore può contenere elementi con schemi eterogenei e non richiede ai clienti di creare più tipi di contenitori, uno per ogni entità. È sempre un'opzione da considerare se si raggruppano, ad esempio, 10-20 contenitori separati in un singolo contenitore. Con un minimo di 400 UR per i contenitori, potrebbe essere più conveniente il pooling di tutti i 10-20 contenitori in un singolo contenitore. 
 
 2. Si vuole controllare la velocità effettiva in un contenitore specifico e ottenere la velocità effettiva garantita per un determinato contenitore, supportata dal contratto di servizio.
 
-**Si consideri un ibrido delle due strategie precedenti:**
+**Considerare una combinazione delle due strategie illustrate sopra:**
 
 1. Come accennato in precedenza, Azure Cosmos DB consente di combinare le due strategie precedenti, pertanto ora è possibile avere alcuni contenitori nel database Azure Cosmos, che può condividere la velocità effettiva con provisioning nel database, nonché alcuni contenitori all'interno dello stesso database, che possono avere quantità dedicate di velocità effettiva con provisioning. 
 

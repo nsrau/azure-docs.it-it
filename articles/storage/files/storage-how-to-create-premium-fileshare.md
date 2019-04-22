@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288427"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Come creare una condivisione di file di Azure premium
@@ -27,7 +27,7 @@ Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure
 
 ## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Creare una condivisione di file premium tramite il portale di Azure
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -58,7 +58,7 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 
 Dopo aver creata la risorsa dell'account di archiviazione, passare ad esso.
 
-### <a name="create-a-premium-file-share"></a>Creare una condivisione di file premium
+### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
 1. Nel menu a sinistra per l'account di archiviazione, scorrere fino al **per il servizio File** sezione e quindi selezionare **i file (anteprima)**.
 1. Selezionare **+ condivisione File** per creare una condivisione di file premium.
@@ -67,7 +67,7 @@ Dopo aver creata la risorsa dell'account di archiviazione, passare ad esso.
 > [!NOTE]
 > Le dimensioni di condivisione con provisioning viene specificato dalla quota di condivisione, condivisioni file vengono fatturate le dimensioni di provisioning, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/files/) per altri dettagli.
 
-   ![Creare una condivisione di file premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
+   ![Creare una condivisione file premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -121,7 +121,7 @@ Per creare un account di archiviazione FileStorage (anteprima) da PowerShell, us
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
 ```
 
-### <a name="create-a-premium-file-share"></a>Creare una condivisione di file premium
+### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
 Ora che avete un account FileStorage, è possibile creare una condivisione di file premium. Usare la [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet per crearne uno.
 
@@ -156,7 +156,7 @@ az login
 
 Per interagire con i file premium usando l'interfaccia della riga di comando, è possibile aggiungere un'estensione per la shell.
 
-A tale scopo, immettere il comando seguente usando Cloud Shell o una shell locale: `az extension add --name storage-preview`
+A tale scopo, usando Cloud Shell o una shell locale, immettere il comando seguente: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -192,7 +192,7 @@ STORAGEKEY=$(az storage account keys list \
     --query "[0].value" | tr -d '"')
 ```
 
-### <a name="create-a-premium-file-share"></a>Creare una condivisione di file premium
+### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
 Ora che avete un account FileStorage, è possibile creare una condivisione di file premium. Usare la [creare la condivisione di archiviazione az](/cli/azure/storage/share) comandi per crearne uno.
 
@@ -219,4 +219,4 @@ az group delete --name myResourceGroup
 In questo articolo è stato creato un account di archiviazione premium di file. Per altre informazioni sulle prestazioni di che questo account offre, continuare con la sezione di livello delle prestazioni della Guida alla pianificazione.
 
 > [!div class="nextstepaction"]
-> [Livelli di prestazioni delle condivisioni file](storage-files-planning.md#file-share-performance-tiers)
+> [I livelli di prestazioni di condivisione di file](storage-files-planning.md#file-share-performance-tiers)

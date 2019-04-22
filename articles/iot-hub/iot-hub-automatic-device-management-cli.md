@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012966"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Gestione automatica dei dispositivi IoT su larga scala tramite la CLI di Azure
@@ -103,7 +103,7 @@ Usare il comando seguente per creare una configurazione:
 
 * --**content**: JSON inline o percorso del file per il contenuto di destinazione da impostare come proprietà desiderate del gemello. 
 
-* --**hub-name**: nome dell'hub IoT in cui verrà creata la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Passare alla sottoscrizione con il comando desiderata `az account set -s [subscription name]`
+* --**hub-name**: nome dell'hub IoT in cui verrà creata la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 * --**target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa configurazione. La condizione è basata sui tag o sulle proprietà desiderate dei dispositivi gemelli e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
 
@@ -122,7 +122,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id**: il nome della configurazione che si trova nell'hub IoT.
 
-* --**hub-name**: nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Passare alla sottoscrizione con il comando desiderata `az account set -s [subscription name]`
+* --**hub-name**: nome dell'hub IoT in cui si trova la configurazione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 Esaminare la configurazione nella finestra di comando. La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
 
@@ -172,7 +172,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**set**: aggiornare una proprietà nella configurazione. È possibile aggiornare le proprietà seguenti:
 
-    * targetCondition - ad esempio `targetCondition=tags.location.state='Oregon'`
+    * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
 
     * Etichette 
 
@@ -197,12 +197,12 @@ az iot hub configuration delete --config-id [configuration id] \
 In questo articolo si appreso come configurare e monitorare i dispositivi IoT su larga scala. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco le identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di Hub IoT](iot-hub-metrics.md)
+* [Metriche di hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide.md)
+* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 

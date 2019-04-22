@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264557"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
@@ -177,7 +177,7 @@ L'estensione di backup in esecuzione nella macchina virtuale richiede accesso in
 
 **Opzione** | **Azione** | **Dettagli** 
 --- | --- | --- 
-**Configurare le regole NSG** | consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Invece di consentire e la gestione di ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio Backup di Azure usando un [tag del servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> Tag Services semplifica la gestione degli accessi e non incorrere in costi aggiuntivi.
+**Configurare le regole del gruppo di sicurezza di rete** | consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Invece di consentire e la gestione di ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio Backup di Azure usando un [tag del servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> Tag Services semplifica la gestione degli accessi e non incorrere in costi aggiuntivi.
 **Distribuire un proxy** | Distribuire un server proxy HTTP per eseguire il routing del traffico | Possibilità di accesso a tutto l'ambiente Azure, non solo al servizio di archiviazione.<br/><br/> Possibilità di controllo granulare sugli URL di archiviazione.<br/><br/> Singolo punto di accesso Internet per le macchine virtuali.<br/><br/> Costi aggiuntivi per il proxy.
 **Configurare il Firewall di Azure** | Consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure | Semplice da usare se si dispone di Firewall di Azure consente di impostare una subnet di rete virtuale.<br/><br/> È possibile creare il proprio tag del nome di dominio completo o modificare gli FQDN in un tag.<br/><br/> Se le macchine virtuali di Azure dispone di dischi gestiti, si potrebbe essere necessario aprire un ulteriore porting (8443) nei firewall.
 
@@ -229,8 +229,8 @@ Se non si ha un proxy di account di sistema, configurarne uno come indicato di s
      - Aggiungere questa riga nel file **/etc/environment**:
        - **http_proxy = http:\//proxy IP: proxy indirizzo porta**
      - Aggiungere queste righe nel file **/etc/waagent.conf**:
-         - **HttpProxy.Host=proxy IP address**
-         - **Porta HttpProxy.Port=proxy**
+         - **HttpProxy.Host=indirizzo IP proxy**
+         - **HttpProxy.Port=porta proxy**
    - Nelle impostazioni del browser dei computer Windows specificare che deve essere usato un proxy. Se attualmente si usa un proxy per un account utente, è possibile usare questo script per applicare l'impostazione a livello di account di sistema.
        ```powershell
       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"

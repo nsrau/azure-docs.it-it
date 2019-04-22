@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276100"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
@@ -19,8 +19,8 @@ ms.locfileid: "59276100"
 Quando una risorsa di Azure viene determinata come non conforme a una regola di criteri, è utile comprendere quale parte della regola della risorsa non è conforme. È anche utile comprendere quali modifiche modificato una risorsa prima era conforme per renderlo non conformi. Esistono due modi per trovare queste informazioni:
 
 > [!div class="checklist"]
-> - [Dettagli conformità](#compliance-details)
-> - [Cronologia modifiche (anteprima)](#change-history-preview)
+> - [Dettagli di conformità](#compliance-details)
+> - [Cronologia delle modifiche (anteprima)](#change-history-preview)
 
 ## <a name="compliance-details"></a>Dettagli conformità
 

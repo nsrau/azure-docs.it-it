@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360645"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
@@ -236,10 +236,10 @@ Se l'organizzazione è federata e usa SSO con Azure AD e si prevede di usare Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Abilitare la modalità self-service delle password per l'organizzazione](quickstart-sspr.md)
+[Impossibile abilitare la reimpostazione della password in modalità self-service per l'organizzazione](quickstart-sspr.md)
 
-[Abilitare Azure multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
+[Abilitare Azure Multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
 
 [Abilitare la registrazione combinata nel tenant](howto-registration-mfa-sspr-combined.md)
 
-[Documentazione relativa alla configurazione metodo di autenticazione dell'utente finale](https://aka.ms/securityinfoguide)
+[Documentazione sulla configurazione di un metodo di autenticazione per l'utente finale](https://aka.ms/securityinfoguide)

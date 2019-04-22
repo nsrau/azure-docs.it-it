@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274690"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
@@ -97,7 +97,7 @@ Le azioni script possono anche essere pubblicate in Azure Marketplace come appli
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Installare applicazioni Hadoop di terze parti Apache in HDInsight](../hdinsight-apps-install-applications.md)
+- [Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalizzare i cluster HDInsight con azioni script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Pubblicare un'applicazione HDInsight in Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -168,7 +168,7 @@ HDInsight può essere aggiunto a una rete virtuale di Azure nuova o esistente. S
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Azure virtual-networks-overview](../../virtual-network/virtual-networks-overview.md)
+- [Panoramica di Rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Connettersi in modo sicuro ai servizi di Azure con gli endpoint del servizio Rete virtuale di Azure
@@ -177,8 +177,8 @@ HDInsight supporta [endpoint del servizio rete virtuale](../../virtual-network/v
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Endpoint del servizio Rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Migliorare la sicurezza di HDInsight con gli endpoint di servizio](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [Endpoint del servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Ottimizzare la sicurezza di HDInsight con gli endpoint del servizio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -194,4 +194,4 @@ Per altre informazioni, vedere l'articolo [Connettere HDInsight alla rete locale
 
 Leggere l'articolo successivo di questa serie:
 
-- [Procedure consigliate per da locale ad Azure HDInsight Hadoop migrazione archiviazione](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md) (Procedure consigliate per lo storage relative alla migrazione da locale ad Azure HDInsight Hadoop)

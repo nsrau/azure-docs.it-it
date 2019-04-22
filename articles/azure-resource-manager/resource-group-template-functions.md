@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280316"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
@@ -52,11 +52,11 @@ Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
-* [intersezione](resource-group-template-functions-array.md#intersection)
+* [intersection](resource-group-template-functions-array.md#intersection)
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [Min](resource-group-template-functions-array.md#min)
+* [min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -85,8 +85,8 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
-* [distribuzione](resource-group-template-functions-deployment.md#deployment)
-* [Parametri](resource-group-template-functions-deployment.md#parameters)
+* [deployment](resource-group-template-functions-deployment.md#deployment)
+* [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
@@ -98,11 +98,11 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 ## <a name="logical-functions"></a>Funzioni logiche
 Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logiche:
 
-* [e](resource-group-template-functions-logical.md#and)
+* [and](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [oppure](resource-group-template-functions-logical.md#or)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -123,7 +123,7 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [Min](resource-group-template-functions-numeric.md#min)
+* [min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
@@ -195,7 +195,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
 * [format](resource-group-template-functions-string.md#format)
-* [GUID](resource-group-template-functions-string.md#guid)
+* [guid](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
@@ -206,7 +206,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [stringa](resource-group-template-functions-string.md#string)
+* [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)

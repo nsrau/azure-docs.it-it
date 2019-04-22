@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281642"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Hub di notifica di Azure - diagnosticare notifiche eliminate
@@ -76,7 +76,7 @@ Se si caricano inavvertitamente tipi diversi di certificati nello stesso hub, è
 
 ## <a name="application-issues"></a>Problemi relativi all'applicazione
 
-**I tag ed espressioni tag**
+**Tag ed espressioni tag**
 
 Se si usano tag o espressioni tag per segmentare i destinatari, è possibile che al momento dell'invio della notifica non venga trovato alcun destinatario in base ai tag o alle espressioni tag specificati nella chiamata di invio.
 
@@ -84,7 +84,7 @@ Esaminare le registrazioni per verificare che siano presenti tag corrispondenti 
 
 Ad esempio, se tutte le registrazioni per Hub di notifica sono state eseguite con il tag "Politica" e si invia una notifica con il tag "Sport", la notifica non viene inviata ad alcun dispositivo. Un caso complesso con espressioni tag è quello in cui la registrazione è stata eseguita solo con "Tag A" OPPURE "Tag B", ma durante l'invio delle notifiche si usa "Tag A & & Tag B" come destinazione. Nella sezione dei suggerimenti per l'autodiagnosi più avanti in questo articolo viene illustrato come controllare le registrazioni e i relativi tag.
 
-**Problemi del modello**
+**Problemi relativi ai modelli**
 
 Se si usano modelli, assicurarsi di seguire le indicazioni riportate in [Modelli].
 
@@ -111,7 +111,7 @@ Dato che i servizi di notifica della piattaforma sono affidabili, le notifiche r
 
 Se un servizio di notifica push tenta di recapitare una notifica, ma il dispositivo è offline, la notifica viene archiviata dal servizio di notifica push per un periodo di tempo limitato e viene recapitata al dispositivo quando ritorna disponibile.
 
-Per ogni app viene archiviata una sola notifica recente. Se vengono inviate più notifiche quando un dispositivo è offline, ogni nuova notifica determina la rimozione di quella precedente. Mantenuta solo la notifica più recente è detta *unione delle notifiche* in APN, e *compressione* in FCM (che usa una chiave di compressione). Se il dispositivo rimane offline a lungo, le eventuali notifiche archiviate per esso vengono rimosse. Per altre informazioni, vedere la [Panoramica APN] e [messaggi FCM sulle].
+Per ogni app viene archiviata una sola notifica recente. Se vengono inviate più notifiche quando un dispositivo è offline, ogni nuova notifica determina la rimozione di quella precedente. Mantenuta solo la notifica più recente è detta *unione delle notifiche* in APN, e *compressione* in FCM (che usa una chiave di compressione). Se il dispositivo rimane offline a lungo, le eventuali notifiche archiviate per esso vengono rimosse. Per altre informazioni, vedere la [Panoramica APN] e [About FCM messages].
 
 Con Hub di notifica di Azure, è possibile passare una chiave di unione tramite un'intestazione HTTP usando l'API SendNotification generica. Ad esempio, `SendNotificationAsync` per .NET SDK. L'API SendNotification usa inoltre le intestazioni HTTP passate così come sono al servizio di notifica push corrispondente.
 
@@ -121,7 +121,7 @@ Ecco i percorsi per diagnosticare la causa principale di notifiche non recapitat
 
 ### <a name="verify-credentials"></a>Verificare le credenziali
 
-**Portale per sviluppatori del servizio notifica push**
+**Portale per sviluppatori del servizio di notifica push**
 
 Verificare le credenziali nel rispettivo portale per sviluppatori del servizio di notifica push corrispondente (APN, FCM, il servizio di notifica di Windows e così via). Per altre informazioni vedere [Introduzione ad Hub di notifica di Azure].
 
@@ -180,9 +180,9 @@ Per inviare una notifica di prova ai client senza un back-end di servizio attivo
 
 Per altre informazioni sull'uso di Hub di notifica con Esplora server di Visual Studio, vedere questi articoli:
 
-* [Visualizza le registrazioni dei dispositivi per hub di notifica]
-* [Deep dive: Visual Studio 2013 Update 2 RC e Azure SDK 2.3]
-* [Annuncio della versione di Visual Studio 2013 Update 3 e Azure SDK 2.4]
+* [Come visualizzare le registrazioni di dispositivi per gli hub di notifica]
+* [Approfondimento: Visual Studio 2013 Update 2 RC and Azure SDK 2.3] (Approfondimento: Visual Studio 2013 Update 2 RC e Azure SDK 2.3)
+* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Annuncio del rilascio di Visual Studio 2013 Update 3 e Azure SDK 2.4)
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Eseguire il debug di notifiche non riuscite ed esaminare l'esito della notifica
 
@@ -281,15 +281,15 @@ Per altre informazioni sull'accesso a livello di codice, vedere [accesso alla te
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-[Panoramica di Hub di notifica]: notification-hubs-push-notification-overview.md
-[Introduzione ad hub di notifica di Azure]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Panoramica dell'Hub di notifica]: notification-hubs-push-notification-overview.md
+[Introduzione ad Hub di notifica di Azure]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Modelli]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[Informazioni sui messaggi FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options (Informazioni sui messaggi FCM)
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Visualizza le registrazioni dei dispositivi per hub di notifica]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Deep dive: Visual Studio 2013 Update 2 RC e Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Annuncio della versione di Visual Studio 2013 Update 3 e Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Come visualizzare le registrazioni di dispositivi per gli hub di notifica]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Approfondimento: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Approfondimento: Visual Studio 2013 Update 2 RC e Azure SDK 2.3)
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Annuncio del rilascio di Visual Studio 2013 Update 3 e Azure SDK 2.4)
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Accesso alla telemetria a livello di codice]: https://msdn.microsoft.com/library/azure/dn458823.aspx

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265832"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
@@ -29,10 +29,10 @@ Ecco un esempio del report Cost Over Time (Costo nel tempo). Il layout è simile
 
 Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti:
 
-1. **Intervallo di date**
+1. **Date Range** (Intervallo di date)
 
     Usare questo elenco per definire un intervallo di tempo nel report usando un valore predefinito o personalizzato.
-2. **Filtro salvato**
+2. **Saved Filter** (Filtro salvato)
 
     Usare questo elenco per salvare i gruppi e i filtri correnti applicati al report. I filtri salvati sono disponibili nei report relativi a costi e prestazioni, tra cui:
 
@@ -80,58 +80,58 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
      Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
 
-     - **Tipo di costo**
+     - **Cost Type** (Tipo di costo)
      - Selezionare un tipo di costo o più tipi di costo oppure selezionarli tutti. I tipi di costo includono:
        - One-Time Fee (Tariffa una tantum)
        - Supporto
        - Usage Cost (Costo di utilizzo)
-     - **Customer**
+     - **Cliente**
        - Selezionare un cliente specifico, più clienti oppure selezionarli tutti.
-     - **Nome account**
+     - **Account Name** (Nome account)
        - Nome dell'account o della sottoscrizione. In Azure si tratta del nome della sottoscrizione di Azure.
-     - **Account No**
+     - **Account No** (N. account)
        - Selezionare un account, più account o tutti gli account. In Azure si tratta del GUID della sottoscrizione di Azure.
-     - **Account principale**
+     - **Parent Account** (Account padre)
        - Selezionare l'account padre, più account oppure selezionarli tutti.
-     - **Service**
+     - **Servizio**
        - Selezionare un servizio, più servizi o tutti i servizi.
      - **Provider**
        - Provider cloud in cui sono associati asset e spese.
-     - **Region**
+     - **Area**
        - Area in cui la risorsa è ospitata.
-     - **Zona di disponibilità**
+     - **Availability Zone** (Zona di disponibilità)
        - Località isolate AWS all'interno di un'area.
      - **Tipo di risorsa**
        - Tipo di risorsa in uso.
-     - **Sottotipo**
+     - **Sub-Type** (Sottotipo)
        - Selezionare il sottotipo.
-     - **Operazione**
+     - **operazione**
        - Selezionare l'operazione o **Show all** (Mostra tutto).
-     - **Modello di prezzo**
+     - **Price Model** (Modello di prezzo)
        - All Upfront (Tutto anticipato)
        - No Upfront (Nessun anticipo)
        - Partial Upfront (Anticipo parziale)
        - On Demand (Su richiesta)
        - Reservation
        - Spot (Contante)
-     - **Tipo di addebito**
+     - **Charge Type** (Tipo di addebito)
        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
      - **Tenancy**
        - Indica se un computer è in esecuzione come computer dedicato.
-     - **Usage Type**
+     - **Usage Type** (Tipo di utilizzo)
        - Il tipo di utilizzo può essere impostato su tariffe una tantum o tariffe ricorrenti.
 
 5. **Filtri**
 
     Usare i filtri di selezione multipla o singola per impostare gli intervalli sui valori selezionati. Per impostare un filtro, fare clic su **Add** (Aggiungi) e quindi selezionare le categorie e i valori del filtro.
 
-6. **Modello di costo**
+6. **Cost Model** (Modello di costi)
 
     Usare questo elenco per selezionare un modello di costi creato in precedenza con Cost Allocation 360 (Allocazione costi 360). È possibile definire più modelli di costi Cloudyn, a seconda dei propri requisiti di allocazione costi. Alcuni team aziendali possono avere requisiti di allocazione costi diversi da quelli di altri team. Pertanto, ogni team può avere un modello di costi dedicato.
 
     Per informazioni su come creare una definizione di modello di allocazione costi, vedere [Usare tag personalizzati per allocare i costi](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-7. **Amortization (ammortamento)**
+7. **Amortization** (Ammortamento)
 
     Usare questo elenco nei report di allocazione costi per visualizzare le spese di servizio non basate sull'utilizzo o i costi "una tantum" e ripartirli in modo uniforme nel corso della vita utile del servizio. Ecco alcuni esempi di spese "una tantum":
     - Spese annuali per il supporto tecnico
@@ -150,15 +150,15 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
     - Trimestrale
     - Annuale
 
-9. **Regole di allocazione**
+9. **Allocation rules** (Regole di allocazione)
 
     Usare questo elenco per applicare o disabilitare il ricalcolo dell'allocazione costi. È possibile abilitare o disabilitare questa operazione di ricalcolo per i dati di fatturazione. Il ricalcolo si applica alle categorie selezionate nel report. Usando questa opzione è possibile valutare l'impatto del ricalcolo dell'allocazione costi rispetto ai dati di fatturazione non elaborati.
 
-10. **Senza categoria**
+10. **Uncategorized** (Senza categoria)
 
     Usare questo elenco per includere o escludere i costi non assegnati a una categoria nel report.
 
-11. **Mostra/Nascondi campi**
+11. **Show/Hide Fields** (Mostra/Nascondi campi)
 
     Questa opzione non ha alcun effetto sui report.
 
@@ -168,15 +168,15 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
     ![Simboli di formati di visualizzazione che è possibile selezionare](./media/understanding-cost-reports/display-formats.png)
 
-13. **Multi color**
+13. **Multi-color** (Multicolore)
 
     Usare questa opzione per impostare il colore dei grafici nel report.
 
-14. **Azioni**
+14. **Actions**
 
     Usare questa opzione per salvare, esportare o pianificare il report.
 
-15. **Policy**
+15. **Criteri**
 
     Anche se non sono illustrati, alcuni report includono criteri di calcolo dei costi previsti. In tali report il criterio **Consolidated** visualizza le indicazioni per tutti gli account e le sottoscrizioni con l'entità corrente, ad esempio la registrazione Microsoft o il conto del pagatore AWS. Il criterio **Standalone** visualizza indicazioni per un solo account o una sottoscrizione come se non esistessero altre sottoscrizioni. I criteri selezionati variano in base alla strategia di ottimizzazione usata dall'organizzazione. Le proiezioni dei costi si basano sugli ultimi 30 giorni di utilizzo.
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
 ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051632"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
@@ -193,4 +193,4 @@ Infine, usare il [Update-AzMlWebService](https://docs.microsoft.com/powershell/m
 Per altre informazioni su come gestire i servizi Web o tenere traccia di più esecuzioni degli esperimenti, vedere gli articoli seguenti:
 
 * [Esplorare il portale dei servizi Web](manage-new-webservice.md)
-* [Gestire le iterazioni delle sperimentazioni](manage-experiment-iterations.md)
+* [Gestire le iterazioni dell'esperimento](manage-experiment-iterations.md)
