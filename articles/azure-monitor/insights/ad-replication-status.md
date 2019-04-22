@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425849"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
@@ -119,32 +119,32 @@ Il campo **HelpLink** indica l'URL di una pagina di TechNet con altre informazio
 ![errori di stato replica di Active Directory esportati in Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>Domande frequenti su Stato replica di Active Directory
-**D: Frequenza vengono aggiornati i dati di stato replica AD?**
+**D: Con quale frequenza vengono aggiornati i dati di stato della replica di Active Directory?**
 R: Le informazioni vengono aggiornate ogni cinque giorni.
 
-**D: È possibile configurare la frequenza di aggiornamento dati?**
+**D: È possibile configurare la frequenza di aggiornamento dei dati?**
 R: Attualmente non è possibile.
 
-**D: È necessario aggiungere tutti i controller di dominio per l'area di lavoro di Log Analitica per vedere lo stato della replica?**
+**D: È necessario aggiungere tutti i controller di dominio all'area di lavoro Log Analytics per visualizzare lo stato della replica?**
 R: No, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
 
-**D: Non si vuole aggiungere controller di dominio all'area di lavoro Log Analytics. È possibile utilizzare la soluzione stato replica di Active Directory?**
+**D: Non si vuole aggiungere controller di dominio all'area di lavoro Log Analytics. È possibile usare comunque la soluzione Stato replica di Active Directory?**
 
 R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 
-**D: Che cos'è il nome del processo che esegue la raccolta dei dati?**
+**D: Qual è il nome del processo che esegue la raccolta di dati?**
 R: AdvisorAssessment.exe
 
-**D: Quanto tempo occorre per la raccolta dei dati?**
+**D: Quanto tempo occorre per la raccolta di dati?**
 R: Il tempo necessario per la raccolta di dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
 
-**D: Che tipo di dati viene raccolto?**
+**D: Quali tipi di dati vengono raccolti?**
 R: Le informazioni di replica vengono raccolte tramite LDAP.
 
-**D: È possibile configurare la raccolta di dati?**
+**D: È possibile definire l'orario per la raccolta di dati?**
 R: Attualmente non è possibile.
 
-**D: Quali autorizzazioni necessarie per raccogliere i dati?**
+**D: Quali autorizzazioni sono necessarie per raccogliere i dati?**
 R: Le normali autorizzazioni utente in Active Directory sono sufficienti.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Risolvere i problemi di raccolta dati

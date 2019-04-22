@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045083"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
@@ -27,10 +27,10 @@ In questa guida introduttiva viene creato un modello di Azure Resource Manager c
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione. 
 > 
-> * [Creare uno spazio dei nomi del Bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
-> * [Creare uno spazio dei nomi del Bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
-> * [Creare uno spazio dei nomi del Bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Creare uno spazio dei nomi del Bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
+> * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
+> * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
 
@@ -40,7 +40,7 @@ In questa guida introduttiva viene creato un modello di Azure Resource Manager c
 ## <a name="quick-deployment"></a>Distribuzione rapida
 Per eseguire l'esempio senza scrivere codice JSON ed eseguire comandi di PowerShell/CLI, selezionare il pulsante seguente:
 
-[![Distribuisci ad Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Per creare e distribuire il modello manualmente, consultare le sezioni seguenti in questo articolo.
 
@@ -131,7 +131,7 @@ Creare un file JSON denominato **MyServiceBusNamespace-Parameters.json** con il 
 
 ## <a name="use-azure-powershell-to-deploy-the-template"></a>Usare Azure PowerShell per distribuire il modello
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 1. Avviare Azure PowerShell
 
 2. Eseguire questo comando per accedere ad Azure:
@@ -169,7 +169,7 @@ Per distribuire le risorse usando Azure PowerShell, passare alla cartella in cui
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Usare l'interfaccia della riga di comando di Azure per distribuire il modello
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 1. Eseguire questo comando per accedere ad Azure:
 

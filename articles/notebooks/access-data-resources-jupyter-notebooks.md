@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271519"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accedere ai dati cloud in un notebook
@@ -68,9 +68,9 @@ Il notebook di esempio mostra come lavorare con tabelle e BLOB, e come usare una
 
 Azure Cosmos DB offre un archivio NoSQL completamente indicizzato per i documenti JSON). Gli articoli seguenti forniscono una serie di modi diversi per lavorare con Cosmos DB da Python:
 
-- [App crea una API SQL con Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Creare un'app Flask con l'API di Azure Cosmos DB per MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Creare un database a grafo con Python e l'API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [Compilare una API SQL con Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
+- [Compilare un'app Flask con l'API Azure Cosmos DB per MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Creare un database a grafo usando Python e l'API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Creare un'app Cassandra con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Creare un'app dell'API Tabella con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
@@ -80,12 +80,12 @@ Quando si lavora con Cosmos DB, è possibile usare la libreria [azure-cosmosdb-t
 
 Azure offre una serie di altri tipi di database che è possibile usare. Gli articoli seguenti forniscono materiale sussidiario per accedere a tali database da Python:
 
-- [Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Guida introduttiva: Usare Cache Redis di Azure con Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Database di Azure per MySQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Database di Azure per PostgreSQL: Usare Python per connettersi ed eseguire query sui dati](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Avvio rapido: usare Cache Redis di Azure con Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Database di Azure per MySQL: usare Python per connettersi ed eseguire query sui dati](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Data factory di Azure](https://azure.microsoft.com/services/data-factory/)
-  - [Copia guidata per Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+  - [Copiare la procedura guidata per Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: Lavorare con i file di dati di progetto](work-with-project-data-files.md)
+- [Procedura: lavorare con i file di dati di progetto](work-with-project-data-files.md)

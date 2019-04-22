@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046293"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
@@ -45,7 +45,7 @@ In questo articolo vengono usati gli strumenti seguenti:
 ## <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
 Service Fabric offre alcuni [canali di registrazione predefiniti](service-fabric-diagnostics-event-generation-infra.md). Tra questi, i canali seguenti vengono preconfigurati con l'estensione per inviare i dati di monitoraggio e diagnostica a una tabella di archiviazione o un'altra posizione:
   * [Eventi operativi](service-fabric-diagnostics-event-generation-operational.md): operazioni generali eseguite dalla piattaforma Service Fabric. Gli esempi includono la creazione di applicazioni e servizi, le modifiche allo stato dei nodi e informazioni sull'aggiornamento. Questi eventi vengono generati come log di Event Tracing for Windows (ETW)
-  * [Eventi relativi al modello di programmazione Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+  * [Eventi del modello di programmazione Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Eventi relativi al modello di programmazione Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Distribuire l'estensione Diagnostica tramite il portale
@@ -192,7 +192,7 @@ Dopo aver modificato il file template.json come descritto, pubblicare nuovamente
 
 ### <a name="update-storage-quota"></a>Aggiornare la quota di archiviazione
 
-Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento della quota, è possibile valutare la possibilità di ridurre le dimensioni della quota. Il valore predefinito è 50 GB e può essere configurato nel modello sotto il `overallQuotaInMB` campo `DiagnosticMonitorConfiguration`
+Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento della quota, è possibile valutare la possibilità di ridurre le dimensioni della quota. Il valore predefinito è 50 GB e può essere configurato nel modello nel campo `overallQuotaInMB` in `DiagnosticMonitorConfiguration`.
 
 ```json
 "overallQuotaInMB": "50000",
@@ -348,8 +348,8 @@ Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visual
 >[!NOTE]
 >Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non si implementa un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. È attualmente disponibile un esempio di servizio di eliminazione dati in esecuzione nel [watchdog di esempio](https://github.com/Azure-Samples/service-fabric-watchdog-service). È consigliabile scriverne uno personalizzato, a meno che non esista un motivo valido per archiviare i log per un intervallo di tempo superiore a 30 o 90 giorni.
 
-* [Informazioni su come raccogliere i contatori delle prestazioni o i log tramite l'estensione di diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Analisi degli eventi e la visualizzazione con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione degli eventi con Application Insights)
 * [Analisi degli eventi e la visualizzazione con i log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)
-* [Analisi degli eventi e la visualizzazione con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione degli eventi con Application Insights)
 * [Analisi degli eventi e la visualizzazione con i log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)

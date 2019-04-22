@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283274"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
@@ -55,7 +55,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 5.  Per ottenere la chiave BitLocker dell'unità, eseguire il comando seguente:
     
     `manage-bde -protectors -get <DriveLetter>:`
-6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione potrebbe richiedere diverse ore a giorni.** 
+6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -144,7 +144,7 @@ Tracciare il processo fino al completamento. Una volta completato il processo, v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare lo stato del processo e unità](storage-import-export-view-drive-status.md)
-* [Verificare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
+* [Visualizzare lo stato dei processi e delle unità](storage-import-export-view-drive-status.md)
+* [Esaminare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
 
 

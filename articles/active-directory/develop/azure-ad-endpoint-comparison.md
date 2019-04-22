@@ -19,10 +19,10 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260732"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Confronto tra l'endpoint di Microsoft identity platform ed endpoint v1.0 di Azure AD
@@ -66,7 +66,7 @@ Il consenso dell'amministratore fornito per conto di un'organizzazione richiede 
 
 Per le app che usano l'endpoint v1.0, un'app può comportarsi come una **risorsa** o come un destinatario di token. Una risorsa può definire diversi **ambiti** o autorizzazioni **oAuth2Permissions** che può riconoscere, consentendo alle app client di richiedere token dalla risorsa per un determinato set di ambiti. Si consideri l'API Graph di Azure AD come esempio di una risorsa:
 
-* Identificatore di risorsa o `AppID URI`: `https://graph.windows.net/`
+* Identificatore della risorsa o `AppID URI`: `https://graph.windows.net/`
 * Ambiti o `oAuth2Permissions`: `Directory.Read`, `Directory.Write` e così via.
 
 Ciò vale per l'endpoint di piattaforma di identità Microsoft. Un'app può comunque comportarsi come una risorsa, definire gli ambiti ed essere identificata da un URI. Le app client possono richiedere ancora l'accesso a questi ambiti, tuttavia, è stata modificata la modalità con cui un client esegue la richiesta delle autorizzazioni.
@@ -143,7 +143,7 @@ Le Registrazioni app che supportano gli account aziendali e dell'istituto di ist
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrizioni relative agli URL di reindirizzamento
 
-Le app che sono registrate per piattaforma delle identità di Microsoft sono limitate a un set limitato di valori di URL di reindirizzamento. L'URL di reindirizzamento per i servizi e le app Web deve iniziare con lo schema `https` e tutti i valori degli URL di reindirizzamento devono condividere un singolo dominio DNS.  Il sistema di registrazione confronta l'intero nome DNS dell'URL di reindirizzamento esistente con il nome DNS dell'URL di reindirizzamento da aggiungere. `http://localhost` è anche supportato come un URL di reindirizzamento.  
+Le app che sono registrate per piattaforma delle identità di Microsoft sono limitate a un set limitato di valori di URL di reindirizzamento. L'URL di reindirizzamento per i servizi e le app Web deve iniziare con lo schema `https` e tutti i valori degli URL di reindirizzamento devono condividere un singolo dominio DNS.  Il sistema di registrazione confronta l'intero nome DNS dell'URL di reindirizzamento esistente con il nome DNS dell'URL di reindirizzamento da aggiungere. Come URL di reindirizzamento è supportato anche `http://localhost`.  
 
 La richiesta di aggiungere il nome DNS non viene soddisfatta se si verificano le condizioni seguenti:  
 

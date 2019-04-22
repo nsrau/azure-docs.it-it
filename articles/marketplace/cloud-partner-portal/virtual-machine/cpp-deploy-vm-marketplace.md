@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049314"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Distribuire una macchina virtuale da Azure Marketplace
@@ -31,7 +31,7 @@ Questo articolo illustra come distribuire una macchina virtuale (VM) preconfigur
 
 Il modello di distribuzione di macchine virtuali di Azure di avvio rapido è disponibile come file online [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Contiene i parametri seguenti:
 
-|  **Parametro**        |   **DESCRIZIONE**                                 |
+|  **Parametro**        |   **Descrizione**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | Nome dell'account di archiviazione                       |
 | dnsNameForPublicIP    | Nome DNS per l'indirizzo IP pubblico. Deve essere costituito da caratteri minuscoli.    |
@@ -44,7 +44,7 @@ Il modello di distribuzione di macchine virtuali di Azure di avvio rapido è dis
 | vmName                | Nome della VM                                    |
 | vaultName             | Nome dell'insieme di credenziali delle chiavi                             |
 | vaultResourceGroup    | Gruppo di risorse dell'insieme di credenziali delle chiavi                   |
-| certificateUrl        | URL per il certificato, tra cui di versione in Key Vault, ad esempio  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl        | URL per il certificato, inclusa la versione in KeyVault, ad esempio `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 

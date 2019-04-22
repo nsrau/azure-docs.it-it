@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051564"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
@@ -111,8 +111,8 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 * [Acquisizione pacchetti](network-watcher-packet-capture-overview.md)
 * [Verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
 * [Hop successivo](network-watcher-next-hop-overview.md)
-* [Visualizzazione dei gruppi di sicurezza](network-watcher-security-group-view-overview.md)
-* [Registrazione dei flussi del gruppo sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
-* [La risoluzione dei problemi con Gateway di rete virtuale](network-watcher-troubleshoot-overview.md)
+* [Visualizzazione di un gruppo di sicurezza](network-watcher-security-group-view-overview.md)
+* [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
+* [Risoluzione dei problemi del gateway di rete virtuale](network-watcher-troubleshoot-overview.md)
 
 Dopo aver creato un'istanza di Network Watcher, è possibile abilitare l'acquisizione di pacchetti all'interno delle macchine virtuali. Per informazioni su come fare, vedere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md)

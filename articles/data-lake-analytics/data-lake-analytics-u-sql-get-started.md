@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488712"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introduzione a U-SQL di Azure Data Lake Analytics
@@ -56,8 +56,8 @@ Osservare il punto interrogativo accanto al tipo di dati del campo `Duration`. S
 
 ### <a name="key-concepts"></a>Concetti chiave
 * **Le variabili del set di righe**: Ogni espressione di query che produce un set di righe può essere assegnata a una variabile. U-SQL segue il modello di denominazione delle variabili T-SQ, ad esempio `@searchlog`, nello script.
-* La parola chiave **EXTRACT** legge i dati di un file e definisce lo schema sulla lettura. `Extractors.Tsv` è un estrattore di U-SQL incorporato per i file di scheda con valori delimitati. È possibile sviluppare estrattori personalizzati.
-* **OUTPUT** scrive i dati da un set di righe a un file. `Outputters.Csv()` è un outputter di U-SQL incorporato per creare un file di valori delimitati da virgole. È possibile sviluppare anche outputter personalizzati.
+* La parola chiave **EXTRACT** legge i dati di un file e definisce lo schema sulla lettura. `Extractors.Tsv` è un estrattore di U-SQL integrato per i valori separati da tabulazioni. È possibile sviluppare estrattori personalizzati.
+* **OUTPUT** scrive i dati da un set di righe a un file. `Outputters.Csv()` è un outputter di U-SQL integrato per creare un file con valori separati da virgole. È possibile sviluppare anche outputter personalizzati.
 
 ### <a name="file-paths"></a>Percorsi di file
 
@@ -225,5 +225,5 @@ La clausola U-SQL ORDER BY richiede l'uso della clausola FETCH in un'espressione
 Per gli scenari avanzati di aggregazione, vedere la documentazione di riferimento U-SQL per le [funzioni di aggregazione, analisi e riferimento](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

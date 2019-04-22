@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267124"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
@@ -136,7 +136,7 @@ Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colo
 
 La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` per specificare il mapping di colonne è ancora supportata.
 
-**Flusso del mapping delle colonne:**
+**Flusso del mapping di colonne:**
 
 ![Flusso del mapping di colonne](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
 
@@ -150,7 +150,7 @@ Il mapping dello schema si applica quando si esegue la copia tra dati in formato
 | schemaMapping | Una raccolta di coppie chiave-valore, che rappresenta la relazione di mapping **dal lato di origine al sink lato**.<br/>- **Chiave:** origine rappresenta. Per la **origine tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **origine gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping.<br/>- **Valore:** rappresenta sink. Per la **sink tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **sink gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping. <br/> Nel caso i dati gerarchici, per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice.  | Sì |
 | collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No  |
 
-**Esempio: copiare da MongoDB a SQL:**
+**Esempio: copiare da MongoDB a SQL**.
 
 Se ad esempio si ha un il documento di MongoDB con il contenuto seguente: 
 
@@ -268,5 +268,5 @@ Negli scenari seguenti è consigliabile specificare la "struttura" nel set di da
 Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Tolleranza di errore di attività di copia](copy-activity-fault-tolerance.md)
+- [Tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md)
 - [Prestazioni dell'attività di copia](copy-activity-performance.md)

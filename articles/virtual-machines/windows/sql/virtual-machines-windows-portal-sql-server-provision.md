@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259202"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
@@ -80,7 +80,7 @@ Sono presenti più schede per la configurazione di una macchina virtuale di SQL 
 ## <a name="1-configure-basic-settings"></a>1. Configurare le impostazioni di base
 
 
-Nel **nozioni di base** scheda, fornire le informazioni seguenti:
+Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
 * Sotto **dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta. 
 *  Nel **gruppo di risorse** sezione selezionare una risorsa esistente dall'elenco o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via. 
@@ -91,14 +91,14 @@ Nel **nozioni di base** scheda, fornire le informazioni seguenti:
   > L'uso di un nuovo gruppo di risorse risulta utile se si stanno solo eseguendo test o se si sta iniziando a usare le distribuzioni di SQL Server in Azure. Dopo aver completato il test, eliminare il gruppo di risorse per eliminare automaticamente la macchina virtuale e tutte le risorse associate a tale gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
 
-* Sotto **dettagli dell'istanza**:
+* In **Dettagli istanza**:
     1. Immettere un valore univoco **nome della macchina virtuale**.  
-    1. Scegliere un percorso per il **regione**. 
-    1. Ai fini di questa Guida, lasciare **opzioni di disponibilità** impostata su _alcuna ridondanza dell'infrastruttura necessaria_. Per altre informazioni sulle opzioni di disponibilità, vedere [aree di Azure e la disponibilità](../../windows/regions-and-availability.md). 
-    1. Nel **immagine** elenco, selezionare _licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016_.  
-    1. Scegliere di **modificare le dimensioni** per il **Size** della macchina virtuale e selezionare il **A2 Basic** offerta. Assicurarsi di ripulire le risorse al termine con loro per evitare eventuali addebiti imprevisti. Per i carichi di lavoro di produzione, vedere le dimensioni e la configurazione di VM consigliate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
+    1. Scegliere una posizione per l'**area**. 
+    1. Ai fini di questa Guida, lasciare **opzioni di disponibilità** impostata su _alcuna ridondanza dell'infrastruttura necessaria_. Per altre informazioni sulle opzioni di disponibilità, vedere [Aree e disponibilità](../../windows/regions-and-availability.md). 
+    1. Nell'elenco **Immagine** selezionare _Free SQL Server License: SQL Server 2017 Developer in Windows Server 2016_.  
+    1. Scegliere **Modifica dimensioni** per modificare le **dimensioni** della macchina virtuale e selezionare l'offerta **A2 Basic**. Assicurarsi di cancellare le risorse quando non sono più necessarie per evitare eventuali addebiti imprevisti. Per i carichi di lavoro di produzione, vedere le dimensioni e la configurazione di VM consigliate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
-    ![Dettagli istanza](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![Dettagli dell'istanza](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > Il costo mensile stimato visualizzato nella finestra **Scegli una dimensione** non include i costi di licenza di SQL Server, Questa stima rappresenta solo il costo della VM. Per le edizioni Express e Developer di SQL Server, la stima indica il costo stimato totale. Per altre edizioni, vedere la [pagina dei prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selezionare l'edizione di SQL Server di interesse. Vedere anche il [Guida ai prezzi per macchine virtuali di Azure di SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md) e [dimensioni delle macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -107,7 +107,7 @@ Nel **nozioni di base** scheda, fornire le informazioni seguenti:
 
    ![Account amministratore](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* Sotto **regole porta in ingresso**, scegliere **consentire le porte selezionate** e quindi selezionare **RDP (3389)** dall'elenco a discesa. 
+* In **Regole porta in ingresso** scegliere **Consenti porte selezionate**, quindi selezionare **RDP (3389)** dall'elenco a discesa. 
 
    ![Regole porta in ingresso](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
@@ -158,12 +158,12 @@ Nel **impostazioni di SQL Server** , configurare impostazioni specifiche e le ot
 | Impostazione |
 | --- |
 | [Connettività](#connectivity) |
-| [Authentication](#authentication) |
+| [autenticazione](#authentication) |
 | [Integrazione di Azure Key Vault](#azure-key-vault-integration) |
 | [Configurazione dell'archiviazione](#storage-configuration) |
 | [Applicazione automatica delle patch](#automated-patching) |
-| [Backup automatizzato](#automated-backup) |
-| [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
+| [Backup automatico](#automated-backup) |
+| [R Services (modalità avanzata Analitica)](#r-services-advanced-analytics) |
 
 
 ### <a name="connectivity"></a>Connettività
@@ -211,10 +211,10 @@ La tabella seguente include l'elenco dei parametri necessari per configurare l'i
 
 | PARAMETRO | DESCRIZIONE | ESEMPIO |
 | --- | --- | --- |
-| **URL dell'insieme di credenziali chiave** |Percorso dell'insieme di credenziali delle chiavi. |https:\//contosokeyvault.vault.azure.net/ |
+| **URL dell'insieme di credenziali delle chiavi** |Percorso dell'insieme di credenziali delle chiavi. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome dell'entità** |Nome dell'entità servizio di Azure Active Directory. È detto anche ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Segreto dell'entità** |Nome dell'entità servizio di Azure Active Directory. È detto anche Segreto client. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Credential name (Nome credenziali)** |**Nome credenziali**: L'integrazione dell'insieme di credenziali delle chiavi di Azure crea le credenziali all'interno di SQL Server, consentendo alla VM di accedere all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale. |mycred1 |
+| **Nome credenziali** |**Nome credenziali**: L'integrazione dell'insieme di credenziali delle chiavi di Azure crea le credenziali all'interno di SQL Server, consentendo alla VM di accedere all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale. |mycred1 |
 
 Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).
 
@@ -239,7 +239,7 @@ In **Ottimizzazione dell'archiviazione**selezionare una delle opzioni seguenti:
 
 ![Configurazione dell'archiviazione della macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
-### <a name="sql-server-license"></a>Licenza di SQL Server
+### <a name="sql-server-license"></a>Licenza SQL Server
 Se sei un cliente Software Assurance, è possibile usare la [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) bring your own license per SQL Server e salvare sulle risorse. 
 
 ![Licenza della macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
@@ -276,7 +276,7 @@ Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine 
 
 ## <a name="4-review--create"></a>4. Rivedi e crea
 
-Nel **esaminare + crea** scheda, esaminare il riepilogo e selezionare **crea** creare SQL Server, gruppo di risorse e le risorse specificate per questa macchina virtuale.
+Nella scheda **Rivedi e crea** esaminare il riepilogo e fare clic su **Crea** per creare SQL Server, il gruppo di risorse e le risorse specificati per questa VM.
 
 È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
 

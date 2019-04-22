@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257604"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
@@ -105,6 +105,6 @@ Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
-* [Token utente di collaborazione B2B](user-token.md)
-* [Attestazioni utente di collaborazione B2B di mapping](claims-mapping.md)
+* [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
+* [Token utente in Collaborazione B2B](user-token.md)
+* [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)

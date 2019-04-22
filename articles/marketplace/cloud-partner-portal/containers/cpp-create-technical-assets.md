@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047365"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparare gli asset tecnici del contenitore
@@ -50,7 +50,7 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 È anche consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo in uso:
 
--   [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -66,4 +66,4 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare l'offerta di contenitore](./cpp-create-offer.md)
+[Creare l'offerta per il contenitore](./cpp-create-offer.md)

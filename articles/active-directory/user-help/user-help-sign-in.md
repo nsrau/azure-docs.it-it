@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268355"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Eseguire l'accesso usando la verifica in due passaggi o le informazioni di sicurezza
@@ -26,7 +26,7 @@ Dopo aver impostato la verifica in due passaggi o le informazioni di sicurezza, 
 > [!Note]
 > Se si usa ancora l'esperienza di verifica in due passaggi, è necessario configurare i metodi di autenticazione seguendo le istruzioni riportate nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
 > 
-> Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è necessario impostare i metodi di autenticazione usando questi articoli di procedure dettagliate:<ul><li>[Impostare le tue info di sicurezza da utilizzare un'app di autenticazione](security-info-setup-auth-app.md)</li><li>[Impostare le tue info di sicurezza da utilizzare messaggi di testo](security-info-setup-text-msg.md)</li><li>[Impostare le tue info di sicurezza da utilizzare una chiamata telefonica](security-info-setup-phone-number.md)</li></ul>
+> Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è necessario impostare i metodi di autenticazione usando questi articoli di procedure dettagliate:<ul><li>[Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di SMS](security-info-setup-text-msg.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Eseguire l'accesso usando una notifica dell'app di autenticazione nel dispositivo mobile
 

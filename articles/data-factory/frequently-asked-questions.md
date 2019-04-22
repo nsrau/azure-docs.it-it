@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048215"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
@@ -145,7 +145,7 @@ I flussi di controllo orchestrano le attività della pipeline che includono conc
 
 Per altre informazioni sui concetti relativi a Data Factory, vedere gli articoli seguenti:
 
-- [Set di dati e i servizi collegati](concepts-datasets-linked-services.md)
+- [Set di dati e servizi collegati](concepts-datasets-linked-services.md)
 - [Pipeline e attività](concepts-pipelines-activities.md)
 - [Runtime di integrazione](concepts-integration-runtime.md)
 
@@ -157,7 +157,7 @@ Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguen
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Home page della documentazione](/azure/data-factory)
-- [Home page del prodotto](https://azure.microsoft.com/services/data-factory/)
+- [Home page prodotti](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Approfondimento tecnico 
 

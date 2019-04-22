@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490638"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
@@ -18,7 +18,7 @@ ms.locfileid: "59490638"
 Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descrive come valutare un elevato numero di macchine virtuali (VM) locali con [Azure Migrate](migrate-overview.md).
 
 > [!NOTE]
-> È presente una versione di anteprima disponibile che consente l'individuazione di fino a 10.000 macchine virtuali VMware in un singolo progetto con una singola appliance, ma se si è interessati a provare una prova, iscriversi [qui.](https://aka.ms/migratefuture)
+> È disponibile una versione di anteprima che consente di individuare fino a 10.000 macchine virtuali VMware in un singolo progetto con una singola appliance. Se si è interessati a provarla, iscriversi [qui.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ In caso di individuazione una tantum (ora deprecata), per l'individuazione si us
 
 Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 
-| **Entità** | **Limite del computer** |
+| **Entità** | **Limite di computer** |
 | ---------- | ----------------- |
 | Project    | 1.500             |
 | Individuazione  | 1.500             |

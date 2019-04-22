@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: monhaber
 ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046207"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
@@ -101,7 +101,7 @@ Per eseguire il drill-down in una risorsa:
 1. Quando si seleziona una risorsa specifica nella mappa, si apre il riquadro di destra con informazioni generali sulla risorsa, eventuali soluzioni per la sicurezza della connessione e le raccomandazioni rilevanti per la risorsa. Il comportamento non cambia a seconda del tipo di risorsa selezionato. 
 2. Fare clic su **Traffico** per visualizzare il possibile traffico in ingresso e in uscita sulla risorsa. Questo è l'elenco completo di chi può comunicare con la risorsa, con chi la risorsa può comunicare e tramite quali protocolli e porte. Ad esempio, quando si seleziona una macchina virtuale, tutte le VM che possa comunicare con vengono visualizzati e quando si seleziona una subnet, vengono visualizzate tutte le subnet che possa comunicare con.
 
-**Questi dati si basa sull'analisi dei gruppi di sicurezza di rete, nonché avanzati algoritmi di machine learning che analizzano più regole per comprendere le crossover e interazioni.** 
+**Questi dati si basano sull'analisi dei gruppi di sicurezza di rete nonché sugli algoritmi di machine learning avanzati che analizzano più regole per comprendere incroci e interazioni.** 
 
 ![Mappa del traffico di rete](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -145,8 +145,8 @@ VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblic
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
-* [Protezione delle applicazioni nel Centro sicurezza di Azure](security-center-application-recommendations.md)
-* [Proteggere il servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
+* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+* [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

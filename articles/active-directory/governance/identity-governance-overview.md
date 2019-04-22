@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045485"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Informazioni su Azure AD Identity Governance
@@ -68,20 +68,20 @@ Azure AD Privileged Identity Management (PIM) fornisce controlli aggiuntivi mira
 
 Sebbene non esista una soluzione o una raccomandazione perfetta per ogni cliente, le configurazioni seguenti rappresentano una guida sui criteri di base consigliati da Microsoft per migliorare la sicurezza e la produttività della forza lavoro.
 
-- [Configurazioni di accesso di identità e dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurazioni di identità e accesso dei dispositivi](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Protezione dell'accesso con privilegi](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Verifiche di accesso
 
-- [Informazioni sulla verifica di accesso](access-reviews-overview.md)
+- [Informazioni sulle verifiche di accesso](access-reviews-overview.md)
 - [Gestire l'accesso utente con le verifiche di accesso](manage-user-access-with-access-reviews.md)
-- [Gestire l'accesso guest con verifiche di accesso](manage-guest-access-with-access-reviews.md)
+- [Gestire l'accesso guest con le verifiche di accesso](manage-guest-access-with-access-reviews.md)
 - [Avviare una verifica di accesso dei ruoli di Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-- [Quali operazioni si possono eseguire con Condizioni per l'utilizzo?](../conditional-access/terms-of-use.md)
+- [Operazioni supportate da Condizioni per l'utilizzo](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

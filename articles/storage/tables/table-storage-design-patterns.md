@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271629"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
@@ -71,7 +71,7 @@ Usare questo modello quando l'applicazione client deve recuperare le entità usa
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern)
+* [Modello per indice secondario interpartizione](#inter-partition-secondary-index-pattern)
 * [Modello per chiave composta](#compound-key-pattern)
 * Transazioni dei gruppi di entità
 * [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types)
@@ -197,7 +197,7 @@ Per attivare la ricerca per cognome con la struttura delle entità illustrata in
 * Creare entità di indice nella stessa partizione delle entità dipendente.  
 * Creare entità di indice in una tabella o una partizione separata.  
 
-<u>Opzione #1: Usare l'archiviazione BLOB</u>  
+<u>Opzione 1: usare l'archiviazione BLOB</u>  
 
 Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e archiviare in ogni BLOB un elenco dei valori **PartitionKey** (reparto) e **RowKey** (ID dipendente) per i dipendenti con questo cognome. Quando si aggiunge o elimina un dipendente, è necessario verificare la coerenza finale tra il contenuto del BLOB pertinente e le entità dipendente.  
 
@@ -362,7 +362,7 @@ Usare questo modello quando si desidera accedere alle entità in ordine di data/
 ### <a name="related-patterns-and-guidance"></a>Modelli correlati e informazioni aggiuntive
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti:  
 
-* [Prepend / append anti-pattern](#prepend-append-anti-pattern)  
+* [Anti-modello prepend/append](#prepend-append-anti-pattern)  
 * [Recupero di entità](#retrieving-entities)  
 
 ## <a name="high-volume-delete-pattern"></a>Modello di eliminazione volume elevato

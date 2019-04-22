@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490394"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usare un progetto di database U-SQL per sviluppare un database U-SQL per Azure Data Lake
@@ -92,7 +92,7 @@ Il pacchetto .usqldbpack può essere distribuito in un account locale o in un ac
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Distribuire il database U-SQL usando l'SDK
 
-`PackageDeploymentTool.exe` fornisce la programmazione e interfacce della riga di comando che consentono di distribuire i database U-SQL. L'SDK è incluso nel [pacchetto Nuget U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), disponibile in `build/runtime/PackageDeploymentTool.exe`.
+`PackageDeploymentTool.exe` offre le interfacce di programmazione e della riga di comando che consentono di distribuire database U-SQL. L'SDK è incluso nel [pacchetto Nuget U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), disponibile in `build/runtime/PackageDeploymentTool.exe`.
 
 [Altre informazioni sull'SDK e su come configurare la pipeline CI/CD per la distribuzione di database U-SQL](data-lake-analytics-cicd-overview.md).
 
@@ -116,6 +116,6 @@ Un progetto U-SQL può fare riferimento a un progetto di database U-SQL. Il rife
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Come configurare una pipeline di CI/CD per Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
-- [Come testare il codice di Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
+- [Come configurare una pipeline CI/CD per Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
+- [How to test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md) (Come testare il codice di Azure Data Lake Analytics)
 - [Eseguire lo script U-SQL sul computer locale](data-lake-analytics-data-lake-tools-local-run.md)

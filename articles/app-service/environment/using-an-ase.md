@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630666"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678089"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -137,7 +137,7 @@ Con un ambiente del servizio app esterno, queste opzioni di pubblicazione hanno 
 
 La grande differenza dal punto di vista della pubblicazione è negli ambienti del servizio app con bilanciamento del carico interno. Con un ambiente del servizio app con bilanciamento del carico interno gli endpoint di pubblicazione sono tutti disponibili solo tramite il servizio di bilanciamento del carico interno. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si ha accesso di rete al servizio di bilanciamento del carico interno, non è possibile pubblicare app in tale ambiente del servizio app. Come indicato in [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app con bilanciamento del carico interno), è necessario configurare DNS per le app nel sistema, incluso l'endpoint Gestione controllo servizi. Se non definiti correttamente, non è possibile pubblicarli. Gli ambienti di sviluppo integrato devono anche avere accesso di rete al servizio di bilanciamento del carico interno per potervi eseguire direttamente la pubblicazione.
 
-I sistemi di integrazione continua basati su Internet, ad esempio GitHub e Azure DevOps, non funzionano con un ambiente del servizio app con bilanciamento del carico interno perché l'endpoint di pubblicazione non è accessibile tramite Internet. È invece necessario usare un sistema di integrazione continua che usa un modello pull, ad esempio Dropbox.
+Per impostazione predefinita, i sistemi di integrazione continua basati su Internet, ad esempio GitHub e DevOps di Azure, non funzionano con un ambiente del servizio App ILB perché l'endpoint di pubblicazione non è accessibile tramite Internet. Per DevOps di Azure, è possibile risolvere il problema installando un agente di rilascio self-hosted nella rete interna in cui poter raggiungere il bilanciamento del carico interno. In alternativa, è anche possibile usare un sistema di integrazione continua che usa un modello pull, ad esempio Dropbox.
 
 Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà**). 
 

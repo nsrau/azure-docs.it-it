@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
 ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268722"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
@@ -80,9 +80,9 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 ## <a name="get-started-with-availability-zones"></a>Introduzione alle zone di disponibilità
 - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Creare un set di scalabilità di macchine virtuali con ridondanza della zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bilanciare il carico le macchine virtuali tra zone usando un Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Bilanciare il carico le macchine virtuali entro una zona tramite un Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
 - [Database SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
@@ -91,4 +91,4 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Modelli di Guida introduttiva](https://aka.ms/azqs)
+- [Modelli di avvio rapido](https://aka.ms/azqs)

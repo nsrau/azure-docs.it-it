@@ -4,15 +4,15 @@ description: Questo articolo descrive come creare e usare i database, i contenit
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762906"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678795"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Usare database, contenitori ed elementi
 
@@ -61,7 +61,7 @@ Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza
 
 Usando [Feed di modifiche](change-feed.md), è possibile sottoscrivere i log operazioni gestito per ogni partizione logiche del contenitore. Il feed di modifiche offre il registro di tutti gli aggiornamenti eseguiti sul contenitore insieme alle immagini precedente e successiva degli elementi. Visualizzare [come creare applicazioni reattive con Feed delle modifiche](serverless-computing-database.md). È anche possibile configurare la durata della conservazione per il Feed di modifica usando il criterio per il contenitore di feed di modifiche. 
 
-È possibile registrare [stored procedure, trigger, funzioni definite dall'utente (UDF)](stored-procedures-triggers-udfs.md) e [merge procedure](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) dal contenitore di Azure Cosmos. 
+È possibile registrare [stored procedure, trigger, funzioni definite dall'utente (UDF)](stored-procedures-triggers-udfs.md) e [merge procedure](how-to-manage-conflicts.md) dal contenitore di Azure Cosmos. 
 
 È possibile specificare una [vincolo di chiave univoca](unique-keys.md) del contenitore di Azure Cosmos. Se si crea una chiave univoca, si ha la sicurezza che uno o più valori siano univoci per ogni chiave di partizione logica. Dopo avere creato un contenitore con criteri di chiave univoca, non è infatti possibile creare o aggiornare elementi con valori che duplicano quelli specificati dal vincolo di chiave univoca. Per altre informazioni, vedere [Unique key constraints](unique-keys.md) (Vincoli di chiave univoca).
 
@@ -117,7 +117,7 @@ Ogni elemento Azure Cosmos DB dispone delle proprietà definite dal sistema segu
 |_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
 |_ts | Generata dal sistema | Il timestamp dell'ultimo aggiornamento dell'elemento | Sì | No  | No  | No  | No  |
 |_self | Generata dal sistema | URI indirizzabile dell'elemento | Sì | No  | No  | No  | No  |
-|id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'id, il sistema ne genererà uno automaticamente. | Sì | Sì | Sì | Sì | Sì |
+|id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'ID, il sistema genererà automaticamente uno. | Sì | Sì | Sì | Sì | Sì |
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (JSON, BSON, CQL e così via) | Sì | Sì | Sì | Sì | Sì |
 
 ### <a name="operations-on-items"></a>Operazioni sugli elementi

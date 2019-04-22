@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/02/2019
 ms.author: aljo
 ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275495"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
@@ -92,9 +92,9 @@ Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-c
 Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire le app.
 
 * [Informazioni su come creare, distribuire e gestire le applicazioni](service-fabric-tutorial-create-dotnet-app.md)
-* [I modelli di programmazione le informazioni seguenti: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
-* [Consultare gli esempi di codice di Service Fabric su GitHub](https://aka.ms/servicefabricsamples)
-* [Visualizzare il cluster usando Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Informazioni sui modelli di programmazione: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
+* [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
+* [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"

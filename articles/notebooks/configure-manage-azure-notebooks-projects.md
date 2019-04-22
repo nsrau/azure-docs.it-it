@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268008"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
@@ -95,9 +95,9 @@ Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuov
 
 | Tipo di elemento | DESCRIZIONE | Comportamento del comando |
 | --- | --- | --- |
-| **Blocco appunti** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
+| **Notebook** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
 | **Cartella** | Una sottocartella | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome della cartella. |
-| **File vuoto.** | Un file in cui è possibile archiviare qualsiasi contenuto, tra cui testo, dati e così via. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
+| **File vuoto** | Un file in cui è possibile archiviare qualsiasi contenuto, tra cui testo, dati e così via. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 | **Markdown** | Un file markdown. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 
 ### <a name="upload-files"></a>Caricare file

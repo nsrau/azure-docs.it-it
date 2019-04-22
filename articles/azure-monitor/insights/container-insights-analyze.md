@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426393"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori 
@@ -61,17 +61,17 @@ La tabella seguente fornisce i dettagli del calcolo controllando gli stati di in
 
 | |Stato |Disponibilità |  
 |-------|-------|-----------------|  
-|**Utente Pod**| | |  
+|**Pod utente**| | |  
 | |Healthy |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
-|**Sistema Pod**| | |  
+|**Pod sistema**| | |  
 | |Healthy |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
-|**Nodo** | | |
+|**Node** | | |
 | |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |

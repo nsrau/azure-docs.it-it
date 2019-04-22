@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046736"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuire una macchina virtuale di Azure dal disco rigido virtuale di un utente
@@ -31,7 +31,7 @@ Questo articolo illustra come distribuire un'immagine di disco rigido virtuale g
 
 Copiare il modello di Azure Resource Manager per la [distribuzione del disco rigido virtuale](cpp-deploy-json-template.md) in un file locale denominato `VHDtoImage.json`.  Modificare questo file per specificare i valori per i parametri seguenti. 
 
-|  **Parametro**             |   **Description**                                                              |
+|  **Parametro**             |   **Descrizione**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | Nome del gruppo di risorse di Azure esistente.  In genere si usa lo stesso gruppo di replica associato all'insieme di credenziali delle chiavi  |
 | TemplateFile               | Percorso completo del file `VHDtoImage.json`                                    |
@@ -42,7 +42,7 @@ Copiare il modello di Azure Resource Manager per la [distribuzione del disco rig
 | vmName                     | Nome della macchina virtuale                                                    |
 | vaultName                  | Nome dell'insieme di credenziali delle chiavi                                                          |
 | vaultResourceGroup         | Gruppo di risorse dell'insieme di credenziali delle chiavi
-| certificateUrl             | URL del certificato, tra cui versione archiviata nell'insieme di credenziali chiave, ad esempio:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | URL del certificato, inclusa la versione archiviata nell'insieme di credenziali delle chiavi, ad esempio: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL del disco rigido virtuale                                                   |
 | vmSize                     | Dimensione dell'istanza di macchina virtuale                                           |
 | publicIPAddressName        | Nome dell'indirizzo IP pubblico                                                  |

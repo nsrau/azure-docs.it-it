@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731090"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678905"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni ‎commerciali di Azure Marketplace
 
@@ -44,7 +44,7 @@ Oltre alle opzioni di pubblicazione di inserzioni e valutazioni, per gli editori
 
 ## <a name="transact-general-overview"></a>Panoramica generale sulle transazioni
 
-Quando si usa l'opzione di pubblicazione delle transazioni, Microsoft consente la vendita e la distribuzione di software di terze parti nella sottoscrizione di Azure del cliente. L'editore deve considerare la fatturazione dei costi di infrastruttura di Azure e i costi di licenza software propri dell'editore, quando si seleziona un modello di fatturazione e il tipo di offerta in Azure Marketplace. 
+Quando si usa l'opzione di pubblicazione transazione, Microsoft ti offre la vendita di software di terze parti e la distribuzione di alcuni tipi di offerta di sottoscrizione di Azure del cliente. L'editore deve considerare la fatturazione dei costi di infrastruttura di Azure e i costi di licenza software propri dell'editore, quando si seleziona un modello di fatturazione e il tipo di offerta in Azure Marketplace.
 
 L'opzione di pubblicazione delle transazioni in Azure Marketplace è attualmente supportata per i tipi di offerte seguenti: macchine virtuali, applicazioni di Azure o app SaaS.
 
@@ -58,7 +58,7 @@ Per le macchine virtuali e le applicazioni Azure, i costi di utilizzo dell'infra
 
 **Per le app SaaS**
 
-Per le app SaaS, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  presentata al cliente come tariffa mensile fissa. L'utilizzo dell'infrastruttura di Azure viene gestita e fatturata direttamente al partner.  I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente.  Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software.  I costi di licenza software non vengono calcolati in base al consumo.
+Per le app SaaS, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  Essa viene rappresentata come una tariffa fissa al cliente. L'utilizzo dell'infrastruttura di Azure viene gestita e fatturata direttamente al partner.  I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente.  Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software.  I costi di licenza software non vengono calcolati in base al consumo.
 
 ## <a name="transact-billing-models"></a>Modelli di fatturazione delle transazioni
 

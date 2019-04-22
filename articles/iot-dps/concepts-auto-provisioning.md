@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051734"
 ---
 # <a name="auto-provisioning-concepts"></a>Concetti relativi al provisioning automatico
@@ -51,7 +51,7 @@ Nel sommario a sinistra è disponibile una serie di guide introduttive che conse
 |------| --------- | ------------|
 | Produttore | Codifica dell'identità e dell'URL di registrazione | In base al meccanismo di attestazione usato, il produttore è responsabile di codificare le informazioni di identità del dispositivo e l'URL di registrazione del servizio Device Provisioning.<br><br>**Guide introduttive**: poiché il dispositivo è simulato, il ruolo Produttore non esiste. Vedere il ruolo Sviluppatore per istruzioni su come ottenere queste informazioni, usate nel processo di codifica di un'applicazione di registrazione di esempio. |
 | | Assegnazione dell'identità del dispositivo | In qualità di autore delle informazioni sull'identità del dispositivo, il produttore è responsabile di comunicarle all'operatore (o a un agente designato) o di registrarle direttamente nel servizio Device Provisioning tramite API.<br><br>**Guide introduttive**: poiché il dispositivo è simulato, il ruolo Produttore non esiste. Vedere il ruolo Sviluppatore per informazioni su come ottenere l'identità del dispositivo, usata per registrare un dispositivo simulato nell'istanza del servizio Device Provisioning. |
-| Operatore | Configurazione del provisioning automatico | Questa operazione corrisponde alla prima fase del provisioning automatico.<br><br>**Guide introduttive**: l'utente svolge il ruolo di operatore configurando le istanze del servizio Device Provisioning e dell'hub IoT nella sottoscrizione di Azure. |
+| Operator | Configurazione del provisioning automatico | Questa operazione corrisponde alla prima fase del provisioning automatico.<br><br>**Guide introduttive**: l'utente svolge il ruolo di operatore configurando le istanze del servizio Device Provisioning e dell'hub IoT nella sottoscrizione di Azure. |
 |  | Registrazione dell'identità del dispositivo | Questa operazione corrisponde alla seconda fase del provisioning automatico.<br><br>**Guide introduttive**: l'utente svolge il ruolo di operatore registrando il dispositivo simulato nell'istanza del servizio Device Provisioning. L'identità del dispositivo è determinata dal metodo di attestazione simulata nella guida introduttiva (TPM o X.509). Vedere il ruolo Sviluppatore per informazioni dettagliate sull'attestazione. |
 | Servizio Device Provisioning,<br>Hub IoT | \<tutte le operazioni\> | Sia in un'implementazione di produzione con dispositivi fisici che in guide rapide con dispositivi simulati, questi ruoli vengono svolti tramite i servizi IoT configurati nella sottoscrizione di Azure. Il funzionamento dei ruoli e delle operazioni, infatti, è identico, poiché è indifferente per i servizi IoT che venga eseguito il provisioning di dispositivi fisici o simulati. |
 | Developer | Compilazione/distribuzione del software di registrazione | Questa operazione corrisponde alla terza fase del provisioning automatico. Lo sviluppatore è responsabile della compilazione e della distribuzione del software di registrazione nel dispositivo tramite l'SDK appropriato.<br><br>**Guide introduttive**: l'applicazione di registrazione di esempio creata simula un dispositivo reale (per la piattaforma e il linguaggio scelti), che viene eseguito nella workstation anziché essere distribuito in un dispositivo fisico. L'applicazione di registrazione esegue le stesse operazioni che svolgerebbe se fosse stata distribuita in un dispositivo fisico. Si specifica il metodo di attestazione (certificato X.509 o TPM), nonché l'URL di registrazione e "l'ambito ID" dell'istanza del servizio Device Provisioning. L'identità del dispositivo è determinata dalla logica di attestazione dell'SDK in fase di runtime, basata sul metodo specificato: <ul><li>**Attestazione TPM**: la workstation di sviluppo viene eseguita su un'[applicazione del simulatore TPM](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Successivamente, viene usata un'applicazione separata per estrarre la "chiave di verifica dell'autenticità" del TPM e "l'ID di registrazione" da usare per la registrazione dell'identità del dispositivo. La logica di attestazione dell'SDK usa il simulatore anche durante la procedura di registrazione per presentare un token di firma di accesso condiviso firmato per l'autenticazione e la verifica della registrazione.</li><li>**Attestazione X509**: si usa uno strumento per [generare un certificato](how-to-use-sdk-tools.md#x509-certificate-generator) e, successivamente, si crea il file del certificato da usare nella procedura di registrazione. La logica di attestazione dell'SDK usa il certificato anche durante la procedura di registrazione per presentarlo per l'autenticazione e la verifica della registrazione.</li></ul> |
@@ -97,7 +97,7 @@ Può risultare utile aggiungere un segnalibro a questo articolo per usarlo come 
 
 Per iniziare, completare la guida introduttiva "Configurare il provisioning automatico" relativa allo strumento di gestione in uso, che copre la fase "Configurazione del servizio":
 
-- [Configurare il provisioning automatico usando Azure CLI](quick-setup-auto-provision-cli.md)
+- [Configurare il provisioning automatico usando l'interfaccia della riga di comando di Azure](quick-setup-auto-provision-cli.md)
 - [Configurare il provisioning automatico usando il portale di Azure](quick-setup-auto-provision.md)
 - [Configurare il provisioning automatico usando un modello di Resource Manager](quick-setup-auto-provision-rm.md)
 

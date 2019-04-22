@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
 ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049182"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Aumentare o ridurre un cluster
@@ -195,7 +195,7 @@ else
 }
 ```
 
-Nel **sfctl** codice sotto, il comando seguente viene usato per ottenere il **-nome del nodo** valore l'ultimo nodo creato: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+Nel codice **sfctl** riportato più avanti il comando seguente viene usato per ottenere il valore **node-name** dell'ultimo nodo creato: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -261,9 +261,9 @@ Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-c
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla pianificazione della capacità del cluster, l'aggiornamento di un cluster e il partizionamento dei servizi, vedere gli articoli seguenti:
 
-* [Pianificare la capacità del cluster](service-fabric-cluster-capacity.md)
-* [Aggiornamenti dei cluster](service-fabric-cluster-upgrade.md)
-* [Partizionare Reliable services per la massima scalabilità](service-fabric-concepts-partitioning.md)
+* [Considerazioni sulla pianificazione della capacità del cluster di Service Fabric](service-fabric-cluster-capacity.md)
+* [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md)
+* [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

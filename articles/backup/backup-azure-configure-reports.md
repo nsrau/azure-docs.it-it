@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278826"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
@@ -150,6 +150,6 @@ Sì, è possibile configurare lo stesso account di archiviazione per vari insiem
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato l'account di archiviazione e importato il pacchetto di contenuto Backup di Azure, il passaggio successivo consiste nel personalizzare i report e usare il modello di dati per creare report. Per altre informazioni, vedere gli articoli seguenti.
 
-* [Usare un Backup di Azure dei dati modello di report](backup-azure-reports-data-model.md)
-* [Filtrare i report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Creare report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
+* [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273414"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Creare e gestire chiavi API per un servizio di ricerca di Azure
@@ -97,6 +97,6 @@ I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: propriet
 
 ## <a name="see-also"></a>Vedere anche 
 
-+ [Controllo degli accessi in base al ruolo in ricerca di Azure](search-security-rbac.md)
++ [Controllo degli accessi in base al ruolo in Ricerca di Azure](search-security-rbac.md)
 + [Gestire usando PowerShell](search-manage-powershell.md) 
 + [Articolo su prestazioni e ottimizzazione](search-performance-optimization.md)

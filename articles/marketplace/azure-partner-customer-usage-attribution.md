@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050153"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
@@ -316,11 +316,11 @@ Verrà contattati da un consulente tecnico del Partner Microsoft per configurare
 
 ## <a name="faq"></a>Domande frequenti
 
-**Che cos'è il vantaggio dell'aggiunta di GUID per il modello?**
+**Qual è il vantaggio dell'aggiunta di GUID al modello?**
 
 Microsoft offre ai partner con una visualizzazione delle distribuzioni dei clienti di soluzioni e informazioni dettagliate sul loro utilizzo influenced. Microsoft e il partner possono usare queste informazioni per aumentare l'engagement tra i team di vendita. Microsoft e il partner possono anche usare i dati per ottenere un'idea più coerente dell'impatto di un singolo partner sulla crescita di Azure.
 
-**Dopo aver aggiunto un GUID, è possibile modificarlo?**
+**Dopo essere stato aggiunto, un GUID può essere modificato?**
 
 Sì, un cliente o un partner di implementazione può personalizzare il modello e può modificare o rimuovere il GUID. È consigliabile che i partner descrivono in modo proattivo il ruolo della risorsa e GUID ai propri clienti e partner per impedire la rimozione o modifica al GUID. La modifica del GUID ha effetto solo su implementazioni e risorse nuove e non esistenti.
 
@@ -328,7 +328,7 @@ Sì, un cliente o un partner di implementazione può personalizzare il modello e
 
 Sì, se il GUID è presente quando il modello viene distribuito, viene rilevato il suo utilizzo. I partner devono disporre di un profilo nel CPP per registrare i GUID utilizzati per la distribuzione all'esterno di Azure Marketplace.
 
-**Il cliente riceve anche reporting?**
+**Il cliente riceve anche la funzione di creazione report?**
 
 I clienti sono in grado di rilevare l'utilizzo di singole risorse o gruppi di risorse definiti dall'utente all'interno del portale di Azure.
 
@@ -336,7 +336,7 @@ I clienti sono in grado di rilevare l'utilizzo di singole risorse o gruppi di ri
 
 Questo nuovo metodo per collegare la distribuzione e l'utilizzo alla soluzione di un partner fornisce un meccanismo per collegare una soluzione partner all'utilizzo di Azure. DPOR intende associare un partner di consulenza (integratore di sistemi) o di gestione (provider di servizio gestito) all'abbonamento Azure di un cliente.
 
-**Che cos'è il vantaggio dell'utilizzo di form generatore di GUID dell'archiviazione di Azure?**
+**Quali vantaggi offre l'utilizzo del form per il generatore di GUID di Archiviazione di Azure?**
 
 Il form per il generatore di GUID di Archiviazione di Azure garantisce la generazione di un GUID del formato richiesto. Se si usa uno dei metodi di rilevamento del piano dati di Archiviazione di Azure, inoltre, è possibile usare lo stesso GUID per il rilevamento del piano di controllo del Marketplace. In questo modo, è possibile usare un GUID unificato per l'attribuzione dei partner, senza dover gestire GUID separati.
 

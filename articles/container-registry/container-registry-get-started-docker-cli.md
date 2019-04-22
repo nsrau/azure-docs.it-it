@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282696"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
@@ -130,7 +130,7 @@ Una volta apprese le nozioni di base, si è pronti per iniziare a usare il regis
 * [Istanze di Azure Container](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Facoltativamente, installare il [estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e il [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) estensioni utilizzabili con i registri contenitori di Azure. Eseguire il pull e push delle immagini in un registro contenitori di Azure o eseguire attività di registro contenitori di AZURE, tutto all'interno di Visual Studio Code.
+Installare eventualmente l'[estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e l'estensione [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) per l'uso dei registri contenitori di Azure. Eseguire il pull e il push delle immagini in un registro contenitori di Azure o eseguire Attività del Registro Azure Container, il tutto all'interno di Visual Studio Code.
 
 
 <!-- LINKS - external -->

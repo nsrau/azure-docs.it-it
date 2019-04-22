@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045697"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
@@ -39,7 +39,7 @@ Questo articolo illustra come effettuare il provisioning dei certificati autofir
 
 Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file di certificato (con estensione pfx) in una cartella locale.  Sarà necessario sostituire i valori per i parametri seguenti:
 
-|  **Parametro**        |   **DESCRIZIONE**                                                               |
+|  **Parametro**        |   **Descrizione**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Cartella locale in cui salvare il file con estensione pfx  |
 | `$location`    | Una delle posizioni geografiche standard di Azure  |
@@ -85,7 +85,7 @@ Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file
 
 Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali delle chiavi](./cpp-key-vault-deploy-template.md) in un file nel computer locale. Nello script di esempio riportato di seguito questa risorsa è `C:\certLocation\keyvault.json`.  Modificare ed eseguire lo script di Azure PowerShell seguente per creare un'istanza di Azure Key Vault e il gruppo di risorse associato.  Sarà necessario sostituire i valori per i parametri seguenti:
 
-|  **Parametro**        |   **DESCRIZIONE**                                                               |
+|  **Parametro**        |   **Descrizione**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Stringa numerica arbitraria accodata agli identificatori della distribuzione                     |
 | `$rgName`             | Nome del gruppo di risorse di Azure da creare                                        |

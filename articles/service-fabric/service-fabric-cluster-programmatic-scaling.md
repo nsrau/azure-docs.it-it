@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047940"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
@@ -34,9 +34,9 @@ Un problema in fase di scrittura di un servizio per gestire la scalabilità è c
 È possibile creare un'entità servizio con i passaggi seguenti:
 
 1. Accedere all'interfaccia della riga di comando di Azure (`az login`) come utente con accesso al set di scalabilità di macchine virtuali
-2. Creare un'entità con il servizio `az ad sp create-for-rbac`
+2. Creare l'entità servizio con `az ad sp create-for-rbac`
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
-    2. È necessario anche l'ID sottoscrizione, che può essere visualizzato con `az account list`
+    2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
 La libreria di calcolo Fluent può eseguire l'accesso usando queste credenziali come indicato di seguito. Si noti che i tipi di Azure fluent principali, ad esempio `IAzure`, sono nel pacchetto [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/):
 

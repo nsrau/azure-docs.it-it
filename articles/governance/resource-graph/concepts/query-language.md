@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276678"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
@@ -29,18 +29,18 @@ Ecco l'elenco degli operatori tabulari supportati in Resource Graph:
 - [distinct](/azure/kusto/query/distinctoperator)
 - [extend](/azure/kusto/query/extendoperator)
 - [limit](/azure/kusto/query/limitoperator)
-- [clausola Order by](/azure/kusto/query/orderoperator)
+- [order by](/azure/kusto/query/orderoperator)
 - [project](/azure/kusto/query/projectoperator)
-- [Project-away](/azure/kusto/query/projectawayoperator)
+- [project-away](/azure/kusto/query/projectawayoperator)
 - [sample](/azure/kusto/query/sampleoperator)
-- [esempio-distinct](/azure/kusto/query/sampledistinctoperator)
-- [ordina per](/azure/kusto/query/sortoperator)
+- [sample-distinct](/azure/kusto/query/sampledistinctoperator)
+- [sort by](/azure/kusto/query/sortoperator)
 - [summarize](/azure/kusto/query/summarizeoperator)
 - [take](/azure/kusto/query/takeoperator)
 - [top](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)
-- [Top-hitters](/azure/kusto/query/tophittersoperator)
-- [dove](/azure/kusto/query/whereoperator)
+- [top-hitters](/azure/kusto/query/tophittersoperator)
+- [where](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Funzioni supportate
 

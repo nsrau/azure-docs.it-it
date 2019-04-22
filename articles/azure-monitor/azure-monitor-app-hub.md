@@ -11,10 +11,10 @@ ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
 ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426274"
 ---
 <div id="main" class="v2">
@@ -86,12 +86,12 @@ ms.locfileid: "59426274"
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
-                                                            <a href="./app/website-monitoring.md">Il monitoraggio client/browser-side</a>
+                                                            <a href="./app/website-monitoring.md">Monitoraggio sul lato browser/client</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Esercitazioni</h3>
                                                         <p>
-                                                            <a href="./learn/tutorial-runtime-exceptions.md">Trovare e diagnosticare le eccezioni in fase di esecuzione</a><br>
+                                                            <a href="./learn/tutorial-runtime-exceptions.md">Rilevare e diagnosticare le eccezioni di run-time </a><br>
                                                             <a href="./learn/tutorial-performance.md">Rilevare e diagnosticare i problemi di prestazioni</a><br>
                                                             <a href="./learn/tutorial-alert.md">Monitorare e inviare avvisi sullo stato di integrità dell'applicazione</a><br>
                                                             <a href="./learn/tutorial-users.md">Comprendere il comportamento degli utenti</a><br>
@@ -100,7 +100,7 @@ ms.locfileid: "59426274"
                                                         <br><br>
                                                         <h3>Analisi distribuita</h3>
                                                         <p>
-                                                            <a href="./app/distributed-tracing.md">Che cos'è analisi è distribuita?</a><br>
+                                                            <a href="./app/distributed-tracing.md">Che cos'è la traccia distribuita?</a><br>
                                                             <a href="./app/opencensus-python.md">OpenCensus per Python</a><br>
                                                             <a href="./app/opencensus-go.md">OpenCensus per Go</a><br>
                                                             <a href="./app/opencensus-local-forwarder.md">Server d'inoltro locale</a>
@@ -110,7 +110,7 @@ ms.locfileid: "59426274"
                                                         <p>
                                                             <a href="./app/proactive-failure-diagnostics.md">Anomalie degli errori</a><br>
                                                             <a href="./app/proactive-performance-diagnostics.md">Anomalie delle prestazioni</a><br>
-                                                            <a href="./app/proactive-trace-severity.md">Riduzione di traccia</a><br>
+                                                            <a href="./app/proactive-trace-severity.md">Riduzione delle prestazioni di traccia</a><br>
                                                             <a href="./app/proactive-exception-volume.md">Incrementi anomali nelle eccezioni</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">Perdite di memoria</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">Basso utilizzo della CPU</a><br>
@@ -138,47 +138,47 @@ ms.locfileid: "59426274"
                                                     <div class="cardText">
                                                         <h3>Applicazioni Java</h3>
                                                         <p>
-                                                            <a href="./app/java-get-started.md">Configurazione di monitoraggio dettagliata</a><br>
-                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Utilità di avvio Spring Boot</a><br>
-                                                            <a href="./app/micrometer-java.md">Metriche micrometro</a><br>
+                                                            <a href="./app/java-get-started.md">Configurazione dettagliata del monitoraggio</a><br>
+                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot Initializer</a><br>
+                                                            <a href="./app/micrometer-java.md">Metriche di Micrometer</a><br>
                                                             <a href="./app/java-filter-telemetry.md">Filtrare i dati di telemetria</a><br>
                                                             <a href="./app/java-trace-logs.md">Registrazione della traccia</a><br>
-                                                            <a href="./app/java-agent.md">Configurazione dell'agente per tenere traccia delle dipendenze</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Metrica ed eventi personalizzati</a><br>
+                                                            <a href="./app/java-agent.md">Configurazione dell'agente per il rilevamento delle dipendenze</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Config. Xml</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">Aprire il repository GitHub di origine Java SDK</a>
+">Config.xml</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">Repository GitHub per Java SDK open source</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Applicazioni .NET</h3>
                                                         <p>
-                                                            <a href="./app/asp-net.md">Configurazione di monitoraggio dettagliata</a><br>
-                                                            <a href="./app/monitor-performance-live-website-now.md">Monitoraggio stato</a><br>
-                                                            <a href="./app/azure-web-apps.md">Monitoraggio del servizio App</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Metrica ed eventi personalizzati</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Aprire il repository GitHub di SDK .NET di origine</a>
+                                                            <a href="./app/asp-net.md">Configurazione dettagliata del monitoraggio</a><br>
+                                                            <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
+                                                            <a href="./app/azure-web-apps.md">Monitoraggio del servizio app</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Repository GitHub per .NET SDK open source</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>Applicazioni .NET Core</h3>
                                                         <p>
-                                                            <a href="./app/asp-net-core.md">Configurazione di monitoraggio dettagliata</a><br>
-                                                            <a href="./app/profiler-aspnetcore-linux.md">Profiling di ASP.NET Core</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Metrica ed eventi personalizzati</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">Open Source .NET Core SDK GitHub repository</a>
+                                                            <a href="./app/asp-net-core.md">Configurazione dettagliata del monitoraggio</a><br>
+                                                            <a href="./app/profiler-aspnetcore-linux.md">Profilatura di ASP.NET Core</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">Repository GitHub per .NET Core SDK open source</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>Applicazioni Node.js</h3>
                                                         <p>
-                                                            <a href="./app/nodejs.md">Configurazione di monitoraggio dettagliata</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Metrica ed eventi personalizzati</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">Repository GitHub di origine Node. js SDK di Apri</a>
+                                                            <a href="./app/nodejs.md">Configurazione dettagliata del monitoraggio</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">Repository GitHub per Node.js SDK open source</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Monitoraggio sul lato client/browser</h3>
                                                         <p>
-                                                            <a href="./app/javascript.md">Configurazione di monitoraggio dettagliata</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">Metrica ed eventi personalizzati</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">Repository GitHub di origine JavaScript SDK di Apri</a><br>
+                                                            <a href="./app/javascript.md">Configurazione dettagliata del monitoraggio</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">Repository GitHub per JavaScript SDK open source</a><br>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -192,47 +192,47 @@ ms.locfileid: "59426274"
                                                     <div class="cardText">
                                                         <h3>Analisi del comportamento degli utenti</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Panoramica</a><br>
-                                                            <a href="./app/usage-send-user-context.md">Inviare ID contesto utente</a><br>
-                                                            <a href="./app/usage-segmentation.md">Gli utenti, sessioni ed eventi</a><br>
+                                                            <a href="./app/usage-overview.md">Overview</a><br>
+                                                            <a href="./app/usage-send-user-context.md">Inviare gli ID di contesto utente</a><br>
+                                                            <a href="./app/usage-segmentation.md">Utenti, sessioni ed eventi</a><br>
                                                             <a href="./app/usage-funnels.md">Grafici a imbuto</a><br>
-                                                            <a href="./app/usage-cohorts.md">Coorte</a><br>
+                                                            <a href="./app/usage-cohorts.md">Coorti</a><br>
                                                             <a href="./app/usage-impact.md">Impatto</a><br>
                                                             <a href="./app/usage-retention.md">Conservazione</a><br>
-                                                            <a href="./app/usage-flows.md">Flussi degli utenti</a>
+                                                            <a href="./app/usage-flows.md">Flussi utente</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Monitoraggio in tempo reale,<br> visualizzazione e analisi</h3>
                                                         <p>
-                                                            <a href="./app/overview-dashboard.md">Dashboard di panoramica &amp; dashboard dell'applicazione</a><br>
+                                                            <a href="./app/overview-dashboard.md">Dashboard panoramica e dashboard dell'applicazione</a><br>
                                                             <a href="./app/monitor-web-app-availability.md">Monitoraggio della disponibilità globale</a><br>
                                                             <a href="./app/live-stream.md">Flusso metriche attive</a><br>
-                                                            <a href="./app/app-map.md">Mapping di app distribuite</a><br>
+                                                            <a href="./app/app-map.md">Mapping delle app distribuite</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">Monitoraggio a livello di gruppo di risorse</a><br>
                                                             <a href="./app/usage-workbooks.md">Creazione di report interattivi</a><br>
                                                             <a href="./app/export-power-bi.md">Integrazione con Power BI</a><br>
-                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">Esaminare le metriche</a>
+                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">Analisi delle metriche</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Privacy, sicurezza, utilizzo e costo</h3>
                                                         <p>
-                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">La gestione dei dati personali</a><br>
-                                                            <a href="./app/data-retention-privacy.md">Raccolta dei dati, conservazione, &amp; archiviazione</a><br>
+                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Gestione dei dati personali</a><br>
+                                                            <a href="./app/data-retention-privacy.md">Raccolta, conservazione e archiviazione dei dati</a><br>
                                                             <a href="./app/resources-roles-access-control.md">Accesso in base al ruolo</a><br>
-                                                            <a href="./app/ip-addresses.md">Indirizzo IP &amp; eccezioni del firewall</a><br>
+                                                            <a href="./app/ip-addresses.md">Indirizzi IP ed eccezioni del firewall</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Utilizzo e costi stimati</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Modello di dati</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Panoramica</a><br>
+                                                            <a href="./app/data-model.md">Overview</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">Richiesta</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dipendenza</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Eccezione</a><br>
-                                                            <a href="./app/data-model-trace-telemetry.md">Trace</a><br>
+                                                            <a href="./app/data-model-trace-telemetry.md">Traccia</a><br>
                                                             <a href="./app/data-model-event-telemetry.md">Event</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">Metrica</a><br>
-                                                            <a href="./app/data-model-context.md">Context</a>
+                                                            <a href="./app/data-model-context.md">Contesto</a>
                                                             </p>
                                                         </p>
                                                     </div>

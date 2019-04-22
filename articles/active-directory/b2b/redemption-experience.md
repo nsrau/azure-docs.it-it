@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046496"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
@@ -62,8 +62,8 @@ Per informazioni sul modo in cui un amministratore del tenant può collegarsi al
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](add-users-administrator.md)
 - [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte di information worker](add-users-information-worker.md)
-- [Aggiungere gli utenti di collaborazione B2B di Azure Active Directory usando PowerShell](customize-invitation-api.md#powershell)
-- [Uscire da un'organizzazione come utente guest](leave-the-organization.md)
+- [Add Azure Active Directory B2B collaboration users by using PowerShell (Aggiungere utenti di Collaborazione B2B di Azure Active Directory usando PowerShell)](customize-invitation-api.md#powershell)
+- [Leave an organization as a guest user (Uscire da un'organizzazione come utente guest)](leave-the-organization.md)

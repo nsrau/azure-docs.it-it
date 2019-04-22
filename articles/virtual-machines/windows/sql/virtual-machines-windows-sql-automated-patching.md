@@ -17,10 +17,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425986"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)
@@ -69,7 +69,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | **Applicazione automatica delle patch** |Enable/Disable (disabilitato) |Abilita o disabilita l'applicazione automatica delle patch per una macchina virtuale di Azure. |
 | **Pianificazione della manutenzione** |Ogni giorno, lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica |Pianificazione per il download e l'installazione degli aggiornamenti di Windows, SQL Server e Microsoft per la macchina virtuale. |
 | **Ora di inizio manutenzione** |0-24 |Ora di inizio locale per aggiornare la macchina virtuale. |
-| **Durata intervallo di manutenzione** |30-180 |Numero di minuti consentito per completare il download e l'installazione degli aggiornamenti. |
+| **Durata dell'intervallo di manutenzione** |30-180 |Numero di minuti consentito per completare il download e l'installazione degli aggiornamenti. |
 | **Categoria delle patch** |Importante | Categoria degli aggiornamenti di Windows da scaricare e installare.|
 
 ## <a name="configuration-in-the-portal"></a>Configurazione nel Portale
@@ -115,7 +115,7 @@ In base a questo esempio, nella tabella seguente vengono descritti gli effetti p
 
 | Parametro | Effetto |
 | --- | --- |
-| **GiornoDellaSettimana** |Patch installate ogni giovedì. |
+| **DayOfWeek** |Patch installate ogni giovedì. |
 | **MaintenanceWindowStartingHour** |Inizio degli aggiornamenti alle ore 11:00. |
 | **MaintenanceWindowsDuration** |Le patch devono essere installate entro 120 minuti. In base all'ora di inizio, devono essere completate entro le ore 13:00. |
 | **PatchCategory** |L'unica impostazione possibile per questo parametro è **Important**. In questo modo vengono installati gli aggiornamenti di Windows contrassegnati con la dicitura Importante, ma non gli aggiornamenti di SQL Server che non sono inclusi in questa categoria. |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426257"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
@@ -81,8 +81,8 @@ Per modificare il percorso della cache, usare l'elenco seguente.
 
     | Percorso del Registro | Chiave del Registro | Valore |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
 
 4. Riavviare il motore Backup eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:
 
@@ -114,7 +114,7 @@ La cartella della cache e il disco rigido virtuale dei metadati non hanno gli at
 ## <a name="restore"></a>Restore
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
-Se viene annullato un processo di ripristino in corso, il processo di ripristino si interrompe e tutti i file ripristinati prima dell'annullamento, rimangono nella stessa destinazione (percorso originale o alternativo) configurato senza alcun rollback.
+Se si annulla un processo di ripristino in corso, il processo si interrompe e tutti i file ripristinati prima dell'annullamento rimangono nella destinazione configurata (posizione originale o alternativa) senza rollback.
 
 
 ## <a name="manage-backups"></a>Gestire i backup

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488633"
 ---
 # <a name="start-using-pim"></a>Iniziare a usare PIM
@@ -31,7 +31,7 @@ Questo articolo descrive come abilitare e iniziare a usare PIM.
 
 Per usare PIM, è necessario avere una delle licenze seguenti:
 
-- Azure AD Premium P2
+- Azure AD P2 Premium
 - Enterprise Mobility + Security (EMS) E5
 
 Per altre informazioni, vedere [Requisiti della licenza per usare PIM](subscription-requirements.md).

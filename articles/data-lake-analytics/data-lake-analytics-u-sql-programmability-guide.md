@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489657"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usare espressioni C# per la data odierna
 
-Per eseguire il pull della data odierna, è possibile usare il comando seguente C# espressione: `DateTime.Now.ToString("M/d/yyyy")`
+Per eseguire il pull della data odierna, è possibile usare l'espressione C# seguente: `DateTime.Now.ToString("M/d/yyyy")`
 
 Di seguito è riportato un esempio di come usare questa espressione in uno script:
 
@@ -533,8 +533,8 @@ L'interfaccia `IFormatter` serializza e deserializza un oggetto grafico con il t
 
 * **Serialize**: serializza un oggetto o un grafo di oggetti con la radice specificata nel flusso fornito.
 
-`MyType` Istanza di: istanza del tipo.  
-`IColumnWriter` writer / `IColumnReader` reader: flusso di colonna sottostante.  
+`MyType` instance: istanza del tipo.  
+`IColumnWriter` writer/`IColumnReader` reader: flusso di colonna sottostante.  
 `ISerializationContext` context: enumerazione che definisce un set di flag che specifica il contesto di origine o di destinazione per il flusso durante la serializzazione.
 
 * **Intermediate**: specifica che il contesto di origine o di destinazione non è un archivio permanente.
@@ -1269,7 +1269,7 @@ public class MyOutputter : IOutputter
 
 * `Output` viene chiamato per ogni riga di input. Restituisce il set di righe `IUnstructuredWriter output`.
 * La classe del costruttore viene usata per passare parametri all'outputter definito dall'utente.
-* `Close` viene usato per eseguire l'override per rilasciare uno stato dispendioso o determinare quando è stata scritta l'ultima riga.
+* `Close` viene usato per eseguire facoltativamente l'override per rilasciare uno stato dispendioso o determinare quando è stata scritta l'ultima riga.
 
 L'attributo **SqlUserDefinedOutputter** indica che il tipo deve essere registrato come outputter definito dall'utente. Questa classe non può essere ereditata.
 

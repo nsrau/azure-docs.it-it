@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490038"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
@@ -156,5 +156,5 @@ Per disabilitare correttamente la crittografia dischi di Azure, iniziare da uno 
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
-- [Applicare la crittografia del disco nel Centro sicurezza Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Crittografia dei dati di Azure quando sono inattivi](azure-security-encryption-atrest.md)
+- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../security-center/security-center-apply-disk-encryption.md)
+- [Crittografia dei dati inattivi in Azure](azure-security-encryption-atrest.md)

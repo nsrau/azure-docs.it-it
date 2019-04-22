@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58806661"
 ---
-# <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento del viso
+# <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
 Questa guida illustra come specificare un modello di riconoscimento volto per rilevamento del viso, identificazione e la ricerca di somiglianza mediante l'API viso di Azure.
 

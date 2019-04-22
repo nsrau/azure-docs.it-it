@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267056"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
@@ -64,5 +64,5 @@ Per sapere quando il training è completo, è necessario eseguire il polling del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Assegnare un'etichetta di espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usare funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 

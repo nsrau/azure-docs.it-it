@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490360"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procedura dettagliata dell'acceleratore di soluzioni di connected factory
@@ -230,7 +230,7 @@ L'app Web distribuita nell'ambito dell'acceleratore di soluzioni include un clie
 È possibile proseguire con l'introduzione agli acceleratori di soluzioni IoT leggendo gli articoli seguenti:
 
 * [Autorizzazioni per il sito azureiotsolutions.com][lnk-permissions]
-* [Distribuire un gateway in Windows o Linux per l'acceleratore di soluzione di Connected Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Distribuire un gateway in Windows o Linux per gli acceleratori di soluzioni di connected factory](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation (Implementazione di riferimento del modulo di pubblicazione OPC)](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

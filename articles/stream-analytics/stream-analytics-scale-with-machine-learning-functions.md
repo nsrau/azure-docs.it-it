@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257281"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
@@ -74,14 +74,14 @@ Di seguito è riportata una tabella della velocità effettiva del processo di An
 
 | Dimensioni batch (latenza ML) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unità di ricerca** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **3 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **6 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **12 SU** |5.000 |10,000 |40.000 |60.000 |100,000 |
-| **18 SU** |7.500 |15.000 |60.000 |90.000 |150.000 |
-| **24 SU** |10,000 |20.000 |80.000 |120.000 |200.000 |
+| **1 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **3 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **6 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **12 unità di archiviazione** |5.000 |10,000 |40.000 |60.000 |100,000 |
+| **18 unità di archiviazione** |7.500 |15.000 |60.000 |90.000 |150.000 |
+| **24 unità di archiviazione** |10,000 |20.000 |80.000 |120.000 |200.000 |
 | **…** |… |… |… |… |… |
-| **60 SU** |25.000 |50.000 |200.000 |300.000 |500.000 |
+| **60 unità di archiviazione** |25.000 |50.000 |200.000 |300.000 |500.000 |
 
 A questo punto dovrebbe essere chiaro il funzionamento delle funzioni di Machine Learning in Analisi di flusso. I processi di Analisi di flusso eseguono il pull dei dati dalle origini dati e ogni pull restituisce un batch di eventi al processo di Analisi di flusso per l'elaborazione. Come influisce tale modello pull sulle richieste al servizio Web Machine Learning?
 
@@ -112,7 +112,7 @@ Per riepilogare i punti principali, per ridimensionare un processo di Analisi di
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Analisi di flusso, vedere:
 
-* [Iniziare a usare Azure Stream Analitica](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Azure Stream Analitica](stream-analytics-scale-jobs.md)
-* [Riferimenti al linguaggio di Query Analitica Stream di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Riferimento di API REST di gestione di Azure Stream Analitica](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

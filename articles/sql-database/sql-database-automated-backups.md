@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545825"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678599"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
-Il database SQL crea automaticamente i backup dei database, che vengono conservati per un periodo compreso tra 7 e 35 giorni, e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per garantire che vengano conservati anche se il data center non è disponibile. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario eseguire alcuna operazione manuale ed è possibile [modificare il periodo di conservazione dei backup](#how-to-change-the-pitr-backup-retention-period). I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un lungo periodo di tempo (fino a 10 anni), è possibile configurare una [conservazione a lungo termine](sql-database-long-term-retention.md).
+Automaticamente, Database SQL Crea backup dei database in cui vengono mantenute tra 7 e 35 giorni e Usa Azure archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) per garantire che vengono conservati anche se il data center non è disponibile. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario eseguire alcuna operazione manuale ed è possibile [modificare il periodo di conservazione dei backup](#how-to-change-the-pitr-backup-retention-period). I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un lungo periodo di tempo (fino a 10 anni), è possibile configurare una [conservazione a lungo termine](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

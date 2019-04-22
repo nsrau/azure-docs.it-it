@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489284"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analitica di archiviazione Azure (versione classica)
@@ -139,7 +139,7 @@ Se si vogliono scaricare le metriche per archiviazione a lungo termine o per ana
 
 ||||  
 |-|-|-|  
-|**Metriche**|**Nomi tabella**|**Note**|  
+|**Metriche**|**Nomi di tabella**|**Note**|  
 |Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti 2013-08-15, queste tabelle sono note come:<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
 |Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitata solo tramite PowerShell o a livello di codice.<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Solo servizio BLOB.|  
@@ -227,6 +227,6 @@ Inoltre, la capacità usata dalle tabelle di metrica è fatturabile. Per stimare
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Come monitorare un Account di archiviazione](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Schema di tabella delle metriche di archiviazione Analitica](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Archiviazione Analitica registrate operazioni e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [Registrazione Analitica dell'archiviazione](storage-analytics-logging.md)
+* [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [Registrazione di Analisi archiviazione](storage-analytics-logging.md)

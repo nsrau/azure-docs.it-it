@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270184"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
@@ -126,7 +126,7 @@ Partecipare alla discussione [Community Partner Microsoft](https://aka.ms/PALdis
 
 Tutti gli utenti dell'organizzazione partner che gestiscono le risorse di Azure del cliente possono collegare l'ID partner all'account.
 
-**Un ID partner può essere modificato dopo che è collegato?**
+**Un ID partner può essere modificato dopo essere stato collegato?**
 
 Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
@@ -134,7 +134,7 @@ Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
 Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del cliente. Collegare l'ID partner in ogni tenant del cliente.
 
-**Altri partner o clienti modificare o rimuovere il collegamento all'ID partner?**
+**Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
 
 Il collegamento è associato a livello di account utente. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner. 
 

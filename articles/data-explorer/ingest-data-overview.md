@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045595"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
@@ -90,9 +90,9 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 | Metodo | Latenza |
 | --- | --- |
-| **Inserimento di inline** | Immediato |
-| **Inserimento di query** | Tempo di query + tempo di elaborazione |
-| **Da un archivio di inserimento** | Tempo di download + tempo di elaborazione |
+| **Inserimento inline** | Immediato |
+| **Inserimento da query** | Tempo di query + tempo di elaborazione |
+| **Inserimento da risorsa di archiviazione** | Tempo di download + tempo di elaborazione |
 | **Inserimento in coda** | Tempo di invio in batch + tempo di elaborazione |
 | |
 
@@ -144,7 +144,7 @@ Il mapping dello schema consente di associare i campi dati di origine alle colon
 > [Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Inserire i dati usando la sottoscrizione di griglia di eventi in Esplora dati di Azure](ingest-data-event-grid.md)
+> [Inserire dati in Esplora dati di Azure tramite una sottoscrizione di Griglia di eventi](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
 > [Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)

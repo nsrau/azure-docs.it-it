@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490715"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolli di Microsoft identity platform
@@ -86,8 +86,8 @@ Altri dettagli diversi tipi di token usati in Microsoft identity platform endpoi
 
 Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito. Ognuna corrisponde a uno scenario di autenticazione specifico. Se è necessario determinare quale sia il flusso giusto per te, consultare [tipi di App che è possibile compilare con la piattaforma Microsoft identity](v2-app-types.md).
 
-* [Compilare applicazioni native e per dispositivi mobili con OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Creare App web con OpenID Connect](v2-protocols-oidc.md)
-* [Compilare App a singola pagina con il flusso implicito OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Compilare daemon o processi sul lato server con il flusso di credenziali client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Ottenere i token in un'API web con il flusso on-behalf-of di OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
+* [Creare un'applicazione nativa e per dispositivi mobili con OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Creare app Web con OpenID Connect](v2-protocols-oidc.md)
+* [Creare app a pagina singola con il flusso implicito OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Creare daemon o processi sul lato server con il flusso di credenziali client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+* [Ottenere token in un'API Web con il flusso on-behalf-of di OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)

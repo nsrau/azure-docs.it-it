@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426529"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, UDR e Nsg
@@ -27,7 +27,7 @@ ms.locfileid: "59426529"
 
 In questo esempio, si crea una rete perimetrale (noto anche come una rete Perimetrale, DMZ e subnet schermata). L'esempio implementa un firewall, quattro server Windows, routing definito dall'utente (UDR), l'inoltro IP e gruppi di sicurezza di rete (Nsg). Questo articolo illustra ognuno dei comandi rilevanti per fornire una conoscenza più approfondita di ogni passaggio. La sezione sugli scenari di traffico viene illustrato anche in modo approfondito come il traffico avviene attraverso i livelli di difesa della rete perimetrale. Infine, la sezione riferimenti contiene tutto il codice e le istruzioni per creare l'ambiente in modo da poter testare e sperimentare vari scenari.
 
-![Rete perimetrale bidirezionale con appliance virtuali di rete, gruppi di sicurezza di rete e route definite dall'utente][1]
+![Rete perimetrale bidirezionale con Appliance virtuale di rete, sicurezza di rete e routing definito dall'utente][1]
 
 ## <a name="environment-setup"></a>Configurazione dell'ambiente
 
@@ -310,7 +310,7 @@ L'altra classe oggetto include gli oggetti di servizi, che rappresentano le port
 
 1. Modificare i valori per rappresentare il servizio RDP per un server specifico. Per AppVM01, la regola RDP predefinita deve essere modificata per riflettere un nuovo servizio **Name**, **descrizione**e la porta RDP esterna usati nel diagramma della figura 8. Tenere presente che le porte vengono modificate da quello predefinito RDP 3389 alla porta esterna per questo server specifico. Ad esempio, la porta esterna per AppVM01 è 8025. La regola del servizio modificato è illustrata di seguito:
 
-   ![Regole AppVM01][6]
+   ![Regola AppVM01][6]
 
 Ripetere questo processo per creare i servizi RDP per i server rimanenti: AppVM02, DNS01 e IIS01. Questi servizi verificare le regole nella sezione successiva più ovvie e più semplice da creare.
 

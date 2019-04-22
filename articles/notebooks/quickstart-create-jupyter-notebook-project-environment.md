@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262007"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato
@@ -61,7 +61,7 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 
     | Operazione | DESCRIZIONE |
     | --- | --- |
-    | Requirements.txt | I progetti Python definiscono le dipendenze in un file requirements.txt. Con questa opzione, selezionare il file appropriato dall'elenco dei file del progetto e selezionare anche la versione di Python nell'elenco a discesa aggiuntivo visualizzato. Se necessario, selezionare **Cancel** (Annulla) per tornare al progetto, caricare o creare il file, quindi tornare alla scheda **Project Settings** > **Environment** (Impostazioni progetto - Ambiente) e creare un nuovo passaggio. Con questo passaggio sul posto, che esegue un notebook nel progetto automaticamente viene eseguito `pip install -r <file>` |
+    | Requirements.txt | I progetti Python definiscono le dipendenze in un file requirements.txt. Con questa opzione, selezionare il file appropriato dall'elenco dei file del progetto e selezionare anche la versione di Python nell'elenco a discesa aggiuntivo visualizzato. Se necessario, selezionare **Cancel** (Annulla) per tornare al progetto, caricare o creare il file, quindi tornare alla scheda **Project Settings** > **Environment** (Impostazioni progetto - Ambiente) e creare un nuovo passaggio. Quando questo passaggio è attivo, se si esegue un notebook nel progetto viene eseguito automaticamente `pip install -r <file>`. |
     | Script della shell | Usare questa opzione per indicare uno script della shell bash (in genere un file con estensione *sh*) contenente tutti i comandi da eseguire per inizializzare l'ambiente. |
     | Environment.yml | Un progetto di Python che usa Conda per la gestione di un ambiente usa un file *environments.yml* per descrivere le dipendenze. In questa opzione, selezionare il file appropriato dall'elenco di file del progetto. |
 
@@ -74,7 +74,7 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire e configurare i progetti in notebook di Azure](configure-manage-azure-notebooks-projects.md)
+> [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md) (Gestire e configurare progetti in Azure Notebooks)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: creare un'esecuzione di un notebook di Jupyter per eseguire la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare)
