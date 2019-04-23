@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281132"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549136"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare il proprio server notebook per iniziare a usare Azure Machine Learning
 
@@ -33,7 +33,7 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 
 * Un server notebook Python 3.6 con Azure Machine Learning SDK installato
 * Un'area di lavoro del servizio Azure Machine Learning
-* Un file di configurazione dell'area di lavoro (**aml_config/config.json** ).
+* Un file di configurazione dell'area di lavoro (**.azureml/config.json**).
 
 Tutti questi prerequisiti sono ottenibili in [Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#portal).
 
@@ -74,6 +74,6 @@ Se non si prevede di usare le risorse create in questo articolo, eliminarle per 
 In questo articolo sono state create le risorse necessarie per eseguire esperimenti e distribuire modelli. È stato eseguito codice in un notebook ed è stata esaminata la cronologia di esecuzione del codice nell'area di lavoro nel cloud.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md)
+> [Esercitazione: Eseguire il training di un modello per la classificazione di immagini](tutorial-train-models-with-aml.md)
 
 È anche possibile esaminare alcuni [esempi più avanzati in GitHub](https://aka.ms/aml-notebooks) oppure visualizzare il [manuale dell'utente dell'SKD](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

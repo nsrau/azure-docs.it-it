@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904849"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521663"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -78,12 +78,12 @@ Viene effettuato il provisioning di un dispositivo HSM nella rete virtuale di un
 
 Dopo aver ottenuto i file, è necessario modificare il file di parametri per inserire i nomi preferiti per le risorse. A tale scopo, modificare le righe con "value": "".
 
-- `namingInfix` prefisso per i nomi delle risorse HSM
-- `ExistingVirtualNetworkName` nome della rete virtuale usata per i moduli di protezione hardware
-- `DedicatedHsmResourceName1` nome della risorsa HSM nel data center 1
-- `DedicatedHsmResourceName2` nome della risorsa HSM nel data center 2
-- `hsmSubnetRange` intervallo di indirizzi IP della subnet per i moduli di protezione hardware
-- `ERSubnetRange` intervallo di indirizzi IP della subnet per il gateway di rete virtuale
+- `namingInfix`: prefisso per i nomi delle risorse HSM
+- `ExistingVirtualNetworkName`: nome della rete virtuale usata per i moduli di protezione hardware
+- `DedicatedHsmResourceName1`: nome della risorsa HSM nel data center 1
+- `DedicatedHsmResourceName2`: nome della risorsa HSM nel data center 2
+- `hsmSubnetRange`: intervallo di indirizzi IP della subnet per i moduli di protezione hardware
+- `ERSubnetRange`: intervallo di indirizzi IP della subnet per il gateway di rete virtuale
 
 Di seguito è riportato un esempio delle modifiche:
 
@@ -217,7 +217,7 @@ Per la connessione alla macchina virtuale viene usato lo strumento ssh. Il coman
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 La password da usare è quella contenuta nel file di parametri.
-Dopo aver eseguito l'accesso alla VM Linux, è possibile accedere al modulo di protezione hardware usando l'indirizzo IP privato riportato nel portale per la risorsa <prefix>hsm_vnic.
+Dopo aver eseguito l'accesso alla macchina virtuale Linux, è possibile accedere al modulo di protezione hardware usando l'indirizzo IP privato riportato nel portale per la risorsa \<prefix>hsm_vnic.
 
 ```powershell
 

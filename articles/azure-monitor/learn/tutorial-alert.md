@@ -4,93 +4,74 @@ description: Esercitazione per l'invio di avvisi in risposta agli errori dell'ap
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/20/2017
+ms.date: 04/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05285a177827cd0dd1e0e39e779a395ccfdfc0cd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079163"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578765"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorare e inviare avvisi sullo stato di integrità dell'applicazione con Azure Application Insights
 
-Azure Application Insights consente di monitorare l'applicazione e inviare avvisi quando l'applicazione non è disponibile, si verificano errori o si riscontrano problemi di prestazioni.  Questa esercitazione illustra il processo di creazione di test per controllare in modo continuativo la disponibilità dell'applicazione e per inviare diversi tipi di avvisi in risposta ai problemi rilevati.  Si apprenderà come:
+Azure Application Insights consente di monitorare l'applicazione e inviare avvisi quando l'applicazione non è disponibile, si verificano errori o si riscontrano problemi di prestazioni.  Questa esercitazione illustra il processo di creazione di test per controllare in modo continuativo la disponibilità dell'applicazione.
+
+Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare test di disponibilità per controllare in modo continuativo la risposta dell'applicazione
 > * Inviare un messaggio e-mail agli amministratori quando si verifica un problema
-> * Creare avvisi in base a metriche delle prestazioni 
-> * Usare un'app per la logica per inviare dati di telemetria riepilogati in una pianificazione.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
-    - Sviluppo Web e ASP.NET
-    - Sviluppo di Azure
-    - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+Creazione di una[risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Creare un test di disponibilità
-I test di disponibilità in Application Insights consentono di testare automaticamente l'applicazione da diverse località in tutto il mondo.   In questa esercitazione verrà eseguito un semplice test per verificare che l'applicazione sia disponibile.  È anche possibile creare una procedura dettagliata completa per verificarne il funzionamento dettagliato. 
+
+I test di disponibilità in Application Insights consentono di testare automaticamente l'applicazione da diverse località in tutto il mondo.   In questa esercitazione verrà eseguito un test con un URL per verificare che l'applicazione Web sia disponibile.  È anche possibile creare una procedura dettagliata completa per verificarne il funzionamento dettagliato. 
 
 1. Selezionare **Application Insights** e quindi selezionare la sottoscrizione in uso.  
-1. Selezionare **Disponibilità** nel menu **Analisi** e quindi fare clic su **Aggiungi test**.
- 
-    ![Aggiungere un test di disponibilità](media/tutorial-alert/add-test.png)
 
-2. Digitare un nome per il test e lasciare le altre impostazioni predefinite.  Ciò richiede la home page dell'applicazione ogni 5 minuti da 5 aree geografiche diverse. 
-3. Selezionare **Avvisi** per aprire il pannello **Avvisi**, in cui è possibile definire i dettagli sulla modalità di risposta in caso di esito negativo del test. Digitare un indirizzo e-mail a cui inviare gli avvisi quando vengono soddisfatti i criteri di avviso.  Se si vuole, è possibile digitare l'indirizzo di un webhook da chiamare quando vengono soddisfatti i criteri di avviso.
+2. Selezionare **Disponibilità** nel menu **Analisi** e quindi fare clic su **Crea test**.
 
-    ![Creare un test](media/tutorial-alert/create-test.png)
- 
-4. Tornare al pannello del test dove, dopo pochi minuti, si dovrebbero iniziare a vedere i risultati del test di disponibilità.  Fare clic sul nome del test per visualizzare i dettagli da ogni località.  Il grafico a dispersione mostra l'esito positivo e la durata di ogni test.
+    ![Aggiungere un test di disponibilità](media/tutorial-alert/add-test-001.png)
 
-    ![Dettagli del test](media/tutorial-alert/test-details.png)
+3. Digitare un nome per il test e lasciare le altre impostazioni predefinite.  Questa selezione attiverà le richieste per l'URL dell'applicazione ogni 5 minuti da cinque diverse aree geografiche.
 
-5.  È possibile eseguire il drill-down nei dettagli di qualsiasi test specifico facendo clic sul relativo punto nel grafico a dispersione.  L'esempio seguente mostra i dettagli per una richiesta non riuscita.
+4. Selezionare **Avvisi** per aprire l'elenco a discesa **Avvisi**, in cui è possibile definire i dettagli sulla modalità di risposta in caso di esito negativo del test. Scegliere **Near real time** e impostare lo stato su **Abilitato**.
 
-    ![Risultato del test](media/tutorial-alert/test-result.png)
+    Digitare un indirizzo e-mail a cui inviare gli avvisi quando vengono soddisfatti i criteri di avviso.  Se si vuole, è possibile digitare l'indirizzo di un webhook da chiamare quando vengono soddisfatti i criteri di avviso.
+
+    ![Creare un test](media/tutorial-alert/create-test-001.png)
+
+5. Tornare al pannello di test, selezionare i puntini di sospensione e modificare l'avviso per immettere la configurazione per l'avviso near real time.
+
+    ![Modificare l'avviso](media/tutorial-alert/edit-alert-001.png)
+
+6. Impostare le località con errori su un valore superiore o uguale a 3. Creare un [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per configurare gli utenti che ricevono una notifica quando la soglia avvisi viene violata.
+
+    ![Interfaccia utente per salvare l'avviso](media/tutorial-alert/save-alert-001.png)
+
+7. Dopo aver configurato l'avviso, fare clic sul nome del test per visualizzare i dettagli da ogni località. Il formato dei test può essere sia un grafico a linee che un grafico a dispersione per visualizzare l'esito positivo o gli errori per un intervallo di tempo specificato.
+
+    ![Dettagli del test](media/tutorial-alert/test-details-001.png)
+
+8. È possibile eseguire il drill-down nei dettagli di qualsiasi test facendo clic sul relativo punto nel grafico a dispersione. Verrà avviata la visualizzazione dei dettagli delle transazioni end-to-end. L'esempio seguente mostra i dettagli per una richiesta non riuscita.
+
+    ![Risultato del test](media/tutorial-alert/test-result-001.png)
   
-6. Se i criteri di avviso vengono soddisfatti, verrà inviato un messaggio e-mail simile al seguente all'indirizzo specificato.
-
-    ![Messaggio e-mail di avviso](media/tutorial-alert/alert-mail.png)
-
-
-## <a name="create-an-alert-from-metrics"></a>Creare un avviso dalle metriche
-Oltre a inviare avvisi da un test di disponibilità, è possibile creare un avviso da qualsiasi metrica delle prestazioni raccolta per l'applicazione.
-
-1. Selezionare **Avvisi** nel menu **Configura**.  Verrà aperto il pannello Avvisi di Azure.  Potrebbero essere presenti altre regole di avviso configurate per altri servizi.
-1. Fare clic su **Aggiungi avviso per la metrica**.  Verrà aperto il pannello per la creazione di una nuova regola di avviso.
-
-    ![Aggiungi avviso per la metrica](media/tutorial-alert/add-metric-alert.png)
-
-1. Digitare un **Nome** per la regola di avviso e selezionare l'applicazione nell'elenco a discesa **Risorsa**.
-1. Selezionare una **Metrica** da campionare.  Verrà visualizzato un grafico per indicare il valore di questa richiesta nelle ultime 24 ore.  Ciò consente di impostare la condizione per la metrica.
-
-    ![Aggiungi regola di avviso](media/tutorial-alert/add-alert-01.png)
-
-1. Specificare una **Condizione** e una **Soglia** per l'avviso, ovvero il numero di volte in cui la metrica deve essere superata perché venga creato un avviso. 
-1. In **Notifica tramite** selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** per inviare un messaggio e-mail a questi utenti quando la condizione di avviso viene soddisfatta e aggiungere l'indirizzo e-mail di eventuali destinatari aggiuntivi.  È inoltre possibile specificare un webhook o un'app per la logica da eseguire quando viene soddisfatta la condizione,  che sarà possibile usare per tentare di attenuare il problema rilevato. 
-
-    ![Aggiungi regola di avviso](media/tutorial-alert/add-alert-02.png)
-
-
-## <a name="proactively-send-information"></a>Inviare informazioni in modo proattivo
-Gli avvisi vengono creati in risposta a un particolare set di problemi identificati nell'applicazione e in genere si usano per le condizioni critiche che richiedono un'attenzione immediata.  È possibile ottenere informazioni sull'applicazione in modo proattivo con un'app per la logica che viene eseguita automaticamente in base a una pianificazione.  Ad esempio, è possibile fare in modo che gli amministratori ricevano quotidianamente un messaggio e-mail con informazioni di riepilogo che richiedono un'ulteriore valutazione.
-
-Per maggiori dettagli sulla creazione di un'app per la logica con Application Insights, vedere [Automatizzare i processi di Application Insights con app per la logica](../../azure-monitor/app/automate-with-logic-apps.md).
-
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo avere appreso come creare avvisi per gli eventuali problemi, passare all'esercitazione successiva per imparare ad analizzare il modo in cui gli utenti interagiscono con l'applicazione.
 
 > [!div class="nextstepaction"]

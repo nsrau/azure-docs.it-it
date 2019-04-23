@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225536"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546851"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -118,9 +118,12 @@ Per altre informazioni, vedere [Supporto per WebSocket](https://docs.microsoft.c
 
 ## <a name="rewrite-http-headers-public-preview"></a>Riscrivere le intestazioni HTTP (anteprima pubblica)
 
-Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione correlati come HSTS/X-XSS-Protection o la rimozione di campi di intestazione di risposta, che potrebbero rivelare informazioni riservate come il nome del server back-end. 
+Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. La riscrittura delle intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio:
+- Aggiunta di campi di intestazione relativi alla sicurezza come HSTS/X-XSS-Protection.
+- Rimozione di campi di intestazione della risposta che possono rivelare informazioni riservate.
+- Rimozione delle informazioni sulle porte dalle intestazioni X-Forwarded-For.
 
-Il gateway applicazione supporta ora la possibilità di riscrivere le intestazioni delle richieste HTTP in ingresso e in uscita. Sarà possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta/risposta si spostano tra client e pool di back-end. È possibile riscrivere sia i campi di intestazione standard, definiti in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), sia i campi di intestazione non standard.  
+Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. Consente inoltre di aggiungere le condizioni necessarie per garantire che le intestazioni specificate vengono riscritte solo in presenza di determinate condizioni.
 
 Per altre informazioni su questa funzionalità in anteprima pubblica, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
 

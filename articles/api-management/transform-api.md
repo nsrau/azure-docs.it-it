@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084981"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521938"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
 
@@ -81,7 +81,7 @@ La risposta originale dovrebbe avere l'aspetto seguente:
 
    ![Criteri](./media/transform-api/transform-api.png)
 
-7. Modificare il codice **<outbound>** in modo che risulti simile al seguente:
+7. Modificare il codice **\<outbound>** in modo che risulti simile al seguente:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />

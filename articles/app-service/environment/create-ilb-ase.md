@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101534"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546543"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -170,13 +170,13 @@ Per caricare i propri certificati e testare l'accesso:
 
 4. Impostare il DNS per il dominio dell'ambiente del servizio app. È possibile usare un carattere jolly con il dominio nel DNS. Per eseguire alcuni semplici test, modificare il file hosts nella macchina virtuale per impostare il nome dell'app sull'indirizzo IP VIP:
 
-    a. Se il nome di dominio dell'ambiente del servizio app di Azure è _.ilbase.com_ e si crea l'app denominata _mytestapp_, verrà usato l'indirizzo _mytestapp.ilbase.com_. Impostare quindi _mytestapp.ilbase.com_ per risolvere l'indirizzo ILB. (In Windows, il file host si trova in _C:\Windows\System32\drivers\etc\_.)
+    a. Se il nome di dominio dell'ambiente del servizio app di Azure è _.ilbase.com_ e si crea l'app denominata _mytestapp_, verrà usato l'indirizzo _mytestapp.ilbase.com_. Impostare quindi _mytestapp.ilbase.com_ per risolvere l'indirizzo ILB. In Windows il file hosts si trova in _C:\Windows\System32\drivers\etc\\_.
 
     b. Per testare la pubblicazione della distribuzione Web o l'accesso alla console avanzata, creare un record per _mytestapp.scm.ilbase.com_.
 
 5. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. In alternativa, passare al nome dell'app in uso con il dominio.
 
-6. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
+6. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
 
     L'indirizzo IP per il bilanciamento del carico interno è riportato in **Indirizzi IP**. Questo elenco include anche gli indirizzi IP usati dall'indirizzo VIP esterno e per il traffico di gestione in ingresso.
 

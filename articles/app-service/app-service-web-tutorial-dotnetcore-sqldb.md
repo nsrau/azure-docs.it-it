@@ -1,5 +1,5 @@
 ---
-title: Creare un’app .NET Core con il database SQL - Servizio app di Azure | Microsoft Docs
+title: ASP.NET Core con il database SQL - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app .NET Core da usare nel Servizio app di Azure, con connessione a un database SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510698"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548868"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Creare un'app .NET Core e database SQL nel servizio app di Azure
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app di database SQL e .NET Core nel servizio app di Azure in Linux](./containers/tutorial-dotnetcore-sqldb-app.md).

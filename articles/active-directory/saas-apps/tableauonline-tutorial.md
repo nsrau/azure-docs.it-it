@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278106"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Online
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tableau Online, seguire
 
     a. Nella casella di testo **URL di accesso** digitare l'URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare l' URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare l'URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
     > Il valore `<entityid>` verrà ottenuto dalla sezione **Configura Tableau Online** di questa esercitazione. Il valore dell'ID entità corrisponderà al valore di **Identificatore Azure AD** nella sezione **Configura Tableau Online**.
@@ -144,7 +144,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tableau Online, seguire
   
     a. Nel portale di Azure, aprire la pagina di integrazione dell'applicazione **Tableau Online**.
 
-    b. Nella sezione **User Attributes & Claims**** (Attributi e attestazioni utente) fare clic sull'icona di modifica.
+    b. Nella sezione **User Attributes & Claims** (Attributi e attestazioni utente) fare clic sull'icona di modifica.
 
    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, BrittaSimon\@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 

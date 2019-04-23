@@ -1,6 +1,6 @@
 ---
-title: Compilare un'app Python con PostgreSQL in Linux - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come eseguire un'app Python basata sui dati con connessione a un database PostgreSQL.
+title: Python (Django) con PostgreSQL in Linux - Servizio app di Azure | Microsoft Docs
+description: Informazioni su come eseguire un'app Python basata sui dati con connessione a un database PostgreSQL. Django verrà usato nell'esercitazione.
 services: app-service\web
 documentationcenter: python
 author: cephalin
@@ -9,15 +9,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2018
+ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 00fc92ebe8b43f16791adce1f1cb9a1d6da7fbde
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f82cccb66c0aae93afe19259393f094d0627c801
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534141"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546422"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Creare un'app Python e PostgreSQL in Servizio app di Azure
 
@@ -166,21 +166,21 @@ In questo passaggio si crea un database PostgreSQL in Azure. Quando viene distri
 
 Creare un server PostgreSQL con il comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) in Cloud Shell.
 
-Nel comando di esempio seguente sostituire *\<postgresql_name>* con un nome server univoco e sostituire *\<admin_username>* e *\<admin_password>* con le credenziali utente desiderate. Le credenziali utente sono per l'account utente amministratore del database. Poiché il nome del server viene usato come parte dell'endpoint di PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), è necessario che il nome sia univoco in tutti i server di Azure.
+Nel comando di esempio seguente sostituire *\<postgresql-name>* con un nome server univoco e sostituire *\<admin-username>* e *\<admin-password>* con le credenziali utente desiderate. Le credenziali utente sono per l'account utente amministratore del database. Poiché il nome del server viene usato come parte dell'endpoint di PostgreSQL (`https://<postgresql-name>.postgres.database.azure.com`), è necessario che il nome sia univoco in tutti i server di Azure.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name B_Gen4_1
+az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
 ```
 
 Quando il database di Azure termina la creazione del server PostgreSQL, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente:
 
 ```json
 {
-  "administratorLogin": "<admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
+  "administratorLogin": "<admin-username>",
+  "fullyQualifiedDomainName": "<postgresql-name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql-name>",
   "location": "westus",
-  "name": "<postgresql_name>",
+  "name": "<postgresql-name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 1,
@@ -194,24 +194,23 @@ Quando il database di Azure termina la creazione del server PostgreSQL, l'interf
 ```
 
 > [!NOTE]
-> Ricordare i valori di \<admin_username> e \<admin_password > per i passaggi successivi. Saranno necessari per accedere al server Postgres e ai relativi database.
-
+> Ricordare i valori di \<admin-username> e \<admin-password> per i passaggi successivi. Saranno necessari per accedere al server Postgres e ai relativi database.
 
 ### <a name="create-firewall-rules-for-the-postgresql-server"></a>Creare regole del firewall per il server PostgreSQL
 
 In Cloud Shell eseguire il comando dell'interfaccia della riga di comando di Azure seguente per consentire l'accesso al database dalle risorse di Azure.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
 ```
 
 > [!NOTE]
 > Questa impostazione consente le connessioni di rete da tutti gli indirizzi IP all'interno della rete di Azure. Per l'uso nell'ambiente di produzione, provare a configurare le regole del firewall più restrittive possibile [usando solo gli indirizzi IP in uscita usati dall'app](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
+In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
 ```
 
 ## <a name="connect-python-app-to-production-database"></a>Connettere l'app Python al database di produzione
@@ -223,7 +222,7 @@ In questo passaggio si connette l'app Django di esempio al server di Database di
 In Cloud Shell connettersi al database usando il comando seguente. Quando viene richiesta la password dell'amministratore, usare la stessa password specificata in [Creare un database di Azure per il server PostgreSQL](#create-an-azure-database-for-postgresql-server).
 
 ```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql-name>.postgres.database.azure.com -U <admin-username>@<postgresql-name> postgres
 ```
 
 Proprio come nel server Postgres locale, creare il database e l'utente nel server Postgres Azure.
@@ -245,14 +244,14 @@ Nella finestra del terminale locale modificare le variabili di ambiente del data
 
 ```bash
 # Bash
-export DBHOST="<postgresql_name>.postgres.database.azure.com"
-export DBUSER="manager@<postgresql_name>"
+export DBHOST="<postgresql-name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql-name>"
 export DBNAME="pollsdb"
 export DBPASS="supersecretpass"
 
 # PowerShell
-$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
-$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBHOST = "<postgresql-name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql-name>"
 $Env:DBNAME = "pollsdb"
 $Env:DBPASS = "supersecretpass"
 ```
@@ -315,22 +314,21 @@ Per altre informazioni sulla configurazione di WhiteNoise, vedere la [documentaz
 > [!IMPORTANT]
 > La sezione delle impostazioni del database è già conforme alla procedura consigliata per la sicurezza relativa all'uso di variabili di ambiente. Per indicazioni complete sulla distribuzione, vedere l'[elenco di controllo per la distribuzione nella documentazione di Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
-
 Eseguire il commit delle modifiche nel repository.
 
 ```bash
 git commit -am "configure for App Service"
 ```
 
-### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
+### <a name="configure-deployment-user"></a>Configurare l'utente della distribuzione
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app 
+### <a name="create-app-service-plan"></a>Creare un piano di servizio app
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Creare un'app Web 
+### <a name="create-web-app"></a>Crea app Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
@@ -343,8 +341,10 @@ Nel servizio app le variabili di ambiente vengono configurate come _impostazioni
 L'esempio seguente specifica i dettagli di connessione del database come impostazioni dell'app. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="pollsdb"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="manager@<postgresql-name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
+
+Per informazioni su come accedere a queste impostazioni dell'app nel codice, vedere [Accedere alle variabili di ambiente](how-to-configure-python.md#access-environment-variables).
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 
@@ -368,7 +368,7 @@ remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 . 
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
    06b6df4..6520eea  master -> master
 ```  
 
@@ -379,32 +379,22 @@ Il server di distribuzione del servizio app vede il file _requirements.txt_ nell
 Passare all'app distribuita. L'avvio richiede tempo perché il contenitore deve essere scaricato ed eseguito quando l'app viene richiesta per la prima volta. Se si verifica il timeout della pagina o se viene visualizzato un messaggio di errore, attendere alcuni minuti e aggiornare la pagina.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Dovrebbe essere visualizzata la domanda di sondaggio creata in precedenza. 
 
 Il servizio app rileva un progetto Django nel repository cercando in ogni sottodirectory un file _wsgi.py_, che viene creato da `manage.py startproject` per impostazione predefinita. Quando trova il file, il servizio carica l'app Django. Per altre informazioni sul modo in cui il servizio app carica le app Python, vedere [Configurare l'immagine Python predefinita](how-to-configure-python.md).
 
-Passare a `<app_name>.azurewebsites.net` e accedere con l'account di utente amministratore creato. Se si vuole, provare a creare altre domande di sondaggio.
+Passare a `<app-name>.azurewebsites.net` e accedere con l'account di utente amministratore creato. Se si vuole, provare a creare altre domande di sondaggio.
 
 ![Applicazione Python Django in esecuzione in locale](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 **Congratulazioni** Un'app Python è ora in esecuzione nel servizio app per Linux.
 
-## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
+## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
 
-Nel servizio app in Linux, le app vengono eseguite all'interno di un contenitore da un'immagine Docker predefinita. È possibile accedere ai log della console generati dall'interno del contenitore. Per ottenere i log, attivare prima la registrazione del contenitore eseguendo il comando seguente in Cloud Shell:
-
-```azurecli-interactive
-az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
-```
-
-Dopo che la registrazione del contenitore è attivata, eseguire il comando seguente per visualizzare il flusso di registrazione:
-
-```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
-```
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 ## <a name="manage-your-app-in-the-azure-portal"></a>Gestire l'app nel portale di Azure
 
@@ -434,8 +424,9 @@ Questa esercitazione illustra come:
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app.
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](../app-service-web-tutorial-custom-domain.md)
+> [Esercitazione: Eseguire il mapping di un nome DNS personalizzato all'app Web](../app-service-web-tutorial-custom-domain.md)
+
+In alternativa, consultare altre risorse:
 
 > [!div class="nextstepaction"]
-> [Configurare l'immagine Python predefinita e risolvere gli errori](how-to-configure-python.md)
-
+> [Configurare un'app Python](how-to-configure-python.md)

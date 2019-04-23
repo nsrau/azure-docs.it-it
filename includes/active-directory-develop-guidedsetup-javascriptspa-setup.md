@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: a9aeb2f45ec8c882c47425879ab6ef726ca94060
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: da2477b19327273fe922ac81f909233cb4ef8f06
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203332"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503237"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Impostazione del server Web o del progetto
 
@@ -34,26 +34,27 @@ ms.locfileid: "58203332"
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
+Se si usa Node.js per eseguire il progetto, installare un ambiente di sviluppo integrato, ad esempio [Visual Studio Code](https://code.visualstudio.com/download), per modificare i file di progetto.
+
 Le istruzioni di questa guida sono basate su Node.js e Visual Studio 2017, ma è possibile usare qualsiasi altro ambiente di sviluppo o server Web.
 
 ## <a name="create-your-project"></a>Creare il progetto
 
-> ### <a name="option-1-node-other-web-servers"></a>Opzione 1: Nodo / altri server web
+> ### <a name="option-1-node-other-web-servers"></a>Opzione 1: Node/altri server Web
 > Verificare di avere installato [Node.js](https://nodejs.org/en/download/), quindi seguire questa procedura:
 > - Creare una cartella per ospitare l'applicazione.
 
-<p/><!-- -->
+<p><!-- -->
 
 > ### <a name="option-2-visual-studio"></a>Opzione 2: Visual Studio
 > Se si usa Visual Studio e si sta creando un nuovo progetto, seguire la procedura seguente per creare una nuova soluzione di Visual Studio:
-> 1.    In Visual Studio:  **File > Nuovo > progetto**
+> 1.    In Visual Studio:  **File > Nuovo > Progetto**
 > 2.    In **Visual C#\Web** selezionare **Applicazione Web ASP.NET (.NET Framework)**
 > 3.    Immettere un nome per l'applicazione e fare clic su **OK**
 > 4.    In **Nuova applicazione Web ASP.NET** selezionare **Vuota**
 
-
 ## <a name="create-your-single-page-applications-ui"></a>Creare l'interfaccia utente dell'applicazione a singola pagina
-1. Creare un file `index.html` per l'applicazione a pagina singola JavaScript. Se si usa Visual Studio, selezionare il progetto (cartella radice del progetto) fare clic destro e selezionare: **Aggiungi > Nuovo elemento > pagina HTML** e denominandolo index. HTML.
+1. Creare un file `index.html` per l'applicazione a pagina singola JavaScript. Se si usa Visual Studio, selezionare il progetto (ossia la cartella radice del progetto), fare clic con il pulsante destro del mouse e scegliere: **Aggiungi > Nuovo elemento > Pagina HTML** e assegnarle il nome index.html.
 
 2. Aggiungere il codice seguente alla pagina:
    ```html
@@ -62,7 +63,7 @@ Le istruzioni di questa guida sono basate su Node.js e Visual Studio 2017, ma è
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.js"></script>
        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    </head>
    <body>

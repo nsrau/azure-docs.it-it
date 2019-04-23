@@ -3,19 +3,19 @@ title: Questa guida introduttiva illustra come registrare un dispositivo X.509 n
 description: Questa guida introduttiva usa registrazioni di gruppo. In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875001"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500873"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Avvio rapido: Registrare i dispositivi X.509 nel servizio di provisioning di dispositivi con C#
 
@@ -53,7 +53,7 @@ Per usare gli strumenti di test per generare certificati, seguire questa procedu
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Le dimensioni di questo repository sono attualmente di circa 220 MB. Il completamento di questa operazione richiederà alcuni minuti.
+   Il completamento di questa operazione richiederà alcuni minuti.
 
    Gli strumenti di test si trovano nel percorso *azure-iot-sdk-c/tools/CACertificates* del repository clonato.    
 
@@ -176,4 +176,4 @@ Se si prevede di esplorare l'esempio di servizio C#, non eliminare le risorse cr
 In questa guida introduttiva è stato creato un gruppo di registrazione per un certificato X.509 intermedio o CA radice usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
  
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)
+> [Esercitazioni sul servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-cloud.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260846"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549389"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -280,13 +280,13 @@ Questa esercitazione illustra come:
 > * Creare una nuova pagina Web usando l'API del controllo mappa
 > * Usare il servizio di ricerca per trovare il punto di interesse più vicino
 
-È possibile accedere all'esempio di codice per questa esercitazione qui:
+> [!div class="nextstepaction"]
+> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Cercare una posizione con Mappe di Azure](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[Vedere qui l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 L'esercitazione successiva illustra come visualizzare un itinerario tra due posizioni.
 
 > [!div class="nextstepaction"]
-> [Itinerario per una destinazione](./tutorial-route-location.md)
+> [Trovare l'itinerario per una destinazione](./tutorial-route-location.md)

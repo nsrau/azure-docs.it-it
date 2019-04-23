@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294026"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579190"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
@@ -50,7 +50,7 @@ Prima di poter usare un dominio personalizzato con un endpoint della rete CDN di
 Un dominio personalizzato e il relativo sottodominio possono essere associati a un singolo endpoint alla volta. È tuttavia possibile usare più sottodomini dello stesso dominio personalizzato per endpoint di servizio di Azure diversi usando più record CNAME. È anche possibile eseguire il mapping di un dominio personalizzato con sottodomini diversi allo stesso endpoint della rete CDN.
 
 > [!NOTE]
-> Se si usa DNS di Azure come provider di dominio, è possibile usare qualsiasi tipo di record alias per i domini personalizzati. In questa procedura dettagliata viene usato il tipo di record CNAME. Se si usano tipi di record A o AAAA, seguire questi stessi passaggi sostituendo CNAME con il tipo di record scelto. Se si usa un record alias per aggiungere un dominio radice come dominio personalizzato e si vuole abilitare SSL, è necessario eseguire la convalida manuale come descritto [qui](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
+> Se si usa DNS di Azure come provider di dominio, è possibile usare qualsiasi tipo di record alias per i domini personalizzati. In questa procedura dettagliata viene usato il tipo di record CNAME. Se si usano tipi di record A o AAAA, seguire questi stessi passaggi e sostituire CNAME con il tipo di record scelto. Se si usa un record alias per aggiungere un dominio radice come dominio personalizzato e si vuole abilitare SSL, è necessario eseguire la convalida manuale come descritto in [questo articolo](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Per altre informazioni, vedere [Riferire il vertice della zona agli endpoint Rete CDN di Azure](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Eseguire il mapping del sottodominio cdnverify temporaneo
 

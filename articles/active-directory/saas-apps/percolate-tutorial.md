@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275845"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Esercitazione: Integrazione di Azure Active Directory con Percolate
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Percolate, seguire ques
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da  **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
+4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Percolate, seguire ques
 
     b. Nella casella di testo **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    c. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella  **x509 certificates** (Certificati x509).
+    c. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **x509 certificates** (Certificati x509).
 
     d. Nella casella di testo **Email attribute** (Attributo posta elettronica) digitare **emailaddress**.
 
@@ -219,9 +219,9 @@ Per consentire agli utenti di Azure AD di accedere a Percolate, è necessario ef
 
     ![Configure Single Sign-On](./media/percolate-tutorial/configure04.png)
 
-    a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
+    a. Nella casella di testo **E-mail** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
 
-    b. Nella casella di testo **Fullname** (Cognome) immettere nome e cognome dell'utente, ad esempio **Brittasimon**.
+    b. Nella casella di testo **Full Name** (Nome completo) immettere il nome dell'utente, ad esempio **Brittasimon**.
 
     c. Fare clic su **Create users** (Crea utenti).
 

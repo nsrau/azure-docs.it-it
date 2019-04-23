@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106900"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548747"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -44,14 +44,15 @@ Prima di copiare i dati sui dischi, esaminare le considerazioni seguenti:
 - Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e di Data Box Disk in Azure](data-box-disk-limits.md).
 - Se i dati caricati dal Data Box Disk vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box Disk, è possibile che si verifichino errori del processo di caricamento e il danneggiamento di dati.
 
-Se si sono specificati i dischi gestiti nell'ordine, esaminare le considerazioni aggiuntive seguenti:
+   > [!IMPORTANT]
+   >  Se sono stati specificati i dischi gestiti come una delle destinazioni di archiviazione durante la creazione dell'ordine, la sezione seguente è applicabile.
 
 - In tutte le cartelle create preventivamente e in Data Box Disk può essere presente un solo disco gestito con un determinato nome in un gruppo di risorse. I dischi rigidi virtuali caricati nelle cartelle create preventivamente devono quindi avere nomi univoci. Verificare che il nome assegnato non corrisponda a un disco gestito già esistente in un gruppo di risorse. Se i dischi rigidi virtuali hanno lo stesso nome, un solo disco rigido virtuale verrà convertito in un disco gestito con tale nome. Gli altri dischi rigidi virtuali verranno caricati come BLOB di pagine nell'account di archiviazione di staging.
 - Copiare sempre i dischi rigidi virtuali in una delle cartelle create preventivamente. Se vengono copiati all'esterno di queste cartelle o in una cartella creata dall'utente, i dischi rigidi virtuali verranno caricati nell'account di archiviazione di Azure come BLOB di pagine e non come dischi gestiti.
 - Per la creazione di dischi gestiti possono essere caricati solo dischi rigidi virtuali a dimensione fissa. I dischi rigidi virtuali dinamici o differenze e i file VHDX non sono supportati.
 
 
-Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul Data Box Disk.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul Data Box Disk.
 
 1. Visualizzare il contenuto dell'unità sbloccata. L'elenco delle cartelle e delle sottocartelle create preventivamente nell'unità varia in base alle opzioni selezionate al momento dell'ordine di Data Box Disk.
 
@@ -91,12 +92,12 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     |Destination       | Specifica il percorso della directory di destinazione.        |
     |/E                  | Copia le sottodirectory, incluse le directory vuote. |
     |/MT[:N]             | Crea copie multi-thread con N thread, dove N è un numero intero compreso tra 1 e 128. <br>Il valore predefinito per N è 8.        |
-    |/R: <N>             | Specifica il numero di tentativi per le copie non riuscite. Il valore predefinito di N è 1.000.000 (un milione di tentativi).        |
-    |/W: <N>             | Specifica il tempo di attesa tra i tentativi, in secondi. Il valore predefinito di N è 30 (tempo di attesa di 30 secondi).        |
+    |/R: \<N>             | Specifica il numero di tentativi per le copie non riuscite. Il valore predefinito di N è 1.000.000 (un milione di tentativi).        |
+    |/W: \<N>             | Specifica il tempo di attesa tra i tentativi, in secondi. Il valore predefinito di N è 30 (tempo di attesa di 30 secondi).        |
     |/NFL                | Specifica che i nomi dei file non devono essere inseriti nei log.        |
     |/NDL                | Specifica che i nomi di directory non devono essere inseriti nei log.        |
     |/FFT                | Presuppone i tempi dei file FAT (precisione di due secondi).        |
-    |/Log:<Log File>     | Scrive l'output di stato nel file di log sovrascrivendo il file di log esistente.         |
+    |/Log:\<Log File>     | Scrive l'output di stato nel file di log sovrascrivendo il file di log esistente.         |
 
     È possibile usare più dischi in parallelo con più processi in esecuzione su ogni disco.
 

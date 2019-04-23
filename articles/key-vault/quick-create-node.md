@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882751"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522305"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
 
@@ -150,7 +150,7 @@ Passare all'app Web appena creata, che dovrebbe essere funzionante. Sostituire `
     ```
     http://<app name>.azurewebsites.net
     ```
-Il comando precedente crea anche un'app abilitata per Git che consente la distribuzione in Azure dal proprio repository Git locale. Il repository Git locale è configurato con l'URL https://<username>@<nome_app>.scm.azurewebsites.net/<nome_app>.git.
+Il comando precedente crea anche un'app abilitata per Git che consente la distribuzione in Azure dal proprio repository Git locale. Il repository Git locale è configurato con questo URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Dopo l'esecuzione del comando precedente, è possibile aggiungere un'istanza remota di Azure al repository Git locale. Sostituire `<url>` con l'URL del repository Git.
 
@@ -194,9 +194,9 @@ Usare il comando seguente per distribuire l'app in Azure:
 git push azure master
 ```
 
-Sarà quindi possibile vedere il valore del segreto passando a https://<nome_app>.azurewebsites.net. Assicurarsi di aver sostituito il nome <YourKeyVaultName> con il nome dell'insieme di credenziali.
+Sarà quindi possibile vedere il valore del segreto passando a `https://<app_name>.azurewebsites.net`. Assicurarsi di aver sostituito il nome `<YourKeyVaultName>` con il nome dell'insieme di credenziali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Azure SDK per Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+> [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275539"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Esercitazione: Integrazione di Azure Active Directory con Periscope Data
 
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
 
     d. Individuare il tag **SingleLogoutService** e incollare il valore di **Location** (Località) nella casella di testo **SLO URL** (URL SLO).
 
-    e. Copiare il valore di **Identifier** (Identificatore) per l'istanza e incollarlo nella casella di testo  **Identificatore (ID entità)** della sezione **Configurazione SAML di base** del portale di Azure.
+    e. Copiare il valore di **Identifier** (Identificatore) per l'istanza e incollarlo nella casella di testo **Identificatore (ID entità)** della sezione **Configurazione SAML di base** del portale di Azure.
 
     f. Individuare il primo tag del file XML, copiare il valore di **entityID** e incollarlo nella casella di testo **Issuer** (Emittente).
 

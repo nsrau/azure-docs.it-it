@@ -1,7 +1,7 @@
 ---
 title: Ruoli dei criteri
 titleSuffix: Azure Cognitive Services
-description: Usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.
+description: Criteri per estrarre dati da espressioni modello formattate in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106594"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523275"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Esercitazione: Estrarre criteri correlati in base al contesto usando i ruoli
 
-Questa esercitazione illustra come usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
+Questa esercitazione illustra come usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'[entità semplice](luis-concept-entity-types.md#simple-entity) e i [ruoli](luis-concept-roles.md) per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
 
 
 **In questa esercitazione si imparerà come:**
@@ -373,19 +373,6 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
     ```
 
 Il punteggio di finalità è ora molto più elevato e i nomi di ruolo fanno parte della risposta dell'entità.
-
-## <a name="hierarchical-entities-versus-roles"></a>Ruoli ed entità gerarchiche
-
-Nell'[esercitazione relativa alle entità gerarchiche](luis-quickstart-intent-and-hier-entity.md) la finalità **MoveEmployee** rilevava il momento in cui si spostava un dipendente esistente da un edificio o da un ufficio a un altro. Per le espressioni di esempio erano presenti luoghi di origine e di destinazione, ma non venivano usati i ruoli. L'origine e la destinazione erano invece elementi figlio dell'entità gerarchica. 
-
-In questa esercitazione, l'app relativa alle risorse umane rileva espressioni sullo spostamento di nuovi dipendenti da una città a un'altra. Questi due tipi di espressioni sono uguali, ma realizzati con funzionalità di LUIS diverse.
-
-|Esercitazione|Espressione di esempio|Luoghi di origine e destinazione|
-|--|--|--|
-|[Entità gerarchiche (senza ruoli)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|Questa esercitazione (con i ruoli)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-Per ulteriori informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

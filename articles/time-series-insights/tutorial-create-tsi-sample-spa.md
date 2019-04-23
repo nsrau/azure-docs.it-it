@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312207"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521430"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -179,7 +179,7 @@ Prima di compilare l'applicazione, è necessario registrarla con Azure AD. La re
 Codice di errore/condizione | DESCRIZIONE
 ---------------------| -----------
 *AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà "URL di risposta". Passare alla pagina **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Verificare che sia presente l'**URL di accesso** specificato nel passaggio 3 della sezione [Registrare l'applicazione con Azure AD](#register-the-application-with-azure-ad). 
-*AADSTS50011: L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione: '<Application ID GUID>'.* | Il valore di `postLogoutRedirectUri` specificato nel passaggio 4.b della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) deve corrispondere al valore specificato nella proprietà **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Assicurarsi di cambiare anche l'**URL di destinazione** usando `https`, come indicato nel passaggio 5.e della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application).
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): "\<GUID ID applicazione>".* | Il valore di `postLogoutRedirectUri` specificato nel passaggio 4.b della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) deve corrispondere al valore specificato nella proprietà **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Assicurarsi di cambiare anche l'**URL di destinazione** usando `https`, come indicato nel passaggio 5.e della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application).
 L'applicazione Web viene caricata, ma la pagina di accesso contiene solo testo senza alcuno stile applicato, con uno sfondo bianco. | Verificare che i percorsi descritti nel passaggio 4.a della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) siano corretti. Se l'applicazione Web non trova i file CSS, non potrà applicare lo stile corretto alla pagina.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

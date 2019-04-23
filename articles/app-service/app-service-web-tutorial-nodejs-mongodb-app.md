@@ -1,6 +1,6 @@
 ---
-title: Compilare un'app Node.js con MongoDB - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come usare un'app Node.js in Azure, con connessione a un database Cosmos DB tramite una stringa di connessione MongoDB.
+title: Node.js (MEAN.js) con MongoDB - Servizio app di Azure | Microsoft Docs
+description: Informazioni su come usare un'app Node.js in Azure, con connessione a un database Cosmos DB tramite una stringa di connessione MongoDB. MEAN.js verrà usato nell'esercitazione.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891825"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548122"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Esercitazione: Creare un'app Node.js e MongoDB in Azure
 

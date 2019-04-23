@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260664"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505686"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definire e assegnare un progetto nel portale
 
@@ -41,116 +41,117 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    ![Creare un progetto nella pagina Definizioni di progetto](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Indicare un **Nome progetto**, ad esempio **MyBlueprint**. Usare fino a 48 lettere e numeri, senza spazi o caratteri speciali. Per il momento, lasciare vuota la **Descrizione del progetto**. 
-   
+1. Indicare un **Nome progetto**, ad esempio **MyBlueprint**. Usare fino a 48 lettere e numeri, senza spazi o caratteri speciali. Per il momento, lasciare vuota la **Descrizione del progetto**.
+
 1. Nella casella **Località della definizione** selezionare i puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e scegliere **Seleziona**.
 
 1. Verificare che le informazioni siano corrette. I campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente. Selezionare quindi **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo al livello di sottoscrizione: 
+1. Aggiungere un'assegnazione di ruolo al livello di sottoscrizione:
 
-   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**. Si aprirà la finestra **Aggiungi artefatto** sul lato destro del browser. 
-   
-   b. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**. 
-   
-   c. In **Ruolo** selezionare **Collaboratore**. Per la casella **Aggiungi utente, app o gruppo** lasciare la casella di controllo che indica un parametro dinamico. 
-   
-   d. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+   1. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**. Si aprirà la finestra **Aggiungi artefatto** sul lato destro del browser.
+
+   1. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**.
+
+   1. In **Ruolo** selezionare **Collaboratore**. Per la casella **Aggiungi utente, app o gruppo** lasciare la casella di controllo che indica un parametro dinamico.
+
+   1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
    ![Assegnazione di ruolo per un artefatto del progetto](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La maggior parte degli artefatti supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un *parametro statico*. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un *parametro dinamico*. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
 
-1. Aggiungere un'assegnazione di criteri al livello di sottoscrizione: 
+1. Aggiungere un'assegnazione di criteri al livello di sottoscrizione:
 
-   a. Selezionare **+ Aggiungi artefatto** sotto l'artefatto dell'assegnazione di ruolo. 
-   
-   b. Selezionare **Assegnazione criteri** per **Tipo di artefatto**. 
-   
-   c. Modificare **Tipo** in **Predefinito**. In **Ricerca** immettere **tag**. 
-   
-   d. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Applica tag e relativo valore predefinito ai gruppi di risorse**. 
-   
-   e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+   1. Selezionare **+ Aggiungi artefatto** sotto l'artefatto dell'assegnazione di ruolo.
 
-1. Selezionare la riga dell'assegnazione di criteri **Applica tag e relativo valore predefinito ai gruppi di risorse**. 
+   1. Selezionare **Assegnazione criteri** per **Tipo di artefatto**.
+
+   1. Modificare **Tipo** in **Predefinito**. In **Ricerca** immettere **tag**.
+
+   1. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Applica tag e relativo valore predefinito ai gruppi di risorse**.
+
+   1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+
+1. Selezionare la riga dell'assegnazione di criteri **Applica tag e relativo valore predefinito ai gruppi di risorse**.
 
 1. Viene visualizzata la finestra per fornire i parametri per l'artefatto come parte della definizione del progetto, in cui è possibile impostare i parametri per tutte le assegnazioni (parametri statici) in base a questo progetto anziché durante l'assegnazione (parametri dinamici). Dal momento che ai fini di questo esempio vengono usati parametri dinamici durante l'assegnazione del progetto, lasciare le impostazioni predefinite e selezionare **Annulla**.
 
-1. Aggiungere un gruppo di risorse al livello di sottoscrizione: 
+1. Aggiungere un gruppo di risorse al livello di sottoscrizione:
 
-   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**. 
-   
-   b. Selezionare **Gruppo di risorse** per **Tipo di artefatto**. 
-   
-   c. Lasciare vuote le caselle **Nome visualizzato dell'artefatto**, **Nome gruppo di risorse** e **Località**, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà di parametro in modo che i parametri siano parametri dinamici. 
-   
-   d. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+   1. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Sottoscrizione**.
 
-1. Aggiungere un modello nel gruppo di risorse: 
+   1. Selezionare **Gruppo di risorse** per **Tipo di artefatto**.
 
-   a. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Gruppo di risorse**. 
-   
-   b. Selezionare **Modello di Azure Resource Manager** per **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**. 
-   
-   c. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come parametro dinamico. 
-   
-   > [!IMPORTANT]
-   > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver selezionato **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
+   1. Lasciare vuote le caselle **Nome visualizzato dell'artefatto**, **Nome gruppo di risorse** e **Località**, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà di parametro in modo che i parametri siano parametri dinamici.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-   d. Deselezionare la casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un parametro dinamico. 
-   
-   e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
+1. Aggiungere un modello nel gruppo di risorse:
+
+   1. Selezionare la riga **+ Aggiungi artefatto** sotto la voce **Gruppo di risorse**.
+
+   1. Selezionare **Modello di Azure Resource Manager** per **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**.
+
+   1. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente.
+      Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come parametro dinamico.
+
+      > [!IMPORTANT]
+      > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver selezionato **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Deselezionare la casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un parametro dinamico.
+
+   1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
    ![Modello di Resource Manager per l'artefatto del progetto](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Selezionare **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: 
+1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse:
 
-   a. Selezionare la riga **+ Aggiungi artefatto** direttamente sotto la voce **Gruppo di risorse**. 
-   
-   b. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**. 
-   
-   c. In **Ruolo** selezionare **Proprietario** e deselezionare la casella di controllo **Aggiungi utente, app o gruppo**. 
-   
-   d. Cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un parametro statico con la stessa impostazione in ogni assegnazione di questo progetto. 
-   
+   1. Selezionare la riga **+ Aggiungi artefatto** direttamente sotto la voce **Gruppo di risorse**.
+
+   1. Selezionare **Assegnazione ruolo** per **Tipo di artefatto**.
+
+   1. In **Ruolo** selezionare **Proprietario** e deselezionare la casella di controllo **Aggiungi utente, app o gruppo**.
+
+   1. Cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un parametro statico con la stessa impostazione in ogni assegnazione di questo progetto.
+
    e. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
    ![Seconda assegnazione di ruolo per l'artefatto del progetto](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
    Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../billing/index.md), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**. A tale scopo, seguire questa procedura:
 
-   a. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
+   1. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
 
-   b. Specificare un **nome visualizzato** per la nuova sottoscrizione.
+   1. Specificare un **nome visualizzato** per la nuova sottoscrizione.
 
-   c. Selezionare l'**offerta** disponibile nell'elenco a discesa.
+   1. Selezionare l'**offerta** disponibile nell'elenco a discesa.
 
-   d. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
+   1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
 
-   e. Selezionare **Crea** nella parte inferiore della pagina.
+   1. Selezionare **Crea** nella parte inferiore della pagina.
 
    ![Creare una sottoscrizione per una sottoscrizione di assegnazione del progetto](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 1. Per **Gruppo di risorse** specificare il nome **Account di archiviazione** in **Nome** e selezionare **Stati Uniti orientali 2** nell'elenco a discesa **Località**.
 
    > [!NOTE]
-   > A ogni artefatto aggiunto nel gruppo di risorse durante la definizione del progetto viene applicato un rientro per allinearlo al gruppo di risorse o a un oggetto con cui verrà distribuito. Gli artefatti che non accettano parametri o per cui non devono essere definiti parametri in fase di assegnazione vengono elencati solo per fornire informazioni contestuali.
+   > A ogni artefatto aggiunto nel gruppo di risorse durante la definizione del progetto viene applicato un rientro per allinearlo al gruppo di risorse o a un oggetto con cui verrà distribuito.
+   > Gli artefatti che non accettano parametri o per cui non devono essere definiti parametri in fase di assegnazione vengono elencati solo per fornire informazioni contestuali.
 
 1. Nel modello di Azure Resource Manager **Account di archiviazione** selezionare **Standard_GRS** per il parametro **storageAccountType**.
 
@@ -294,7 +296,8 @@ Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più neces
 1. Fare clic con il pulsante destro del mouse sul progetto che si vuole eliminare e scegliere **Elimina progetto**. Quindi, selezionare **Sì** nella finestra di dialogo di conferma.
 
 > [!NOTE]
-> L'eliminazione di un progetto in questo modo comporta l'eliminazione anche di tutte le versioni pubblicate del progetto selezionato. Per eliminare una singola versione, aprire il progetto, selezionare la scheda **Versioni pubblicate**, selezionare la versione che si vuole eliminare e quindi fare clic su **Elimina questa versione**. Inoltre, non è possibile eliminare un progetto iniziale fino a quando non sono state eliminate tutte le assegnazioni progetto di tale definizione di progetto.
+> L'eliminazione di un progetto in questo modo comporta l'eliminazione anche di tutte le versioni pubblicate del progetto selezionato.
+> Per eliminare una singola versione, aprire il progetto, selezionare la scheda **Versioni pubblicate**, selezionare la versione che si vuole eliminare e quindi fare clic su **Elimina questa versione**. Inoltre, non è possibile eliminare un progetto iniziale fino a quando non sono state eliminate tutte le assegnazioni progetto di tale definizione di progetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

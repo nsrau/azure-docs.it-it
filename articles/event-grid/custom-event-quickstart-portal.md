@@ -9,12 +9,12 @@ ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: b0fb6ea527c46ab6a9de95ba5f5ae39b8a5d50b1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576983"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549968"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con il portale di Azure e Griglia di eventi
 
@@ -49,7 +49,7 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
     5. Mantenere il valore predefinito **Schema griglia di eventi** per il campo **Schema evento**. 
 
        ![Pagina Crea argomento](./media/custom-event-quickstart-portal/create-custom-topic.png)
-    6. Selezionare **Crea**. 
+    6. Selezionare **Create**. 
 5. Dopo che l'argomento personalizzato è stato creato, viene visualizzata una notifica dell'operazione riuscita. Selezionare **Vai al gruppo di risorse**. 
 
    ![Visualizzare la notifica dell'operazione riuscita](./media/custom-event-quickstart-portal/success-notification.png)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402151"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548036"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come accedere a un lab per le classi, connettersi alla macchina virtuale nel lab e arrestare la macchina virtuale. 
@@ -36,7 +36,7 @@ Questo articolo descrive come accedere a un lab per le classi, connettersi alla 
 ## <a name="view-all-the-classroom-labs"></a>Visualizzare tutti i lab della classe
 Dopo la registrazione ai lab, è possibile visualizzare tutti i lab per le classi attenendosi alla procedura seguente: 
 
-1. Passare a [https://labs.azure.com](https://labs.azure.com). 
+1. Passare a [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 2. Accedere al servizio con l'account utente usato per la registrazione al lab. 
 3. Verificare che siano visualizzati tutti i lab a cui si ha accesso. 
 

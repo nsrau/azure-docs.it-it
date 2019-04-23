@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203514"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503152"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configurazione dell'applicazione iOS
 
@@ -61,7 +61,7 @@ Copiare e incollare il codice seguente. Questo comando recupera le dipendenze in
 carthage update
 ```
 
-> Il processo precedente viene usato per scaricare e creare l'istanza di Microsoft Authentication Library (MSAL) che gestisce l'acquisizione, la memorizzazione nella cache e l'aggiornamento dei token utente usati per accedere ad API protette da Azure Active Directory v2.0.
+> Il processo precedente viene usato per scaricare e creare l'istanza di Microsoft Authentication Library (MSAL) che gestisce l'acquisizione, la memorizzazione nella cache e l'aggiornamento dei token utente usati per accedere ad API protette da Microsoft Identity Platform.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Aggiungere il framework MSAL all'applicazione
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045406"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578408"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -22,7 +22,7 @@ Griglia di eventi di Azure consente di compilare facilmente applicazioni con arc
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile.
 
-Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina o Azure per enti pubblici.
+Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina 21Vianet o Azure per enti pubblici.
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
@@ -34,30 +34,29 @@ Questa immagine illustra in che modo Griglia di eventi collega origini e gestori
 
 Per informazioni dettagliate complete sulle funzionalità di ogni origine, con articoli correlati, vedere [Origini evento](event-sources.md). Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
 
-* Sottoscrizioni di Azure (operazioni di gestione)
-* Registro Container
-* Argomenti personalizzati
-* Hub eventi
-* Hub IoT
-* Servizi multimediali
-* Gruppi di risorse (operazioni di gestione)
-* Bus di servizio
-* Archiviazione BLOB
-* Utilizzo generico dell'archiviazione v2 (GPv2)
-* Mappe di Azure
+* [Sottoscrizioni di Azure (operazioni di gestione)](event-sources.md#azure-subscriptions)
+* [Registro Container](event-sources.md#container-registry)
+* [Argomenti personalizzati](event-sources.md#custom-topics)
+* [Hub eventi](event-sources.md#event-hubs)
+* [Hub IoT](event-sources.md#iot-hub)
+* [Servizi multimediali](event-sources.md#media-services)
+* [Gruppi di risorse (operazioni di gestione)](event-sources.md#resource-groups)
+* [Bus di servizio](event-sources.md#service-bus)
+* [Archiviazione BLOB](event-sources.md#storage)
+* [Mappe di Azure](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Gestori eventi
 
 Per informazioni dettagliate complete sulle funzionalità di ogni gestore, con articoli correlati, vedere [Gestori eventi](event-handlers.md). Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da Griglia di eventi: 
 
-* Automazione di Azure
-* Funzioni di Azure
-* Hub eventi
-* connessioni ibride
-* App per la logica
-* Microsoft Flow
-* Archiviazione code
-* Webhook
+* [Automazione di Azure](event-handlers.md#azure-automation)
+* [Funzioni di Azure](event-handlers.md#azure-functions)
+* [Hub eventi](event-handlers.md#event-hubs)
+* [Connessioni ibride](event-handlers.md#hybrid-connections)
+* [App per la logica](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Archiviazione code](event-handlers.md#queue-storage)
+* [Webhook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concetti
 
@@ -116,11 +115,11 @@ Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pa
 
 * [Indirizzare gli eventi BLOB di archiviazione](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Rispondere agli eventi BLOB di archiviazione con Griglia di eventi.
-* [Creare e sottoscrivere eventi personalizzati](custom-event-quickstart.md)  
+* [Create and subscribe to custom events](custom-event-quickstart.md) (Creare e sottoscrivere eventi personalizzati)  
   È possibile iniziare subito a inviare gli eventi personalizzati agli endpoint usando l'avvio rapido della Griglia di eventi di Azure.
 * [Uso di App per la logica come gestore dell'evento](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Esercitazione sulla compilazione di un'app con App per la logica per rispondere agli eventi di cui viene eseguito il push da Griglia di eventi.
 * [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)  
   Un'esercitazione che usa Funzioni di Azure per eseguire il flusso di dati da Hub eventi a SQL Data Warehouse.
-* [Informazioni di riferimento sulle API REST di Griglia di eventi](/rest/api/eventgrid)  
+* [Event Grid REST API reference (Informazioni di riferimento sulle API REST di Griglia di eventi)](/rest/api/eventgrid)  
   Offre contenuto di riferimento per la gestione di sottoscrizioni agli eventi, routing e filtri.

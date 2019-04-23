@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007620"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548552"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -32,7 +32,7 @@ Questa guida introduttiva illustra come implementare l'accesso con Microsoft usa
 Al termine di questa guida introduttiva, l'applicazione accetterà gli accessi di account aziendali e dell'istituto di istruzione di organizzazioni integrate con Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Se è necessario abilitare gli accessi per gli account personali oltre agli account aziendali e dell'istituto di istruzione, è possibile usare l'[endpoint v2.0](azure-ad-endpoint-comparison.md). Per altre informazioni, vedere [questa esercitazione di ASP.NET per l'endpoint v2.0](tutorial-v2-asp-webapp.md) e [questo articolo](active-directory-v2-limitations.md) che descrive le limitazioni correnti dell'endpoint v2.0.
+> Se è necessario abilitare gli accessi per gli account personali, oltre che per gli account aziendali e dell'istituto di istruzione, è possibile usare l'*[endpoint di Microsoft Identity Platform](azure-ad-endpoint-comparison.md)*. Per altre informazioni, vedere [questa esercitazione su ASP.NET](tutorial-v2-asp-webapp.md) e [questo articolo](active-directory-v2-limitations.md) che illustra le caratteristiche dell'*endpoint di Microsoft Identity Platform*.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

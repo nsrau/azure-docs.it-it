@@ -14,26 +14,25 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bd535aeb034a17f1844c1d19379c1811b43d27e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260238"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549270"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure
 
 > [!div class="op_single_selector"]
-> * [ Windows](quickstart-sql-vm-create-portal.md)
+> * [Windows](quickstart-sql-vm-create-portal.md)
 > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL Server nel portale di Azure.
 
-> [!TIP]
-> Questa guida introduttiva offre un percorso per effettuare il provisioning e connettersi rapidamente a una macchina virtuale SQL. Per altre informazioni su altre opzioni di provisioning delle macchine virtuali SQL, vedere [Guida al provisioning di macchine virtuali Windows con SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-> [!TIP]
-> In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md).
+  > [!TIP]
+  > - Questa guida introduttiva offre un percorso per effettuare il provisioning e connettersi rapidamente a una macchina virtuale SQL. Per altre informazioni su altre opzioni di provisioning delle macchine virtuali SQL, vedere [Guida al provisioning di macchine virtuali Windows con SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
+  > - In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Ottenere una sottoscrizione di Azure
 
@@ -47,12 +46,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Nel campo di ricerca digitare `SQL Server 2017 Developer on Windows Server 2016` e premere INVIO.
 
-1. Selezionare l'immagine denominata **Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016**.
+1. Selezionare l'immagine denominata **Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016**. L'edizione per sviluppatori viene usata in questa esercitazione perché è una versione completa di SQL Serve gratuita a scopo di test per lo sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per informazioni complete sui prezzi, vedere [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md).
 
    ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-   > [!TIP]
-   > L'edizione per sviluppatori viene usata in questa esercitazione perché è una versione completa di SQL Serve gratuita a scopo di test per lo sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per informazioni complete sui prezzi, vedere [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. Selezionare **Create**.
 
@@ -99,19 +96,14 @@ Nella scheda **Impostazioni di SQL Server** configurare le opzioni seguenti:
 
 Nella scheda **Rivedi e crea** esaminare il riepilogo e fare clic su **Crea** per creare SQL Server, il gruppo di risorse e le risorse specificati per questa VM.
 
-È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
-
-> [!TIP]
-> La distribuzione di una VM di SQL Server Windows può richiedere alcuni minuti.
+È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione. Questa operazione può richiedere alcuni minuti. 
 
 ## <a name="connect-to-sql-server"></a>Connettersi a SQL Server
 
 1. Nel portale trovare l'**indirizzo IP pubblico** della macchina virtuale SQL Server nella sezione **Panoramica** delle proprietà della macchina virtuale.
 
-1. In un altro computer connesso a Internet aprire SQL Server Management Studio (SSMS).
+1. In un altro computer connesso a Internet aprire [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-   > [!TIP]
-   > Se SQL Server Management Studio non è installato, è possibile scaricarlo da [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP pubblico della macchina virtuale. Aggiungere quindi una virgola e la porta personalizzata, **1401**, specificata durante la configurazione della nuova macchina virtuale. Ad esempio: `11.22.33.444,1401`.
 
@@ -145,4 +137,4 @@ Se non occorre che la VM di SQL Server sia sempre in esecuzione, è possibile ar
 In questa guida di avvio rapido è stata creata una macchina virtuale di SQL Server 2017 nel portale di Azure. Per altre informazioni su come eseguire la migrazione dei dati nella nuova VM di SQL Server, vedere l'articolo seguente.
 
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione di un database in una VM SQL](virtual-machines-windows-migrate-sql.md)
+> [Eseguire la migrazione di un database in una VM di SQL Server](virtual-machines-windows-migrate-sql.md)

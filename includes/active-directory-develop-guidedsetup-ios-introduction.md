@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203509"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503135"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chiamare l'API Microsoft Graph da un'applicazione iOS
 
-Questa guida illustra in che modo un'applicazione iOS nativa (Swift) può chiamare API che richiedono token di accesso dall'endpoint Microsoft Azure Active Directory (Azure AD) v2.0. La guida spiega come ottenere i token di accesso e usarli nelle chiamate all'API Microsoft Graph e ad altre API.
+Questa guida illustra in che modo un'applicazione iOS nativa (Swift) può chiamare API che richiedono token di accesso dall'endpoint Microsoft Identity Platform. La guida spiega come ottenere i token di accesso e usarli nelle chiamate all'API Microsoft Graph e ad altre API.
 
 Dopo aver completato gli esercizi in questa guida, l'applicazione può chiamare un'API protetta da qualsiasi società o organizzazione che usa Azure AD. L'applicazione può eseguire chiamate alle API protette tramite account personali, come outlook.com, live.com e altri, oltre che tramite account aziendali o dell'istituto di istruzione.
 
@@ -34,13 +34,13 @@ Dopo aver completato gli esercizi in questa guida, l'applicazione può chiamare 
 
 ## <a name="how-this-guide-works"></a>Come interpretare questa guida
 
-![Illustra come l'app di esempio generato da questo funzionamento esercitazioni](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
+![Illustra come funziona l'app di esempio generata da queste esercitazioni](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
-In questa guida l'applicazione di esempio consente a un'applicazione iOS di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint Azure AD v2.0. Per questo scenario, viene aggiunto un token alle richieste HTTP usando**l'intestazione dell'autorizzazione**. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
+In questa guida l'applicazione di esempio consente a un'applicazione iOS di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint Microsoft Identity Platform. Per questo scenario, viene aggiunto un token alle richieste HTTP usando**l'intestazione dell'autorizzazione**. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
 ### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Gestire l'acquisizione di token per l'accesso alle API Web protette
 
-Dopo l'autenticazione dell'utente, l'applicazione di esempio riceve un token. Il token viene usato per eseguire query sull'API Microsoft Graph o su un'API Web protetta dall'endpoint Azure AD v2.0.
+Dopo l'autenticazione dell'utente, l'applicazione di esempio riceve un token. Il token viene usato per eseguire query sull'API Microsoft Graph o su un'API Web protetta dall'endpoint Microsoft Identity Platform.
 
 Le API come Microsoft Graph richiedono un token di accesso per consentire l'accesso a risorse specifiche. I token sono necessari per leggere il profilo di un utente, accedere al calendario di un utente, inviare posta elettronica e così via. L'applicazione può richiedere un token di accesso usando MSAL e specificando gli ambiti API. Il token di accesso viene aggiunto all'intestazione **dell'autorizzazione**HTTP per ogni chiamata effettuata per la risorsa protetta.
 

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c0a7ff6d06325a6e6f631b92335f9a41c2c8c06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854807"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -78,6 +79,9 @@ A tutt'oggi sono supportate le versioni seguenti di Confluence:
 - Confluence: 6.11.0
 - Confluence: 6.12.0
 
+> [!NOTE]
+> Si noti che Confluence supporta anche Linux Ubuntu versione 16.04
+
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
@@ -104,7 +108,7 @@ Per configurare l'integrazione di Confluence SAML SSO by Microsoft in Azure AD �
 
 4. Nella casella di ricerca digitare **Confluence SAML SSO by Microsoft**, selezionare **Confluence SAML SSO by Microsoft** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Confluence SAML SSO by Microsoft nell'elenco dei risultati](common/search-new-app.png)
+    ![Confluence SAML SSO by Microsoft nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -144,9 +148,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Confluence SAML SSO by 
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<domain:port>/`
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<domain:port>/`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. La porta è facoltativa nel caso di un URL denominato. Questi valori vengono ricevuti durante la configurazione del plug-in Confluence, illustrata più avanti nell'esercitazione.
@@ -220,8 +224,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com.
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -259,7 +262,7 @@ Per consentire agli utenti di Azure AD di accedere a un server Confluence locale
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al server locale Confluence come amministratore.
+1. Accedere al server Confluence locale come amministratore.
 
 2. Passare il puntatore del mouse e fare clic su **User management** (Gestione utenti).
 
