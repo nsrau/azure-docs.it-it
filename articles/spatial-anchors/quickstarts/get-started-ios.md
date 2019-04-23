@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996646"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Avvio rapido: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Guida introduttiva: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
 
 Questa guida introduttiva illustra come creare un'app iOS usando [Ancoraggi nello spazio di Azure](../overview.md) in Swift o Objective-C. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app iOS ARKit in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -88,15 +88,15 @@ Il passaggio successivo consiste nel configurare l'app in modo da usare l'identi
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
-Aprire `iOS/Swift/SampleSwift/ViewController.swift`.
+Aprire `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chiave dell'account.
+Individuare il campo `spatialAnchorsAccountKey` e sostituire `Set me` con la chiave dell'account.
 
-Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
+Individuare il campo `spatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
-Aprire `iOS/Objective-C/SampleObjC/ViewController.m`.
+Aprire `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chiave dell'account.
 
