@@ -1,55 +1,48 @@
-items:
 - name: Documentazione sul portale di Azure
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sul portale di Azure
-    href: azure-portal-overview.md
-  - name: Browser e dispositivi supportati
-    href: azure-portal-supported-browsers-devices.md
+    - name: Informazioni sul portale di Azure
+      href: azure-portal-overview.md
+    - name: Browser e dispositivi supportati
+      href: azure-portal-supported-browsers-devices.md
 - name: Concetti
   items:
-  - name: Creare e condividere dashboard di Azure
-    href: azure-portal-dashboards.md
-  - name: Condividere i dashboard con il controllo degli accessi in base al ruolo
-    href: azure-portal-dashboard-share-access.md
-  - name: Creare i dashboard di Azure a livello di codice
-    href: azure-portal-dashboards-create-programmatically.md
+    - name: Creare e condividere dashboard di Azure
+      href: azure-portal-dashboards.md
+    - name: Condividere i dashboard con il controllo degli accessi in base al ruolo
+      href: azure-portal-dashboard-share-access.md
+    - name: Creare i dashboard di Azure a livello di codice
+      href: azure-portal-dashboards-create-programmatically.md
 - name: Guide alle procedure
   items:
-  - name: Attivare un contrasto elevato o cambiare tema
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Aggiungere, rimuovere e ordinare i preferiti
-    href: azure-portal-add-remove-sort-favorites.md
-  - name: Usare un riquadro markdown personalizzato
-    href: azure-portal-markdown-tile.md
-  - name: Esportare o eliminare le impostazioni utente
-    href: azure-portal-export-delete-settings.md
-  - name: Serie di video di procedure per il portale di Azure
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
+    - name: Attivare un contrasto elevato o cambiare tema
+      href: azure-portal-change-theme-high-contrast.md
+    - name: 'Aggiungere, rimuovere e ordinare i preferiti'
+      href: azure-portal-add-remove-sort-favorites.md
+    - name: Usare un riquadro markdown personalizzato
+      href: azure-portal-markdown-tile.md
+    - name: Esportare o eliminare le impostazioni utente
+      href: azure-portal-export-delete-settings.md
+    - name: Serie di video di procedure per il portale di Azure
+      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
 - name: riferimento
   items:
-  - name: Tasti di scelta rapida
-    href: azure-portal-keyboard-shortcuts.md
-  - name: Struttura dei dashboard di Azure
-    href: azure-portal-dashboards-structure.md
+    - name: Tasti di scelta rapida
+      href: azure-portal-keyboard-shortcuts.md
+    - name: Struttura dei dashboard di Azure
+      href: azure-portal-dashboards-structure.md
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/updates/
-  - name: Sviluppare le proprie competenze con Microsoft Learn
-    href: /learn/browse/?products=azure-portal
-  - name: Calcolatore prezzi
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Video di Azure
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 3846b9198d79be1a9580919a97e568c6a2467b12
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047986"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Sviluppare le proprie competenze con Microsoft Learn
+      href: /learn/browse/?products=azure-portal
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
+    - name: Video di Azure
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'

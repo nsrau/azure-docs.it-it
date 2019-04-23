@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/02/2019
 ms.openlocfilehash: 10ed3ec8b29048a7ede51a6d98e9f1ebb7f44cf6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862982"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare attività, processi e flussi di lavoro automatizzati con App per la logica di Azure - Visual Studio
@@ -119,7 +119,7 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'ap
    | User profile list (Elenco profili utente) | Contoso <br> jamalhartnett@contoso.com | Per impostazione predefinita, l'account usato per eseguire l'accesso |
    | **Sottoscrizione** | Pagamento in base al consumo <br> (jamalhartnett@contoso.com) | Il nome della sottoscrizione di Azure e l'account associato |
    | **Gruppo di risorse** | MiaAppLogica-GR <br> (Stati Uniti occidentali) | Il gruppo di risorse di Azure e la posizione per l'archiviazione e distribuzione delle risorse per l'app per la logica |
-   | **Località** | MiaAppLogica-GR2 <br> (Stati Uniti occidentali) | Una posizione diversa se non si desidera usare la posizione del gruppo di risorse |
+   | **Posizione** | MiaAppLogica-GR2 <br> (Stati Uniti occidentali) | Una posizione diversa se non si desidera usare la posizione del gruppo di risorse |
    ||||
 
 1. Viene visualizzata la finestra Progettazione app per la logica, che mostra una pagina con un video introduttivo e i trigger più usati. 
@@ -213,5 +213,5 @@ Selezionare il gruppo di risorse dell'app per la logica e quindi **Panoramica**.
 In questo articolo è stata creata, distribuita ed eseguita un'app per la logica con Visual Studio. Per altre informazioni sulla gestione e l'esecuzione di distribuzioni avanzate di app per la logica con Visual Studio, vedere questi articoli:
 
 > [!div class="nextstepaction"]
-> * [Gestire le app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 > * [Creare modelli di distribuzione per le app per la logica con Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)
