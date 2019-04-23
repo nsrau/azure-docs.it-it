@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862625"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792218"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il Centro sicurezza di Azure (ASC) per l'evidenza e gli avvisi del servizio IoT offrono indiscutibilmente quando i dispositivi IoT sono sospetta di coinvolgimento in attività sospette o quando le indicazioni presenti che un dispositivo sia compromesso. 

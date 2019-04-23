@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
 ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849683"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790877"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origini dei dati in Monitoraggio di Azure
 Questo articolo descrive le origini dei dati raccolti da Monitoraggio di Azure per monitorare l'integrità e le prestazioni delle risorse e le applicazioni che si basano su tali dati. Queste risorse possono trovarsi in Azure, in un altro cloud o in locale.  Vedere [Dati raccolti da Monitoraggio di Azure](data-platform.md) per informazioni dettagliate sul modo in cui vengono archiviati questi dati e su come visualizzarli.

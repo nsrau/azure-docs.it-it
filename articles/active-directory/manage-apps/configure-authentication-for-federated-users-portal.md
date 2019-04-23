@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360929"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791216"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 

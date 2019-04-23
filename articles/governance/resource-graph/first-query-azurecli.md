@@ -9,11 +9,11 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266478"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792246"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 

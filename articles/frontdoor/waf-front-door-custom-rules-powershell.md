@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362997"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792081"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurare un criterio di firewall applicazione web usando Azure PowerShell
 Criteri di Azure web application firewall (WAF) definiscono le ispezioni obbligatorio quando arriva una richiesta in ingresso principale.
@@ -31,7 +31,7 @@ Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Man
 
 È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina di accedere con le credenziali di Azure e installare il modulo PowerShell di Az.
 
-#### <a name="sign-in-to-azure"></a>Accedere ad Azure
+#### <a name="sign-in-to-azure"></a>Accedi ad Azure
 ```
 Connect-AzAccount
 

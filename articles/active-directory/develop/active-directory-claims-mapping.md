@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260307"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791337"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -295,7 +295,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | department|department|
 | Utente | onpremisessamaccountname | Nome Account SAM locale |
 | Utente | netbiosname| Nome NetBios |
-| Utente | dnsdomainname | DNS Domain Name |
+| Utente | dnsdomainname | Nome di dominio DNS |
 | Utente | onpremisesecurityidentifier | ID di sicurezza locali |
 | Utente | companyname| Nome organizzazione |
 | Utente | streetaddress | Indirizzo |
