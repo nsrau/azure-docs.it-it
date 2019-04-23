@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893392"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795118"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>AAD B2C: Domande frequenti 
 Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.

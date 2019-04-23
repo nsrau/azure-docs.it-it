@@ -9,11 +9,11 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a94fe86cd9c2a6e775be1ec4b3d14798e4cac693
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258318"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795868"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Eseguire la prima query di Resource Graph usando Azure PowerShell
 

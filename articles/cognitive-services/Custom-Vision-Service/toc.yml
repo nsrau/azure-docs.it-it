@@ -1,109 +1,102 @@
-items:
 - name: Documentazione del Servizio visione artificiale personalizzato
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Visione personalizzata
-    href: home.md
+    - name: Informazioni su Visione personalizzata
+      href: home.md
 - name: Guide introduttive
   items:
-  - name: Uso di .NET SDK
-    items:
-    - name: Classificazione di immagini
-      href: csharp-tutorial.md
-    - name: Rilevamento di oggetti
-      href: csharp-tutorial-od.md
-  - name: Uso di Python SDK
-    items:
-    - name: Classificazione di immagini
-      href: python-tutorial.md
-    - name: Rilevamento di oggetti
-      href: python-tutorial-od.md
-  - name: Uso di Java SDK
-    items:
-    - name: Classificazione di immagini
-      href: java-tutorial.md
-    - name: Rilevamento di oggetti
-      href: java-tutorial-od.md
-  - name: Uso di Node.js SDK
-    items:
-    - name: Classificazione di immagini
-      href: node-tutorial.md
-    - name: Rilevamento di oggetti
-      href: node-tutorial-object-detection.md
-  - name: Uso di Go SDK
-    items:
-    - name: Classificazione di immagini
-      href: go-tutorial.md
-    - name: Rilevamento di oggetti
-      href: go-tutorial-object-detection.md
+    - name: Uso di .NET SDK
+      items:
+        - name: Classificazione di immagini
+          href: csharp-tutorial.md
+        - name: Rilevamento di oggetti
+          href: csharp-tutorial-od.md
+    - name: Uso di Python SDK
+      items:
+        - name: Classificazione di immagini
+          href: python-tutorial.md
+        - name: Rilevamento di oggetti
+          href: python-tutorial-od.md
+    - name: Uso di Java SDK
+      items:
+        - name: Classificazione di immagini
+          href: java-tutorial.md
+        - name: Rilevamento di oggetti
+          href: java-tutorial-od.md
+    - name: Uso di Node.js SDK
+      items:
+        - name: Classificazione di immagini
+          href: node-tutorial.md
+        - name: Rilevamento di oggetti
+          href: node-tutorial-object-detection.md
+    - name: Uso di Go SDK
+      items:
+        - name: Classificazione di immagini
+          href: go-tutorial.md
+        - name: Rilevamento di oggetti
+          href: go-tutorial-object-detection.md
 - name: Esercitazioni
   items:
-  - name: Rilevatore di logo per dispositivi mobili
-    href: logo-detector-mobile.md
+    - name: Rilevatore di logo per dispositivi mobili
+      href: logo-detector-mobile.md
 - name: Guide alle procedure
   items:
-  - name: Creare un classificatore
-    href: getting-started-build-a-classifier.md
-  - name: Testare il modello
-    href: test-your-model.md
-  - name: Migliorare il classificatore
-    href: getting-started-improving-your-classifier.md
-  - name: Usare l'API Prediction
-    href: use-prediction-api.md
-  - name: Esportare i modelli
-    items:
-    - name: Esportare il modello in dispositivi mobili
-      href: export-your-model.md
-    - name: Usare il modello ONNX con Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: Eseguire il modello TensorFlow in Python
-      href: export-model-python.md
-  - name: Esportare o eliminare i dati dell'account
-    href: ./export-delete-data.md
-  - name: Spostare in Azure il progetto della versione di valutazione di durata limitata
-    href: ./move-your-project-to-azure.md
-  - name: Aggiornare l'app all'API 3.0
-    href: ./update-application-to-3.0-sdk.md
+    - name: Creare un classificatore
+      href: getting-started-build-a-classifier.md
+    - name: Testare il modello
+      href: test-your-model.md
+    - name: Migliorare il classificatore
+      href: getting-started-improving-your-classifier.md
+    - name: Usare l'API Prediction
+      href: use-prediction-api.md
+    - name: Esportare i modelli
+      items:
+        - name: Esportare il modello in dispositivi mobili
+          href: export-your-model.md
+        - name: Usare il modello ONNX con Windows ML
+          href: custom-vision-onnx-windows-ml.md
+        - name: Eseguire il modello TensorFlow in Python
+          href: export-model-python.md
+    - name: Esportare o eliminare i dati dell'account
+      href: ./export-delete-data.md
+    - name: Spostare in Azure il progetto della versione di valutazione di durata limitata
+      href: ./move-your-project-to-azure.md
+    - name: Aggiornare l'app all'API 3.0
+      href: ./update-application-to-3.0-sdk.md
 - name: riferimento
   items:
-  - name: API Training di Custom Vision
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: API Prediction di Custom Vision
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Glossario
-    href: glossary-of-terms.md
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
-    - name: Go - Training
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
-    - name: Go - Previsioni
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+    - name: API Training di Custom Vision
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: API Prediction di Custom Vision
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Glossario
+      href: glossary-of-terms.md
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python'
+        - name: Go - Training
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+        - name: Go - Previsioni
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Risorse
   items:
-  - name: Esempi
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Limiti e quote
-    href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Note sulla versione
-    href: release-notes.md
-ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044760"
+    - name: Esempi
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Limiti e quote
+      href: limits-and-quotas.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Note sulla versione
+      href: release-notes.md

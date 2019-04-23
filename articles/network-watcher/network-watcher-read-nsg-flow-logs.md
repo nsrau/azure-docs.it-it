@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
 ms.openlocfilehash: cddf6526a798195e3e3091af766fee28791ac522
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050590"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795481"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
