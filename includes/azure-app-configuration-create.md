@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227185"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012286"
 ---
 1. Per creare un nuovo archivio di configurazione app, accedere al [portale di Azure](https://aka.ms/azconfig/portal). Nell'angolo superiore sinistro della pagina selezionare **+ Crea una risorsa**. Nella casella **Cerca nel Marketplace** immettere **Configurazione app** e quindi premere INVIO.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227185"
 4. Selezionare **Create**. Il completamento della distribuzione può richiedere alcuni minuti.
 
 5. Al termine della distribuzione, selezionare **Impostazioni** > **Chiavi di accesso**. Prendere nota della stringa di connessione della chiave primaria di sola lettura o di quella di sola scrittura. Questa stringa di connessione verrà usata in seguito per configurare l'applicazione in modo da comunicare con l'archivio di configurazione app creato.
-
-6. Selezionare **Esplora chiave-valore** > **+ Crea** per aggiungere le coppie chiave-valore seguenti:
-
-    | Chiave | Valore |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Bianco |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Nero |
-    | TestApp:Settings:Message | Dati di Configurazione app di Azure |
-
-    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
