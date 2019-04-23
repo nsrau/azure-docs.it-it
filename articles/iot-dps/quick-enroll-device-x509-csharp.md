@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500873"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Avvio rapido: Registrare i dispositivi X.509 nel servizio di provisioning di dispositivi con C#
@@ -176,4 +176,4 @@ Se si prevede di esplorare l'esempio di servizio C#, non eliminare le risorse cr
 In questa guida introduttiva è stato creato un gruppo di registrazione per un certificato X.509 intermedio o CA radice usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
  
 > [!div class="nextstepaction"]
-> [Esercitazioni sul servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)

@@ -15,10 +15,10 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 68598d4bb7fb9fd928a7b664e6ce0c02220ca4bb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502963"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Usare Microsoft Authentication Library (MSAL) per l'accesso degli utenti
@@ -141,7 +141,7 @@ Chiamando *acquireTokenPopup(scope)* viene visualizzata una finestra popup (ment
 #### <a name="getting-a-user-token-silently"></a>Acquisizione di un token utente in modo invisibile
 
 Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo l'esecuzione iniziale di `loginPopup` o `loginRedirect`, il metodo in genere usato per le chiamate successive per ottenere i token usati per l'accesso alle risorse protette è `acquireTokenSilent` e le chiamate per richiedere o rinnovare token vengono eseguite in modo invisibile all'utente.
-`acquireTokenSilent` In alcuni casi, può avere esito negativo, ad esempio se la password dell'utente è scaduta. L'applicazione può gestire questa eccezione in due modi:
+In alcuni casi, `acquireTokenSilent` può avere esito negativo, ad esempio se la password dell'utente è scaduta. L'applicazione può gestire questa eccezione in due modi:
 
 1. Eseguire immediatamente una chiamata ad `acquireTokenPopup` in modo da chiedere all'utente di eseguire l'accesso. Questo modello viene in genere usato nelle applicazioni online in cui non è disponibile per l'utente contenuto non autenticato. L'esempio generato da questa configurazione guidata usa questo modello.
 

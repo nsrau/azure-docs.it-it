@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524192"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998924"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push con Hub di notifica di Azure: Domande frequenti
 
@@ -53,17 +53,6 @@ Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente
 
 > [!NOTE]
 > Poiché le notifiche push dipendono da Platform Notification System di terze parti (come Apple APN e Google FCM), non sono presenti contratti di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
-
-### <a name="which-customers-are-using-notification-hubs"></a>Quali clienti utilizzano Hub di notifica?
-
-Molti clienti usano Hub di notifica. Di seguito sono elencati alcuni dei più importanti:
-
-* Sochi 2014: centinaia di gruppi di interesse, oltre 3 milioni di dispositivi e più di 150 milioni di notifiche inviate in due settimane. [Case study: Sochi]
-* Skanska: [Case study: Skanska]
-* Seattle Times: [Case study: Seattle Times]
-* Mural.ly: [Case study: Mural.ly]
-* 7Digital: [Case study: 7Digital]
-* App di Bing: decine di milioni di dispositivi inviano 3 milioni di notifiche al giorno.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Come eseguire l'aggiornamento o il downgrade di un hub o di uno spazio dei nomi a un livello diverso?
 
@@ -219,11 +208,6 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Portale di Azure]: https://portal.azure.com
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Case Study: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Case Study: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Esercitazioni introduttive si Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [esercitazione per app Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

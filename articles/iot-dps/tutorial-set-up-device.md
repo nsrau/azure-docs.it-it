@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500975"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure

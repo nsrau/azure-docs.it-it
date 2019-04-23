@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881019"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999451"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming
 
@@ -35,7 +35,7 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## <a name="types"></a>Tipi  
 
-Sono disponibili due tipi di **endpoint di streaming**: Standard e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
+Sono disponibili due tipi di **endpoint di streaming**: **Standard** e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
 
 La tabella seguente descrive i tipi:  
 
@@ -52,7 +52,6 @@ Funzionalità|Standard|Premium
 ---|---|---
 Gratis per i primi 15 giorni| Sì |No 
 Velocità effettiva |Fino a 600 Mbps quando non si usa la rete CDN di Azure. Scalabilità con la rete CDN.|200 Mbps per unità di streaming (SU). Scalabilità con la rete CDN.
-Contratto di servizio | 99,9|99,9 (200 Mbps per SU).
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
@@ -86,7 +85,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
 
     Di seguito sono le zone DNS previste da usare nel record di verifica per diverse aree di Azure.
   
-  - America del Nord, Europa, Singapore, Hong Kong, Giappone:
+  - America del Nord, Europa, Singapore, Hong Kong-R.A.S., Giappone
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

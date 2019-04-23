@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802958"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001593"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -126,11 +126,11 @@ L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. U
 
 ### <a name="the-owning-group"></a>Gruppo proprietario
 
-Negli ACL POSIX ogni utente è associato a un *gruppo primario*. L'utente "alice", ad esempio, può appartenere al gruppo "finanza". Alice può anche appartenere a più gruppi, ma uno solo è sempre designato come il suo gruppo primario. Quando Alice crea un file in POSIX, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza". Il gruppo proprietario si comporta in modo analogo alle autorizzazioni assegnate per altri utenti o gruppi.
+Negli ACL POSIX ogni utente è associato a un *gruppo primario*. Ad esempio, l'utente "Alice" potrebbe appartenere al gruppo "Finanza". Alice può anche appartenere a più gruppi, ma uno solo è sempre designato come il suo gruppo primario. Quando Alice crea un file in POSIX, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza". Il gruppo proprietario si comporta in modo analogo alle autorizzazioni assegnate per altri utenti o gruppi.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Assegnazione del gruppo proprietario per un nuovo file o directory
 
-* **Caso 1**: directory radice "/". Questa directory viene creata quando viene creato un file system di Data Lake Storage Gen2. In questo caso il gruppo proprietario viene impostato sull'utente che ha creato il file system se l'operazione è stata eseguita usando OAuth. Se il file system viene creato usando la chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario vengono impostati su **$superuser**.
+* **Caso 1**: directory radice "/". Questa directory viene creata quando viene creato un file system di Data Lake Storage Gen2. In questo caso il gruppo proprietario viene impostato sull'utente che ha creato il file system se l'operazione è stata eseguita usando OAuth. Se viene creato il file system usando chiave condivisa, un Account SAS o una firma di accesso condiviso del servizio, quindi il proprietario e il gruppo proprietario viene impostati su **$superuser**.
 * **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla directory padre.
 
 #### <a name="changing-the-owning-group"></a>Modifica del gruppo proprietario
@@ -285,7 +285,7 @@ Viene visualizzato un GUID se la voce rappresenta un utente e tale utente non es
 
 Quando si definiscono gli ACL per le entità servizio, è importante usare l'ID di oggetto (OID) del *entità servizio* per la registrazione dell'app che è stato creato. È importante notare che le app registrate dispone di un'entità servizio separato in specifico tenant di Azure AD. Le app registrate hanno un identificatore di oggetto che è visibile nel portale di Azure, ma il *entità servizio* dispone di un altro OID (diverso).
 
-Per ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app, è possibile usare il `az ad sp show` comando. Specificare l'ID dell'applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
+Per ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app, è possibile usare il `az ad sp show` comando. Specificare l'ID dell'applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

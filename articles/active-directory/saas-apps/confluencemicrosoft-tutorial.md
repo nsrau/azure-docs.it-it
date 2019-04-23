@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione di Azure Active Directory con Confluence SAML SSO by Microsoft
@@ -148,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Confluence SAML SSO by 
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<domain:port>/`
+    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<domain:port>/`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<domain:port>/plugins/servlet/saml/auth`
 

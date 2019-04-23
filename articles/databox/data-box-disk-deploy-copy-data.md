@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548747"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678497"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -52,7 +52,7 @@ Prima di copiare i dati sui dischi, esaminare le considerazioni seguenti:
 - Per la creazione di dischi gestiti possono essere caricati solo dischi rigidi virtuali a dimensione fissa. I dischi rigidi virtuali dinamici o differenze e i file VHDX non sono supportati.
 
 
-## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul Data Box Disk.
+Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul Data Box Disk.
 
 1. Visualizzare il contenuto dell'unità sbloccata. L'elenco delle cartelle e delle sottocartelle create preventivamente nell'unità varia in base alle opzioni selezionate al momento dell'ordine di Data Box Disk.
 

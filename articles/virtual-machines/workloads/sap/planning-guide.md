@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501332"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999536"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -1141,8 +1141,8 @@ Questa attività non può essere eseguita nel portale di Azure. È possibile usa
 
 Il flusso di base della logica dei cmdlet di PS è simile al seguente:
 
-* Creare un contesto di account di archiviazione per il **origine** account di archiviazione con *New-AzStorageContext* -vedere <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* Creare un contesto di account di archiviazione per il **destinazione** account di archiviazione con *New-AzStorageContext* -vedere <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Creare un contesto di account di archiviazione per il **origine** account di archiviazione con *New-AzStorageContext* -vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Creare un contesto di account di archiviazione per il **destinazione** account di archiviazione con *New-AzStorageContext* -vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Avviare la copia con
 
 ```powershell

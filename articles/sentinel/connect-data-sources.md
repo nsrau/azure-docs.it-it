@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492363"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
@@ -40,7 +40,7 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
 
 - **Servizi Microsoft**:<br> I servizi Microsoft sono connessi in modo nativo. Sfruttando la struttura di Azure per l'integrazione immediata, è possibile connettere le soluzioni seguenti in pochi clic:
     - [Office 365](connect-office-365.md)
-    - [Log di controllo e informazioni di accesso di Azure AD](connect-azure-active-directory.md)
+    - [Log di controllo e di accesso di Azure AD](connect-azure-active-directory.md)
     - [Attività di Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Centro sicurezza di Azure](connect-azure-security-center.md)
@@ -56,7 +56,7 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
 - **Soluzioni esterne tramite agente**: Azure Sentinel può essere connesso a tutte le altre origini dati in grado di eseguire lo streaming dei log in tempo reale usando il protocollo Syslog, tramite un agente. <br>La maggior parte delle appliance usa il protocollo Syslog per inviare messaggi di evento che includono il log stesso e dati sul log. Il formato dei log varia, ma la maggior parte delle appliance supporta lo standard CEF (Common Event Format). <br>L'agente di Azure Sentinel, che si basa sull'agente di OMS, converte i log CEF in un formato che può essere inserito in Log Analytics. A seconda del tipo di appliance, l'agente è installato direttamente nell'appliance oppure in un server Linux dedicato. L'agente per Linux riceve gli eventi dal daemon Syslog tramite UDP, ma nei casi in cui è previsto che un computer Linux raccolga un numero elevato di eventi Syslog, questi vengono inviati tramite TCP dal daemon Syslog all'agente e quindi dall'agente a Log Analytics.
     - Firewall, proxy ed endpoint:
         - [F5](connect-f5.md)
-        - [Punto di controllo](connect-checkpoint.md)
+        - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680827"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997564"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -137,7 +137,7 @@ Sì. Il firewall, la subnet, la rete virtuale e l'indirizzo IP pubblico devono t
 
  No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](/articles/firewall/rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Per i caratteri jolly funzionamento in una nome di dominio completo di destinazione regola applicazione?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Come funzionano i caratteri jolly in una nome di dominio completo di destinazione regola applicazione?
 
 Se si configura ***. contoso.com**, consente *anyvalue*. contoso.com, ma non contoso.com (dominio dominio radice). Se si desidera consentire il vertice di dominio, è necessario configurarlo in modo esplicito come un nome di dominio completo di destinazione.
 

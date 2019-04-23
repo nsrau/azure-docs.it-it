@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
 ms.openlocfilehash: a861bc52734f5b2bc6e455965428328cd1415b76
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500669"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Node.js
@@ -147,4 +147,4 @@ Se si prevede di esplorare gli esempi di servizio Node.js, non eliminare le riso
 In questa guida introduttiva è stata creata una registrazione di gruppo per un certificato X.509 intermedio o CA radice usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
  
 > [!div class="nextstepaction"]
-> [Esercitazioni sul servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: raynew
-ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618057"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149451"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -74,11 +74,12 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da
 
 **Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
+14.04 LTS | [9.24][9.24 UR] | 3.13.0-24-Generic a 3.13.0-167-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-143-generic,<br/>4.15.0-1023-Azure a 4.15.0-1040-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic a 3.13.0-165-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-142-generic,<br/>4.15.0-1023-Azure a 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | Da 3.13.0-24 generica a 3.13.0-164 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1036 Azure |
 14.04 LTS | [9.21][9.21 UR] | Da 3.13.0-24 generica a 3.13.0-163 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1035 Azure |
-14.04 LTS | [9.20][9.20 UR] | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-138 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1025 Azure |
 |||
+16.04 LTS | [9.23][9.24 UR] | 4.4.0-21-Generic a 4.4.0-143-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-46-generic<br/>4.11.0-1009-Azure a 4.11.0-1018-azure,<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1040-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-Generic a 4.4.0-142-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-45-generic<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1037-azure|
 16.04 LTS | [9.22][9.22 UR] | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-43 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1036 Azure|
 16.04 LTS | [9.21][9.21 UR] | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-42 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1035 Azure|
@@ -89,19 +90,20 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da
 
 **Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR]| Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | Da 3.16.0-4-amd64 a 3.16.0-7-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR] | Da 3.16.0-4-amd64 a 3.16.0-7-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 (versioni del kernel supportate)
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.23][9.23 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 a 4.4.162-94.79-default</br></br>4.12.14-94.41-default SP4 a 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.24][9.24 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 a 4.4.175-94.79-default</br></br>4.12.14-94.41-default SP4 a 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.23][9.23 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.69 predefinita</br></br>4.12.14-94.41-default SP4 a 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.22][9.22 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.72 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.21][9.21 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.156-94.72 predefinita |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.20][9.20 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.156-94.64 predefinita |
+
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 
@@ -116,7 +118,7 @@ Convenzione di denominazione del dispositivo e del punto di montaggio | Il nome 
 Directory | Prima della [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Le directory seguenti (se impostate come partizioni o file system separati) devono trovarsi nello stesso disco del sistema operativo nel server di origine: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot deve trovarsi in una partizione del disco e non essere un volume LVM.<br/><br/> Dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) in avanti, le restrizioni sopra citate non sono applicabili. La directory /boot non è supportata nel volume LVM tra più dischi.
 Directory di avvio | Non sono supportati più dischi di avvio in una macchina virtuale <br/><br/> Non è possibile proteggere un computer senza disco di avvio
 
-Requisiti di spazio disponibile nel disco | 2 GB nella partizione /root <br/><br/> 250 MB nella cartella di installazione XFSv5 | Le funzionalità di XFSv5 nei file system XFS, ad esempio il checksum dei metadati, sono supportate a partire dalla versione 9.10 del servizio Mobility. Usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso.
+Requisiti di spazio disponibile nel disco | 2 GB nella partizione /root <br/><br/> 250 MB nella cartella di installazione XFSv5 | Le funzionalità di XFSv5 nei file system XFS, ad esempio il checksum dei metadati, sono supportate a partire dalla versione 9.10 del servizio Mobility. Usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se `ftype` è impostato su 1, quindi le funzionalità XFSv5 sono in uso.
 
 ## <a name="vmdisk-management"></a>Gestione della macchina virtuale e del disco
 
@@ -181,6 +183,14 @@ Disco di aggiunta/rimozione a caldo guest/server | No
 Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No 
 Avvio EFI/UEFI guest/server | Durante la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive per Azure è supportato.<br/><br/> È possibile replicare le macchine virtuali solo per la migrazione. Non è supportato il failback in locale.<br/><br/> Il server non deve avere più di quattro partizioni nel disco del sistema operativo.<br/><br/> Richiede il servizio Mobility versione 9.13 o successiva.<br/><br/> È supportato solo NTFS.
+
+## <a name="replication-channels"></a>Canali di replica
+
+|**Tipo di replica**   |**Supportato**  |
+|---------|---------|
+|Trasferimenti ODX (ODX)    |       No   |
+|Seeding offline        |   No       |
+| Azure Data Box | No 
 
 
 ## <a name="azure-storage"></a>Archiviazione di Azure

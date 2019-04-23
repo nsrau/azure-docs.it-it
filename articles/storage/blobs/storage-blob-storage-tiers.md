@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402440"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004228"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione Blob di Azure: accesso frequente, ad accesso sporadico e archivio i livelli di accesso
 
@@ -100,7 +100,7 @@ I BLOB in tutti i livelli di accesso tre possono coesistere nello stesso account
 
 ### <a name="blob-lifecycle-management"></a>Gestione del ciclo di vita di Archiviazione BLOB
 
-La gestione del ciclo di vita di Archiviazione BLOB (anteprima) offre criteri avanzati basati su regole che è possibile usare per trasferire i dati al livello di accesso più appropriato e definirne la scadenza al termine del relativo ciclo di vita. Per altre informazioni, vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md).  
+Gestione del ciclo di vita di archiviazione BLOB offre un criterio avanzato, basato su regole che è possibile usare per eseguire la transizione dei dati a livello di accesso ai migliori e impostare come scaduti i dati alla fine del ciclo di vita. Per altre informazioni, vedere [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Fatturazione per l'organizzazione a livello di BLOB
 

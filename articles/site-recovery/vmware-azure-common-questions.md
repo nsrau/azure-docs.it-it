@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360532"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004772"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -111,7 +111,7 @@ Replica di nuove macchine virtuali a un account di archiviazione è disponibile 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Dopo la protezione di computer, si può modificare il tipo di disco gestito?
 
-Sì, è possibile facilmente [modificare il tipo di disco gestito](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Tuttavia, se possibile il tipo di disco gestito, attendere i punti di ripristino aggiornato da generare se è necessario testare il failover o il failover dopo la modifica.
+Sì, è possibile facilmente [modificare il tipo di disco gestito](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Prima di modificare il tipo, assicurarsi che si revoca l'URL di firma di accesso condiviso per il disco, passare alla risorsa disco gestito nel portale di Azure. Nel Pannello di panoramica, annullare qualsiasi esportazione in corso. Una volta che l'URL di firma di accesso condiviso è stato revocato, è possibile modificare il tipo del disco entro pochi minuti. Tuttavia, se si modifica il tipo di disco gestito, attendere i punti di ripristino aggiornato deve essere generato da Azure Site Recovery. Usare i nuovi punti di ripristino per qualsiasi failover di test o il failover in futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>È possibile passare la replica da dischi gestiti a dischi non gestiti?
 

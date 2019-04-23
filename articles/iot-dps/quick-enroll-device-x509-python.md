@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500771"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Python
@@ -148,4 +148,4 @@ Se si prevede di esplorare l'esempio di servizio Java, non eliminare le risorse 
 In questa introduttiva si è registrato un gruppo simulato di dispositivi X.509 nel servizio Device Provisioning. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
 
 > [!div class="nextstepaction"]
-> [Esercitazioni sul servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)
