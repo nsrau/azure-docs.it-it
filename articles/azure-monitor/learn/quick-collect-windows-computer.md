@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426631"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Windows in un ambiente ibrido
@@ -38,7 +38,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
   
 2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
 
-   * Specificare un nome per la nuova **area di lavoro di Log Analytics Workspace**, ad esempio *DefaultLAWorkspace*. 
+   * Specificare un nome per la nuova **area di lavoro Log Analytics Workspace**, ad esempio *DefaultLAWorkspace*. 
    * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    * Per **Gruppo di risorse**, selezionare un gruppo di risorse esistente contenente una o più macchine virtuali di Azure.  
    * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).  
@@ -46,12 +46,12 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
         ![Creare il pannello della risorsa Log Analytics](media/quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, fare clic su **OK**.  
+3. Dopo aver specificato le informazioni necessarie nel riquadro **area di lavoro Log Analytics**, fare clic su **OK**.  
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della creazione dell'area di lavoro, è possibile usare la voce **Notifiche** nel menu. 
 
 ## <a name="obtain-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
-Prima di installare Microsoft Monitoring Agent per Windows, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro di Log Analytics.  Queste informazioni sono richieste dall'installazione guidata per configurare correttamente l'agente e verificare che possa comunicare correttamente con Log Analytics.  
+Prima di installare Microsoft Monitoring Agent per Windows, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics.  Queste informazioni sono richieste dall'installazione guidata per configurare correttamente l'agente e verificare che possa comunicare correttamente con Log Analytics.  
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare *DefaultLAWorkspace* creata prima.
@@ -72,7 +72,7 @@ Le istruzioni seguenti consentono di installare e configurare l'agente per Log A
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi fare clic su **Avanti**.   
 6. Nella pagina **Azure Log Analytics** eseguire le operazioni seguenti:
-   1. Incollare **ID area di lavoro** e **Chiave dell'area di lavoro (Chiave primaria)** copiati in precedenza.  Se il computer deve fare riferimento a un'area di lavoro di Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure Governo degli Stati Uniti** nell'elenco a discesa **Cloud di Azure**.  
+   1. Incollare **ID area di lavoro** e **Chiave dell'area di lavoro (Chiave primaria)** copiati in precedenza.  Se il computer deve fare riferimento a un'area di lavoro Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure Governo degli Stati Uniti** nell'elenco a discesa **Cloud di Azure**.  
    2. Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, fare clic su **Avanzate** e specificare l'URL e il numero di porta del server proxy.  Se il server proxy richiede l'autenticazione, digitare il nome utente e la password per l'autenticazione nel server proxy, quindi fare clic su **Avanti**.  
 7. Fare clic su **Avanti** dopo aver specificato le impostazioni di configurazione necessarie.
 
@@ -91,12 +91,12 @@ Log Analytics può raccogliere gli eventi dai registri eventi e dai contatori de
 
     ![Impostazioni avanzate di Log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
  
-3. Selezionare **Dati** e quindi selezionare **Registri eventi di Windows**.  
+3. Selezionare **Dati** e quindi selezionare **Log eventi Windows**.  
 4. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi fare clic sul segno **+**.  
 5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
 6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 7. Selezionare **Contatori delle prestazioni di Windows** per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
-8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
+8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
     ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-windows-computer/windows-perfcounters-default.png).
     
@@ -117,7 +117,7 @@ Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esem
     ![Risultato della ricerca log di Log Analytics](media/quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessario, è possibile rimuovere l'agente dal computer Windows ed eliminare l'area di lavoro di Log Analytics.  
+Quando non è più necessario, è possibile rimuovere l'agente dal computer Windows ed eliminare l'area di lavoro Log Analytics.  
 
 Per rimuovere l'agente, eseguire la procedura seguente.
 
@@ -125,7 +125,7 @@ Per rimuovere l'agente, eseguire la procedura seguente.
 2. Aprire **Programmi e funzionalità**.
 3. In **Programmi e funzionalità** selezionare **Microsoft Monitoring Agent** e fare clic su **Disinstalla**.
 
-Per eliminare l'area di lavoro, selezionare l'area di lavoro di Log Analytics creata in precedenza e nella pagina delle risorse fare clic su **Elimina**.
+Per eliminare l'area di lavoro, selezionare l'area di lavoro Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.
 
 ![Eliminare la risorsa Log Analytics](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
@@ -135,4 +135,4 @@ Ora che è in corso la raccolta di dati operativi e sulle prestazioni dal comput
 Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.   
 
 > [!div class="nextstepaction"]
-> [Visualizzare o analizzare i dati in Log Analytics](tutorial-viewdata.md)
+> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](tutorial-viewdata.md)

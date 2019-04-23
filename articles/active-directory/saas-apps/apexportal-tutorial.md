@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852594"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Apex Portal
 
@@ -68,7 +69,7 @@ Per configurare l'integrazione di Apex Portal in Azure AD, è necessario aggiung
 
 4. Nella casella di ricerca digitare **Apex Portal**, selezionare **Apex Portal** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Apex Portal nell'elenco risultati](common/search-new-app.png)
+    ![Apex Portal nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -106,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
     ![Informazioni sull'accesso Single Sign-On a URL e dominio di Apex Portal](common/idp-intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Apex Portal](mailto:support@apexanalytix.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -119,8 +120,8 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
-    | ------------------- | -------------------- |
+    | Nome | Attributo di origine|
+    | -------- | --------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |
     | MAIL | user.mail |
@@ -154,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -180,8 +181,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com.
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -233,4 +233,3 @@ Quando si fa clic sul riquadro di Apex Portal nel pannello di accesso, si dovreb
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

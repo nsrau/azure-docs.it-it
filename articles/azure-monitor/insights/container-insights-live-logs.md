@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904747"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788836"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (anteprima)
 Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, viene visualizzato un nuovo riquadro sotto la tabella dei dati delle prestazioni dei contenitori nella visualizzazione **Contenitori**.  Il riquadro mostra i dati di registrazione in tempo reale generati dal motore dei contenitori per facilitare la risoluzione dei problemi in tempo reale. **Collaboratore** accesso alla risorsa del cluster è necessario per usare questa funzionalità.

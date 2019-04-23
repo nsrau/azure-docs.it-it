@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 096daa28b7548401adc857c3c6c8327ef1d1eb00
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2bd22dec13e2dba63c512276a0b36d4fc50e05f8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769405"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681560"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central (nuovo design dell'interfaccia utente)
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
 ms.openlocfilehash: 193a24aebff8f7de60752e53bbc1b18dd5c54f33
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051768"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787090"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Rimuovere un tipo di nodo di Service Fabric
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric rimuovendo un tipo di nodo esistente da un cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente rimuovendo un tipo di nodo (set di scalabilità di macchine virtuali) e tutti i relativi nodi.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -34,7 +34,7 @@ Le tre operazioni che si verificano quando viene chiamato Remove-AzServiceFabric
 3.  Per ogni nodo compreso nel tipo di nodo, viene rimosso dal sistema l'intero stato relativo al nodo. Se nel nodo sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
 
 > [!WARNING]
-> Rimozione di un tipo di nodo da un cluster di produzione con Remove-AzServiceFabricNodeType non è consigliato da usare in modo frequente. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
+> Non è consigliabile usare frequentemente il comando Remove-AzServiceFabricNodeType per rimuovere un tipo di nodo da un cluster di produzione. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
 
 ## <a name="durability-characteristics"></a>Caratteristiche di durabilità
 Quando si usa Remove-AzServiceFabricNodeType Safety viene definita la priorità rispetto alla velocità. Il tipo di nodo deve avere un [livello di durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver o Gold, perché:
@@ -50,7 +50,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
 
 ## <a name="recommended-node-type-removal-process"></a>Processo consigliato per la rimozione dei tipi di nodo
 
-Per rimuovere il tipo di nodo, eseguire la [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  Il completamento del cmdlet richiede qualche minuto.  Eseguire quindi [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ognuno dei nodi da rimuovere.
+Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il completamento del cmdlet richiede qualche minuto.  Eseguire quindi [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ognuno dei nodi da rimuovere.
 
 ```powershell
 $groupname = "mynodetype"
