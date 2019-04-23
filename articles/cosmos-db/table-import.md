@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876818"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
@@ -76,7 +76,7 @@ Per recuperare la stringa di connessione di origine durante l'importazione da un
 
 [Comando di archiviazione tabelle di Azure di esempio](#azure-table-storage)
 
-[Comando di API Tabella (anteprima) di Azure Cosmos DB](#table-api-preview)
+[Comando di API Table (anteprima) di Azure Cosmos DB](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Impostazioni della destinazione della riga di comando
 

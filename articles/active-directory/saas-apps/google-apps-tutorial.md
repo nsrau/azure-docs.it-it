@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Esercitazione: Integrazione di Azure Active Directory con G Suite
@@ -68,9 +68,9 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
     R: No, l'attivazione di Single Sign-On richiede immediatamente a tutti gli utenti di G Suite di autenticarsi con le proprie credenziali di Azure AD. Poiché G Suite non supporta più provider di identità, il provider di identità per l'ambiente di G Suite può essere AD Azure o Google, ma non entrambi contemporaneamente.
 
-5. **D: Se un utente ha eseguito l'accesso tramite Windows, viene autenticato automaticamente in G Suite senza che venga richiesta una password?**
+5. **D: Se un utente ha eseguito l'accesso tramite Windows, viene autenticano automaticamente in G Suite senza che venga richiesta una password?**
 
-    R: Sono disponibili due opzioni per l'abilitazione di questo scenario. Nel primo caso gli utenti possono accedere ai dispositivi Windows 10 tramite [Aggiunta ad Azure Active Directory](../device-management-introduction.md). In alternativa, gli utenti possono accedere ai dispositivi Windows appartenenti a un dominio di Active Directory locale abilitato per il Single Sign-On in Azure AD tramite una distribuzione di [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md). Per entrambe le opzioni è necessario eseguire la procedura descritta nell'esercitazione seguente per abilitare Single Sign-On tra Azure AD e G Suite.
+    R: Sono disponibili due opzioni per l'abilitazione di questo scenario. Nel primo caso gli utenti possono accedere ai dispositivi Windows 10 tramite [Aggiunta ad Azure Active Directory](../device-management-introduction.md). In alternativa, gli utenti possono accedere ai dispositivi Windows appartenenti a un dominio di Active Directory locale abilitato per il Single Sign-On in Azure AD tramite una distribuzione di [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) . Per entrambe le opzioni è necessario eseguire la procedura descritta nell'esercitazione seguente per abilitare Single Sign-On tra Azure AD e G Suite.
 
 6. **D: Cosa occorre fare quando si riceve il messaggio di errore "L'indirizzo di posta elettronica non è valido"?**
 
@@ -121,9 +121,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con G Suite, è n
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di G Suite](#configure-g-suite-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di G Suite](#create-g-suite-test-user)**: per avere una controparte di Britta Simon in G Suite collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di G Suite](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
@@ -165,7 +165,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di G Suite](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     
@@ -207,11 +207,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     g. Fare clic su **Save**.
 
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-9. Nella sezione **Configura G Suite** copiare gli URL appropriati in base alle esigenze.
+9. Nella sezione **Configura G Suite** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -221,13 +221,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     c. URL di chiusura sessione
 
-### <a name="configure-g-suite-single-sign-on"></a>Configurare l'accesso Single Sign-On di G Suite
+### <a name="configure-g-suite-single-sign-on"></a>Configurare l'accesso Single Sign-On per G Suite
 
-1. Aprire una nuova scheda nel browser e accedere alla [Console di amministrazione di G Suite](https://admin.google.com/) usando l'account amministratore.
+1. Aprire una nuova scheda nel browser e accedere a [Console di amministrazione di G Suite](https://admin.google.com/) usando l'account amministratore.
 
-2. Fare clic su **Security** (Sicurezza). Se non viene visualizzato il collegamento, può essere nascosto sotto il menu **More Controls** (Altri controlli) nella parte inferiore della schermata.
+2. Fare clic su **Security**. Se non viene visualizzato il collegamento, può essere nascosto sotto il menu **More Controls** nella parte inferiore della schermata.
 
-    ![Fare clic su Security (Sicurezza).][10]
+    ![Fare clic su sicurezza.][10]
 
 3. Nella pagina **Security** (Sicurezza) fare clic su **Set up single sign-on (SSO)** (Configurazione Single Sign-On (SSO)).
 
@@ -249,11 +249,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     f. Selezionare **Use a domain specific issuer** (Usa un'autorità di certificazione specifica del dominio).
 
-    g. Fare clic su **Save changes** (Salva modifiche).
+    g. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -276,7 +276,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a G Suite.
 
@@ -304,7 +304,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-g-suite-test-user"></a>Creare l'utente di test di G Suite
 
-L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in G Suite. G Suite supporta il provisioning automatico abilitato per impostazione predefinita. Non è necessaria alcuna azione dell'utente in questa sezione. Se non esiste già un utente in G Suite, ne viene creato uno nuovo quando si prova ad accedere a G Suite Software.
+L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in G Suite. G Suite supporta il provisioning automatico abilitato per impostazione predefinita. Non è necessaria alcuna azione dell'utente in questa sezione. Se un utente non esiste in G Suite, ne viene creato uno nuovo quando si prova ad accedere a G Suite Software.
 
 > [!NOTE]
 > Assicurarsi che l'utente esiste già in G Suite se non è stato attivato il provisioning in Azure AD prima del test dell'accesso Single Sign-on.

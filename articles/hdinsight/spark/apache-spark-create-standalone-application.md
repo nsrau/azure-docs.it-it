@@ -40,14 +40,14 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * [Kit di sviluppo di Oracle Java](https://www.azul.com/downloads/azure-only/zulu/).  Questa esercitazione usa Java versione 8.0.202.
 * Ambiente IDE Java. Questo articolo usa [IntelliJ IDEA Community versione  2018.3.4](https://www.jetbrains.com/idea/download/).
-* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit per IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installare il plug-in Scala per IntelliJ IDEA
 Per installare il plug-in di Scala, procedere come segue:
 
 1. Aprire IntelliJ IDEA.
 
-2. Nella schermata iniziale, passare a **Configura** > **Plug-in** per aprire la finestra **Plug-in**.
+2. Nella schermata iniziale, passare a **Configure** (Configura) > **Plugin** per aprire la finestra **Plugin**.
    
     ![Abilitare i plug-in Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
 
@@ -80,8 +80,8 @@ Per installare il plug-in di Scala, procedere come segue:
   	| ----- | ----- |  
   	|Project name (Nome progetto)| Immettere un nome.|  
   	|Project&nbsp;location (Percorso progetto)| Immettere il percorso desiderato in cui salvare il progetto.|
-  	|Project SDK (SDK progetto)| Sarà vuoto al primo uso di IDEA.  Selezionare **New...** (Nuovo) e passare al proprio JDK.|
-  	|Versione Spark|La procedura guidata di creazione integra la versione corretta dell'SDK di Spark e Scala. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione **Spark 2.3.0 (Scala 2.11.8)**.|
+  	|Project SDK (SDK progetto)| Sarà vuoto al primo uso di IDEA.  Selezionare **New** (Nuovo) e passare al proprio JDK.|
+  	|Versione Spark|La creazione guidata integra la versione corretta dell'SDK di Spark e Scala. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione **Spark 2.3.0 (Scala 2.11.8)**.|
 
     ![Selezione di Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
@@ -91,7 +91,7 @@ Per installare il plug-in di Scala, procedere come segue:
 
 1. Avviare IntelliJ IDEA e selezionare **Crea nuovo progetto** per aprire la finestra **Nuovo progetto**.
 
-2. Selezionare **Maven** nel riquadro di sinistra.
+2. Selezionare **Maven** nel riquadro sinistro.
 
 3. Specificare un valore per **Project SDK**. Se vuoto, selezionare **New** (Nuovo) e passare alla directory di installazione Java.
 
@@ -114,7 +114,7 @@ Per installare il plug-in di Scala, procedere come segue:
 
 10. Verificare il nome e la posizione del progetto e quindi scegliere **Finish** (Fine).  L'importazione del progetto richiederà alcuni minuti.
 
-11. Dopo aver importato il progetto, nel riquadro sinistro passare a **SparkSimpleApp** > **src** > **test**  >  **scala** > **com** > **microsoft** > **spark** > **example**.  Fare clic con il pulsante destro del mouse su **MySpec** e quindi scegliere **Elimina...**. Per l'applicazione non è necessario questo file.  Selezionare **OK** nella finestra di dialogo.
+11. Dopo aver importato il progetto, nel riquadro sinistro passare a **SparkSimpleApp** > **src** > **test**  >  **scala** > **com** > **microsoft** > **spark** > **example**.  Fare clic con il pulsante destro del mouse su **MySpec** e quindi scegliere **Elimina**. Per l'applicazione non è necessario questo file.  Selezionare **OK** nella finestra di dialogo.
   
 12. Nei passaggi successivi si aggiornerà il file **pom.xml** per definire le dipendenze per l'applicazione Spark in Scala. Affinché tali dipendenze vengano scaricate e risolte automaticamente, è necessario configurare Maven di conseguenza.
 

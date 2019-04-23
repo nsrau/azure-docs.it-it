@@ -12,10 +12,10 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884236"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro automatizzato con App per la logica di Azure - Portale di Azure
@@ -44,10 +44,10 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    | Proprietà | Valore | DESCRIZIONE | 
    |----------|-------|-------------| 
-   | **NOME** | MyFirstLogicApp | Nome dell'app per la logica | 
+   | **Nome** | MyFirstLogicApp | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | My-First-LA-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate | 
-   | **Località** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'app per la logica | 
+   | **Posizione** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'app per la logica | 
    | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    |||| 
 
@@ -71,7 +71,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    | Proprietà | Valore | DESCRIZIONE | 
    |----------|-------|-------------| 
-   | **URL del feed RSS** | ```http://feeds.reuters.com/reuters/topNews``` | Collegamento per il feed RSS che si vuole monitorare | 
+   | **URL feed RSS** | ```http://feeds.reuters.com/reuters/topNews``` | Collegamento per il feed RSS che si vuole monitorare | 
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli | 
    | **Frequenza** | Minuto | Unità di tempo per ogni intervallo tra i controlli  | 
    |||| 

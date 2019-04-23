@@ -19,10 +19,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881886"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guida introduttiva: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
@@ -130,7 +130,7 @@ Quasi tutta la logica di autenticazione dell'app si basa su `DirectorySearcher.S
     ...
     ```
 
-    `AcquireTokenAsync(...)` prova prima a restituire un token per la risorsa necessaria, in questo caso, l'API Graph, senza chiedere all'utente di immettere le credenziali. A questo scopo vengono usati i token memorizzati nella cache o vengono aggiornati i token precedenti. Se necessario, viene visualizzata la pagina di accesso di Azure AD prima di acquisire il token richiesto.
+    `AcquireTokenAsync(...)` tenta prima di restituire un token per la risorsa necessaria, in questo caso, l'API Graph, senza chiedere all'utente di immettere le credenziali. A questo scopo vengono usati i token memorizzati nella cache o vengono aggiornati i token precedenti. Se necessario, viene visualizzata la pagina di accesso di Azure AD prima di acquisire il token richiesto.
 4. Associare il token di accesso alla richiesta dell'API Graph nell'intestazione **Authorization**:
 
     ```csharp

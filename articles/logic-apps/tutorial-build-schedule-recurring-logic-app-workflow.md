@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884687"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Controllare il traffico in base a una pianificazione con App per la logica di Azure
@@ -59,10 +59,10 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **NOME** | LA-TravelTime | Nome dell'app per la logica | 
+   | **Nome** | LA-TravelTime | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | LA-TravelTime-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate | 
-   | **Località** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
+   | **Posizione** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
    | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    |||| 
 
@@ -78,8 +78,7 @@ Aggiungere quindi il [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Individuare e aggiungere il trigger "Pianificazione - Ricorrenza"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Nella forma **Ricorrenza** fare clic sul pulsante con i **puntini di sospensione** (**...**) e scegliere **Rinomina**. Rinominare il trigger con questa descrizione:
-```Check travel time every weekday morning```
+2. Nella forma **Ricorrenza** fare clic sul pulsante con i **puntini di sospensione** (**...**) e scegliere **Rinomina**. Rinominare il trigger con questa descrizione: ```Check travel time every weekday morning```
 
    ![Rinominare il trigger](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -126,12 +125,11 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
    | Impostazione | Valore | DESCRIZIONE |
    | ------- | ----- | ----------- |
-   | **Connection Name (Nome connessione)** | BingMapsConnection | Specificare un nome per la connessione. | 
-   | **API key** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">come ottenere una chiave</a>. | 
+   | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
+   | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">come ottenere una chiave</a>. | 
    | | | |  
 
-4. Rinominare l'azione con questa descrizione:
-```Get route and travel time with traffic```
+4. Rinominare l'azione con questa descrizione: ```Get route and travel time with traffic```
 
 5. Specificare i dettagli per l'azione **Get route** (Ottieni itinerario) come illustrato e descritto, ad esempio:
 
@@ -141,12 +139,12 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
    | ------- | ----- | ----------- |
    | **Punto di tragitto 1** | <*luogo-di-partenza*> | Origine dell'itinerario | 
    | **Punto di tragitto 2** | <*luogo-di-arrivo*> | Destinazione dell'itinerario | 
-   | **Evitare** | Nessuna | Elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via | 
-   | **Eseguire l'ottimizzazione** | timeWithTraffic | Parametro per ottimizzare l'itinerario, ad esempio distanza, tempo di viaggio con il traffico corrente e così via. Selezionare il parametro: "timeWithTraffic" | 
+   | **Avoid** (Evita) | Nessuna | Elementi da evitare lungo l'itinerario, ad esempio autostrade, strade a pedaggio e così via | 
+   | **Optimize** (Ottimizza) | timeWithTraffic | Parametro per ottimizzare l'itinerario, ad esempio distanza, tempo di viaggio con il traffico corrente e così via. Selezionare il parametro: "timeWithTraffic" | 
    | **Unità distanza** | <*preferenza*> | Unità di distanza per l'itinerario. Questo articolo usa l'unità "Miglia"  | 
-   | **Travel mode (Modalità di viaggio)** | Driving (Guida) | Modalità di viaggio lungo l'itinerario. Selezionare questa modalità: "Driving" (Guida) | 
-   | **Transit Date-Time (Data e ora transito)** | Nessuna | Si applica solo alla modalità di transito | 
-   | **Date-Time Type (Tipo di data e ora)** | Nessuna | Si applica solo alla modalità di transito | 
+   | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Modalità di viaggio lungo l'itinerario. Selezionare questa modalità: "Driving" (Guida) | 
+   | **Transit Date-Time** (Data e ora transito) | Nessuna | Si applica solo alla modalità di transito | 
+   | **Date-Time Type** (Tipo di data e ora) | Nessuna | Si applica solo alla modalità di transito | 
    |||| 
 
    Per altre informazioni su questi parametri, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario).
@@ -167,15 +165,14 @@ Per impostazione predefinita, l'azione **Get route** (Ottieni itinerario) preced
 
    ![Selezionare l'azione "Variabili - Inizializza variabile"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Rinominare l'azione con questa descrizione:
-```Create variable to store travel time```
+3. Rinominare l'azione con questa descrizione: ```Create variable to store travel time```
 
 4. Specificare i dettagli per la variabile come descritto di seguito:
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **NOME** | travelTime | Nome della variabile | 
-   | **Type** | Integer | Tipo di dati della variabile | 
+   | **Nome** | travelTime | Nome della variabile | 
+   | **Tipo** | Integer | Tipo di dati della variabile | 
    | **Valore** | Espressione che converte il tempo di viaggio corrente da secondi a minuti (vedere i passaggi descritti dopo la tabella). | Valore iniziale della variabile | 
    |||| 
 
@@ -259,8 +256,7 @@ Aggiungere quindi un'azione per inviare un messaggio di posta elettronica quando
 
    App per la logica crea una connessione all'account di posta elettronica.
 
-4. Rinominare l'azione con questa descrizione:
-```Send email with travel time```
+4. Rinominare l'azione con questa descrizione: ```Send email with travel time```
 
 5. Nella casella **A** immettere l'indirizzo di posta elettronica del destinatario. A scopo di test, usare il proprio indirizzo di posta elettronica.
 
@@ -342,4 +338,4 @@ Quando non è più necessario, eliminare il gruppo di risorse contenente l'app p
 In questa esercitazione è stata creata un'app per la logica che controlla il traffico in base a una pianificazione specificata (al mattino di ogni giorno feriale) ed esegue un'azione (invio di un messaggio di posta elettronica) quando il tempo di viaggio supera un limite specificato. Leggere ora come creare un'app per la logica che invia richieste di approvazione di una lista di distribuzione integrando servizi di Azure, servizi Microsoft e altre app SaaS.
 
 > [!div class="nextstepaction"]
-> [Gestire le richieste delle liste di distribuzione](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+> [Gestire le richieste di sottoscrizione di una lista di distribuzione](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

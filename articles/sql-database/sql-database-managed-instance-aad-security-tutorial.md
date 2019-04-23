@@ -11,10 +11,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882056"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita del database SQL di Azure con le entità server (account di accesso) di Azure AD
@@ -446,11 +446,11 @@ Vedere l'articolo seguente sulle [funzionalità di sicurezza delle istanze gesti
 - [Introduzione al rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) 
 - [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) 
-- [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Funzionalità dell'istanza gestita
 
 Per una panoramica completa delle funzionalità delle istanze gestite, vedere:
 
 > [!div class="nextstepaction"]
-> [Funzionalità dell'istanza gestita](sql-database-managed-instance.md)
+> [Capacità di Istanza gestita](sql-database-managed-instance.md)
