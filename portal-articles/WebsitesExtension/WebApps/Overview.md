@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530872"
 ---
 # <a name="app-service-documentation"></a>Documentazione del servizio app
 Servizio app di Azure consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dover gestire l'infrastruttura né il linguaggio o il runtime del framework Web. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da GitHub, Azure DevOps Services o qualsiasi repository Git. Informazioni su come usare Servizio app di Azure con le guide introduttive, le esercitazioni e gli esempi.

@@ -264,7 +264,7 @@ Per copiare dati da Azure SQL Data Warehouse, impostare la proprietà **type** n
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì |
-| SqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
+| sqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No  |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No  |
 
@@ -567,9 +567,9 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | binary | Byte[] |
 | bit | Boolean |
 | char | String, Char[] |
-| date | DateTime |
-| DateTime | DateTime |
-| datetime2 | DateTime |
+| date | Datetime |
+| Datetime | Datetime |
+| datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
@@ -583,10 +583,10 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datetime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Oggetto |
+| sql_variant | Object |
 | text | String, Char[] |
 | time | TimeSpan |
 |  timestamp | Byte[] |
@@ -594,7 +594,7 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | xml |
+| Xml | Xml |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati e formati supportati](copy-activity-overview.md##supported-data-stores-and-formats).

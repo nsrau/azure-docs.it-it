@@ -16,10 +16,10 @@ ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Webex
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cisco Webex, seguire qu
 
     a. Nella casella di testo **URL di accesso** digitare un URL, ad esempio: `https://web.ciscospark.com/#/signin`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://idbroker.webex.com/<Org Id>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
     > Il valore di questo identificatore non è reale. è necessario aggiornare questo valore con l'ID effettivo. Se sono disponibili i metadati del provider di servizi, caricarli nella sezione **Configurazione SAML di base**. A questo punto il valore di **Identificatore (ID entità)** verrà popolato automaticamente.
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cisco Webex, seguire qu
 
 6. Oltre quelli elencati in precedenza, l'applicazione Cisco Webex prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358479"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617414"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -54,7 +54,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Servizi di ripristino** nel Marketplace.
+1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Ripristino** nel Marketplace.
 2. Fare clic su **Backup e Site Recovery (OMS)**, quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
 1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
 2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
@@ -73,7 +73,7 @@ I computer locali vengono replicati in dischi gestiti di Azure. Quando si verifi
 2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
 3. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. In questa esercitazione viene usato **ContosoASRnet**.
 4. Specificare il gruppo di risorse in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
-5. In **Intervallo di indirizzi** specificare l'intervallo per la rete, in questo caso **10.0.0.0/24** senza subnet.
+5. In **Intervallo di indirizzi** specificare l'intervallo per la rete, in questo caso **10.1.0.0/24** senza subnet.
 6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
 7. In **Posizione** selezionare la stessa area in cui è stato creato l'insieme di credenziali di Servizi di ripristino. In questa esercitazione si tratta di **Europa occidentale**.  La rete deve trovarsi nella stessa area dell'insieme di credenziali.
 8. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
