@@ -9,11 +9,11 @@ ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: b8842ab4bcaf16b7345b25fa9ac4998981d9c458
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890985"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59804296"
 ---
 ### <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
