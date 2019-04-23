@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 31c211e6694eb0f02622b3a24d649fe6006df13e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082028"
 documentType: LandingData
 title: Documentazione di Autenticazione di Azure AD
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione sull'autenticazione di Azure Active Directory
-  description: Informazioni su come gestire e distribuire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente.
+  description: 'Informazioni su come gestire e distribuire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l''elenco personalizzato di password escluse e il blocco intelligente.'
   services: active-directory
   ms.subservice: authentication
   author: MicrosoftGuyJFlo
@@ -22,28 +16,28 @@ metadata:
   ms.date: 07/19/2018
   ms.author: joflore
 abstract:
-  description: Informazioni su come distribuire e gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Queste funzionalità vengono combinate per fornire un robusto sistema di autenticazione, con tutta una serie di metodi di verifica e, al contempo, una semplice procedura di accesso per l'organizzazione.
+  description: 'Informazioni su come distribuire e gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l''elenco personalizzato di password escluse e il blocco intelligente. Queste funzionalità vengono combinate per fornire un robusto sistema di autenticazione, con tutta una serie di metodi di verifica e, al contempo, una semplice procedura di accesso per l''organizzazione.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come abilitare la reimpostazione della password self-service per ridurre le chiamate al supporto tecnico da parte degli utenti.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: ./media/index/i_protect.png
-      text: Abilitare la reimpostazione self-service delle password
-      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come abilitare un processo di accesso semplice e sicuro per l'organizzazione.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come abilitare la reimpostazione della password self-service per ridurre le chiamate al supporto tecnico da parte degli utenti.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_protect.png
+            text: Abilitare la reimpostazione self-service delle password
+            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Abilitare un progetto pilota di reimpostazione della password self-service</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Richiedere Multi-Factor Authentication per il portale di Azure</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Abilitare l'integrazione locale della reimpostazione della password self-service</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Abilitare la reimpostazione della password di Windows 10</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrazione con Azure Identity Protection</a>
+      - type: paragraph
+        text: Informazioni su come abilitare un processo di accesso semplice e sicuro per l'organizzazione.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Abilitare un progetto pilota di reimpostazione della password self-service</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Richiedere Multi-Factor Authentication per il portale di Azure</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Abilitare l'integrazione locale della reimpostazione della password self-service</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Abilitare la reimpostazione della password di Windows 10</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrazione con Azure Identity Protection</a>

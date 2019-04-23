@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 08426b9cb6dee2abd445f2e29eb4bf4d20a6e06d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475678"
 documentType: LandingData
 title: Documentazione sulle macchine virtuale di Azure Data Science
 metadata:
   title: Documentazione sulle macchine virtuali di data science - Azure
-  description: Informazioni su come usare la macchina virtuale di data science, un ambiente sperimentale nel cloud di Azure creato in modo specifico per data science. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata.
+  description: 'Informazioni su come usare la macchina virtuale di data science, un ambiente sperimentale nel cloud di Azure creato in modo specifico per data science. Include diversi strumenti comuni per l''analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l''analisi avanzata.'
   services: machine-learning
   author: gopitk
   manager: cgronlun
@@ -21,45 +15,45 @@ metadata:
   ms.date: 01/18/2018
   ms.author: gokuma
 abstract:
-  description: Le macchine virtuali di Data Science e Deep Learning sono immagini di macchina virtuale personalizzate in Azure, caricate con strumenti di data science usati per creare applicazioni intelligenti per l'analisi avanzata.
+  description: 'Le macchine virtuali di Data Science e Deep Learning sono immagini di macchina virtuale personalizzate in Azure, caricate con strumenti di data science usati per creare applicazioni intelligenti per l''analisi avanzata.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come configurare una VM di Data Science basata su Windows o Linux:'
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="provision-vm.md">Windows</a>
-    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come effettuare il provisioning e usare VM di Data Science:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Informazioni su come configurare una VM di Data Science basata su Windows o Linux:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="provision-vm.md">Windows</a>
+          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="provision-vm">Effettuare il provisioning di una VM di Data Science di Windows</a>
-    - html: <a href="vm-do-ten-things">Usare una VM di Data Science di Windows</a>
-    - html: <a href="linux-dsvm-intro">Effettuare il provisioning di una Data Science Virtual Machine di Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro">Effettuare il provisioning di una VM di Data Science di Linux Ubuntu</a>
-    - html: <a href="linux-dsvm-walkthrough">Usare una VM di Data Science di Linux </a>
-- title: Altre tecnologie di Azure Machine Learning
-  items:
-  - type: paragraph
-    text: 'Altre tecnologie disponibili in Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Informazioni su come effettuare il provisioning e usare VM di Data Science:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="provision-vm">Effettuare il provisioning di una VM di Data Science di Windows</a>
+          - html: <a href="vm-do-ten-things">Usare una VM di Data Science di Windows</a>
+          - html: <a href="linux-dsvm-intro">Effettuare il provisioning di una Data Science Virtual Machine di Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro">Effettuare il provisioning di una VM di Data Science di Linux Ubuntu</a>
+          - html: <a href="linux-dsvm-walkthrough">Usare una VM di Data Science di Linux </a>
+  - title: Altre tecnologie di Azure Machine Learning
     items:
-    - title: Servizio Azure Machine Learning (anteprima)
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+      - type: paragraph
+        text: 'Altre tecnologie disponibili in Azure Machine Learning:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Servizio Azure Machine Learning (anteprima)
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227626"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003446"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Distribuire Azure Databricks in una rete virtuale (anteprima)
 
@@ -37,7 +37,7 @@ Distribuzione delle risorse di Azure Databricks per la propria rete virtuale con
 
 La rete virtuale che si distribuisce l'area di lavoro Azure Databricks deve soddisfare i requisiti seguenti:
 
-### <a name="location"></a>Località
+### <a name="location"></a>Location
 
 La rete virtuale deve trovarsi nella stessa località dell'area di lavoro Azure Databricks.
 
@@ -121,7 +121,7 @@ Se si usa questo modello senza usare anche il modello di gruppi di sicurezza di 
 
 Se non si usa la [portale di Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) oppure [modelli di Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare gruppi di sicurezza di rete, è necessario consentire il traffico seguenti nelle subnet.
 
-|Direzione|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|
+|Direction|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|Indirizzi IP NAT piano di controllo|\*|\*|22|
@@ -188,7 +188,7 @@ Causa possibile: Contenitore non può comunicare con account di archiviazione DB
 
 ### <a name="notebook-command-errors"></a>Errori dei notebook di comando
 
-**Comando si blocca**
+**Comando non risponde**
 
 Possibile causa: la comunicazione di ruolo di lavoro al ruolo di lavoro è bloccata. Risolvere, assicurandosi che le regole di sicurezza in ingresso soddisfano i requisiti.
 

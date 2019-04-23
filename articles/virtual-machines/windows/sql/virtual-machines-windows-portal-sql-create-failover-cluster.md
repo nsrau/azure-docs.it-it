@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486319"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011368"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -399,7 +399,7 @@ Per creare il servizio di bilanciamento del carico:
 
    - **Nome**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
-   - **Porta**: impostare una porta TCP disponibile. È necessaria una porta del firewall aperta. Usare la [stessa porta](#ports) impostata per il probe di integrità nel firewall.
+   - **Porta**: Impostare la porta è stato creato nel firewall per il probe di integrità nel [questo passaggio](#ports). In questo articolo, l'esempio Usa la porta TCP `59999`.
    - **Intervallo**: 5 secondi.
    - **Soglia non integra**: 2 errori consecutivi.
 
@@ -421,7 +421,7 @@ Per creare il servizio di bilanciamento del carico:
    - **Probe di integrità**: usare il probe di integrità configurato in precedenza.
    - **Salvataggio permanente sessione**: No.
    - **Timeout di inattività (minuti)**: 4.
-   - **IP mobile (Direct Server Return)**: Attivato
+   - **IP mobile (Direct Server Return)**: Enabled
 
 1. Fare clic su **OK**.
 

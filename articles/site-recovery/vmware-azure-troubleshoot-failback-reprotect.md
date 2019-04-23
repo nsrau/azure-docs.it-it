@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833432"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999468"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 
@@ -56,7 +56,7 @@ Per risolvere il problema:
 
 Per risolvere il problema:
 
-Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se la macchina virtuale si trova su una rete non corretta o non è in esecuzione (bloccata o arrestata), il server di configurazione non sarà in grado di connettersi al servizio Mobility nella macchina virtuale per avviare la riprotezione.
+Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se la macchina si trova in una rete non corretta o non è in esecuzione (non risponde o arrestato), il server di configurazione non riesce a raggiungere il servizio Mobility nella macchina virtuale per avviare la riprotezione.
 
 * Riavviare la macchina virtuale in modo che possa a ristabilire la comunicazione in locale.
 * Riavviare il processo di riprotezione dopo l'avvio della macchina virtuale di Azure.

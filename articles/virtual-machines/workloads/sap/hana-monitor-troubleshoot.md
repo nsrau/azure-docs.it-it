@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616357"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005248"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoraggio e risoluzione dei problemi dal lato HANA
 
@@ -63,7 +63,7 @@ Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevat
 
 ![Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevato utilizzo precedente](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Un avviso generato a causa dell'elevato utilizzo della CPU potrebbe essere causato da vari motivi fra cui, ma non solo: esecuzione di determinate transazioni, caricamento di dati, processi in sospeso, istruzioni SQL a esecuzione prolungata e cattive prestazioni delle query (ad esempio con BW in cubi HANA).
+Un avviso generato a causa di un utilizzo elevato della CPU potrebbe essere causato da vari motivi, ad esempio, ma non solo: esecuzione di determinate transazioni, il caricamento dei dati, i processi che non rispondono, a esecuzione prolungata, le istruzioni SQL e le prestazioni delle query non valida (ad esempio, con BW in cubi HANA).
 
 Fare riferimento al [di SAP HANA di risoluzione dei problemi: Soluzioni e della CPU Related Causes](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) sito per i passaggi di risoluzione dei problemi dettagliata.
 

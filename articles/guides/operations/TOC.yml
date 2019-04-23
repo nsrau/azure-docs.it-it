@@ -1,70 +1,63 @@
-items:
 - name: Azure per operatori IT
   items:
-  - name: Introduzione ad Azure
-    href: azure-operations-guide.md
-  - name: Guide introduttive
-    items:
-    - name: Macchine virtuali
+    - name: Introduzione ad Azure
+      href: azure-operations-guide.md
+    - name: Guide introduttive
       items:
-      - name: Macchine virtuali Windows
-        href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Macchine virtuali Linux
-        href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Reti virtuali
+        - name: Macchine virtuali
+          items:
+            - name: Macchine virtuali Windows
+              href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Macchine virtuali Linux
+              href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Reti virtuali
+          items:
+            - name: Creare una rete virtuale usando il portale di Azure
+              href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Security
+          items:
+            - name: Usare le assegnazioni di ruolo per gestire le risorse
+              href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Azure Stack
+          items:
+            - name: Panoramica della distribuzione di Azure Stack
+              href: /azure-stack/asdk/asdk-download
+        - name: Backup di Azure
+          items:
+            - name: Eseguire il backup di una macchina virtuale nel portale di Azure
+              href: ../../backup/quick-backup-vm-portal.md
+        - name: Azure Site Recovery
+          items:
+            - name: Replicare una macchina virtuale di Azure in un'altra area di Azure
+              href: ../../site-recovery/azure-to-azure-quickstart.md
+    - name: Esercitazioni
       items:
-      - name: Creare una rete virtuale usando il portale di Azure
-        href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Security
+        - name: Macchine virtuali
+          items:
+            - name: Creare e gestire una macchina virtuale Windows
+              href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Creare e gestire macchine virtuali Linux
+              href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Pipeline CI/CD di Jenkins
+              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Bilanciare il carico delle macchine virtuali
+              href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Creazione di modelli di Gestione risorse di Azure
+              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Eseguire il backup di macchine virtuali su vasta scala
+              href: ../../backup/tutorial-backup-vm-at-scale.md
+    - name: Guide pratiche
       items:
-      - name: Usare le assegnazioni di ruolo per gestire le risorse
-        href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Azure Stack
+        - name: 'Come scaricare la fattura e i dati di utilizzo giornalieri di Azure '
+          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Risorse
       items:
-      - name: Panoramica della distribuzione di Azure Stack
-        href: ../../azure-stack/azure-stack-deploy-overview.md
-    - name: Backup di Azure
-      items:
-      - name: Eseguire il backup di una macchina virtuale nel portale di Azure
-        href: ../../backup/quick-backup-vm-portal.md
-    - name: Azure Site Recovery
-      items:
-      - name: Replicare una macchina virtuale di Azure in un'altra area di Azure
-        href: ../../site-recovery/azure-to-azure-quickstart.md
-  - name: Esercitazioni
-    items:
-    - name: Macchine virtuali
-      items:
-      - name: Creare e gestire una macchina virtuale Windows
-        href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Creare e gestire macchine virtuali Linux
-        href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Pipeline CI/CD di Jenkins
-        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Bilanciare il carico delle macchine virtuali
-        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Creazione di modelli di Gestione risorse di Azure
-        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Eseguire il backup di macchine virtuali su vasta scala
-        href: ../../backup/tutorial-backup-vm-at-scale.md
-  - name: Guide pratiche
-    items:
-    - name: 'Come scaricare la fattura e i dati di utilizzo giornalieri di Azure '
-      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-  - name: Risorse
-    items:
-    - name: Catalogo prodotti di Azure
-      href: https://docs.microsoft.com/azure/#pivot=products
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/roadmap/
-    - name: Calcolatore prezzi
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Panoramica del portale di Microsoft Azure
-      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
-  - name: Riferimenti
-ms.openlocfilehash: baa4d388f26c46974c1037c3ecf723a445774591
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341357"
+        - name: Catalogo prodotti di Azure
+          href: 'https://docs.microsoft.com/azure/#pivot=products'
+        - name: Roadmap per Azure
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Calcolatore prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Panoramica del portale di Microsoft Azure
+          href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
+    - name: Riferimenti

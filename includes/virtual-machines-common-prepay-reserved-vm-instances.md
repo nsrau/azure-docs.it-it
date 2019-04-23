@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671761"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118641"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
 
@@ -35,6 +35,12 @@ Prima di acquistare una prenotazione, è necessario determinare le dimensioni de
 - Azure Advisor fornisce consigli per gli acquisti di sottoscrizioni individuali.  
 - È possibile usare le API per ottenere consigli per gli acquisti per ambito condiviso e ambito della sottoscrizione singola. Per altre informazioni, vedere [riservato raccomandazione di acquisto di istanza API per clienti enterprise](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Per i clienti con contratto Enterprise Agreement, acquistare le raccomandazioni per condivise e gli ambiti di sottoscrizione singolo sono disponibili con il [pacchetto di contenuto di Power BI Insights il consumo di Azure](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Servizi cloud e macchine virtuali classiche
+
+Le istanze di macchina virtuale riservate automaticamente si applicano a entrambe le macchine virtuali classiche e servizi cloud quando è abilitata la flessibilità di dimensioni di istanza. Non sono qualsiasi SKU speciali per le macchine virtuali classiche o servizi cloud. Lo stesso SKU della macchina virtuale si applicano a essi.
+
+Ad esempio, si potrebbe convertire le macchine virtuali classiche o i servizi cloud alle macchine virtuali basate su Azure Resource Manager. In questo esempio, lo sconto di prenotazione viene applicato automaticamente a macchine virtuali corrispondenti. Non è necessario per *exchange* un'istanza riservata esistente - applica automaticamente.
 
 ### <a name="analyze-your-usage-information"></a>Analizzare le informazioni sull'utilizzo
 È necessario analizzare le informazioni sull'utilizzo per consentire di determinare quali prenotazioni è possibile acquistare.
@@ -66,7 +72,7 @@ Istanze di VM riservate sono disponibili per la maggior parte delle dimensioni d
 
     | Campo      | DESCRIZIONE|
     |------------|--------------|
-    |NOME        |Il nome della prenotazione.|
+    |Name        |Il nome della prenotazione.|
     |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|    
     |Scope       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in tutte le sottoscrizione all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
     |Region    |L'area di Azure coperta dalla prenotazione.|    
@@ -74,14 +80,8 @@ Istanze di VM riservate sono disponibili per la maggior parte delle dimensioni d
     |Ottimizza per     |La flessibilità dell'istanza di macchina virtuale applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Aumenta così la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
     |Termine        |Un anno o tre anni.|
     |Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutte le macchine in esecuzione. |
-5. È possibile visualizzare il costo della prenotazione quando si seleziona **Calcola costo**.
 
-    ![Screenshot prima di inviare l'acquisto della prenotazione](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Selezionare **Acquisto**.
-7. Selezionare **Visualizza questa prenotazione** per vedere lo stato dell'acquisto.
-
-    ![Screenshot dopo l'invio dell'acquisto della prenotazione](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Modificare una prenotazione dopo l'acquisto
 

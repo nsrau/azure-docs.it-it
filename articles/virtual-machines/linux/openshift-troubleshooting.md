@@ -4,7 +4,7 @@ description: Risoluzione dei problemi relativi alla distribuzione di OpenShift i
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540347"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001117"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure
 
@@ -42,9 +42,9 @@ Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello O
 
 ## <a name="log-files"></a>File di log
 
-I file di log (stderr e stdout) per gli script di preparazione dell'host si trovano in /var/lib/waagent/custom-script/download/0 in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
+I file di log (stderr e stdout) per l'host di script di preparazione si trovano `/var/lib/waagent/custom-script/download/0` in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
 
-Se gli script di preparazione sono stati eseguiti correttamente, dovranno essere esaminati i file di log nella directory /var/lib/waagent/custom-script/download/1 dell'host del playbook di Ansible. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
+Se gli script di preparazione è stato eseguito correttamente, quindi i file di registro nel `/var/lib/waagent/custom-script/download/1` directory dell'host del playbook ansible dovrà essere esaminato. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
 
 Output di esempio
 
@@ -93,11 +93,11 @@ Gli errori più comuni durante l'installazione sono:
 
 ### <a name="private-key-has-a-passphrase"></a>La chiave privata ha una passphrase
 
-Verrà visualizzato un errore a indicare che è stata negata l'autorizzazione per la connessione SSH. Stabilire una connessione SSH all'host del playbook di Ansible per verificare la presenza di una passphrase per la chiave privata.
+Verrà visualizzato un errore che è stata negata per ssh. SSH all'host del playbook ansible per verificare la presenza di una passphrase per la chiave privata.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Il segreto dell'insieme di credenziali delle chiavi con chiave privata non è stato creato correttamente
 
-La chiave privata viene inserita nell'host del playbook di Ansible - ~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
+La chiave privata viene copiata in host il playbook ansible - ~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Le credenziali dell'entità servizio non sono state immesse in modo corretto
 

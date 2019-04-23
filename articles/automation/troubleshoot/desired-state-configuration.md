@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699082"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002579"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -41,6 +41,31 @@ Questo errore è un problema temporaneo che è pianificato per essere risolto.
 * Usare il Cmdlet di Az "Remove-AzAutomationDscConfiguration" per eliminare la configurazione.
 * La documentazione relativa a questo cmdlet non è stata ancora aggiornata.  Fino ad allora, consultare la documentazione per il modulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Scenario: Non è riuscito a registrare l'agente Dsc
+
+#### <a name="issue"></a>Problema
+
+Quando si prova a eseguire `Set-DscLocalConfigurationManager` o un altro cmdlet DSC viene visualizzato l'errore:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore è causato generalmente da un firewall, il computer viene protetto da un server proxy, o altri errori di rete.
+
+#### <a name="resolution"></a>Risoluzione
+
+Verificare che il computer abbia accesso agli endpoint appropriati per DSC di automazione di Azure e ripetere l'operazione. Per un elenco di porte e indirizzi necessari, vedere [pianificazione di rete](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scenario: lo stato del nodo indica che non è riuscito con errore "Non trovato"
 

@@ -1,17 +1,17 @@
 ---
 title: Abilitare la replica di macchine virtuali VMware per il ripristino di emergenza in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come abilitare le macchine virtuali VMware per la replica per il ripristino di emergenza in Azure usando Azure Site Recovery.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418109"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004738"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -89,7 +89,7 @@ Successivamente, verificare le proprietà della macchina virtuale di origine. Te
     ![Finestra delle proprietà di calcolo e rete](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Nome della macchina virtuale Azure: Modificare il nome per soddisfare i requisiti di Azure, se necessario.
-    * Dimensioni della macchina virtuale di destinazione o tipo di macchina virtuale: La dimensione di macchina virtuale predefinita viene scelto in base all'origine di dimensioni della macchina virtuale. È possibile selezionare una dimensione VM diversa in base alle esigenze in qualsiasi momento prima del failover. Si noti che le dimensioni di disco della macchina virtuale anche si basa su dimensioni del disco di origine e può essere modificato dopo il failover. Altre informazioni sulle dimensioni dei dischi e le frequenze di IOPS [obiettivi di scalabilità e prestazioni per i dischi di macchina virtuale in Windows](../virtual-machines/windows/disk-scalability-targets.md).
+    * Dimensioni della macchina virtuale di destinazione o tipo di macchina virtuale: La dimensione di macchina virtuale predefinita viene scelto in base a alcuni parametri che includono il numero di dischi, numero di NIC, numero di core CPU, memoria e le dimensioni dei ruoli di macchina virtuale disponibile nell'area di Azure di destinazione. Azure Site Recovery sceglie le prime dimensioni disponibili della macchina virtuale che soddisfa tutti i criteri. È possibile selezionare una dimensione VM diversa in base alle esigenze in qualsiasi momento prima del failover. Si noti che le dimensioni di disco della macchina virtuale anche si basa su dimensioni del disco di origine e può essere modificato dopo il failover. Altre informazioni sulle dimensioni dei dischi e le frequenze di IOPS [obiettivi di scalabilità e prestazioni per i dischi di macchina virtuale in Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Gruppo di risorse: È possibile selezionare una [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), da cui una macchina virtuale diventa una parte dopo il failover. È possibile modificare questa impostazione in qualsiasi momento prima del failover. Dopo il failover, se si esegue la migrazione della macchina virtuale a un gruppo di risorse diverso, le impostazioni di protezione per la macchina virtuale interrotta.
     * Set di disponibilità: È possibile selezionare un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se la macchina virtuale deve essere una parte dopo il failover. Quando si seleziona un set di disponibilità, tenere presente le informazioni seguenti:

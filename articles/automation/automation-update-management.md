@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679075"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149700"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -208,7 +208,7 @@ Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggior
 
 ## <a name="install-updates"></a>Installare gli aggiornamenti
 
-Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Per creare una distribuzione degli aggiornamenti, è necessario disporre di accesso in scrittura all'Account di automazione e accesso in scrittura a qualsiasi VM di Azure che sono destinate nella distribuzione. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [gruppi di Computer in Monitoraggio di Azure log](../azure-monitor/platform/computer-groups.md).
+Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*. Per creare una distribuzione degli aggiornamenti, è necessario disporre di accesso in scrittura all'Account di automazione e accesso in scrittura a qualsiasi VM di Azure di destinazione nella distribuzione. Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer. Specificare la data e l'ora della distribuzione e un computer o gruppo di computer da includere nell'ambito della distribuzione. Per altre informazioni sui gruppi di computer, vedere [gruppi di Computer in Monitoraggio di Azure log](../azure-monitor/platform/computer-groups.md).
 
 Quando si includono gruppi di computer nella distribuzione degli aggiornamenti, l'appartenenza ai gruppi viene valutata una sola volta al momento della creazione della pianificazione. Le modifiche successive a un gruppo non vengono riflesse. Per ovviare a questo uso [i gruppi dinamici](#using-dynamic-groups), questi gruppi vengono risolti in fase di distribuzione e vengono definiti da una query per macchine virtuali di Azure o una ricerca salvata per le macchine virtuali Non Azure.
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Patch di terze parti in Windows
 
-Gestione aggiornamenti si basa su Windows Server Update Services o Windows Update per applicare patch ai sistemi Windows supportati. Strumenti come [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) consentono di pubblicare gli aggiornamenti personalizzati in Windows Server Update Services. Questo scenario consente a Gestione aggiornamenti per applicare patch ai computer che usano Windows Server Update Services come repository degli aggiornamenti del software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Gestione degli aggiornamenti si basa nel repository di aggiornamenti in locale configurata per applicare patch a sistemi Windows supportati. Si tratta di Windows Update o WSUS. Strumenti come [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) consentono di pubblicare gli aggiornamenti personalizzati in Windows Server Update Services. Questo scenario consente di aggiornare gestione macchine patch che utilizzano System Center Configuration Manager come il repository degli aggiornamenti software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Pianificazione della rete
 

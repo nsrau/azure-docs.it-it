@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 00752e0b42b907699e9f314c2f216b69c9d3b2e8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506737"
 documentType: LandingData
 title: Documentazione sulla gestione degli utenti aziendali - Azure Active Directory
 metadata:
-  document_id: 
-  title: Documentazione su utenti, gruppi, ruoli e licenze di Azure Active Directory
-  description: Informazioni su come usare utenti, gruppi, ruoli e licenze per gestire l'autenticazione ai servizi cloud di Azure nel tenant.
+  document_id: null
+  title: 'Documentazione su utenti, gruppi, ruoli e licenze di Azure Active Directory'
+  description: 'Informazioni su come usare utenti, gruppi, ruoli e licenze per gestire l''autenticazione ai servizi cloud di Azure nel tenant.'
   services: active-directory
   ms.subservice: users-groups-roles
   author: curtand
@@ -20,33 +14,33 @@ metadata:
   ms.date: 01/31/2019
   ms.author: curtand
 abstract:
-  description: Gli strumenti di gestione degli utenti di Azure AD, come i gruppi e le assegnazioni dei ruoli di amministratore, consentono di completare più velocemente le attività principali e supportare la crescita. È possibile assegnare le licenze o l'accesso alle app SaaS a gruppi anziché a singoli utenti oppure delegare le autorizzazioni per distribuire il sovraccarico della gestione delle identità di Azure AD.
+  description: 'Gli strumenti di gestione degli utenti di Azure AD, come i gruppi e le assegnazioni dei ruoli di amministratore, consentono di completare più velocemente le attività principali e supportare la crescita. È possibile assegnare le licenze o l''accesso alle app SaaS a gruppi anziché a singoli utenti oppure delegare le autorizzazioni per distribuire il sovraccarico della gestione delle identità di Azure AD.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come usare gli strumenti di gestione in Azure Active Directory
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Aggiungere utenti ad Azure AD</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Assegna licenze agli utenti</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Iscriversi ad Azure AD Premium</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Impostare la scadenza per i gruppi creati dall'utente</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Impostare i criteri di denominazione per i gruppi creati dall'utente</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come popolare dinamicamente i gruppi in Azure Active Directory
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come usare gli strumenti di gestione in Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Aggiungere utenti ad Azure AD</a>
+          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Assegna licenze agli utenti</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Iscriversi ad Azure AD Premium</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Impostare la scadenza per i gruppi creati dall'utente</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Impostare i criteri di denominazione per i gruppi creati dall'utente</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Creare un gruppo popolato in modo dinamico</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Informazioni su come popolare dinamicamente i gruppi in Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Creare un gruppo popolato in modo dinamico</a>
+  - title: riferimento
     items:
-    - title: Collegamenti a informazioni di riferimento
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Cmdlet di Azure AD PowerShell</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Collegamenti a informazioni di riferimento
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Cmdlet di Azure AD PowerShell</a></p>'

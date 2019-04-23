@@ -1,24 +1,23 @@
 ---
 title: Gestire le prenotazioni di Azure | Microsoft Docs
 description: Informazioni su come è possibile modificare l'ambito della sottoscrizione e gestire l'accesso per le prenotazioni di Azure.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904442"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994963"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -29,7 +28,19 @@ Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibil
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
+## <a name="reservation-order-and-reservation"></a>Prenotazione e ordine di prenotazione
+
+Quando si acquista una prenotazione, vengono creati due oggetti: **Ordine di prenotazione** e **prenotazione**.
+
+Al momento dell'acquisto, un ordine di prenotazione dispone di una prenotazione sotto di esso. Le azioni, ad esempio split, merge, restituzione parziale o di exchange creano nuove prenotazioni sotto il **ordine di prenotazione**.
+
+Per un ordine di prenotazione, vedere **prenotazioni** > selezionare la prenotazione e quindi scegliere il **ID ordine prenotazione**.
+
+![Esempio di dettagli dell'ordine di prenotazione che mostra ID ordine prenotazione ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Una prenotazione eredita autorizzazioni dal relativo ordine di prenotazione.
+
+## <a name="change-the-reservation-scope"></a>Modificare l'ambito della prenotazione
 
  Lo sconto si applica alle macchine virtuali, database SQL, Azure Cosmos DB o altre risorse che corrispondono alla prenotazione ed eseguite nell'ambito di prenotazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione.
 
@@ -47,9 +58,12 @@ L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo M
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Aggiungere o modificare gli utenti che possono gestire una prenotazione
 
-È possibile delegare la gestione di una prenotazione mediante l'aggiunta di utenti ai ruoli nella prenotazione. Per impostazione predefinita, la persona che ha acquistato la prenotazione e l'amministratore dell'account dispongono del ruolo di proprietario per la prenotazione.
+È possibile delegare la gestione di prenotazione mediante l'aggiunta di utenti ai ruoli nell'ordine di prenotazione o la prenotazione. Per impostazione predefinita, la persona che inserisce l'ordine di prenotazione e l'amministratore account dispone del ruolo di proprietario nell'ordine di prenotazione e la prenotazione.
 
-È possibile gestire l'accesso alle prenotazioni indipendentemente dalle sottoscrizioni idonee per lo sconto associato alla prenotazione. L'assegnazione dell'autorizzazione per la gestione di una prenotazione non comporta l'autorizzazione alla gestione della sottoscrizione. In modo analogo, l'assegnazione dell'autorizzazione per la gestione di una sottoscrizione all'interno dell'ambito di una prenotazione non comporta l'autorizzazione alla gestione della prenotazione.
+È possibile gestire l'accesso agli ordini di prenotazione e le prenotazioni indipendentemente dalle sottoscrizioni di cui viene applicato lo sconto di prenotazione. L'assegnazione delle autorizzazioni per gestire un ordine di prenotazione o la prenotazione, ma non concede l'autorizzazione per gestire la sottoscrizione. Analogamente, se l'assegnazione dell'autorizzazione per gestire una sottoscrizione nell'ambito della prenotazione, ma non concede diritti per gestire l'ordine di prenotazione o la prenotazione.
+
+Per eseguire un scambio o un rimborso, l'utente deve disporre di accesso per l'ordine di prenotazione. Quando si concedono a un utente le autorizzazioni, è consigliabile concedere le autorizzazioni per l'ordine di prenotazione, non la prenotazione.
+
 
 Per delegare la gestione dell'accesso per una prenotazione:
 

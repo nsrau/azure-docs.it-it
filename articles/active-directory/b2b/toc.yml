@@ -1,126 +1,119 @@
-items:
 - name: Documentazione di Azure Active Directory B2B
   href: index.yml
   items:
-  - name: Panoramica
-    items:
-    - name: Informazioni sull'accesso utente guest B2B
-      href: what-is-b2b.md
-    - name: Confrontare B2B e B2C
-      href: compare-with-b2c.md
-  - name: Guide introduttive
-    items:
-    - name: Aggiungere utenti guest nel portale
-      href: b2b-quickstart-add-guest-users-portal.md
-    - name: Aggiungere utenti guest con PowerShell
-      href: b2b-quickstart-invite-powershell.md
-  - name: Esercitazioni
-    items:
-    - name: Invitare in blocco gli utenti guest B2B
-      href: tutorial-bulk-invite.md
-    - name: Applicare l'autenticazione a più fattori
-      href: b2b-tutorial-require-mfa.md
-  - name: Esempi
-    items:
-    - name: Esempio di portale per l'iscrizione self-service
-      href: self-service-portal.md
-    - name: Esempi di Azure PowerShell e di codice
-      href: code-samples.md
-  - name: Concetti
-    items:
-    - name: Licenze B2B
-      href: licensing-guidance.md
-    - name: Condivisione esterna di Office 365 e B2B
-      href: o365-external-user.md
-    - name: Riscatto di un invito
-      href: redemption-experience.md
-    - name: Messaggio di posta elettronica di invito
-      href: invitation-email-elements.md
-    - name: Informazioni sull'utente B2B
-      href: user-properties.md
-    - name: Mapping delle attestazioni utente B2B
-      href: claims-mapping.md
-    - name: Token utente B2B
-      href: user-token.md
-    - name: Accesso condizionale per B2B
-      href: conditional-access.md
-    - name: B2B per organizzazioni ibride
-      href: hybrid-organizations.md
-    - name: Limitazioni correnti
-      href: current-limitations.md
-    expanded: false
-  - name: Guide alle procedure
-    items:
-    - name: Gestire gli inviti
+    - name: Panoramica
       items:
-      - name: Aggiunta di utenti B2B da parte di amministratori
-        href: add-users-administrator.md
-      - name: Aggiunta di utenti B2B da parte di information worker
-        href: add-users-information-worker.md
-      - name: Federazione Google
-        href: google-federation.md
-      - name: Autenticazione con passcode monouso
-        href: one-time-passcode.md
-      - name: Criteri di condivisione per B2B
-        href: delegate-invitations.md
-      - name: Consentire o bloccare gli inviti
-        href: allow-deny-list.md
-      - name: Aggiungere utenti B2B senza un invito
-        href: add-user-without-invite.md
-      - name: API e personalizzazione
-        href: customize-invitation-api.md
-    - name: Gestire gli account guest
+        - name: Informazioni sull'accesso utente guest B2B
+          href: what-is-b2b.md
+        - name: Confrontare B2B e B2C
+          href: compare-with-b2c.md
+    - name: Guide introduttive
       items:
-      - name: Aggiungere un utente B2B a un ruolo
-        href: add-guest-to-role.md
-      - name: Gruppi dinamici e utenti B2B
-        href: use-dynamic-groups.md
-      - name: Informazioni sull'utente B2B
-        href: user-properties.md
-      - name: B2B per app integrate con Azure AD
-        href: configure-saas-apps.md
-    - name: Gestire l'accesso in un'organizzazione ibrida
+        - name: Aggiungere utenti guest nel portale
+          href: b2b-quickstart-add-guest-users-portal.md
+        - name: Aggiungere utenti guest con PowerShell
+          href: b2b-quickstart-invite-powershell.md
+    - name: Esercitazioni
       items:
-      - name: Concedere l'accesso alle app cloud agli utenti locali
-        href: hybrid-on-premises-to-cloud.md
-      - name: Concedere l'accesso alle app locali agli utenti di B2B
-        href: hybrid-cloud-to-on-premises.md
-    - name: Uscire da un'organizzazione
-      href: leave-the-organization.md
-    - name: Controllo e report
-      href: auditing-and-reporting.md
-    - name: Risoluzione dei problemi di B2B
-      href: troubleshoot.md
-    expanded: true
-  - name: riferimento
-    items:
-    - name: API di gestione degli inviti
-      href: customize-invitation-api.md
-  - name: Risorse
-    items:
-    - name: Domande frequenti
-      href: faq.md
-    - name: Ottenere assistenza per B2B
-      href: get-support.md
-    - name: Forum di commenti e suggerimenti su Azure
-      href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/roadmap/?category=security-identity
-    - name: Forum MSDN
-      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-    - name: Prezzi
-      href: https://azure.microsoft.com/pricing/details/active-directory/
-    - name: Calcolatore prezzi
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Aggiornamenti del servizio
-      href: https://azure.microsoft.com/updates/?product=active-directory
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-active-directory
-    - name: Video
-      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: cbd7c39f4c44675896075068697da79643174be4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407834"
+        - name: Invitare in blocco gli utenti guest B2B
+          href: tutorial-bulk-invite.md
+        - name: Applicare l'autenticazione a più fattori
+          href: b2b-tutorial-require-mfa.md
+    - name: Esempi
+      items:
+        - name: Esempio di portale per l'iscrizione self-service
+          href: self-service-portal.md
+        - name: Esempi di Azure PowerShell e di codice
+          href: code-samples.md
+    - name: Concetti
+      expanded: false
+      items:
+        - name: Licenze B2B
+          href: licensing-guidance.md
+        - name: Condivisione esterna di Office 365 e B2B
+          href: o365-external-user.md
+        - name: Riscatto di un invito
+          href: redemption-experience.md
+        - name: Messaggio di posta elettronica di invito
+          href: invitation-email-elements.md
+        - name: Informazioni sull'utente B2B
+          href: user-properties.md
+        - name: Mapping delle attestazioni utente B2B
+          href: claims-mapping.md
+        - name: Token utente B2B
+          href: user-token.md
+        - name: Accesso condizionale per B2B
+          href: conditional-access.md
+        - name: B2B per organizzazioni ibride
+          href: hybrid-organizations.md
+        - name: Limitazioni correnti
+          href: current-limitations.md
+    - name: Guide alle procedure
+      expanded: true
+      items:
+        - name: Gestire gli inviti
+          items:
+            - name: Aggiunta di utenti B2B da parte di amministratori
+              href: add-users-administrator.md
+            - name: Aggiunta di utenti B2B da parte di information worker
+              href: add-users-information-worker.md
+            - name: Federazione Google
+              href: google-federation.md
+            - name: Autenticazione con passcode monouso
+              href: one-time-passcode.md
+            - name: Criteri di condivisione per B2B
+              href: delegate-invitations.md
+            - name: Consentire o bloccare gli inviti
+              href: allow-deny-list.md
+            - name: Aggiungere utenti B2B senza un invito
+              href: add-user-without-invite.md
+            - name: API e personalizzazione
+              href: customize-invitation-api.md
+        - name: Gestire gli account guest
+          items:
+            - name: Aggiungere un utente B2B a un ruolo
+              href: add-guest-to-role.md
+            - name: Gruppi dinamici e utenti B2B
+              href: use-dynamic-groups.md
+            - name: Informazioni sull'utente B2B
+              href: user-properties.md
+            - name: B2B per app integrate con Azure AD
+              href: configure-saas-apps.md
+        - name: Gestire l'accesso in un'organizzazione ibrida
+          items:
+            - name: Concedere l'accesso alle app cloud agli utenti locali
+              href: hybrid-on-premises-to-cloud.md
+            - name: Concedere l'accesso alle app locali agli utenti di B2B
+              href: hybrid-cloud-to-on-premises.md
+        - name: Uscire da un'organizzazione
+          href: leave-the-organization.md
+        - name: Controllo e report
+          href: auditing-and-reporting.md
+        - name: Risoluzione dei problemi di B2B
+          href: troubleshoot.md
+    - name: riferimento
+      items:
+        - name: API di gestione degli inviti
+          href: customize-invitation-api.md
+    - name: Risorse
+      items:
+        - name: Domande frequenti
+          href: faq.md
+        - name: Ottenere assistenza per B2B
+          href: get-support.md
+        - name: Forum di commenti e suggerimenti su Azure
+          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+        - name: Roadmap per Azure
+          href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+        - name: Prezzi
+          href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+        - name: Calcolatore prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Aggiornamenti del servizio
+          href: 'https://azure.microsoft.com/updates/?product=active-directory'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+        - name: Video
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

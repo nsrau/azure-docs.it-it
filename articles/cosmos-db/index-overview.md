@@ -1,64 +1,99 @@
 ---
 title: Indicizzazione in Azure Cosmos DB
 description: Informazioni sull'indicizzazione in Azure Cosmos DB.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265696"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996731"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB - panoramica
+# <a name="indexing-in-azure-cosmos-db---overview"></a>L'indicizzazione in Azure Cosmos DB - Panoramica
 
-Azure Cosmos DB è un database senza schema e consente di eseguire rapidamente l'iterazione sull'applicazione senza dover gestire schemi o indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutti gli elementi nel contenitore senza richiedere schemi o indici secondari da parte degli sviluppatori.
+Azure Cosmos DB è un database indipendente dallo schema che consente di eseguire l'iterazione dell'applicazione senza dover gestire schemi o indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà per tutti gli elementi di [contenitore](databases-containers-items.md#azure-cosmos-containers) senza che sia necessario definire alcuno schema o configurare gli indici secondari.
 
-## <a name="items-as-trees"></a>Elementi come strutture ad albero
+L'obiettivo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e utilizzo degli indici per migliorare le prestazioni delle query. È consigliabile leggere attentamente questa sezione prima di esaminare come personalizzare [criteri di indicizzazione](index-policy.md).
 
-Proiezione di elementi in un contenitore come documenti JSON e che li rappresentano come strutture ad albero, Azure Cosmos DB Normalizza la struttura e i valori dell'istanza tra gli elementi nel concetto di unificare un **in modo dinamico con codifica struttura del percorso** . In questa rappresentazione, ogni etichetta in un documento JSON, che include sia i nomi delle proprietà e i relativi valori, diventa un nodo dell'albero. La foglia dell'albero di contenga i valori effettivi e i nodi intermedi contengono le informazioni sullo schema. L'immagine seguente rappresenta gli alberi creati per due elementi (1 e 2) in un contenitore di Azure Cosmos:
+## <a name="from-items-to-trees"></a>Dagli elementi agli alberi
 
-![Rappresentazione in forma di albero per due diversi elementi in un contenitore di Azure Cosmos](./media/index-overview/indexing-as-tree.png)
+Ogni volta che un elemento viene archiviato in un contenitore, il relativo contenuto viene proiettato come documento JSON e quindi convertito in una rappresentazione ad albero. Ciò significa che tutte le proprietà di tale elemento viene rappresentata come nodo in una struttura ad albero. Un nodo radice pseudo viene creato come elemento padre di tutte le proprietà di primo livello dell'elemento. I nodi foglia contengono i valori scalari effettivi appartenente a un elemento.
 
-Un nodo radice pseudo viene creato come elemento padre ai nodi effettivi corrispondenti per le etichette nel documento JSON di sotto. Le strutture dei dati annidati determinano la gerarchia dell'albero. I nodi artificiali intermedi etichettati con valori numerici (per esempio, 0, 1, ....) sono utilizzati per rappresentare le enumerazioni e gli indici di matrice.
+Ad esempio, prendere in considerazione questo elemento:
 
-## <a name="index-paths"></a>Percorsi di indice
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB proietta gli elementi in un contenitore di Azure Cosmos come documenti JSON e l'indice come alberi. È quindi possibile ottimizzare i criteri di indice per i percorsi all'interno dell'albero. È possibile scegliere di includere o escludere i percorsi dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti. Per altre informazioni, vedere [percorsi di indice](index-paths.md).
+Si sarebbe rappresentato dall'albero delle seguente:
 
-## <a name="indexing-under-the-hood"></a>Indicizzazione: Dietro le quinte
+![L'elemento precedente rappresentata come albero](./media/index-overview/item-as-tree.png)
 
-Si applica il database di Azure Cosmos *l'indicizzazione automatica* ai dati, in cui ogni percorso in un albero viene indicizzato, a meno che non si configura per escludere determinati percorsi.
+Si noti come le matrici vengono codificate nell'albero: ogni voce in una matrice Ottiene un nodo intermedio contrassegnato con l'indice della voce all'interno della matrice (0, 1 e così via.).
 
-Il database di Azure Cosmos utilizza una struttura dei dati di indice invertita per archiviare le informazioni di ogni articolo e per facilitare una rappresentazione efficiente per l'esecuzione di query. La struttura dell'indice è un documento che viene costruito con l'unione di tutte le strutture ad albero che rappresentano i singoli elementi in un contenitore. La struttura dell'indice cresce nel tempo, quando vengono aggiunti nuovi elementi o gli elementi esistenti vengono aggiornati nel contenitore. A differenza di indicizzazione del database relazionale, Azure Cosmos DB non riavvia l'indicizzazione da zero, quando vengono introdotti nuovi campi. Nuovi elementi vengono aggiunti alla struttura dell'indice esistente. 
+## <a name="from-trees-to-property-paths"></a>Dagli alberi per i percorsi delle proprietà
 
-Ogni nodo dell'albero dell'indice è una voce di indice che contiene i valori di etichetta e la posizione, denominati il *termine*e gli ID degli elementi di *registrazioni*. Le registrazioni delle parentesi graffe (ad esempio {1,2}) nella figura indice invertito corrispondono agli elementi, ad esempio *Document1* e *Document2* contenente il valore di etichetta specificato. Un'importante implicazione del trattamento in modo uniforme le etichette di schema sia i valori dell'istanza è che tutti gli elementi vengono compressi all'interno di un indice di grandi dimensioni. Un valore di istanza che è ancora nelle foglie non viene ripetuto, può essere in ruoli diversi tra gli elementi, con etichette di schemi diverse, ma è lo stesso valore. L'immagine seguente mostra l'indice invertito per due diversi elementi:
+Il motivo per cui Azure Cosmos DB Trasforma gli elementi in strutture ad albero è perché consente le proprietà a cui fa riferimento i relativi percorsi all'interno degli alberi. Per ottenere il percorso per una proprietà, è possibile attraversare l'albero del nodo principale per tale proprietà e concatenare le etichette di ogni nodo attraversata.
 
-![Indicizzazione dietro le quinte, Indice invertito](./media/index-overview/inverted-index.png)
+Di seguito sono elencati i percorsi per ogni proprietà dalla voce di esempio descritto in precedenza:
 
-> [!NOTE]
-> L'indice invertito può apparire simile alle strutture di indicizzazione usate in un motore di ricerca nel dominio di recupero delle informazioni. Con questo metodo, Azure Cosmos DB consente di cercare nel database qualsiasi elemento indipendentemente dalla relativa struttura dello schema.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-Per il percorso normalizzato, l'indice codifica il percorso di inoltro direttamente dalla radice al valore, insieme alle informazioni sul tipo di valore. Il percorso e il valore sono codificati per fornire tipi diversi di indicizzazione, ad esempio l'intervallo, spaziale e così via. La codifica del valore è progettata per fornire un valore univoco o una composizione di un set di percorsi.
+Quando viene scritto un elemento, Azure Cosmos DB indicizza in modo efficace percorso di ogni proprietà e il valore corrispondente.
+
+## <a name="index-kinds"></a>Tipi di indice
+
+Azure Cosmos DB supporta attualmente due tipi di indici:
+
+Il **intervallo** tipologia di indice viene usato per:
+
+- query di uguaglianza: `SELECT * FROM container c WHERE c.property = 'value'`
+- query di intervallo: `SELECT * FROM container c WHERE c.property > 'value'` (adatto `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` query: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` query: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Gli indici di intervallo possono essere utilizzati con valori scalari (stringa o numero).
+
+Il **spaziali** tipologia di indice viene usato per:
+
+- query di distanza geospaziali: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- geospaziali all'interno di query: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Gli indici spaziali sono utilizzabili in formato corretto [GeoJSON](geospatial.md) oggetti. Punti, oggetti linestring e poligoni sono attualmente supportati.
 
 ## <a name="querying-with-indexes"></a>Esecuzione di query con indici
 
-L'indice invertito consente a una query di identificare rapidamente i documenti che corrispondono al predicato della query. Trattando sia lo schema sia i valori dell'istanza in modo uniforme in termini di percorsi, l'indice invertito è anche una struttura ad albero. Di conseguenza, l'indice e i risultati possono essere serializzati in un documento JSON valido e restituiti come documenti stessi in quanto restituiti nella rappresentazione ad albero. Questo metodo consente la ricorsione sui risultati per l'esecuzione di query aggiuntive. L'immagine seguente illustra un esempio dell'indicizzazione in una query di punto:  
+I percorsi estratti durante l'indicizzazione dei dati rendono più semplice per la ricerca dell'indice durante l'elaborazione di una query. Creando una corrispondenza tra il `WHERE` clausola di una query con l'elenco di percorsi indicizzati, è possibile identificare gli elementi che corrispondono al predicato di query molto rapidamente.
 
-![Esempio di query di punto](./media/index-overview/index-point-query.png)
+Ad esempio, si consideri la seguente query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Il predicato della query (filtrando gli elementi, in qualsiasi posizione ha "Francia" paese) sarebbe corrisponde al percorso evidenziato in rosso riportata di seguito:
 
-Per una query di intervallo *GermanTax* è un [funzione definita dall'utente](stored-procedures-triggers-udfs.md#udfs) eseguito come parte dell'elaborazione delle query. La funzione definita dall'utente è qualsiasi funzione JavaScript registrata, che può fornire la logica di programmazione avanzata integrata nella query. L'immagine seguente illustra un esempio dell'indicizzazione in una query di intervallo:
+![Corrispondenza di un percorso specifico all'interno di una struttura ad albero](./media/index-overview/matching-path.png)
 
-![Esempio di query di intervallo](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> Un' `ORDER BY` clausola *sempre* necessita di un intervallo di indice e avrà esito negativo se il percorso fa riferimento non lo possiede.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
 - [Criterio di indicizzazione](index-policy.md)
-- [Tipi di indice](index-types.md)
-- [Percorsi di indice](index-paths.md)
 - [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)

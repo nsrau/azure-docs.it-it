@@ -1,126 +1,117 @@
-items:
 - name: Documentazione delle estensioni di VM
   href: ../index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sulle estensioni di Azure
-    href: overview.md
-  - name: Agente di macchine virtuali Linux
-    href: agent-linux.md
-  - name: Agente di macchine virtuali Windows
-    href: agent-windows.md
-- name: Guide di avvio rapido
-  items:
-  - name: Usare l'estensione di script personalizzati
-    href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
-    maintainContext: true
+    - name: Informazioni sulle estensioni di Azure
+      href: overview.md
+    - name: Agente di macchine virtuali Linux
+      href: agent-linux.md
+    - name: Agente di macchine virtuali Windows
+      href: agent-windows.md
+- name: Guide introduttive
   expanded: true
+  items:
+    - name: Usare l'estensione di script personalizzati
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
 - name: Concetti
   items:
-  - name: Linux
-    href: features-linux.md
-  - name: Windows
-    href: features-windows.md
+    - name: Linux
+      href: features-linux.md
+    - name: ' Windows'
+      href: features-windows.md
 - name: Guide alle procedure
   items:
-  - name: Azure Disk Encryption
-    items:
-    - name: Linux
-      href: azure-disk-enc-linux.md
-    - name: Windows
-      href: azure-disk-enc-windows.md
-  - name: Custom Script
-    items:
-    - name: Linux - versione 2
-      href: custom-script-linux.md
-    - name: Windows
-      href: custom-script-windows.md
-    - name: Azure Service Management (classico)
-      href: custom-script-classic.md
-  - name: Antimalware IaaS per Windows
-    href: iaas-antimalware-windows.md
-  - name: Snapshot di macchina virtuale
-    items:
-    - name: Linux
-      href: vmsnapshot-linux.md
-    - name: Windows
-      href: vmsnapshot-windows.md
-  - name: Agente Network Watcher
-    items:
-    - name: Linux
-      href: network-watcher-linux.md
-    - name: Windows
-      href: network-watcher-windows.md
-  - name: Driver GPU NVIDIA
-    items:
-    - name: Linux
-      href: hpccompute-gpu-linux.md
-    - name: Windows
-      href: hpccompute-gpu-windows.md
-  - name: Log Analytics
-    items:
-    - name: Linux
-      href: oms-linux.md
-    - name: Windows
-      href: oms-windows.md
-  - name: Monitoraggio di Azure per le macchine virtuali
-    items:
-    - name: Dependency Agent per Linux
-      href: agent-dependency-linux.md
-    - name: Dependency Agent per Windows
-      href: agent-dependency-windows.md
-  - name: PowerShell DSC
-    href: dsc-overview.md
-    items:
-    - name: DSC e Windows
-      href: dsc-windows.md
-    - name: DSC e Linux
-      href: dsc-linux.md
-    - name: Gestire le credenziali
-      href: dsc-credentials.md
-    - name: Usare modelli
-      href: dsc-template.md
-  - name: Accesso alle macchine virtuali
-    href: vmaccess.md
-  - name: Diagnostica delle macchine virtuali
-    items:
-    - name: Linux
-      href: diagnostics-linux.md
-    - name: Windows
-      href: diagnostics-windows.md
-    - name: Usare modelli
-      href: diagnostics-template.md
-  - name: Estensioni di terze parti
-    items:
-    - name: Chef
-      href: chef.md
-    - name: Stackify Retrace
-      href: stackify-retrace-linux.md
-    - name: Symantec
-      href: symantec.md
-  - name: Estensioni deprecate
-    items:
-    - name: Agente di raccolta log
-      href: log-collector.md
-    - name: Trend Micro Deep Security
-      href: trend.md
-    - name: Linux - versione 1 (OSTC)
-      href: custom-script-linuxOstc.md
-  - name: Limitare l'installazione dell'estensione
-    items:
-    - name: Linux
-      href: extensions-rmpolicy-howto-cli.md
-    - name: Windows
-      href: extensions-rmpolicy-howto-ps.md
-  - name: Aggiornare l'agente Linux
-    href: update-linux-agent.md
-  - name: Estensioni di esportazione
-    href: export-templates.md
-  - name: Risolvere problemi
-    href: troubleshoot.md
-ms.openlocfilehash: e4df9a9d6c15253d2893b0a69e49312a2e5003ff
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665442"
+    - name: Azure Disk Encryption
+      items:
+        - name: Linux
+          href: azure-disk-enc-linux.md
+        - name: ' Windows'
+          href: azure-disk-enc-windows.md
+    - name: Custom Script
+      items:
+        - name: Linux - versione 2
+          href: custom-script-linux.md
+        - name: ' Windows'
+          href: custom-script-windows.md
+    - name: Antimalware IaaS per Windows
+      href: iaas-antimalware-windows.md
+    - name: Snapshot di macchina virtuale
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: ' Windows'
+          href: vmsnapshot-windows.md
+    - name: Agente Network Watcher
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: ' Windows'
+          href: network-watcher-windows.md
+    - name: Driver GPU NVIDIA
+      items:
+        - name: Linux
+          href: hpccompute-gpu-linux.md
+        - name: ' Windows'
+          href: hpccompute-gpu-windows.md
+    - name: Log Analytics
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: ' Windows'
+          href: oms-windows.md
+    - name: Monitoraggio di Azure per le macchine virtuali
+      items:
+        - name: Dependency Agent per Linux
+          href: agent-dependency-linux.md
+        - name: Dependency Agent per Windows
+          href: agent-dependency-windows.md
+    - name: PowerShell DSC
+      href: dsc-overview.md
+      items:
+        - name: DSC e Windows
+          href: dsc-windows.md
+        - name: DSC e Linux
+          href: dsc-linux.md
+        - name: Gestire le credenziali
+          href: dsc-credentials.md
+        - name: Usare modelli
+          href: dsc-template.md
+    - name: Accesso alle macchine virtuali
+      href: vmaccess.md
+    - name: Diagnostica delle macchine virtuali
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: ' Windows'
+          href: diagnostics-windows.md
+        - name: Usare modelli
+          href: diagnostics-template.md
+    - name: Estensioni di terze parti
+      items:
+        - name: Chef
+          href: chef.md
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Estensioni deprecate
+      items:
+        - name: Agente di raccolta log
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+        - name: Linux - versione 1 (OSTC)
+          href: custom-script-linuxOstc.md
+    - name: Limitare l'installazione dell'estensione
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: ' Windows'
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Aggiornare l'agente Linux
+      href: update-linux-agent.md
+    - name: Estensioni di esportazione
+      href: export-templates.md
+    - name: Risolvere problemi
+      href: troubleshoot.md

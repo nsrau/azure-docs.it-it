@@ -31,7 +31,7 @@
       href: How-to/how-to-choose-recognition-mode.md
     - name: Trasferimento in blocchi del flusso audio
       href: How-to/how-to-chunked-transfer.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Protocollo WebSocket di Riconoscimento vocale Microsoft
       href: API-Reference-REST/websocketprotocol.md

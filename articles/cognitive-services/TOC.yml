@@ -1,40 +1,33 @@
-items:
 - name: Documentazione di Servizi cognitivi di Azure
   href: index.md
 - name: Panoramica
-  items:
-  - name: Che cosa sono i servizi cognitivi?
-    href: Welcome.md
-  - name: Supporto per le lingue
-    href: language-support.md
-  - name: Supporto dei contenitori
-    href: cognitive-services-container-support.md
   expanded: true
+  items:
+    - name: Che cosa sono i servizi cognitivi?
+      href: Welcome.md
+    - name: Supporto per le lingue
+      href: language-support.md
+    - name: Supporto dei contenitori
+      href: cognitive-services-container-support.md
 - name: Guide introduttive
   items:
-  - name: Creare un account
-    href: cognitive-services-apis-create-account.md
-  - name: Authentication
-    href: authentication.md
+    - name: Creare un account
+      href: cognitive-services-apis-create-account.md
+    - name: Authentication
+      href: authentication.md
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/
-  - name: Calcolatore prezzi
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Video
-    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Codice di comportamento
-    href: https://go.microsoft.com/fwlink/?LinkId=698895
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 975c681b3cd30fe7f5b3bd6cd39371a9d66ff27a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545414"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Codice di comportamento
+      href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase'

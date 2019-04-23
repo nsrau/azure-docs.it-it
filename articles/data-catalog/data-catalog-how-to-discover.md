@@ -1,17 +1,17 @@
 ---
 title: Come trovare le origini dati in Azure Data Catalog
 description: Questo articolo illustra le procedure di individuazione degli asset di dati registrati con Azure Data Catalog, inclusi la ricerca, i filtri e l'uso delle funzionalità di evidenziazione dei risultati del portale di Azure Data Catalog.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792149"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007866"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 

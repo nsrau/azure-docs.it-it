@@ -9,21 +9,18 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120955"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001984"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
 Ogni istanza di Gemelli digitali di Azure di cui è stato effettuato il provisioning include la propria documentazione di riferimento Swagger generata automaticamente.
 
 [Swagger](https://swagger.io/) (o [OpenAPI](https://www.openapis.org/)) raccoglie complesse informazioni sulle API in una risorsa di riferimento interattiva e indipendente dal linguaggio. Swagger fornisce materiale di riferimento di importanza critica sui payload JSON, i metodi HTTP e gli endpoint specifici da usare per eseguire operazioni su un'API.
-
-> [!IMPORTANT]
-> Il supporto per l'autenticazione Swagger è temporaneamente disabilitato durante l'anteprima pubblica.
 
 ## <a name="swagger-summary"></a>Riepilogo di Swagger
 
@@ -98,7 +95,42 @@ Gli esempi includono anche i codici di errore per facilitare il debug o migliora
 Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
-> Il supporto per l'autenticazione OAuth 2.0 è temporaneamente disabilitato durante l'anteprima pubblica.
+> L'entità utente che ha creato la risorsa di Azure digitale gemelli disporrà di un'assegnazione di ruolo di amministratore di spazio e sarà possibile creare assegnazioni di ruolo aggiuntive per gli altri utenti.
+
+1. Seguire i passaggi descritti in [questa Guida introduttiva](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) per creare un'applicazione di Azure AD di tipo ***app Web / API***. Oppure è possibile riutilizzare una registrazione di app esistente.
+
+2. Aggiungere il seguente url di risposta per la registrazione dell'app:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | Name  | Sostituire con | Esempio |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | L'URL della documentazione API REST di gestione disponibili nel portale di  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. Concedere le autorizzazioni per l'app accedere ai dispositivi gemelli digitale di Azure. In **Autorizzazioni necessarie** immettere `Azure Digital Twins` e selezionare **Autorizzazioni delegate**. Selezionare quindi **Grant Permissions** (Concedi autorizzazioni).
+
+    ![API di aggiunta in registrazioni di app di Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. Configurare il manifesto dell'applicazione per Consenti flusso implicito OAuth 2.0. Fare clic su **Manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
+
+    ![Flusso implicito di Azure AD](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. Copiare l'ID dell'app Azure AD.
+
+6. Fare clic sul pulsante Autorizza nella pagina di swagger.
+
+    ![Pulsante Autorizza swagger](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. Incollare l'ID dell'applicazione nel campo client_id.
+
+    ![Campo client_id swagger](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Concedere le autorizzazioni dell'applicazione di swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. Si noterà ora i Bearer token di autenticazione passate nell'intestazione dell'autorizzazione e l'identità dell'utente connesso visualizzata nel risultato.
+
+    ![Risultato token swagger](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

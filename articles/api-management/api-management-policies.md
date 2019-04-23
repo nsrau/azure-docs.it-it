@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f617abc164761b4839b188822585eaa4eb0aacd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936896"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005520"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -35,13 +35,13 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Limita frequenza delle chiamate per chiave](api-management-access-restriction-policies.md#LimitCallRateByKey) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  
     -   [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.  
     -   [Imposta quota di utilizzo per sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
-    -   [Imposta quota di utilizzo per chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey): consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
+    -   [Imposta quota di utilizzo per chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
     -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
 -   [Criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Flusso di controllo](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri in base ai risultati della valutazione di espressioni booleane.  
     -   [Inoltra richiesta](api-management-advanced-policies.md#ForwardRequest): inoltra la richiesta al servizio back-end.  
     -   [Registra in Hub eventi](api-management-advanced-policies.md#log-to-eventhub): invia messaggi nel formato specificato a una destinazione del messaggio definita da un'entità Logger.  
-    -   [Riprova](api-management-advanced-policies.md#Retry): riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
+    -   [Riprova](api-management-advanced-policies.md#Retry) : riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
     -   [Restituisci risposta](api-management-advanced-policies.md#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.  
     -   [Invia richiesta unidirezionale](api-management-advanced-policies.md#SendOneWayRequest) : invia una richiesta all'URL specificato senza attendere una risposta.  
     -   [Invia richiesta](api-management-advanced-policies.md#SendRequest) : invia una richiesta all'URL specificato.  
@@ -52,13 +52,14 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Attendi](api-management-advanced-policies.md#Wait): attende il completamento dei criteri inclusi per l'[invio della richiesta](api-management-advanced-policies.md#SendRequest), il [recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) o il [flusso di controllo](api-management-advanced-policies.md#choose) prima di procedere.  
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
-    -   [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) : consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
+    -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
+    -   [Eseguire l'autenticazione con identità gestite](api-management-authentication-policies.md#ManagedIdentity) -eseguire l'autenticazione con un servizio back-end tramite certificati client.  
 -   [Criteri di memorizzazione nella cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) : esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.  
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  
     -   [Recupera valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave.  
     -   [Archivia valore nella cache](api-management-caching-policies.md#StoreToCacheByKey) : archivia un elemento nella cache per chiave.  
-    -   [Rimuovi valore dalla cache](api-management-caching-policies.md#RemoveCacheByKey): rimuove un elemento dalla cache in base alla chiave.  
+    -   [Rimuovi valore dalla cache](api-management-caching-policies.md#RemoveCacheByKey) : rimuove un elemento dalla cache in base alla chiave.  
 -   [Criteri tra domini](api-management-cross-domain-policies.md#CrossDomainPolicies)  
     -   [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.  
     -   [CORS](api-management-cross-domain-policies.md#CORS) : aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.  

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798947"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003684"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -112,7 +112,7 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 | Dati | DESCRIZIONE |
 |:---|:---|
-| Monitoraggio di Azure per contenitori | Dati di inventario e delle prestazioni raccolti da [monitoraggio di Azure per contenitori](../insights/container-insights-overview.md). Visualizzare [dettagli di raccolta dati contenitore](../insights/container-insights-analyze.md#container-data-collection-details) per un elenco delle tabelle. |
+| Monitoraggio di Azure per contenitori | Dati di inventario e delle prestazioni raccolti da [monitoraggio di Azure per contenitori](../insights/container-insights-overview.md). Visualizzare [dettagli di raccolta dati contenitore](../insights/container-insights-log-search.md#container-records) per un elenco delle tabelle. |
 | Monitoraggio di Azure per le macchine virtuali | Dati della mappa e sulle prestazioni raccolti da [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md). Visualizzare [come eseguire una query di log da monitoraggio di Azure per le macchine virtuali](../insights/vminsights-log-search.md) per informazioni dettagliate sull'esecuzione di query su questi dati. |
 
 ### <a name="custom"></a>Personalizzate 

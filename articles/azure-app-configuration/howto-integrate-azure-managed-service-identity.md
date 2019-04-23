@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c2afc96ca5f7e30d5474f66bdad0cfec88a89580
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700202"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998992"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Esercitazione: Integrazione con identità gestite di Azure
 
@@ -75,7 +75,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 ## <a name="use-a-managed-identity"></a>Usare un'identità gestita
 
-1. Aprire *appsettings.json* e aggiungere lo script seguente. Sostituire  *\<service_endpoint >*, incluse le parentesi, con l'URL per l'archivio di configurazione di app:
+1. Aprire *appsettings.json* e aggiungere lo script seguente. Sostituire *\<service_endpoint>* (incluse le parentesi acute) con l'URL dell'archivio di configurazione app:
 
     ```json
     "AppConfig": {
@@ -194,8 +194,6 @@ Anche i provider di Configurazione app per .NET Framework e Java Spring offrono 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questa esercitazione è stata aggiunta un'identità del servizio gestita di Azure per facilitare l'accesso a Configurazione app e migliorare la gestione delle credenziali dell'app. Per altre informazioni sull'uso di Configurazione app, passare agli esempi dell'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
 > [Esempi dell'interfaccia della riga di comando](./cli-samples.md)

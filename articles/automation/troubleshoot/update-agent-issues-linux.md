@@ -4,17 +4,17 @@ description: Informazioni su come risolvere i problemi con l'agente Gestione agg
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813110"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150116"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
 
@@ -25,6 +25,9 @@ L'elenco seguente indica i tre possibili stati di conformità di un computer:
 * **Pronto**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a meno di 1 ora fa.
 * **Disconnesso**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a più di 1 ora fa.
 * **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
+
+> [!NOTE]
+> Potrebbe esserci un leggero ritardo tra i quali viene illustrato il portale di Azure e lo stato corrente della macchina.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 2eabe0c234df6165b78e2dc55dcdc73067aabaa6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273227"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009032"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
 
@@ -488,7 +488,7 @@ Le dipendenze per le offerte di Azure Marketplace non vengono gestite automatica
 
 Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi seguenti:
 
-Algeria, Arabia Saudita, Argentina, Australia, Austria, Bahrein, Belgio, Bielorussia, Brasile, Bulgaria, Canada, Cile, Cipro, Colombia, Corea del Sud, Costa Rica, Croazia, Danimarca, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Estonia, Filippine, Finlandia, Francia, Germania, Giappone, Giordania, Grecia, Guatemala, Hong Kong, India, Indonesia, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, Macedonia del Nord, Malta, Marocco, Messico, Montenegro, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Portorico, Qatar, Regno Unito, Repubblica Ceca, Repubblica dominicana, Romania, Russia, Serbia, Singapore, Slovacchia, Slovenia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Thailandia, Taiwan, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Ungheria, Uruguay e Venezuela.
+Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgio, Brasile, Bulgaria, Canada, Cile, Colombia, Costa Rica, Croazia, Cipro, Repubblica ceca, Danimarca, Repubblica dominicana, Ecuador, Egitto, El Salvador, Estonia, Finlandia, Francia, Germania, Grecia , Guatemala, RAS di Hong Kong, Ungheria, Islanda, India, Indonesia, Irlanda, Israele, Italia, Giappone, Giordania, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, settentrionale Macedonia, Malaysia, Malta, Messico, Montenegro, Marocco, Paesi Bassi, nuovo Zelanda, Nigeria, Norvegia, Oman, Pakistan, Panama, Paraguay, Perù, Filippine, Polonia, Portogallo, Portorico, Qatar, Romania, Russia, Arabia Saudita, Serbia, Singapore, Slovacchia, Slovenia, Sud Africa, Corea del Sud, Spagna, Sri Lanka, Svezia, Svizzera, Uniti e Taiwan, Thailandia, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Emirati Arabi Uniti, Regno Unito, Stati Uniti, Uruguay e Venezuela.
 
 **Come definire la disponibilità a livello geografico per abilitare la vendita in paesi diversi?**
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0c11f5f43e0ea96a0b4bc9b4ecec30850c39b023
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 34c08a79abf6acb5ae8582ecd0743a890d850fc8
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231975"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149878"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Riavviare una macchina virtuale in un lab in Azure DevTest Labs
 È possibile riavviare in modo semplice e rapido una macchina virtuale in un lab di DevTest Labs seguendo i passaggi descritti in questo articolo. Prima di riavviare una macchina virtuale tenere presente quanto segue:
 
 - La macchina virtuale deve essere in esecuzione affinché la funzionalità di riavvio sia abilitata.
 - Se un utente è connesso a una macchina virtuale in esecuzione durante il riavvio, deve riconnettersi alla macchina virtuale dopo l'avvio del backup.
-- Se un elemento viene avviato quando si riavvia la macchina virtuale, verrà visualizzato un avviso che segnala che l'elemento potrebbe non essere applicato. 
+- Se un elemento viene avviato quando si riavvia la macchina virtuale, verrà visualizzato un avviso che segnala che l'elemento potrebbe non essere applicato.
 
     ![Avviso durante il riavvio con applicazione di elementi in corso](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
 
@@ -39,10 +39,10 @@ ms.locfileid: "51231975"
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Passaggi per riavviare una macchina virtuale in un lab in Azure DevTest Labs
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
-1. Nell'elenco di lab selezionare il lab che include la macchina virtuale da riavviare.  
-1. Nel pannello a sinistra, selezionare **Macchine virtuali personali**. 
+1. Nell'elenco di lab selezionare il lab che include la macchina virtuale da riavviare.
+1. Nel pannello a sinistra, selezionare **Macchine virtuali personali**.
 1. Nell'elenco delle macchine virtuali, selezionare una macchina virtuale in esecuzione.
-1. Nella parte superiore del riquadro di gestione della macchina virtuale, selezionare **Riavvia**.  
+1. Nella parte superiore del riquadro di gestione della macchina virtuale, selezionare **Riavvia**.
 
     ![Pulsante per riavviare la macchina virtuale](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
@@ -56,4 +56,4 @@ ms.locfileid: "51231975"
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo il riavvio, è possibile riconnettersi alla macchina virtuale selezionando **Connetti** sul riquadro di gestione.
-* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

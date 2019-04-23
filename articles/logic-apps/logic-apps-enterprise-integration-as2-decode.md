@@ -1,21 +1,21 @@
 ---
-title: Messaggi Decode AS2 - App per la logica di Azure | Microsoft Docs
+title: Messaggi Decode AS2 - App per la logica di Azure | Documentazione Microsoft
 description: Messaggi Decode AS2 con App per la logica di Azure ed Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ca297e1b4a007db3020b4369132b190608484738
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128282"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001627"
 ---
 # <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Messaggi Decode AS2 con App per la logica di Azure ed Enterprise Integration Pack 
 

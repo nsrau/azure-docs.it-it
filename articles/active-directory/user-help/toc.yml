@@ -1,113 +1,106 @@
-items:
 - name: Documentazione della Guida dell'utente
   href: index.md
 - name: Guida alla verifica in due passaggi
   items:
-  - name: Panoramica
-    href: user-help-two-step-verification-overview.md
-  - name: Configurare l'account
-    href: multi-factor-authentication-end-user-first-time.md
-  - name: Gestire le impostazioni
-    href: multi-factor-authentication-end-user-manage-settings.md
-  - name: Ottenere aiuto
-    href: multi-factor-authentication-end-user-troubleshoot.md
-  - name: Gestire le password delle app
-    href: multi-factor-authentication-end-user-app-passwords.md
-  - name: Come effettuare l'accesso
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Panoramica
+      href: user-help-two-step-verification-overview.md
+    - name: Configurare l'account
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Gestire le impostazioni
+      href: multi-factor-authentication-end-user-manage-settings.md
+    - name: Ottenere aiuto
+      href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Gestire le password delle app
+      href: multi-factor-authentication-end-user-app-passwords.md
+    - name: Come effettuare l'accesso
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Guida alla reimpostazione delle password
   items:
-  - name: Panoramica
-    href: user-help-password-reset-overview.md
-  - name: Registrarsi per la reimpostazione delle password
-    href: active-directory-passwords-reset-register.md
-  - name: Reimpostare la password
-    href: user-help-reset-password.md
+    - name: Panoramica
+      href: user-help-password-reset-overview.md
+    - name: Registrarsi per la reimpostazione delle password
+      href: active-directory-passwords-reset-register.md
+    - name: Reimpostare la password
+      href: user-help-reset-password.md
 - name: Guida all'app Microsoft Authenticator
   items:
-  - name: Panoramica
-    href: user-help-auth-app-overview.md
-  - name: Scaricare e installare l'app
-    href: user-help-auth-app-download-install.md
-  - name: Aggiungere una panoramica degli account
-    href: user-help-auth-app-add-account-overview.md
-    items:
-    - name: Aggiungere un account aziendale o dell'istituto di istruzione
-      href: user-help-auth-app-add-work-school-account.md
-    - name: Aggiungere un account Microsoft personale
-      href: user-help-auth-app-add-personal-ms-account.md
-    - name: Aggiungere un account non Microsoft
-      href: user-help-auth-app-add-non-ms-account.md
-    - name: Aggiungere manualmente un account
-      href: user-help-auth-app-add-account-manual.md
-  - name: Accedere tramite l'app Microsoft Authenticator
-    href: user-help-auth-app-sign-in.md
-  - name: Eseguire il backup e il ripristino degli account
-    href: user-help-auth-app-backup-recovery.md
-  - name: Domande frequenti
-    href: user-help-auth-app-faq.md
+    - name: Panoramica
+      href: user-help-auth-app-overview.md
+    - name: Scaricare e installare l'app
+      href: user-help-auth-app-download-install.md
+    - name: Aggiungere una panoramica degli account
+      href: user-help-auth-app-add-account-overview.md
+      items:
+        - name: Aggiungere un account aziendale o dell'istituto di istruzione
+          href: user-help-auth-app-add-work-school-account.md
+        - name: Aggiungere un account Microsoft personale
+          href: user-help-auth-app-add-personal-ms-account.md
+        - name: Aggiungere un account non Microsoft
+          href: user-help-auth-app-add-non-ms-account.md
+        - name: Aggiungere manualmente un account
+          href: user-help-auth-app-add-account-manual.md
+    - name: Accedere tramite l'app Microsoft Authenticator
+      href: user-help-auth-app-sign-in.md
+    - name: Eseguire il backup e il ripristino degli account
+      href: user-help-auth-app-backup-recovery.md
+    - name: Domande frequenti
+      href: user-help-auth-app-faq.md
 - name: Guida del portale Profilo personale (anteprima)
   items:
-  - name: Panoramica
-    href: myprofile-portal-overview.md
-  - name: Gestire le informazioni di sicurezza
-    href: user-help-security-info-overview.md
-  - name: Gestire le organizzazioni
-    href: myprofile-portal-organizations-page.md
-  - name: Gestire i dispositivi connessi
-    href: myprofile-portal-devices-page.md
-  - name: Visualizzare informazioni relative alla privacy
-    href: myprofile-portal-privacy-page.md
+    - name: Panoramica
+      href: myprofile-portal-overview.md
+    - name: Gestire le informazioni di sicurezza
+      href: user-help-security-info-overview.md
+    - name: Gestire le organizzazioni
+      href: myprofile-portal-organizations-page.md
+    - name: Gestire i dispositivi connessi
+      href: myprofile-portal-devices-page.md
+    - name: Visualizzare informazioni relative alla privacy
+      href: myprofile-portal-privacy-page.md
 - name: Guida alle informazioni di sicurezza (anteprima)
   items:
-  - name: Panoramica
-    href: user-help-security-info-overview.md
-  - name: Aggiungere informazioni di sicurezza durante l'accesso
-    href: security-info-setup-signin.md
-  - name: Panoramica sull'aggiunta e l'aggiornamento dei metodi correlati alle informazioni di sicurezza
-    href: security-info-add-update-methods-overview.md
-    items:
-    - name: Configurare un'app di autenticazione
-      href: security-info-setup-auth-app.md
-    - name: Configurare SMS
-      href: security-info-setup-text-msg.md
-    - name: Configurare chiamate telefoniche
-      href: security-info-setup-phone-number.md
-    - name: Configurare la posta elettronica
-      href: security-info-setup-email.md
-    - name: Configurare le domande di sicurezza
-      href: security-info-setup-questions.md
-  - name: Gestire le password delle app
-    href: security-info-app-passwords.md
-  - name: Come effettuare l'accesso
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Panoramica
+      href: user-help-security-info-overview.md
+    - name: Aggiungere informazioni di sicurezza durante l'accesso
+      href: security-info-setup-signin.md
+    - name: Panoramica sull'aggiunta e l'aggiornamento dei metodi correlati alle informazioni di sicurezza
+      href: security-info-add-update-methods-overview.md
+      items:
+        - name: Configurare un'app di autenticazione
+          href: security-info-setup-auth-app.md
+        - name: Configurare SMS
+          href: security-info-setup-text-msg.md
+        - name: Configurare chiamate telefoniche
+          href: security-info-setup-phone-number.md
+        - name: Configurare la posta elettronica
+          href: security-info-setup-email.md
+        - name: Configurare le domande di sicurezza
+          href: security-info-setup-questions.md
+    - name: Gestire le password delle app
+      href: security-info-app-passwords.md
+    - name: Come effettuare l'accesso
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Guida alla gestione dei dispositivi
   items:
-  - name: Panoramica
-    href: user-help-device-mgmt-overview.md
-  - name: Aggiungere un dispositivo aziendale
-    href: user-help-join-device-on-network.md
-  - name: Registrare un dispositivo personale per l'uso aziendale
-    href: user-help-register-device-on-network.md
-  - name: Risolvere il problema del messaggio "Non è possibile accedervi"
-    href: user-help-device-remediation.md
+    - name: Panoramica
+      href: user-help-device-mgmt-overview.md
+    - name: Aggiungere un dispositivo aziendale
+      href: user-help-join-device-on-network.md
+    - name: Registrare un dispositivo personale per l'uso aziendale
+      href: user-help-register-device-on-network.md
+    - name: Risolvere il problema del messaggio "Non è possibile accedervi"
+      href: user-help-device-remediation.md
 - name: Guida al portale delle app personali
   items:
-  - name: Panoramica
-    href: my-apps-portal-end-user-overview.md
-  - name: Accedere e usare il portale App personali
-    href: my-apps-portal-end-user-access.md
-  - name: Aggiornare le informazioni su profilo e account
-    href: my-apps-portal-end-user-update-profile.md
-  - name: Aggiornare le informazioni correlate ai gruppi
-    href: my-apps-portal-end-user-groups.md
-  - name: Eseguire verifiche di accesso personali
-    href: my-apps-portal-end-user-access-reviews.md
-  - name: Risolvere i problemi
-    href: my-apps-portal-end-user-troubleshoot.md
-ms.openlocfilehash: be7c20053ab6ee3a18f81aec9dc973a3032aa5c6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339542"
+    - name: Panoramica
+      href: my-apps-portal-end-user-overview.md
+    - name: Accedere e usare il portale App personali
+      href: my-apps-portal-end-user-access.md
+    - name: Aggiornare le informazioni su profilo e account
+      href: my-apps-portal-end-user-update-profile.md
+    - name: Aggiornare le informazioni correlate ai gruppi
+      href: my-apps-portal-end-user-groups.md
+    - name: Eseguire verifiche di accesso personali
+      href: my-apps-portal-end-user-access-reviews.md
+    - name: Risolvere i problemi
+      href: my-apps-portal-end-user-troubleshoot.md

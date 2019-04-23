@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889438"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005044"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
 
@@ -33,6 +33,11 @@ Altre informazioni su:
  
 - [Supporto Microsoft per Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Supporto tecnico Premier Microsoft](https://support.microsoft.com/en-us/premier).
+
+> [!Note]
+> I cluster eseguiti in un livello di affidabilità bronze consentono di eseguire carichi di lavoro test solo. Se si verificano problemi con un cluster in esecuzione sull'affidabilità bronze, il team di supporto di Microsoft consente di ridurre il problema, ma non esegue un'analisi della causa radice. Consultare [le caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) per altri dettagli.
+>
+> Per altre informazioni sui requisiti per un cluster pronto per la produzione, consultare il [elenco di controllo di produzione readiness](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

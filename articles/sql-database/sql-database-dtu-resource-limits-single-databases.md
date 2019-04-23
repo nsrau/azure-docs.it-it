@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/20/2019
-ms.openlocfilehash: a0b565be2edba7dcf1ba4c1b17284ce05b4cea2f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: b3514eca8db5d5b68b3e5784ee95e8583813945c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620547"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008971"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU
 
@@ -39,7 +39,7 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | Max DTU | 5 |
 | Risorse di archiviazione incluse (GB) | 2 |
 | Opzioni per lo spazio di archiviazione massimo (GB) | 2 |
-| Spazio di archiviazione OLTP in memoria max (GB) |N/A |
+| Spazio di archiviazione OLTP in memoria max (GB) |N/D |
 | Numero massimo di ruoli di lavoro simultanei (richieste) | 30 |
 | Numero massimo di sessioni simultanee | 300 |
 |||
@@ -51,7 +51,7 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | Max DTU | 10 | 20 | 50 | 100 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Spazio di archiviazione OLTP in memoria max (GB) | N/A | N/A | N/A | N/A |
+| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 60 | 90 | 120 | 200 |
 | Numero massimo di sessioni simultanee |600 | 900 | 1200 | 2400 |
 ||||||
@@ -63,7 +63,7 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | Max DTU | 200 | 400 | 800 | 1600 | 3000 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Spazio di archiviazione OLTP in memoria max (GB) | N/A | N/A | N/A | N/A |N/A |
+| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |N/D |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 400 | 800 | 1600 | 3200 |6000 |
 | Numero massimo di sessioni simultanee |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -83,7 +83,7 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 \* Da 1024 GB fino a 4096 GB con incrementi di 256 GB
 
 > [!IMPORTANT]
-> Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
 > Per la `tempdb` limiti, vedere [tempdb limiti](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

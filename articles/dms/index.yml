@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62d81da206e60c90c636e8c7dd0193d7761ba9b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183595"
 documentType: LandingData
 title: Documentazione di Servizio Migrazione del database di Azure
 metadata:
@@ -21,60 +15,60 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/12/2019
 abstract:
-  description: Servizio Migrazione del database di Azure consente migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Il servizio usa Data Migration Assistant per generare report di valutazione che offrono indicazioni utili in merito alle modifiche necessarie prima di eseguire una migrazione. Quando si è pronti per iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari.
+  description: 'Servizio Migrazione del database di Azure consente migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Il servizio usa Data Migration Assistant per generare report di valutazione che offrono indicazioni utili in merito alle modifiche necessarie prima di eseguire una migrazione. Quando si è pronti per iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/video-thumb-intro2dms.png
       width: 250
-    title: Introduzione a Servizio Migrazione del database di Azure (1:30)
-    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    title: 'Introduzione a Servizio Migrazione del database di Azure (1:30)'
+    href: 'https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu'
     width: 250
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: "Informazioni su come eseguire la migrazione di un'istanza locale di SQL Server al database SQL di Azure con Servizio Migrazione del database:"
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portale di Azure
-      href: /azure/dms/quickstart-create-data-migration-service-portal
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come eseguire la migrazione di database con Servizio Migrazione del database:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Informazioni su come eseguire la migrazione di un''istanza locale di SQL Server al database SQL di Azure con Servizio Migrazione del database:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portale di Azure
+            href: /azure/dms/quickstart-create-data-migration-service-portal
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Eseguire la migrazione di SQL Server al database SQL di Azure offline con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Eseguire la migrazione di SQL Server al database SQL di Azure online con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Eseguire la migrazione online di RDS SQL Server al database SQL di Azure o a un'istanza gestita di database SQL di Azure con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Eseguire la migrazione di MySQL a Database di Azure per MySQL online con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con Servizio Migrazione del database</a>
-    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Eseguire la migrazione offline di MongoDB all'API Mongo di Azure Cosmos DB con il Servizio Migrazione del database di Azure</a>
-    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Eseguire la migrazione online di MongoDB all'API Mongo di Azure Cosmos DB con il Servizio Migrazione del database di Azure</a>
-- title: Esempi
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Informazioni su come eseguire la migrazione di database con Servizio Migrazione del database:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Eseguire la migrazione di SQL Server al database SQL di Azure offline con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Eseguire la migrazione di SQL Server al database SQL di Azure online con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Eseguire la migrazione online di RDS SQL Server al database SQL di Azure o a un'istanza gestita di database SQL di Azure con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Eseguire la migrazione di MySQL a Database di Azure per MySQL online con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con Servizio Migrazione del database</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Eseguire la migrazione offline di MongoDB all'API Mongo di Azure Cosmos DB con il Servizio Migrazione del database di Azure</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Eseguire la migrazione online di MongoDB all'API Mongo di Azure Cosmos DB con il Servizio Migrazione del database di Azure</a>
+  - title: Esempi
     items:
-    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Eseguire la migrazione di un'istanza locale di SQL Server al database SQL di Azure con Azure PowerShell</a>
-    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Eseguire la migrazione di un'istanza locale di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell</a>
-- title: riferimento
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Eseguire la migrazione di un'istanza locale di SQL Server al database SQL di Azure con Azure PowerShell</a>
+          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Eseguire la migrazione di un'istanza locale di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell</a>
+  - title: riferimento
     items:
-    - html: <a href="/azure/dms/resource-scenario-status">Stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure</a>
-    - html: <a href="/azure/dms/pre-reqs">Panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure</a>
-    - html: <a href="/azure/dms/faq">Domande frequenti sull'uso di Servizio Migrazione del database di Azure</a>
-    - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemi noti e limitazioni per le migrazioni online al database SQL di Azure</a>
-    - html: <a href="/azure/dms/dms-tools-matrix">Servizi e strumenti per gli scenari d migrazione dei dati</a>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/dms/resource-scenario-status">Stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure</a>
+          - html: <a href="/azure/dms/pre-reqs">Panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure</a>
+          - html: <a href="/azure/dms/faq">Domande frequenti sull'uso di Servizio Migrazione del database di Azure</a>
+          - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemi noti e limitazioni per le migrazioni online al database SQL di Azure</a>
+          - html: <a href="/azure/dms/dms-tools-matrix">Servizi e strumenti per gli scenari d migrazione dei dati</a>

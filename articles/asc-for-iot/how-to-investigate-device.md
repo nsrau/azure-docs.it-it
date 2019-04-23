@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792218"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007883"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
@@ -43,7 +43,7 @@ Per impostazione predefinita, il Centro sicurezza di Azure per IoT archivia gli 
 Per trovare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 
 1. Aprire l'hub IoT. 
-1. Fare clic su **Security** (Sicurezza), quindi selezionare **Settings** (Impostazioni).
+1. Sotto **sicurezza**, fare clic su **Panoramica**, quindi selezionare **impostazioni**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics. 
 1. Fare clic su **Save**. 
 
@@ -94,7 +94,7 @@ Usare questi dati per scoprire:
 
 ### <a name="open-ports"></a>Aprire le porte
 
-Per trovare out quali porte nel dispositivo sono attualmente in uso o sono state usate usare kql nella query seguente: 
+Per scoprire quali porte nel dispositivo sono attualmente in uso o sono state usate, utilizzare la seguente query kql: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Per scoprire gli utenti connessi al dispositivo usano kql nella query seguente:
 
     Use the query results to discover:
   1. Quali utenti hanno eseguito l'accesso al dispositivo
-  2. Gli utenti registrati in dovrebbero accedere?
+  2. Sono gli utenti che è connesso, dovrà accedere?
   3. Se gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti
   
 ### <a name="process-list"></a>Elenco dei processi
 
-Per determinare se l'elenco dei processi è la seguente query kql come uso previsto: 
+Per scoprire se l'elenco dei processi è come previsto, usare la query kql seguente: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Per determinare se l'elenco dei processi è la seguente query kql come uso previ
   3. Se le esecuzioni della riga di comando contenevano gli argomenti corretti e previsti
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver analizzato un dispositivo e ottenuto una migliore comprensione dei rischi, si potrebbe voler considerare la [configurazione di avvisi personalizzati](quickstart-create-custom-alerts.md) per migliorare le condizioni di sicurezza della soluzione IoT. Se non si ha già un agente di dispositivo, per migliorare i risultati prendere in considerazione la [distribuzione di un agente protezione](how-to-deploy-agent.md) oppure [la modifica della configurazione di un agente di dispositivo esistente](how-to-agent-configuration.md). 

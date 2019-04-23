@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579156"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149565"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -23,12 +23,39 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 + [**I principali SDK per Python**](https://aka.ms/aml-sdk) di Azure Machine Learning
 + [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>SDK v1.1.2 della preparazione dei dati di Azure Machine Learning
+
+Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `pandas` pacchetti. Visualizzare [aggiornate le istruzioni di installazione](https://aka.ms/aml-data-prep-installation).
+
++ **Nuove funzionalità**
+  + È ora possibile usare la trasformazione Pivot.
+    + Guida alle procedure: [Notebook pivot](https://aka.ms/aml-data-prep-pivot-nb)
+  + È ora possibile usare espressioni regolari in funzioni native.
+    + Esempi:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + È ora possibile usare `to_upper`  e `to_lower`  funzioni nel linguaggio delle espressioni.
+  + È ora possibile visualizzare il numero di valori univoci di ogni colonna in un profilo dei dati.
+  + Per alcuni dei passaggi di lettore di uso comune, è possibile ora passare il `infer_column_types` argomento. Se è impostato su `True`, preparazione dei dati verrà eseguito un tentativo di rilevare e convertire automaticamente i tipi di colonna.
+    + `inference_arguments` è ora deprecata.
+  + È ora possibile chiamare `Dataflow.shape`.
+
++ **Correzioni di bug e miglioramenti**
+  + `keep_columns` ora accetta un argomento facoltativo aggiuntivo `validate_column_exists`, che controlla se il risultato di `keep_columns` conterrà tutte le colonne.
+  + Tutti i passaggi di lettura (che leggono da un file) ora accetta un argomento facoltativo aggiuntivo `verify_exists`.
+  + Miglioramento delle prestazioni di lettura da dataframe di pandas e i profili dati della configurazione.
+  + Risolto un bug in cui sezionamento di un unico passaggio da un flusso di dati non è riuscita con un singolo indice.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Portale di Azure
++ **Nuove funzionalità**
   + È ora possibile inviare di nuovo uno Script esistente eseguito in un cluster di calcolo remoto esistente. 
   + È ora possibile eseguire una pipeline pubblicata con nuovi parametri nella scheda della pipeline. 
   + Dettagli delle esecuzioni supporta ora un nuovo Visualizzatore file di Snapshot. Quando è stato inviato a un'esecuzione specifica, è possibile visualizzare uno snapshot della directory. È anche possibile scaricare il notebook che è stato inoltrato all'avvio dell'esecuzione.
+   + È ora possibile annullare le esecuzioni padre dal portale di Azure.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

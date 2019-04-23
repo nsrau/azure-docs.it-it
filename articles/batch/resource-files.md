@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501092"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995626"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 
@@ -72,7 +72,7 @@ Un'alternativa alla generazione di un URL di firma di accesso condiviso consiste
 
 Invece di configurazione e creazione di un URL di firma di accesso condiviso, è possibile usare il nome del contenitore di archiviazione di Azure per accedere ai dati blob. Il contenitore di archiviazione usato deve nell'account di archiviazione di Azure collegata all'account Batch, noto come account autostorage. Usando il nome di contenitore di archiviazione di un account autostorage consente di ignorare la configurazione e la creazione di un URL di firma di accesso condiviso per accedere a un contenitore di archiviazione.
 
-In questo esempio si presuppone che i dati da utilizzare per la creazione di file di risorse sono già in un account di archiviazione di Azure collegato all'account Batch. Se non hai un account autostorage, vedere la procedura descritta in [creare un account Batch](/create-a-batch-account.md) per informazioni dettagliate su come creare e collegare un account.
+In questo esempio si presuppone che i dati da utilizzare per la creazione di file di risorse sono già in un account di archiviazione di Azure collegato all'account Batch. Se non hai un account autostorage, vedere la procedura descritta in [creare un account Batch](batch-account-create-portal.md) per informazioni dettagliate su come creare e collegare un account.
 
 Usando un account di archiviazione collegato, non è necessario creare e configurare un URL di firma di accesso condiviso per un contenitore di archiviazione. In alternativa, specificare il nome del contenitore di archiviazione nell'account di archiviazione collegato.
 

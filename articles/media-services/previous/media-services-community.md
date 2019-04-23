@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877072"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000046"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -37,10 +37,13 @@ La pagina della community di Servizi multimediali di Azure illustra i diversi mo
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussione
+
 ### <a name="twitter"></a>Twitter
+
 Usare il nome utente Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) per contattare Microsoft o seguire gli aggiornamenti su Twitter. È possibile usare il nome utente Twitter [@AzureSupport](https://twitter.com/azuresupport) per richiedere supporto su Twitter.  
 
 ### <a name="online-forums"></a>Forum online
+
 I forum seguenti possono essere usati per porre domande sui prodotti e sulle funzionalità correnti.
 
 Attualmente MSDN è il forum principale della community del team di Servizi multimediali.
@@ -48,9 +51,11 @@ Attualmente MSDN è il forum principale della community del team di Servizi mult
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-media-services".
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contattare il team
+
 Servizi multimediali di Azure tramite posta elettronica di supporto è: **amshelp\@microsoft.com**.
 
 La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari per ogni funzionalità:

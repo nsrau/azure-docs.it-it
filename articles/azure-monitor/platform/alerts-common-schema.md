@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851794"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149377"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -39,14 +39,14 @@ Lo schema comune degli avvisi si manifesta principalmente le notifiche di avviso
 |:---|:---|
 | sms | Un modello coerente SMS per tutti i tipi di avviso. |
 | Email | Un modello di posta elettronica coerente e dettagliate, consentendo così di diagnosticare facilmente problemi in modo immediato. I collegamenti avanzato incorporati per l'istanza di avviso nel portale e la risorsa interessata assicurano che è possibile passare rapidamente al processo di monitoraggio e aggiornamento. |
-| Funzione di Webhook/logica o App di Azure | Coerente con struttura JSON per tutti i tipi di avviso, che consente di compilare facilmente le integrazioni tra i diversi tipi di avviso. |
+| Webhook/logica o App di Azure (funzione) o dell'automazione Runbook | Coerente con struttura JSON per tutti i tipi di avviso, che consente di compilare facilmente le integrazioni tra i diversi tipi di avviso. |
 
 Il nuovo schema abiliterà inoltre un'esperienza più completa di utilizzo degli avvisi tra il portale di Azure e l'app per dispositivi mobili di Azure nell'immediato futuro. 
 
-[Altre informazioni sulle definizioni dello schema dei Webhook/funzioni per la logica o app di Azure.](https://aka.ms/commonAlertSchemaDefinitions)
+[Altre informazioni sulle definizioni dello schema dei Webhook/logica o app di Azure funzioni/automazione runbook.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> Le azioni seguenti non supportano lo schema di avviso comune: Connettore ITSM, Runbook di automazione.
+> Le azioni seguenti non supportano lo schema di avviso comune: Connettore ITSM.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>Come si abilita lo schema comune degli avvisi?
 
@@ -54,11 +54,10 @@ Il nuovo schema abiliterà inoltre un'esperienza più completa di utilizzo degli
 
 > [!NOTE]
 > 1. Per impostazione predefinita, i tipi di avviso seguenti supportano lo schema comune (nessun opt in richiesto):
->     * Avvisi di anomalie errori
+>     * Avvisi del rilevamento intelligente
 > 1. I seguenti tipi di avviso attualmente non supportano lo schema comune:
->     * Avvisi di integrità del servizio
->     * Log attività - avvisi di sicurezza
 >     * Gli avvisi generati da [monitoraggio di Azure per le macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Gli avvisi generati da [gestione costi di Azure](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Tramite il portale di Azure
 
@@ -69,7 +68,7 @@ Il nuovo schema abiliterà inoltre un'esperienza più completa di utilizzo degli
 
 ### <a name="through-the-action-groups-rest-api"></a>Tramite l'API REST di gruppi di azioni
 
-È anche possibile usare la [API dei gruppi di azioni](https://docs.microsoft.com/rest/api/monitor/actiongroups) per fornire il consenso esplicito allo schema comune di avviso. Rendendo il [crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su 'true' (per fornire il consenso esplicito) o "false" (per rifiutare esplicitamente) per una delle azioni seguenti: messaggio di posta elettronica/webhook/logica funzione di Azure o app.
+È anche possibile usare la [API dei gruppi di azioni](https://docs.microsoft.com/rest/api/monitor/actiongroups) per fornire il consenso esplicito allo schema comune di avviso. Rendendo il [crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su 'true' (per fornire il consenso esplicito) o "false" (per rifiutare esplicitamente) per le seguenti azioni - runbook di automazione di funzione o di posta elettronica/webhook/logica di Azure o app.
 
 Ad esempio, la richiesta seguente corpo tentato il [crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) API REST eseguirà le operazioni seguenti:
 
@@ -125,7 +124,7 @@ Ad esempio, la richiesta seguente corpo tentato il [crea o aggiorna](https://doc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Definizioni di avviso dello schema comuni per le funzioni di Azure per App/Webhook/logica.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Definizioni di avviso dello schema comuni per i runbook di funzioni o dell'automazione di Webhook/logica o app di Azure.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

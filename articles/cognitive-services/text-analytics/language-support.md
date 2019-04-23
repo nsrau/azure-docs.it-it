@@ -10,22 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a9f48c8cef8d977469bb6c583d0bc363e334f693
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245321"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008495"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
-Questo articolo spiega quali lingue sono supportate per le operazioni di analisi del sentiment, estrazione frasi chiave e rilevamento lingua.
+Questo articolo spiega in quali lingue sono supportate per ogni operazione: analisi del sentiment, estrazione frasi chiave, il rilevamento della lingua e riconoscimento di entità denominate.
 
 ## <a name="language-detection"></a>Rilevamento lingua
 
 L'API Analisi del testo può rilevare fino a 120 lingue diverse. Rilevamento lingua restituisce la lingua in generale. Per la frase "I have a dog", ad esempio, restituisce `en` anziché `en-US`. L'unico caso particolare è rappresentato dalla lingua cinese, per la quale la funzionalità Rilevamento lingua restituisce `zh_CHS` o `zh_CHT`, se è in grado di determinare il tipo di scrittura dal testo fornito. In situazioni in cui non è possibile identificare il tipo di scrittura per un documento in cinese, restituirà semplicemente `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-recognition"></a>Analisi del sentiment, Estrazione frasi chiave e riconoscimento delle entità
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, estrazione frasi chiave e riconoscimento di entità denominate
 
 Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive.
 
@@ -33,30 +33,34 @@ Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento
 
 Il supporto di una lingua viene inizialmente implementato in anteprima e quindi promosso alla disponibilità a livello generale (GA), indipendentemente dalle altre lingue e dal servizio Analisi del testo nel suo complesso. È possibile che una lingua rimanga disponibile in anteprima, anche quando l'API Analisi del testo passa alla disponibilità a livello generale.
 
-| Linguaggio    | Codice lingua | Valutazione | Frasi chiave | Riconoscimento delle entità |   Note  |
+| Linguaggio    | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate |   Note  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Danese      | `da`          | ✔ \*     | ✔           |             |     |
-| Olandese       | `nl`          | ✔ \*     | ✔          |             |     |
-| Inglese     | `en`          | ✔        | ✔           |  ✔ \*   |      |
-| Finlandese     | `fi`          | ✔ \*     | ✔           |             |     |
-| Francese      | `fr`          | ✔        | ✔           |             |     |
-| Tedesco      | `de`          | ✔ \*     | ✔           |            |     |
+| Arabo      | `ar`          |           |             | ✔ \*                     | |
+| Ceco       | `cs`          |           |             | ✔ \*                     | |
+| Cinese semplificato | `zh-CN`|           |             | ✔ \*        |    |
+| Danese      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
+| Olandese       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Inglese     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| Finlandese     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Francese      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
+| Tedesco      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Greco       | `el`          | ✔ \*     |             |            |     |
-| Italiano     | `it`          | ✔ \*     | ✔           |             |     |
-| Giapponese    | `ja`          |          | ✔           |            |     |
-| Coreano      | `ko`          |          | ✔           |            |     |
-| Norvegese (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
-| Polacco      | `pl`          | ✔ \*     |  ✔          |             |     |
-| Portoghese (Portogallo) | `pt-PT`| ✔        |  ✔          |       |Accettato anche `pt`|
-| Portoghese (Brasile)   | `pt-BR`|          |  ✔   |         |     |
-| Russo     | `ru`          | ✔ \*     | ✔           |             |     |
-| Spagnolo     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| Svedese     | `sv`          | ✔ \*     | ✔           |             |     |
-| Turco     | `tr`          | ✔ \*     |             |             |  |
+| Ungherese   | `hu`          |           |             |  ✔ \*          |     | 
+| Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Giapponese    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
+| Norvegese (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
+| Polacco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
+| Portoghese (Portogallo) | `pt-PT`| ✔        |  ✔          | ✔ \*      |Accettato anche `pt`|
+| Portoghese (Brasile)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
+| Russo     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Spagnolo     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| Svedese     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
+| Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* indica che la lingua è supportata in anteprima
+\* Supporto del linguaggio è disponibile in anteprima
 
-\*\* L'estrazione delle entità per lo spagnolo è disponibile solo in [(versione 2.1 anteprima)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+\*\* Riconoscimento di entità denominato e [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md) sono entrambi disponibili per questa lingua.    
 
 ## <a name="see-also"></a>Vedere anche 
 

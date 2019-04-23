@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525926"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998461"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -92,20 +92,22 @@ File di Azure offre due livelli di prestazioni: standard e premium.
 |Europa settentrionale  | No  |
 |Europa occidentale   | Sì|
 |Asia sud-orientale       | Sì|
+|Asia orientale     | No  |
 |Giappone orientale    | No  |
+|Giappone occidentale    | No  |
 |Corea del Sud centrale | No  |
 |Australia orientale| No  |
 
 ### <a name="provisioned-shares"></a>Condivisioni con provisioning
 
-Le condivisioni file Premium (anteprima) vengono effettuato il provisioning basato su un rapporto fisso di GiB/IOPS/velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva. Dimensioni della condivisione possono essere aumentata a qualsiasi ora e una diminuzione in qualsiasi momento, ma possono essere diminuita ogni 24 ore dopo l'ultimo incremento.
+Le condivisioni file Premium (anteprima) vengono effettuato il provisioning basato su un rapporto fisso di GiB/IOPS/velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
 
 In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenziate fino a tre operazioni di I/O al secondo per ogni GiB di archiviazione di cui viene effettuato il provisioning per 60 minuti o più, a seconda della dimensione della condivisione. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
 
-Tutte le condivisioni possono potenziarlo fino a almeno 100 velocità effettiva IOPS e di destinazione pari a 100 MiB/s. È necessario eseguirne il provisioning di condivisioni in incrementi di 1 GiB. Dimensione minima è 100 GiB, dimensione successiva è 101 GIB e così via.
+È necessario eseguirne il provisioning di condivisioni in incrementi di 1 GiB. Dimensione minima è 100 GiB, dimensione successiva è 101 GIB e così via.
 
 > [!TIP]
-> Linea di base di IOPS = 100 + 1 * provisioning GiB. (Fino a un massimo di 100.000 IOPS).
+> Linea di base di IOPS = 1 * provisioning GiB. (Fino a un massimo di 100.000 IOPS).
 >
 > Potenziare limite = 3 * linea di base di IOPS. (Fino a un massimo di 100.000 IOPS).
 >
@@ -113,13 +115,13 @@ Tutte le condivisioni possono potenziarlo fino a almeno 100 velocità effettiva 
 >
 > velocità in ingresso = 40 MiB/s + 0,04 * provisioning GiB
 
-Dimensioni della condivisione possono essere aumentata a qualsiasi ora e una diminuzione in qualsiasi momento, ma possono essere diminuita ogni 24 ore dopo l'ultimo incremento. IOPS/velocità effettiva scalabilità modifiche saranno applicati entro 24 ore dopo la modifica delle dimensioni.
+Dimensioni della condivisione possono essere aumentata in qualsiasi momento, ma possono essere ridotto solo dopo 24 ore dopo l'ultimo incremento. Dopo aver atteso per 24 ore senza un aumento delle dimensioni, è possibile ridurre le dimensioni della condivisione più volte fino a quando non si aumenta. IOPS/velocità effettiva scalabilità modifiche saranno applicati entro pochi minuti dopo la modifica delle dimensioni.
 
 Nella tabella seguente illustra alcuni esempi di queste formule per le dimensioni di condivisione con provisioning:
 
 (Dimensioni identificato da un * sono in anteprima pubblica limitata)
 
-|Capacità (GiB) | Operazioni di I/O al secondo di base | Limite di burst | Traffico in uscita (MiB/s) | Traffico in ingresso (MiB/s) |
+|Capacità (GiB) | Operazioni di I/O al secondo di base | Burst di IOPS | Traffico in uscita (MiB/s) | Traffico in ingresso (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Fino a 300     | 66   | 44   |
 |500         | 500     | Massimo di 1.500   | 90   | 60   |
@@ -136,20 +138,20 @@ Le dimensioni di condivisione dei file fino a 5 TiB sono attualmente in anteprim
 
 Le condivisioni file Premium possono eseguire il burst fino a un fattore pari a tre loro IOPS. La suddivisione viene automatizzata e opera in base a un sistema di carta di credito. Espansione funziona in base ad approssimazioni ottimali e il limite di burst non garantisce, le condivisioni di file possono eseguire il burst *fino a* il limite.
 
-I crediti si accumulano in un bucket di picco ogni volta che il traffico per le condivisioni di file è di sotto della linea di base di IOPS. Ad esempio, una 100 GiB condivisione presenta una linea di base di 100 operazioni IOPS. Se effettivo del traffico per la condivisione è 40 IOPS per un intervallo specifico di 1 secondo, il numero di IOPS inutilizzati 60 è accreditato in un bucket di burst. Questi crediti verranno quindi utilizzati in un secondo momento quando operazioni supererebbe il numero di IOPs della linea di base.
+I crediti si accumulano in un bucket di picco ogni volta che il traffico per la condivisione file è di sotto della linea di base di IOPS. Ad esempio, una 100 GiB condivisione presenta una linea di base di 100 operazioni IOPS. Se effettivo del traffico per la condivisione è 40 IOPS per un intervallo specifico di 1 secondo, il numero di IOPS inutilizzati 60 è accreditato in un bucket di burst. Questi crediti verranno quindi utilizzati in un secondo momento quando operazioni supererebbe il numero di IOPs della linea di base.
 
 > [!TIP]
-> Dimensione del limite burst bucket = Baseline_IOPS * 2 * 3600.
+> Dimensione del bucket burst = Baseline_IOPS * 2 * 3600.
 
-Ogni volta che una condivisione supera la linea di base di IOPS e dispone di crediti in un bucket di burst, verrà burst. Condivisioni possono continuare a eseguire il burst, purché i crediti rimanenti, anche se inferiori a 50 tiB condivisioni rimarranno solo raggiunge il limite di burst al massimo un'ora. Condivisioni di dimensioni superiori a 50 TiB tecnicamente possibile superare questo limite di un'ora, backup a due ore ma, ciò si basa sul numero di crediti di burst accumulati. Ogni i/o di là della linea di base IOPS utilizza una carta di credito e una volta che vengono utilizzati tutti i crediti della condivisione ritornerà a linea di base di IOPS.
+Ogni volta che una condivisione supera la linea di base di IOPS e dispone di crediti in un bucket di burst, verrà burst. Condivisioni possono continuare a eseguire il burst, purché i crediti rimanenti, anche se inferiori a 50 TiB condivisioni rimarranno solo raggiunge il limite di burst al massimo un'ora. Condivisioni di dimensioni superiori a 50 TiB tecnicamente possibile superare questo limite di un'ora, backup a due ore ma, ciò si basa sul numero di crediti di burst accumulati. Ogni i/o di là della linea di base IOPS utilizza una carta di credito e una volta che vengono utilizzati tutti i crediti della condivisione ritornerà a linea di base di IOPS.
 
 I crediti di condivisione presentano tre stati:
 
 - Accumulo, quando la condivisione file di utilizzo è inferiore alla linea di base di IOPS.
 - Rifiuto, quando la condivisione file è burst.
-- IOPS rimanente nella posizione zero, quando non sono presenti alcun crediti o linea di base sono in uso.
+- IOPS rimanenti costante, quando non sono presenti alcun crediti o linea di base sono in uso.
 
-Inizio nuovo condivisioni di file con il numero completo di crediti in relativi bucket di burst.
+Inizio nuovo condivisioni di file con il numero completo di crediti in relativi bucket di burst. Se la condivisione di IOPS scende di sotto della linea di base di IOPS dovuto alla limitazione dal server, i crediti di burst non essere accumulati.
 
 ## <a name="file-share-redundancy"></a>Ridondanza delle condivisioni file
 

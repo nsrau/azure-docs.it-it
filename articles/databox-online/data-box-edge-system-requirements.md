@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006355"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996748"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisiti di sistema Azure bordo casella dei dati
 
@@ -82,7 +82,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 | Modello URL                      | Componente o funzionalità                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro contenitori Microsoft (obbligatorio)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro contenitori Microsoft (obbligatorio)               |
 | https://\*.azurecr.io                     | Registri contenitori personali e di terze parti (facoltativo) | 
 | https://\*.azure-devices.net              | Criteri di accesso dell'hub IoT (obbligatorio)                             | 
 
@@ -94,7 +94,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 | Modello URL                      | Componente o funzionalità                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro contenitori Microsoft (obbligatorio)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro contenitori Microsoft (obbligatorio)               |
 | https://\*.azure-devices.us              | Criteri di accesso dell'hub IoT (obbligatorio)           |
 | https://\*.azurecr.us                    | Registri contenitori personali e di terze parti (facoltativo) | 
 

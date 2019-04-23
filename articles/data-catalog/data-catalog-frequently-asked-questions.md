@@ -2,18 +2,18 @@
 title: Domande frequenti sul Catalogo dati di Azure
 description: Domande frequenti relative al Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231465"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998454"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -27,10 +27,10 @@ Data Catalog risolve la richiesta di individuazione dell'origine dati e dei cosi
 ## <a name="what-are-its-target-audiences"></a>A chi è destinato?
 Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 
-* Sviluppatori di dati e professionisti di analisi e business intelligence: persone responsabili della produzione di dati e contenuti di analisi a uso di altri utenti.
-* Amministratori dei dati: persone in possesso di informazioni relative ai dati, al significato dei dati e al metodo d'uso.
-* Consumer di dati: persone che devono riuscire a trovare, comprendere e connettersi con facilità ai dati necessari per svolgere il lavoro, usando uno strumento di propria scelta.
-* Team IT centrale: persone che necessitano di rendere individuabili centinaia di origini dati per gli utenti aziendali e che si occupano della supervisione della modalità d'uso dei dati e degli utenti che li usano.
+* Gli sviluppatori di dati e i professionisti di Business Intelligence e analitica: Agli utenti che sono responsabili della produzione di dati e analitica contenuti altri utenti possano usarlo.
+* Amministratori dei dati: Utenti dispongono di informazioni sui dati, che cosa significa e come deve essere utilizzato.
+* Consumer di dati: Gli utenti che dovranno essere in grado di individuare facilmente, comprendere e connettersi per i dati necessari per svolgere il lavoro, tramite lo strumento di propria scelta.
+* Centrale IT: Utenti che necessitano di rendere individuabili centinaia di origini dei dati dagli utenti aziendali e che vogliono mantenere supervisione sul modo in cui vengono usati dati e da chi.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual è la disponibilità per area?
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:

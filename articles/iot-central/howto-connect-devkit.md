@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617819"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006183"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -24,7 +24,7 @@ Questo articolo descrive come connettere un dispositivo MXChip IoT DevKit (DevKi
 Per completare la procedura descritta in questo articolo, sono necessarie le risorse seguenti:
 
 1. Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
-1. Un dispositivo DevKit. Per acquistare un dispositivo DevKit, vedere [MXChip IoT DevKit](http://mxchip.com/az3166).
+1. Un dispositivo DevKit. Per acquistare un dispositivo DevKit, vedere [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## <a name="sample-devkits-application"></a>Applicazione Sample Devkits
 
@@ -208,12 +208,12 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Stati 
-| NOME          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
+| Name          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
 
 #### <a name="events"></a>Eventi 
-| NOME             | Nome visualizzato      | 
+| Name             | Nome visualizzato      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Pulsante B premuto  | 
 

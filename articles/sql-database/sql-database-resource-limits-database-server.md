@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093889"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998278"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -75,7 +75,7 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query, se l'aumento dell'uso di ruoli di lavoro è dovuto a un conflitto delle risorse di elaborazione. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Governance delle velocità di Log delle transazioni 
-Governance delle velocità di log delle transazioni è un processo in Azure SQL Database usate per limitare i tassi di inserimento elevati per carichi di lavoro, ad esempio bulk insert, SELECT INTO, e le compilazioni di indici. Questi limiti vengono registrati e applicati a livello di frazioni di secondo per la frequenza di generazione di record di log, limitazione della velocità effettiva indipendentemente dal numero IOs può essere emesso per i file di dati.  Frequenza di generazione del log delle transazioni attualmente una scalabilità lineare fino a un punto che dipende dall'hardware, con il log massimo consentita da 48 MB/s con il modello di acquisto di Vcore per velocità. 
+Governance delle velocità di log delle transazioni è un processo in Azure SQL Database usate per limitare i tassi di inserimento elevati per carichi di lavoro, ad esempio bulk insert, SELECT INTO, e le compilazioni di indici. Questi limiti vengono registrati e applicati a livello di frazioni di secondo per la frequenza di generazione di record di log, limitazione della velocità effettiva indipendentemente dal numero IOs può essere emesso per i file di dati.  Frequenza di generazione del log delle transazioni attualmente una scalabilità lineare fino a un punto che dipende dall'hardware, con il log massimo consentita da 96 MB/s con il modello di acquisto di Vcore per velocità. 
 
 > [!NOTE]
 > IOs fisico effettivo nei file di log delle transazioni non sono regolate o limitate. 
@@ -98,7 +98,7 @@ La conformazione del traffico di log frequenza governor viene esposto tramite i 
 |||
 
 In presenza di un limite di frequenza di log che è intralciano la scalabilità desiderata, prendere in considerazione le opzioni seguenti:
-- Aumentare le prestazioni a un livello di dimensioni maggiori per ottenere la massima velocità di log 48 MB/s. 
+- Aumentare le prestazioni a un livello di dimensioni maggiori per ottenere la velocità massima di 96 MB/s log. 
 - Se i dati in fase di caricamento sono temporanei, ad esempio gestione temporanea dei dati in un processo ETL, può essere caricato in tempdb (che è a registrazione minima). 
 - Per gli scenari analitici, caricare in una tabella columnstore cluster coperto. In questo modo si riduce la velocità necessaria log a causa della compressione. Questa tecnica comporta un aumento utilizzo della CPU ed è applicabile solo ai set di dati che traggono vantaggio dagli indici columnstore cluster. 
 

@@ -1,5 +1,5 @@
 ---
-title: Piattaforma delle identità Microsoft Usa per consentire agli utenti tramite ROPC | Azure
+title: Piattaforma delle identità Microsoft Usa per consentire agli utenti con concessione delle credenziali (ROPC) password del proprietario della risorsa | Azure
 description: Come supportare i flussi di autenticazione senza browser tramite la concessione di credenziali password del proprietario della risorsa.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499938"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004942"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma delle identità Microsoft e le credenziali di password proprietario risorsa OAuth 2.0
 
-Sono supportati sulla piattaforma Microsoft identity il [concedere le credenziali password proprietario risorsa (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), che consente a un'applicazione di accedere all'utente gestendo direttamente le loro password. Il flusso ROPC richiede un elevato livello di attendibilità ed esposizione dell'utente. Gli sviluppatori devono usare questo flusso solo quando non è possibile usare altri flussi più sicuri.
+Sono supportati sulla piattaforma Microsoft identity il [concedere le credenziali password proprietario risorsa (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), che consente a un'applicazione di accedere all'utente gestendo direttamente le loro password. Il flusso ROPC richiede un elevato livello di esposizione di attendibilità e l'utente ed è consigliabile usare questo flusso solo quando non è possibile usare altri, più sicuro, i flussi.
 
 > [!IMPORTANT]
+>
 > * L'endpoint di piattaforma di identità Microsoft supporta solo ROPC per tenant di Azure AD, gli account non personali. Questo significa che è necessario usare un endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`) o l'endpoint `organizations`.
 > * Gli account personali che sono invitati in un tenant di Azure AD non possono usare ROPC.
 > * Gli account che non dispongono di password non possono accedere tramite ROPC. Per questo scenario, è consigliabile utilizzare un flusso diverso per l'app.
@@ -38,7 +39,7 @@ Sono supportati sulla piattaforma Microsoft identity il [concedere le credenzial
 
 Il diagramma seguente mostra il flusso ROPC.
 
-![Flusso ROPC](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![Flusso ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
 
@@ -69,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Obbligatorio | Il valore deve essere impostato su `password`. |
 | `username` | Obbligatorio | L'indirizzo di posta elettronica dell'utente. |
 | `password` | Obbligatorio | La password dell'utente. |
-| `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. Questi ambiti devono essere concessi in anticipo da un amministratore o dall'utente in un flusso interattivo. |
+| `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. In un flusso interattivo, l'amministratore o l'utente deve fornire il consenso a questi ambiti di anticipo. |
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione con esito positivo
 
-Il seguente è un esempio di risposta del token con esito positivo:
+Nell'esempio seguente mostra una risposta token con esito positivo:
 
 ```json
 {
@@ -88,7 +89,7 @@ Il seguente è un esempio di risposta del token con esito positivo:
 
 | Parametro | Format | DESCRIZIONE |
 | --------- | ------ | ----------- |
-| `token_type` | string | Sempre impostato su `Bearer`. |
+| `token_type` | String | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |
@@ -105,7 +106,7 @@ Se l'utente non ha fornito il nome utente o la password corretti, o il client no
 |------ | ----------- | -------------|
 | `invalid_grant` | L'autenticazione non è riuscita | Le credenziali non sono corrette o il client non ha il consenso per gli ambiti richiesti. Se gli ambiti non sono concesse, un `consent_required` viene restituito l'errore. In questo caso, il client deve reindirizzare l'utente a un prompt interattivo con una webview o un browser. |
 | `invalid_request` | La richiesta è stata costruita in modo non corretto | Il tipo di concessione non è supportato il `/common` o `/consumers` contesti di autenticazione.  Usare invece `/organizations`. |
-| `invalid_client` | L'app è configurata in modo non corretto | Questa situazione può verificarsi se il `allowPublicClient` non è impostata su true nella [manifesto dell'applicazione](reference-app-manifest.md). La proprietà `allowPublicClient` è necessaria perché la concessione ROPC non dispone di un URI di reindirizzamento. Azure AD non può determinare se l'app è un'applicazione client pubblica o riservata se la proprietà non è impostata. Notare che ROPC è supportato solo per app client pubbliche. |
+| `invalid_client` | L'app è configurata in modo non corretto | Questa situazione può verificarsi se il `allowPublicClient` non è impostata su true nella [manifesto dell'applicazione](reference-app-manifest.md). La proprietà `allowPublicClient` è necessaria perché la concessione ROPC non dispone di un URI di reindirizzamento. Azure AD non può determinare se l'app è un'applicazione client pubblica o riservata se la proprietà non è impostata. ROPC è supportata solo per le app client pubblico. |
 
 ## <a name="learn-more"></a>Altre informazioni
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497928"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996510"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -61,7 +61,7 @@ Se condivisi con altre macchine virtuali, le dimensioni dell'account di archivia
 Ogni macchina virtuale di Azure Stack dispone di uno spazio di archiviazione su disco temporaneo, disponibile per l'utente come volume `D:\`. L'area di gestione temporanea locale necessaria per Backup di Azure può essere configurata per risiedere in `D:\` e il percorso della cache può essere inserito in `C:\`. In questo modo, non è necessario che lo spazio di archiviazione venga suddiviso nei dischi dati collegati alla macchina virtuale del server di Backup di Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Archiviazione dei dati di backup in un disco locale e in Azure
-Il server di Backup di Azure archivia i dati di backup sui dischi di Azure collegati alla macchina virtuale per il ripristino operativo. Dopo aver collegato i dischi e lo spazio di archiviazione alla macchina virtuale, il server di Backup di Azure gestisce l'archiviazione per conto dell'utente. La quantità di spazio di archiviazione dei dati di backup dipende dal numero e dalla dimensione dei dischi collegati a ogni [macchina virtuale di Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Ogni dimensione di VM di Azure Stack ha un numero massimo di dischi che può essere collegato alla macchina virtuale. Ad esempio, per A2 il numero massimo è quattro dischi. Per A3 è otto dischi. Per A4 è 16 dischi. Anche in questo caso, le dimensioni e il numero di dischi determina il pool di archiviazione di backup totale.
+Il server di Backup di Azure archivia i dati di backup sui dischi di Azure collegati alla macchina virtuale per il ripristino operativo. Dopo aver collegato i dischi e lo spazio di archiviazione alla macchina virtuale, il server di Backup di Azure gestisce l'archiviazione per conto dell'utente. La quantità di spazio di archiviazione dei dati di backup dipende dal numero e dalla dimensione dei dischi collegati a ogni [macchina virtuale di Azure Stack](/azure-stack/user/azure-stack-storage-overview). Ogni dimensione di VM di Azure Stack ha un numero massimo di dischi che può essere collegato alla macchina virtuale. Ad esempio, per A2 il numero massimo è quattro dischi. Per A3 è otto dischi. Per A4 è 16 dischi. Anche in questo caso, le dimensioni e il numero di dischi determina il pool di archiviazione di backup totale.
 
 > [!IMPORTANT]
 > **Non** è necessario conservare i dati di ripristino operativo (backup) nei dischi collegati al server di Backup di Azure per più di cinque giorni.
@@ -73,7 +73,7 @@ Per archiviare i dati di backup in Azure, creare o usare un insieme di credenzia
  
 ### <a name="scaling-deployment"></a>Ridimensionamento della distribuzione
 Se si vuole ridimensionare la distribuzione, sono disponibili le opzioni seguenti:
-  - Aumentare le prestazioni: aumento delle dimensioni della macchina virtuale del server di Backup di Azure dalla serie A alla serie D e aumento dello spazio di archiviazione locale [in base alle istruzioni della macchina virtuale di Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Aumentare le prestazioni: aumento delle dimensioni della macchina virtuale del server di Backup di Azure dalla serie A alla serie D e aumento dello spazio di archiviazione locale [in base alle istruzioni della macchina virtuale di Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Offload dei dati: invio dei dati meno recenti ad Azure e conservazione solo dei dati più recenti nello spazio di archiviazione collegato al server di Backup di Azure.
   - Aumentare le istanze: aggiunta di altri server di Backup di Azure per proteggere i carichi di lavoro.
 

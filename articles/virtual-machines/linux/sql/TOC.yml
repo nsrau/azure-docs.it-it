@@ -1,45 +1,38 @@
-items:
 - name: Panoramica
   items:
-  - name: Informazioni sulle VM di SQL Server Linux
-    href: sql-server-linux-virtual-machines-overview.md
+    - name: Informazioni sulle VM di SQL Server Linux
+      href: sql-server-linux-virtual-machines-overview.md
 - name: Guide introduttive
   items:
-  - name: Creare una VM SQL - Portale
-    href: provision-sql-server-linux-virtual-machine.md
+    - name: Creare una VM SQL - Portale
+      href: provision-sql-server-linux-virtual-machine.md
 - name: riferimento
   items:
-  - name: Interfaccia della riga di comando di Azure
-    href: /cli/azure/
-  - name: PowerShell
-    href: /powershell/azure/overview
-  - name: T-SQL
-    href: https://msdn.microsoft.com/library/azure/bb510741.aspx
-  - name: Driver di SQL Server
-    href: https://msdn.microsoft.com/library/mt654049.aspx
-  - name: REST
-    href: /rest/api/
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/
+    - name: PowerShell
+      href: /powershell/azure/overview
+    - name: T-SQL
+      href: 'https://msdn.microsoft.com/library/azure/bb510741.aspx'
+    - name: Driver di SQL Server
+      href: 'https://msdn.microsoft.com/library/mt654049.aspx'
+    - name: REST
+      href: /rest/api/
 - name: Risorse
   items:
-  - name: Domande frequenti
-    href: sql-server-linux-faq.md
-  - name: Documentazione di SQL Server in Linux
-    href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
-  - name: Prezzi
-    href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
-  - name: PaaS o IaaS
-    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
-  - name: SQL Server Data Tools (SSDT)
-    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
-  - name: Strumenti di SQL Server
-    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-ms.openlocfilehash: 3e44ef418b474ddd88fa232362e1b38db791e0ba
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341425"
+    - name: Domande frequenti
+      href: sql-server-linux-faq.md
+    - name: Documentazione di SQL Server in Linux
+      href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
+    - name: Prezzi
+      href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
+    - name: PaaS o IaaS
+      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
+    - name: SQL Server Data Tools (SSDT)
+      href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+    - name: Strumenti di SQL Server
+      href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'

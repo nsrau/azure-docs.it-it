@@ -1,76 +1,109 @@
 ---
 title: Criteri di indicizzazione di Azure Cosmos DB
-description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l'indicizzazione automatica e per ottenere prestazioni migliori.
-author: rimman
+description: Informazioni su come configurare e modificare i criteri per l'indicizzazione automatica e prestazioni migliori in Azure Cosmos DB di indicizzazione predefiniti.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278565"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005095"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
-È possibile eseguire l'override dei criteri di indicizzazione predefiniti in un contenitore di Azure Cosmos configurando i parametri seguenti:
+In Azure Cosmos DB, ogni contenitore dispone di un criterio di indicizzazione che determina come devono essere indicizzati gli elementi del contenitore. L'impostazione predefinita l'indicizzazione dei criteri per appena creati indici contenitori tutte le proprietà di ogni elemento, l'applicazione degli indici di intervallo per qualsiasi stringa o un numero e gli indici spaziali per qualsiasi oggetto GeoJSON di tipo punto. Ciò consente di ottenere prestazioni elevate delle query senza doversi preoccupare di indicizzazione e la gestione degli indici iniziali.
 
-* **Includere o escludere elementi e percorsi dall’indicizzazione**: È possibile escludere o includere elementi specifici in corrispondenza dell'indice, quando si inseriscono o sostituiscono gli elementi all'interno di un contenitore. È anche possibile includere o escludere proprietà/percorsi specifici nell'indicizzazione tra contenitori. I percorsi possono includere caratteri jolly, ad esempio *.
+In alcune situazioni, è possibile eseguire l'override di questo comportamento automatico in base alle proprie esigenze. È possibile personalizzare i criteri di indicizzazione del contenitore tramite l'impostazione relativa *modalità di indicizzazione*e includere o escludere *i percorsi delle proprietà*.
 
-* **Configurare i tipi di indicizzazione**: Inoltre per intervallo percorsi indicizzati, è possibile aggiungere altri tipi di indici, ad esempio spaziale.
+## <a name="indexing-mode"></a>Modalità di indicizzazione
 
-* **Configurare le modalità di indicizzazione**: tramite i criteri di indicizzazione in un contenitore, è possibile configurare diverse modalità di indicizzazione, ad esempio *Coerente* oppure *Nessuna*.
+Azure Cosmos DB supporta due modalità di indicizzazione:
 
-## <a name="indexing-modes"></a>Modalità di indicizzazione
+- **Coerente**: Se i criteri di indicizzazione del contenitore sono impostato su Consistent, l'indice viene aggiornato in modo sincrono come creare, aggiornare o eliminare elementi. Ciò significa che la coerenza delle query di lettura saranno le [coerenza configurata per l'account](consistency-levels.md).
 
-Azure Cosmos DB supporta due modalità di indicizzazione che è possibile configurare in un contenitore di Azure Cosmos tramite criteri di indicizzazione:
+- **Nessuna**: Se i criteri di indicizzazione del contenitore sono impostato su None, l'indicizzazione è disabilitata in modo efficace in tale contenitore. Viene in genere utilizzato quando un contenitore viene usato come un archivio chiave-valore puro senza la necessità per gli indici secondari. Può essere utile anche velocizzare le operazioni bulk le operazioni di inserimento.
 
-* **Coerente**: Se criterio di un contenitore Azure Cosmos è impostato su *Consistent*, le query su un determinato contenitore seguono lo stesso livello di coerenza a quello specificato per letture punto (ad esempio, assoluta, decadimento ristretto, sessione o finale). 
+## <a name="including-and-excluding-property-paths"></a>Inclusione ed esclusione percorsi delle proprietà
 
-  L'indice viene aggiornato in modo sincrono man mano che si aggiornano gli elementi. Ad esempio, le operazioni di inserimento, sostituzione, aggiornamento ed eliminazione su un elemento comporteranno l'aggiornamento dell'indice. L'indicizzazione coerente supporta query coerenti con effetti sulla velocità effettiva di scrittura. La riduzione della velocità effettiva di scrittura dipende i percorsi"inclusi nell'indice" e "livello di coerenza". Modalità di indicizzazione coerente è progettata per mantenere aggiornati con tutti gli aggiornamenti dell'indice e per eseguire immediatamente le query.
+Criteri di indicizzazione personalizzati è possono specificare i percorsi delle proprietà in modo esplicito inclusi o esclusi dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre la quantità di spazio di archiviazione usato per il contenitore e migliorare la latenza delle operazioni di scrittura. Questi percorsi vengono definiti [il metodo descritto nella sezione Panoramica indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
 
-* **Nessuna**: un contenitore in modalità Nessuna non è associato ad alcun indicizzazione. Questa modalità viene usata in genere se il database di Azure Cosmos funge da archivio di coppie chiave/valore e l'accesso agli elementi avviene solo tramite il rispettivo ID proprietà.
+- un percorso che conduce a un valore scalare (stringa o numero) termina con `/?`
+- elementi da una matrice vengono indirizzati tra loro tramite il `/[]` notazione (anziché `/0`, `/1` e così via.)
+- il `/*` con caratteri jolly può essere utilizzato per corrispondente ad alcun elemento sotto il nodo
 
-  > [!NOTE]
-  > Configurare la modalità di indicizzazione come un *None* ha l'effetto collaterale di eliminare tutti gli indici esistenti. Usare questa opzione se i criteri di accesso richiedono solo un ID o un collegamento automatico.
+Prendendo di nuovo lo stesso esempio:
 
-I livelli di coerenza delle query vengono mantenuti simili alle normali operazioni di lettura. Il database Cosmos Azure restituisce un errore se si esegue una query il contenitore che include un' *None* la modalità di indicizzazione. È possibile eseguire la query come analisi tramite l'impostazione esplicita **x-ms-documentdb-enable-scan** intestazione nell'API REST o il **EnableScanInQuery** opzione di richiesta tramite .NET SDK. Alcune funzionalità delle query, ad esempio ORDER BY, non sono attualmente supportate con **EnableScanInQuery**, in quanto richiedono un indice corrispondente.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- il `headquarters`del `employees` percorso è `/headquarters/employees/?`
+- il `locations`' `country` percorso è `/locations/[]/country/?`
+- il percorso su un valore qualsiasi in `headquarters` è `/headquarters/*`
+
+Quando un percorso in modo esplicito sia incluso nei criteri di indicizzazione, dispone anche di definire quali tipi di indice devono essere applicati a tale percorso e per ogni tipo di indice, il tipo di dati dell'indice si applica a:
+
+| Tipo di indice | Tipi di dati di destinazione consentiti |
+| --- | --- |
+| Range | Stringa o numero |
+| Spatial | Point, LineString o poligono |
+
+Ad esempio, è possibile includere il `/headquarters/employees/?` percorso e specificare che un `Range` indice deve essere applicato in tale percorso per entrambi `String` e `Number` valori.
+
+### <a name="includeexclude-strategy"></a>Strategia di inclusione/esclusione
+
+Qualsiasi criterio di indicizzazione ha includere il percorso radice `/*` come un incluso o un percorso escluso.
+
+- Includere il percorso radice per escludere in modo selettivo i percorsi che non devono essere indicizzati. Questo è l'approccio consigliato perché consente in modo proattivo indicizzare qualsiasi nuova proprietà che possono essere aggiunti al modello di Azure Cosmos DB.
+- Escludere il percorso radice in modo da includere in modo selettivo i percorsi che devono essere indicizzati.
+
+Visualizzare [in questa sezione](how-to-manage-indexing-policy.md#indexing-policy-examples) per esempi di criteri di indicizzazione.
 
 ## <a name="modifying-the-indexing-policy"></a>Modifica dei criteri di indicizzazione
 
-In Azure Cosmos DB, è possibile aggiornare i criteri di indicizzazione di un contenitore in qualsiasi momento. Una modifica nei criteri di indicizzazione in un contenitore di Azure Cosmos può comportare una modifica nella forma dell'indice. Questa modifica influisce sui percorsi che possono essere indicizzati, sulla loro precisione e sul modello di coerenza dell'indice stesso. Una modifica nei criteri di indicizzazione richiede una trasformazione dell'indice precedente in uno nuovo.
+Criteri di indicizzazione del contenitore possono essere aggiornati in qualsiasi momento [usando il portale di Azure o uno degli SDK supportati](how-to-manage-indexing-policy.md). Un aggiornamento per i criteri di indicizzazione attiva una trasformazione dall'indice precedente a quella nuova, che viene eseguita online e sul posto (in modo da non utilizzare alcuno spazio di archiviazione aggiuntivo durante l'operazione). Indice del criterio precedente viene trasformato in modo efficiente per il nuovo criterio senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning per il contenitore. Trasformazione dell'indice è un'operazione asincrona e il tempo che necessario per completare dipende dalla velocità effettiva con provisioning, il numero di elementi e le relative dimensioni. 
 
-### <a name="index-transformations"></a>Trasformazioni dell'indice
+> [!NOTE]
+> Durante la reindicizzazione, query potrebbe non restituire tutti i risultati corrispondenti e può eseguire questa operazione senza restituire errori. Ciò significa che i risultati della query potrebbe non essere coerente fino al completamento della trasformazione di indice. È possibile tenere traccia dell'avanzamento della trasformazione di indice [usando uno degli SDK](how-to-manage-indexing-policy.md).
 
-Le trasformazioni dell'indice vengono eseguite online. Gli elementi indicizzati per i criteri precedenti vengono trasformati in modo efficiente per il nuovo criterio senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning per il contenitore. La coerenza di lettura e scrittura delle operazioni eseguite usando l'API REST, SDK, o stored procedure e trigger non cambia durante la trasformazione dell'indice.
+Se modalità dei nuovi criteri di indicizzazione sono impostato su Consistent, nessun altra modifica dei criteri di indicizzazione è applicabile anche se la trasformazione di indice è in corso. Una trasformazione dell'indice in esecuzione può essere annullata impostando la modalità di criteri di indicizzazione su None (che inizierà immediatamente a eliminare l'indice).
 
-Modifica dei criteri di indicizzazione è un'operazione asincrona e il tempo necessario per completare l'operazione dipende dal numero di elementi, velocità effettiva con provisioning e la dimensione degli elementi. Durante la reindicizzazione è in corso, la query non può restituire tutti i risultati corrispondenti, se si utilizza l'indice che si sta modificando le query e le query non restituisce eventuali errori di. Durante la reindicizzazione è in corso, le query sono comunque coerenti indipendentemente dalla configurazione della modalità indicizzazione. Una volta completata la trasformazione dell'indice, si continueranno a vedere risultati coerenti. Questo si applica alle query emesse da interfacce come SDK, API REST o stored procedure e trigger. Trasformazione dell'indice viene eseguita in modo asincrono in background nelle repliche usando le risorse di riserva disponibili per le repliche specifiche.
+## <a name="indexing-policies-and-ttl"></a>I criteri di indicizzazione e durata (TTL)
 
-Tutte le trasformazioni degli indici vengono eseguite sul posto. Azure Cosmos DB non conserva due copie dell'indice. Questo significa che non è necessario, né viene usato ulteriore spazio su disco nei contenitori durante la trasformazione dell'indice.
+Il [funzionalità di Time-to-Live (TTL)](time-to-live.md) richiede l'indicizzazione per essere attiva per il contenitore è attivata. Ciò significa che:
 
-Quando si modificano i criteri di indicizzazione, le modifiche vengono applicate per spostare dall'indice precedente al nuovo indice e dipendono principalmente le configurazioni di modalità di indicizzazione. Le configurazioni delle modalità di indicizzazione svolgono un ruolo cruciale rispetto ad altre proprietà come i percorsi inclusi/esclusi, i tipi di indice e la precisione.
+- non è possibile attivare la durata (TTL) in un contenitore in cui la modalità di indicizzazione è impostata su None,
+- non è possibile impostare la modalità di indicizzazione su None per un contenitore in cui viene attivato durata (TTL).
 
-Se entrambi i criteri (precedente e nuovo) usano l'indicizzazione **Coerente**, il database di Azure Cosmos esegue una trasformazione di indici online. Non è possibile applicare un'altra modifica ai criteri di indicizzazione in modalità di indicizzazione coerente mentre è in corso la trasformazione. Quando si passa alla modalità Nessuna indicizzazione, l'indice viene eliminato immediatamente. Il passaggio a nessuna indicizzazione è utile quando si vuole annullare una trasformazione in corso e iniziare da capo con criteri di indicizzazione diversi.
+Per gli scenari in cui nessun percorso di proprietà dovrà essere indicizzati, ma è durata (TTL) è obbligatorio, è possibile usare un criterio di indicizzazione con:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Modifica dei criteri di indicizzazione - Esempi
+- una modalità di indicizzazione impostata su Consistent, e
+- Nessun percorso incluso, e
+- `/*` come unico percorso escluso.
 
-Di seguito sono i casi d'uso più comune quando si desidera aggiornare un criterio di indicizzazione:
+## <a name="obsolete-attributes"></a>Attributi obsoleti
 
-* Se si desidera avere risultati coerenti durante il normale funzionamento, ma per eseguire il fallback il **None** la modalità di indicizzazione durante le importazioni di dati bulk.
+Quando si lavora con i criteri di indicizzazione, è possibile riscontrare gli attributi seguenti sono ora obsoleti:
 
-* Si desidera iniziare a usare nuove funzionalità di indicizzazione contenitori di Azure Cosmos correnti. Ad esempio, è possibile usare query geospaziali, che richiedono il tipo di indice spaziale, oppure query di intervallo di stringhe/ORDER BY, che richiedono il tipo di indice di intervallo di stringhe.
-
-* Si desidera selezionare manualmente le proprietà da indicizzare e modificarle nel tempo per adattarle ai propri carichi di lavoro.
-
-* Si desidera ottimizzare la precisione di indicizzazione per migliorare le prestazioni delle query o ridurre l'uso dell'archiviazione.
+- `automatic` valore booleano è definita nella radice di un criterio di indicizzazione. Ora viene ignorato e può essere impostato su `true`, quando lo strumento in uso lo richiede.
+- `precision` è un numero definito a livello di indice per i percorsi inclusi. Ora viene ignorato e può essere impostato su `-1`, quando lo strumento in uso lo richiede.
+- `hash` è un tipo di indice che è stato sostituito dal tipo di intervallo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
-* [Panoramica dell'indicizzazione](index-overview.md)
-* [Tipi di indice](index-types.md)
-* [Percorsi di indice](index-paths.md)
-* [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)
+- [Cenni preliminari sull'indicizzazione](index-overview.md)
+- [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)

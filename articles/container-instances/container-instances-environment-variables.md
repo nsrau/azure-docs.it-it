@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606889"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994776"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente in istanze di contenitore
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Esempio del portale di Azure
 
-Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarle nella pagina **Configurazione** quando si crea il contenitore.
+Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarli nel **avanzate** pagina quando si crea il contenitore.
 
-Quando si esegue la distribuzione con il portale, il limite corrente è di tre variabili ed è necessario immetterle in questo formato: `"variableName":"value"`
-
-Per visualizzare un esempio, avviare il [aci-wordcount] [ aci-wordcount] contenitore con il *NumWords* e *MinLength* variabili.
-
-1. In **Configurazione** impostare **Criteri di riavvio** su *In caso di errore*
-2. Immettere `"NumWords":"5"` come prima variabile, selezionare **Sì** in **Add additional environment variables** (Aggiungi altre variabili di ambiente) e immettere `"MinLength":"8"` come seconda variabile. Selezionare **OK** per verificare e quindi distribuire il contenitore.
+1. Nel **avanzate** pagina, impostare il **criterio di riavvio** a *in caso di errore*
+2. Sotto **variabili di ambiente**, immettere `NumWords` con il valore `5` per la prima variabile e immettere `MinLength` con il valore `8` della seconda variabile. 
+1. Selezionare **revisione + Crea** per verificare e quindi distribuire il contenitore.
 
 ![Pagina del portale che mostra il pulsante di abilitazione e le caselle di testo delle variabili di ambiente][portal-env-vars-01]
 
-Per visualizzare i log del contenitore, in **IMPOSTAZIONI** selezionare **Contenitori** e quindi **Log**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
+Per visualizzare i log del contenitore, in **le impostazioni** selezionate **contenitori**, quindi **log**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
 
 ![Portale che visualizza l'output del log del contenitore][portal-env-vars-02]
 

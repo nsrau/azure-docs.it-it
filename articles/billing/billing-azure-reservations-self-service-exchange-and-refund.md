@@ -1,7 +1,6 @@
 ---
 title: Gli scambi di self-servizi e rimborsi per le prenotazioni di Azure | Microsoft Docs
 description: Informazioni su come è possibile scambiare o rimborsare le prenotazioni di Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281982"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009311"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Gli scambi di self-servizi e rimborsi per le prenotazioni di Azure
 
 Le prenotazioni di Azure offrono flessibilità per soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un altro prenotazione dello stesso tipo. È possibile rimborsare una prenotazione, fino a 50.000 USD all'anno, anche se è non è più necessario.
 
 Funzionalità di exchange e Annulla self-service non è disponibile per i clienti US Government contratto Enterprise Agreement. Sono supportati altri tipi di sottoscrizione di US Government inclusi con pagamento a consumo e CSP.
+
+È necessario disporre degli accessi dei proprietari dell'ordine di prenotazione per lo scambio o restituzione di una prenotazione esistente.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Un'istanza riservata esistente di Exchange
 
@@ -39,7 +40,7 @@ Funzionalità di exchange e Annulla self-service non è disponibile per i client
 
 Per una prenotazione di rimborso, passare a **i dettagli della prenotazione** e fare clic su **rimborso**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Come visualizzare e vengono elaborate le transazioni di exchange
+## <a name="how-transactions-are-processed"></a>Modalità di elaborazione delle transazioni
 
 In primo luogo, Microsoft consente di annullare la prenotazione esistente e rimborsi la quantità proporzionale per tale prenotazione. Se si verifica uno scambio, viene elaborata l'acquisto di nuovo. Microsoft elabora le restituzioni usando uno dei metodi seguenti, a seconda del tipo di account e il metodo di pagamento:
 
@@ -49,7 +50,7 @@ Money viene aggiunto per l'impegno monetario per lo scambio e rimborsi se è sta
 
 Se è stato effettuato l'acquisto originale come eccedenza, Microsoft rilascia una nota di credito.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>I clienti di pagamento della fattura di pagamento a consumo e programma per provider di soluzioni Cloud
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>I pagamenti tramite fatturazione con pagamento a consumo e programma CSP
 
 La fattura di acquisto di prenotazioni originale viene annullata e quindi viene creata una nuova fattura per la restituzione. Per gli scambi, la nuova fattura Mostra il rimborso e l'acquisto di nuovo. La quantità di rimborso viene regolata per l'acquisto. Se si rimborsate solo una prenotazione, la quantità ripartita rimane assegnato a Microsoft e viene modificato contro un acquisto della prenotazione future.
 
@@ -74,7 +75,7 @@ La fattura originale viene annullata e viene creata una nuova fattura. Il denaro
 - Solo i proprietari di prenotazione in grado di elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft si riserva il diritto ad addebitare i costi una riduzione del 12% per qualsiasi restituisce un valore, anche se la riduzione non è attualmente addebitata.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Scambiare una risorsa di archiviazione non premium prenotazione della macchina virtuale per una prenotazione di archiviazione premium
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Archiviazione di Exchange non premium per l'archiviazione premium
 
 È possibile scambiare una prenotazione acquistata per una dimensione di VM che non supporta archiviazione premium a una dimensione di macchina virtuale corrispondente che esegue. Ad esempio, un' _F1_ per un' _F1s_. Per semplificare lo scambio, passare a dettagli della prenotazione e fare clic su **Exchange**. Lo scambio non reimpostare il termine dell'istanza riservata o creare una nuova transazione.
 

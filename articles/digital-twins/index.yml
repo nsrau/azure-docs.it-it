@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 65845d3f46732772a0e181b6409554b64075fe30
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274371"
 documentType: LandingData
 title: Documentazione di Gemelli digitali di Azure
 metadata:
@@ -18,20 +12,20 @@ metadata:
   ms.date: 10/15/2018
   ms.author: dkshir
 abstract:
-  description: Informazioni su come usare Gemelli digitali di Azure per connettere persone, luoghi e cose e creare soluzioni IoT con intelligenza spaziale. La guida introduttiva e le esercitazioni consentiranno di monitorare un edificio intelligente immaginario, approfondire i concetti e creare una soluzione IoT di nuova generazione per modellare l'ambiente fisico.
+  description: 'Informazioni su come usare Gemelli digitali di Azure per connettere persone, luoghi e cose e creare soluzioni IoT con intelligenza spaziale. La guida introduttiva e le esercitazioni consentiranno di monitorare un edificio intelligente immaginario, approfondire i concetti e creare una soluzione IoT di nuova generazione per modellare l''ambiente fisico.'
 sections:
-- title: Guida introduttiva di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come <a href="quickstart-view-occupancy-dotnet">trovare le stanze disponibili con una buona qualità dell'aria usando esempi .NET per Gemelli digitali di Azure</a>.
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come personalizzare e usare una soluzione Gemelli digitali di Azure per monitorare le strutture.
-  - type: list
-    style: ordered
+  - title: Guida introduttiva di 5 minuti
     items:
-    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Effettuare il provisioning di un edificio di esempio</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitorare le condizioni nell'edificio</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-events">Ricevere notifiche dall'edificio</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analizzare gli eventi provenienti dall'edificio</a>
+      - type: paragraph
+        text: Informazioni su come <a href="quickstart-view-occupancy-dotnet">trovare le stanze disponibili con una buona qualità dell'aria usando esempi .NET per Gemelli digitali di Azure</a>.
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come personalizzare e usare una soluzione Gemelli digitali di Azure per monitorare le strutture.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Effettuare il provisioning di un edificio di esempio</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitorare le condizioni nell'edificio</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-events">Ricevere notifiche dall'edificio</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analizzare gli eventi provenienti dall'edificio</a>

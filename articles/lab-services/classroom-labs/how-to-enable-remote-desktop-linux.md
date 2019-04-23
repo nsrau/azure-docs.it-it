@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659457"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005350"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare e usare desktop remoto per macchine virtuali Linux in un lab in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -35,6 +35,7 @@ Durante la creazione del lab, è possono abilitare gli insegnanti **connessione 
 > [!IMPORTANT] 
 > Abilitazione **connessione desktop remoto** consente di aprire solo le **RDP** porta nei computer Linux. È, i docenti, connettersi al computer Linux tramite SSH per la prima volta e installare i pacchetti RDP e interfaccia utente grafica in modo che sia possibile connettersi al computer Linux usando il protocollo RDP in un secondo momento. Quindi, si **pubblicare** l'immagine in modo che gli studenti possano RDP in per gli studenti le macchine virtuali Linux. 
 
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Attualmente, la connessione desktop remoto è supportata per i sistemi operativi seguenti:
 
 - openSUSE Leap 42.3

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562080"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148833"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiare dati da Marketo tramite Azure Data Factory (anteprima)
 
@@ -33,7 +33,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
 >[!NOTE]
->Il connettore Marketo è basato sull'API REST di Marketo. Tenere presente che Marketo presenta un [limite di richieste simultanee](http://developers.marketo.com/rest-api/) sul lato servizio. Se si riscontrano errori come "Errore durante il tentativo di utilizzo dell'API REST: numero massimo di '100' superato in '20' secondi (606)" o "Errore durante il tentativo di utilizzo dell'API REST: limite di '10' accessi simultanei raggiunto (615)", provare a ridurre le esecuzioni attività di copia simultanee per ridurre il numero di richieste al servizio.
+>Il connettore Marketo è basato sull'API REST di Marketo. Tenere presente che Marketo presenta un [limite di richieste simultanee](https://developers.marketo.com/rest-api/) sul lato servizio. Se si riscontrano errori come "Errore durante il tentativo di utilizzo dell'API REST: numero massimo di '100' superato in '20' secondi (606)" o "Errore durante il tentativo di utilizzo dell'API REST: limite di '10' accessi simultanei raggiunto (615)", provare a ridurre le esecuzioni attività di copia simultanee per ridurre il numero di richieste al servizio.
 
 ## <a name="getting-started"></a>Introduzione
 

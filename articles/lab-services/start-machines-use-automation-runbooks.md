@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
-ms.openlocfilehash: d80328943ae818b3bad9c0a275b74968ee33d4b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789058"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996663"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Avviare le macchine virtuali in un lab in ordine usando i runbook di automazione di Azure
 Il [autostart](devtest-lab-set-lab-policy.md#set-autostart) funzionalità di DevTest Labs consente di configurare le macchine virtuali per l'avvio automatico in un momento specificato. Tuttavia, questa funzionalità non supporta computer per iniziare in un ordine specifico. Esistono diversi scenari in cui sarebbe utile questo tipo di automazione.  Uno scenario è quello in cui una VM Jumpbox all'interno di un lab deve essere avviata per prima, prima di altre macchine virtuali, come il Jumpbox viene usato come punto di accesso con altre macchine virtuali.  Questo articolo illustra come configurare un account di automazione di Azure con un runbook di PowerShell che esegue uno script. Lo script Usa i tag nelle macchine virtuali nel lab consente di controllare l'ordine di avvio senza dover modificare lo script.
@@ -53,11 +53,11 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationId -Subscription $SubscriptionName -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Find the lab
-$dtLab = Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $LabName
+$dtLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $LabName
 
 # Get the VMs
 $dtlAllVms = New-Object System.Collections.ArrayList
-$AllVMs = Get-AzureRmResource -ResourceId "$($dtLab.ResourceId)/virtualmachines" -ApiVersion 2016-05-15
+$AllVMs = Get-AzResource -ResourceId "$($dtLab.ResourceId)/virtualmachines" -ApiVersion 2016-05-15
 
 # Get the StartupOrder tag, if missing set to be run last (10)
 ForEach ($vm in $AllVMs) {
@@ -80,13 +80,13 @@ $profilePath = Join-Path $env:Temp "profile.json"
 If (Test-Path $profilePath){
     Remove-Item $profilePath
 }
-Save-AzureRmContext -Path $profilePath
+Save-AzContext -Path $profilePath
 
 # Job to start VMs asynch
 $startVMBlock = {
     Param($devTestLab,$vmToStart,$profilePath)
-    Import-AzureRmContext -Path ($profilePath)
-    Invoke-AzureRmResourceAction `
+    Import-AzContext -Path ($profilePath)
+    Invoke-AzResourceAction `
         -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vmToStart" `
         -Action Start `
         -Force
@@ -102,7 +102,7 @@ While ($current -le 10) {
     $tobeStarted = $dtlAllVms | Where-Object { $_.Values -eq $current}
     if ($tobeStarted.Count -eq 1) {
         # Run sync – jobs not necessary for a single VM
-        $returnStatus = Invoke-AzureRmResourceAction `
+        $returnStatus = Invoke-AzResourceAction `
                 -ResourceId "$($dtLab.ResourceId)/virtualmachines/$($tobeStarted.Keys)" `
                 -Action Start `
                 -Force

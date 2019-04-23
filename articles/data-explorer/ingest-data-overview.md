@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045595"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011258"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -52,7 +52,7 @@ Esplora dati di Azure attualmente supporta:
 
 ### <a name="ingestion-using-integration-services"></a>Inserimento tramite servizi di integrazione
 
-* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Data Explorer utilizzando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [Copiare dati in o da Esplora dati di Azure usando Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Data Explorer utilizzando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [copiare dati da Azure Data Factory in Esplora dati di Azure](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 

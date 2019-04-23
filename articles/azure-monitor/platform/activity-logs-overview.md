@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496880"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995660"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -65,6 +65,9 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 * Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Eseguire query sul log attività nel portale di Azure
+
+> [!NOTE] 
+> Il Log attività vengono archiviati i log back-end per 90 giorni. Se si desidera conservare i dati di là di ciò, configurare un **profilo Log** come descritto di seguito. 
 
 Nel portale di Azure è possibile visualizzare il log attività in diverse posizioni:
 * Il **log attività**, a cui è possibile accedere cercando Log attività in **Tutti i servizi** nel riquadro di spostamento sinistro.

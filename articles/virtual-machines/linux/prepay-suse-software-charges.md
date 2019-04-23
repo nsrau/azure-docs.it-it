@@ -1,7 +1,6 @@
 ---
-title: Acquistare piani SUSE Linux - Prenotazioni di Azure | Microsoft Docs
-description: Informazioni su come è possibile pagare in anticipo per l'utilizzo di SUSE e risparmiare rispetto ai costi con pagamento in base al consumo.
-services: virtual-machines-linux
+title: Pagare in anticipo per i piani software - prenotazioni di Azure | Microsoft Docs
+description: Informazioni su come è possibile pagare in anticipo per i piani software a risparmiare denaro rispetto ai costi con pagamento a consumo.
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,52 +10,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2019
-ms.author: yashar
-ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.date: 04/12/2019
+ms.author: banders
+ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745980"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011096"
 ---
-# <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure
+# <a name="prepay-for-azure-software-plans"></a>Pagare in anticipo per i piani di software di Azure
 
-Pagare in anticipo per l'utilizzo di SUSE e risparmiare rispetto ai costi con pagamento in base al consumo. Gli sconti si applicano solo ai contatori SUSE e non all'utilizzo della macchina virtuale. È possibile acquistare le prenotazioni per le macchine virtuali separatamente per risparmiare ancora di più.
+Quando il pagamento anticipato per l'utilizzo del software SUSE e RedHat in Azure, è possibile risparmiare denaro tramite i costi con pagamento a consumo. Sconti si applicano solo ai contatori di SUSE e RedHat e non sull'utilizzo della macchina virtuale. È possibile acquistare prenotazioni per le macchine virtuali separatamente per ottenere risparmi aggiuntivi.
 
-È possibile acquistare i piani software SUSE nel portale di Azure. Per acquistare un piano:
+È possibile acquistare piani software SUSE e RedHat nel portale di Azure. Per acquistare un piano:
 
-- È necessario disporre del ruolo di Proprietario per almeno una sottoscrizione aziendale o con pagamento in base al consumo.
-- Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.
-- Per il programma Cloud Solution Provider (CSP), gli agenti di amministrazione o gli agenti di vendita possono acquistare i piani SUSE.
+- È necessario disporre del ruolo di proprietario per almeno un Enterprise o una sottoscrizione con pagamento a consumo.
+- Per le sottoscrizioni Enterprise, il **aggiungere le istanze riservate** opzione deve essere abilitata nel [portale EA](https://ea.azure.com/). Se l'impostazione è disabilitata, è necessario essere un amministratore EA per la sottoscrizione.
+- Per il programma Cloud Solution Provider (CSP), è possono acquistare i piani di software di agenti di amministrazione o gli agenti di vendita.
 
-## <a name="buy-a-suse-software-plan"></a>Acquistare un piano software SUSE
+## <a name="buy-a-software-plan"></a>Acquista un piano software
 
-1. Andare su [Prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) nel portale di Azure.
-1. Selezionare **Aggiungi** e quindi SUSE Linux.
-1. Compilare i campi obbligatori. Lo sconto viene applicato a qualsiasi VM SUSE Linux che corrisponda agli attributi di ciò che si acquista. Il numero effettivo di distribuzioni a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
+1. Accedi al portale di Azure e passare a [prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Fare clic su **Add** e quindi selezionare il piano software che si vuole acquistare.
+Compilare i campi obbligatori. Qualsiasi VM SUSE Linux o VM RedHat che corrisponde agli attributi dei quali si acquistano Ottiene lo sconto. Il numero effettivo di distribuzioni a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
+3. Selezionare una sottoscrizione. Si è usato per pagare il piano.
+Il metodo di pagamento della sottoscrizione viene addebitato il costo iniziale per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P).
+    - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
+    - Per una sottoscrizione con pagamento a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito della sottoscrizione.
+4. Selezionare un ambito. L'ambito può coprire una o più sottoscrizioni (ambito condiviso).
+    - Sottoscrizione singola: lo sconto di piano viene applicata ai corrispondenti sull'utilizzo della sottoscrizione.
+    - Condiviso - viene applicato lo sconto di piano per far corrispondere le istanze in tutte le sottoscrizioni nel contesto di fatturazione. Per i clienti aziendali, il contesto di fatturazione è la registrazione e include tutte le sottoscrizioni nell'ambito della registrazione. Per i clienti con pagamento a consumo, il contesto di fatturazione è tutte le sottoscrizioni con pagamento a consumo create dall'amministratore dell'account.
+5. Selezionare un prodotto per scegliere le dimensioni VM e il tipo di immagine. Lo sconto si applica solo le dimensioni della macchina virtuale selezionata.
+6. Selezionare un termine di un anno o tre anni.
+7. Scegliere una quantità, ovvero il numero di istanze di macchina virtuale prepagate che è possibile ottenere lo sconto sulla fatturazione.
+8. Aggiungere il prodotto al carrello, la revisione e acquisto.
 
-    | Campo      | DESCRIZIONE|
-    |:------------|:--------------|
-    |NOME        |Il nome dell'acquisto.|
-    |Sottoscrizione|La sottoscrizione usata per pagare il piano. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un Contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|
-    |Scope       |L'ambito può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo al piano viene applicato all'utilizzo di SUSE Linux in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
-    |Piano software     |Selezionare il piano SUSE Linux. Per informazioni su come identificare gli elementi da acquistare, vedere [Understand how the SUSE Linux Enterprise reservation plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto relativo al piano del software SUSE Linux Enterprise).|
-    |Dimensioni macchina virtuale     |I prezzi di SUSE Linux dipendono dal numero di vCPU nella macchina virtuale. Selezionare l'opzione che rappresenta il numero di vCPU nelle macchine virtuali SUSE Linux.|
-    |Termine        |Un anno o tre anni.|
-    |Quantità    |Il numero di macchine virtuali per il quale si sta acquistando il piano SUSE Linux. La quantità è il numero di istanze di SUSE Linux in esecuzione che possono ottenere lo sconto sulla fatturazione.|
-1. Selezionare **Acquisto**.
-1. Selezionare **Visualizza questa prenotazione** per vedere lo stato dell'acquisto.
+Lo sconto della prenotazione viene applicato automaticamente per la misurazione del software che effettua un pagamento anticipato per. I costi di calcolo di macchine Virtuali non sono coperti dal piano. È possibile acquistare separatamente le prenotazioni di macchina virtuale.
 
-Lo sconto per la prenotazione viene applicato automaticamente a tutte le macchine virtuali SUSE in esecuzione che corrispondono alla prenotazione. Lo sconto è valido solo per il contatore SUSE. I costi relativi al calcolo delle macchine virtuali non vengono coperti da questo piano.
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Viene applicato uno sconto per diverse dimensioni delle VM SUSE
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>Lo sconto si applica a diverse dimensioni di VM con flessibilità in termini di dimensioni dell'istanza
+Ad esempio istanze di VM riservate, piani di SUSE Linux offrono flessibilità le dimensioni dell'istanza. Lo sconto si applica anche quando si distribuisce una macchina virtuale che è una dimensione diversa dal piano di SUSE acquistate. Per altre informazioni, vedere [informazioni su come viene applicato lo sconto relativo piano software](../../billing/billing-understand-suse-reservation-charges.md).
 
-Come le istanze di macchina virtuale riservate, i piani SUSE Linux offrono flessibilità in termini di dimensioni dell'istanza. Ciò significa che lo sconto si applica anche quando si distribuisce una VM di dimensioni diverse rispetto al piano SUSE acquistato. Per altre informazioni, vedere [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto relativo alla prenotazione del software SUSE Linux Enterprise).
+## <a name="redhat-plan-discount"></a>Sconto del piano di RedHat
+
+I piani sono disponibili solo per le macchine virtuali Red Hat Enterprise Linux. Lo sconto non si applica a macchine virtuali Red Hat Enterprise Linux SAP HANA o macchine virtuali di Red Hat Enterprise Linux SAP Business Apps.
+
+Gli sconti piano RedHat valgono solo per le dimensioni VM scelto al momento dell'acquisto. I piani di RHEL non possono essere rimborsati o scambiati dopo l'acquisto.
+
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Annullamento e scambi non consentiti
 
-Non è possibile annullare o scambiare un piano SUSE acquistato. Controllare l'utilizzo per assicurarsi di acquistare il piano giusto. Per informazioni su come identificare gli elementi da acquistare, vedere [Understand how the SUSE Linux Enterprise reservation plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto relativo al piano del software SUSE Linux Enterprise).
+Non è possibile annullare o lo scambio di un piano di SUSE o Red Hat acquistate. Controllare l'utilizzo per assicurarsi di acquistare il piano giusto. Per altre informazioni identificare gli elementi da acquistare, vedere [informazioni su come viene applicato lo sconto relativo piano software](../../billing/billing-understand-suse-reservation-charges.md).
+
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -69,7 +78,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Understand how the SUSE reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto sulla prenotazione SUSE)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../../billing/billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../../billing/billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
-
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

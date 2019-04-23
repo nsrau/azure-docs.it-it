@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d867a8befb9333ebf33b9ac7ba179e25f0b9f9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698572"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011349"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Moduli di PowerShell per Azure Machine Learning Studio
 
@@ -50,20 +50,17 @@ PowerShell-classica può essere installato insieme a Az o AzureRM per coprire en
 
 ## <a name="support-table"></a> Tabella relativa al supporto di PowerShell
 
- **Aree di lavoro di Studio** | **Modulo Az** |  **Modulo AzureRM** | **PowerShell - Classica** |
-| --- | --- | --- | --- |
-| Creare o eliminare le aree di lavoro | [Modelli di Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Modelli di Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
-| Gestire gli utenti dell'area di lavoro |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Gestire i piani di impegno | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
-|||
-| **Servizi Web** | **Modulo Az** | **Modulo AzureRM** | **PowerShell - Classica** |
-| Gestire i servizi Web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> ("new" servizi web) | New-AzureRmMlWebService <br> ("new" servizi web) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (servizi web "classico") |
-| Gestire endpoint o chiavi |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> ("new" servizi web) | Get-AzureRmMlWebServiceKeys <br> ("new" servizi web) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (servizi web "classico") |
-|||
-| **Risorse utente** | **Modulo Az** | **Modulo AzureRM** | **PowerShell - Classica** |
-| Gestire set di dati o modelli con training |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
-| Gestire esperimenti |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
-| Gestire moduli personalizzati |  |  | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
+| | **Modulo Az** |  **PowerShell - Classica** |
+| --- | --- | --- |
+| Creare o eliminare le aree di lavoro | [Modelli di Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Gestire i piani di impegno dell'area di lavoro | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
+| Gestire gli utenti dell'area di lavoro |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| Gestire i servizi Web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("new" servizi web)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(servizi web "classico") |
+| Gestire gli endpoint servizio web/chiavi |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Gestire i modelli di training/set di dati utente| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| Gestire esperimenti di utente |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| Gestire moduli personalizzati | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

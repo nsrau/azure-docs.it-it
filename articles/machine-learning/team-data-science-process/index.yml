@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451921"
 documentType: LandingData
 title: Documentazione del processo data science per i team
 metadata:
   title: Documentazione del processo data science per i team
-  description: Informazioni su come usare il processo di data science per i team, una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
+  description: 'Informazioni su come usare il processo di data science per i team, una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l''apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L''obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.'
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
@@ -22,24 +16,24 @@ metadata:
 abstract:
   description: Il processo di analisi scientifica dei dati per i team è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni sul processo di analisi scientifica dei dati per i team:'
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="overview">Overview</a>
-    - html: <a href="lifecycle">Ciclo di vita</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: "Informazioni sull'uso del processo di analisi scientifica dei dati per i team in diversi scenari:"
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Informazioni sul processo di analisi scientifica dei dati per i team:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Overview</a>
+          - html: <a href="lifecycle">Ciclo di vita</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="walkthroughs-spark">Spark con PySpark e Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive con Hadoop di HDInsight</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R, Python e T-SQL con SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python con SQL Data Warehouse</a>
+      - type: paragraph
+        text: 'Informazioni sull''uso del processo di analisi scientifica dei dati per i team in diversi scenari:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark con PySpark e Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive con Hadoop di HDInsight</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python e T-SQL con SQL Server</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python con SQL Data Warehouse</a>

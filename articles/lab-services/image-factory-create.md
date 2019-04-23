@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796311"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148986"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzate in Azure DevTest Labs
-Questo articolo illustra come configurare una factory di immagini personalizzate usando gli script di esempio disponibile nel [repository Git](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Questo articolo illustra come configurare una factory di immagini personalizzate usando gli script di esempio disponibile nel [repository Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>Che cos'è una factory di immagini?
 Una factory di immagini è una soluzione di configurazione come codice che compila e distribuisce le immagini automaticamente a intervalli regolari con tutte le configurazioni desiderate. Le immagini nella factory immagine siano sempre aggiornate e la manutenzione è quasi pari a zero dopo l'intero processo è automatizzato. E, poiché tutte le configurazioni necessarie sono già nell'immagine, Salva l'ora di configurare manualmente il sistema dopo aver creata una macchina virtuale con il sistema operativo di base.
@@ -39,7 +39,7 @@ La soluzione offre la velocità di creazione di macchine virtuali da immagini pe
 
 ![Visualizzazione generale della soluzione](./media/create-image-factory/high-level-view-of-solution.png)
 
-È presente una [estensione di Visual Studio Team Services per DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) che consente di eseguire questi passaggi individuali: 
+È presente una [estensione di Visual Studio Team Services per DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) che consente di eseguire questi passaggi individuali:
 
 - Creare un'immagine personalizzata
 - Creare una macchina virtuale

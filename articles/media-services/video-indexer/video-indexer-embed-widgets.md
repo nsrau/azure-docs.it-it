@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784893"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006489"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -28,7 +28,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|DESCRIZIONE|
+|Name|Definizione|DESCRIZIONE|
 |---|---|---|
 |widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL widget non è supportato nella versione 2. |
 
@@ -36,7 +36,7 @@ Un widget **Cognitive Insights** include tutte le informazioni dettagliate visiv
 
 Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|DESCRIZIONE|
+|Name|Definizione|DESCRIZIONE|
 |---|---|---|
 |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
 |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|
@@ -69,9 +69,9 @@ Se si vuole incorporare un video **privato**, è necessario passare un token di 
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Usare l'API [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) per recuperare il contenuto del widget Cognitive Insights oppure usare [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e aggiungerlo come parametro di query all'URL, come mostrato sopra. Specificare questo URL come valore **src** dell'**iframe**.
+Usare l'API [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) per recuperare il contenuto del widget Cognitive Insights oppure usare [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e aggiungerlo come parametro di query all'URL, come mostrato sopra. Specificare questo URL come valore **src** dell'**iframe**.
 
-Se si vogliono fornire funzionalità di modifica delle informazioni dettagliate (come quelle disponibili nell'applicazione Web) nel widget incorporato, sarà necessario passare un token di accesso con autorizzazioni di modifica. Usare [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) o [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) con **&allowEdit=true**. 
+Se si vogliono fornire funzionalità di modifica delle informazioni dettagliate (come quelle disponibili nell'applicazione Web) nel widget incorporato, sarà necessario passare un token di accesso con autorizzazioni di modifica. Usare [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) con **&allowEdit=true**. 
 
 ## <a name="widgets-interaction"></a>Interazione dei widget
 

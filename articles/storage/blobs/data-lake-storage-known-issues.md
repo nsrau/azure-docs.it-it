@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194709"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006863"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -47,13 +47,13 @@ I dischi non gestiti di macchine virtuali dipendono da queste API BLOB disabilit
 
 Le API di archiviazione BLOB e le API di Azure Data Lake Gen2 non sono interoperative tra loro.
 
-Se si dispone di strumenti, applicazioni, servizi o script che usano le API BLOB e si intende usarli per interagire con tutto il contenuto caricato nell'account, non abilitare uno spazio dei nomi gerarchico in account di archiviazione BLOB finché le API BLOB non diventano interoperative con le API Azure Data Lake Gen2. Usando un account di archiviazione senza uno spazio dei nomi gerarchico non si dispone dell'accesso alle funzionalità specifiche di Data Lake Storage Gen2, ad esempio l'elenco di controllo di accesso alla directory e al file system.
+Se si dispone di strumenti, applicazioni, servizi o script che usano le API BLOB e si intende usarli per interagire con tutto il contenuto caricato nell'account, non abilitare uno spazio dei nomi gerarchico in account di archiviazione BLOB finché le API BLOB non diventano interoperative con le API Azure Data Lake Gen2. Usando un account di archiviazione senza uno spazio dei nomi gerarchico, significa che quindi non hai accesso alle funzionalità specifiche di Data Lake Storage Gen2, ad esempio file e directory elenchi di controllo di accesso di sistema.
 
 ## <a name="azure-storage-explorer"></a>Esplora archivi Azure
 
 Per visualizzare o gestire gli account Data Lake Storage Gen2 con Azure Storage Explorer, è necessario disporre almeno della versione `1.6.0` dello strumento disponibile come [download gratuito](https://azure.microsoft.com/features/storage-explorer/).
 
-La versione di Storage Explorer incorporata nel portale di Azure non supporta attualmente la visualizzazione o la gestione di account Data Lake Storage Gen2 con la funzionalità degli spazi dei nomi gerarchici abilitata.
+Si noti che la versione di Storage Explorer incorporata nel portale di Azure attualmente non supporta la visualizzazione o la gestione degli account Data Lake Storage Gen2 con abilitata la funzionalità di spazio dei nomi gerarchico.
 
 ## <a name="blob-viewing-tool"></a>Strumento di visualizzazione BLOB
 

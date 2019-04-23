@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848392"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009073"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -40,7 +40,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Funzionalità e terminologia dei gruppi di failover automatico
 
-- **Gruppo di failover**
+- **Gruppo di failover (nebbia)**
 
   Un gruppo di failover è un gruppo di database gestiti da un singolo server di database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria.
 
@@ -77,11 +77,11 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   - **Record CNAME DNS del server di database SQL per listener di lettura/scrittura**
 
-     In un server di database SQL il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `failover-group-name.database.windows.net`.
+     In un server di database SQL il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `<fog-name>.database.windows.net`.
 
   - **Record CNAME DNS dell'istanza gestita per listener di lettura/scrittura**
 
-     In un'istanza gestita il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `failover-group-name.zone_id.database.windows.net`.
+     In un'istanza gestita il record CNAME DNS per il gruppo di failover che punta all'URL del database primario corrente ha il formato seguente: `<fog-name>.zone_id.database.windows.net`.
 
 - **Listener di sola lettura del gruppo di failover**
 
@@ -89,11 +89,11 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   - **Record CNAME DNS del server di database SQL per listener di lettura/scrittura**
 
-     In un server di database SQL il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `failover-group-name.secondary.database.windows.net`.
+     In un server di database SQL il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `'.secondary.database.windows.net`.
 
   - **Record CNAME DNS dell'istanza gestita per listener di sola lettura**
 
-     In un'istanza gestita il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `failover-group-name.zone_id.database.windows.net`.
+     In un'istanza gestita il record CNAME DNS per il listener di sola lettura che punta all'URL del database secondario ha il formato seguente: `<fog-name>.zone_id.database.windows.net`.
 
 - **Criteri di failover automatico**
 
@@ -156,11 +156,11 @@ Quando si progetta un servizio facendo particolare attenzione alla continuità a
 
 - **Usare il listener di lettura/scrittura per il carico di lavoro OLTP**
 
-  Quando si eseguono operazioni OLTP, usare `failover-group-name.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al database primario. Questo URL non cambia dopo il failover. Si noti che il failover comporta l'aggiornamento del record DNS in modo che le connessioni client vengano reindirizzate al nuovo database primario solo dopo l'aggiornamento della cache DNS del client.
+  Quando si eseguono operazioni OLTP, usare `<fog-name>.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al database primario. Questo URL non cambia dopo il failover. Si noti che il failover comporta l'aggiornamento del record DNS in modo che le connessioni client vengano reindirizzate al nuovo database primario solo dopo l'aggiornamento della cache DNS del client.
 
 - **Usare il listener di sola lettura per il carico di lavoro di sola lettura**
 
-  Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `failover-group-name.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È consigliabile anche indicare la finalità di lettura nella stringa di connessione usando **ApplicationIntent=ReadOnly**.
+  Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È consigliabile anche indicare la finalità di lettura nella stringa di connessione usando **ApplicationIntent=ReadOnly**.
 
 - **Prepararsi a un calo delle prestazioni**
 
@@ -206,7 +206,7 @@ Se l'applicazione usa Istanza gestita come livello dati, seguire queste linee gu
 
 - **Usare il listener di lettura/scrittura per il carico di lavoro OLTP**
 
-  Quando si eseguono operazioni OLTP, usare `failover-group-name.zone_id.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al database primario. Questo URL non cambia dopo il failover. Il failover comporta l'aggiornamento del record DNS in modo che le connessioni client vengano reindirizzate al nuovo database primario solo dopo l'aggiornamento della cache DNS del client. Poiché l'istanza secondaria condivide la zona DNS con l'istanza primaria, l'applicazione client sarà in grado di riconnettervisi mediante lo stesso certificato SAN.
+  Quando si eseguono operazioni OLTP, usare `<fog-name>.zone_id.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al database primario. Questo URL non cambia dopo il failover. Il failover comporta l'aggiornamento del record DNS in modo che le connessioni client vengano reindirizzate al nuovo database primario solo dopo l'aggiornamento della cache DNS del client. Poiché l'istanza secondaria condivide la zona DNS con l'istanza primaria, l'applicazione client sarà in grado di riconnettervisi mediante lo stesso certificato SAN.
 
 - **Connettersi direttamente al database secondario con replica geografica per le query di sola lettura**
 
@@ -214,8 +214,8 @@ Se l'applicazione usa Istanza gestita come livello dati, seguire queste linee gu
 
   > [!NOTE]
   > In determinati livelli di servizio il database SQL di Azure supporta l'uso di [repliche di sola lettura](sql-database-read-scale-out.md) per bilanciare i carichi di lavoro di query di sola lettura usando la capacità di una replica di sola lettura e il parametro `ApplicationIntent=ReadOnly` nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
-  > - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `failover-group-name.zone_id.database.windows.net`.
-  > - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `<fog-name>.zone_id.database.windows.net`.
+  > - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Prepararsi a un calo delle prestazioni**
 

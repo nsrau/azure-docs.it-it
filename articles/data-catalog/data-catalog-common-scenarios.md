@@ -2,18 +2,18 @@
 title: Scenari comuni del Catalogo dati di Azure
 description: Panoramica degli scenari comuni per Azure Data Catalog, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze esistenti sulle origini dati e i processi.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405030"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010807"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scenari comuni del Catalogo dati di Azure
 In questo articolo vengono presentati scenari comuni in cui Azure Data Catalog può aiutare l'organizzazione a incrementare il valore delle origini dati esistenti.
@@ -34,7 +34,7 @@ Se si sta iniziando a usare Azure Data Catalog, l'identificazione e la registraz
 
 Questo scenario presenta anche un'opportunità per annotare le origini dati di valore elevato per facilitarne la comprensione e l'accesso. Un aspetto fondamentale di questa operazione consiste nell'includere informazioni su come gli utenti possono richiedere l'accesso all'origine dati. Con Azure Data Catalog è possibile fornire l'indirizzo di posta elettronica dell'utente o del team responsabile del controllo dell'accesso all'origine dati, collegamenti a strumenti o documenti esistenti oppure testo libero che descrive il processo di richiesta di accesso. Queste informazioni consentono ai membri che individuano origini dati registrate, ma che non hanno ancora le autorizzazioni per accedere ai dati, di richiedere facilmente l'accesso usando i processi definiti e controllati dai proprietari dell'origine dati.
 
-## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Business intelligence in modalità self-service
+## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Business intelligence self-service
 Anche se le soluzioni di business intelligence aziendali tradizionali continuano a essere scenari di dati di molte organizzazioni, i vari cambiamenti di mercato hanno reso la soluzione BI in modalità self-service sempre più importante. Usando la BI in modalità self-service, gli information worker e gli analisti possono creare report, cartelle di lavoro e dashboard senza basarsi su un team IT centrale oppure senza limitazioni di pianificazione e disponibilità del team IT.
 
 In scenari di business intelligence in modalità self-service gli utenti normalmente combinano dati da più origini, molte delle quali potrebbero non essere ancora state usate per analisi e business intelligence. Anche se alcune di queste origini dati potrebbero essere già note, può essere difficile capire che cosa fare per individuare e valutare le potenziali origini dati per una determinata attività.
@@ -47,7 +47,7 @@ Questa crescita strutturale del contenuto del catalogo è un complemento natural
 
 È importante notare che, anche se questo scenario è incentrato specificamente sulla business intelligence in modalità self-service, i modelli e le richieste si applicano anche a progetti di BI aziendali su larga scala. Usando Data Catalog, l'organizzazione può migliorare qualsiasi attività comporti un processo manuale di individuazione delle origini dati.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Acquisizione di conoscenze specifiche
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Acquisizione di conoscenze
 Di seguito sono riportate informazioni per sapere quali dati devono essere eseguiti dal processo e dove si trovano.
 
 Se si ha una certa familiarità con il processo, probabilmente già si hanno le conoscenze necessarie. L'utente ha intrapreso gradualmente il processo di apprendimento e nel corso del tempo ha imparato a usare le origini dati che sono fondamentali quotidianamente.

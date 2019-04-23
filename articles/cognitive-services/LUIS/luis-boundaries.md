@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897514"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006829"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -47,16 +47,16 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 
 *Il numero max predefinito di caratteri è 50. 
 
-## <a name="intent-and-entity-naming"></a>Denominazione di finalità e entità
-Non utilizzare i seguenti caratteri nei nomi delle entità e delle finalità:
+<a name="intent-and-entity-naming"></a>
 
-|Character|NOME|
+## <a name="object-naming"></a>Denominazione degli oggetti
+
+Non utilizzare i seguenti caratteri nei nomi seguenti.
+
+|Object|Escludere i caratteri|
 |--|--|
-|`{`|Parentesi graffa aperta|
-|`}`|Parentesi graffa chiusa|
-|`[`|Parentesi quadra aperta|
-|`]`|Parentesi quadra chiusa|
-|`\`|Barra rovesciata|
+|Nomi di ruolo, entità e finalità|`:`<br>`$`|
+|Nome della versione|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Uso della chiave
 

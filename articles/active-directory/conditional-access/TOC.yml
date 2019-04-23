@@ -1,81 +1,74 @@
-items:
 - name: Documentazione sull'accesso condizionale
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sull'accesso condizionale
-    href: overview.md
+    - name: Informazioni sull'accesso condizionale
+      href: overview.md
 - name: Guide introduttive
   items:
-  - name: Richiedere MFA per app specifiche
-    href: app-based-mfa.md
-  - name: Richiedere l'accettazione delle condizioni per l'utilizzo
-    href: require-tou.md
-  - name: Bloccare l'accesso quando viene rilevato un rischio nella sessione
-    href: app-sign-in-risk.md
+    - name: Richiedere MFA per app specifiche
+      href: app-based-mfa.md
+    - name: Richiedere l'accettazione delle condizioni per l'utilizzo
+      href: require-tou.md
+    - name: Bloccare l'accesso quando viene rilevato un rischio nella sessione
+      href: app-sign-in-risk.md
 - name: Esercitazioni
   items:
-  - name: Eseguire la migrazione di criteri MFA classici
-    href: policy-migration-mfa.md
+    - name: Eseguire la migrazione di criteri MFA classici
+      href: policy-migration-mfa.md
 - name: Concetti
-  items:
-  - name: Protezione di base
-    href: baseline-protection.md
-  - name: Condizioni
-    href: conditions.md
-  - name: Condizioni di posizione
-    href: location-condition.md
-  - name: Controlli
-    href: controls.md
-  - name: Dipendenze dei servizi
-    href: service-dependencies.md
-  - name: Strumento What If
-    href: what-if-tool.md
   expanded: false
-- name: Guide alle procedure
   items:
-  - name: Pianificare la distribuzione dell'accesso condizionale
-    href: plan-conditional-access.md
-  - name: Procedure consigliate
-    href: best-practices.md
-  - name: Bloccare l'autenticazione legacy
-    href: block-legacy-authentication.md
-  - name: Controllare l'accesso a Exchange Online e SharePoint Online
-    href: conditional-access-for-exo-and-spo.md
-  - name: Eseguire la migrazione di criteri classici
-    href: policy-migration.md
-  - name: Richiedere app client approvate
-    href: app-based-conditional-access.md
-  - name: Richiedere criteri di protezione dell'app
-    href: app-protection-based-conditional-access.md
-  - name: Richiedere dispositivi gestiti
-    href: require-managed-devices.md
-  - name: Richiedere MFA per tentativi di accesso da reti non attendibili
-    href: untrusted-networks.md
-  - name: Richiedere Condizioni per l'utilizzo
-    href: terms-of-use.md
+    - name: Protezione di base
+      href: baseline-protection.md
+    - name: Condizioni
+      href: conditions.md
+    - name: Condizioni di posizione
+      href: location-condition.md
+    - name: Controlli
+      href: controls.md
+    - name: Dipendenze dei servizi
+      href: service-dependencies.md
+    - name: Strumento What If
+      href: what-if-tool.md
+- name: Guide alle procedure
   expanded: true
+  items:
+    - name: Pianificare la distribuzione dell'accesso condizionale
+      href: plan-conditional-access.md
+    - name: Procedure consigliate
+      href: best-practices.md
+    - name: Bloccare l'autenticazione legacy
+      href: block-legacy-authentication.md
+    - name: Controllare l'accesso a Exchange Online e SharePoint Online
+      href: conditional-access-for-exo-and-spo.md
+    - name: Eseguire la migrazione di criteri classici
+      href: policy-migration.md
+    - name: Richiedere app client approvate
+      href: app-based-conditional-access.md
+    - name: Richiedere criteri di protezione dell'app
+      href: app-protection-based-conditional-access.md
+    - name: Richiedere dispositivi gestiti
+      href: require-managed-devices.md
+    - name: Richiedere MFA per tentativi di accesso da reti non attendibili
+      href: untrusted-networks.md
+    - name: Richiedere Condizioni per l'utilizzo
+      href: terms-of-use.md
 - name: riferimento
   items:
-  - name: Riferimenti tecnici
-    href: technical-reference.md
+    - name: Riferimenti tecnici
+      href: technical-reference.md
 - name: Risorse
   items:
-  - name: Forum di commenti e suggerimenti su Azure
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Aggiornamenti del servizio
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Video
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 1db270043ea996b72f47ee00dbd07f1bd33a1e48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787033"
+    - name: Forum di commenti e suggerimenti su Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Aggiornamenti del servizio
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

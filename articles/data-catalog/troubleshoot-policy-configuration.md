@@ -1,17 +1,17 @@
 ---
 title: Come configurare i criteri di Azure Active Directory per Azure Data Catalog
 description: Si potrebbe verificarsi una situazione in cui è possibile accedere al portale di Azure Data Catalog, ma quando si prova ad accedere allo strumento di registrazione dell'origine dati, viene visualizzato un messaggio di errore.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
-ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59363140"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996442"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Configurazione dei criteri di Azure Active Directory
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122876"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011252"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -26,7 +26,7 @@ Ogni richiesta deve includere la chiave di accesso e un endpoint HTTP. L'endpoin
 È importante ricordare che Analisi del testo è senza stato perciò non ci sono risorse dati da gestire. Il testo viene caricato, analizzato al momento della ricezione e i risultati vengono restituiti immediatamente all'applicazione chiamante.
 
 > [!Tip]
-> Per eseguire chiamate una tantum con lo scopo di vedere come funziona l'API, è possibile inviare richieste POST dalla **console di test API** integrata disponibile in qualsiasi [pagina di documentazione dell'API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Non serve alcuna configurazione e gli unici requisiti sono incollare una chiave di accesso e i documenti JSON nella richiesta. 
+> Per eseguire chiamate una tantum con lo scopo di vedere come funziona l'API, è possibile inviare richieste POST dalla **console di test API** integrata disponibile in qualsiasi [pagina di documentazione dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Non serve alcuna configurazione e gli unici requisiti sono incollare una chiave di accesso e i documenti JSON nella richiesta. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,10 +60,10 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 
    Gli endpoint di risorsa sono i seguenti (l'area può variare):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Impostare le tre intestazioni della richiesta:
 
@@ -81,10 +81,10 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 
 5. Incollare alcuni documenti JSON in un formato valido per l'analisi desiderata. Per altre informazioni su una determinata analisi, vedere gli argomenti seguenti:
 
-   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
-   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
-   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-   + [Riconoscimento delle entità (anteprima)](text-analytics-how-to-entity-linking.md)  
+  + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
+  + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
+  + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
+  + [Riconoscimento di entità](text-analytics-how-to-entity-linking.md)  
 
 
 6. Fare clic su **Send** (Invia) per inviare la richiesta. È possibile inviare fino a 100 richieste al minuto. 

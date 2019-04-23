@@ -15,20 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: 02aa18329dd40ae2d3b0d1e2572ff3f6e2053466
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a72ff65c7b9434ca2f43e4e4f06fc4e95dfbb4e7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351884"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997343"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per l'archiviazione
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
-
 ## <a name="other-sizes"></a>Altre dimensioni
+
 - [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per il calcolo](sizes-compute.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
@@ -37,4 +36,7 @@ ms.locfileid: "54351884"
 - [Generazioni precedenti](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+
+Informazioni su come [ottimizzare le prestazioni nelle macchine virtuali serie Lsv2](storage-performance.md).

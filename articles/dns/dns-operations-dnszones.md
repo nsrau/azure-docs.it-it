@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: victorh
-ms.openlocfilehash: 2d3bb37998a037dcb878a988d4aa01245584ca82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1ef44c16a8ae3b6254a6cea252501b72ddb24a5c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496421"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003769"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Come gestire le zone DNS utilizzando PowerShell
 
@@ -166,7 +166,7 @@ Poiché il valore predefinito per `$ConfirmPreference` è `High`, solo `Remove-A
 
 Per eseguire l'override dell'impostazione `$ConfirmPreference` corrente è possibile usare il parametro `-Confirm`. Se si specifica `-Confirm` o `-Confirm:$True`, il cmdlet chiede conferma prima dell'esecuzione. Se si specifica `-Confirm:$False`, il cmdlet non chiede alcuna conferma.
 
-Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1) (Informazioni sulle variabili di preferenza).
+Per altre informazioni su `-Confirm` e `$ConfirmPreference`, vedere [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables) (Informazioni sulle variabili di preferenza).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501638"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996023"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 L'invio in batch non influisce sul numero di operazioni di messaggistica fatturabili ed è disponibile solo per il protocollo client del bus di servizio usando la libreria [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Il protocollo HTTP non supporta l'invio in batch.
+
+> [!NOTE]
+> L'impostazione BatchFlushInterval garantisce che il batch è implicito dalla prospettiva dell'applicazione. ad esempio l'applicazione effettua SendAsync () e CompleteAsync() chiama e non effettua chiamate specifiche di Batch.
+>
+> L'invio in batch sul lato client esplicita può essere implementato usando la seguente chiamata al metodo: 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> In questo caso le dimensioni combinate dei messaggi devono essere minore rispetto alla dimensione massima supportata dal piano tariffario.
 
 ## <a name="batching-store-access"></a>Invio in batch per l'accesso all'archivio
 

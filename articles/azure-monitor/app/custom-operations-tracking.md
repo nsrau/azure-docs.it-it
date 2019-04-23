@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811291"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995541"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -384,12 +384,13 @@ Per alcune code, è possibile una rimozione dalla coda di più messaggi con una 
 Ogni elaborazione dei messaggi deve essere eseguita nel proprio flusso di controllo asincrono. Per ulteriori informazioni, vedere la sezione [Verifica delle dipendenze in uscita](#outgoing-dependencies-tracking).
 
 ## <a name="long-running-background-tasks"></a>Attività in background a esecuzione prolungata
+
 Alcune applicazioni avviano operazioni a esecuzione prolungata che possono essere causate dalle richieste degli utenti. Dal punto di vista della verifica/strumentazione, non c'è differenza dalla strumentazione delle richieste o delle dipendenze: 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-In questo esempio `telemetryClient.StartOperation` crea `RequestTelemetry` e specifica il contesto di correlazione. Si supponga di avere un'operazione padre creata dalle richieste in ingresso che hanno pianificato l'operazione. `BackgroundTask`, purché venga avviato nello stesso flusso di controllo asincrono di una richiesta in ingresso, viene correlato con tale operazione padre. `BackgroundTask` e tutti gli elementi di telemetria annidati vengono automaticamente correlati alla richiesta che l'ha generato anche dopo la fine della richiesta.
+In questo esempio `telemetryClient.StartOperation` crea `DependencyTelemetry` e specifica il contesto di correlazione. Si supponga di avere un'operazione padre creata dalle richieste in ingresso che hanno pianificato l'operazione. `BackgroundTask`, purché venga avviato nello stesso flusso di controllo asincrono di una richiesta in ingresso, viene correlato con tale operazione padre. `BackgroundTask` e tutti gli elementi di telemetria annidati vengono automaticamente correlati alla richiesta che l'ha generato anche dopo la fine della richiesta.
 
-Quando l'attività viene avviata dal thread in background a cui non sono associate operazioni (`Activity`), `BackgroundTask` non ha elementi padre. Tuttavia, può avere operazioni annidate. Tutti gli elementi di telemetria segnalati dall'attività sono correlati a `RequestTelemetry` creato in `BackgroundTask`.
+Quando l'attività viene avviata dal thread in background a cui non sono associate operazioni (`Activity`), `BackgroundTask` non ha elementi padre. Tuttavia, può avere operazioni annidate. Tutti gli elementi di telemetria segnalati dall'attività sono correlati a `DependencyTelemetry` creato in `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Verifica delle dipendenze in uscita
 È possibile tenere traccia della propria tipologia di dipendenza o di operazioni non supportate da Application Insights.

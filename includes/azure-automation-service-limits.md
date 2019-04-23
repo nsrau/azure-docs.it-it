@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553725"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012502"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
@@ -22,6 +22,7 @@ ms.locfileid: "57553725"
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per ogni account di automazione di Azure (nonscheduled processi) |100 |Quando viene raggiunto questo limite, le richieste successive per creare un processo esito negativo. Il client riceve una risposta di errore.|
 | Numero massimo di processi in esecuzione simultaneamente alla stessa istanza di tempo per ogni account di automazione (processi nonscheduled) |200 |Quando viene raggiunto questo limite, le richieste successive per creare un processo esito negativo. Il client riceve una risposta di errore.|
 | Dimensioni massime di archiviazione di metadati del processo per un periodo di 30 giorni in sequenza | 10 GB (circa 4 milioni di processi)|Quando viene raggiunto questo limite, le richieste successive per creare un processo esito negativo. |
+| Limite di flusso del processo massima|1 MB|Un singolo flusso non può essere maggiore di 1 MB.|
 | Numero massimo di moduli che possono essere importati ogni 30 secondi per ogni account di automazione |5 ||
 | Dimensioni massime di un modulo |100 MB ||
 | Tempo, livello gratuito di esecuzione processo |500 minuti per sottoscrizione al mese di calendario ||

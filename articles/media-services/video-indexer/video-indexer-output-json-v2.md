@@ -1,5 +1,5 @@
 ---
-title: Esaminare l'output di Video Indexer generato dall'API v2
+title: Esaminare l'output di indicizzatore Video di servizi multimediali di Azure generato dall'API v2
 titlesuffix: Azure Media Services
 description: In questo argomento viene esaminato l'output di Video Indexer generato dall'API v2.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011322"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output a Video Indexer prodotto dall'API
 
@@ -32,7 +32,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -92,7 +92,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
@@ -148,7 +148,7 @@ Le informazioni dettagliate sono un set di dimensioni (ad esempio, righe di tras
 
 Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05 - 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 - 00:41:49.) Ogni istanza temporale può avere metadati aggiuntivi, ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
-|Versione|Versione del codice|
+|Version|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |Linguaggio|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
@@ -197,7 +197,7 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 
 #### <a name="transcript"></a>transcript
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
@@ -235,7 +235,7 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
@@ -270,7 +270,7 @@ Esempio:
 
 #### <a name="keywords"></a>keywords
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
@@ -279,45 +279,29 @@ Esempio:
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>faces
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -362,7 +346,7 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
@@ -421,7 +405,7 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della scena.|
 |instances|Un elenco degli intervalli di tempo di questa scena (una scena può avere solo 1 istanza).|
@@ -454,7 +438,7 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco di fotogrammi chiave all'interno della ripresa (ognuno con un ID e un elenco degli intervalli di tempo istanze). Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'anteprima del fotogramma chiave ID.|
@@ -504,7 +488,7 @@ Esempio:
 
 Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscimento vocale e/o nell'OCR del video. Non include il riconoscimento visivo dei marchi o il rilevamento dei logo.
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
@@ -563,7 +547,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="statistics"></a>statistics
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -573,7 +557,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
@@ -602,7 +586,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -641,7 +625,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
@@ -677,7 +661,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID della moderazione dei contenuti di testo.|
 |bannedWordsCount |Numero di parole escluse.|
@@ -687,7 +671,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozione identificata potrebbe essere gioia, tristezza, rabbia o paura.
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento emotivo identificato in base ai segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.|
@@ -777,7 +761,7 @@ Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozion
 
 Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello. 
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio: "Prodotti farmaceutici".|

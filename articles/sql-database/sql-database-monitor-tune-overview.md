@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683174"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001576"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -85,9 +85,9 @@ Se si determina che è presente un problema di prestazioni correlato all'esecuzi
 > [!IMPORTANT]
 > Per un set di una query T-SQL che usa queste DMV per risolvere i problemi relativi all'utilizzo della CPU, vedere [Identificare i problemi di prestazioni della CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Risolvere i problemi relativi ai piani di esecuzione delle query sensibili ai parametri
+### <a name="ParamSniffing"></a> Risolvere i problemi di query con problemi di piani di esecuzione di query sensibili ai parametri
 
-Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro.
+Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro. Per altre informazioni su analisi dei parametri e l'elaborazione delle query, vedere la [Guida sull'architettura di elaborazione Query](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
 
 Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle quali comporta compromessi e svantaggi:
 
@@ -102,17 +102,17 @@ Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle qu
 
 Per altre informazioni sulla risoluzione di questi tipi di problemi, vedere:
 
-- Post di blog sull'[analisi di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)
-- Post di blog [sull'analisi dei parametri per il problema dell'elefante e del topo](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)
-- Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- Ciò [olfatto parametro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) post di blog
+- Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- Ciò [tecniche di ottimizzazione di Query SQL in SQL Server: Analisi dei parametri](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) post di blog
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Risoluzione dei problemi relativi all'attività di compilazione a causa della parametrizzazione non corretta
 
 Quando una query contiene valori letterali, il motore di database sceglie di impostare automaticamente i parametri dell'istruzione oppure un utente può impostarne i parametri in modo esplicito per ridurre il numero di compilazioni. Un numero elevato di compilazioni di una query con lo stesso modello, ma valori letterali diversi può causare un utilizzo elevato della CPU. Analogamente, se si impostano solo parzialmente i parametri di una query che continua a includere valori letterali, il motore di database non imposta gli altri parametri.  Di seguito è riportato un esempio di una query con solo alcuni parametri impostati:
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 Nell'esempio precedente `t1.c1` usa `@p1`, ma `t2.c2` continua a usare il GUID come valore letterale. In questo caso, se si modifica il valore per `c2`, la query verrà considerata come una query diversa e verrà eseguita una nuova compilazione. Per ridurre le compilazioni nell'esempio precedente, la soluzione consiste nell'impostare i parametri anche del GUID.
@@ -120,24 +120,24 @@ Nell'esempio precedente `t1.c1` usa `@p1`, ma `t2.c2` continua a usare il GUID c
 La query seguente illustra il conteggio delle query per hash di query per determinare se i parametri di una query sono impostati correttamente o meno:
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Risolvere le query problematiche o fornire altre risorse
@@ -183,7 +183,7 @@ Negli scenari con utilizzo elevato della CPU, Query Store e le statistiche di at
 - È possibile che siano ancora in esecuzione query con utilizzo elevato della CPU e che le query non siano state completate
 - Le query con utilizzo elevato della CPU erano in esecuzione quando si è verificato un failover
 
-Query Store e le viste DMV di rilevamento delle statistiche di attesa mostrano solo i risultati delle query completate e di cui si è verificato il timeout e non mostrano i dati per le istruzioni attualmente in esecuzione (finché non vengono completate).  La vista DMV [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) consente di tenere traccia delle query attualmente in esecuzione e della durata del ruolo di lavoro associato.
+Query Store e le viste DMV di rilevamento delle statistiche di attesa mostrano solo i risultati delle query completate e di cui si è verificato il timeout e non mostrano i dati per le istruzioni attualmente in esecuzione (finché non vengono completate). La vista DMV [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) consente di tenere traccia delle query attualmente in esecuzione e della durata del ruolo di lavoro associato.
 
 Come illustrato nel grafico precedente, le attese più comuni sono:
 
@@ -198,6 +198,8 @@ Come illustrato nel grafico precedente, le attese più comuni sono:
 > - [Identificare i problemi di prestazioni di IO](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificare `tempdb` i problemi di prestazioni](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificare le attese di concessione di memoria](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox - resta in attesa di latch](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Miglioramento delle prestazioni del database con più risorse
 

@@ -1,29 +1,29 @@
 ---
-title: Eseguire i comandi di CLI di Azure o PowerShell in un'identità di Azure AD per accedere ai dati di accodamento e blob | Microsoft Docs
-description: PowerShell e CLI di Azure supporta la registrazione con un'identità di Azure AD per eseguire comandi sui dati di code e blob di archiviazione di Azure. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni variano a seconda il ruolo RBAC assegnato per l'identità di Azure AD.
+title: Eseguire i comandi CLI di Azure o PowerShell con credenziali di Azure AD di accedere ai dati di accodamento o blob | Microsoft Docs
+description: PowerShell e CLI di Azure supporta l'accesso con credenziali di Azure AD per eseguire comandi sui dati di code e blob di archiviazione di Azure. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni variano a seconda il ruolo RBAC assegnato all'entità di sicurezza di Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786999"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149649"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Usare un'identità di Azure AD per accedere ai dati blob e code con PowerShell o CLI
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire i comandi CLI di Azure o PowerShell con credenziali di Azure AD di accedere ai dati di accodamento o blob
 
-Archiviazione di Azure fornisce estensioni di comando di Azure e PowerShell che consentono di accedere a ed eseguire i comandi script con un'identità di Azure Active Directory (Azure AD). L'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'[identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). È possibile assegnare autorizzazioni per accedere ai dati blob e di Accodamento per l'identità di Azure AD tramite il controllo di accesso basato sui ruoli (RBAC). Per altre informazioni sui ruoli RBAC in archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
+Archiviazione di Azure fornisce estensioni di comando di Azure e PowerShell che consentono di accedere a ed eseguire i comandi script con le credenziali di Azure Active Directory (Azure AD). Quando si accede al comando di Azure o PowerShell con credenziali di Azure AD, viene restituito un token di accesso di OAuth 2.0. Tale token viene usato automaticamente da PowerShell o CLI per autorizzare le operazioni successive dei dati in archiviazione di accodamento o Blob. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
-Quando si accede al comando di Azure o PowerShell con un'identità Azure AD, viene restituito un token di accesso per l'accesso all'archiviazione di Azure con tale identità. Tale token viene quindi usato automaticamente dall'interfaccia della riga di comando o da PowerShell per autorizzare le operazioni su Archiviazione di Azure. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
+È possibile assegnare autorizzazioni per i dati di accodamento e blob a un'entità di sicurezza di Azure AD tramite il controllo di accesso basato sui ruoli (RBAC). Per altre informazioni sui ruoli RBAC in archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
-Le estensioni sono supportate per le operazioni su contenitori e code. Quali operazioni è possibile chiamare dipende dalle autorizzazioni concesse per l'identità di Azure AD con cui si accede al comando di Azure o PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se all'identità viene assegnato un ruolo di Lettore dei dati, è possibile eseguire i comandi di scripting che leggono i dati da un contenitore o una coda. Se all'identità viene assegnato un ruolo di Collaboratore ai dati, è possibile eseguire i comandi di scripting per la lettura, scrittura o eliminazione di un contenitore, di una coda o dei dati in essi contenuti. 
+Le estensioni sono supportate per le operazioni su contenitori e code. Quali operazioni è possibile chiamare dipende dalle autorizzazioni concesse all'entità di sicurezza di Azure AD con cui si accede al comando di Azure o PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se è stata assegnata la **lettore di dati Blob** ruolo, sarà possibile eseguire i comandi script che leggono i dati da un contenitore o una coda. Se è stata assegnata la **collaboratore ai dati Blob** ruolo, sarà possibile eseguire i comandi script che leggeranno, scrivano o eliminare un contenitore o coda o dati che contengono. 
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di Archiviazione di Azure su un contenitore o una coda, vedere [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Autorizzazioni per la chiamata di operazioni REST).  
 
@@ -129,5 +129,5 @@ Nell'esempio seguente viene illustrato come creare un contenitore in un nuovo ac
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sui ruoli RBAC per archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
-- Per altre informazioni sull'utilizzo delle identità gestita per le risorse di Azure con archiviazione di Azure, vedere [autentica l'accesso a BLOB e code con Azure managed le identità per le risorse di Azure](storage-auth-aad-msi.md).
+- Per altre informazioni sull'utilizzo delle identità gestita per le risorse di Azure con archiviazione di Azure, vedere [autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
 - Per informazioni su come autorizzare l'accesso a contenitori e code all'interno delle applicazioni di archiviazione, vedere [Usare Azure AD con applicazioni di archiviazione](storage-auth-aad-app.md).

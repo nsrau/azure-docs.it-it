@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445696"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996031"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -41,7 +41,7 @@ Archiviazione non modificabile supporta quanto segue:
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Utilizzando le impostazioni a livello di contenitore semplici, gli utenti possono creare e i criteri di conservazione basati sul tempo di blocco, estendere gli intervalli di conservazione, set e deselezionare giudiziari e altro ancora. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto per la registrazione di controllo**: ogni contenitore include un log di controllo. Sono presenti fino a cinque comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati, con un massimo di tre log per le estensioni dell'intervallo di conservazione. Per la conservazione basata sul tempo, il log contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del contenitore, in conformità alle linee guida delle normative SEC 17a-4(f). Il [Log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) viene visualizzato un log più completo di tutte le attività del piano di controllo, durante l'abilitazione [log di diagnostica di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) mantiene, unitamente a operazioni del piano dati. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
+- **Supporto per la registrazione di controllo**: Ogni contenitore include un log di controllo dei criteri. Mostra fino a sette basati sul tempo conservazione i comandi per i criteri di conservazione basati sul tempo bloccato e contiene l'ID utente, tipo di comando, timbri data / ora e intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del criterio, in conformità con le linee guida ai requisiti normativi di 17a-4(f) SEC. Il [Log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) viene visualizzato un log più completo di tutte le attività del piano di controllo, durante l'abilitazione [log di diagnostica di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) mantiene, unitamente a operazioni del piano dati. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -82,15 +82,28 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 
 <sup>1</sup> l'applicazione consente di creare un nuovo blob una volta queste operazioni. Tutte le successive sovrascrivere non sono consentite operazioni su un percorso blob esistente in un contenitore non modificabile.
 
+## <a name="supported-values"></a>Valori supportati
+
+### <a name="time-based-retention"></a>Conservazione basata su tempo
+- Per un account di archiviazione, il numero massimo di contenitori con criteri di non modificabili basato sul tempo bloccati è 1.000.
+- L'intervallo di conservazione minimo è 1 giorno. Il valore massimo è 146,000 giorni (400 anni).
+- Per un contenitore, il numero massimo di modifiche. per estendere un intervallo di conservazione per i criteri di non modificabili basato sul tempo bloccati è 5.
+- Per un contenitore, un massimo di 7 log di controllo di criteri di conservazione basati sul tempo vengono mantenuti per la durata del criterio.
+
+### <a name="legal-hold"></a>A fini giudiziari
+- Per un account di archiviazione, il numero massimo di contenitori con un'impostazione di blocco a fini giudiziari è 1.000.
+- Per un contenitore, il numero massimo di tag di blocco a fini giudiziari è 10.
+- La lunghezza minima di un tag a fini giudiziari è 3 caratteri alfanumerici. La lunghezza massima è 23 caratteri alfanumerici.
+- Per un contenitore, un massimo di 10 legali mantengono il controllo dei criteri per la durata del criterio vengono conservati i registri.
+
 ## <a name="pricing"></a>Prezzi
 
 Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo dei dati non modificabili è lo stesso dei normali dati modificabili. Per informazioni sui prezzi di Archiviazione BLOB di Azure, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Introduzione
-È disponibile solo per utilizzo generico v2 e account di archiviazione Blob di archiviazione non modificabile. Questi account deve essere gestito attraverso [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Per informazioni sull'aggiornamento di un account di archiviazione v1 generico esistente, vedere [esegue l'aggiornamento di un account di archiviazione](../common/storage-account-upgrade.md).
+È disponibile solo per utilizzo generico v2 e account di archiviazione Blob di archiviazione non modificabile. Questi account devono essere gestiti tramite [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Per informazioni sull'aggiornamento di un account di archiviazione v1 generico esistente, vedere [esegue l'aggiornamento di un account di archiviazione](../common/storage-account-upgrade.md).
 
 Le versioni più recenti del [portale di Azure](https://portal.azure.com), [CLI di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) supportano l'archiviazione non modificabile per l'archiviazione Blob di Azure. [Supporto delle librerie client](#client-libraries) viene anche fornito.
-
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -152,16 +165,6 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 - [Libreria client Python versione 2.0.0 versione finale candidata 2 e versioni successive](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Libreria client Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>Valori supportati
-
-- L'intervallo di conservazione minimo è di un giorno. Il valore massimo è 146,000 giorni (400 anni).
-- Per un account di archiviazione, il numero massimo di contenitori con criteri non modificabili bloccati è 1.000.
-- Per un account di archiviazione, il numero massimo di contenitori con un'impostazione di blocco a fini giudiziari è 1.000.
-- Per un contenitore, il numero massimo di tag di blocco a fini giudiziari è 10.
-- La lunghezza massima di un tag di blocco a fini giudiziari è di 23 caratteri alfanumerici. La lunghezza minima è di tre caratteri.
-- Per un contenitore, il numero massimo di estensioni dell'intervallo di conservazione consentite per i criteri non modificabili bloccati è tre.
-- Per un contenitore con criteri non modificabili bloccati, vengono conservati un massimo di cinque log di criteri di conservazione basati sul tempo e un massimo di 10 log di criteri di blocco a fini giudiziari per la durata del contenitore.
-
 ## <a name="faq"></a>Domande frequenti
 
 **È possibile fornire la documentazione di conformità di WORM?**
@@ -178,7 +181,7 @@ No, è possibile usare archiviazione non modificabile con qualsiasi nuovo o esis
 
 **È possibile applicare a fini giudiziari sia criteri di conservazione basati sul tempo?**
 
-A un contenitore possono essere applicati contemporaneamente sia criteri di conservazione basati sul tempo che un blocco a fini giudiziari. Tutti i BLOB nel contenitore rimangono nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimane in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari.
+Sì, un contenitore può avere sia un a fini giudiziari e criteri di conservazione basati sul tempo nello stesso momento. Tutti i BLOB nel contenitore rimangono nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimane in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari.
 
 **Sono i criteri a fini giudiziari solo per azioni legali o esistono altri scenari di utilizzo?**
 
@@ -202,13 +205,13 @@ In caso di mancato pagamento, verranno applicati i normali criteri di conservazi
 
 **È disponibile una versione di valutazione o un periodo di tolleranza per provare la funzionalità?**
 
-Sì. Quando vengono creati per la prima volta, i criteri di conservazione basati sul tempo si trovano in uno stato *sbloccato*. In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Dopo che sono stati bloccati, i criteri rimangono bloccati fino alla scadenza dell'intervallo di conservazione. Questo criterio di blocco impedisce l'eliminazione e la modifica all'intervallo di conservazione. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
+Sì. Quando viene creato un criterio di conservazione basati sul tempo, è in un *sbloccato* dello stato. In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Dopo che sono stati bloccati, i criteri rimangono bloccati fino alla scadenza dell'intervallo di conservazione. Questo criterio di blocco impedisce l'eliminazione e la modifica all'intervallo di conservazione. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
 
 **È possibile usare l'eliminazione temporanea con i criteri di blob non modificabile?**
 
 Sì. [Eliminazione temporanea per l'archiviazione Blob di Azure](storage-blob-soft-delete.md) applica per tutti i contenitori all'interno di un account di archiviazione indipendentemente dal fatto un criterio di conservazione basati sul tempo o a fini giudiziari. Si consiglia di abilitare l'eliminazione temporanea per una protezione aggiuntiva prima di tutti i criteri non modificabili di WORM siano applicati e confermati. 
 
-**La funzionalità è disponibile nei cloud nazionali e per enti pubblici?**
+**Dove si trova la funzione di disponibile?**
 
 L'archiviazione non modificabile è disponibile nelle aree pubbliche di Azure, in Cina e per gli enti pubblici. Se nell'area di archiviazione non modificabile non è disponibile, contattare il supporto e alla posta elettronica azurestoragefeedback@microsoft.com.
 

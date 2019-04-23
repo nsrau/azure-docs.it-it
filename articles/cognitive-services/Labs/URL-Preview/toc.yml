@@ -2,7 +2,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni sull'Anteprima URL progetto
+    - name: Informazioni su Project URL Preview
       href: overview.md
     - name: Endpoint dell'Anteprima URL
       href: endpoint.md
@@ -19,7 +19,7 @@
       href: node-quickstart.md
     - name: Python
       href: python-quickstart.md
-- name: Riferimenti
+- name: riferimento
   expanded: true
   items:
     - name: Requisiti per l'uso e la visualizzazione

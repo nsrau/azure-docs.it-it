@@ -1,6 +1,6 @@
 ---
-title: Definizioni di avviso dello schema comuni per le funzioni di Azure per App/Webhook/logica
-description: Comprendere le definizioni di avviso dello schema comuni per i Webhook/funzioni per la logica o app di Azure
+title: Definizioni di avviso dello schema comuni per Webhook/logica o app di Azure funzioni/automazione runbook
+description: Comprendere le definizioni di avviso dello schema comuni per i Webhook/logica o le app di Azure funzioni/automazione runbook
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010397"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149411"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
-Questo articolo descrive la [definizioni di avviso dello schema comuni](https://aka.ms/commonAlertSchemaDocs) Webhook/logica App o funzioni di Azure. 
+Questo articolo descrive la [definizioni di avviso dello schema comuni](https://aka.ms/commonAlertSchemaDocs) per i runbook di funzioni o dell'automazione di Webhook/logica o app di Azure. 
 
 ## <a name="overview"></a>Panoramica
 

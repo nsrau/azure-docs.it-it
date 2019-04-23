@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351372"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000658"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
 Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di Azure Container, distribuire i [gruppi di contenitori](container-instances-container-groups.md) con le *risorse della GPU*. Le istanze di contenitore nel gruppo possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
 
-Come illustrato in questo articolo, è possibile aggiungere risorse GPU quando si distribuisce un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md) o un [modello di Resource Manager](container-instances-multi-container-group.md).
+Questo articolo illustra come aggiungere risorse GPU, quando si distribuisce un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md) oppure [modello di Resource Manager](container-instances-multi-container-group.md). Quando si distribuisce un'istanza di contenitore nel portale di Azure, è anche possibile specificare risorse della GPU.
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -61,7 +61,7 @@ Quando si distribuiscono risorse della GPU, impostare le risorse della CPU e mem
 
 * **Prezzi**: simili ai gruppi di contenitori senza risorse della GPU, le fatture di Azure per le risorse usate per la *durata* di un gruppo di contenitori con risorse della GPU. La durata viene calcolata a partire dal pull dell'immagine del primo contenitore fino al termine del gruppo di contenitori. Non include il tempo necessario per distribuire il gruppo di contenitori.
 
-  I prezzi per i gruppi di contenitori con risorse della GPU sono maggiori rispetto a quelli per i gruppi di contenitori senza risorse della GPU. Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/container-instances/).
+  Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **Driver CUDA**: poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
 

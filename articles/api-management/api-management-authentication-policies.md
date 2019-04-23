@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250952"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994945"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -29,6 +29,8 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 -   [Autenticazione con base](api-management-authentication-policies.md#Basic): consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
   
 -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
+
+-   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) -l'autenticazione con il [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per il servizio Gestione API.  
   
 ##  <a name="Basic"></a> Autenticazione con base  
  Usare il criterio `authentication-basic` per eseguire l'autenticazione con un servizio di back-end tramite l'autenticazione di base. Questo criterio imposta l'intestazione di autorizzazione HTTP sul valore corrispondente alle credenziali specificate nei criteri.  
@@ -47,21 +49,21 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatoria|  
+|Name|DESCRIZIONE|Obbligatorio|  
 |----------|-----------------|--------------|  
-|authentication-basic|Elemento radice.|Yes|  
+|authentication-basic|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
+|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|username|Specifica il nome utente della credenziale di base.|Yes|N/D|  
-|password|Specifica la password della credenziale di base.|Yes|N/D|  
+|username|Specifica il nome utente della credenziale di base.|Sì|N/D|  
+|password|Specifica la password della credenziale di base.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
   
 -   **Ambiti del criterio:** API  
   
@@ -82,23 +84,58 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatoria|  
+|Name|DESCRIZIONE|Obbligatorio|  
 |----------|-----------------|--------------|  
-|authentication-certificate|Elemento radice.|Yes|  
+|authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
+|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Identificazione personale del certificato client.|Yes|N/D|  
+|thumbprint|Identificazione personale del certificato client.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
   
 -   **Ambiti del criterio:** API  
+
+##  <a name="ManagedIdentity"></a> Eseguire l'autenticazione con identità gestita  
+ Usare il `authentication-managed-identity` criteri per l'autenticazione con un servizio back-end usando l'identità del servizio Gestione API gestita. Il criterio Usa in modo efficace l'identità gestita per ottenere un token di accesso da Azure Active Directory per l'accesso alla risorsa specificata. 
   
+### <a name="policy-statement"></a>Istruzione del criterio  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Esempio  
+  
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" /> 
+```  
+  
+### <a name="elements"></a>Elementi  
+  
+|Name|DESCRIZIONE|Obbligatorio|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |Elemento radice.|Sì|  
+  
+### <a name="attributes"></a>Attributi  
+  
+|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
+|----------|-----------------|--------------|-------------|  
+|resource|Stringa. L'URI ID App dell'API (risorsa protetta) web destinazione in Azure Active Directory.|Sì|N/D|  
+|output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore token come un tipo di oggetto `string`.|No |N/D|  
+|ignore-error|Booleano. Se impostato su `true`, la pipeline di criterio continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No |false|  
+  
+### <a name="usage"></a>Uso  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:** inbound  
+  
+-   **Ambiti del criterio:** globale, prodotto, API, operazione  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso di questi criteri, vedere:

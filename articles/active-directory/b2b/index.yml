@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3399ed71635434bc38d0c989118afb68de9fbd4c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338497"
 documentType: LandingData
 title: Documentazione di Azure Active Directory B2B
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione di Azure Active Directory B2B - Azure Active Directory | Microsoft Docs
-  description: Esercitazioni, guide introduttive e procedure sull'uso dell'accesso di utenti guest B2B per condividere e collaborare con partner esterni.
+  description: 'Esercitazioni, guide introduttive e procedure sull''uso dell''accesso di utenti guest B2B per condividere e collaborare con partner esterni.'
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -22,7 +16,7 @@ metadata:
   ms.date: 09/10/2018
   ms.author: mimart
 abstract:
-  description: Informazioni su come usare le funzionalità di Collaborazione B2B (Business-to-Business) di Azure AD per condividere in modo sicuro le applicazioni e i servizi aziendali con utenti guest e partner esterni da qualsiasi organizzazione, mantenendo al tempo stesso il controllo sui dati aziendali.  Ecco alcune funzionalità principali:<ul><li>Tramite un semplice processo di invito e di riscatto, gli utenti guest possono iniziare a collaborare usando le risorse a cui sono stati autorizzati ad accedere.</li><li>Gli utenti guest e i partner esterni gestiscono le rispettive identità tramite Azure AD, account di posta elettronica di social network o qualsiasi provider di identità.</li><li>È possibile proteggere le risorse aziendali con funzionalità di Azure AD quali Multi-Factor Authentication.</li><li>È possibile usare le API per personalizzare l'esperienza, ad esempio tramite un portale di accesso self-service.</li></ul>Le risorse seguenti consentono di iniziare rapidamente.
+  description: 'Informazioni su come usare le funzionalità di Collaborazione B2B (Business-to-Business) di Azure AD per condividere in modo sicuro le applicazioni e i servizi aziendali con utenti guest e partner esterni da qualsiasi organizzazione, mantenendo al tempo stesso il controllo sui dati aziendali.  Ecco alcune funzionalità principali:<ul><li>Tramite un semplice processo di invito e di riscatto, gli utenti guest possono iniziare a collaborare usando le risorse a cui sono stati autorizzati ad accedere.</li><li>Gli utenti guest e i partner esterni gestiscono le rispettive identità tramite Azure AD, account di posta elettronica di social network o qualsiasi provider di identità.</li><li>È possibile proteggere le risorse aziendali con funzionalità di Azure AD quali Multi-Factor Authentication.</li><li>È possibile usare le API per personalizzare l''esperienza, ad esempio tramite un portale di accesso self-service.</li></ul>Le risorse seguenti consentono di iniziare rapidamente.'
   aside:
     image:
       alt: Immagine di anteprima del video Descrizione di Azure AD B2B
@@ -30,32 +24,32 @@ abstract:
       src: ./media/index/video.png
       width: 246
     title: Descrizione di Azure AD B2B
-    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    href: 'https://www.youtube.com/watch?v=AhwrweCBdsc'
     width: 246
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come invitare utenti guest e iniziare a usare le funzionalità di Collaborazione B2B.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Aggiungere utenti guest nel portale di Azure
-      href: b2b-quickstart-add-guest-users-portal.md
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Aggiungere un utente guest con PowerShell
-      href: b2b-quickstart-invite-powershell.md
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Altre informazioni sulla configurazione delle funzionalità di Collaborazione B2B e sulla protezione delle risorse aziendali.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come invitare utenti guest e iniziare a usare le funzionalità di Collaborazione B2B.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Aggiungere utenti guest nel portale di Azure
+            href: b2b-quickstart-add-guest-users-portal.md
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Aggiungere un utente guest con PowerShell
+            href: b2b-quickstart-invite-powershell.md
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Invitare in blocco utenti guest B2B con PowerShell</a>
-    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Imporre Multi-Factor Authentication per gli utenti guest B2B</a>
+      - type: paragraph
+        text: Altre informazioni sulla configurazione delle funzionalità di Collaborazione B2B e sulla protezione delle risorse aziendali.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Invitare in blocco utenti guest B2B con PowerShell</a>
+          - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Imporre Multi-Factor Authentication per gli utenti guest B2B</a>

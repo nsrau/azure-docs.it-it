@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523699"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001083"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -88,9 +88,9 @@ Il database SQL protegge i dati dei clienti fornendo funzionalità di controllo 
 
 Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di garantire la conformità agli standard di sicurezza tramite la registrazione degli eventi del database in un log di controllo in un account di archiviazione di Azure, di proprietà del cliente. Il servizio di controllo consente agli utenti di monitorare le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Il rilevamento delle minacce migliora il controllo analizzando i log di controllo in cerca di comportamenti anomali e di tentativi potenzialmente dannosi di accesso o sfruttamento dei database. Gli avvisi vengono creati per le attività sospette o i criteri di accesso anomali, ad esempio attacchi SQL injection, potenziali infiltrazioni di dati e attacchi di forza bruta alle password. Gli avvisi di rilevamento delle minacce vengono visualizzati nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e consigli per altre indagini insieme alle azioni da intraprendere per mitigare la minaccia. La funzionalità di rilevamento delle minacce ha un costo di 15 USD per server al mese. È gratuita per i primi 60 giorni. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
+Advanced Threat Protection sta analizzando i log di SQL Server per rilevare comportamenti anomali e intercettare tentativi potenzialmente dannosi di accesso o exploit dei database. Gli avvisi vengono creati per le attività sospette, ad esempio attacchi di forza di SQL injection, potenziali infiltrazione di dati e bruta o per le anomalie di accesso usano modelli per intercettare intensificarsi di privilegi e violato le credenziali. Gli avvisi vengono visualizzati nella [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e consigli per ulteriori indagini condotte dato e azioni per ridurre la minaccia. Advanced Threat Protection può essere abilitato per ogni server per una tariffa aggiuntiva. Per altre informazioni, vedere [Introduzione a SQL Database di Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

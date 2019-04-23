@@ -1,100 +1,93 @@
-items:
 - name: Documentazione di Privileged Identity Management
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Azure AD PIM
-    href: pim-configure.md
+    - name: Informazioni su Azure AD PIM
+      href: pim-configure.md
 - name: Concetti
   items:
-  - name: Requisiti relativi alle licenze
-    href: subscription-requirements.md
-  - name: Ruoli che non possono essere gestiti dall'utente
-    href: pim-roles.md
-  - name: Accesso sicuro con privilegi
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA e PIM
-    href: pim-how-to-require-mfa.md
-  - name: Dashboard di panoramica
-    href: pim-resource-roles-overview-dashboards.md
-  - name: Notifiche tramite posta elettronica
-    href: pim-email-notifications.md
-  - name: API Microsoft Graph
-    href: pim-apis.md
+    - name: Requisiti relativi alle licenze
+      href: subscription-requirements.md
+    - name: Ruoli che non possono essere gestiti dall'utente
+      href: pim-roles.md
+    - name: Accesso sicuro con privilegi
+      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: MFA e PIM
+      href: pim-how-to-require-mfa.md
+    - name: Dashboard di panoramica
+      href: pim-resource-roles-overview-dashboards.md
+    - name: Notifiche tramite posta elettronica
+      href: pim-email-notifications.md
+    - name: API Microsoft Graph
+      href: pim-apis.md
 - name: Guide alle procedure
-  items:
-  - name: Distribuire PIM
-    href: pim-deployment-plan.md
-  - name: Iniziare a usare PIM
-    href: pim-getting-started.md
-  - name: Attivare i ruoli personali
-    items:
-    - name: Attivare i ruoli personali di Azure AD
-      href: pim-how-to-activate-role.md
-    - name: Attivare i ruoli delle risorse di Azure personali
-      href: pim-resource-roles-activate-your-roles.md
-  - name: Configurare PIM
-    items:
-    - name: Procedura guidata relativa alla sicurezza
-      href: pim-security-wizard.md
-    - name: Individuare le risorse di Azure
-      href: pim-resource-roles-discover-resources.md
-    - name: Concedere l'accesso ad altri utenti per la gestione di PIM
-      href: pim-how-to-give-access-to-pim.md
-    - name: Eseguire l'accesso con privilegi elevati per gestire tutte le sottoscrizioni
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Gestire i ruoli personali di Azure AD
-    items:
-    - name: Assegnare ruoli
-      href: pim-how-to-add-role-to-user.md
-    - name: Approvare le richieste
-      href: azure-ad-pim-approval-workflow.md
-    - name: Configurare le impostazioni dei ruoli
-      href: pim-how-to-change-default-settings.md
-    - name: Configurare gli avvisi
-      href: pim-how-to-configure-security-alerts.md
-    - name: Visualizzare la cronologia di controllo
-      href: pim-how-to-use-audit-log.md
-  - name: Gestire i ruoli delle risorse di Azure
-    items:
-    - name: Assegnare ruoli
-      href: pim-resource-roles-assign-roles.md
-    - name: Invitare utenti esterni
-      href: pim-resource-roles-external-users.md
-    - name: Approvare le richieste
-      href: pim-resource-roles-approval-workflow.md
-    - name: Estendere o rinnovare i ruoli
-      href: pim-resource-roles-renew-extend.md
-    - name: Configurare le impostazioni dei ruoli
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configurare gli avvisi
-      href: pim-resource-roles-configure-alerts.md
-    - name: Visualizzare la cronologia di attività e controlli
-      href: azure-pim-resource-rbac.md
-    - name: Usare i ruoli personalizzati
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Verificare l'accesso
-    items:
-    - name: Ruoli di Azure AD
-      items:
-      - name: Esaminare i ruoli personali di Azure AD
-        href: pim-how-to-perform-security-review.md
-      - name: Avviare una verifica dell'accesso
-        href: pim-how-to-start-security-review.md
-      - name: Completare una verifica di accesso
-        href: pim-how-to-complete-review.md
-    - name: Ruoli delle risorse di Azure
-      items:
-      - name: Esaminare i ruoli delle risorse di Azure personali
-        href: pim-resource-roles-perform-access-review.md
-      - name: Avviare una verifica dell'accesso
-        href: pim-resource-roles-start-access-review.md
-      - name: Completare una verifica di accesso
-        href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575794"
+  items:
+    - name: Distribuire PIM
+      href: pim-deployment-plan.md
+    - name: Iniziare a usare PIM
+      href: pim-getting-started.md
+    - name: Attivare i ruoli personali
+      items:
+        - name: Attivare i ruoli personali di Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Attivare i ruoli delle risorse di Azure personali
+          href: pim-resource-roles-activate-your-roles.md
+    - name: Configurare PIM
+      items:
+        - name: Procedura guidata relativa alla sicurezza
+          href: pim-security-wizard.md
+        - name: Individuare le risorse di Azure
+          href: pim-resource-roles-discover-resources.md
+        - name: Concedere l'accesso ad altri utenti per la gestione di PIM
+          href: pim-how-to-give-access-to-pim.md
+        - name: Eseguire l'accesso con privilegi elevati per gestire tutte le sottoscrizioni
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Gestire i ruoli personali di Azure AD
+      items:
+        - name: Assegnare ruoli
+          href: pim-how-to-add-role-to-user.md
+        - name: Approvare le richieste
+          href: azure-ad-pim-approval-workflow.md
+        - name: Configurare le impostazioni dei ruoli
+          href: pim-how-to-change-default-settings.md
+        - name: Configurare gli avvisi
+          href: pim-how-to-configure-security-alerts.md
+        - name: Visualizzare la cronologia di controllo
+          href: pim-how-to-use-audit-log.md
+    - name: Gestire i ruoli delle risorse di Azure
+      items:
+        - name: Assegnare ruoli
+          href: pim-resource-roles-assign-roles.md
+        - name: Invitare utenti esterni
+          href: pim-resource-roles-external-users.md
+        - name: Approvare le richieste
+          href: pim-resource-roles-approval-workflow.md
+        - name: Estendere o rinnovare i ruoli
+          href: pim-resource-roles-renew-extend.md
+        - name: Configurare le impostazioni dei ruoli
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Configurare gli avvisi
+          href: pim-resource-roles-configure-alerts.md
+        - name: Visualizzare la cronologia di attività e controlli
+          href: azure-pim-resource-rbac.md
+        - name: Usare i ruoli personalizzati
+          href: pim-resource-roles-custom-role-policy.md
+    - name: Verificare l'accesso
+      items:
+        - name: Ruoli di Azure AD
+          items:
+            - name: Esaminare i ruoli personali di Azure AD
+              href: pim-how-to-perform-security-review.md
+            - name: Avviare una verifica dell'accesso
+              href: pim-how-to-start-security-review.md
+            - name: Completare una verifica di accesso
+              href: pim-how-to-complete-review.md
+        - name: Ruoli delle risorse di Azure
+          items:
+            - name: Esaminare i ruoli delle risorse di Azure personali
+              href: pim-resource-roles-perform-access-review.md
+            - name: Avviare una verifica dell'accesso
+              href: pim-resource-roles-start-access-review.md
+            - name: Completare una verifica di accesso
+              href: pim-resource-roles-complete-access-review.md

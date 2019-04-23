@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548320"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005622"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con il Gateway applicazione di Azure - Azure PowerShell
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Ai fini di questa esercitazione, è necessario eseguire Azure PowerShell in locale. Deve essere installato il modulo Az 1.0.0 o versione successiva. Eseguire `Import-Module Az` e quindi `Get-Module Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
-- È necessario avere un v2 Application Gateway SKU poiché l'intestazione della funzionalità di riscrittura non è supportato per lo SKU v1. Se non è disponibile lo SKU v2, creare un [SKU di Gateway applicazione v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) prima di iniziare.
+- È necessario avere un v2 Application Gateway SKU poiché l'intestazione della funzionalità di riscrittura non è supportato per lo SKU v1. Se non è disponibile lo SKU v2, creare un [SKU di Gateway applicazione v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) prima di iniziare.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Che cosa è necessaria riscrivere un'intestazione
 

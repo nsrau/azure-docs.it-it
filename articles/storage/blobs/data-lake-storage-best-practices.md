@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: sachins
-ms.openlocfilehash: ad77204f0c5d916b4006ffa68a9608429f93f87a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000607"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
@@ -31,11 +31,11 @@ Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o
 
 ### <a name="security-for-groups"></a>Sicurezza per i gruppi
 
-Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni gruppi consigliati per iniziare sono **ReadOnlyUsers**, **WriteAccessUsers** e **FullAccessUsers** per la radice del filesystem e altri separati per le principali sottodirectory. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
+Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni consigliabile iniziare con i gruppi potrebbero essere **ReadOnlyUsers**, **WriteAccessUsers**, e **FullAccessUsers** per la radice del file system e persino separati per chiave nelle sottodirectory. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
 
 ### <a name="security-for-service-principals"></a>Sicurezza per le entità servizio
 
-Le entità servizio di Azure Active Directory vengono in genere usate dai servizi come Azure Databricks per accedere ai dati in Data Lake Storage Gen2. Per molti clienti potrebbe essere appropriata una singola entità servizio di Azure Active Directory, con autorizzazioni complete nella radice del filesystem di Data Lake Storage Gen2. Per altri clienti potrebbero essere necessari più cluster con entità servizio diverse, con un cluster con accesso completo ai dati e un altro cluster con accesso di sola lettura. 
+Le entità servizio di Azure Active Directory vengono in genere usate dai servizi come Azure Databricks per accedere ai dati in Data Lake Storage Gen2. Per molti clienti, un'entità servizio Azure Active Directory singola potrebbe essere adeguata e può avere le autorizzazioni complete nella radice del file system di Data Lake Storage Gen2. Per altri clienti potrebbero essere necessari più cluster con entità servizio diverse, con un cluster con accesso completo ai dati e un altro cluster con accesso di sola lettura. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Abilitare il firewall di Data Lake Storage Gen2 con l'accesso ai servizi di Azure
 
