@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
+title: "Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
 description: In questa guida introduttiva verrà illustrato come usare Azure Storage Explorer per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711192"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994470"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
 
 In questa guida introduttiva verrà illustrato come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 
@@ -39,7 +39,7 @@ Selezionare **Add an Azure Account** (Aggiungi un account Azure) e fare clic su 
 
 ![Microsoft Azure Storage Explorer - Finestra Connetti](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Al termine della connessione, Azure Storage Explorer viene caricato con la scheda **Explorer** visualizzata. Questa visualizzazione include informazioni dettagliate per tutti gli account di archiviazione di Azure e per le risorse di archiviazione locali configurate tramite gli account di [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gli ambienti di [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Al termine della connessione, Azure Storage Explorer viene caricato con la scheda **Explorer** visualizzata. Questa visualizzazione include informazioni dettagliate per tutti gli account di archiviazione di Azure e per le risorse di archiviazione locali configurate tramite gli account di [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gli ambienti di [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ![Microsoft Azure Storage Explorer - Finestra Connetti](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

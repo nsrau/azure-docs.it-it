@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279228"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796427"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
@@ -77,4 +77,4 @@ Il nome dell'entità utente deve corrispondere all'identità dell'utente in Azur
 Dopo aver completato questi passaggi, gli utenti aggiunti al gruppo di applicazioni desktop possono accedere a Desktop virtuale Windows con i client di Desktop remoto supportati e vedere una risorsa per un desktop di sessione.
 
 >[!IMPORTANT]
->Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile che non aprire la porta in ingresso 3389 nelle macchine virtuali. Desktop virtuale di Windows non richiede una porta in ingresso aperta 3389 per gli utenti per accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare [-in-time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
