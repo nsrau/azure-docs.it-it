@@ -34,7 +34,7 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | Data e ora di inizio del periodo di validità. |
 | endTime   | DateTime  | true |  Data e ora di fine del periodo di validità. |
-| recurrenceType | stringa | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
+| recurrenceType | string | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
