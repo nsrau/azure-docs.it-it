@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045646"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Eseguire il monitoraggio di un cluster
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Eliminazione di un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

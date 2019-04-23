@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 71feb455457fdf75fb19121bac1927b42fe38b67
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Esercitazione: Integrazione di Azure Active Directory con Wdesk
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Aggiunta di Wdesk dalla raccolta
 
-Per configurare l'integrazione di Wdesk in Azure AD, è necessario aggiungere Wdesk dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Wdesk in Azure AD, è necessario aggiungere Wdesk dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Wdesk dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di Wdesk in Azure AD, è necessario aggiungere Wd
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Wdesk usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Wdesk.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Wdesk, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Wdesk, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Wdesk](#configure-wdesk-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Wdesk](#create-wdesk-test-user)**: per avere una controparte di Britta Simon in Wdesk collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -168,9 +168,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,9 +192,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wdesk.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wdesk.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Wdesk**.
 
@@ -234,15 +234,15 @@ Per consentire agli utenti di Azure AD di accedere a Wdesk, è necessario effett
 
 4. Fare clic su **Add Member** (Aggiungi membro) per aprire la finestra di dialogo **Add Member** (Aggiungi membro). 
    
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser1.png)  
+    ![Creazione di un utente test di Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
 5. Nella casella di testo **User** (Utente) immettere il nome utente dell'utente, ad esempio brittasimon@contoso.com, quindi fare clic sul pulsante **Continua**.
 
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser3.png)
+    ![Creazione di un utente test di Azure AD](./media/wdesk-tutorial/createuser3.png)
 
 6.  Immettere i dettagli come mostrato di seguito:
   
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser4.png)
+    ![Creazione di un utente test di Azure AD](./media/wdesk-tutorial/createuser4.png)
  
     a. Nella casella di testo **E-mail** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
 
@@ -252,7 +252,7 @@ Per consentire agli utenti di Azure AD di accedere a Wdesk, è necessario effett
 
 7. Fare clic sul pulsante **Save Member** (Salva membro).  
 
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser5.png)
+    ![Creazione di un utente test di Azure AD](./media/wdesk-tutorial/createuser5.png)
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

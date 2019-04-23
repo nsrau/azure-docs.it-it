@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Esercitazione: integrazione di Azure Active Directory con Silverback
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Silverback, seguire que
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `<YOURSILVERBACKURL>.com`
+    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `<YOURSILVERBACKURL>.com`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 

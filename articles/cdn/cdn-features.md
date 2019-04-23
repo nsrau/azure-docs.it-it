@@ -16,10 +16,10 @@ ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: d78b10edd005a593b4ebe4f34ca2280ccdfdaa04
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918910"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
@@ -35,7 +35,7 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Accelerazione sito dinamico - Prelettura degli oggetti](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | [Ottimizzazione distribuzione Web generale](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;**, selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono inferiori a 10 MB  | **&#x2713;** |  **&#x2713;** |
 | [Ottimizzazione dello streaming video](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | tramite Distribuzione Web generale | **&#x2713;**  | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
-| [Ottimizzazione per file di grandi dimensioni](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | tramite Distribuzione Web generale | **&#x2713;**, selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono superiori a 10 MB   | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
+| [Ottimizzazione di file di grandi dimensioni](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | tramite Distribuzione Web generale | **&#x2713;**, selezionare questo tipo di ottimizzazione se le dimensioni medie dei file sono superiori a 10 MB   | tramite Distribuzione Web generale |  tramite Distribuzione Web generale |
 | Cambia tipo di ottimizzazione | |**&#x2713;** | | |
 | Porta dell'origine |Tutte le porte TCP |[Porte di origine consentite](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Tutte le porte TCP |Tutte le porte TCP |
 | [Bilanciamento del carico del server globale](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -50,10 +50,10 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Supporto HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Security** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+ **Sicurezza** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Supporto per HTTPS con endpoint della rete CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTPS dominio personalizzato](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Supporto del nome di dominio personalizzato](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtro geografico](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Autenticazione tramite token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Protezione DDoS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -62,7 +62,7 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | **Analisi e report** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Report principali da Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
-| [Report personalizzati di Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
+| [Report personalizzati da Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
 | [Prestazioni del nodo perimetrale](cdn-edge-performance.md)  |  | | |**&#x2713;** |

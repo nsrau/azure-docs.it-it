@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: Integrazione di Azure Active Directory con Moxtra
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Moxtra, seguire questa 
 
 6. Oltre quelli elencati in precedenza, l'applicazione Moxtra prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente: 
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ------------------- | -------------------- |    
     | firstname | user.givenname |
     | lastname | user.surname |
@@ -139,7 +139,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Moxtra, seguire questa 
 
     g. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -239,7 +239,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Moxtra.
 
-**Per creare un utente di nome Britta Simon in Moxtra, seguire questa procedura:**
+**Per creare un utente denominato Britta Simon in Moxtra, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Moxtra come amministratore.
 

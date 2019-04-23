@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008748"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Framework (Windows)
@@ -73,4 +73,4 @@ Per completare questo progetto, saranno necessari:
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli di lingua](how-to-customize-language-model.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)

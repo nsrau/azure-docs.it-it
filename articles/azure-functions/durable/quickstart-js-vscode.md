@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
 ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281234"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
@@ -170,4 +170,4 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 Si è usato Visual Studio Code per creare e pubblicare un'app per le funzioni durevoli in JavaScript.
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-concepts.md)
+> [Informazioni sui criteri di funzione permanente comuni](durable-functions-concepts.md)

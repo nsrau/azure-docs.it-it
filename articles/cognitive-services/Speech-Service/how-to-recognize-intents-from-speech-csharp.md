@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280537"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 06a10cab81b1253658f505b3cd3f2c520ef9cea8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Esercitazione: Integrazione di Azure Active Directory con l'accesso Single Sign-On di HRworks
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Aggiunta di HRworks Single Sign-On dalla raccolta
 
-Per configurare l'integrazione di HRworks Single Sign-On in Azure AD, è necessario aggiungere HRworks Single Sign-On dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di HRworks Single Sign-On in Azure AD, è necessario aggiungere HRworks Single Sign-On dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere HRworks Single Sign-On dalla raccolta, seguire questa procedura:**
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con HRworks Singl
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)**: per avere una controparte di Britta Simon in HRworks Single Sign-On collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HRworks Single Sign-On,
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -142,9 +142,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con HRworks Single Sign-On,
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HRworks Single Sign-On.
 

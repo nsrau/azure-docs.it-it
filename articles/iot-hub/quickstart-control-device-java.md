@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: 4a4b2047cea186db681f4190073cfff94bf99b1a
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005122"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Java)
@@ -184,4 +184,4 @@ In questa guida introduttiva è stato chiamato un metodo diretto su un dispositi
 Per informazioni su come indirizzare messaggi da dispositivo a cloud a diverse destinazioni nel cloud, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)
+> [Esercitazione: indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)

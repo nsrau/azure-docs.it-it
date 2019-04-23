@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Esercitazione: Integrazione di Azure Active Directory con Jive
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-jive-from-the-gallery"></a>Aggiunta di Jive dalla raccolta
 
-Per configurare l'integrazione di Jive in Azure AD, è necessario aggiungere Jive dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Jive in Azure AD, è necessario aggiungere Jive dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Jive dalla raccolta, seguire questa procedura:**
 
@@ -75,12 +75,12 @@ Per configurare l'integrazione di Jive in Azure AD, è necessario aggiungere Jiv
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Jive usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jive.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Jive, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Jive, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Jive](#configure-jive-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Jive](#create-jive-test-user)**: per avere una controparte di Britta Simon in Jive collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jive, seguire questa pr
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<instance name>.jivecustom.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<instance name>.jiveon.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<instance name>.jiveon.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di Jive](https://www.jivesoftware.com/services-support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jive, seguire questa pr
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -157,9 +157,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jive, seguire questa pr
 
     c. Nella casella di testo **Cognome** copiare e incollare il nome dell'attributo del valore **surname**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -182,9 +182,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jive.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Jive.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Jive**.
 

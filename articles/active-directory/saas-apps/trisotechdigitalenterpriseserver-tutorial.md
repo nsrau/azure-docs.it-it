@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Esercitazione: Integrazione di Azure Active Directory con Trisotech Digital Enterprise Server
@@ -51,9 +51,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-trisotech-digital-enterprise-server-from-the-gallery"></a>Aggiunta di Trisotech Digital Enterprise Server dalla raccolta
 
-Per configurare l'integrazione di Trisotech Digital Enterprise Server in Azure AD, è necessario aggiungere Trisotech Digital Enterprise Server dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Trisotech Digital Enterprise Server in Azure AD, è necessario aggiungere Trisotech Digital Enterprise Server dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Trisotech Digital Enterprise Server dalla raccolta, seguire questa procedura:**
+**Per aggiungere Trisotech Digital Enterprise Server dalla raccolta, eseguire queste operazioni:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -69,19 +69,19 @@ Per configurare l'integrazione di Trisotech Digital Enterprise Server in Azure A
 
 4. Nella casella di ricerca digitare **Trisotech Digital Enterprise Server**, selezionare **Trisotech Digital Enterprise Server** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Trisotech Digital Enterprise Server nell'elenco risultati](common/search-new-app.png)
+     ![Trisotech Digital Enterprise Server nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Trisotech Digital Enterprise Server usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Trisotech Digital Enterprise Server.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enterprise Server, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enterprise Server, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Trisotech Digital Enterprise Server](#configure-trisotech-digital-enterprise-server-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Trisotech Digital Enterprise Server](#create-trisotech-digital-enterprise-server-test-user)**: per avere una controparte di Britta Simon in Trisotech Digital Enterprise Server collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Trisotech Digital Enterprise Server](common/sp-identifier.png)
+    ![Informazioni su URL e dominio di Trisotech Digital Enterprise Server per l'accesso Single Sign-On](common/sp-identifier.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.trisotech.com`
 
@@ -138,7 +138,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
     b. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
-    c. Nella casella di testo **Application ID** (ID applicazione) digitare un URL nel formato seguente: `https://<companyname>.trisotech.com`.
+    c. Nella casella di testo **Application ID** (ID applicazione) digitare l'URL usando il modello seguente: `https://<companyname>.trisotech.com`.
 
     d. Fare clic su **Save** (Salva).
 
@@ -146,9 +146,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
     f. Fare clic su **Save** (Salva).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -170,9 +170,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Trisotech Digital Enterprise Server.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Trisotech Digital Enterprise Server.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Trisotech Digital Enterprise Server**.
 

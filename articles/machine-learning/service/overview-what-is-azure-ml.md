@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257111"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Informazioni sul servizio Azure Machine Learning
@@ -32,7 +32,7 @@ Queste previsioni o stime di Machine Learning possono rendere più intelligenti 
 
 Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning.
 
-[![AFlusso di lavoro del servizio Azure Machine Learning(./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Flusso di lavoro del servizio Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Il servizio Azure Machine Learning offre supporto completo per le tecnologie open source. È quindi possibile usare decine di migliaia di pacchetti Python open source con componenti di apprendimento automatico. Queste soluzioni includono, ad esempio, PyTorch, TensorFlow e Scikit-learn.
 Il supporto di strumenti avanzati semplifica l'esplorazione e la preparazione interattiva dei dati e quindi lo sviluppo e il test dei modelli. Tra gli strumenti supportati vi sono [Jupyter Notebook](https://jupyter.org) e l'estensione [Azure Machine Learning per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -53,7 +53,7 @@ Usando l'<a href="https://aka.ms/aml-sdk" target="_blank">SDK principale per Pyt
 È possibile scegliere tra i numerosi componenti di apprendimento automatico disponibili nei pacchetti Python open source, ad esempio:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
-- <a href="https://www.tensorflow.org" target="_blank">TensorFlow</a>
+- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 

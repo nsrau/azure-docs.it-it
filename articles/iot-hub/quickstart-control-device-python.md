@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005838"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
@@ -71,7 +71,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -178,4 +178,4 @@ In questa guida introduttiva è stato chiamato un metodo diretto su un dispositi
 Per informazioni su come indirizzare messaggi da dispositivo a cloud a diverse destinazioni nel cloud, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)
+> [Esercitazione: indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)

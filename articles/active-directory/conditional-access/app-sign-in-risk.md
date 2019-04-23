@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891566"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
@@ -44,7 +44,7 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 
 L'obiettivo di questo passaggio è assicurarsi che l'account di test possa accedere al tenant tramite Tor Browser.
 
-**Per testare l'accesso:**
+**Per verificare il proprio accesso:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come **Alain Charon**.
 1. Uscire,

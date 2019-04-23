@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ON24 Virtual Environment SAML Connection.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273601"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Esercitazione: Integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Esercitazione: integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection
 
 Questa esercitazione descrive come integrare ON24 Virtual Environment SAML Connection con Azure Active Directory (Azure AD).
 L'integrazione di ON24 Virtual Environment SAML Connection con Azure AD offre i vantaggi seguenti:
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>Aggiunta di ON24 Virtual Environment SAML Connection dalla raccolta
 
-Per configurare l'integrazione di ON24 Virtual Environment SAML Connection in Azure AD, è necessario aggiungere ON24 Virtual Environment SAML Connection dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di ON24 Virtual Environment SAML Connection in Azure AD, è necessario aggiungere ON24 Virtual Environment SAML Connection dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere ON24 Virtual Environment SAML Connection dalla raccolta, seguire questa procedura:**
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di ON24 Virtual Environment SAML Connection in Az
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ON24 Virtual Environment SAML Connection**, selezionare **ON24 Virtual Environment SAML Connection** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca, digitare **ON24 Virtual Environment SAML Connection**, selezionare **ON24 Virtual Environment SAML Connection** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![ON24 Virtual Environment SAML Connection nell'elenco risultati](common/search-new-app.png)
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di ON24 Virtual Environment SAML Connection in Az
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ON24 Virtual Environment SAML Connection usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ON24 Virtual Environment SAML Connection.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environment SAML Connection è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environment SAML Connection è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di ON24 Virtual Environment SAML Connection](#configure-on24-virtual-environment-saml-connection-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di ON24 Virtual Environment SAML Connection](#create-on24-virtual-environment-saml-connection-test-user)**: per avere una controparte di Britta Simon in ON24 Virtual Environment SAML Connection collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
     a. Nella casella di testo **Identificatore** digitare un URL:
 
-     **URL dell'ambiente di produzione**
+     **URL ambiente di produzione**
     
     `SAML-VSHOW.on24.com`
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
     `SAP PROD SAML-EliteAudience.on24.com` 
                 
-     **URL dell'ambiente controllo qualità**
+     **URL ambiente di controllo di qualità**
     
     `SAMLQA-VSHOW.on24.com` 
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
     b. Nella casella di testo **URL di risposta** digitare un URL:
 
-     **URL dell'ambiente di produzione**
+     **URL ambiente di produzione**
     
     `https://federation.on24.com/sp/ACS.saml2`
 
@@ -135,7 +135,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
     `https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
 
-     **URL dell'ambiente controllo qualità**
+     **URL ambiente di controllo di qualità**
     
     `https://qafederation.on24.com/sp/ACS.saml2`
 
@@ -176,9 +176,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ON24 Virtual Environmen
 
 Per configurare l'accesso Single Sign-On sul lato **ON24 Virtual Environment SAML Connection**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -201,9 +201,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ON24 Virtual Environment SAML Connection.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ON24 Virtual Environment SAML Connection.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ON24 Virtual Environment SAML Connection**.
 
@@ -229,7 +229,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Creare l'utente di test di ON24 Virtual Environment SAML Connection
 
-In questa sezione viene creato un utente chiamato Britta Simon in ON24 Virtual Environment SAML Connection. Collaborare con il  [team di supporto clienti di ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) per aggiungere gli utenti alla piattaforma ON24 Virtual Environment SAML Connection. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ON24 Virtual Environment SAML Connection. Collaborare con il  [team di supporto clienti di withON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) per aggiungere gli utenti alla piattaforma ON24 Virtual Environment SAML Connection. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

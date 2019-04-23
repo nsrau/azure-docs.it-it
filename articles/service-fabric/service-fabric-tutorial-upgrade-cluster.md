@@ -16,10 +16,10 @@ ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046241"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric in Azure
@@ -43,7 +43,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Eseguire il monitoraggio di un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Aggiornare il runtime di un cluster
-> * [Eliminazione di un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix Netscaler
@@ -107,11 +107,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix Netscaler, segui
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Citrix Netscaler](common/sp-identifier-reply.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<<Your FQDN>>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<<Your FQDN>>`
 
-    c. Nella casella di testo **Reply URL (Assertion Consumer Service URL)** (URL di risposta (URL del servizio consumer di asserzione)) digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    c. Nella casella di testo **Reply URL (Assertion Consumer Service URL)** (URL di risposta - URL del servizio consumer di asserzione) digitare un URL nel formato seguente: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Citrix Netscaler](https://www.citrix.com/contact/technical-support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

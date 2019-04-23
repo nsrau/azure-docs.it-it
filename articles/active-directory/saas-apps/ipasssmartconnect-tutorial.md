@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Esercitazione: integrazione di Azure Active Directory con iPass SmartConnect
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iPass SmartConnect, seg
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | ---------------| ----------|
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -239,7 +239,7 @@ d. Immettere il nome utente di Azure con il dominio. Fare clic su **Continue** (
 
 e. Al termine dell'autenticazione, verrà avviata l'attivazione del client. Il client verrà attivato.
 
-**Per testare l'applicazione nel flusso avviato da IDP, seguire questa procedura:**
+**Per testare l'applicazione nel flusso avviato dal provider di identità, seguire questa procedura:**
 
 a. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

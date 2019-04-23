@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in macOS con Speech SDK
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
 ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012349"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su macOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -114,5 +114,5 @@ Scaricare e installare SDK come indicato di seguito:
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli di lingua](how-to-customize-language-model.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
 

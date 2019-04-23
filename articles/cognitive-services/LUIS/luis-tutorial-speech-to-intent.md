@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273839"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrare il servizio Voce con l'app Language Understanding
@@ -66,7 +66,7 @@ Questo articolo usa il dispositivo audio del computer. Il dispositivo può esser
 
 Speech SDK è già incluso come riferimento. 
 
-[![SScreenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech(./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Screenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificare il codice C#
 Aprire il file `Program.cs` e modificare le variabili seguenti:
@@ -98,6 +98,6 @@ Non dimenticare di eliminare la directory dopo aver usato il codice di esempio.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Integrare LUIS con un bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Integrare un bot con Language Understanding](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

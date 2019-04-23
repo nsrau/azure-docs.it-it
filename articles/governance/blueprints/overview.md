@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259423"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
@@ -55,7 +55,7 @@ Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente l
 |Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
 |---------|---------|---------|
 |Gruppi di risorse | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
-|Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro di Log Analytics. |
+|Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
 |Assegnazione dei criteri | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o le iniziative devono trovarsi nell'ambito della posizione della definizione di progetto. Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso. |
 |Assegnazione di ruolo | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
 

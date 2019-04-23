@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Esercitazione: Integrazione di Azure Active Directory con ExcelityGlobal
@@ -106,15 +106,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP ExcelityGlobal, seg
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    **Per l'ambiente di produzione**: `https://ess.excelityglobal.com`
+    **Per l'ambiente di produzione** : `https://ess.excelityglobal.com`
 
-    **Per l'ambiente sandbox**: `https://s6.excelityglobal.com`
+    **Per l'ambiente sandbox** : `https://s6.excelityglobal.com`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
 
-    **Per l'ambiente di produzione**: `https://ess.excelityglobal.com/ACS`
+    **Per l'ambiente di produzione** : `https://ess.excelityglobal.com/ACS`
 
-    **Per l'ambiente sandbox**: `https://s6.excelityglobal.com/ACS`
+    **Per l'ambiente sandbox** : `https://s6.excelityglobal.com/ACS`
 
 5. L'applicazione ExcelityGlobal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione ExcelityGlobal prevede che **nameidentifier** sia mappato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e cambiare il mapping.
  

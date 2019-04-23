@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Esercitazione: Integrazione di Azure Active Directory con T&E Express
@@ -195,7 +195,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere a T&E Express, è necessario eseguirne il provisioning in T&E Express. Nel caso di T&E Express, il provisioning è un'attività manuale.
 
-**Per eseguire il provisioning di un account utente, seguire questa procedura:**
+**Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di T&E Express come amministratore.
 

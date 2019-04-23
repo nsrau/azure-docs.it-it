@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273159"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
@@ -70,8 +70,8 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}` - Sostituire con l'ID del gruppo di gestione
-- `{subscriptionId}` - Sostituire con l'ID sottoscrizione
+- `{YourMG}`: sostituire con l'ID del gruppo di gestione
+- `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 > [!NOTE]
 > I progetti possono anche essere creati a livello di sottoscrizione. Per un esempio, vedere l'[esempio di creazione del progetto a livello di sottoscrizione](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,9 +336,9 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{tenantId}` - Sostituire con il proprio ID tenant
-- `{YourMG}` - Sostituire con l'ID del gruppo di gestione
-- `{subscriptionId}` - Sostituire con l'ID sottoscrizione
+- `{tenantId}`: sostituire con il proprio ID tenant
+- `{YourMG}`: sostituire con l'ID del gruppo di gestione
+- `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID dell'entità servizio varia in funzione del tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
 

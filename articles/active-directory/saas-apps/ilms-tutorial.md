@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9bcb465f76e09675333e6e608249cba11f722e3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Esercitazione: Integrazione di Azure Active Directory con iLMS
@@ -124,7 +124,7 @@ Per configurare Single Sign-On di Azure AD con iLMS, seguire questa procedura:
 
 7. Oltre quelli elencati in precedenza, l'applicazione iLMS prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | --------|------------- |
     | divisione | user.department |
     | region | user.state |

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Mobile Xpense | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Mobile Xpense | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Mobile Xpense.
 services: active-directory
 documentationCenter: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271306"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Esercitazione: Integrazione di Azure Active Directory con Mobile Xpense
+# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Esercitazione: integrazione di Azure Active Directory con Mobile Xpense
 
 Questa esercitazione descrive come integrare Mobile Xpense con Azure Active Directory (Azure AD).
 L'integrazione di Mobile Xpense con Azure AD offre i vantaggi seguenti:
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-mobile-xpense-from-the-gallery"></a>Aggiunta di Mobile Xpense dalla raccolta
 
-Per configurare l'integrazione di Mobile Xpense in Azure AD, è necessario aggiungere Mobile Xpense dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Mobile Xpense in Azure AD, è necessario aggiungere Mobile Xpense dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Mobile Xpense dalla raccolta, seguire questa procedura:**
 
@@ -66,20 +66,20 @@ Per configurare l'integrazione di Mobile Xpense in Azure AD, è necessario aggiu
 
 4. Nella casella di ricerca digitare **Mobile Xpense**, selezionare **Mobile Xpense** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Mobile Xpense nell'elenco risultati](common/search-new-app.png)
+     ![Mobile Xpense nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mobile Xpense usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mobile Xpense.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Mobile Xpense, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Mobile Xpense, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Mobile Xpense](#configure-mobile-xpense-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Mobile Xpense](#create-mobile-xpense-test-user)**: per avere una controparte di Britta Simon in Mobile Xpense collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Mobile Xpense](#create-mobile-xpense-test-user)**: per avere una controparte di Britta Simon in Mobile Xpense collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -121,13 +121,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mobile Xpense, seguire 
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-7. Nella sezione **Configura Mobile Xpense** copiare gli URL appropriati in base alle esigenze.
+7. Nella sezione **Configura Mobile Xpense** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -135,9 +135,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mobile Xpense, seguire 
 
 Per configurare l'accesso Single Sign-On sul lato **Mobile Xpense**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Mobile Xpense](https://www.mobilexpense.net/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -160,15 +160,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mobile Xpense.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mobile Xpense.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Mobile Xpense**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Mobile Xpense**.
+2. Selezionare **Mobile Xpense** nell'elenco delle applicazioni.
 
     ![Collegamento di Mobile Xpense nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -186,7 +186,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-mobile-xpense-test-user"></a>Creare l'utente di test di Mobile Xpense
+### <a name="create-mobile-xpense-test-user"></a>Creare un utente di test di Mobile Xpense
 
 In questa sezione viene creato un utente di nome Britta Simon in Mobile Xpense. Per aggiungere gli utenti alla piattaforma Mobile Xpense, collaborare con il  [team di supporto di Mobile Xpense](https://www.mobilexpense.net/contact). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

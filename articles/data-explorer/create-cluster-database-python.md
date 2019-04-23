@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045202"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python

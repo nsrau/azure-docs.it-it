@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276372"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Esempio - Insiemi di credenziali Key Vault senza endpoint di rete virtuale
@@ -180,10 +180,10 @@ Sono disponibili diversi strumenti che possono essere usati per interagire con l
 
 | Service | Gruppo | Operazione | Note |
 |---|---|---|---|
-| Gestione delle risorse | Definizioni dei criteri | [Create](/rest/api/resources/policydefinitions/createorupdate) | Crea una nuova definizione di Criteri di Azure a livello della sottoscrizione. Alternativa: [Creare a livello di gruppo di gestione](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| Gestione delle risorse | Assegnazioni di criteri | [Create](/rest/api/resources/policyassignments/create) | Crea una nuova assegnazione di Criteri di Azure. In questo esempio si specifica una definizione, ma può assumere un'iniziativa. |
-| Gestione delle risorse | Assegnazioni di criteri | [Delete](/rest/api/resources/policyassignments/delete) | Rimuove un'assegnazione di Criteri di Azure esistente. |
-| Gestione delle risorse | Definizioni dei criteri | [Delete](/rest/api/resources/policydefinitions/delete) | Rimuove una definizione di Criteri di Azure esistente. Alternativa: [Eliminare a livello di gruppo di gestione](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestione delle risorse | Definizioni dei criteri | [Creare](/rest/api/resources/policydefinitions/createorupdate) | Crea una nuova definizione di Criteri di Azure a livello della sottoscrizione. Alternativa: [Creare a livello di gruppo di gestione](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestione delle risorse | Assegnazioni di criteri | [Creare](/rest/api/resources/policyassignments/create) | Crea una nuova assegnazione di Criteri di Azure. In questo esempio si specifica una definizione, ma può assumere un'iniziativa. |
+| Gestione delle risorse | Assegnazioni di criteri | [Elimina](/rest/api/resources/policyassignments/delete) | Rimuove un'assegnazione di Criteri di Azure esistente. |
+| Gestione delle risorse | Definizioni dei criteri | [Elimina](/rest/api/resources/policydefinitions/delete) | Rimuove una definizione di Criteri di Azure esistente. Alternativa: [Eliminare a livello di gruppo di gestione](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

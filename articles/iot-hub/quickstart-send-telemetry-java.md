@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59004787"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Java)
@@ -169,4 +169,4 @@ In questa Guida rapida, è stata configurata un hub IoT, è stato registrato un 
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-java.md)
+> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-java.md)

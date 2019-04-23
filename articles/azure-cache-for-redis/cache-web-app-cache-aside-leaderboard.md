@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
 ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893742"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
@@ -660,21 +660,21 @@ In questa sezione si effettuerà il provisioning di un nuovo database di SQL Azu
 
 1. Usare le impostazioni seguenti per il nuovo database SQL:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome database** | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Sottoscrizione** | *Sottoscrizione in uso*  | Selezionare la stessa sottoscrizione che è stata usata per creare la cache e ospitare il servizio app. |
    | **Gruppo di risorse**  | *TestResourceGroup* | Fare clic su **Usa esistente** e usare lo stesso gruppo di risorse in cui sono stati inseriti la cache e il servizio app. |
-   | **Selezionare l'origine** | **Database vuoto** | Iniziare con un database vuoto. |
+   | **Seleziona origine** | **Database vuoto** | Iniziare con un database vuoto. |
 
 1. In **Server** fare clic su **Configura le impostazioni obbligatorie** > **Crea un nuovo server** e specificare le informazioni seguenti, quindi fare clic sul pulsante **Seleziona**:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Qualsiasi password valida | La password deve almeno 8 caratteri e contenere caratteri inclusi in tre delle categorie seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e caratteri non alfanumerici. |
-   | **Località** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
+   | **Posizione** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
 
 1. Fare clic su **Pin to dashboard** (Aggiungi al dashboard) e quindi **Crea** per creare il nuovo database e il nuovo server.
 

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: integrazione di Azure Active Directory con Meta Networks Connector
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Meta Networks Connector in Azure AD, è necessario aggiungere Meta Networks Connector dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Meta Networks Connector dalla raccolta, seguire questa procedura:**
+**Per aggiungere Meta Networks Connector dalla raccolta, completare i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornare tali valori con i valori reali di identificatore, URL di risposta e URL di accesso. La procedura viene descritta più avanti nell'esercitazione.
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     g. Fare clic su **Save**.
 
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

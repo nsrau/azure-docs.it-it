@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009179"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Java su Android con Speech SDK
@@ -134,4 +134,4 @@ Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al ri
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli di lingua](how-to-customize-language-model.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)

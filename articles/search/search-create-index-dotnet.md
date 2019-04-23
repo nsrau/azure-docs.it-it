@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269045"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Guida introduttiva: 1 - Creare un indice di Ricerca di Azure in C#
@@ -22,7 +22,7 @@ ms.locfileid: "59269045"
 > * [C#](search-create-index-dotnet.md)
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 >*
 
 Questo articolo illustra il processo di creazione di un [indice di Ricerca di Azure](search-what-is-an-index.md) mediante C# e [.NET SDK](https://aka.ms/search-sdk). Questa è la prima lezione di un esercizio in tre parti per la creazione e il caricamento di un indice e l'esecuzione di query su tale indice. Per creare un indice, è necessario eseguire queste attività:
@@ -219,4 +219,4 @@ In questo argomento di avvio rapido è stato creato un indice di Ricerca di Azur
 L'argomento di avvio rapido successivo di questa serie illustrerà come caricare l'indice con contenuto disponibile per la ricerca.
 
 > [!div class="nextstepaction"]
-> [Caricare dati in un indice di Ricerca di Azure con C#](search-import-data-dotnet.md)
+> [Caricare dati in un indice di Ricerca di Azure tramite C#](search-import-data-dotnet.md)

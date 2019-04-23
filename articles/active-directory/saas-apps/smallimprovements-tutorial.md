@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Esercitazione: Integrazione di Azure Active Directory con Small Improvements
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-small-improvements-from-the-gallery"></a>Aggiunta di Small Improvements dalla raccolta
 
-Per configurare l'integrazione di Small Improvements in Azure AD, è necessario aggiungere Small Improvements dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Small Improvements in Azure AD, è necessario aggiungere Small Improvements dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Small Improvements dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di Small Improvements in Azure AD, è necessario 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Small Improvements usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Small Improvements.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Small Improvements, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Small Improvements, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Small Improvements](#configure-small-improvements-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Small Improvements](#create-small-improvements-test-user)**: per avere una controparte di Britta Simon in Small Improvements collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,14 +105,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con Small Improvements, seg
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Small Improvements](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.small-improvements.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.small-improvements.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di Small Improvements](mailto:support@small-improvements.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Small Improvements, seg
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -138,23 +138,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Small Improvements, seg
 
     ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
-1. Nella pagina di configurazione dell'accesso Single Sign-On seguire questa procedura:
+1. Nella pagina di configurazione dell’accesso Single Sign-On, seguire questa procedura:
 
     ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. Nella casella di testo **HTTP Endpoint** (Endpoint HTTP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    b. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificato x509**. 
+    b. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificato x509** . 
 
-    c. Se si vuole che l'opzione di autenticazione al modulo di accesso e accesso Single Sign-On sia disponibile per gli utenti, selezionare l'opzione **Abilitare l'accesso anche tramite account di accesso e password**.  
+    c. Se si vuole che l'opzione di autenticazione al modulo di accesso e accesso Single Sign-On sia disponibile per gli utenti, selezionare l'opzione **Abilitare l'accesso anche tramite account di accesso e password** .  
 
     d. Immettere il valore appropriato per il nome del pulsante di accesso Single Sign-On nella casella di testo **Richiesta SAML**  
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -177,15 +177,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Small Improvements.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Small Improvements.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Small Improvements**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Small Improvements**.
+2. Selezionare **Small Improvements**dall'elenco di applicazioni.
 
     ![Collegamento di Small Improvements nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -215,15 +215,15 @@ Per consentire agli utenti di Azure AD di accedere a Small Improvements, è nece
 
 1. Fare clic sul pulsante **Directory utenti** nella sezione Gestione utenti.
 
-    ![Creazione di un utente di test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Creazione di un utente test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Fare clic su **Aggiungi utenti**.
 
-    ![Creazione di un utente di test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Creazione di un utente test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. Nella finestra di dialogo **Aggiungi utenti** seguire questa procedura: 
 
-    ![Creazione di un utente di test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Creazione di un utente test di Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
     a. Immettere il **nome** dell'utente, ad esempio **Britta**.
 
@@ -231,7 +231,7 @@ Per consentire agli utenti di Azure AD di accedere a Small Improvements, è nece
 
     c. Immettere l'**indirizzo di posta elettronica** dell'utente ad esempio **brittasimon@contoso.com**.
 
-    d. È inoltre possibile scegliere di immettere il messaggio personale nella casella di testo **Invia messaggio di notifica**. Se non si vuole inviare la notifica, deselezionare questa casella di controllo.
+    d. È inoltre possibile scegliere di immettere il messaggio personale nella casella di testo **Invia messaggio di notifica** . Se non si vuole inviare la notifica, deselezionare questa casella di controllo.
 
     e. Fare clic su **Crea utenti**.
 

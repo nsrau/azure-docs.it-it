@@ -11,17 +11,17 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282662"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -272,6 +272,6 @@ Se il servizio Ricerca di Azure è stato usato per la prima volta con questa ese
 
 È possibile esplorare ancora Ricerca di Azure usando gli strumenti a livello di codice:
 
-* [Creare un indice con .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Creare un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
 * [Creare un indice usando Postman o Fiddler e le API REST di Ricerca di Azure](search-fiddler.md)

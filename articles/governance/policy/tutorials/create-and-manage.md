@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283614"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
@@ -456,4 +456,4 @@ In questa esercitazione sono state eseguite le attività seguenti:
 Per altre informazioni sulle strutture delle definizioni di criteri, vedere:
 
 > [!div class="nextstepaction"]
-> [Struttura delle definizioni di criteri di Azure](../concepts/definition-structure.md)
+> [Struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md)

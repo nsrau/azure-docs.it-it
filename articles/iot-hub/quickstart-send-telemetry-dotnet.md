@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049269"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C#)
@@ -162,4 +162,4 @@ In questa Guida rapida, è stata configurata un hub IoT, è stato registrato un 
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-dotnet.md)
+> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-dotnet.md)

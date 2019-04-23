@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893130"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
@@ -258,7 +258,7 @@ Analysis Services è costituito da una vivace community di utenti. È possibile 
 > [Iscriversi per ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md)   
+> [Avvio rapido: Creare un server - Portale](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: creare un server: PowerShell](analysis-services-create-powershell.md)  
+> [Avvio rapido: Creare un server: PowerShell](analysis-services-create-powershell.md)  

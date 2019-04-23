@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Esercitazione: Integrazione di Azure Active Directory con UserVoice
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UserVoice, seguire ques
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di UserVoice](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenantname>.UserVoice.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenantname>.UserVoice.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenantname>.UserVoice.com`
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un indice basato su intelligenza artificiale nel portale di Azure - Ricerca di Azure'
+title: 'Guida introduttiva: Creare un indice basato su intelligenza artificiale nel portale di Azure - Ricerca di Azure'
 description: Estrazione dei dati, linguaggio naturale e competenze di elaborazione delle immagine in un portale di indicizzazione di Ricerca di Azure, usando il portale di Azure e dati di esempio.
 manager: cgronlun
 author: HeidiSteen
@@ -10,13 +10,13 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265016"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Avvio rapido: Creare una pipeline di indicizzazione di intelligenza naturale con competenze cognitive e dati di esempio
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di indicizzazione di intelligenza naturale con competenze cognitive e dati di esempio
 
 Ricerca di Azure si integra con [Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/) aggiungendo estrazione di contenuto, elaborazione del linguaggio naturale e competenze di elaborazione di immagini a una pipeline di indicizzazione di Ricerca di Azure, semplificando le ricerche di contenuto non ricercabile o non strutturato. 
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049558"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando PowerShell e argomenti/sottoscrizioni
@@ -143,7 +143,7 @@ Questa sezione contiene altri dettagli sulle operazioni eseguite dal codice di e
 
 ### <a name="get-connection-string-and-queue"></a>Ottenere la stringa di connessione e la coda
 
-La stringa di connessione e il nome della coda vengono passati al metodo `Main()` come argomenti della riga di comando. `Main()` dichiara due variabili di stringa per contenere questi valori:
+La stringa di connessione e il nome della coda vengono passati al metodo `Main()` come argomenti della riga di comando. `Main()` dichiara due variabili di stringa per contenere tali valori:
 
 ```csharp
 static void Main(string[] args)

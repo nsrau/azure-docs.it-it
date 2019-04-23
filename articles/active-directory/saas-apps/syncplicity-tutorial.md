@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Esercitazione: Integrazione di Azure Active Directory con Syncplicity
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Syncplicity, 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Syncplicity](#configure-syncplicity-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Syncplicity](#create-syncplicity-test-user)**: per avere una controparte di Britta Simon in Syncplicity collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,12 +107,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com/sp`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.syncplicity.com/sp`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Syncplicity](https://www.syncplicity.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -134,11 +134,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
 
-1. Nella pagina finestra di dialogo **Single Sign-On (SSO)** eseguire la procedura seguente:
+1. Nella pagina finestra di dialogo **Single Sign-On (SSO)** , eseguire la procedura seguente:
 
-    ![Single Sign-On \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Accesso Single Sign-On \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
-    a. Nella casella di testo **Custom Domain** digitare il nome del dominio.
+    a. Nella casella di testo **Custom Domain** , digitare il nome del dominio.
   
     b. Selezionare **Enabled** (Abilitato) come **Single Sign-On Status** (Stato Single Sign-On).
 
@@ -150,11 +150,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Syncplicity, seguire qu
 
     f. In **Identity Provider Certificate** (Certificato provider di identità) fare clic su **Choose file** (Scegli file) e quindi caricare il certificato scaricato dal portale di Azure.
 
-    g. Fare clic su **SAVE CHANGES** (SALVA MODIFICHE).
+    g. Fare clic su **SAVE CHANGES** (Salva modifiche).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -177,9 +177,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Syncplicity.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Syncplicity.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Syncplicity**.
 
@@ -204,9 +204,9 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-syncplicity-test-user"></a>Creare l'utente di test di Syncplicity
 
-Per essere in grado di effettuare l'accesso, è necessario effettuare il provisioning degli utenti AAD all'applicazione Syncplicity. In questa sezione viene descritto come creare gli account utente AAD in Syncplicity.
+Per essere in grado di effettuare l’accesso, è necessario effettuare il provisioning degli utenti AAD all’applicazione Syncplicity. In questa sezione viene descritto come creare gli account utente AAD in Syncplicity.
 
-**Per eseguire il provisioning di un account utente, eseguire la procedura seguente:**
+**Per eseguire il provisioning di un account utente a Syncplicity, eseguire la procedura seguente:**
 
 1. Accedere al tenant **Syncplicity** (ad esempio: `https://company.Syncplicity.com`).
 

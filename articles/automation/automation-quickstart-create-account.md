@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009513"
 ---
 # <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
@@ -32,7 +32,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 1. Selezionare **Strumenti di gestione** e quindi selezionare **Automazione**.
 
-1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Quando si crea un account di automazione, è importante notare che non è possibile modificarne il nome dopo che viene scelto. *I nomi degli account di Automazione devono essere univoci in ogni area e gruppo di risorse. I nomi degli account di Automazione che sono stati eliminati potrebbero non essere subito disponibili.* Un account di Automazione può gestire le risorse in tutte le aree e le sottoscrizioni di uno specifico tenant. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
+1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Quando si crea un account di automazione, è importante notare che non è possibile modificarne il nome dopo che viene scelto. *I nomi degli account di Automazione devono essere univoci in ogni area e gruppo di risorse. I nomi per gli account di Automazione che sono stati eliminati potrebbero non essere subito disponibili.* Un account di Automazione può gestire le risorse in tutte le aree e le sottoscrizioni di uno specifico tenant. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
 
     ![Immettere le informazioni sull'account di Automazione nella pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -66,5 +66,5 @@ Eseguire uno dei runbook di esercitazione.
 In questa guida introduttiva è stato distribuito un account di Automazione, è stato avviato il processo di un runbook e sono stati visualizzati i risultati del processo. Per altre informazioni su Automazione di Azure, passare alla guida introduttiva sulla creazione del primo runbook.
 
 > [!div class="nextstepaction"]
-> [Guida di avvio rapido di Automazione - Creare un runbook](./automation-quickstart-create-runbook.md)
+> [Guida introduttiva di Automazione - Creare un runbook](./automation-quickstart-create-runbook.md)
 

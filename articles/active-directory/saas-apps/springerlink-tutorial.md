@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 00154ac3c94a1f43872aff3be29ddd108a4173f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Esercitazione: Integrazione di Azure Active Directory con Springer Link
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Springer Link, seguire 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
     > [!NOTE]
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. `<entityID>` è l'identificatore Azure AD copiato dalla sezione **Configura Springer Link**, descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. `<entityID>` è l'identificatore Azure AD copiato dalla sezione **Configura Springer Link**, descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona di copia per copiare il valore di **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 

@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275454"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
@@ -44,7 +44,7 @@ Azure Migrate consente di eseguire le operazioni seguenti.
     Europa | Europa settentrionale o Europa occidentale
     Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
-    L'area geografica associata al progetto di migrazione viene usata per l'archiviazione dei metadati individuati nell'ambiente locale. I metadati vengono archiviati in una delle aree in base all'area geografica specificata per il progetto di migrazione. Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro di Log Analytics, questa viene creata nella stessa area del progetto.
+    L'area geografica associata al progetto di migrazione viene usata per l'archiviazione dei metadati individuati nell'ambiente locale. I metadati vengono archiviati in una delle aree in base all'area geografica specificata per il progetto di migrazione. Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro Log Analytics, questa viene creata nella stessa area del progetto.
 - La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 
@@ -65,11 +65,11 @@ Le impostazioni di valutazione possono essere personalizzate in base alle esigen
 **Criterio di dimensionamento** | Il dimensionamento può essere basato sulla **cronologia delle prestazioni** delle macchine virtuali locali (impostazione predefinita) oppure può essere configurato **come in locale**, senza considerare la cronologia delle prestazioni.
 **Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni per l'ultimo giorno, con un valore percentile del 95%.
 **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
-**Serie VM** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
+**Serie macchina virtuale** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
 **Valuta** | Valuta di fatturazione. La valuta predefinita è il dollaro statunitense.
 **Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre all'offerta Azure. L'impostazione predefinita è 0%.
 **Tempo di attività macchina virtuale** | Se non si prevede di eseguire ininterrottamente le macchine virtuali in Azure, è possibile specificare la durata (numero di giorni al mese e numero di ore al giorno) dell'esecuzione. Il costo verrà stimato di conseguenza. Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
-**Offerta di Azure** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
+**Offerta Azure** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
 **Vantaggio Azure Hybrid** | Eventuale iscrizione a Software Assurance e idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/) con prezzi scontati.
 
 ## <a name="how-does-azure-migrate-work"></a>Funzionamento di Azure Migrate
@@ -94,7 +94,7 @@ La tabella offre un riepilogo delle porte necessarie per le comunicazioni di Azu
 | --- | --- |--- |
 |Agente di raccolta  | Servizio Azure Migrate | L'agente di raccolta si connette al servizio sulla porta SSL 443.|
 |Agente di raccolta | Server vCenter | Per impostazione predefinita, l'agente di raccolta si connette al server vCenter sulla porta 443. Se il server è in ascolto su una porta diversa, configurarla come porta in uscita nella VM dell'agente di raccolta.|
-|VM locale | Area di lavoro di Log Analytics | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) usa la porta TCP 443 per la connessione ai log di Monitoraggio di Azure. Questa porta è necessaria solo se si usa la visualizzazione delle dipendenze, per cui è necessario l'agente MMA.|
+|VM locale | area di lavoro Log Analytics | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) usa la porta TCP 443 per la connessione ai log di Monitoraggio di Azure. Questa porta è necessaria solo se si usa la visualizzazione delle dipendenze, per cui è necessario l'agente MMA.|
 
 
 ## <a name="what-happens-after-assessment"></a>Operazioni successive alla valutazione

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: caee6bad1b944b6d1396ea2e26f163629b3c444f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Esercitazione: Integrazione di Azure Active Directory con ThirdLight
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ThirdLight, �
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di ThirdLight](#configure-thirdlight-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di ThirdLight](#create-thirdlight-test-user)**: per avere una controparte di Britta Simon in ThirdLight collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ThirdLight, seguire que
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di ThirdLight](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.thirdlight.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.thirdlight.com/`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.thirdlight.com/saml/sp`
 
@@ -146,9 +146,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ThirdLight, seguire que
 
     d. Fare clic su **Salva impostazioni SAML2**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -170,9 +170,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ThirdLight.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ThirdLight.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ThirdLight**.
 
@@ -205,11 +205,11 @@ Nel caso di ThirdLight, il provisioning è un'attività manuale.
 
 1. Accedere al sito aziendale di **ThirdLight** come amministratore.
 
-1. Passare alla scheda **Utenti**.
+1. Andare alla scheda **Utenti** .
 
 1. Selezionare **Utenti e gruppi**.
 
-1. Fare clic sul pulsante **Aggiungi nuovo utente**.
+1. Fare clic sul pulsante **Aggiungi nuovo utente** .
 
 1. Immettere **nome utente, nome o descrizione, posta elettronica, scegliere un set predefinito o un gruppo di nuovi membri** di un account valido di AAD di cui si desidera eseguire il provisioning.
 

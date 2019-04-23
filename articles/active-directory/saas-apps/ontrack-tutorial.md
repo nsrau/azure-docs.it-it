@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Esercitazione: Integrazione di Azure Active Directory con OnTrack
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OnTrack, seguire questa
 
 6. Oltre quelli elencati in precedenza, l'applicazione OnTrack prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | -------------- | ----------------|    
     | Ruolo utente      | "42F432" |
     | Codice Hyperion  | "12345" |

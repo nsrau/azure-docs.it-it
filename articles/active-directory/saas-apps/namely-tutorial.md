@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
@@ -104,14 +104,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con Namely, seguire questa 
 
     ![Informazioni su URL e dominio Namely per l'accesso Single Sign-On](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.namely.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.namely.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.namely.com/saml/metadata`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Namely](https://www.namely.com/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -208,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Namely.
 
-**Per creare un utente di nome Britta Simon in Namely, seguire questa procedura:**
+**Per creare un utente denominato Britta Simon in Namely, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Namely come amministratore.
 

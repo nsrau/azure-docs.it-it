@@ -9,10 +9,10 @@ ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903523"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
@@ -177,4 +177,4 @@ Per rimuovere il gruppo di risorse:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure](./tutorial-manage-web-traffic-cli.md)
+> [Gestire il traffico Web con un gateway applicazione mediante l'interfaccia della riga di comando di Azure](./tutorial-manage-web-traffic-cli.md)

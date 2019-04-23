@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 6be6021ef828202ad37a8af4eba942e6898963ca
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259984"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Esempi di Azure PowerShell per database SQL di Azure
@@ -44,16 +44,16 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 |**Ridimensionare un database singolo e un pool elastico**||
 | [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell effettua il monitoraggio delle metriche delle prestazioni di un database SQL di Azure, lo ridimensiona con una dimensione di calcolo superiore e crea una regola di avviso per una delle metriche delle prestazioni. |
 | [Ridimensionare un pool elastico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell effettua il monitoraggio delle metriche delle prestazioni di un pool elastico di database SQL di Azure, lo ridimensiona con una dimensione di calcolo superiore e crea una regola di avviso per una delle metriche delle prestazioni.  |
-| **Controllo e rilevamento minacce** |
-| [Configurare controllo e rilevamento minacce](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura i criteri di controllo e rilevamento delle minacce per un database SQL di Azure. |
+| **Controllo e rilevamento delle minacce** |
+| [Configurare il controllo e il rilevamento delle minacce](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura i criteri di controllo e rilevamento delle minacce per un database SQL di Azure. |
 | **Ripristinare, copiare e importare un database**||
-| [Per ripristinare un database](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell ripristina un database SQL di Azure da un backup con ridondanza geografica e ripristina un database SQL di Azure eliminato in base al backup più recente. |
+| [Ripristinare un database](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell ripristina un database SQL di Azure da un backup con ridondanza geografica e ripristina un database SQL di Azure eliminato in base al backup più recente. |
 | [Copiare un database in un nuovo server](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell crea una copia di un database SQL di Azure esistente in un nuovo server SQL di Azure. |
 | [Importare un database da un file BACPAC](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell importa un database in un server SQL di Azure da un file BACPAC. |
 | **Sincronizzare i dati tra database**||
 | [Sincronizzare i dati tra database SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell permette di configurare la sincronizzazione dei dati per sincronizzare più database SQL di Azure. |
 | [Sincronizzare i dati tra database SQL e istanze di SQL Server locali](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell permette di configurare la sincronizzazione dei dati per sincronizzare un database SQL di Azure e un database locale di SQL Server. |
-| [Aggiornare lo schema di sincronizzazione dati di SQL](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell consente di aggiungere o rimuovere elementi dallo schema di sincronizzazione dati. |
+| [Update the SQL Data Sync sync schema](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Aggiornare lo schema di sincronizzazione dati SQL) | Questo script di PowerShell consente di aggiungere o rimuovere elementi dallo schema di sincronizzazione dati. |
 |||
 
 Vedere altre informazioni sull'[API Azure PowerShell per i database singoli](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
@@ -65,7 +65,7 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 | |  |
 |---|---|
 |**Creare e configurare istanze gestite**||
-| [creare e gestire Istanza gestita](scripts/sql-database-create-configure-managed-instance-powershell.md) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell |
+| [Create and manage a Managed Instance](scripts/sql-database-create-configure-managed-instance-powershell.md) (Creare e gestire un'Istanza gestita) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell |
 | [Creare e gestire un'istanza gestita con il modello di Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell e il modello di Azure Resource Manager.|
 | **Configurare Transparent Data Encryption (TDE)**||
 | [Gestire Transparent Data Encryption in un'istanza gestita usando una chiave personalizzata di Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura Transparent Data Encryption (TDE) in uno scenario Bring Your Own Key per un'istanza gestita di SQL di Azure usando una chiave di Azure Key Vault|

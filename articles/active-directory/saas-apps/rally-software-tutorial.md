@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 800b6307504632be5b584dd645f74c6b48962d20
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Esercitazione: Integrazione di Azure Active Directory con Rally Software
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-rally-software-from-the-gallery"></a>Aggiunta di Rally Software dalla raccolta
 
-Per configurare l'integrazione di Rally Software in Azure AD è necessario aggiungere Rally Software dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Rally Software in Azure AD è necessario aggiungere Rally Software dalla raccolta al proprio elenco delle app SaaS gestite.
 
-**Per aggiungere Rally Software dalla raccolta, seguire questa procedura:**
+**Per aggiungere Rally Software dalla raccolta seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di Rally Software in Azure AD è necessario aggiu
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Rally Software mediante un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Rally Software.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Rally Software è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Rally Software è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Rally Software](#configure-rally-software-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Rally Software](#create-rally-software-test-user)**: per avere una controparte di Britta Simon in Rally Software collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rally Software, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Rally Software](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.rally.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant-name>.rally.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant-name>.rally.com`
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rally Software, seguire
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -146,9 +146,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rally Software, seguire
 
     c. Nella casella di testo **SSO Logout** (Disconnessione SSO) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -170,9 +170,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Rally Software.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure tramite la concessione dell'accesso a Rally Software.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Rally Software**.
 
@@ -200,7 +200,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il provisioning nell'applicazione Rally Software usando i relativi nomi utente di Azure Active Directory.
 
-**Per configurare il provisioning utente, eseguire la procedura seguente:**
+**Per configurare il provisioning utenti, seguire questa procedura:**
 
 1. Accedere al tenant Rally Software.
 
@@ -210,7 +210,7 @@ Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il
 
 3. Digitare il nome nella casella di testo Nuovo utente, quindi fare clic su **Aggiungi con dettagli**.
 
-4. Nella sezione **Crea utente** eseguire la procedura seguente:
+4. Nella sezione **Crea utente** , eseguire la procedura seguente:
    
     ![Crea utente](./media/rally-software-tutorial/ic781040.png "Crea utente")
 

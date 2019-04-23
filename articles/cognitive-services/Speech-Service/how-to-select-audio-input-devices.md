@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010380"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selezionare un dispositivo di input audio con Speech SDK
@@ -384,4 +384,4 @@ In JavaScript il metodo [MediaDevices.enumerateDevices](https://developer.mozill
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli di lingua](how-to-customize-language-model.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)

@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: da643a4d7a1dc74385b3854c1952af5ba93bd241
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358092"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
@@ -120,7 +120,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** > **+Crea e associa**.
-2. In **Criteri di creazione e associazione** specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
+2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
 3. Per questa esercitazione non verranno modificate le impostazioni predefinite.
     - **Frequenza di copia** indica la frequenza di replica dei dati delta (dopo la replica iniziale). L'impostazione predefinita è ogni cinque minuti.
     - **Conservazione del punto di ripristino** indica che i punti di ripristino verranno conservati per due ore.
@@ -144,4 +144,4 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Eseguire una verifica del ripristino di emergenza](tutorial-dr-drill-azure.md)
+> [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)

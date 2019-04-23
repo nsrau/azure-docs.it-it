@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009428"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
@@ -32,7 +32,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Core su Windows 
 
 Questa guida introduttiva richiede:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
@@ -76,4 +76,4 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 ## <a name="see-also"></a>Vedere anche 
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli di lingua](how-to-customize-language-model.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)

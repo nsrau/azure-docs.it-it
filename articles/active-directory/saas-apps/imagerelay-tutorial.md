@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d2d41af8fa04b03ab8d18277d377f3700575cd1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Esercitazione: Integrazione di Azure Active Directory con Image Relay
@@ -105,14 +105,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con Image Relay, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Image Relay](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.imagerelay.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.imagerelay.com/`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.imagerelay.com/sso/metadata`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Image Relay](http://support.imagerelay.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -235,7 +235,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Image Relay.
 
-**Per creare un utente di nome Britta Simon in Image Relay, seguire questa procedura:**
+**Per creare un utente chiamato Britta Simon in Image Relay, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Image Relay come amministratore.
 

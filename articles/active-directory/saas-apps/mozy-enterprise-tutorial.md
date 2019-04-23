@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
@@ -78,8 +78,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Mozy Enterpri
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Mozy Enterprise](#configure-mozy-enterprise-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Mozy Enterprise](#create-mozy-enterprise-test-user)**: per avere una controparte di Britta Simon in Mozy Enterprise collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Mozy Enterprise](#create-mozy-enterprise-test-user)**: per avere una controparte di Britta Simon in Mozy Enterprise collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -109,17 +109,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Mozy Enterprise Client](http://support.mozy.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura Mozy Enterprise** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura Mozy Enterprise** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -139,7 +139,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
    
     b. Selezionare **Use LDAP Push**.
    
-    c. Fare clic sulla scheda **SAML Authentication**.
+    c. Fare clic sulla scheda **SAML Authentication** .
    
     d. Incollare il valore di **URL di accesso**, copiato dal portale di Azure, nella casella di testo **Authentication URL** (URL di autenticazione).
    
@@ -151,9 +151,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
    
     h. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -176,9 +176,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mozy Enterprise.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mozy Enterprise.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Mozy Enterprise**.
 
@@ -202,16 +202,16 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Creare l'utente di test di Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user"></a>Creare un utente di test di Mozy Enterprise
 
 Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessario eseguirne il provisioning in Mozy Enterprise. Nel caso di Mozy Enterprise, il provisioning è un’attività manuale.
 
 >[!NOTE]
 >È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Mozy Enterprise o le API fornite da Mozy Enterprise per eseguire il provisioning degli account utente di AAD.
 
-**Per eseguire il provisioning di un account utente, seguire questa procedura:**
+**Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al tenant **Mozy Enterprise**.
+1. Accedere al tenant **Mozy Enterprise** .
 
 2. Fare clic su **Users** (Utenti) e quindi fare clic su **Add New User** (Aggiungi nuovo utente).
    
@@ -224,9 +224,9 @@ Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessa
    
     ![Aggiungere utenti](./media/mozy-enterprise-tutorial/ic777318.png "Aggiungere utenti")
    
-    a. Nell'elenco **Choose a group** (Scegli un gruppo) selezionare un gruppo.
+    a. Dall’elenco **Choose a group** selezionare un gruppo.
    
-    b. Nell'elenco **What type of user** (Scegli il tipo di utente) selezionare un tipo.
+    b. Dall’elenco **What tupe of user** selezionare un tipo.
    
     c. Nella casella di testo **Nome utente** digitare il nome dell'utente di Azure AD.
    

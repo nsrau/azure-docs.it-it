@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005438"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Guida introduttiva: SSH/RDP su flussi dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)

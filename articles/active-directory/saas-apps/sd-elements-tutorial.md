@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Esercitazione: Integrazione di Azure Active Directory con SD Elements
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SD Elements, seguire qu
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | --- | --- |
     | email |user.mail |
     | firstname |user.givenname |
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SD Elements, seguire qu
 
     g. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -233,7 +233,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Questa sezione descrive come creare un utente denominato Britta Simon in SD Elements. Nel caso di SD Elements la creazione degli utenti è un'attività manuale.
 
-**Per creare un utente di nome Britta Simon in SD Elements, seguire questa procedura:**
+**Per creare un utente denominato Britta Simon in SD Elements, seguire questa procedura:**
 
 1. In una finestra del Web browser accedere al sito aziendale di SD Elements come amministratore.
 

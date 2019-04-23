@@ -16,10 +16,10 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Esercitazione: Integrazione di Azure Active Directory con HackerOne
@@ -106,14 +106,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HackerOne](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://hackerone.com/<company name>/authentication`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://hackerone.com/<company name>/authentication`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://hackerone.com/users/saml/metadata`
 
     > [!NOTE]
     > Poiché l'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di HackerOne](mailto:support@hackerone.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

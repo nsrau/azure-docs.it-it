@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050007"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
@@ -48,7 +48,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Eseguire il monitoraggio di un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Eliminazione di un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

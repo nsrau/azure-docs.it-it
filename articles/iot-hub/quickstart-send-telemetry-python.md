@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
 ms.openlocfilehash: fc303a0ab53c80c91bb29c36a1a7e0f04c4a89e6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006883"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
@@ -63,7 +63,7 @@ Scaricare il progetto di esempio di Python da https://github.com/Azure-Samples/a
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -138,4 +138,4 @@ In questa Guida rapida, è stata configurata un hub IoT, è stato registrato un 
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-python.md)
+> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-python.md)

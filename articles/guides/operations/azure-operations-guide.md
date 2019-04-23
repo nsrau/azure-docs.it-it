@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051171"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
@@ -468,7 +468,7 @@ Per impostazione predefinita, una rete virtuale di Azure è accessibile solo per
 ### <a name="hybrid-virtual-networks"></a>Reti virtuali di Azure
 
 È possibile connettere una rete locale a una rete virtuale di Azure tramite ExpressRoute o una connessione VPN da sito a sito. In questa configurazione, la rete virtuale di Azure è essenzialmente un'estensione della rete locale basata su cloud.
-![Rete virtuale ibrida tramite VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
+![Rete virtuale di Microsoft Azure tramite VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Poiché la rete virtuale di Azure è connessa alla rete locale, le reti virtuali cross-premise devono usare una parte univoca dello spazio indirizzi usato dall'organizzazione. Nello stesso modo in cui sedi aziendali diverse vengono assegnate a una subnet IP specifica, con l'estensione della rete Azure diventa un'altra sede.
 Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
@@ -477,7 +477,7 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Interfaccia della riga di comando](../../virtual-network/quick-create-cli.md)
+- [Interfaccia della riga di comando (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Modelli di Azure Resource Manager
 
@@ -491,5 +491,5 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un'app Windows](../../virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) (Creare una VM Windows)
 - [Creare una macchina virtuale Linux](../../virtual-machines/linux/quick-create-portal.md)

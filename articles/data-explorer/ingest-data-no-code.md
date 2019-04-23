@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262908"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Esercitazione: Inserire dati in Esplora dati di Azure senza una riga di codice
@@ -268,7 +268,7 @@ I log di diagnostica di Azure consentono l'esportazione delle metriche in un acc
 
 1. Creare un hub eventi usando un modello di Azure Resource Manager nel portale di Azure. Per seguire il resto dei passaggi di questo articolo, fare clic con il pulsante destro del mouse sul pulsante **Distribuisci in Azure** e quindi selezionare **Apri in una nuova finestra**. Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure.
 
-    [![DPulsante Distribuisci in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Pulsante Distribuisci in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Creare uno spazio dei nomi di hub eventi e un hub eventi per i log di diagnostica.
 
@@ -276,14 +276,14 @@ I log di diagnostica di Azure consentono l'esportazione delle metriche in un acc
 
 1. Compilare il modulo con le informazioni seguenti. Per tutte le impostazioni non elencate nella tabella seguente usare i valori predefiniti.
 
-    **Impostazione** | **Valore consigliato** | **DESCRIZIONE**
+    **Impostazione** | **Valore consigliato** | **Descrizione**
     |---|---|---|
     | **Sottoscrizione** | *Sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
     | **Gruppo di risorse** | *test-resource-group* | Creare un nuovo gruppo di risorse. |
-    | **Località** | Selezionare l'area più appropriata in base alle esigenze. | Creare lo spazio dei nomi di hub eventi nella stessa posizione delle altre risorse.
+    | **Posizione** | Selezionare l'area più appropriata in base alle esigenze. | Creare lo spazio dei nomi di hub eventi nella stessa posizione delle altre risorse.
     | **Nome spazio dei nomi** | *AzureMonitoringData* | Scegliere un nome univoco per identificare lo spazio dei nomi.
     | **Nome hub eventi** | *DiagnosticLogsData* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. |
-    | **Consumer group name (Nome gruppo di consumer)** | *adxpipeline* | Creare un nome del gruppo di consumer. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
+    | **Nome gruppo di consumer** | *adxpipeline* | Creare un nome del gruppo di consumer. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
     | | |
 
 ## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Connettere i log di Monitoraggio di Azure all'hub eventi
@@ -366,7 +366,7 @@ A questo punto è necessario creare le connessioni dati per i log di diagnostica
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | **Data connection name (Nome connessione dati)** | *DiagnosticsLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | **Nome connessione dati** | *DiagnosticsLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
     | **Spazio dei nomi dell'hub eventi** | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | **Hub eventi** | *diagnosticlogsdata* | Hub eventi creato. |
     | **Gruppo di consumer** | *adxpipeline* | Gruppo di consumer definito nell'hub eventi creato. |
@@ -395,7 +395,7 @@ Ripetere i passaggi descritti nella sezione Creare la connessione dati per i log
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | **Data connection name (Nome connessione dati)** | *ActivityLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | **Nome connessione dati** | *ActivityLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
     | **Spazio dei nomi dell'hub eventi** | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | **Hub eventi** | *insights-operational-logs* | Hub eventi creato. |
     | **Gruppo di consumer** | *$Default* | Il gruppo di consumer predefinito. Se necessario, è possibile crearne uno diverso. |

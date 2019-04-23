@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006870"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con le applicazioni del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)

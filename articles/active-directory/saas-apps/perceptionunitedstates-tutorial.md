@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con Perception United States (Non-UltiPro)
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Perception Un
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Perception United States (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)**: per avere una controparte di Britta Simon in Perception United States (Non-UltiPro) collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. L'applicazione **Perception United States (Non-UltiPro)** richiede che il valore **Identificatore Azure AD** come <entity_id>, ottenuto nella sezione **Configurare Perception United States (Non-UltiPro)**, sia con codifica URI. Per ottenere il valore con codifica URI, usare il collegamento seguente: **http://www.url-encode-decode.com/**.
+    c. L'applicazione **Perception United States (Non-UltiPro)** richiede che il valore **Identificatore di Azure AD** come <entity_id>, ottenuto nella sezione **Configurare Perception United States (Non-UltiPro)**, sia con codifica URI. Per ottenere il valore con codifica URI, usare il collegamento seguente: **http://www.url-encode-decode.com/**.
 
     d. Dopo aver ottenuto il valore con codifica URI, combinarlo con l'**URL di risposta** come indicato di seguito.
 
@@ -127,7 +127,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione   
 
@@ -167,9 +167,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     f. Fare clic su **Update**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -191,9 +191,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Perception United States (Non-UltiPro).
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Perception United States (Non-UltiPro).
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Perception United States (Non-UltiPro)**.
 

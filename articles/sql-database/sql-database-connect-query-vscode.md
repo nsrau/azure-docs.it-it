@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357132"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
@@ -48,7 +48,7 @@ Assicurarsi di aver installato l'ultima versione di [Visual Studio Code](https:/
 
 ## <a name="configure-visual-studio-code"></a>Configurare Visual Studio Code
 
-### **<a name="mac-os"></a>Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 
 Per macOS è necessario installare OpenSSL, che è un prerequisito per .NET Core usato dall'estensione mssql. Aprire il terminale e immettere i comandi seguenti per installare **brew** e **OpenSSL**.
 
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
 Non è necessaria alcuna configurazione speciale.
 
-### **<a name="windows"></a> Windows**
+### <a name="windows"></a>**Windows**
 
 Non è necessaria alcuna configurazione speciale.
 
@@ -106,14 +106,14 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
 
 4. Seguire le istruzioni per specificare le proprietà di connessione del nuovo profilo. Dopo aver specificato ogni valore, premere **INVIO** per continuare.
 
-   | Proprietà       | Valore consigliato | DESCRIZIONE |
+   | Proprietà       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net**. |
    | **Nome database** | mySampleDatabase | Database a cui connettersi. |
-   | **Authentication** | Account di accesso SQL| Questa esercitazione usa l'autenticazione SQL. |
+   | **autenticazione** | Account di accesso SQL| Questa esercitazione usa l'autenticazione SQL. |
    | **Nome utente** | Nome utente | Nome utente dell'account amministratore del server usato per creare il server. |
-   | **Password (SQL Login) (Password - Account di accesso SQL)** | Password | Password dell'account amministratore del server usato per creare il server. |
-   | **Save Password? (Salvare la password?)** | Sì o No | Selezionare **Sì** se non si vuole immettere la password ogni volta. |
+   | **Password (SQL Login)** (Password - Account di accesso SQL) | Password | Password dell'account amministratore del server usato per creare il server. |
+   | **Save Password?** (Salvare la password?) | Sì o No | Selezionare **Sì** se non si vuole immettere la password ogni volta. |
    | **Immettere un nome per questo profilo** | Nome di profilo, ad esempio **mySampleProfile** | Un profilo salvato velocizza la connessione agli accessi successivi. |
 
    Se l'operazione ha esito positivo, viene visualizzata una notifica che informa che il profilo è stato creato e connesso.

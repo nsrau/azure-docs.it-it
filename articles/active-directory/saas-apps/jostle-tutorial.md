@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Esercitazione: Integrazione di Azure Active Directory con Jostle
@@ -107,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jostle, seguire questa 
 
     a. Nella casella di testo **URL di accesso** digitare l'URL: `https://login-prod.jostle.us`
 
-    b. Nella casella **Identificatore** digitare l'URL: `https://jostle.us`
+    b. Nella casella **Identificatore** digitare l'URL `https://jostle.us`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
+    c. Nella casella di testo **URL di risposta** digitare il valore `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

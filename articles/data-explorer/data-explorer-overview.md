@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044175"
 ---
 # <a name="what-is-azure-data-explorer"></a>Informazioni su Esplora dati di Azure

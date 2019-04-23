@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361794"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
@@ -68,7 +68,7 @@ Consultare la tabella seguente per identificare le proprie esigenze ai fini dell
 
 Backup di Azure consente di eseguire il backup sia di computer locali che di VM di Azure.
 
-**Machine** | **Scenario di backup**
+**Computer** | **Scenario di backup**
 --- | ---
 **Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurarlo per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
 **Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 3) Eseguire il backup di una macchina virtuale di Azure in un server DPM o in un server di Backup di Microsoft Azure in esecuzione in Azure. Eseguire quindi il backup del server DPM o del server di Backup di Microsoft Azure in un insieme di credenziali con Backup di Azure.
@@ -86,9 +86,9 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 
 ## <a name="what-can-i-back-up"></a>Backup consentiti
 
-**Machine** | **Metodo di backup** | **Eseguire il backup**
+**Computer** | **Metodo di backup** | **Eseguire il backup**
 --- | --- | ---
-**VM Windows locali** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
+**Macchine virtuali Windows locali** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
 **Computer locali** | backup in DPM/MABS | Backup di qualsiasi elemento protetto da [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) o [server di Backup di Microsoft Azure](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) come file, cartelle, condivisioni, volumi e dati specifici delle app.
 **Macchine virtuali di Azure** | Esecuzione dell'estensione di backup dell'agente di macchine Virtuali di Azure | Backup dell'intera macchina virtuale
 **Macchine virtuali di Azure** | Esecuzione dell'agente di Servizi di ripristino di Microsoft Azure | Backup di file, cartelle, stato del sistema.<br/><br/> I computer Linux non sono supportati.
@@ -96,9 +96,9 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 
 ## <a name="what-backup-agents-do-i-need"></a>Quali agenti di backup sono necessari?
 
-**Scenario** | **Agente**
+**Scenario** | **Agent**
 --- | ---
-**Eseguire il backup delle VM di Azure** | Non è necessario alcun agente. L'estensione delle macchine virtuali di Azure per il backup viene installata nella macchina virtuale di Azure quando si esegue il primo backup della macchina virtuale di Azure.<br/><br/> Sono supportati Windows e Linux.
+**Eseguire un backup delle VM di Azure** | Non è necessario alcun agente. L'estensione delle macchine virtuali di Azure per il backup viene installata nella macchina virtuale di Azure quando si esegue il primo backup della macchina virtuale di Azure.<br/><br/> Sono supportati Windows e Linux.
 **Backup di computer Windows locali** | Scaricare, installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure direttamente nel computer.
 **Backup delle macchine virtuali di Azure con l'agente di Servizi di ripristino di Microsoft Azure** | Scaricare, installare ed eseguire l'agente di Servizi di ripristino di Microsoft Azure direttamente nel computer. L'agente di Servizi di ripristino di Microsoft Azure può essere eseguito insieme all'estensione di backup.
 **Backup di computer locali e macchine virtuali di Azure in DPM o server di Backup di Microsoft Azure** | L'agente di protezione di DPM o del server di Backup di Microsoft Azure viene eseguito nei computer da proteggere. L'agente di Servizi di ripristino di Microsoft Azure viene eseguito in server DPM o server di Backup di Microsoft Azure per eseguire il backup in Azure.

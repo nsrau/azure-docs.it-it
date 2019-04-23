@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261463"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure

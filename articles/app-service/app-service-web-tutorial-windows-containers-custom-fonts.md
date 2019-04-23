@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904067"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Eseguire la migrazione di un'app ASP.NET in Servizio app di Azure usando un contenitore Windows (anteprima)
@@ -144,7 +144,7 @@ Nell'interfaccia di creazione configurare le impostazioni in base alla tabella s
 | ----------------- | ------------ | ----|
 |**Nome app**| Digitare un nome univoco. | L'URL dell'app Web è `http://<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app. |
 |**Gruppo di risorse**| Selezionare **Usa esistente** e digitare **myResourceGroup**. |  |
-|**OS**| Windows (anteprima) | |
+|**Sistema operativo**| Windows (anteprima) | |
 
 ### <a name="configure-app-service-plan"></a>Configurare il piano di servizio app
 
@@ -180,7 +180,7 @@ Attendere alcuni minuti e riprovare, finché non viene visualizzata la pagina in
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-**Congratulazioni!** È stata eseguita la migrazione di un'applicazione ASP.NET in Servizio app di Azure in un contenitore Windows.
+**Congratulazioni** È stata eseguita la migrazione di un'applicazione ASP.NET in Servizio app di Azure in un contenitore Windows.
 
 ## <a name="see-container-start-up-logs"></a>Visualizzare i log di avvio del contenitore
 

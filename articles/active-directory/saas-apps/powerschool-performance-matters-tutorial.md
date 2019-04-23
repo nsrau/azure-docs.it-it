@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
 ms.openlocfilehash: b62ac8229d121738c23a4520bc1c1952603e2a12
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Esercitazione: Integrazione di Azure Active Directory con Powerschool Performance Matters
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-powerschool-performance-matters-from-the-gallery"></a>Aggiunta di Powerschool Performance Matters dalla raccolta
 
-Per configurare l'integrazione di Powerschool Performance Matters in Azure AD, è necessario aggiungere Powerschool Performance Matters dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Powerschool Performance Matters in Azure AD, è necessario aggiungere Powerschool Performance Matters dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Powerschool Performance Matters dalla raccolta, seguire questa procedura:**
+**Per aggiungere pagine su Powerschool Performance Matters dalla raccolta, seguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -71,16 +71,16 @@ Per configurare l'integrazione di Powerschool Performance Matters in Azure AD, �
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Powerschool Performance Matters con un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Powerschool Performance Matters con un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Powerschool Performance Matters.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Powerschool Performance Matters, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Powerschool Performance Matters, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Powerschool Performance Matters](#configure-powerschool-performance-matters-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Powerschool Performance Matters](#create-powerschool-performance-matters-test-user)**: per avere una controparte di Britta Simon in Powerschool Performance Matters collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Powerschool Performance Matters](#create-powerschool-performance-matters-test-user)**: per avere una controparte di Britta Simon in Powerschool Performance Matters collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -126,17 +126,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Powerschool Performance
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
 ### <a name="configure-powerschool-performance-matters-single-sign-on"></a>Configurare Powerschool Performance Matters abilitata per l'accesso Single Sign-On
 
-Per configurare l'accesso Single Sign-On sul lato **Powerschool Performance Matters**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Powerschool Performance Matters](mailto:pmsupport@powerschoo.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Powerschool Performance Matters**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Powerscjool Performance Matters](mailto:pmsupport@powerschoo.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -159,15 +159,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Powerschool Performance Matters.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso ad Powerschool Performance Matters.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Powerschool Performance Matters**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Powerschool Performance Matters**.
+2. Nell'elenco delle applicazioni, selezionare **Powerschool Performance Matters**.
 
     ![Il collegamento per Powerschool Performance Matters nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -185,7 +185,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-powerschool-performance-matters-test-user"></a>Creare l'utente di test di Powerschool Performance Matters
+### <a name="create-powerschool-performance-matters-test-user"></a>Creare l'utente di test per Powerschool Performance Matters
 
 In questa sezione viene creato un utente chiamato Britta Simon in Powerschool Performance Matters. Rivolgersi al  [team di supporto di Powerschool Performance Matters](mailto:pmsupport@powerschoo.com) per aggiungere gli utenti alla piattaforma. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

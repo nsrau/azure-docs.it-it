@@ -10,10 +10,10 @@ ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357871"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
@@ -195,4 +195,4 @@ Abilitare la replica per le macchine virtuali nel modo seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo l'abilitazione della replica eseguire un ripristino per assicurarsi che tutto funzioni come previsto.
 > [!div class="nextstepaction"]
-> [Eseguire una verifica del ripristino di emergenza](site-recovery-test-failover-to-azure.md)
+> [Eseguire un'esercitazione sul ripristino di emergenza](site-recovery-test-failover-to-azure.md)

@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280112"
 ---
 # <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
 
 Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione. [Jupyter](https://jupyter.org/) (in precedenza noto come IPython) è un progetto open source che consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il *notebook* (immagine per gentile concessione di jupyter.org):
 
-[![EEsempi di notebook di Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Esempi di notebook di Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Grazie a questa combinazione avanzata di codice, grafica e testo esplicativo, Jupyter è molto diffuso per diversi scopi, tra cui istruzione di data science, pulizia e trasformazione dei dati, simulazione numerica, modellazione statistica e sviluppo di modelli di Machine learning.
 
@@ -114,8 +114,8 @@ Per domande su Azure Notebooks, segnalare un problema nel [repository GitHub](ht
 - Procedure dettagliate:
   
   - [Creare e clonare progetti](create-clone-jupyter-notebooks.md)
-  - [Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
-  - [Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
+  - [Configure and manage projects (Configurare e gestire i progetti)](configure-manage-azure-notebooks-projects.md)
+  - [Install packages from within a notebook (Installare pacchetti da un notebook)](install-packages-jupyter-notebook.md)
   - [Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)
   - [Usare i file di dati](work-with-project-data-files.md)
   - [Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)
