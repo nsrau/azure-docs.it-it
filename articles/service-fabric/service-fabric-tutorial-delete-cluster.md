@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 38e776a5398ea5217a0d7e385d6ebb45d2199d51
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0e5137a8183f378ee5960846e281222c6ecaaa47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044608"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995711"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Esercitazione: Rimuovere un cluster di Service Fabric in esecuzione in Azure
 
@@ -121,4 +121,3 @@ Una volta completata questa esercitazione, è possibile continuare con il percor
 * Informazioni su come esaminare e gestire un cluster di Service Fabric con [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 * Informazioni su come [applicare patch al sistema operativo Windows](service-fabric-patch-orchestration-application.md) dei nodi del cluster.
 * Informazioni su come aggregare e raccogliere eventi per i [cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e su come [configurare Log Analytics](service-fabric-diagnostics-oms-setup.md) per il monitoraggio degli eventi dei cluster.
-ms-setup.md) per il monitoraggio degli eventi dei cluster.

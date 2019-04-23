@@ -10,11 +10,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257758"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797568"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Eseguire il failover e riproteggere le VM di Azure tra aree
 

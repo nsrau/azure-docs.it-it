@@ -15,17 +15,17 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59498376"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799545"
 ---
 ## <a name="register-your-application"></a>Registrare l'applicazione
 
 È possibile registrare l'applicazione in uno dei due modi descritti di seguito.
 
-### <a name="option-1-express-mode"></a>Opzione 1: Modalità Rapida
+### <a name="option-1-express-mode"></a>Opzione 1: modalità Rapida
 
 È possibile registrare rapidamente l'applicazione seguendo questa procedura:
 1. Passare alla [registrazione delle applicazioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).

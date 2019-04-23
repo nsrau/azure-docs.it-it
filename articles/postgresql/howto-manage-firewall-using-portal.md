@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495659"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798350"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Creare e gestire regole del firewall per Database di Azure per PostgreSQL usando il portale di Azure
 Le regole del firewall a livello di server sono utilizzabile per gestire l'accesso a un Database di Azure per il PostgreSQL Server da uno specifico indirizzo IP o intervallo di indirizzi IP.
