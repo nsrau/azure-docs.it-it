@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518612"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Creare e gestire i dashboard personali
 
@@ -29,7 +29,7 @@ Selezionando **+ nuovo**, viene aperto l'editor del dashboard. Nell'editor, è p
 
 ![Libreria dashboard](media/howto-personalize-dashboard/dashboardeditor.png)
 
-Ad esempio, è possibile aggiungere un **le impostazioni del dispositivo e proprietà** riquadro per visualizzare i valori di proprietà e le impostazioni per uno dei dispositivi gestiti. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Assegnare quindi il riquadro, un titolo e selezionare una **impostazione** o una **proprietà** da visualizzare. La schermata seguente mostra le **effettuare il fan-velocità** impostazione selezionata da aggiungere al riquadro. Selezionare **** per salvare la modifica al dashboard.
+Ad esempio, è possibile aggiungere un **le impostazioni del dispositivo e proprietà** riquadro per visualizzare i valori di proprietà e le impostazioni per uno dei dispositivi gestiti. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Assegnare quindi il riquadro, un titolo e selezionare una **impostazione** o una **proprietà** da visualizzare. La schermata seguente mostra le **effettuare il fan-velocità** impostazione selezionata da aggiungere al riquadro. Selezionare **Done** per salvare la modifica al dashboard.
 
 ![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](media/howto-personalize-dashboard/dashboardsetting.png)
 

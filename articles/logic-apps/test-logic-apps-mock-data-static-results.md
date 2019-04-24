@@ -10,11 +10,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 03/18/2019
 ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511742"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testare le App per la logica con dati fittizi configurando risultati statici
 
@@ -61,7 +61,7 @@ Ad esempio, se si configura posta elettronica azione di invio statici risultati 
 
       ![Selezionare le proprietà facoltative](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quando sei pronto a salvare, scegliere ****.
+1. Quando sei pronto a salvare, scegliere **Done**.
 
    Nell'angolo superiore destro dell'azione, la barra del titolo Mostra ora un'icona becher test (![icona per ottenere risultati statici](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), che indica che è stato abilitato risultati statici.
 

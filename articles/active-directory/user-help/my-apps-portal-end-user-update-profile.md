@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482990"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Aggiornare le informazioni di profilo e l'account dal portale App personali
-È possibile usare l'account aziendale o dell'istituto di istruzione con basata sul web **My Apps** portale per visualizzare e avvio delle App dell'organizzazione basati sul cloud, per aggiornare alcune delle informazioni dell'account e profili, per visualizzare il **gruppi** informazioni ed eseguire **verifiche di accesso** per le App e i gruppi. Se non si ha accesso per il **My Apps** portale, è necessario contattare il supporto tecnico per l'autorizzazione.
+È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Se sei un amministratore, è possibile trovare altre informazioni su come configurare e gestire le app basate su cloud nel [documentazione di gestione di applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualizzare le informazioni sul profilo dell'organizzazione relative
 A seconda di ciò che l'organizzazione ha scelto di includere nelle **profilo** pagina della **My Apps** portale, si potrebbero vedere i dettagli specifici correlati al lavoro, con i dispositivi e attività e qualsiasi altre organizzazioni a cui si appartiene.
@@ -110,7 +110,7 @@ Verifica a due fattori è necessario utilizzare due tipi di info di verifica, ad
 
     ![Condizioni per l'uso di pagina dal portale App personali](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Se l'organizzazione non ha condizioni d'uso, è possibile selezionare **** da restituire per il **profilo** pagina.
+    Se l'organizzazione non ha condizioni d'uso, è possibile selezionare **Done** da restituire per il **profilo** pagina.
 
 ## <a name="sign-out-of-everywhere"></a>Disconnettersi da qualsiasi posizione
 È possibile scegliere di disconnettersi da ovunque che è attualmente connessi all'utilizzo del lavoro o dell'istituto di istruzione. Questo include tutte le App e dispositivi.
