@@ -5,16 +5,15 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.openlocfilehash: 77965e20e7d42d12b34bcb2f7cc6c8680ba34b3a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428027"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Inviare i messaggi EDI in batch ai partner commerciali con le App per la logica di Azure
 
@@ -60,13 +59,13 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
 2. [Collegare l'app per la logica a un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. Nella finestra Progettazione app per la logica aggiungere il trigger **batch**, che avvia il flusso di lavoro dell'app per la logica. Nella casella di ricerca digitare "batch" come filtro. Selezionare il trigger: **Messaggi batch**
+3. Nella finestra Progettazione app per la logica aggiungere il trigger **batch**, che avvia il flusso di lavoro dell'app per la logica. Nella casella di ricerca digitare "batch" come filtro. Selezionare questo trigger: **Messaggi batch**
 
    ![Aggiungere il trigger Batch](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Impostare le proprietà del ricevitore di batch: 
 
-   | Proprietà | Valore | Note | 
+   | Proprietà | Value | Note | 
    |----------|-------|-------|
    | **Modalità batch** | Inline |  |  
    | **Nome batch** | TestBatch | Disponibile solo con modalità batch **Inline** | 
@@ -85,7 +84,7 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
    1. Nel trigger batch scegliere **Nuovo passaggio**.
 
-   2. Nella casella di ricerca immettere "batch X12" come filtro e selezionare un'azione per (qualsiasi versione): **Codifica in batch <*versione*> - X12** 
+   2. Nella casella di ricerca immettere "X batch X12" come filtro e selezionare l'azione (qualsiasi versione): **Codifica in batch <*versione*>-X12** 
 
       ![Selezionare l'azione di codifica batch X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -119,7 +118,7 @@ Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possib
 
 1. Sotto l’azione di codifica X12, scegliere **Nuovo passaggio**. 
 
-2. Nella casella di ricerca, immettere "HTTP" come filtro. Selezionare l'azione **HTTP - HTTP**
+2. Nella casella di ricerca, immettere "HTTP" come filtro. Selezionare questa azione: **HTTP - HTTP**
     
    ![Selezionare l'azione HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -152,7 +151,7 @@ A questo punto creare una o più app per la logica che inviano messaggi all’ap
 
 1. Creare un'altra app per la logica con questo nome: "SendX12MessagesToBatch" 
 
-2. Nella casella di ricerca, digitare "in caso di richiesta http" come filtro. Selezionare questo trigger: **Alla ricezione di una richiesta HTTP** 
+2. Nella casella di ricerca, digitare "in caso di richiesta http" come filtro. Selezionare questo trigger: **Quando viene ricevuta una richiesta HTTP** 
    
    ![Aggiungere il trigger Request](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -161,7 +160,7 @@ A questo punto creare una o più app per la logica che inviano messaggi all’ap
    1. Sotto l'azione di richiesta HTTP, scegliere **Nuovo passaggio**.
 
    2. Nella casella di ricerca digitare "batch" come filtro. 
-   Selezionare l’elenco delle **Azioni**, quindi selezionare questa azione: **Scegliere un flusso di lavoro delle app per la logica con un trigger batch - Inviare un messaggio al batch**
+   Selezionare l'elenco **Azioni** e quindi questa azione: **Scegliere un flusso di lavoro delle app per la logica con un trigger batch - Invia messaggi al batch**
 
       ![Selezionare “Scegliere un flusso di lavoro delle app per la logica con un trigger batch”](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -169,7 +168,7 @@ A questo punto creare una o più app per la logica che inviano messaggi all’ap
 
       ![Selezionare l'app per la logica "ricevente il batch"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Selezionare questa azione: **Batch_messages - <*your-batch-receiver*>**
+   4. Selezionare questa azione: **Batch_messages - <*ricevitore-batch*>**
 
       ![Selezionare l'azione "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 

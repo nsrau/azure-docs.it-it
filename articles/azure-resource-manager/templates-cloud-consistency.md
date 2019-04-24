@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388133"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
 
@@ -673,5 +673,5 @@ Prendere in considerazione i suggerimenti seguenti per il test e l’automazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Considerazioni sui modelli di Azure Resource Manager](../azure-stack/user/azure-stack-develop-templates.md)
+* [Considerazioni sui modelli di Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
 * [Procedure consigliate per i modelli di Azure Resource Manager](resource-group-authoring-templates.md)

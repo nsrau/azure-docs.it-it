@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406422"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -68,6 +68,7 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
+| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -165,6 +166,17 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_E16_v3 | 16        | 128           | 400                  | 8/estremamente alta |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/estremamente alta |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/estremamente alta |
+
+## <a name="f-series"></a>Serie F
+
+
+| Dimensione            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
+| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
+| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
+| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
+| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>Serie G

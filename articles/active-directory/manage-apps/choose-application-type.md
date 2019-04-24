@@ -16,11 +16,11 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441267"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Scelta del tipo di applicazione al momento dell'aggiunta di un'applicazione in Azure Active Directory
 Informazioni sui quattro tipi di applicazioni che è possibile aggiungere ad Azure Active Directory (Azure AD). Quando si aggiunge un'applicazione in Azure Active Directory, viene chiesto di scegliere uno tra quattro tipi disponibili. 
@@ -51,7 +51,7 @@ Le funzionalità seguenti sono supportate dai quattro tipi di applicazione indic
 
 -   **Log di accesso**: consentono di vedere [tutti gli accessi a un'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) o tutte le applicazioni
 
--   **Registri di controllo**: consentono di vedere i [registri di controllo dettagliati sulle modifiche a un'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) o per tutte le applicazioni
+-   **Log di controllo**: consentono di vedere i [log di controllo dettagliati sulle modifiche a un'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs) o per tutte le applicazioni
 
 -   **Accesso condizionale e basato sui rischi**: consente di impostare potenti [regole di accesso basate sulle condizioni](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) che vengono applicate quando gli utenti tentano di accedere a un'applicazione specifica
 

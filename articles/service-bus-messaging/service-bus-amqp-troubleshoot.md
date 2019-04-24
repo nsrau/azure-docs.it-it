@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58910046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402786"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Errori AMQP nel Bus di servizio di Azure
 Questo articolo fornisce alcuni degli errori che viene visualizzato quando si usa AMQP con il Bus di servizio di Azure. Sono tutti i comportamenti standard del servizio. È possibile evitarle effettuando chiamate di invio/ricezione sul connessione/collegamento che ricrea automaticamente il collegamento.

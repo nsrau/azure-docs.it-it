@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389577"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -44,7 +44,7 @@ Esistono anche i limiti seguenti:
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati sulle risorse. I metadati vengono archiviati nel percorso del gruppo di risorse.
 
-Se l'area del gruppo di risorse è temporaneamente non disponibile, è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma è possibile aggiornarli. Per ridurre il rischio, individuare il gruppo di risorse e le risorse nella stessa area.
+Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
 ## <a name="parameters"></a>Parametri
 Le informazioni di questa sezione possono essere utili quando si usano i [parametri](resource-group-authoring-templates.md#parameters).
@@ -147,7 +147,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](resource-group-authoring-templates.md#variables):
 

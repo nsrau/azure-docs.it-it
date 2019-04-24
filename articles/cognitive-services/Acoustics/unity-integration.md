@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389493"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integrazione con Unity Project acustica
 Questa procedura descrive l'integrazione del plug-in di progetto acustica Unity nel progetto Unity.
 
 Requisiti software:
-* [Unity 2018.2 +](http://unity3d.com) per Windows
+* [Unity 2018.2+](http://unity3d.com) per Windows
 * [Pacchetto del progetto Unity acustica](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>Importare il plug-in
@@ -30,16 +30,16 @@ Importare il pacchetto di acustica UnityPackage nel progetto.
 
     ![Menu screenshot di Unity Importa pacchetto](media/import-package.png)  
 
-* Scegliere **ProjectAcoustics.unitypackage**
+* Scegliere **ProjectAcoustics.unitypackage**.
 
 Se si sta importando il plug-in un progetto esistente, nella radice del progetto può già essere presente un file **mcs.rsp**, che specifica le opzioni per il compilatore C#. È necessario unire il contenuto di tale file con il file mcs.rsp fornito con il plug-in Project Acoustics.
 
 ## <a name="enable-the-plugin"></a>Abilitare il plug-in
 La parte per il baking del toolkit di acustica richiede la versione del runtime di scripting .NET 4.x. L'importazione del pacchetto aggiornerà le impostazioni del lettore Unity. Riavviare Unity per l'applicazione di queste impostazioni.
 
-![Schermata di Unity Player il pannello delle impostazioni](media/player-settings.png)
+![Screenshot del pannello di impostazioni del lettore in Unity](media/player-settings.png)
 
-![Schermata di Unity Player pannello delle impostazioni con .NET 4.5 selezionato](media/net45.png)
+![Screenshot del pannello di impostazioni del lettore in Unity con l'opzione .NET 4.5 selezionata](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>Configurare DSP audio
 Progetto acustica include runtime audio DSP che integra il framework di spaziale audio motore Unity. Include spatialization HRTF sia su Panoramica. Abilitare DSP acustica progetto aprendo le impostazioni audio Unity usando **Modifica > Impostazioni progetto > Audio**, quindi selezionando **progetto acustica** come il **spaziale plug-in** per il progetto. Assicurarsi che il **le dimensioni del Buffer DSP** è impostato su prestazioni ottimali.
@@ -60,7 +60,7 @@ Creare una sorgente audio. Fare clic sulla casella di controllo nella parte infe
 ## <a name="enable-acoustic-design"></a>Abilita progettazione modello acustico
 Collegare lo script **AcousticsAdjust** a un'origine audio nella scena per abilitare i parametri di progetto di origine aggiuntivi, fare clic su **Add Component** e scegliendo **script > acustica regolare** :
 
-![Schermata di Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Screenshot dello script AcousticsAdjust in Unity](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Mostrandone la scena con acustica progetti per Unity](unity-baking.md)

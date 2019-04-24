@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 306a21add76261dce99c954a2ba373e4b5047a75
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420044"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -144,7 +144,7 @@ Il canale di controllo viene aperto con la creazione di una connessione WebSocke
 
 Le opzioni dei parametri della stringa di query sono le seguenti.
 
-| Parametro        | Obbligatoria | Descrizione
+| Parametro        | Obbligatorio | DESCRIZIONE
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Sì      | Per il ruolo listener, il parametro deve essere **sb-hc-action=listen**
 | `{path}`         | Sì      | Percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
@@ -204,7 +204,7 @@ Lo stesso vale per l'intestazione `Sec-WebSocket-Extensions`. Se il framework su
 
 L'URL deve essere usato così com'è per stabilire il socket di accettazione, ma contiene i parametri seguenti:
 
-| Parametro      | Obbligatoria | DESCRIZIONE
+| Parametro      | Obbligatorio | DESCRIZIONE
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sì      | Per accettare un socket, il parametro deve essere `sb-hc-action=accept`
 | `{path}`       | Sì      | (vedere il paragrafo seguente)
@@ -241,7 +241,7 @@ In caso di errore il servizio può rispondere come segue:
 
  Per rifiutare il socket, il client accetta l'URI dell'indirizzo dal messaggio `accept` e vi aggiunge due parametri di stringa di query, come indicato di seguito:
 
-| Param                   | Obbligatoria | DESCRIZIONE                              |
+| Param                   | Obbligatorio | DESCRIZIONE                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sì      | Codice di stato HTTP numerico.                |
 | sb-hc-statusDescription | Sì      | Motivo leggibile del rifiuto. |
@@ -316,7 +316,7 @@ Il contenuto JSON per `request` è indicato di seguito:
 
 * **requestTarget** - stringa. Questa proprietà contiene la ["destinazione richiesta" (RFC7230, Sezione 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) della richiesta. Ciò include la parte della stringa di query, rimossa da TUTTI i parametri `sb-hc-` con prefisso.
 * **method** - stringa. Metodo della richiesta, per ogni elemento [RFC7231, Sezione 4](https://tools.ietf.org/html/rfc7231#section-4). Il metodo `CONNECT` NON DEVE essere usato.
-* **body** - booleano. Indica se è presente più di un frame di corpo binario.
+* **body** - booleano. Indica se sono presenti uno o più frame di corpo binario.
 
 ``` JSON
 {
@@ -376,7 +376,7 @@ Per le risposte che superano 64 KB, la risposta DEVE essere recapitata tramite u
 
 L'URL `address` nell'elemento `request` deve essere usato così com'è per stabilire il socket di incontro, ma contiene i parametri seguenti:
 
-| Parametro      | Obbligatoria | DESCRIZIONE
+| Parametro      | Obbligatorio | DESCRIZIONE
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sì      | Per accettare un socket, il parametro deve essere `sb-hc-action=request`
 

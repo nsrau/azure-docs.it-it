@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405971"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiare dati da Office 365 in Azure tramite Data Factory (anteprima) 
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Attualmente, nell'ambito di una singola attività di copia, è possibile solo **copiare dati da Office 365 in [Archiviazione BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) e [Azure Data Lake Storage Gen2 (anteprima)](connector-azure-data-lake-storage.md) in formato JSON** (tipo setOfObjects). Se si vuole caricare Office 365 in altri tipi di archivi dati o in altri formati, è possibile concatenare la prima attività di copia con un'attività di copia successiva per caricare ulteriormente i dati in uno qualsiasi degli [archivi di destinazione di ADF supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento alla colonna "Supportato come sink" nella tabella "Archivi dati e formati supportati".
+Per ora, all'interno di una singola attività di copia è solo possibile **copiare i dati da Office 365 in [archivio Blob di Azure](connector-azure-blob-storage.md), [Azure Data Lake archiviazione Gen1](connector-azure-data-lake-store.md), e [Gen2 di archiviazione di Azure Data Lake ](connector-azure-data-lake-storage.md) in formato JSON** (tipo setOfObjects). Se si vuole caricare Office 365 in altri tipi di archivi dati o in altri formati, è possibile concatenare la prima attività di copia con un'attività di copia successiva per caricare ulteriormente i dati in uno qualsiasi degli [archivi di destinazione di ADF supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento alla colonna "Supportato come sink" nella tabella "Archivi dati e formati supportati".
 
 >[!IMPORTANT]
 >- La sottoscrizione di Azure che contiene la data factory e l'archivio dati di sink deve essere nello stesso tenant Azure Active Directory (Azure AD) del tenant di Office 365.
@@ -79,11 +79,11 @@ Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Office365** | Yes |
-| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Yes |
-| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Yes |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Yes |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Yes |
+| type | La proprietà type deve essere impostata su: **Office365** | Sì |
+| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Sì |
+| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Sì |
 | connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No  |
 
 >[!NOTE]
@@ -119,8 +119,8 @@ Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Yes |
-| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets). | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Sì |
+| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets). | Sì |
 | predicate | Un'espressione del predicato che può essere usata per filtrare le righe specifiche da estrarre da Office 365.  Per trovare le colonne che possono essere usate per il filtro predicato per ogni tabella e il formato dell'espressione di filtro, vedere [questo articolo](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters). | No <br>Se non viene fornita alcuna proprietà predicate, l'impostazione predefinita prevede l'estrazione dei dati per gli ultimi 30 giorni. |
 
 **Esempio**

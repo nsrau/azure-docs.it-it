@@ -9,13 +9,13 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 2c8b3b4671fd14f9b10b8491861ae2c652f0188b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461655"
 ---
-# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Creare una rete WAN virtuale tabella di route dell'hub per Appliance virtuali di rete: portale di Azure
+# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Creare una rete WAN virtuale tabella di route dell'hub per Appliance virtuali di rete: Portale di Azure
 
 Questo articolo illustra come controllare il traffico proveniente da un hub a una rete virtuale Appliance (NVA).
 
@@ -39,7 +39,7 @@ Verificare di aver soddisfatto i criteri seguenti:
     * Assicurarsi che non sono disponibili gateway di rete virtuale in una qualsiasi delle reti virtuali.
     * Per questa configurazione, queste reti virtuali non richiedono una subnet del gateway.
 
-## <a name="signin"></a>1. Accedi
+## <a name="signin"></a>1. Accesso
 
 In un browser passare al [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -83,9 +83,9 @@ Creare una connessione da ogni rete virtuale (VNet1 e VNet2) spoke indiretto all
 
  Per questo passaggio, è possibile usare i valori seguenti:
 
-| Nome rete virtuale| Nome connessione|
+| Nome della rete virtuale| Nome connessione|
 | --- | --- |
-| Rete virtuale1 | testconnection1 |
+| VNet1 | testconnection1 |
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 

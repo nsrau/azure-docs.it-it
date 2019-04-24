@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
 ms.openlocfilehash: 9186c5ff7c6fbc68487a1ccff0fc1d2d1478df79
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466450"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazio
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio contenitore di AZURE, vedere la Guida introduttiva [si usava la CLI di Azure] [servizio contenitore di Azure-quickstart-cli] o [si usava il portale di Azure] [servizio contenitore di Azure-Guida introduttiva-portale].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster del servizio contenitore di AZURE, vedere la Guida introduttiva [si usava la CLI di Azure] [servizio contenitore di Azure-quickstart-cli] o [si usava il portale di Azure] [servizio contenitore di Azure-Guida introduttiva-portale].
 
 ## <a name="change-the-dns-ttl"></a>Modificare la durata TTL del DNS
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483194"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurare l'applicazione nel portale di pubblicazione
 
@@ -59,7 +59,7 @@ ad esempio, se un server di pubblicazione **"contoso"** server di pubblicazione 
 
 Questo elenco a discesa consente di scegliere il profilo di pubblicazione in cui si desidera pubblicare l'offerta. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Name
 
 Nome visualizzato dell'offerta. È il nome che verrà visualizzato in [AppSource](https://appsource.microsoft.com/). Può contenere massimo 50 caratteri.
 
@@ -106,7 +106,7 @@ La descrizione che verrà visualizzata nella pagina dei dettagli dell'app. La lu
 
 Selezionare il settore che corrisponde meglio all'app. Se l'app rientra in più settori, è possibile lasciare vuoto il campo.
 
-### <a name="categories"></a>Categorie
+### <a name="categories"></a>Categories
 
 Selezionare le categorie rilevanti per l'app. Selezionare al massimo tre categorie.
 

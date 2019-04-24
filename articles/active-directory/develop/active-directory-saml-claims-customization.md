@@ -19,11 +19,11 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411331"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -73,7 +73,7 @@ Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per 
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| NOME | DESCRIZIONE |
+| Name | DESCRIZIONE |
 |------|-------------|
 | Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |

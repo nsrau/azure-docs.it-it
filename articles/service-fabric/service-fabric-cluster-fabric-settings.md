@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386823"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -128,13 +128,13 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, valore predefinito: true | Dinamico |Indica se è richiesta la rappresentazione quando si accede a un archivio di diagnostica per conto dell'applicazione. |
 |AppEtwTraceDeletionAgeInDays |Int, valore predefinito: 3 | Dinamico |Il numero di giorni dopo il quale i file ETL meno recenti contenenti tracce ETW di applicazioni vengono eliminati. |
 |ApplicationLogsFormatVersion |Int, valore predefinito: 0 | Dinamico |Versione per il formato dei log applicazioni. I valori supportati sono 0 e 1. La versione 1 include più campi dal record di eventi ETW rispetto alla versione 0. |
-|ClusterId |string | Dinamico |L'ID univoco del cluster. Viene generato quando viene creato il cluster. |
-|ConsumerInstances |string | Dinamico |L'elenco delle istanze di consumer DCA. |
+|ClusterId |String | Dinamico |L'ID univoco del cluster. Viene generato quando viene creato il cluster. |
+|ConsumerInstances |String | Dinamico |L'elenco delle istanze di consumer DCA. |
 |DiskFullSafetySpaceInMB |Int, valore predefinito: 1024 | Dinamico |Spazio su disco rimanente in MB per la protezione dall'uso di DCA. |
 |EnableCircularTraceSession |Bool, valore predefinito: false | statico |Il flag indica se devono essere usate le sessioni di traccia circolari. |
 |EnableTelemetry |Bool, valore predefinito: true | Dinamico |Parametro per abilitare o disabilitare la telemetria. |
 |MaxDiskQuotaInMB |Int, valore predefinito: 65536 | Dinamico |Quota del disco in MB per i file di log di Windows Fabric. |
-|ProducerInstances |string | Dinamico |L'elenco delle istanze di producer DCA. |
+|ProducerInstances |String | Dinamico |L'elenco delle istanze di producer DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parametro** | **Valori consentiti** |**Criteri di aggiornamento**| **Indicazioni o breve descrizione** |
@@ -378,7 +378,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|Attivato |Bool, valore predefinito: false |statico|Flag Enabled per ImageStoreService. Valore predefinito: false |
+|Enabled |Bool, valore predefinito: false |statico|Flag Enabled per ImageStoreService. Valore predefinito: false |
 |MinReplicaSetSize | Int, valore predefinito: 3 |statico|MinReplicaSetSize per ImageStoreService. |
 |PlacementConstraints | stringa, il valore predefinito è "" |statico| PlacementConstraints per ImageStoreService. |
 |QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |statico| Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per ImageStoreService. |
@@ -484,7 +484,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|Counters |string | Dinamico |Elenco delimitato da virgole dei contatori delle prestazioni da raccogliere. |
+|Counters |String | Dinamico |Elenco delimitato da virgole dei contatori delle prestazioni da raccogliere. |
 |IsEnabled |Bool, valore predefinito: true | Dinamico |Il flag indica se è abilitata la raccolta dei contatori delle prestazioni nel nodo locale. |
 |MaxCounterBinaryFileSizeInMB |Int, valore predefinito: 1 | Dinamico |Dimensione massima (in MB) per ogni file binario del contatore delle prestazioni. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, valore predefinito: 10 | Dinamico |Intervallo massimo (in secondi) dopo il quale viene creato un nuovo file binario di contatore delle prestazioni. |
@@ -804,10 +804,10 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | --- | --- | --- | --- |
 |ContainerNetworkName|stringa, il valore predefinito è ""| statico |Nome di rete da usare quando si configura una rete di contenitori.|
 |ContainerNetworkSetup|bool, valore predefinito: FALSE| statico |Se configurare una rete di contenitori.|
-|FabricDataRoot |string | Non consentito |La directory radice dei dati di Service Fabric. L'impostazione predefinita per Azure è d:\svcfab |
-|FabricLogRoot |string | Non consentito |La directory radice dei log di Service Fabric. Si tratta della posizione in cui vengono collocate le tracce e i log di Service Fabric. |
+|FabricDataRoot |String | Non consentito |La directory radice dei dati di Service Fabric. L'impostazione predefinita per Azure è d:\svcfab |
+|FabricLogRoot |String | Non consentito |La directory radice dei log di Service Fabric. Si tratta della posizione in cui vengono collocate le tracce e i log di Service Fabric. |
 |NodesToBeRemoved|stringa, il valore predefinito è ""| Dinamico |Nodi che devono essere rimossi come parte dell'aggiornamento della configurazione. (Solo per le distribuzioni autonome)|
-|ServiceRunAsAccountName |string | Non consentito |Il nome dell'account con cui eseguire il servizio host infrastruttura. |
+|ServiceRunAsAccountName |String | Non consentito |Il nome dell'account con cui eseguire il servizio host infrastruttura. |
 |SkipContainerNetworkResetOnReboot|bool, valore predefinito: FALSE|NotAllowed|Se di desidera ignorare la reimpostazione di rete del contenitore al riavvio del sistema.|
 |SkipFirewallConfiguration |Bool, valore predefinito: false | Non consentito |Specifica se le impostazioni del firewall devono essere impostate dal sistema. Si applica solo se si usa Windows Firewall. Se si usano firewall di terze parti, è necessario aprire le porte per il sistema e le applicazioni da usare |
 

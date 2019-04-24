@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448049"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 
@@ -36,7 +36,7 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
 * Per usare il connettore di Microsoft Graph Security, è necessario *fornire in modo esplicito* il consenso dell'amministratore del tenant di Azure Active Directory (AD), come previsto dai [requisiti di autenticazione di Microsoft Graph Security](https://aka.ms/graphsecurityauth). Questo consenso richiede l'ID applicazione e il nome del connettore di Microsoft Graph Security, che è anche possibile trovare nel [portale di Azure](https://portal.azure.com):
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    |----------|-------|
    | **Nome dell'applicazione** | `MicrosoftGraphSecurityConnector` |
    | **ID applicazione** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |

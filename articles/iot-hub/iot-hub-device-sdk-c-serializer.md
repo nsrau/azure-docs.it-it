@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399235"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
 
@@ -64,7 +64,7 @@ In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati da
 
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer** .
 
-| type | DESCRIZIONE |
+| Type | DESCRIZIONE |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
 | int |Intero a 32 bit |
@@ -194,7 +194,7 @@ Se si esegue questo codice, viene inviato il messaggio seguente all'hub IoT:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Si noti che la serializzazione è in JSON, il formato generato dalla libreria **serializer**. Si noti anche che ogni membro dell'oggetto JSON serializzato corrisponde ai membri di **TestType** definiti nel modello. Anche i valori corrispondono esattamente a quelli usati nel codice. Notare tuttavia che i dati binari sono codificati in Base 64: "AQID" è la codifica Base 64 di {0x01, 0x02, 0x03}.
+Si noti che la serializzazione è in JSON, il formato generato dalla libreria **serializer**. Si noti anche che ogni membro dell'oggetto JSON serializzato corrisponde ai membri di **TestType** definiti nel modello. Anche i valori corrispondono esattamente a quelli usati nel codice. Si noti tuttavia che i dati binari sono con codifica base 64: "AQID" è base64 codifica di {0x01, 0x02, 0x03}.
 
 Questo esempio dimostra il vantaggio che deriva dall'uso della libreria **serializer** che abilita l'invio di codice JSON nel cloud, senza doversi occupare esplicitamente della serializzazione nell'applicazione. Tutto ciò di cui ci si deve occupare è l'impostazione dei valori degli eventi dati nel modello e la successiva chiamata di API semplici per inviare tali eventi nel cloud.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Il modello include due eventi dati: **Temperature** e **Humidity**. A differenza degli esempi precedenti, il tipo di ogni evento è una struttura definita tramite **DECLARE\_STRUCT**. **TemperatureEvent** include una misura della temperatura e un timestamp. **HumidityEvent** contiene una misura dell'umidità e un timestamp. Questo modello offre un modo naturale per modellare i dati per lo scenario descritto sopra. Quando si invia un evento nel cloud, si invia una coppia temperatura/timestamp o umidità/timestamp.
+Si noti che il modello include due eventi dati: **Temperatura** e **umidità**. A differenza degli esempi precedenti, il tipo di ogni evento è una struttura definita tramite **DECLARE\_STRUCT**. **TemperatureEvent** include una misura della temperatura e un timestamp. **HumidityEvent** contiene una misura dell'umidità e un timestamp. Questo modello offre un modo naturale per modellare i dati per lo scenario descritto sopra. Quando si invia un evento nel cloud, si invia una coppia temperatura/timestamp o umidità/timestamp.
 
 È possibile inviare un evento temperatura nel cloud usando codice come il seguente:
 
@@ -514,7 +514,7 @@ Se si invia un messaggio a un dispositivo, si dovrà usare Azure IoT service SDK
 {"Name" : "", "Parameters" : "" }
 ```
 
-Se invia un oggetto JSON serializzato con due proprietà: **Name** è il nome dell'azione, ovvero il messaggio, e **Parameters** contiene i parametri dell'azione.
+Si sta inviando un oggetto serializzato JSON con due proprietà: **Nome** è il nome dell'azione (messaggio) e **parametri** contiene i parametri dell'azione.
 
 Ad esempio, per richiamare **SetAirResistance** è possibile inviare questo messaggio a un dispositivo:
 

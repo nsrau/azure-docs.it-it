@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473804"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Cause possibili del messaggio d'errore "Non è possibile accedervi da qui"
 In fase di accesso ai servizi o alle app Web interne dell'organizzazione potrebbe essere visualizzato il messaggio d'errore **Non è possibile accedervi da qui**. Questo messaggio significa che l'organizzazione ha applicato criteri che impediscono al dispositivo di accedere alle risorse dell'organizzazione. Di seguito sono riportate alcune operazioni che è possibile provare, anche se probabilmente si dovrà contattare il supporto tecnico per risolvere il problema.

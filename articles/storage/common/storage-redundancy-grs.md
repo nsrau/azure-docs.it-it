@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: jeking
 ms.subservice: common
 ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516271"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -36,7 +36,7 @@ Alcune considerazioni da ricordare quando si usa l'archiviazione con ridondanza 
 
 **Obiettivo del punto di ripristino (RPO):** nel caso dell'archiviazione con ridondanza geografica e dell'archiviazione con ridondanza geografica e accesso in lettura, il servizio di archiviazione esegue la replica geografica asincrona dei dati dalla località primaria a quella secondaria. Nel caso in cui l'area primaria diventi non disponibile, è possibile eseguire il failover di un account (anteprima) nell'area secondaria. Quando si avvia un failover, le modifiche recenti non ancora replicate geograficamente potrebbero andare perse. Il numero di minuti di potenziale perdita di dati è detto obiettivo del punto di ripristino e indica il punto nel tempo in cui è possibile recuperare i dati. L'obiettivo del punto di ripristino di Archiviazione di Azure è in genere inferiore a 15 minuti, anche se attualmente non è previsto alcun contratto di servizio sulla durata della replica geografica.
 
-**Obiettivo del tempo di ripristino (RTO):** l'obiettivo del tempo di ripristino è una misura del tempo necessario per eseguire il failover e riportare online l'account di archiviazione. Il tempo necessario per il failover include le componenti seguenti:
+**Obiettivo del tempo di ripristino (RTO):** l'obiettivo del tempo di ripristino è una misura del tempo necessario per eseguire il failover e riportare online l'account di archiviazione. Il tempo necessario per eseguire il failover include le azioni seguenti:
 
    * Il tempo che trascorre prima che il cliente avvii il failover dell'account di archiviazione dall'area primaria a quella secondaria.
    * Il tempo necessario ad Azure per eseguire il failover modificando le voci relative al DNS primario in modo che puntino alla località secondaria.

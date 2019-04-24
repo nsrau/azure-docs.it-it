@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398064"
 ---
 <a name="app-publishing-steps"></a>Procedura per la pubblicazione dell'app
 ====================
@@ -29,9 +29,9 @@ Per avviare il processo di pubblicazione, è necessario fare clic su "Pubblica" 
 ![Pulsante di pubblicazione dell'app CCP](./media/d365-financials/image014.jpg)
 
 
-Nella scheda Stato verranno visualizzati i passaggi di pubblicazione che indicheranno la fase del processo in cui si trova l'offerta. In qualsiasi momento nel processo di pubblicazione è inoltre possibile registrarsi e fare clic sulla scheda All Offers (Tutte le offerte) per visualizzare lo stato più recente di tutte le offerte pubblicate. È possibile fare clic direttamente sullo stato dell'offerta e visualizzare i dettagli relativi alla fase del processo di pubblicazione in cui si trova.
+Nella scheda Stato verranno visualizzati i passaggi di pubblicazione che indicheranno la fase del processo in cui si trova l'offerta. In qualsiasi momento del processo di pubblicazione è anche possibile accedere e fare clic sulla scheda All Offers (Tutte le offerte) per visualizzare lo stato più recente di tutte le offerte pubblicate. È possibile fare clic direttamente sullo stato dell'offerta e visualizzare i dettagli relativi alla fase del processo di pubblicazione in cui si trova.
 
-Esamineremo ora i singoli passaggi di pubblicazione, illustrando cosa accade a ogni passaggio con una stima del tempo previsto per la sua esecuzione.
+Verranno ora esaminati i singoli passaggi di pubblicazione, illustrando cosa accade a ogni passaggio con una stima del tempo previsto per la sua esecuzione.
 
 ![Diagramma del processo di pubblicazione](./media/d365-financials/image017.png)
 
@@ -102,6 +102,6 @@ Se si verificano problemi nella risoluzione di un errore, è necessario aprire u
 <a name="canceling-the-publishing-request"></a>Annullamento della richiesta di pubblicazione
 --------------------------------
 
-Può accadere che dopo avere avviato il processo di pubblicazione sia necessario annullare la richiesta. È possibile annullare una richiesta di pubblicazione solo dopo avere completato il passaggio di signoff dell'autore. Per annullare, fare clic su **Annulla pubblicazione**. Verrà ripristinato lo stato di pubblicazione del passaggio 1 e per eseguire nuovamente la pubblicazione sarà necessario fare clic su Pubblica e seguire i passaggi nello stato.
+Può accadere che dopo avere avviato il processo di pubblicazione sia necessario annullare la richiesta. È possibile annullare una richiesta di pubblicazione solo dopo avere completato il passaggio di signoff dell'autore. Per annullare, fare clic su **Cancel Publish** (Annulla pubblicazione). Verrà ripristinato lo stato di pubblicazione del passaggio 1 e per eseguire nuovamente la pubblicazione sarà necessario fare clic su Pubblica e seguire i passaggi nello stato.
 
 ![Pulsante di annullamento della pubblicazione](./media/d365-financials/image013.png)

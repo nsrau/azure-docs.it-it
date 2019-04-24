@@ -14,11 +14,11 @@ ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.author: mbullwin
 ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409558"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avviso su problemi in Servizi cloud di Azure tramite l'integrazione di Diagnostica di Azure con Azure Application Insights
 
@@ -116,7 +116,7 @@ Nella sezione **Definire il gruppo di azioni** è possibile selezionare un **Gru
 
 Dopo aver definito il gruppo di azioni, confermare le modifiche e fare clic su **Crea regola di avviso**.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per altre informazioni sul rilevamento automatico:
 

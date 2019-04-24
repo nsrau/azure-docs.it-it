@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482853"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Eseguire una verifica di accesso dal portale App personali
-È possibile usare l'account aziendale o dell'istituto di istruzione con basata sul web **My Apps** portale per visualizzare e avvio delle App dell'organizzazione basati sul cloud, per aggiornare alcune delle informazioni dell'account e profili, per visualizzare il **gruppi** informazioni ed eseguire **verifiche di accesso** per le App e i gruppi. Se non si ha accesso per il **My Apps** portale, è necessario contattare il supporto tecnico per l'autorizzazione.
+È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Se sei un amministratore, è possibile trovare altre informazioni su come configurare e gestire le app basate su cloud nel [documentazione di gestione di applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="manage-access-reviews"></a>Gestire le verifiche di accesso
 Se l'amministratore ha assegnato l'autorizzazione per eseguire il proprio le verifiche di accesso, è possibile gestire l'accesso App o i gruppi dal **verifiche di accesso** dei riquadri per il **My Apps** pagina del portale.

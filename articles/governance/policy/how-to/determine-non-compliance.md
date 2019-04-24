@@ -3,16 +3,16 @@ title: Determinare le cause di non conformità
 description: Se una risorsa non conforme, esistono numerose cause. Informazioni su come stabilire la causa la non conformità.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499327"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -124,6 +124,8 @@ Come parte di una nuova **versione di anteprima pubblica**, gli ultimi 14 giorni
    ![Diff Visual cronologia modifiche di criteri nella pagina cronologia modifiche](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Sono state rilevate le modifiche potrebbero non essere correlate per lo stato di conformità corrente della risorsa.
+
+Dati della cronologia delle modifiche viene forniti da [Graph di Azure Resource](../../resource-graph/overview.md). Per eseguire query su queste informazioni all'esterno del portale di Azure, vedere [ottenere le modifiche alle risorse](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

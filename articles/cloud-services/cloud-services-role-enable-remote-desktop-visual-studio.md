@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406447"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -95,7 +95,7 @@ Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguen
 
 1. Dopo le istruzioni di compilazione, aggiungere il passaggio **Distribuzione del servizio cloud di Azure** e impostarne le proprietà.
 
-1. Dopo il passaggio di distribuzione, aggiungere un passaggio **Azure Powershell**, impostare la proprietà **Nome visualizzato** su "Distribuzione Azure: abilitare l'estensione RDP" o un altro nome appropriato e selezionare la sottoscrizione Azure appropriata.
+1. Dopo il passaggio di distribuzione, aggiungere un' **Azure Powershell** passaggio, impostare relativo **nome visualizzato** proprietà su "distribuzione di Azure: Abilitare l'estensione RDP"o un altro nome appropriato e selezionare la sottoscrizione Azure appropriata.
 
 1. Impostare **Tipo di script** su "Inline" e incollare il codice seguente nel campo **Script inline**. È anche possibile creare un file `.ps1` nel progetto con questo script, impostare **Tipo di script** su "Percorso del file di script" e impostare **Percorso script** in modo da puntare al file.
 

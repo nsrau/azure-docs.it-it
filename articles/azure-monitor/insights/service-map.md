@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404430"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Con Mapping dei servizi puoi visualizzare i server nel modo in cui pensi a essi, ovvero come sistemi interconnessi che forniscono servizi essenziali. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -299,22 +299,22 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
-|Machine |FQDN del computer |
-|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
-|SourceIp |Indirizzo IP dell'origine |
-|DestinationIp |Indirizzo IP della destinazione |
-|DestinationPort |Numero di porta della destinazione |
-|Protocollo |Protocollo usato per la connessione.  Il valore è *tcp*. |
+| `Direction` |Direzione della connessione. Il valore è *inbound* o *outbound* |
+| `Machine` |FQDN del computer |
+| `Process` |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+| `SourceIp` |Indirizzo IP dell'origine |
+| `DestinationIp` |Indirizzo IP della destinazione |
+| `DestinationPort` |Numero di porta della destinazione |
+| `Protocol` |Protocollo usato per la connessione.  Il valore è *tcp*. |
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
-|LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
-|LinksFailed |Numero di connessioni di rete fisiche che hanno avuto esito negativo durante l'intervallo di tempo di creazione del report. Queste informazioni sono attualmente disponibili solo per le connessioni in uscita. |
-|LinksLive |Numero di connessioni di rete fisiche aperte alla fine dell'intervallo di tempo di creazione del report|
+| `LinksEstablished` |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
+| `LinksTerminated` |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
+| `LinksFailed` |Numero di connessioni di rete fisiche che hanno avuto esito negativo durante l'intervallo di tempo di creazione del report. Queste informazioni sono attualmente disponibili solo per le connessioni in uscita. |
+| `LinksLive` |Numero di connessioni di rete fisiche aperte alla fine dell'intervallo di tempo di creazione del report|
 
 #### <a name="metrics"></a>Metriche
 
@@ -322,12 +322,12 @@ Oltre alle metriche relative al numero di connessioni, nelle proprietà del reco
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
-|BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
-|Risposte |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
-|ResponseTimeMax |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
-|ResponseTimeMin |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
-|ResponseTimeSum |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota|
+| `BytesSent` |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
+| `BytesReceived` |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
+| `Responses` |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
+| `ResponseTimeMax` |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
+| `ResponseTimeMin` |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
+| `ResponseTimeSum` |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota|
 
 Il terzo tipo di dati segnalati è il tempo di risposta, ovvero il tempo di attesa, da parre di un chiamante, affinché una richiesta inviata tramite una connessione venga elaborata dall'endpoint remoto e venga fornita una risposta. Il tempo di risposta segnalato è una stima del tempo di risposta effettivo del protocollo dell'applicazione sottostante. Viene calcolato usando l'euristica in base all'osservazione del flusso di dati tra l'origine e la destinazione di una connessione di rete fisica. Concettualmente, corrisponde alla differenza tra l'ora in cui l'ultimo byte di una richiesta lascia il mittente e l'ora in cui l'ultimo byte della risposta torna al mittente. Questi due timestamp vengono usati per delineare gli eventi di richiesta e di risposta in una determinata connessione fisica. La differenza tra di essi rappresenta il tempo di risposta di una singola richiesta. 
 
@@ -348,26 +348,26 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
-|RemoteLatitude |Latitudine della georilevazione.  Ad esempio, *47.68* |
-|RemoteLongitude |Longitudine della georilevazione.  Ad esempio, *-122.12* |
+| `RemoteCountry` |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
+| `RemoteLatitude` |Latitudine della georilevazione.  Ad esempio, *47.68* |
+| `RemoteLongitude` |Longitudine della georilevazione.  Ad esempio, *-122.12* |
 
 #### <a name="malicious-ip"></a>Indirizzi IP dannosi
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|MaliciousIp |Indirizzo RemoteIp |
-|IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIZIONE |Descrizione della minaccia osservata. |
-|TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
-|Attendibilità |I valori sono *0 - 100*. |
-|Gravità |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
-|FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
-|LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
-|IsActive |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
-|ReportReferenceLink |Offre collegamenti ai report relativi a un oggetto osservabile specificato. |
-|AdditionalInformation |Offre informazioni aggiuntive, se disponibili, sulla minaccia osservata. |
+| `MaliciousIp` |Indirizzo RemoteIp |
+| `IndicatorThreadType` |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+| `Description` |Descrizione della minaccia osservata. |
+| `TLPLevel` |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
+| `Confidence` |I valori sono *0 - 100*. |
+| `Severity` |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
+| `FirstReportedDateTime` |La prima volta che il provider ha segnalato l'indicatore. |
+| `LastReportedDateTime` |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
+| `IsActive` |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
+| `ReportReferenceLink` |Offre collegamenti ai report relativi a un oggetto osservabile specificato. |
+| `AdditionalInformation` |Offre informazioni aggiuntive, se disponibili, sulla minaccia osservata. |
 
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
@@ -399,7 +399,7 @@ I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi a
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | Identificatore univoco per il processo nell'area di lavoro |
 | `ResourceName_s` | Identificatore univoco per il processo nel computer in cui è in esecuzione|

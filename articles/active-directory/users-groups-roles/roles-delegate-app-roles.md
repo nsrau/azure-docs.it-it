@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469129"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegare i ruoli di amministratore dell'app in Azure Active Directory
 
@@ -58,7 +58,7 @@ Quando un utente registra un'applicazione, viene aggiunto automaticamente come p
 
 ## <a name="delegate-app-ownership"></a>Delegare la proprietà delle app
 
-I proprietari di app e i proprietari di registrazioni di app possono gestire rispettivamente solo le applicazioni e le registrazioni di app di cui sono proprietari. Ad esempio, se si aggiunge un proprietario per l'applicazione Salesforce, tale proprietario può gestire l'accesso e la configurazione per Salesforce ma non per altre applicazioni. Un'app può avere diversi proprietari e un utente può essere proprietario di diverse app.
+Proprietari di App e di registrazione app possibile ognuno gestire solo le applicazioni o le registrazioni di app che sono proprietari. Ad esempio, se si aggiunge un proprietario per l'applicazione Salesforce, tale proprietario può gestire l'accesso e la configurazione per Salesforce ma non per altre applicazioni. Un'app può avere diversi proprietari e un utente può essere proprietario di diverse app.
 
 Un proprietario dell'applicazione può:
 

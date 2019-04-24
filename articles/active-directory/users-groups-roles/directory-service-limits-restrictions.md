@@ -16,11 +16,11 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1191fb5c9aefb55896d5c44714f1061ff2674a8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472239"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrizioni e limiti del servizio Azure AD
 Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per il servizio Azure Active Directory (Azure AD). Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md).

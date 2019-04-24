@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393749"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni C# di Service Fabric con Visual Studio Code
 
@@ -57,7 +57,7 @@ L'applicazione dovrebbe ora essere visualizzata nell'area di lavoro di Visual St
 
 ![Applicazione CounterService nell'area di lavoro](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
-## <a name="build-the-application"></a>Compilare l'applicazione
+## <a name="build-the-application"></a>Compilare l'applicazione.
 1. In Visual Studio Code premere CTRL+MAIUSC+P per aprire il **riquadro comandi**.
 2. Cercare e selezionare il comando **Service Fabric: Build Application** (Service Fabric: Compila applicazione). L'output della compilazione viene inviato al terminale integrato.
 

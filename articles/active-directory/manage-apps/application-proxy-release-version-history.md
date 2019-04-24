@@ -17,11 +17,11 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441662"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Il proxy dell'applicazione di Azure AD: Cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del Proxy dell'applicazione Azure Active Directory (Azure AD) che sono state rilasciate. Il team di Azure AD aggiorna regolarmente il Proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del Proxy dell'applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione.

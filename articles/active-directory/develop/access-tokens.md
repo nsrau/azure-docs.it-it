@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411409"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft identity platform
 
@@ -78,10 +78,10 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Pertanto, l'ap
 |Attestazione | Format | DESCRIZIONE |
 |--------|--------|-------------|
 | `typ` | Stringa, sempre "JWT" | Indica che il token è un token JWT.|
-| `nonce` | string | Identificatore univoco usato per la protezione contro attacchi di riproduzione dei token. La risorsa può registrare questo valore per la protezione da operazioni di riproduzione. |
-| `alg` | string | Indica l'algoritmo usato per firmare il token, ad esempio "RS256" |
-| `kid` | string | Specifica l'identificazione personale per la chiave pubblica usata per firmare il token. Generata nei token di accesso sia v1.0 che v2.0. |
-| `x5t` | string | Funziona in modo analogo, per uso e valore, a `kid`. `x5t` è un'attestazione legacy generata solo nei token di accesso v1.0 per motivi di compatibilità. |
+| `nonce` | String | Identificatore univoco usato per la protezione contro attacchi di riproduzione dei token. La risorsa può registrare questo valore per la protezione da operazioni di riproduzione. |
+| `alg` | String | Indica l'algoritmo usato per firmare il token, ad esempio "RS256" |
+| `kid` | String | Specifica l'identificazione personale per la chiave pubblica usata per firmare il token. Generata nei token di accesso sia v1.0 che v2.0. |
+| `x5t` | String | Funziona in modo analogo, per uso e valore, a `kid`. `x5t` è un'attestazione legacy generata solo nei token di accesso v1.0 per motivi di compatibilità. |
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
@@ -103,15 +103,15 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Pertanto, l'ap
 | `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi, che l'utente va oltre il limite (150 per SAML, 200 per JWT), viene aggiunta un'attestazione in eccedenza per le origini di attestazioni che puntano all'endpoint Graph che contiene l'elenco dei gruppi dell'utente. |
 | `hasgroups` | Boolean | Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare Graph per determinare i gruppi dell'utente (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Oggetto JSON | Per le richieste di token che non sono di limite di lunghezza (vedere `hasgroups` sopra), ma comunque troppo grandi per il token, un collegamento all'elenco di gruppi completo per l'utente è incluso. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
-| `preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni di autorizzazione.  Può comunque essere usato per gli hint del nome utente. Il `profile` ambito è obbligatoria per ricevere questa attestazione. |
-| `name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Il valore non è garantito come univoco, è mutevole e può essere usato solo per scopi di visualizzazione. Il `profile` ambito è obbligatoria per ricevere questa attestazione. |
+| `preferred_username` | String | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni di autorizzazione.  Può comunque essere usato per gli hint del nome utente. Il `profile` ambito è obbligatoria per ricevere questa attestazione. |
+| `name` | String | Fornisce un valore leggibile che identifica l'oggetto del token. Il valore non è garantito come univoco, è mutevole e può essere usato solo per scopi di visualizzazione. Il `profile` ambito è obbligatoria per ricevere questa attestazione. |
 | `oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto in Microsoft Identity Platform, in questo caso un account utente. È possibile utilizzare questo per eseguire controlli di autorizzazione in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. È quindi possibile usare `oid` quando si eseguono query sui Microsoft Online Services, ad esempio Microsoft Graph. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché il `oid` consente a più app di correlare utenti, il `profile` ambito è obbligatoria per ricevere questa attestazione. Se un singolo utente presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant: considerate account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 | `rh` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Le risorse non devono usare questa attestazione. |
 | `scp` | Stringa, elenco di ambiti separati da spazi | Set di ambiti esposti dall'applicazione per cui l'applicazione client ha richiesto (e ricevuto) il consenso. L'app deve verificare che questi ambiti siano ambiti validi esposti dall'app e prendere decisioni relative alle autorizzazioni in base al valore di questi ambiti. Inclusa solo per i [token utente](#user-and-application-tokens). |
 | `roles` | Matrice di stringhe, un elenco di autorizzazioni | Set di autorizzazioni esposte dall'applicazione per le quali l'applicazione richiedente ha ricevuto l'autorizzazione di chiamata. Per la [token dell'applicazione](#user-and-application-tokens), viene utilizzato durante la [credenziali client](v1-oauth2-client-creds-grant-flow.md) flusso al posto di ambiti di utente.  Per la [i token utente](#user-and-application-tokens) viene popolato con i ruoli è stato assegnato l'utente all'applicazione di destinazione. |
 | `sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. È anche possibile utilizzare questo nell'eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene utilizzato per accedere a una risorsa e può essere utilizzato come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. Il soggetto è, tuttavia, un identificatore pairwise, è univoco per un ID specifico dell'applicazione. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
 | `tid` | Stringa, un GUID | Rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. Il `profile` ambito è obbligatoria per ricevere questa attestazione. |
-| `unique_name` | string | Presente solo nei token v1.0. Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore non è garantito come univoco all'interno di un tenant e deve essere usato solo per scopi di visualizzazione. |
+| `unique_name` | String | Presente solo nei token v1.0. Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore non è garantito come univoco all'interno di un tenant e deve essere usato solo per scopi di visualizzazione. |
 | `uti` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Le risorse non devono usare questa attestazione. |
 | `ver` | Stringa, ovvero `1.0` o `2.0` | Indica la versione del token di accesso. |
 
@@ -121,21 +121,21 @@ Le attestazioni seguenti verranno inclusi nei token v1.0, se applicabile, ma non
 
 | Attestazione | Format | DESCRIZIONE |
 |-----|--------|-------------|
-| `ipaddr`| string | Indirizzo IP da cui l'utente ha eseguito l'autenticazione. |
+| `ipaddr`| String | Indirizzo IP da cui l'utente ha eseguito l'autenticazione. |
 | `onprem_sid`| Stringa, in [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. È possibile usare `onprem_sid` per l'autorizzazione nelle applicazioni legacy.|
 | `pwd_exp`| int, timestamp UNIX | Indica quando scade la password dell'utente. |
-| `pwd_url`| string | URL a cui gli utenti possono essere rimandati per reimpostare la password. |
+| `pwd_url`| String | URL a cui gli utenti possono essere rimandati per reimpostare la password. |
 | `in_corp`| boolean | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa. |
-| `nickname`| string | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome.|
-| `family_name` | string | Fornisce il cognome dell'utente, come definito nell'oggetto utente. |
-| `given_name` | string | Fornisce il nome dell'utente, come impostato nell'oggetto utente. |
-| `upn` | string | Nome utente dell'utente. Può essere un numero di telefono, un indirizzo di posta elettronica o una stringa non formattata. Deve essere usata solo per scopi di visualizzazione e per fornire suggerimenti per il nome utente in scenari di ripetizione dell'autenticazione. |
+| `nickname`| String | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome.|
+| `family_name` | String | Fornisce il cognome dell'utente, come definito nell'oggetto utente. |
+| `given_name` | String | Fornisce il nome dell'utente, come impostato nell'oggetto utente. |
+| `upn` | String | Nome utente dell'utente. Può essere un numero di telefono, un indirizzo di posta elettronica o una stringa non formattata. Deve essere usata solo per scopi di visualizzazione e per fornire suggerimenti per il nome utente in scenari di ripetizione dell'autenticazione. |
 
 #### <a name="the-amr-claim"></a>Attestazione `amr`
 
 Le identità di Microsoft possono autenticarsi in modi diversi, che possono essere rilevanti per l'applicazione. L'attestazione `amr` è una matrice che può contenere più elementi, ad esempio `["mfa", "rsa", "pwd"]`, per un'autenticazione che ha usato sia una password che l'app Authenticator.
 
-| Valore | DESCRIZIONE |
+| Value | DESCRIZIONE |
 |-----|-------------|
 | `pwd` | Autenticazione della password, ovvero una password Microsoft dell'utente o un segreto client dell'app. |
 | `rsa` | L'autenticazione è avvenuta in base alla prova di una chiave RSA, ad esempio con l'[app Microsoft Authenticator](https://aka.ms/AA2kvvu). Sono inclusi se è stata eseguita l'autenticazione mediante un token JWT firmato con un servizio proprietà X509 certificato. |

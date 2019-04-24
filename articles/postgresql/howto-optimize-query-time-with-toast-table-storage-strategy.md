@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421057"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Ottimizzare i tempi di query con la strategia di archiviazione delle tabelle TOAST 
 Questo articolo descrive come ottimizzare i tempi di query con la strategia di archiviazione delle tabelle TOAST (The Oversized-Attribute Storage Technique).

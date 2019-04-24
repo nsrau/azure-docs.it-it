@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437040"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
@@ -73,7 +73,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **R:** la tabella seguente indica il periodo di conservazione dei dati per i log attività. Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
 
-| Report                 | Azure AD Free | Azure AD P1 Premium | Azure AD Premium P2 |
+| Report                 | Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--                    | :--           | :--                 | :--                 |
 | Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | N/D           | 30 giorni             | 30 giorni             |

@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515331"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocollo WebSocket di Riconoscimento vocale Bing
 
@@ -78,7 +78,7 @@ Content-Length: 0
 
 Per l'accesso tramite token, l'intestazione deve includere le informazioni seguenti.
 
-| NOME | Format | DESCRIZIONE |
+| Name | Format | DESCRIZIONE |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Chiave della sottoscrizione) |
 
@@ -150,7 +150,7 @@ I messaggi principali inviati dal client ai servizi sono di tipo `speech.config`
 
 Le intestazioni seguenti sono obbligatorie per tutti i messaggi generati dal client.
 
-| Intestazione | Valore |
+| Intestazione | Value |
 |----|----|
 | path | Percorso del messaggio come specificato in questo documento |
 | X-RequestId | UUID nel formato senza trattini |
@@ -179,7 +179,7 @@ I client *devono* inviare un messaggio `speech.config` immediatamente dopo aver 
 
 #### <a name="required-message-headers"></a>Intestazioni di messaggio obbligatorie
 
-| Nome intestazione | Valore |
+| Nome intestazione | Value |
 |----|----|
 | path | `speech.config` |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
@@ -250,7 +250,7 @@ Il Servizio di riconoscimento vocale usa il primo messaggio `audio` contenente u
 
 Le intestazioni seguenti sono obbligatorie per tutti i messaggi `audio`.
 
-| Intestazione         |  Valore     |
+| Intestazione         |  Value     |
 | ------------- | ---------------- |
 | path | `audio` |
 | X-RequestId | UUID nel formato senza trattini |
@@ -508,7 +508,7 @@ La metrica `Connection` specifica i dettagli relativi ai tentativi di connession
 
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| NOME | `Connection` | Obbligatorio |
+| Name | `Connection` | Obbligatorio |
 | ID | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatorio |
 | Inizia | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatorio |
 | End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatorio |
@@ -548,7 +548,7 @@ Il valore temporale *End* per la metrica `Microphone` registra il momento in cui
 
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| NOME | Microphone | Obbligatorio |
+| Name | Microphone | Obbligatorio |
 | Inizia | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatorio |
 | End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatorio |
 | Tipi di errore | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
@@ -568,7 +568,7 @@ Usare gli esempi seguenti come linee guida per la registrazione dei valori tempo
 
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| NOME | ListeningTrigger | Facoltativo |
+| Name | ListeningTrigger | Facoltativo |
 | Inizia | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatorio |
 | End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatorio |
 | Tipi di errore | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |

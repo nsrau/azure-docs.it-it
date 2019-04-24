@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505540"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Procedura per la risoluzione dei problemi relativi a scenari di errori di allocazione specifici nel modello di distribuzione classica
 
@@ -116,7 +116,7 @@ New_General* o New_VMSizeNotSupported\*
 
 **Causa del blocco su un cluster**
 
-Prima dell'introduzione delle reti virtuali dell'area, era necessario associare una rete virtuale a un gruppo di affinità. Di conseguenza, le risorse di calcolo inserite in un gruppo di affinità sono soggette agli stessi vincoli descritti nella sezione "Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)" riportata sopra. Le risorse di calcolo sono legate a un cluster.
+Prima dell'introduzione delle reti virtuali dell'area, era necessario associare una rete virtuale a un gruppo di affinità. Di conseguenza, calcolo risorse inserite in un gruppo di affinità sono associate agli stessi vincoli come descritto nel "scenario di allocazione: Gruppo di affinità (prossimità di VM o servizi) "sezione precedente. Le risorse di calcolo sono legate a un cluster.
 
 **Soluzione alternativa**
 

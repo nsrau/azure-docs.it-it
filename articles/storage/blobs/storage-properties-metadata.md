@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392399"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Impostare e recuperare proprietà e metadati
 
@@ -27,7 +27,7 @@ Il recupero dei valori di proprietà e dei metadati per una risorsa è un proces
 > [!IMPORTANT]
 > Se si ritiene che la proprietà o i valori dei metadati per una risorsa di archiviazione non siano stati popolati, verificare che il codice chiami il metodo **FetchAttributes** o **FetchAttributesAsync**.
 >
-> Coppie nome/valore dei metadati sono intestazioni HTTP valide e pertanto devono essere conforme alle restrizioni imposte sulle intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazioni HTTP validi, possono contenere solo caratteri ASCII e devono essere trattati come maiuscole e minuscole. I valori dei metadati che contiene caratteri non ASCII devono essere con codifica Base64 o con codifica URL.
+> Coppie nome/valore dei metadati sono intestazioni HTTP valide e pertanto devono essere conforme alle restrizioni imposte sulle intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazioni HTTP validi e valido C# gli identificatori, può contenere solo caratteri ASCII e deve essere trattato come maiuscole e minuscole. I valori dei metadati che contiene caratteri non ASCII devono essere con codifica Base64 o con codifica URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Impostazione e recupero di proprietà
 Per recuperare i valori della proprietà, chiamare il metodo **FetchAttributesAsync** sul BLOB o sul contenitore per popolare le proprietà, quindi leggere i valori.

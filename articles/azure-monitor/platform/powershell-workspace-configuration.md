@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
 ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452739"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire aree di lavoro di Log Analitica in Monitoraggio di Azure con PowerShell
 

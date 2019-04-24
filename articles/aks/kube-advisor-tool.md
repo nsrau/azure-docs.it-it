@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465385"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verifica delle procedure consigliate di Kubernetes nel cluster
 
@@ -27,7 +27,7 @@ Lo [strumento kube-advisor][kube-advisor-github] è un singolo contenitore proge
 
 ## <a name="running-kube-advisor"></a>Esecuzione di kube-advisor
 
-Per eseguire lo strumento in un cluster configurato per il [controllo degli accessi in base al ruolo](aad-integration.md), usare i comandi seguenti. Il primo comando crea un account del servizio Kubernetes. Il secondo comando esegue lo strumento in un pod mediante l'account di tale servizio e configura il pod per l'eliminazione dopo la chiusura. 
+Per eseguire lo strumento in un cluster configurato per il [controllo degli accessi in base al ruolo](azure-ad-integration.md), usare i comandi seguenti. Il primo comando crea un account del servizio Kubernetes. Il secondo comando esegue lo strumento in un pod mediante l'account di tale servizio e configura il pod per l'eliminazione dopo la chiusura. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -67,7 +67,7 @@ Se si esegue lo strumento su un cluster che non è abilitato per il controllo de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risolvere problemi relativi al servizio Kubernetes di Azure](troubleshooting.md)
+- [Risolvere problemi relativi al servizio Azure Kubernetes](troubleshooting.md)
 
 <!-- RESOURCES -->
 

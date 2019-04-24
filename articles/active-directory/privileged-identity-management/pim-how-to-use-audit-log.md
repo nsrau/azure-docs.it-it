@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440791"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Cronologia di controllo di visualizzazione per i ruoli di Azure AD in PIM
 È possibile utilizzare la cronologia di controllo di Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni entro un determinato periodo di tempo per i ruoli con tutti i privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nel tenant, inclusi amministratore, utente finale e attività di sincronizzazione, è possibile usare i [report di accesso e utilizzo di Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -27,7 +27,7 @@ ms.locfileid: "58576141"
 ## <a name="navigate-to-audit-history"></a>Passare alla cronologia dei controlli
 Nel dashboard del [portale di Azure](https://portal.azure.com) selezionare l'app **Azure AD Privileged Identity Management** . Da questo punto è possibile accedere alla cronologia dei controlli facendo clic su **Gestione dei ruoli con privilegi** > **Cronologia dei controlli** nel dashboard di PIM.
 
-![Cronologia di controllo](media/azure-ad-pim-approval-workflow/image021.png)
+![Cronologia dei controlli](media/azure-ad-pim-approval-workflow/image021.png)
 
 > [!NOTE]
 > È possibile ordinare i dati per azione e ricercare “L’attivazione è stata approvata”.

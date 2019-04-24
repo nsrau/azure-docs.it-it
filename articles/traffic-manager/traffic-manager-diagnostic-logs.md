@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204048"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Abilitare la registrazione diagnostica in Gestione traffico di Azure
 
@@ -72,8 +72,8 @@ La tabella seguente include lo schema dei log specifico della risorsa del profil
 |||||
 |----|----|---|---|
 |**Nome campo**|**Tipo di campo**|**Definizione**|**Esempio**|
-|EndpointName|string|Nome dell'endpoint di Gestione traffico di cui viene registrato lo stato di integrità.|*myPrimaryEndpoint*|
-|Stato|string|Stato di integrità dell'endpoint di Gestione traffico di cui è stato creato il probe. Lo stato può essere **Up** (Attivo) o **Down** (Non attivo).|**Attivo**|
+|EndpointName|String|Nome dell'endpoint di Gestione traffico di cui viene registrato lo stato di integrità.|*myPrimaryEndpoint*|
+|Stato|String|Stato di integrità dell'endpoint di Gestione traffico di cui è stato creato il probe. Lo stato può essere **Up** (Attivo) o **Down** (Non attivo).|**Attivo**|
 |||||
 
 ## <a name="next-steps"></a>Passaggi successivi

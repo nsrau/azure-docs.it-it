@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: yizhon
 ms.openlocfilehash: 5256a58a2b68584888abcac915392d8e389e9772
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399369"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Sviluppare per dispositivi mobili tramite Azure IoT SDK
 
@@ -29,7 +29,7 @@ L'SDK C per l'hub IoT di Azure viene scritto in C99 per garantire la massima por
 
 Questi documenti illustrano dettagliatamente come sviluppare un'applicazione per un dispositivo o per un servizio in un dispositivo iOS:
 
-* [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-ios.md)  
+* [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-ios.md)  
 * [Inviare messaggi dal cloud al dispositivo con l'hub IoT](iot-hub-ios-swift-c2d.md) 
 
 ### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Sviluppare con le librerie CocoaPod dell'hub IoT di Azure
@@ -47,8 +47,8 @@ Azure IoT Hub Java SDK supporta la piattaforma Android.  Per la specifica versio
 
 Questi documenti illustrano dettagliatamente come sviluppare un'applicazione per un dispositivo o per un servizio in un dispositivo Android usando Gradle e Android Studio:
 
-* [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-android.md)  
-* [Avvio rapido: Controllare un dispositivo](quickstart-control-device-android.md) 
+* [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-android.md)  
+* [Guida introduttiva: Controllare un dispositivo](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

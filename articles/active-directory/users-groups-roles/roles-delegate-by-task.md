@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468318"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -151,7 +151,7 @@ Gestire la scadenza dei gruppi | Amministratore utenti |
 Gestire le impostazioni dei gruppi | Amministratore globale | 
 Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leggere le appartenenze nascoste | Membro di un gruppo | Il proprietario del gruppo, amministratore Password, amministratore di Exchange, l'amministratore di SharePoint, amministratore del team, l'utente amministratore
-Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore del supporto tecnico | Utente, amministratore di team
+Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore supporto tecnico | Utente, amministratore di team
 Revocare la licenza | Amministratore licenze | Amministratore utenti
 Aggiornare l'appartenenza al gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
 Aggiornare i proprietari dei gruppi | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti

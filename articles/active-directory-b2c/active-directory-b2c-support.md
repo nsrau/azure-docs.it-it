@@ -11,11 +11,11 @@ ms.date: 12/06/2016
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c40c1357b74b05f54bb2c2837554d9375e06f246
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384953"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:

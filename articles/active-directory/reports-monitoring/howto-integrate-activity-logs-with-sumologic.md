@@ -1,6 +1,6 @@
 ---
-title: Trasmettere i log di Azure Active Directory a SumoLogic tramite Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic tramite Monitoraggio di Azure (anteprima)
+title: Stream log di Azure Active Directory a SumoLogic tramite Monitoraggio di Azure | Microsoft Docs
+description: Descrive come integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed1b96052117534f319bbf9570618e6481032f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437857"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integrare i log di Azure Active Directory con SumoLogic tramite Monitoraggio di Azure (anteprima)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con SumoLogic tramite Monitoraggio di Azure. Innanzitutto indirizzare i log a un hub eventi di Azure e quindi integrare l'hub eventi con SumoLogic.
 

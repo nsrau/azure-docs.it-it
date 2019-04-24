@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397942"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Come compilare il modulo Storefront Details (Dettagli vetrina)
 ===========================================
@@ -42,7 +42,7 @@ Questa descrizione verrà visualizzata in AppSource, sotto **Riepilogo offerta**
 
 Selezionare il settore che corrisponde meglio all'app. Se l'app rientra in più settori, è possibile lasciare vuoto il campo.
 
-### <a name="categories"></a>Categorie
+### <a name="categories"></a>Categories
 
 Selezionare le categorie rilevanti per l'app. Selezionare almeno una categoria e un massimo di tre. Scegliere le categorie con attenzione, in quanto i clienti possono eseguire ricerche in AppSource in base alle categorie.
 
@@ -119,7 +119,7 @@ Deve essere presente una specifica pagina di supporto che fornisca ai clienti di
 
 ### <a name="lead-destination"></a>Clienti potenziali destinatari
 
-Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. Selezionare \"Azure Table\" (Tabella di Azure) se si usa uno di questi sistemi CRM: Salesforce, Marketo o Microsoft Dynamics CRM. Nel sistema CRM selezionato verranno scritti i dettagli degli utenti finali che provano l'app specifica in AppSource (clienti potenziali). In base al sistema CRM selezionato fare clic sull'URL corrispondente di seguito per informazioni su come completare il set di campi successivo.
+Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. Selezionare \"tabelle di Azure\" qui se hai uno dei seguenti sistemi CRM: Salesforce, Marketo, Microsoft Dynamics CRM. Nel sistema CRM selezionato verranno scritti i dettagli degli utenti finali che provano l'app specifica in AppSource (clienti potenziali). In base al sistema CRM selezionato fare clic sull'URL corrispondente di seguito per informazioni su come completare il set di campi successivo.
 
 -   [Tabella di Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

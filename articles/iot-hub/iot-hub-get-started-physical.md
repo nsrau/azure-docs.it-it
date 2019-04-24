@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: wesmc
 ms.openlocfilehash: f2af216dc199de7a49546a903b929a17cbddfe9f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398680"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Hub IoT di Azure - Esercitazioni introduttive per i dispositivi fisici
 

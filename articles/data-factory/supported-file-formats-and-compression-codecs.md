@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394431"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -454,8 +454,8 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Single | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
-| string | Binary | Utf8 | Utf8 |
-| DateTime | Int96 | N/D | N/D |
+| String | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
@@ -478,7 +478,7 @@ Tenere presente quanto segue:
 
 * I tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION).
 * Spazi vuoti nel nome della colonna non sono supportati.
-* Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
+* Il file ORC dispone di tre [opzioni relative alla compressione](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
@@ -500,16 +500,16 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | string |
+| UInt64 | String |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| string | string |
-| DateTime | Timestamp |
+| String | String |
+| Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | string |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO

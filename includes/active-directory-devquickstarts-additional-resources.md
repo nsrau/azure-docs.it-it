@@ -15,11 +15,11 @@ ms.date: 10/04/2018
 ms.author: celested
 ms.custom: include file
 ms.openlocfilehash: 6738f8b05c31b87a0cd244c91126479e9a637e88
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "58114854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454827"
 ---
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404695"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticare e risolvere i problemi quando si usano Trigger di Azure Cosmos DB in funzioni di Azure
 
@@ -31,7 +31,7 @@ Questo articolo farà sempre riferimento a funzioni di Azure V2 ogni volta che v
 
 La funzionalità principale del pacchetto di estensione consiste nel fornire supporto per i trigger di Azure Cosmos DB e le associazioni. Include anche il [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), ciò è utile se si vuole interagire con Azure Cosmos DB a livello di codice senza usare i trigger e associazioni.
 
-Se desidera a usare Azure Cosmos DB SDK, assicurarsi che non si aggiunge al progetto un altro riferimento al pacchetto NuGet. Al contrario, **consentire il riferimento al SDK di risolvere tramite il pacchetto di estensione di funzioni di Azure**.
+Se desidera utilizzare il SDK di Azure Cosmos DB, assicurarsi che non si aggiunge al progetto un altro riferimento al pacchetto NuGet. Al contrario, **consentire il riferimento al SDK di risolvere tramite il pacchetto di estensione di funzioni di Azure**.
 
 Inoltre, se si sta creando manualmente una propria istanza del [client SDK di Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), è consigliabile seguire il modello di avere solo un'istanza del client [usando un approccio di modello Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Questo processo verrà evitare i potenziali problemi di socket nelle operazioni.
 

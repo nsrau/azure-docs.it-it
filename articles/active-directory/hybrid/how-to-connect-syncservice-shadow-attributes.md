@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384707"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
 La maggior parte degli attributi viene rappresentata allo stesso modo in Azure AD e nel servizio Active Directory locale. Tuttavia, alcuni attributi sono caratterizzati da una gestione speciale e il valore dell'attributo in Azure AD potrebbe essere diverso da quello sincronizzato in Azure AD Connect.
@@ -38,7 +38,7 @@ Includono più suffissi UPN nel servizio Active Directory locale, ma ne è stato
 ### <a name="userprincipalname"></a>userPrincipalName
 Un utente ha i seguenti valori di attributo in un dominio non verificato:
 
-| Attributo | Valore |
+| Attributo | Value |
 | --- | --- |
 | userPrincipalName locale | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName in Azure AD | lee.sperry@fabrikam.com |
@@ -53,7 +53,7 @@ Lo stesso processo per includere solo domini verificati si verifica anche per pr
 
 Per un utente della cassetta postale, in locale o in Exchange Online, vengono visualizzati solo i valori per i domini verificati. L'aspetto è simile al seguente:
 
-| Attributo | Valore |
+| Attributo | Value |
 | --- | --- |
 | proxyAddresses locale | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses in Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
