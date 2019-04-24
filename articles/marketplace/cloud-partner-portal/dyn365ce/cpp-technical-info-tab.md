@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332889"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Scheda Technical Info (Informazioni tecniche) di Dynamics 365 for Customer Engagement
 

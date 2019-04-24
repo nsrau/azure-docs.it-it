@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363684"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -96,7 +96,7 @@ Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche
    * Download in corso
    * In esecuzione
    * Non integro
-   * Operazione non riuscita
+   * Failed
    * Arrestato
 * **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:
    * Never: l'agente di IoT Edge non riavvia mai il modulo.

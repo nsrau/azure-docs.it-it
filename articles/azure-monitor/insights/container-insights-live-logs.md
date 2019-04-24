@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497664"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (anteprima)
 Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, viene visualizzato un nuovo riquadro sotto la tabella dei dati delle prestazioni dei contenitori nella visualizzazione **Contenitori**.  Il riquadro mostra i dati di registrazione in tempo reale generati dal motore dei contenitori per facilitare la risoluzione dei problemi in tempo reale. **Collaboratore** accesso alla risorsa del cluster è necessario per usare questa funzionalità.
@@ -65,7 +65,7 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
 2. Creare l'associazione di ruolo del cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurare il servizio Azure Kubernetes con Azure Active Directory
-Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se è la prima volta che si esegue questa configurazione, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/aad-integration.md). Durante la procedura per creare l'[applicazione client](../../aks/aad-integration.md#create-client-application) e specificare l'**URI di reindirizzamento**, è necessario aggiungere un altro URI all'elenco `https://ininprodeusuxbase.microsoft.com/*`.  
+Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se è la prima volta che si esegue questa configurazione, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md). Durante la procedura per creare l'[applicazione client](../../aks/azure-ad-integration.md#create-client-application) e specificare l'**URI di reindirizzamento**, è necessario aggiungere un altro URI all'elenco `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per il Single Sign-On può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster del servizio Azure Kubernetes. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.  
@@ -92,4 +92,5 @@ Per sospendere lo scorrimento automatico e controllare il comportamento del riqu
 ![Visualizzazione dei log in tempo reale in pausa](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su come usare Monitoraggio di Azure e monitorare altri aspetti del cluster del servizio Azure Kubernetes, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](container-insights-analyze.md).
+- Per altre informazioni su come usare Monitoraggio di Azure e monitorare altri aspetti del cluster del servizio Azure Kubernetes, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](container-insights-analyze.md).
+- Vista [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query predefinito ed esempi per valutare o personalizzare per gli avvisi, la visualizzazione o l'analisi dei cluster.

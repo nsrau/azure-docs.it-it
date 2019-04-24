@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357478"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -142,7 +142,7 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 > [!NOTE]
 > Autenticazione moderna per i client di Office 2013
 >
-> Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. I client Office più recenti supportano automaticamente i protocolli dell'autenticazione moderna. Per altre informazioni, vedere l' [annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. L'autenticazione moderna è ora disponibile per tutti i clienti che eseguono l'aggiornamento di marzo 2015 o versione successiva per Office 2013. Per altre informazioni, vedere la [anteprima pubblica l'autenticazione moderna di Office 2013 annunciata](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionali ma la verifica scade.**
 

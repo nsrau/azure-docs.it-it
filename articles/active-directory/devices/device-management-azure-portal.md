@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 516a2d3b0f81bcef1ed636be9d1da9a270cc7069
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297497"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Come gestire i dispositivi usando il portale di Azure
 
@@ -246,7 +246,7 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
-- Categoria
+- Category
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date

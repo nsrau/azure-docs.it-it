@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370357"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
 
@@ -33,7 +33,7 @@ Questo articolo presuppone che la prenotazione venga applicata a una sottoscrizi
 
 Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | Value |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Quantità |1|
@@ -68,7 +68,7 @@ Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere i
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | Value |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Quantità |2|

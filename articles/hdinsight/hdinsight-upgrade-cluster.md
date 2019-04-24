@@ -1,7 +1,6 @@
 ---
 title: Eseguire l'aggiornamento del cluster HDInsight a una versione più recente - Azure
 description: Informazioni su come eseguire l'aggiornamento del cluster HDInsight a una versione più recente
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 266de596633201b5590a6433d078cc05f2a267b4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306164"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Eseguire l'aggiornamento del cluster HDInsight a una versione più recente
 Per poter sfruttare le funzionalità più recenti di HDInsight, è consigliabile che i cluster HDInsight siano aggiornati alla versione più recente. Seguire le linee guida per aggiornare le versioni dei cluster HDInsight.
@@ -40,7 +39,7 @@ Dopo avere verificato che tutto funzioni come previsto, pianificare i tempi di i
 4.  Importare i dati temporanei di cui è stata eseguita una copia di backup.
 5.  Avviare processi/continuare l'elaborazione con il nuovo cluster.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Informazioni su come creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Connettersi a HDInsight tramite SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gestire un cluster basato su Linux tramite Apache Ambari](hdinsight-hadoop-manage-ambari.md)

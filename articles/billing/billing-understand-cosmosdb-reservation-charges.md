@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370748"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB
 
 Dopo avere acquistato capacità riservata per Azure Cosmos DB, lo sconto per la prenotazione viene automaticamente applicato alle risorse di Azure Cosmos DB che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione copre la velocità effettiva con provisioning relativa alle risorse di Azure Cosmos DB, e non copre addebiti per contenitori predefiniti, software, rete o archiviazione.
+
+## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto della prenotazione
+
+È uno sconto di prenotazione "*utilizzare-it-o-perdere-it*". Pertanto, se non si dispone di risorse corrispondente per ogni ora, quindi si perde una quantità di prenotazione per quell'ora. Non sarà possibile eseguire inoltrare ore riservate non usate.
+
+Quando si arresta una risorsa, lo sconto della prenotazione viene applicato automaticamente a un'altra risorsa corrisponda nell'ambito specificato. Se viene trovata alcuna risorsa corrisponda nell'ambito specificato, quindi sono le ore riservate *persi*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Sconto per la prenotazione applicato agli account Azure Cosmos DB
 

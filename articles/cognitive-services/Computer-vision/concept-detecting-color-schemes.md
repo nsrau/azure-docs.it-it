@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368588"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
 
@@ -30,7 +30,7 @@ Visione artificiale restituisce anche un valore booleano che indica se un'immagi
 
 L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma i colori di primo piano e di sfondo dominanti sono il nero e i colori dominanti per l'immagine nel suo complesso sono il nero e il bianco.
 
-![Panorama montano](./Images/mountain_vista.png)
+![Mountain outdoor al tramonto, con sagoma una persona](./Images/mountain_vista.png)
 
 ```json
 {

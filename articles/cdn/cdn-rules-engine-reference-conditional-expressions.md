@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73c41b754c0aca5ddb1a49fcd2794aa41b2fa705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324190"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Espressioni condizionali del motore regole della rete CDN
 Questo argomento offre descrizioni dettagliate delle espressioni condizionali disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN, Content Delivery Network) di Azure.
@@ -32,10 +32,10 @@ IF | Un'espressione IF è sempre una parte della prima istruzione in una regola.
 AND IF | Un'espressione AND IF può essere aggiunta solo dopo i tipi di espressioni condizionali seguenti: IF e AND IF. Indica che esiste un'altra condizione che deve essere soddisfatta per l'istruzione IF iniziale.
 ELSE IF| Un'espressione ELSE IF specifica una condizione alternativa che deve essere soddisfatta prima che venga eseguita una serie di funzionalità specifiche di questa istruzione ELSE IF. La presenza di un'istruzione ELSE IF indica la fine dell'istruzione precedente. L'unica espressione condizionale che può essere inserita dopo un'istruzione ELSE IF è un'altra istruzione ELSE IF. Ciò significa che un'istruzione ELSE IF può essere usata solo per specificare una sola condizione aggiuntiva da soddisfare.
 
-**Esempio**: ![condizione di corrispondenza della rete CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+**Esempio**: ![Condizione di corrispondenza della rete CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
-   > Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente. Esempio: una regola di catch-all protegge tutte le richieste tramite l'autenticazione basata su token. È possibile creare un'altra regola direttamente sotto questa per creare un'eccezione per alcuni tipi di richieste.
+   > Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente. Esempio: Una regola di catch-all protegge tutte le richieste tramite l'autenticazione basata su Token. È possibile creare un'altra regola direttamente sotto questa per creare un'eccezione per alcuni tipi di richieste.
 
 ### <a name="next-steps"></a>Passaggi successivi
 * [Panoramica della rete CDN di Azure](cdn-overview.md)

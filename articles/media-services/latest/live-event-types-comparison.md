@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322285"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
@@ -57,7 +57,7 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di eventi li
 
 ## <a name="system-presets"></a>Set di impostazioni di sistema
 
-Quando si usa la codifica live (evento Live impostato sullo **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso a più velocità in bit o livelli. Attualmente, l'unico valore consentito per il set di impostazioni è *Default720p* (impostazione predefinita).
+Quando si usa la codifica live (evento Live impostato su **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso con velocità in bit o livelli diversi. Attualmente, l'unico valore consentito per il set di impostazioni è *Default720p* (impostazione predefinita).
 
 Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
@@ -73,7 +73,7 @@ Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 | 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 > [!NOTE]
-> Se è necessario usare impostazioni codifica live personalizzato, contattare il amshelp@microsoft.com. È necessario specificare la tabella desiderata di risoluzione e velocità in bit. Verificare che vi sia un solo a 720p e al massimo 6 livelli.
+> Se è necessario usare un set di impostazioni di codifica live personalizzato, contattare amshelp@microsoft.com. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli.
 
 ### <a name="output-audio-stream"></a>Flusso audio di output
 

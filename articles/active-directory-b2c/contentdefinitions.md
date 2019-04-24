@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313316"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,9 +61,9 @@ I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmai
 
 L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
+| ID | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
 
 L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
@@ -79,7 +79,7 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
 L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I seguenti elenchi tabella degli identificatori di pagina che è possibile usare.
 
-| Valore |   DESCRIZIONE |
+| Value |   DESCRIZIONE |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. | 
@@ -99,10 +99,10 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Linguaggio | Yes | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
-| LocalizedResourcesReferenceId | Yes | L'identificatore dell'elemento **LocalizedResources**. |
+| Linguaggio | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
+| LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
 
 Nell'esempio seguente viene mostrata una definizione del contenuto di iscrizione o accesso:
 

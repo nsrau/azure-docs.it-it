@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370154"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Comprendere la fattura di Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
@@ -46,7 +46,7 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  | Fattura (PDF) | Dettagli di utilizzo (CSV)|
  | --- | --- |
 |Ciclo di fatturazione | Periodo di fatturazione |
- |NOME |Categoria misuratore |
+ |Name |Categoria misuratore |
  |Type |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
  |Region |Area misuratore |

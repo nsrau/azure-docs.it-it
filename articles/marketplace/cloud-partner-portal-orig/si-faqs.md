@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362374"
 ---
 <a name="seller-insights-faq"></a>Domande frequenti su Informazioni dettagliate del venditore
 ===================
@@ -36,7 +36,7 @@ Le definizioni dei valori della metrica all'interno del file della transazione s
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Vedere i dettagli del cliente all'interno delle transazioni per le quali è stato effettuato un pagamento
 -------------------------------------------------------------
 
-Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare la colonna denominata **Stato dei proventi**, dopodiché applicare il filtro per visualizzare solo il valore "Pagato". Verranno visualizzate le seguenti colonne contenenti i dettagli del cliente: **Nome società**, **E-mail cliente**, **Paese cliente**, **Stato cliente** e **CAP cliente**.
+Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare la colonna denominata **Stato dei proventi**, dopodiché applicare il filtro per visualizzare solo il valore "Pagato". Le colonne seguenti verranno visualizzati contenente i dettagli del cliente: **Nome società**, **posta elettronica dei clienti**, **paese del cliente**, **stato cliente**, e **codice postale del cliente**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcolare i crediti aperti
@@ -48,7 +48,7 @@ Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcolare i ricavi per periodo di utilizzo del cliente
 ------------------------------------------
 
-Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare la colonna denominata **Stato della transazione**, dopodiché filtrare il valore "Pagato".   Per ogni transazione elencata, la colonna la denominazione **Importo proventi** rappresenta l'importo che è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **Data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
+Dopo aver scaricato le transazioni dal modulo relative ai proventi, individuare la colonna con etichettata **lo stato della transazione**e filtrare il valore "Paid".   Per ogni transazione elencato, la colonna con etichetta **proventi quantità (PC)** rappresenta l'importo è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
 
 
 <a name="calculate-your-bad-debt"></a>Calcolare i crediti inesigibili
@@ -104,5 +104,5 @@ I proventi vengono emessi entro il 15 di ogni mese per tutti gli importi pronti 
 
 - [Definizioni di Informazioni dettagliate del venditore](./si-insights-definitions-v4.md) - Trovare le definizioni per metrica e dati
 
-- [Introduzione a Informazioni dettagliate del venditore](./si-getting-started.md) -Introduzione alla funzionalità Informazioni dettagliate del venditore.
+- [Introduzione a Informazioni dettagliate del venditore](./si-getting-started.md):-Introduzione alla funzionalità Informazioni dettagliate del venditore.
 

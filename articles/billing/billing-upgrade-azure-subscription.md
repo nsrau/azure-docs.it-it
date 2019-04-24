@@ -18,11 +18,11 @@ ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369592"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o Azure per la sottoscrizione di Starter studenti in base al consumo
 

@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367473"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Esempi di configurazione del router per l'impostazione e la gestione del routing
 Questa pagina fornisce gli esempi di configurazione dell'interfaccia e del routing delle serie Cisco IOS-XE e Juniper MX per l'uso con ExpressRoute. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso. 
@@ -204,6 +204,6 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
         }                                   
     }
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
 

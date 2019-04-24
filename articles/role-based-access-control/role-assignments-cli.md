@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344564"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
 
@@ -111,7 +111,7 @@ az role definition list --name "Contributor"
       "/"
     ],
     "description": "Lets you manage everything except access to resources.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
     "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
     "permissions": [
       {
@@ -204,12 +204,12 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 ```
 
@@ -221,20 +221,20 @@ Per elencare le assegnazioni di ruolo esistenti per un gruppo di risorse, usare 
 az role assignment list --resource-group <resource_group>
 ```
 
-Nell'esempio seguente sono elencate le assegnazioni di ruolo per il gruppo di risorse *pharma-sales-projectforecast*:
+L'esempio seguente elenca le assegnazioni di ruolo per il *pharma-sales* gruppo di risorse:
 
 ```azurecli
-az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
+az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ```Output
 {
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 
 ...
@@ -249,13 +249,38 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 Per creare un'assegnazione di ruolo per un utente nell'ambito di un gruppo di risorse, usare [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-L'esempio seguente assegna il *collaboratore macchina virtuale* ruolo *patlong\@contoso.com* utenti e il *pharma-sales-projectforecast* ambito di gruppo di risorse:
+L'esempio seguente assegna il *collaboratore macchina virtuale* ruolo *patlong\@contoso.com* utente nel *pharma-sales* ambito di gruppo di risorse:
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
+```
+
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Creare un'assegnazione di ruolo usando l'ID univoco del ruolo
+
+Esistono un paio di volte quando un nome di ruolo potrebbe cambiare, ad esempio:
+
+- Si usa il proprio ruolo personalizzato e si decide di modificare il nome.
+- Si usa un ruolo di anteprima avente **(anteprima)** nel nome. Quando viene rilasciato il ruolo, il ruolo viene rinominato.
+
+> [!IMPORTANT]
+> Una versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Anche se viene rinominato un ruolo, l'ID del ruolo rimane invariato. Se si utilizzano script o automazione per creare assegnazioni di ruolo, è consigliabile usare l'ID univoco del ruolo anziché il nome del ruolo. Pertanto, se viene rinominato un ruolo, gli script sono più possibilità di lavorare.
+
+Per creare un'assegnazione di ruolo usando l'ID univoco del ruolo anziché il nome del ruolo, usare [assegnazione di ruolo az creare](/cli/azure/role/assignment#az-role-assignment-create).
+
+```azurecli
+az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+```
+
+L'esempio seguente assegna il [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) ruolo *patlong\@contoso.com* utente nel *pharma-sales* ambito di gruppo di risorse. Per ottenere l'ID univoco del ruolo, è possibile usare [elenco di definizioni di ruolo az](/cli/azure/role/definition#az-role-definition-list) oppure vedere [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+
+```azurecli
+az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Creare un'assegnazione di ruolo per un gruppo
@@ -263,19 +288,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 Per creare un'assegnazione di ruolo per un gruppo, usare [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
 Nell'esempio seguente viene assegnato il ruolo *Lettore* al gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 nell'ambito della sottoscrizione. Per ottenere l'ID del gruppo, è possibile usare [az ad group list](/cli/azure/ad/group#az-ad-group-list) o [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
-az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 Nell'esempio seguente viene assegnato il ruolo *Collaboratore Macchina virtuale* al gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 in un ambito di risorse per una rete virtuale denominata *pharma-sales-project-network*:
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Creare un'assegnazione di ruolo per un'applicazione
@@ -283,13 +308,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Per creare un'assegnazione di ruolo per un'applicazione, usare [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-Nell'esempio seguente viene assegnato il ruolo *Collaboratore Macchina virtuale* a un'applicazione con ID oggetto 44444444-4444-4444-4444-444444444444 nell'ambito del gruppo di risorse *pharma-sales-projectforecast*. Per ottenere l'ID oggetto dell'applicazione, è possibile usare [az ad app list](/cli/azure/ad/app#az-ad-app-list) o [az ad app show](/cli/azure/ad/app#az-ad-app-show).
+L'esempio seguente assegna il *collaboratore macchina virtuale* ruolo a un'applicazione con ID oggetto 44444444-4444-4444-4444-444444444444 le *pharma-sales* ambito di gruppo di risorse. Per ottenere l'ID oggetto dell'applicazione, è possibile usare [az ad app list](/cli/azure/ad/app#az-ad-app-list) o [az ad app show](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>Rimuovere un accesso
@@ -297,19 +322,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Per rimuovere l'accesso nel controllo degli accessi in base al ruolo, è possibile rimuovere un'assegnazione di ruolo tramite [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
+az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
 ```
 
-L'esempio seguente rimuove il *collaboratore macchina virtuale* assegnazione di ruolo dalle *patlong\@contoso.com* utente sul *pharma-sales-projectforecast* gruppo di risorse:
+L'esempio seguente rimuove il *collaboratore macchina virtuale* assegnazione di ruolo dal *patlong\@contoso.com* utente sulla *pharma-sales* gruppo di risorse:
 
 ```azurecli
-az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
+az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
 Nell'esempio seguente il ruolo *Lettore* viene rimosso dal gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 nell'ambito della sottoscrizione. Per ottenere l'ID del gruppo, è possibile usare [az ad group list](/cli/azure/ad/group#az-ad-group-list) o [az ad group show](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
-az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

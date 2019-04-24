@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351445"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Che cosa sono Azure AD access verifiche?
 
@@ -56,10 +56,10 @@ A seconda di ciò che si desidera esaminare, si creerà la verifica di accesso d
 
 | Diritti di accesso degli utenti | I revisori possono essere | Verifica creata in | Esperienza di verifica |
 | --- | --- | --- | --- |
-| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisori self-service | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Riquadro di accesso |
-| Assegnati a un'app connessa | Revisori specificati</br>Revisori self-service | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Riquadro di accesso |
-| Ruolo di Azure AD | Revisori specificati</br>Revisori self-service | Azure AD PIM | portale di Azure |
-| Ruolo delle risorse di Azure | Revisori specificati</br>Revisori self-service | Azure AD PIM | portale di Azure |
+| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisori self-service | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
+| Assegnati a un'app connessa | Revisori specificati</br>Revisori self-service | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
+| Ruolo di Azure AD | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
+| Ruolo delle risorse di Azure | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -68,7 +68,7 @@ Per usare le verifiche di accesso, è necessario avere una delle licenze seguent
 - Azure AD P2 Premium
 - Licenza di Enterprise Mobility + Security (EMS) E5
 
-Per altre informazioni, vedere [Procedura: effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
+Per ulteriori informazioni, consultare [Come effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Introduzione alle verifiche di accesso
 

@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366549"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 
@@ -84,19 +84,19 @@ In questa pagina, **Stato provider** offre informazioni sullo stato attuale di p
 Quando si crea un nuovo circuito ExpressRoute, il circuito ha lo stato seguente:
 
 Stato provider: Senza provisioning<BR>
-Stato circuito: Attivato
+Stato circuito: Enabled
 
 ![Avvio del processo di provisioning](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Il circuito passa allo stato seguente quando è in corso l'abilitazione da parte del provider di connettività:
 
 Stato provider: Provisioning<BR>
-Stato circuito: Attivato
+Stato circuito: Enabled
 
 Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
 
 Stato provider: Sottoposto a provisioning<BR>
-Stato circuito: Attivato
+Stato circuito: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controllare periodicamente lo stato e la condizione della chiave del circuito
 

@@ -14,11 +14,11 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bbbef3f48eb55c863fdd286113297d79f9b9e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296844"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introduzione ad Azure Active Directory (progetti MVC ASP.NET)
 

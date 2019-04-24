@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329858"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
@@ -39,7 +39,7 @@ Per visualizzare Gestione traffico in azione, è necessario implementare quanto 
 - Due istanze di siti Web di base in esecuzione in aree diverse di Azure: **Stati Uniti orientali** e **Europa occidentale**.
 - Due macchine virtuali (VM) per il test di Gestione traffico: una in **Stati Uniti orientali** e la seconda in **Europa occidentale**. Le VM di test vengono usate per illustrare come Gestione traffico instrada il traffico degli utenti verso il sito Web in esecuzione nella stessa area poiché offre la latenza più bassa.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -57,11 +57,11 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -78,10 +78,10 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|Value|
     |---|---|
     |Gruppo di risorse | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
-    |Località|Europa occidentale|
+    |Location|Europa occidentale|
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
     |||
@@ -134,7 +134,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVMEastUS|
+    |Name|myVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
@@ -154,7 +154,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 7. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|Value|
     |---|---|
     |Nome macchina virtuale | *myVMWEurope*|
     |Gruppo di risorse | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
@@ -171,11 +171,11 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Name                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Performance** (prestazioni).                                       |
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare **Crea nuovo** e immettere *myResourceGroupTM1*. |
-    | Località                | Selezionare **Stati Uniti orientali**. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
+    | Location                | Selezionare **Stati Uniti orientali**. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
     |
 
     ![Creare un profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -188,10 +188,10 @@ Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*  &  *myIISVMWEur
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
-    | NOME           | myEastUSEndpoint                                        |
+    | Name           | myEastUSEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |        |           |

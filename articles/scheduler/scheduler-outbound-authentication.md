@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344349"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
@@ -44,12 +44,12 @@ L'Utilità di pianificazione supporta questi modelli di autenticazione:
 
 Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.  
 
-| Elemento | Obbligatoria | DESCRIZIONE |
+| Elemento | Obbligatorio | DESCRIZIONE |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Yes | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
-| **pfx** | Yes | Contenuto del file PFX in codifica base64. |
-| **password** | Yes | Password per accedere al file PFX. |
+| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **pfx** | Sì | Contenuto del file PFX in codifica base64. |
+| **password** | Sì | Password per accedere al file PFX. |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo della risposta - Certificato client 
@@ -164,12 +164,12 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `Basic`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Obbligatoria | DESCRIZIONE |
+| Elemento | Obbligatorio | DESCRIZIONE |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. | 
-| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
-| **username** | Yes | Nome utente per eseguire l'autenticazione. | 
-| **password** | Yes | Password per eseguire l'autenticazione. |
+| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
+| **username** | Sì | Nome utente per eseguire l'autenticazione. | 
+| **password** | Sì | Password per eseguire l'autenticazione. |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo della risposta - Autenticazione di base
@@ -282,14 +282,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `ActiveDirectoryOAuth`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Obbligatoria | DESCRIZIONE |
+| Elemento | Obbligatorio | DESCRIZIONE |
 |---------|----------|-------------|
-| **authentication** (elemento padre) | Yes | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
-| **tenant** | Yes | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
-| **audience** | Yes | Questo valore è impostato su `https://management.core.windows.net/`. | 
-| **clientId** | Yes | Identificatore client per l'applicazione Azure AD | 
-| **secret** | Yes | Segreto del client che richiede il token | 
+| **authentication** (elemento padre) | Sì | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
+| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
+| **tenant** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
+| **audience** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
+| **clientId** | Sì | Identificatore client per l'applicazione Azure AD | 
+| **secret** | Sì | Segreto del client che richiede il token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo della risposta - Autenticazione OAuth Active Directory
@@ -405,7 +405,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Informazioni sull'Utilità di pianificazione di Azure](scheduler-intro.md)
+* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 * [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 * [API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)

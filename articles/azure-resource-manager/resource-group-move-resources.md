@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239174"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -63,7 +63,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Database di Azure per MariaDB
 * Database di Azure per MySQL
 * Database di Azure per PostgreSQL
-* Azure DevOps: le organizzazioni di Azure DevOps con gli acquisti di estensione non Microsoft devono [annullare gli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima di spostare l'account tra le sottoscrizioni.
+* DevOps di Azure - seguire questa procedura per [modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Mappe di Azure
 * Log di Monitoraggio di Azure
 * Servizio di inoltro di Azure
@@ -74,7 +74,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * RETE CDN
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
-* Registro contenitori: non è possibile spostare un registro contenitori quando è abilitata la replica geografica.
+* Registro Container
 * Content Moderator
 * Gestione costi
 * Customer Insights

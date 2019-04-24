@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348245"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -124,9 +124,9 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Per creare una nuova regola in entrata, fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | NOME | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
+    | Name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
     | DESCRIZIONE | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
@@ -153,9 +153,9 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Selezionare **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
-    | NOME | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
+    | Name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
     | DESCRIZIONE | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
@@ -165,7 +165,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un singolo gruppo di filtri di ambito con le due clausole:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True  |

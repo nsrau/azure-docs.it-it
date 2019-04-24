@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371810"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un contratto di Microsoft dal cliente
 
@@ -209,7 +209,7 @@ Per completare l'installazione, è necessario accedere al nuovo account di fattu
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selezionare il profilo di fatturazione. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione. L'account di fatturazione, selezionare **fatturazione profili** e quindi il profilo di fatturazione.
+3. Selezionare il profilo di fatturazione. In base all'accesso, potrebbe essere necessario selezionare un account di fatturazione. L'account di fatturazione, selezionare **fatturazione profili** e quindi il profilo di fatturazione.
 
 4. Selezionare **le sottoscrizioni di Azure** dal lato sinistro.
 
@@ -225,7 +225,7 @@ Le sottoscrizioni di Azure che vengono eseguita la transizione dall'iscrizione c
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selezionare una sezione della fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione.  L'account di fatturazione o il profilo di fatturazione, selezionare **sezioni della fattura** e quindi una sezione della fattura.
+3. Selezionare una sezione della fattura. In base all'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione.  L'account di fatturazione o il profilo di fatturazione, selezionare **sezioni della fattura** e quindi una sezione della fattura.
 
     ![Screenshot che mostra l'elenco di transizione di post sezione della fattura](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -245,7 +245,7 @@ Le prenotazioni di Azure che vengono spostate dall'iscrizione con contratto Ente
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selezionare il profilo di fatturazione creato per l'iscrizione. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione.  L'account di fatturazione, selezionare **fatturazione profili** e quindi il profilo di fatturazione.
+3. Selezionare il profilo di fatturazione creato per l'iscrizione. In base all'accesso, potrebbe essere necessario selezionare un account di fatturazione.  L'account di fatturazione, selezionare **fatturazione profili** e quindi il profilo di fatturazione.
 
 4. Selezionare **controllo di accesso (IAM)** dal lato sinistro.
 

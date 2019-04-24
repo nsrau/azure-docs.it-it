@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204425"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
@@ -106,7 +106,7 @@ Le impostazioni saranno simili a quanto segue:
 
 - Per assicurarsi che il server Web abbia una copia pulita dell'applicazione Web dopo ogni caricamento (e non rimangano altri file di una distribuzione precedente), è possibile selezionare la casella di controllo **Rimuovi file aggiuntivi nella destinazione** nella scheda **Impostazioni**.
 
-- Avviso: se si esegue la pubblicazione con questa impostazione vengono eliminati tutti i file presenti nel server Web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
+- Avviso: Pubblicazione con questa impostazione consente di eliminare tutti i file presenti sul server web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
 
 ![Impostazioni di pubblicazione - Pagina Impostazioni]
 

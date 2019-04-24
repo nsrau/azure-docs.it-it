@@ -1,5 +1,5 @@
 ---
-title: Esempi di codice di Azure Active Directory | Microsoft Docs
+title: Esempi di codice di Azure Active Directory versione 1.0 | Microsoft Docs
 description: Fornisce un indice di esempi di codice di Azure Active Directory (endpoint v1.0), organizzati in base allo scenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b7e88c672e72549d813971ce72fc7b85ee8619eb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298606"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Esempi di codice di Azure Active Directory (endpoint v1.0)
 

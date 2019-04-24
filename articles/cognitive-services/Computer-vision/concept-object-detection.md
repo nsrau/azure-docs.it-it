@@ -1,28 +1,28 @@
 ---
 title: Rilevamento di oggetti - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento di oggetti tramite l'API Visione artificiale.
+description: Informazioni sui concetti relativi alla funzionalità di rilevamento di oggetti dell'API visione artificiale - utilizzo e limiti.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368043"
 ---
-# <a name="object-detection"></a>Rilevamento di oggetti
+# <a name="detect-common-objects-in-images"></a>Rilevare gli oggetti comuni nelle immagini
 
 Il rilevamento di oggetti è simile all'[assegnazione di tag](concept-tagging-images.md), ma l'API restituisce le coordinate del rettangolo di selezione (in pixel) per ogni oggetto trovato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare le relazioni tra gli oggetti in un'immagine. Consente inoltre di determinare se sono presenti più istanze dello stesso tag in un'immagine.
 
-L'API di rilevamento applica tag basati sugli oggetti o sugli esseri viventi identificati nell'immagine. A questo punto, non vi è alcuna relazione tra la tassonomia di tag e la tassonomia di rilevamento di oggetti formale. A livello concettuale, l'API di rilevamento trova solo gli oggetti e operazioni living, mentre l'API di Tag possono includere anche contestuali termini quali "interni", non possono essere localizzati con rettangoli.
+L'API di rilevamento applica tag basati sugli oggetti o sugli esseri viventi identificati nell'immagine. Non è attualmente alcuna relazione formali tra la tassonomia di tag e la tassonomia di rilevamento di oggetti. A livello concettuale, l'API di rilevamento trova solo gli oggetti e operazioni living, mentre l'API di Tag possono includere anche contestuali termini quali "interni", non possono essere localizzati con rettangoli.
 
 ## <a name="object-detection-example"></a>Esempio di rilevamento di oggetti
 

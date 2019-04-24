@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343767"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,14 +56,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapHana** | Yes |
-| server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | Yes |
-| authenticationType | Tipo di autenticazione usato per la connessione al database SAP HANA.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows** | Yes |
-| userName | Nome dell'utente che ha accesso al server SAP. | Yes |
+| type | La proprietà type deve essere impostata su: **SapHana** | Sì |
+| server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione al database SAP HANA.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows** | Sì |
+| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
 | password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
 
@@ -89,7 +89,7 @@ Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP HANA.
 
@@ -119,10 +119,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP HANA, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
-| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Sì |
+| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Sì |
 
 **Esempio:**
 
@@ -162,7 +162,7 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 
 | Tipo di dati di SAP HANA | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ALPHANUM | string |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
@@ -171,14 +171,14 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | string |
+| NVARCHAR | String |
 | REAL | Single |
 | SECONDDATE | Datetime |
 | SMALLINT | Int16 |
-| TIME | Intervallo di tempo |
+| TIME | TimeSpan |
 | TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | string |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Limitazioni note
 

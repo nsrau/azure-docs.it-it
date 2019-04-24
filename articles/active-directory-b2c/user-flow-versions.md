@@ -11,11 +11,11 @@ ms.date: 11/09/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359756"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versioni del flusso utente in Azure Active Directory B2C
 
@@ -30,12 +30,12 @@ I nuovi flussi utente vengono aggiunti sotto forma di nuove versioni. Man mano c
 
 | Flusso utente | Consigliato | DESCRIZIONE |
 | --------- | ----------- | ----------- |
-| Reimpostazione delle password | Yes | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Requisiti di complessità delle password](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Modifica del profilo | Yes | Consente a un utente di configurare i rispettivi attributi utente. Con questo flusso utente, è possibile configurare: <ul><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li></ul> |
+| Reimpostazione delle password | Sì | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Requisiti di complessità delle password](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Modifica del profilo | Sì | Consente a un utente di configurare i rispettivi attributi utente. Con questo flusso utente, è possibile configurare: <ul><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li></ul> |
 | Proprietario della risorsa | No  | Consente a un utente con un account locale di accedere direttamente nelle applicazioni native (senza aver bisogno del browser). Con questo flusso utente, è possibile configurare: <ul><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li></ul> |
 | Accesso | No  | Consente a un utente di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>Blocco dell'accesso</li><li>Forzatura della reimpostazione della password</li><li>Opzione Mantieni l'accesso</ul><br>Non è possibile personalizzare l'interfaccia utente con questo flusso utente. |
 | Iscrizione | No  | Consente a un utente di creare un account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Eseguire l'iscrizione e l'accesso | Yes | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](active-directory-b2c-reference-password-complexity.md)</li></ul>|
+| Eseguire l'iscrizione e l'accesso | Sì | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](active-directory-b2c-reference-mfa.md)</li><li>[Durata del token](active-directory-b2c-reference-tokens.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
 ## <a name="v2"></a>V2
 

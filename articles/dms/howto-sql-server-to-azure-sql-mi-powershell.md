@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: ed0d65a0f00bd5ebc3227a249beec6bafd791347
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532559"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell
 In questo articolo si esegue la migrazione del database **Adventureworks2012**, ripristinato in un'istanza locale di SQL Server 2005 o versione successiva, verso un'istanza gestita di database SQL di Azure tramite Microsoft Azure PowerShell. Per eseguire la migrazione di database da un'istanza di SQL Server locale a un'istanza gestita di database SQL di Azure è possibile usare il modulo `Az.DataMigration` di Microsoft Azure PowerShell.

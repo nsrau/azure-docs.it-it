@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343215"
 ---
 # <a name="virtual-machine-support-tab"></a>Scheda Support (Supporto) di macchina virtuale
 
-La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  La scheda è suddivisa in tre aree: **Engineering** (Progettazione), **Customer Support** (Assistenza clienti) e **Support URLs** (URL del supporto).
+La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  È suddiviso in tre aree: **Ingegneria**, **supporto tecnico**, e **supporta URL**.
 
 ![Scheda Support (Supporto) nel modulo Nuova offerta per le macchine virtuali](./media/publishvm_012.png)
 

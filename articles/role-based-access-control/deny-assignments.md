@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197137"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 
@@ -40,13 +40,13 @@ Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite
 > [!div class="mx-tableFixed"]
 > | Proprietà | Obbligatorio | Type | DESCRIZIONE |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Sì | string | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
-> | `Description` | No  | string | La descrizione dell'assegnazione di rifiuto. |
+> | `DenyAssignmentName` | Sì | String | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
+> | `Description` | No  | String | La descrizione dell'assegnazione di rifiuto. |
 > | `Permissions.Actions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni di gestione a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotActions` | No  | String[] | Una matrice di stringhe che specifica le operazioni di gestione da escludere nell'assegnazione di rifiuto. |
 > | `Permissions.DataActions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni dati a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotDataActions` | No  | String[] | Una matrice di stringhe che specifica le operazioni dati da escludere nell'assegnazione di rifiuto. |
-> | `Scope` | No  | string | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
+> | `Scope` | No  | String | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
 > | `DoNotApplyToChildScopes` | No  | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è False. |
 > | `Principals[i].Id` | Sì | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui si applica l'assegnazione di rifiuto. Impostare un GUID vuoto `00000000-0000-0000-0000-000000000000` per rappresentare tutte le entità. |
 > | `Principals[i].Type` | No  | String[] | Una matrice di tipi di oggetto rappresentati da Principals[i].Id. Impostare `SystemDefined` per rappresentare tutte le entità. |

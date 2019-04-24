@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286861"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -52,7 +52,7 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 Le informazioni ottenute per un evento di rischio rilevato sono associate alla sottoscrizione di Azure AD in corso. 
 
 * Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. 
-* Con l'**edizione Azure AD Premium P1**, i rilevamenti non previsti dalla licenza in uso vengono visualizzati come evento di rischio con l'indicazione **È stato rilevato un accesso con rischi aggiuntivi**.
+* Con il **Azure AD Premium P1 edition**avanzati, rilevamenti (ad esempio proprietà di accesso sconosciuto) non sono coperti dalla licenza in uso e verrà visualizzata sotto il nome del **Accedi con rischi aggiuntivi rilevati** . Inoltre, il livello di rischio e campi di dettagli di rischio sono nascoste.
 
 Sebbene il rilevamento di eventi di rischio rappresenti già un aspetto importante per la protezione delle identità, è anche possibile risolvere gli eventi manualmente o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

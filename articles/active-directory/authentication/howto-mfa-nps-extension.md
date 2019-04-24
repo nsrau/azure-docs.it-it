@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359229"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le cr
 
 Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 Inoltre, la connettività agli URL seguenti è necessario per completare il [il programma di installazione dell'adapter utilizzando lo script di PowerShell fornito](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -207,7 +207,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Valore | Predefinito |
+| Chiave | Value | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 

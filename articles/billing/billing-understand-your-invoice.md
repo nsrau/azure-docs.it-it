@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369969"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendere i termini sulla fattura di Microsoft Azure
 
@@ -99,7 +99,7 @@ La tabella seguente descrive le intestazioni delle colonne relative agli addebit
 
 | Termine |DESCRIZIONE |
 | --- | --- |
-| NOME |Identifica il servizio di primo livello per l'utilizzo |
+| Name |Identifica il servizio di primo livello per l'utilizzo |
 | Type |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
 | Risorsa |Identifica l'unità di misura del contatore utilizzato |
 | Region |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione del centro dati stesso |
@@ -107,7 +107,7 @@ La tabella seguente descrive le intestazioni delle colonne relative agli addebit
 | Incluso |Contiene la quantità riportata dal contatore inclusa gratuitamente nel periodo di fatturazione corrente |
 | Fatturabile |Mostra la differenza tra la quantità utilizzata e la quantità inclusa. Sarà addebitato questo importo. Per le offerte di pagamento in base al consumo senza alcuna quantità inclusa, questo totale corrisponde a quello della quantità consumata |
 | Tariffa |Indica la tariffa addebitata per unità fatturabile |
-| Valore |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
+| Value |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
 | Subtotale |Somma di tutti gli addebiti al lordo dell'imposta per il periodo di fatturazione |
 | Grand Total |Somma di tutti gli addebiti al netto dell'imposta per il periodo di fatturazione |
 

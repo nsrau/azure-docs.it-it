@@ -1,5 +1,5 @@
 ---
-title: Riconoscere testo stampato e scritto a mano - Visione artificiale
+title: Riconosci il testo stampato/scritta a mano, visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi al riconoscimento di testo stampato e scritto a mano presente nelle immagini tramite l'API Visione artificiale.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368009"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Riconoscere il testo stampato e scritto a mano
 
-Visione artificiale fornisce numerosi servizi che rileva ed Estrai testo stampato o scritte a mano che viene visualizzato nelle immagini. Ciò è utile in un'ampia gamma di scenari, ad esempio eccezionali, cartelle cliniche dei pazienti, sicurezza e settore bancario. I seguenti tre sezioni dettaglio tre diversi riconoscimento del testo API, ognuna ottimizzata per diversi casi d'uso.
+Visione artificiale fornisce numerosi servizi che rileva ed Estrai testo stampato o scritte a mano che viene visualizzato nelle immagini. Ciò è utile in un'ampia gamma di scenari, ad esempio gli Appunti, cartelle cliniche dei pazienti, sicurezza e settore bancario. I seguenti tre sezioni dettaglio tre diversi riconoscimento del testo API, ognuna ottimizzata per diversi casi d'uso.
 
 ## <a name="read-api"></a>Lettura API
 
@@ -45,13 +45,11 @@ Se si usa una sottoscrizione di livello gratuito, l'API di lettura elaborerà so
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (riconoscimento ottico dei caratteri) API
 
-API di riconoscimento ottico dei caratteri (OCR) di visione artificiale è simile all'API di lettura, ma lo esegue in modo sincrono e non è ottimizzato per documenti di grandi dimensioni. Usa un modello di riconoscimento precedente ma funziona con più lingue.
-
-La funzionalità OCR supporta 25 lingue: arabo, cinese semplificato, cinese tradizionale, ceco, coreano, danese, finlandese, francese, giapponese, greco, inglese, italiano, norvegese, olandese, polacco, portoghese, rumeno, russo, serbo (cirillico e latino), slovacco, spagnolo, svedese, tedesco, turco e ungherese. Questa funzionalità rileva automaticamente la lingua del testo rilevato.
+API di riconoscimento ottico dei caratteri (OCR) di visione artificiale è simile all'API di lettura, ma lo esegue in modo sincrono e non è ottimizzato per documenti di grandi dimensioni. Usa un modello di riconoscimento precedente ma funziona con più lingue; visualizzare [supporto delle lingue](language-support.md#text-recognition) per un elenco completo delle lingue supportate.
 
 Se necessario, la funzionalità OCR corregge la rotazione del testo riconosciuto, restituendo l'angolo di rotazione intorno all'asse orizzontale dell'immagine in gradi. OCR fornisce inoltre le coordinate della cornice di ogni parola, come illustrato nella figura seguente.
 
-![Un diagramma che illustra un'immagine che viene ruotata e il suo testo che viene letto e delineato](./Images/vision-overview-ocr.png)
+![Un'immagine da ruotare e il testo da leggere e delimitata](./Images/vision-overview-ocr.png)
 
 Vedere le [documentazione di riferimento OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) per altre informazioni.
 

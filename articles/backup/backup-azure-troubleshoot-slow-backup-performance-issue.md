@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337630"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle quando si usa Backup di Azure. Quando si usa l'agente di Backup di Azure per eseguire il backup dei file, è possibile che il processo richieda più tempo del previsto. Questo ritardo può dipendere da una o più delle cause seguenti:
@@ -31,14 +31,14 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: Colli di bottiglia delle prestazioni nel computer
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: Colli di bottiglia nel computer
 I colli di bottiglia nel computer in cui viene eseguito il backup possono causare ritardi. Ad esempio, i colli di bottiglia possono essere causati dalla capacità del computer di leggere o scrivere su disco o dalla larghezza di banda disponibile per inviare dati in rete.
 
 Per rilevare i colli di bottiglia, Windows fornisce uno strumento predefinito chiamato [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon).
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia e ottenere backup ottimali.
 
-| Contatore | Status |
+| Contatore | Stato |
 | --- | --- |
 | Disco logico (disco fisico) - % inattività |• Da 100% inattivo a 50% inattivo = integro</br>• Da 49% inattivo a 20% inattivo = avviso o monitoraggio</br>• Da 19% inattivo a 0% inattivo = critico o fuori specifica |
 | Disco logico (disco fisico) - % Media letture o scritture disco/sec |• Da 0,001 ms a 0,015 ms = integro</br>• Da 0,015 ms a 0,025 ms = avviso o monitoraggio</br>• Da ms 0,026 e oltre = critico o fuori specifica |
@@ -68,12 +68,12 @@ Per i programmi antivirus è consigliabile escludere i file e percorsi seguenti:
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Causa: L'agente di Backup è in esecuzione in una macchina virtuale di Azure
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Causa: Agente di backup in esecuzione in una macchina virtuale di Azure
 Se si esegue l'agente di Backup in una macchina virtuale, le prestazioni risulteranno rallentate rispetto all'esecuzione in un computer fisico. Questo è un comportamento previsto a causa delle limitazioni delle operazioni di I/O al secondo.  È tuttavia possibile ottimizzare le prestazioni trasferendo le unità dati da includere nel backup ad Archiviazione Premium di Azure. La correzione di questo problema è in fase di risoluzione e sarà disponibile nelle versioni future.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Causa: Viene eseguito il backup di un numero elevato di file (milioni)
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Causa: Backup di un numero elevato (milioni) di file
 Lo spostamento di un grande volume di dati richiederà più tempo rispetto allo spostamento di un volume di dati inferiore. In alcuni casi, i tempi di backup sono correlati non solo alle dimensioni dei dati, ma anche al numero di file o cartelle. Ciò vale soprattutto quando sono sottoposti a backup milioni di file di piccole dimensioni (da pochi byte a pochi kilobyte).
 
 Questo comportamento è dovuto al fatto che mentre è attivo il backup e lo spostamento dei dati in Azure, Azure cataloga contemporaneamente i file. In alcuni scenari rari, questa operazione può richiedere più tempo del previsto.

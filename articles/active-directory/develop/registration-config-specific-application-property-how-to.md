@@ -16,11 +16,11 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299057"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Come compilare campi specifici per un'applicazione personalizzata
 
@@ -41,7 +41,7 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 
 | Campo            | DESCRIZIONE                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| NOME             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
+| Name             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipo di applicazione | **App Web/API Web**: un'applicazione Web, un'API Web o entrambe 
 | |**Nativa**: un'applicazione che può essere installata in un computer o dispositivo utente           |
 | URL di accesso      | L'URL a cui possono accedere gli utenti per usare l'applicazione                                  |

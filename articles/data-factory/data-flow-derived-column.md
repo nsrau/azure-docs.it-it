@@ -1,20 +1,19 @@
 ---
-title: Trasformazione Colonna derivata del flusso di dati di Azure Data Factory
-description: Trasformazione Colonna derivata del flusso di dati di Azure Data Factory
+title: Trasformazione colonna derivata di Mapping di flusso di dati di Azure Data Factory
+description: Come trasformare i dati su larga scala con Azure Data Factory di Mapping dei dati del flusso trasformazione colonna derivata
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 1335b86431bcf345f452ead0c95926d295ae185f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478724"
 ---
-# <a name="azure-data-factory-data-flow-derived-column-transformation"></a>Trasformazione Colonna derivata del flusso di dati di Azure Data Factory
+# <a name="mapping-data-flow-derived-column-transformation"></a>Mapping di flusso di dati di trasformazione colonna derivata
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -27,3 +26,13 @@ Usare la trasformazione Colonna derivata per generare nuove colonne nel flusso d
 Nel campo Column (Colonna) selezionare una colonna esistente per sovrascrivere con un nuovo valore derivato o fare clic su "Create New Column" (Crea nuova colonna) per generare una nuova colonna con il nuovo valore derivato.
 
 Dalla casella di testo Expression (Espressione) verrà aperto il generatore di espressioni in cui è possibile compilare l'espressione per le colonne derivate usando funzioni di espressione.
+
+## <a name="column-patterns"></a>Criteri delle colonne
+
+Se i nomi di colonna sono variabili dalle origini, è consigliabile creare trasformazioni all'interno della colonna derivata usando modelli di colonna anziché colonne denominate. Vedere le [deviazione Schema](concepts-data-flow-schema-drift.md) per altri dettagli vedere l'articolo.
+
+![criteri di ricerca colonna](media/data-flow/columnpattern.png "modelli di colonna")
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sul [linguaggio delle espressioni di Data Factory per le trasformazioni](http://aka.ms/dataflowexpressions) e il [generatore di espressioni](concepts-data-flow-expression-builder.md)

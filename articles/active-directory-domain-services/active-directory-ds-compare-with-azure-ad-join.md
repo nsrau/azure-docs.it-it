@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
 ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359433"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Scegliere tra l'aggiunta ad Azure Active Directory e Azure Active Directory Domain Services
 Questo articolo descrive le differenze tra l'aggiunta ad Azure Active Directory (AD) e Azure AD Domain Services e facilita la scelta in base ai casi d'uso.

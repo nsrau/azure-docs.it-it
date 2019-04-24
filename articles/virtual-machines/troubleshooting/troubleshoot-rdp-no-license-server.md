@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318953"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure
 
@@ -103,7 +103,7 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
         reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
        ```
 
-    3. Dopo aver apportato le modifiche al Registro di sistema, riavviare la macchina virtuale.
+    3. Dopo avere apportato le modifiche al Registro di sistema, riavviare la macchina virtuale.
 
     4. Se non si dispone di licenze CAL, rimuovere il ruolo Host sessione Desktop remoto. A questo punto, il protocollo RDP verrà reimpostato allo stato normale. Consente solo due connessioni RDP simultanee alla macchina virtuale:
 

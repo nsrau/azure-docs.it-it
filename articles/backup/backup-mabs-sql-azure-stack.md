@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254214"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Eseguire il backup di SQL Server in Stack
 Usare questo articolo per configurare il server di Backup di Microsoft Azure (MABS) per proteggere i database di SQL Server in Azure Stack.
@@ -152,7 +152,7 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
     Al termine del ripristino, il database ripristinato sarà coerente con l'applicazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Vedere l'articolo [Eseguire il backup di file e applicazioni in Azure Stack](backup-mabs-files-applications-azure-stack.md).
 Vedere l'articolo [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) (Backup di SharePoint in Azure Stack).

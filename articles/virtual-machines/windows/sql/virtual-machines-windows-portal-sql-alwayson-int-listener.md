@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326109"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
@@ -63,7 +63,7 @@ Per prima cosa creare il servizio di bilanciamento del carico.
 
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Valore |
+   | Impostazione | Value |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -109,7 +109,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 
 3. Configurare il probe nel pannello **Aggiungi probe** . Usare i valori seguenti per configurare il probe.
 
-   | Impostazione | Valore |
+   | Impostazione | Value |
    | --- | --- |
    | **Nome** |Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
    | **Protocollo** |**TCP** |
@@ -135,7 +135,7 @@ Le regole di bilanciamento del carico determinano come il servizio di bilanciame
 
 3. Nel pannello **Aggiungi regola di bilanciamento del carico** configurare la regola di bilanciamento del carico. Usare le seguenti impostazioni: 
 
-   | Impostazione | Valore |
+   | Impostazione | Value |
    | --- | --- |
    | **Nome** |Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
    | **Protocollo** |**TCP** |
@@ -221,7 +221,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
 
 7. Aggiungere un probe integrità usando le impostazioni seguenti:
 
-   |Impostazione |Valore
+   |Impostazione |Value
    |:-----|:----
    |**Nome** |Un nome per identificare il probe.
    |**Protocollo** |TCP
@@ -235,7 +235,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
 
 10. Configurare la nuova regola di bilanciamento del carico con le seguenti impostazioni:
 
-    |Impostazione |Valore
+    |Impostazione |Value
     |:-----|:----
     |**Nome** |Un nome per identificare la regola di bilanciamento del carico. 
     |**Indirizzo IP front-end IP** |Selezionare l'indirizzo IP che è stato creato. 
@@ -246,7 +246,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
     |**Probe di integrità** |Scegliere il probe che è stato creato.
     |**Persistenza della sessione** |Nessuna
     |**Timeout di inattività (minuti)** |Valore predefinito (4)
-    |**IP mobile (Direct Server Return)** | Attivato
+    |**IP mobile (Direct Server Return)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurare il gruppo di disponibilità affinché usi il nuovo indirizzo IP
 
@@ -284,7 +284,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
 
 1. Creare la regola di bilanciamento del carico con le impostazioni seguenti:
 
-   |Impostazione |Valore
+   |Impostazione |Value
    |:-----|:----
    |**Nome** |Aggiungere il nome per identificare la regola di bilanciamento del carico per il gruppo di disponibilità distribuito. 
    |**Indirizzo IP front-end IP** |Usare lo stesso indirizzo IP front-end del gruppo di disponibilità.
@@ -295,7 +295,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
    |**Probe di integrità** |Scegliere il probe che è stato creato.
    |**Persistenza della sessione** |Nessuna
    |**Timeout di inattività (minuti)** |Valore predefinito (4)
-   |**IP mobile (Direct Server Return)** | Attivato
+   |**IP mobile (Direct Server Return)** | Enabled
 
 Ripetere questi passaggi per il bilanciamento del carico negli altri gruppi di disponibilità che fanno parte dei gruppi di disponibilità distribuiti.
 

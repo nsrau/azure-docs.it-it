@@ -13,11 +13,11 @@ ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331146"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
@@ -67,7 +67,7 @@ Lo script di PowerShell di dimostrazione è suddiviso in una sequenza di script 
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Script 1: variables
+### <a name="script-1-variables"></a>Script 1: Variabili
 
 Questo primo script di PowerShell assegna valori alle variabili. Gli script successivi dipendono da queste variabili.
 

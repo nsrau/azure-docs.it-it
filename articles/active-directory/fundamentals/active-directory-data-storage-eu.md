@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249723"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
 Azure Active Directory aiuta a gestire le identità degli utenti e a creare criteri di accesso basati su intelligence che consentono di proteggere le risorse dell'organizzazione. I dati di identità vengono archiviati in un percorso basato sull'indirizzo dell'organizzazione fornito quando è stato sottoscritto il servizio, ad esempio quando è stata effettuata la sottoscrizione di Office 365 o Azure. Per informazioni specifiche su dove vengono archiviati i dati di identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.

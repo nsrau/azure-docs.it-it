@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332653"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
 Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale su un canale di codifica live, il codificatore deve eseguire il push un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale via con un canale pass-through, il codificatore deve eseguire il push un flusso a bitrate multipli come output con tutte le qualità di output desiderato. Per altre informazioni, vedere [lo streaming Live con in locale codificatori](media-services-live-streaming-with-onprem-encoders.md).

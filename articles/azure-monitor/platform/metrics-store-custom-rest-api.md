@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253901"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -88,7 +88,7 @@ Salvare il token di accesso ottenuto dalla risposta.
 1. Modificare il timestamp e i valori nel file JSON. 
 1. Ripetere i due passaggi precedenti più volte in modo da disporre dei dati relativi a diversi minuti.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi 
+## <a name="troubleshooting"></a>risoluzione dei problemi 
 Se si riceve un messaggio di errore con una parte del processo, prendere in considerazione le seguenti informazioni sulla risoluzione dei problemi:
 
 1. Non è possibile generare metriche rispetto a una sottoscrizione o a un gruppo di risorse come risorsa di Azure. 

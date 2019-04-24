@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370968"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Comprendere i ruoli amministrativi di contratto di Microsoft dal cliente in Azure
 
@@ -163,7 +163,7 @@ Le tabelle seguenti illustrano il ruolo è necessario completare le attività ne
 |Gestire la fatturazione per i prodotti per la sezione della fattura, ad esempio Annulla, disattivare il rinnovo automatico e altro ancora|✔|✔|✘|✘|✘|✘|✘|
 |Modifica sezione della fattura per i prodotti|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Gestire le sottoscrizioni per la sezione della fattura
+### <a name="manage-subscriptions-for-invoice-section"></a>Gestione delle sottoscrizioni per la sezione della fattura
 
 |Attività|Proprietario della sezione della fattura|Collaboratore per la sezione della fattura|Ruolo con autorizzazioni di lettura per la sezione della fattura|Autore di sottoscrizioni di Azure|Proprietario dell'account di fatturazione|Collaboratore per l'account di fatturazione|Lettore per l'account di fatturazione
 |---|---|---|---|---|---|---|---|

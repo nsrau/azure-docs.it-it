@@ -3,8 +3,8 @@ title: 'Controllare il comportamento di memorizzazione nella cache con stringhe 
 description: La funzionalità di memorizzazione nella cache con stringhe di query della rete CDN di Azure controlla il modo in cui i file vengono memorizzati nella cache quando una richiesta Web contiene una stringa di query. Questo articolo descrive la memorizzazione nella cache con stringhe di query nei prodotti di rete CDN Standard di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.author: magattus
+ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324764"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Standard
 > [!div class="op_single_selector"]
@@ -35,11 +35,11 @@ La rete per la distribuzione di contenuti (CDN) di Azure consente di controllare
 
 Sono disponibili tre modalità di stringa di query:
 
-- **Ignora stringhe di query**: modalità predefinita. In questa modalità il nodo POP (Point-Of-Presence) della rete CDN passa le stringhe di query dal richiedente al server di origine quando viene eseguita la prima richiesta e memorizza l'asset nella cache. Tutte le richieste successive dell'asset gestite dal POP ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
+- **Ignora stringhe di query**: Modalità predefinita. In questa modalità il nodo POP (Point-Of-Presence) della rete CDN passa le stringhe di query dal richiedente al server di origine quando viene eseguita la prima richiesta e memorizza l'asset nella cache. Tutte le richieste successive dell'asset gestite dal POP ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
 
-- **Disabilita la memorizzazione nella cache per le stringhe di query**: in questa modalità le richieste con stringhe di query non vengono memorizzate nella cache nel nodo POP della rete CDN. Il nodo POP recupera l'asset direttamente dal server di origine e lo passa al richiedente a ogni richiesta.
+- **Ignorare la memorizzazione nella cache per le stringhe di query**: In questa modalità, le richieste con stringhe di query non vengono memorizzate nel nodo POP della rete CDN. Il nodo POP recupera l'asset direttamente dal server di origine e lo passa al richiedente a ogni richiesta.
 
-- **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di example.ashx?q=test1 viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di example.ashx?q=test2 viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
+- **Memorizza nella cache tutti gli URL univoci**: In questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata dal server di origine per una richiesta di example.ashx?q=test1 viene memorizzata nella cache nel nodo POP e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di example.ashx?q=test2 viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
    
     >[!IMPORTANT] 
     > Non usare questa modalità quando la stringa di query contiene parametri che vengono modificati con ogni richiesta, ad esempio un ID di sessione o un nome utente, poiché si avrà come risultato una bassa percentuale di riscontri nella cache.

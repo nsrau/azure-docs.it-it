@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245836"
 ---
 # <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Verifica di accesso di recuperare i risultati per i gruppi o applicazioni in Azure AD le verifiche di accesso
 

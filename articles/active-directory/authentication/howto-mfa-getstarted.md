@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359352"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Pianificazione di un server basato su cloud Azure multi-Factor Authentication
 
@@ -237,7 +237,7 @@ Se si dispone di un'istanza dei criteri di rete distribuita e in uso, fare rifer
 
 Scegliere cosa succede quando gli utenti che non sono registrati con supporto MFA tentano di eseguire l'autenticazione. Usare l'impostazione del Registro di sistema `REQUIRE_USER_MATCH` nel percorso del Registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione non ha una singola opzione di configurazione.
 
-| Chiave | Valore | Predefinito |
+| Chiave | Value | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Non impostato (equivalente a VERO) |
 
@@ -304,7 +304,7 @@ Report per Azure MFA
 
 Azure multi-Factor Authentication fornisce report tramite il portale di Azure:
 
-| Report | Località | DESCRIZIONE |
+| Report | Location | DESCRIZIONE |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

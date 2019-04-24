@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359059"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -46,7 +46,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  È possibile definire i dati di reimpostazione della password per conto degli utenti?**
 
-  > **R:** Sì, è possibile eseguire questa operazione con Azure AD Connect, PowerShell, il [portale di Azure](https://portal.azure.com) o l'interfaccia di amministrazione di Office 365. Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sì, è possibile farlo con Azure AD Connect, PowerShell, il [portale di Azure](https://portal.azure.com), o il [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com). Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **D:  È possibile sincronizzare i dati per le domande di sicurezza dall'ambiente locale?**

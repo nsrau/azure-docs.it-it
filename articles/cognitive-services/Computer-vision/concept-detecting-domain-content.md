@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368077"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
 
@@ -30,7 +30,7 @@ Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione a
 
 Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
 
-![Satya Nadella in piedi](./images/satya.jpeg)
+![Satya Nadella permanente, sorridenti](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ La risposta JSON seguente mostra come includere l'analisi specifica di dominio c
 
 Visione artificiale supporta attualmente i modelli specifici di dominio seguenti:
 
-| NOME | DESCRIZIONE |
+| Name | DESCRIZIONE |
 |------|-------------|
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |

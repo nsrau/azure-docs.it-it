@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 4b355a779a2e9f78f4cbf8ed5425200ce1df2f1d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337265"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
@@ -36,14 +36,14 @@ Questo articolo illustra uno scenario reale di ripristino di emergenza, quando i
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opzione 1: usare una distribuzione di backup tramite Gestione traffico di Azure
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opzione 1: Usare una distribuzione di backup tramite Gestione traffico di Azure
 La soluzione di ripristino di emergenza più efficace prevede la gestione di più distribuzioni dell'applicazione in aree diverse, quindi l'uso di [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) per indirizzare il traffico tra esse. Gestione traffico di Azure fornisce più [metodi di routing](../traffic-manager/traffic-manager-routing-methods.md), in modo da poter scegliere se gestire le distribuzioni usando un modello principale/di backup o dividere il traffico tra esse.
 
 ![Bilanciamento dei servizi cloud di Azure in diverse aree con Gestione traffico di Azure](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
 Per la risposta più veloce alla perdita di un'area, è importante configurare il [monitoraggio degli endpoint](../traffic-manager/traffic-manager-monitoring.md) di Gestione traffico.
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opzione 2: distribuire l'applicazione in una nuova area
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opzione 2: Distribuire l'applicazione in una nuova area
 La gestione di più distribuzioni attive come descritto nell'opzione precedente comporta costi continui. Se l'obiettivo del tempo di ripristino (RTO) è sufficientemente flessibile e si dispone del codice originale o del pacchetto di servizi Cloud compilato, è possibile creare una nuova istanza dell'applicazione in un'altra area e aggiornare i record DNS in modo che puntino alla nuova distribuzione.
 
 Per altre informazioni sulla creazione e la distribuzione di un'applicazione di servizio cloud, vedere [Come creare e distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
@@ -51,7 +51,7 @@ Per altre informazioni sulla creazione e la distribuzione di un'applicazione di 
 In base alle origini dati dell'applicazione, può essere necessario controllare le procedure di ripristino per l'origine dati dell'applicazione.
 
 * Per le origini dati di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per controllare le opzioni disponibili in base al modello di replica scelto per l'applicazione.
-* Per le origini di database SQL, leggere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md) per controllare le opzioni disponibili in base al modello di replica scelto per l'applicazione.
+* Per le origini di Database SQL, leggere [Panoramica: Ripristino di emergenza di continuità aziendale e il database business con il Database SQL cloud](../sql-database/sql-database-business-continuity.md) per controllare le opzioni disponibili basati sul modello di replica scelto per l'applicazione.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opzione 3: attendere il ripristino

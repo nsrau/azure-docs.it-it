@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370701"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise
 
@@ -31,7 +31,7 @@ Se la prenotazione è stata acquistata in un contesto di fatturazione con pagame
 
 Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_D1_v2 nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Quantità |1|
@@ -57,7 +57,7 @@ Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere i
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Quantità |2|

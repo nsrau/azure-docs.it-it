@@ -1,7 +1,6 @@
 ---
 title: API per l'automazione delle prenotazioni di Azure | Microsoft Docs
 description: Informazioni sulle API di Azure utilizzabili per ottenere informazioni sulle prenotazioni a livello di codice.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371207"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
 
@@ -55,7 +54,7 @@ Se si ritiene che le prenotazioni dell'organizzazione siano sottoutilizzate:
 
 - Assicurarsi che le macchine virtuali create dall'organizzazione corrispondano alle dimensioni delle macchine virtuali riportate nella prenotazione.
 - Assicurarsi che la flessibilità delle dimensioni istanza sia attiva. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Modificare l'ambito della prenotazione impostandolo su condiviso in modo che venga applicato più su larga scala. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Modificare l'ambito della prenotazione impostandolo su condiviso in modo che venga applicato più su larga scala. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Scambiare la quantità inutilizzata. Per altre informazioni, vedere [Gestire le prenotazioni - Annullamenti e scambi](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Concedere l'accesso alle prenotazioni
@@ -68,7 +67,7 @@ Ottenere l'elenco di tutte le prenotazioni a cui un utente può accedere usando 
 
 ## <a name="split-or-merge-reservation"></a>Dividere o unire una prenotazione
 
-Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. È possibile modificare l'ambito della prenotazione in modo che sia applicabile a tutte le sottoscrizioni all'interno dello stesso contesto di fatturazione. Tuttavia, per motivi di gestione dei costi o di definizione del budget, è possibile mantenere l'ambito come "sottoscrizione singola" e assegnare le istanze di prenotazione a una sottoscrizione specifica. 
+Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. È possibile modificare l'ambito della prenotazione in modo che sia applicabile a tutte le sottoscrizioni all'interno dello stesso contesto di fatturazione. Tuttavia, per motivi di gestione dei costi o di definizione del budget, è possibile mantenere l'ambito come "sottoscrizione singola" e assegnare le istanze di prenotazione a una sottoscrizione specifica.
 
 Per dividere una prenotazione, usare l'API [Reservation - Split](/rest/api/reserved-vm-instances/reservation/split). È anche possibile dividere una prenotazione tramite PowerShell. Per altre informazioni, vedere [Gestire le prenotazioni - Dividere una prenotazione singola in due prenotazioni](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Per unire due prenotazioni in una prenotazione, usare l'API [Reservation - Merge
 
 ## <a name="change-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
 
-L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Per modificare l'ambito a livello di codice, usare l'API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 

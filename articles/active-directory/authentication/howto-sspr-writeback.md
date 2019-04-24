@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357504"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
 
@@ -47,7 +47,7 @@ Per le attività di risoluzione dei problemi comuni correlate al writeback delle
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
 * Azure AD Premium P1
-* Azure AD Premium P2
+* Azure AD P2 Premium
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
 * Microsoft 365 E3 o A3

@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318698"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Risoluzione dei problemi relativi a specifici messaggi di errore RDP inviati a una VM Windows in Azure
 Quando si usa una connessione Desktop remoto a una macchina virtuale (VM) Windows in Azure, è possibile ricevere uno specifico messaggio di errore. Questo articolo illustra nei dettagli alcuni dei più comuni messaggi di errore visualizzati e spiega le procedure per la risoluzione dei problemi relativi a tali messaggi. Se si verificano problemi di connessione alla VM mediante RDP ma non viene visualizzato un messaggio di errore specifico, vedere la [guida alla risoluzione dei problemi relativi a Desktop remoto](troubleshoot-rdp-connection.md).
@@ -31,13 +31,13 @@ Per informazioni su messaggi di errore specifici, vedere quanto segue:
 * [La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).
 * [Desktop remoto: impossibile rilevare il "nome" del computer](#rdpname).
 * [Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](#rdpauth).
-* [Errore di sicurezza di Windows: Le credenziali specificate non funzionano](#wincred).
+* [Eventi di sicurezza di Windows: le credenziali non funzionavano](#wincred).
 * [Il computer non è in grado di connettersi al computer remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza.
-Causa: il periodo di prova di 120 giorni delle licenza per il ruolo Server Desktop remoto è scaduto ed è necessario installare le licenze.
+Causa: Il periodo di tolleranza sulle licenze di 120 giorni per il ruolo Server Desktop remoto è scaduto ed è necessario installare le licenze.
 
 Per risolvere il problema, salvare una copia locale del file RDP dal portale e al prompt dei comandi di PowerShell eseguire questo comando per avviare la connessione. Questo passaggio disabilita la licenza solo per la connessione in oggetto:
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere il post di blog relativo all' [errore della VM di
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Desktop remoto: impossibile rilevare il "nome" del computer.
-Causa: il client Desktop remoto del computer non è in grado di risolvere il nome del computer nelle impostazioni del file RDP.
+Causa: Il client Desktop remoto nel computer non è possibile risolvere il nome del computer nelle impostazioni del file RDP.
 
 Possibili soluzioni:
 
@@ -68,9 +68,9 @@ La parte dell'indirizzo del file RDP contiene:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale.
-Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
+Causa: La macchina virtuale di destinazione non è possibile individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *AutoritàSicurezza*\\*NomeUtente* (esempio: CORP\Utente1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *Autoritàsicurezza*\\*UserName* (esempio: CORP\User1), il *Autoritàsicurezza* parte è il nome computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio Active Directory.
 
 Possibili soluzioni:
 
@@ -81,12 +81,12 @@ Possibili soluzioni:
 <a id="wincred"></a>
 
 ## <a name="windows-security-error-your-credentials-did-not-work"></a>Errore di sicurezza di Windows: Le credenziali specificate non funzionano.
-Causa: la macchina virtuale di destinazione non può convalidare il nome e la password dell'account.
+Causa: La macchina virtuale di destinazione non è possibile convalidare il nome dell'account e la password.
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-* Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\Admin4798).
-* Per gli account di dominio usare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\peterodman).
+* Per gli account locali, usare il *ComputerName*\\*UserName* sintassi (esempio: SQL1\Admin4798).
+* Per gli account di dominio, usare il *NomeDominio*\\*UserName* sintassi (esempio: CONTOSO\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 
@@ -99,7 +99,7 @@ Se è necessario modificare la password dell'account amministratore locale, vede
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Il computer non è in grado di connettersi al computer remoto.
-Causa: l'account usato per la connessione non dispone dei diritti di accesso Desktop remoto.
+Causa: L'account utilizzato per la connessione non dispone di diritti di accesso Desktop remoto.
 
 Ogni computer Windows dispone di un gruppo locale Utenti desktop remoto, che contiene gli account e i gruppi che hanno il diritto di accedere in remoto. Anche i membri del gruppo Administrators locale dispongono dell'accesso, sebbene tali account non siano elencati nel gruppo locale Utenti Desktop remoto. Per le macchine appartenenti a un dominio, il gruppo Administrators locale contiene anche gli amministratori di dominio per il dominio.
 

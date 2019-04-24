@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2519d8b16795512c56ce76b574b0bba91fa10da3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 8f04fdc84c0bed26bc6d5f16e5cef14c6855d02b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249752"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per chi è alla ricerca di linee guida end-to-end su come distribuire alcune delle funzionalità di Azure Active Directory, i piani di distribuzione seguenti presentano in modo dettagliato il valore aziendale, alcune considerazioni sulla pianificazione, la progettazione e le procedure operative necessarie per implementare correttamente alcune delle più comuni funzionalità di Azure AD. 
@@ -37,6 +37,6 @@ Eventuali commenti e suggerimenti su questi documenti sono ben accetti. Completa
 |[Pannello di accesso](https://aka.ms/AccessPanelDPDownload)|Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di essere più produttivi grazie alle funzionalità self-service, ad esempio per richiedere l'accesso alle nuove app e ai nuovi gruppi o per gestire l'accesso a queste risorse per conto di altri.|
 |Ad FS per la sincronizzazione degli Hash Password [piano scaricabile](https://aka.ms/ADFSTOPHSDPDownload) o [online piano](https://aka.ms/deploymentplans/adfs2phs)|Con la sincronizzazione dell'hash delle password, gli hash delle password degli utenti vengono sincronizzati da Active Directory locale ad Azure AD, permettendo ad Azure AD di autenticare gli utenti senza alcuna interazione con Active Directory locale|
 |Ad FS per l'autenticazione Pass-Through [piano scaricabile](https://aka.ms/ADFSTOPTADPDownload) o [online piano](https://aka.ms/deploymentplans/adfs2pta)|L'autenticazione pass-through di Azure AD permette agli utenti di accedere ad applicazioni sia locali sia basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, visto che hanno una password in meno da ricordare, e riduce i costi del supporto tecnico poiché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale.|
-|[Azure Active Directory Application Proxy](https://aka.ms/AppProxyDPDownload)|Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Vogliono lavorare con i propri dispositivi, che si tratti di tablet, di telefoni o di portatili, e si aspettano di poter accedere a tutte le applicazioni, sia alle app SaaS nel cloud sia alle app aziendali locali. Per fornire l'accesso alle applicazioni locali, sono sempre state necessarie reti private virtuali (VPN) o reti perimetrali . Queste soluzioni non sono solo complesse e difficili da proteggere, ma sono anche costose da configurare e gestire. C'è una soluzione migliore. - Azure Active Directory Application Proxy|
+|[Azure Active Directory Application Proxy](https://aka.ms/deploymentplans/appproxy)|Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Vogliono lavorare con i propri dispositivi, che si tratti di tablet, di telefoni o di portatili, e si aspettano di poter accedere a tutte le applicazioni, sia alle app SaaS nel cloud sia alle app aziendali locali. Per fornire l'accesso alle applicazioni locali, sono sempre state necessarie reti private virtuali (VPN) o reti perimetrali . Queste soluzioni non sono solo complesse e difficili da proteggere, ma sono anche costose da configurare e gestire. C'è una soluzione migliore. - Azure Active Directory Application Proxy|
 |[Provisioning utenti](https://aka.ms/UserProvisioningDPDownload)|Azure AD semplifica l'automazione di creazione, manutenzione e rimozione delle identità utente in applicazioni cloud (SaaS) come Dropbox, SalesForce, ServiceNow e così via.|
 |[Provisioning utenti in ingresso basato sulla giornata lavorativa](https://aka.ms/WorkdayDeploymentPlan)|Il provisioning utenti in ingresso basato sulla giornata lavorativa in Active Directory crea le basi per la governance delle identità continuativa e migliora la qualità dei processi aziendali che si basano sui dati delle identità autorevoli. Con questa funzionalità è possibile gestire facilmente il ciclo di vita delle identità di dipendenti e lavoratori occasionali, configurando regole che eseguono il mapping dei processi Joiner-Mover-Leaver (ad esempio, nuova assunzione, licenziamento, trasferimento) alle azioni di provisioning IT (ad esempio, creazione, disabilitazione, eliminazione di account).|

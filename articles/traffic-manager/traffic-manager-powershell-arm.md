@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329769"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -61,7 +61,7 @@ La tabella seguente descrive i parametri:
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| NOME |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
+| Name |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
 | ResourceGroupName |Il nome del gruppo di risorse che include la risorsa del profilo. |
 | TrafficRoutingMethod |Indica il metodo di routing del traffico usato per determinare quale endpoint viene restituito in risposta alle query DNS. I valori possibili sono "Performance", "'Weighted" e "Priority". |
 | RelativeDnsName |Indica la parte hostname del nome DNS fornito da questo profilo di Gestione traffico. Questo valore viene combinato con il nome del dominio DNS usato da Gestione traffico di Azure per formare il nome di dominio completo del profilo. Ad esempio, l'impostazione del valore di "contoso" diventa "contoso.trafficmanager.net". |

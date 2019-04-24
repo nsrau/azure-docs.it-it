@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381351"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività di SQL con Azure AD Connect
 Questo articolo descrive come risolvere i problemi di connettività tra Azure AD Connect e SQL Server. 
@@ -172,6 +172,6 @@ TcpStatus    : Blocked - the inbound firewall rule for port 58379 is missing or 
 PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>  
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 -  [Connettività di Azure AD con Azure AD Connect](tshoot-connect-connectivity.md)

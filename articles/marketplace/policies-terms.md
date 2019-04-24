@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
 ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322754"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Criteri di termini e azure Marketplace
+# <a name="azure-marketplace-policies-and-terms"></a>Informative e condizioni di Azure Marketplace
 
 >[!Note]
 >"Marketplace" o "Azure Marketplace" significa che una proprietà di Microsoft o gestita piattaforma denominata, tuttavia, tramite cui le offerte può anche essere presentate al o acquisite da parte dei clienti. Se non diversamente specificato, Marketplace include Azure Marketplace, AppSource e il portale di Azure Marketplace.

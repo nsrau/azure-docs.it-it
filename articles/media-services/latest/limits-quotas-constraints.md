@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322567"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -30,7 +30,7 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | JobOutput per ogni processo | 20 (fisso) |
 | TransformOutputs in una forma Trasforma | 20 (fisso) |
 | File per ogni JobInput|10 (fisso)|
-| Dimensione file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
+| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
 | Job per ogni account di Servizi multimediali | 500.000 <sup>(2)</sup> (fisso)|
 | Elenco di trasformazioni|Impaginare la risposta, con 1000 trasformazioni per ogni pagina|
 | Elenco di processi|Impaginare la risposta, con 500 processi per ogni pagina|
@@ -63,4 +63,4 @@ Per le risorse non fisse, è possibile richiedere l'aumento delle quote aprendo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](media-services-overview.md)
+[Overview](media-services-overview.md)

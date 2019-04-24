@@ -1,7 +1,6 @@
 ---
 title: Configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux - Azure
 description: Informazioni su come configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
-services: hdinsight
 author: omidm1
 ms.author: omidm
 ms.service: hdinsight
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333690"
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 

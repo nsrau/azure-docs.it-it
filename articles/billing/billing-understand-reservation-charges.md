@@ -1,7 +1,6 @@
 ---
 title: Comprendere lo sconto di prenotazione per i database SQL di Azure | Microsoft Docs
 description: Informazioni su come viene applicato uno sconto di prenotazione all'esecuzione di database SQL di Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370288"
 ---
-# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Informazioni su come viene applicato uno sconto di prenotazione per i database SQL di Azure
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Come uno sconto di prenotazione viene applicato al database SQL di Azure
 
 Dopo avere acquistato capacità riservata per il database SQL di Azure, lo sconto sulla prenotazione viene automaticamente applicato ai database SQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione comprende i costi delle risorse di calcolo del database SQL. Vengono addebitate le tariffe normali per software, archiviazione e rete. È possibile coprire i costi di licenza per i database SQL con il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Per le istanze di macchina virtuale riservate, vedere [Informazioni sullo sconto per le istanze di macchina virtuale riservate di Azure](billing-understand-vm-reservation-charges.md).
 
-## <a name="reservation-discount-applied-to-sql-databases"></a>Sconto sulla prenotazione applicato ai database SQL
+## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto della prenotazione
+
+È uno sconto di prenotazione "*utilizzare-it-o-perdere-it*". Pertanto, se non si dispone di risorse corrispondente per ogni ora, quindi si perde una quantità di prenotazione per quell'ora. Non sarà possibile eseguire inoltrare ore riservate non usate.
+
+Quando si arresta una risorsa, lo sconto della prenotazione viene applicato automaticamente a un'altra risorsa corrisponda nell'ambito specificato. Se viene trovata alcuna risorsa corrisponda nell'ambito specificato, quindi sono le ore riservate *persi*.
+
+## <a name="discount-applied-to-sql-databases"></a>Sconto applicato ai database SQL
 
  Lo sconto sulla capacità riservata del database SQL viene applicato su base oraria ai database SQL in esecuzione. La prenotazione acquistata viene confrontata con l'utilizzo delle risorse di calcolo generato dai database SQL in esecuzione. Per i database che non vengono eseguiti per un'ora intera, la prenotazione viene automaticamente applicata ad altri database SQL che corrispondono agli attributi della prenotazione. Lo sconto può essere applicato a database SQL in esecuzione simultaneamente. Se nessun database SQL in esecuzione per l'ora intera corrisponde agli attributi della prenotazione, non è possibile ottenere il vantaggio completo dello sconto sulla prenotazione per questa ora.
 
@@ -40,7 +45,11 @@ Per gli altri esempi, si presuppone che la capacità riservata del database SQL 
 - Scenario 3: si esegue un database SQL con 16 core dalle 13.00 alle 13.30. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. A entrambi i database viene applicato lo sconto sulla prenotazione.
 - Scenario 4: si esegue un database SQL con 16 core dalle 13.00 alle 13.45. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 
-Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](https://go.microsoft.com/fwlink/?linkid=862757).
+Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](billing-understand-reserved-instance-usage-ea.md).
+
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -52,8 +61,4 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
-
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+- [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](/partner-center/azure-reservations)

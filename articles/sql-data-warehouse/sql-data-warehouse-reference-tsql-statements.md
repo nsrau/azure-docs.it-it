@@ -11,11 +11,11 @@ ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
 ms.openlocfilehash: 8922d4399f52937710f111c3c8ad4c9af91b6bb7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309889"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Istruzioni T-SQL supportate in Azure SQL Data Warehouse
 Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.

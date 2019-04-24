@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328885"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di anteprima di Desktop virtuale Windows
 
@@ -25,7 +25,7 @@ Configura il metodo di bilanciamento del carico per un pool di host consente di 
 
 Bilanciamento del carico breadth-first è la configurazione predefinita per i nuovi pool di host non permanente. Il bilanciamento del carico breadth-first distribuisce nuove sessioni utente in tutti gli host di sessione disponibili nel pool di host. Durante la configurazione di bilanciamento del carico breadth-first, è possibile impostare un limite di durata massima della sessione per ogni host sessione nel pool di host.
 
-Prima di tutto [scaricare e importare il modulo Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell se non è già presente.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
 
 Per configurare un pool di host per eseguire breadth-first bilanciamento del carico senza modificare il limite di durata massima della sessione, eseguire il cmdlet di PowerShell seguente:
 

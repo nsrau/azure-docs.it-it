@@ -1,7 +1,6 @@
 ---
 title: Visualizzare le prenotazioni per le risorse di Azure | Microsoft Docs
 description: Informazioni su come visualizzare le prenotazioni per Azure nel portale di Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369168"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Visualizzare le prenotazioni di Azure nel portale di Azure
 
 A seconda del tipo di sottoscrizione e le autorizzazioni, esistono un paio di modi per visualizzare le prenotazioni per Azure.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Visualizzare le prenotazioni come proprietario o come lettore
+## <a name="view-purchased-reservations"></a>Visualizzare le prenotazioni acquistate
 
-Per impostazione predefinita, quando si acquista una prenotazione, l'utente e l'amministratore dell'account possono visualizzare la prenotazione. L'utente e l'amministratore dell'account ottengono automaticamente il ruolo di proprietario per la prenotazione. Per consentire ad altri utenti di visualizzare la prenotazione, è necessario aggiungerli come **Proprietario** oppure **Lettore** alla prenotazione. Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono gestire una prenotazione](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Per impostazione predefinita, quando si acquista una prenotazione, l'utente e l'amministratore dell'account possono visualizzare la prenotazione. Utenti e amministratore account ottengono automaticamente il ruolo di proprietario sull'ordine di prenotazione e sulla prenotazione. Per consentire ad altri utenti di visualizzare la prenotazione, è necessario aggiungerli come un **Owner** oppure **lettore** in ordine di prenotazione o di prenotazione.
+
+Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono gestire una prenotazione](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Per visualizzare una prenotazione come proprietario o lettore,
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare **Prenotazioni**.
-
-    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. Viene visualizzato un elenco delle prenotazioni per le quali si ha il ruolo di Proprietario o Lettore.
+2. Cercare **Prenotazioni**.
+    ![Screenshot che mostra una ricerca del portale di Azure](./media/billing-view-reservation/portal-reservation-search.png)  
+3. L'elenco Mostra tutte le prenotazioni in cui si dispone del ruolo di proprietario o lettore. Ogni prenotazione Mostra la percentuale di utilizzo noti ultimo.  
+    ![Esempio che mostra un elenco delle prenotazioni](./media/billing-view-reservation/view-reservations.png)
+4. Selezionare una prenotazione e visualizzare la tendenza di utilizzo per gli ultimi cinque giorni.  
+    ![Tendenze di utilizzo di esempio che mostra la prenotazione](./media/billing-view-reservation/reservation-utilization.png)
+5. È anche possibile ottenere il [utilizzo di prenotazione](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando l'API di utilizzo delle istanze riservate e con la [pacchetto di contenuto di Power BI Insights il consumo di Microsoft Azure](/power-bi/service-connect-to-azure-consumption-insights).
 
 Se è necessario modificare l'ambito di una prenotazione, dividere una prenotazione, oppure modificare chi può gestire una prenotazione, vedere [gestire le prenotazioni Azure](billing-manage-reserved-vm-instance.md).
 

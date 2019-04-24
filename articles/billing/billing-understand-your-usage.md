@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369625"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
 
@@ -57,7 +57,7 @@ Nella sezione superiore del file CSV di utilizzo dettagliato sono riportati i se
 |Eccedenza |Indica i costi del contatore che eccedono l'importo dell'impegno associato all'offerta di 6 o 12 mesi |
 |Tariffa dell'impegno |Indica la tariffa dell'impegno basata sull'importo totale dell'impegno associato all'offerta di 6 o 12 mesi |
 |Tariffa |Indica la tariffa addebitata per unità fatturabile |
-|Valore |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
+|Value |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
 
 ### <a name="daily-usage"></a>Utilizzo giornaliero
 

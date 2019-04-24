@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294286"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -210,7 +210,7 @@ Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Ac
 
 
 
-| Funzionalità | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Gratuito |
+| Funzionalità | Azure AD P2 Premium | Azure AD Premium P1 | Azure AD Basic/Gratuito |
 | --- | --- | --- | --- |
 | Criteri di rischio utente | Sì | No  | No  |
 | Criteri di rischio di accesso | Sì | No  | No  |

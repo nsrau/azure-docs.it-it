@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
 ms.openlocfilehash: e430b1e976ac26f7320b28d50dd39923066cfa41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306344"
 ---
 # <a name="memory-leak-detection-preview"></a>Rilevamento della perdita di memoria (anteprima)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60373318"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Domande frequenti
 
@@ -134,7 +134,7 @@ Vedere altre informazioni per [ASP.NET](api-filtering-sampling.md) o [Java](java
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Come vengono calcolati i dati su città, paesi e altre aree geografiche?
 
-Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetria del browser: viene raccolto l'indirizzo IP del mittente.
 * Telemetria del server: viene raccolto l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.

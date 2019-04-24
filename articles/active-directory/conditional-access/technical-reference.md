@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301267"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -142,7 +142,7 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 |    |    |
 | --- | --- |
 | path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOME | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -151,7 +151,7 @@ Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro 
 |    |    |
 | --- | --- |
 | path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOME | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

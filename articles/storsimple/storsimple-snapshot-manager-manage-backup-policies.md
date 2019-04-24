@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303274"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
 ## <a name="overview"></a>Panoramica
@@ -67,7 +67,7 @@ Dopo aver creato un criterio di backup, nel riquadro **Risultati** vengono visua
 * **Gruppo di volumi** : il gruppo di volumi associato al criterio.
 * **Conservazione** : il numero di snapshot conservati (il massimo è 64).
 * **Creato** : la data in cui è stato creato questo criterio.
-* **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False** indica che non è attivo).
+* **Abilitato** : indica se il criterio è attualmente attivo: **True** indica che è in vigore. **False** indica che non è attiva.
 
 ## <a name="edit-a-backup-policy"></a>Modifica di un criterio di backup
 Utilizzare la procedura seguente per modificare un criterio di backup esistente.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371923"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Ottenere la proprietà delle sottoscrizioni di Azure ad altri utenti di fatturazione
 
@@ -39,12 +39,12 @@ Questo articolo si applica a un account di fatturazione per un contratto di clie
 
    ![Screenshot che mostra una ricerca nel portale Azure per gestione costi + fatturazione](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Passare alla sezione della fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
+3. Passare alla sezione Fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
    <!-- Todo - Add a screenshot -->
 
 4. Selezionare **richieste di trasferimento** dal lato inferiore sinistro.
 
-5. Nella parte superiore della pagina, selezionare **Add**.
+5. Nella parte superiore della pagina selezionare **Aggiungi**.
 
 6. Immettere l'indirizzo di posta elettronica dell'utente a da che cui si richiede la proprietà della fatturazione. L'utente deve essere un amministratore dell'account in un account di fatturazione di programma del servizio Online Microsoft o un proprietario dell'account in un contratto Enterprise Agreement. Per altre informazioni, vedere [visualizzare gli account di fatturazione nel portale di Azure](billing-view-all-accounts.md).
 
@@ -68,7 +68,7 @@ Questo articolo si applica a un account di fatturazione per un contratto di clie
 
    ![Screenshot che mostra una ricerca nel portale Azure per gestione costi + fatturazione](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Passare alla sezione della fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
+3. Passare alla sezione Fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
    <!-- Todo - Add a screenshot -->
 
 4. Selezionare **richieste di trasferimento** dal lato inferiore sinistro.

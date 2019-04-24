@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349845"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build [1.1.105.0 rilasciata nel mese di febbraio 2016](reference-connect-version-history.md#111050).  Questa funzionalità è stata aggiornata nella [build 1.1.561](reference-connect-version-history.md#115610) e ora supporta scenari aggiuntivi che non erano supportati in precedenza.

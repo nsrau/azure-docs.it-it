@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323816"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
@@ -117,5 +117,5 @@ Per essere idoneo per la compressione, un file deve avere le dimensioni seguenti
 L'intestazione HTPP **Via** indica al server Web che la richiesta viene passata da un server proxy.  Per impostazione predefinita, i server Web Microsoft IIS non comprimono le risposte quando la richiesta contiene un'intestazione **Via** .  Per eseguire l'override di questo comportamento, eseguire queste operazioni:
 
 * **IIS 6**: [Impostare HcNoCompressionForProxies = "FALSE" nelle proprietà della Metabase di IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 e successive**: [Impostare entrambe **noCompressionForHttp10** e **noCompressionForProxies** su False nella configurazione del server](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 e successive**: [Impostare entrambe **noCompressionForHttp10** e **noCompressionForProxies** su False nella configurazione del server](https://www.iis.net/configreference/system.webserver/httpcompression)
 

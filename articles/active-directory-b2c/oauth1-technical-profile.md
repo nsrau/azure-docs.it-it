@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361099"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di [protocollo OAuth 1.0](https://tools.ietf.org/html/rfc5849). Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con il profilo tecnico OAuth1 è possibile attuare la federazione con un provider di identità basato su OAuth1, ad esempio Twitter, consentendo agli utenti di effettuare l'accesso con i propri social network o con le identità aziendali.
+Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di [protocollo OAuth 1.0](https://tools.ietf.org/html/rfc5849). Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con un profilo tecnico OAuth1, è possibile attuare la federazione con provider di identità basati su OAuth1, ad esempio Twitter. La federazione con provider di identità consente agli utenti di accedere con i social network esistenti o le identità dell'organizzazione.
 
 ## <a name="protocol"></a>Protocollo
 
@@ -46,7 +46,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'esempio seguente mostra le attestazioni restituite dal provider di identità Twitter:
 
-- L'attestazione **user_id** di cui si esegue il mapping per l'attestazione **socialIdpUserId**.
+- Il **user_id** attestazione che viene eseguito il mapping per il **issuerUserId** attestazione.
 - L'attestazione **screen_name** di cui si esegue il mapping per l'attestazione **displayName**.
 - L'attestazione **email** senza eseguire il mapping del nome.
 
@@ -57,7 +57,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
-Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo. È necessario aggiungere un URI di reindirizzamento per tutti i criteri che usano l'accesso provider di identità. 
+Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo. Aggiungere un URL di reindirizzamento per tutti i criteri che usano l'account di accesso provider di identità. 
 
 Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** assicurarsi di usare b2clogin.com invece di login.microsoftonline.com.
 

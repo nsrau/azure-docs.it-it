@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255843"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -84,7 +84,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |FailedRequests|Richieste gateway non riuscite|Conteggio|Totale|Numero di errori nelle richieste gateway|Location, Hostname|
 |OtherRequests|Altre richieste del gateway|Conteggio|Totale|Numero di altre richieste del gateway|Location, Hostname|
 |Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
+|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -506,10 +506,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |JobEndedSuccess|Processi completati|Conteggio|Totale|Numero di processi completati|Nessuna dimensione|
 |JobEndedFailure|Processi non riusciti|Conteggio|Totale|Numero di processi non riusciti|Nessuna dimensione|
-|JobEndedCancelled|Processi annullati|Conteggio|Totale|Numero di processi annullati|Nessuna dimensione|
+|JobEndedCanceled|Processi annullati|Conteggio|Totale|Numero di processi annullati.|Nessuna dimensione|
 |JobAUEndedSuccess|Tempo di aggiornamenti automatici con esito positivo|Secondi|Totale|Tempo totale di aggiornamenti automatici per i processi completati|Nessuna dimensione|
 |JobAUEndedFailure|Tempo di aggiornamenti automatici non riusciti|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi non riusciti|Nessuna dimensione|
-|JobAUEndedCancelled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati|Nessuna dimensione|
+|JobAUEndedCanceled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati.|Nessuna dimensione|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |RunsCompleted|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
 |RunsSucceeded|Esecuzioni riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunsFailed|Esecuzioni non riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
-|RunsCancelled|Esecuzioni annullate|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro annullate.|Nessuna dimensione|
+|RunsCanceled|Esecuzioni annullate|Conteggio|Totale|Numero di flussi di lavoro esecuzioni annullata.|Nessuna dimensione|
 |RunLatency|Latenza esecuzioni|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
 |RunSuccessLatency|Latenza esecuzioni riuscite|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunThrottledEvents|Eventi limitati esecuzione|Conteggio|Totale|Il numero di eventi limitati di trigger o azione del flusso di lavoro.|Nessuna dimensione|
@@ -1092,8 +1092,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |registration.get|Operazioni di lettura registrazione|Conteggio|Totale|Numero di tutte le query su registrazioni riuscite.|Nessuna dimensione|
 |registration.delete|Operazioni di eliminazione registrazione|Conteggio|Totale|Numero di tutte le eliminazioni di registrazioni riuscite.|Nessuna dimensione|
 |incoming|Messaggi in ingresso|Conteggio|Totale|Numero di tutte le chiamate all'API di invio riuscite. |Nessuna dimensione|
-|incoming.scheduled|Notifiche push pianificate inviate|Conteggio|Totale|Notifiche push pianificate annullate|Nessuna dimensione|
-|incoming.scheduled.cancel|Notifiche push pianificate annullate|Conteggio|Totale|Notifiche push pianificate annullate|Nessuna dimensione|
+|incoming.scheduled|Notifiche push pianificate inviate|Conteggio|Totale|Notifiche Push pianificate annullate|Nessuna dimensione|
+|incoming.scheduled.cancel|Notifiche Push pianificate annullate|Conteggio|Totale|Notifiche Push pianificate annullate|Nessuna dimensione|
 |scheduled.pending|Notifiche pianificate in sospeso|Conteggio|Totale|Notifiche pianificate in sospeso|Nessuna dimensione|
 |installation.all|Operazioni di gestione installazione|Conteggio|Totale|Operazioni di gestione installazione|Nessuna dimensione|
 |installation.get|Ottieni operazioni di installazione|Conteggio|Totale|Ottieni operazioni di installazione|Nessuna dimensione|
@@ -1513,7 +1513,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Http5xx|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
 |MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
 |AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
-|FunctionExecutionUnits|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
+|FunctionExecutionUnits|Unità di esecuzione della funzione|MB / millisecondi|Totale|[Unità di esecuzione (funzione)](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Istanza|
 |FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
 |PrivateBytes|Private Bytes|Byte|Media|Private Bytes|Istanza|
 |IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|

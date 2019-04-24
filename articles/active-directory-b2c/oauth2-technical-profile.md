@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361065"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di protocollo OAuth2. Questo è il protocollo principale per l'autorizzazione e l'autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Con il profilo tecnico OAuth2 è possibile attuare la federazione con un provider di identità basato su OAuth2, ad esempio Facebook e Live.com, consentendo agli utenti di effettuare l'accesso con i propri social network o con le identità aziendali.
+Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di protocollo OAuth2. OAuth2 è il protocollo principale per l'autorizzazione e autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Con un profilo tecnico OAuth2, è possibile attuare la federazione con provider di identità basata su OAuth2, ad esempio Facebook. La federazione con provider di identità consente agli utenti di accedere con i social network esistenti o le identità dell'organizzazione.
 
 ## <a name="protocol"></a>Protocollo
 
@@ -54,8 +54,8 @@ L'esempio seguente illustra le attestazioni restituite dal provider di identità
 
 - Il mapping dell'attestazione **first_name** viene eseguito per l'attestazione **givenName**.
 - Il mapping dell'attestazione **last_name** viene eseguito per l'attestazione **surname**.
-- L'attestazione **displayName** senza l'esecuzione del mapping del nome.
-- L'attestazione **email** senza l'esecuzione del mapping del nome.
+- Il **displayName** senza mapping del nome di attestazione.
+- L'attestazione **email** senza eseguire il mapping del nome.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità: 
 
@@ -64,7 +64,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -90,7 +90,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpointFormat | No  | Il valore del parametro della stringa di query di formato. Ad esempio, è possibile impostare il valore su `json` in questo endpoint attestazioni LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | No  | Il nome del provider di identità. |
 | response_mode | No  | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| scope | No  | L'ambito della richiesta di accesso definita sulla base della specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
+| scope | No  | L'ambito della richiesta che viene definita secondo la specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No  | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | No  | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No  | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
@@ -102,7 +102,7 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |  
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostato su `id_token`, è possibile omettere la chiave di crittografia. |  
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 

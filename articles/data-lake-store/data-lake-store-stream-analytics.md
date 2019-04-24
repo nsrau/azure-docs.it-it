@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194945"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1 usando Analisi di flusso di Azure
 In questo articolo viene descritto come usare Azure Data Lake Storage Gen1 come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB del servizio di archiviazione di Azure (input) e scritti in Data Lake Storage Gen1 (output).

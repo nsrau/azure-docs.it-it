@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294914"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procedura: Configurare i criteri di registrazione per l'autenticazione a più fattori
 
-Azure AD Identity Protection consente di gestire il rollout della registrazione per l'autenticazione a più fattori (MFA) configurando un criterio per richiedere la registrazione MFA. Questo articolo illustra le modalità di configurazione e utilizzo dei criteri da adottare.
+Azure AD Identity Protection consente di gestire il rollout della registrazione per l'autenticazione a più fattori (MFA) configurando un criterio per richiedere la registrazione MFA. Questo articolo illustra ciò che il criterio può essere utilizzato per e come configurarlo.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Cosa sono i criteri di registrazione per l'autenticazione a più fattori?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303155"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ I gruppi di volumi sono pool di volumi correlati utilizzati per garantire che i 
 
 ![Nodo Gruppi di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figura 1: Nodo Gruppi di volumi di StorSimple Snapshot Manager** 
+**Figura 1: Nodo gruppi di volumi di StorSimple Snapshot Manager** 
 
 Questa esercitazione illustra come usare StorSimple Snapshot Manager per:
 
@@ -50,7 +50,7 @@ Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono 
 
 | Colonna risultati | DESCRIZIONE |
 |:--- |:--- |
-| NOME |La colonna **Nome** contiene il nome del gruppo di volumi. |
+| Name |La colonna **Nome** contiene il nome del gruppo di volumi. |
 | Applicazione |La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows. |
 | Selezionato |La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |

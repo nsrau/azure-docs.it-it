@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311642"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -27,7 +27,7 @@ Per creare una definizione di criterio è possibile usare JSON. La definizione d
 - mode
 - Parametri
 - nome visualizzato
-- Descrizione
+- description
 - regola dei criteri
   - valutazione logica
   - effetto
@@ -287,7 +287,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>Value
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.

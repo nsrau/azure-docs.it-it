@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318207"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
 
@@ -51,7 +51,7 @@ Un manifesto di distribuzione è un documento JSON che descrive i moduli da conf
 
 I metadati di configurazione per ogni modulo includono: 
 
-* Versione 
+* Version 
 * Type 
 * Stato (ad esempio, in esecuzione o arrestato) 
 * Criterio di riavvio 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 29ebcfcaf1bae3586eb5141e3a379cd5201be301
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308969"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Scheda Offer Settings (Impostazioni dell'offerta) di Dynamics 365 for Customer Engagement
 

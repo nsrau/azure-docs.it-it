@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345860"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il Portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**registro attività di Azure**](../../azure-monitor/platform/activity-logs-overview.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -61,7 +61,7 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
 | StorageAccountId |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
 | Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `(Get-AzLocation).Location`. |
 | RetentionInDays |No  |Numero di giorni per gli eventi che devono essere mantenuti, compreso tra 1 e 365. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
-| Categorie |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
+| Categories |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiviare il log attività con l'interfaccia della riga di comando
 
@@ -155,7 +155,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 | Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
-| ResourceId |ID risorsa della risorsa interessata. |
+| resourceId |ID risorsa della risorsa interessata. |
 | operationName |Nome dell'operazione. |
 | category |Categoria dell'azione, ad esempio scrittura o lettura. |
 | resultType |Il tipo di risultato, ad esempio operazione riuscita, esito negativo, avvio |

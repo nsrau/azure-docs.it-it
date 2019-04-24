@@ -1,20 +1,19 @@
 ---
 title: Ridimensionare automaticamente i cluster HDInsight di Azure (anteprima)
 description: Usare la funzionalità di scalabilità automatica di HDInsight per ridimensionare i cluster automaticamente
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6642f80a40343546285770531ac42423bee779b8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 11828b3b056519d0ebe3233f078c6b3f6fc2ea1c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253496"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster HDInsight di Azure (anteprima)
 

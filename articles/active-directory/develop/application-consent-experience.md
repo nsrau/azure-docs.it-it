@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300289"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 

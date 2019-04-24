@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311369"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
 
@@ -42,8 +42,8 @@ Ogni tag è costituito da una coppia **nome**/**valore**. Ad esempio, è possibi
 
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
-1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere o gestire i tag.  
-1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  
+1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere o gestire i tag.
+1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.
 
     ![Pulsante Configurazione e criteri](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Ogni tag è costituito da una coppia **nome**/**valore**. Ad esempio, è possibi
 
 Ai tag si applicano le limitazioni seguenti:
 
-* Ogni risorsa o gruppo di risorse può avere un massimo di 15 coppie nome-valore di tag. Questa limitazione si applica solo ai tag applicati direttamente al gruppo di risorse o alla risorsa. Un gruppo di risorse può contenere più risorse ognuna con 15 coppie nome-valore di tag. 
+* Ogni risorsa o gruppo di risorse può avere un massimo di 15 coppie nome-valore di tag. Questa limitazione si applica solo ai tag applicati direttamente al gruppo di risorse o alla risorsa. Un gruppo di risorse può contenere più risorse ognuna con 15 coppie nome-valore di tag.
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
 * I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse.
 
@@ -66,4 +66,4 @@ Ai tag si applicano le limitazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile applicare restrizioni e convenzioni all'interno della sottoscrizione tramite criteri personalizzati. Un criterio che è stato definito potrebbe richiedere che per tutte le risorse sia impostato un determinato tag. Per altre informazioni, vedere [Set policies and schedules](devtest-lab-set-lab-policy.md) (Impostare criteri e pianificazioni).
-* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

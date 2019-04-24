@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318479"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
@@ -51,11 +51,11 @@ Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di
 
 La tabella seguente descrive gli elementi JSON specifici del servizio collegato HTTP:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type | La proprietà **type** deve essere impostata su **Http**. | Yes |
-| URL | URL di base del server Web. | Yes |
-| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni più avanti in questo articolo per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Yes |
+| type | La proprietà **type** deve essere impostata su **Http**. | Sì |
+| url | URL di base del server Web. | Sì |
+| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni più avanti in questo articolo per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | enableServerCertificateValidation | Specifica se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS. Quando il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No <br /> (il valore predefinito è **true**) |
 | gatewayName | Nome dell'istanza di Gateway di gestione dati da usare per la connessione a un'origine HTTP locale. | Sì, se si copiano dati da un'origine HTTP locale |
 | encryptedCredential | Credenziale crittografata per l'accesso all'endpoint HTTP. Il valore viene generato automaticamente durante la configurazione delle informazioni di autenticazione nella procedura guidata di copia o tramite la finestra di dialogo **ClickOnce**. | No <br /> (si applica solo quando si copiano dati da un server HTTP locale) |
@@ -66,10 +66,10 @@ Per informazioni sull'impostazione di credenziali per un'origine dati connettore
 
 Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| username | Nome utente da usare per accedere all'endpoint HTTP. | Yes |
-| password | Password per l'utente (**username**). | Yes |
+| username | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
+| password | Password per l'utente (**username**). | Sì |
 
 **Esempio: Uso dell'autenticazione Basic, Digest o Windows**
 
@@ -94,7 +94,7 @@ Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre a
 
 Per usare l'autenticazione di base, impostare **authenticationType** su **ClientCertificate**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | embeddedCertData | Contenuto dei dati binari del file PFX con codifica Base64. | Specificare **embeddedCertData** o **certThumbprint** |
 | certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Si applica solo quando si copiano dati da un server HTTP locale. | Specificare **embeddedCertData** o **certThumbprint** |
@@ -150,7 +150,7 @@ Questo servizio collegato collega la data factory a un server Web HTTP locale. U
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Alcune sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e criteri, sono simili per tutti i tipi di set di dati (database SQL di Azure, archiviazione BLOB di Azure e archiviazione tabelle di Azure).
 
@@ -158,9 +158,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezione **typeProperties** fornisce informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per un set di dati di tipo **Http** ha le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **Http**. | Yes |
+| type | La proprietà **type** del set di dati deve essere impostata su **Http**. | Sì |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md). Esempio: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | No  |
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** e **POST**. | No  <br />Il valore predefinito è **GET** |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
@@ -221,7 +221,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Attualmente, quando l'origine nell'attività di copia è di tipo **HttpSource**, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. | No <br />(valore predefinito: **00:01:40**) |
 

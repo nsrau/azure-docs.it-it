@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322855"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Scheda Test Drive dell'applicazione Dynamics 365 for Customer Engagement
 
@@ -47,7 +47,7 @@ Nella tabella seguente vengono descritti i campi necessari per configurare il te
 |    ---------                  |  ---------------                |
 |      DESCRIZIONE              |   Descrivere le operazioni che possono essere eseguite durante il test drive. È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.  |
 |  Manuale dell'utente                  |   Caricare un manuale dell'utente che i clienti possono usare per eseguire il test drive. Questo documento deve essere un file con estensione pdf.              |
-|  Video demo del test drive (facoltativo) |  È possibile fornire una procedura dettagliata video del test drive che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>NOME</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
+|  Video demo del test drive (facoltativo) |  È possibile fornire una procedura dettagliata video del test drive che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>Name</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
 |   |   |
 
 

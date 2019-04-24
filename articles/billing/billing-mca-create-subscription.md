@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372027"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Creare un'altra sottoscrizione di Azure per il contratto di clienti Microsoft
 
@@ -63,11 +63,11 @@ Aggiungere utenti come autori di sottoscrizione di Azure in una sezione della fa
 
    ![Screenshot che mostra una ricerca nel portale per le sottoscrizioni](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. Passare alla sezione della fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
+3. Passare alla sezione Fattura. In base all'accesso, si potrebbe essere necessario selezionare un account di fatturazione o di un profilo di fatturazione. L'account di fatturazione o profilo, selezionare **sezioni della fattura** e quindi una sezione della fattura.
 
 4. Selezionare **gestione di accesso (IAM)** dal lato superiore sinistro.
 
-5. Nella parte superiore della pagina, selezionare **Add**.
+5. Nella parte superiore della pagina selezionare **Aggiungi**.
 
 6. Selezionare **creatore di sottoscrizione di Azure** per ruolo.
 

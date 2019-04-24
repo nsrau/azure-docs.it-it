@@ -14,11 +14,11 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353279"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto WebAPI (servizio connesso di Visual Studio Azure Active Directory)?
 
@@ -34,7 +34,7 @@ Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-acti
 
 Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-| Type | riferimento |
+| Type | Riferimenti |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -47,7 +47,7 @@ Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimen
 
 Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati directory**:
 
-| Type | riferimento |
+| Type | Riferimenti |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -61,7 +61,7 @@ Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati director
 
 I seguenti riferimenti vengono rimossi (solo 4 progetti ASP.NET, come in Visual Studio 2015):
 
-| Type | riferimento |
+| Type | Riferimenti |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

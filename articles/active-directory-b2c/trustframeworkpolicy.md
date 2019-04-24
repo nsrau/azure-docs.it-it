@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360487"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,13 +38,13 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Yes | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
+| PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
 | TenantObjectId | No  | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
-| TenantId | Yes | L'identificatore univoco del tenant a cui appartiene questo criterio. |
-| PolicyId | Yes | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
-| PublicPolicyUri | Yes | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
+| TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
+| PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
+| PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
 | DeploymentMode | No  | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | No  | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311531"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Pubblicare un annuncio per un lab in Azure DevTest Labs
 
@@ -37,8 +37,8 @@ La funzionalità degli annunci deve essere usata per le notifiche temporanee.  �
 
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
-1. Nell'elenco di lab selezionare il lab in cui si vuole pubblicare un annuncio.  
-1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  
+1. Nell'elenco di lab selezionare il lab in cui si vuole pubblicare un annuncio.
+1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.
 
     ![Pulsante Configurazione e criteri](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
-È possibile specificare un annuncio come parte di un modello di Azure Resource Manager, come illustrato nell'esempio seguente: 
+È possibile specificare un annuncio come parte di un modello di Azure Resource Manager, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -119,7 +119,7 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si modificano o impostano i criteri per un lab, è possibile pubblicare un annuncio per informare gli utenti. [Configurare criteri e pianificazioni](devtest-lab-set-lab-policy.md) contiene informazioni sull'applicazione di restrizioni e convenzioni nella sottoscrizione usando criteri personalizzati.
-* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -9,11 +9,11 @@ ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367669"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
@@ -67,7 +67,7 @@ Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento dete
 >Se si sono configurati circuiti di peering privato ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup per il peering privato ExpressRoute, l'abilitazione del rilevamento dell'inoltro bidirezionale sul peering privato può consentire un failover più veloce nel caso si verifichi un errore di connettività di ExpressRoute. 
 >
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 

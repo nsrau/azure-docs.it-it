@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332609"
 ---
 # <a name="azure-security-center-search"></a>Ricerca nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure Usa [monitoraggio di Azure log ricerca](../log-analytics/log-analytics-log-searches.md) per recuperare e analizzare i dati di sicurezza. Log di monitoraggio di Azure include un linguaggio di query per recuperare e consolidare i dati rapidamente. Dal Centro sicurezza, è possibile sfruttare ricerca nei log di monitoraggio di Azure per creare query e analizzare i dati raccolti.

@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65d4c477d0e3aa9d5feea53e3e667ece651c83f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351069"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>Come personalizzare una regola di sincronizzazione
 
@@ -51,6 +51,6 @@ ms.locfileid: "56172434"
 * [Servizio di sincronizzazione Azure AD Connect: informazioni su utenti, gruppi e contatti](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
 * [Servizio di sincronizzazione Azure AD Connect: attributi shadow](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md).
 - [Informazioni sull'identità ibrida](whatis-hybrid-identity.md).
