@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523359"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997785"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere all'API Graph di Azure AD
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione descrive come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere all'API Graph di Microsoft in modo da recuperarne le appartenenze ai gruppi. Le identità gestite per le risorse di Azure vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice.  Per questa esercitazione si eseguiranno query sull'appartenenza dell'identità della macchina virtuale in gruppi di Azure AD. Le informazioni sui gruppi vengono spesso usate, ad esempio, nelle decisioni per l'autorizzazione. In background, l'identità gestita della macchina virtuale è rappresentata da un'**entità servizio** in Azure AD. Prima di eseguire la query di gruppo, aggiungere l'entità servizio che rappresenta l'identità della macchina virtuale a un gruppo in Azure AD. A questo scopo, è possibile usare Azure PowerShell, Azure AD PowerShell o l'interfaccia della riga di comando di Azure.
+Questa esercitazione descrive come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere all'API Graph di Azure AD in modo da recuperarne le appartenenze ai gruppi. Le identità gestite per le risorse di Azure vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice.  Per questa esercitazione si eseguiranno query sull'appartenenza dell'identità della macchina virtuale in gruppi di Azure AD. Le informazioni sui gruppi vengono spesso usate, ad esempio, nelle decisioni per l'autorizzazione. In background, l'identità gestita della macchina virtuale è rappresentata da un'**entità servizio** in Azure AD. Prima di eseguire la query di gruppo, aggiungere l'entità servizio che rappresenta l'identità della macchina virtuale a un gruppo in Azure AD. A questo scopo, è possibile usare Azure PowerShell, Azure AD PowerShell o l'interfaccia della riga di comando di Azure.
 
 > [!div class="checklist"]
 > * Connessione ad Azure AD
