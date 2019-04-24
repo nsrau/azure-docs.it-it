@@ -97,9 +97,9 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
-| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
+| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Risorsa | Nome dell'account di Automazione |
+| Resource | Nome dell'account di Automazione |
 | SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Descrive lo stato del risultato del processo di runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
@@ -120,9 +120,9 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |
-| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
+| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Risorsa | Nome dell'account di Automazione |
+| Resource | Nome dell'account di Automazione |
 | SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Include il flusso di output dal runbook. |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
