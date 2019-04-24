@@ -29,6 +29,8 @@
           href: azure-to-azure-tutorial-migrate.md
         - name: Spostare macchine virtuali di Azure nelle zone di disponibilità
           href: move-Azure-VMs-AVset-Azone.md
+        - name: Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche
+          href: region-move-cross-geos.md
     - name: Ripristino di emergenza di VM VMware in Azure
       items:
         - name: Preparare Azure
@@ -175,6 +177,10 @@
               href: azure-to-azure-autoupdate.md
             - name: Aggiornamenti in Azure Site Recovery
               href: service-updates-how-to.md
+            - name: Rimuovere server e disabilitare la protezione
+              href: site-recovery-manage-registration-and-protection.md
+            - name: Eliminare un insieme di credenziali
+              href: delete-vault.md
     - name: Ripristino di emergenza da VMware ad Azure
       items:
         - name: Configurare la rete

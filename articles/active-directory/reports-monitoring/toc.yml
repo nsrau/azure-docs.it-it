@@ -1,126 +1,121 @@
-items:
 - name: Documentazione sui report e sul monitoraggio
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sui report di Azure AD
-    href: overview-reports.md
-  - name: Informazioni sul monitoraggio di Azure AD
-    href: overview-monitoring.md
+    - name: Informazioni sui report di Azure AD
+      href: overview-reports.md
+    - name: Informazioni sul monitoraggio di Azure AD
+      href: overview-monitoring.md
 - name: Guide introduttive
-  items:
-  - name: Report
-    items:
-    - name: Scaricare un report relativo agli accessi
-      href: quickstart-download-sign-in-report.md
-    - name: Scaricare un report di controllo
-      href: quickstart-download-audit-report.md
-    - name: Configurare località denominate
-      href: quickstart-configure-named-locations.md
-    - name: Installare un pacchetto di contenuto di Power BI
-      href: quickstart-install-power-bi-content-pack.md
-  - name: Monitoraggio
-    items:
-    - name: Indirizzare i log all'account di archiviazione
-      href: quickstart-azure-monitor-route-logs-to-storage-account.md
   expanded: true
+  items:
+    - name: Report
+      items:
+        - name: Scaricare un report relativo agli accessi
+          href: quickstart-download-sign-in-report.md
+        - name: Scaricare un report di controllo
+          href: quickstart-download-audit-report.md
+        - name: Configurare località denominate
+          href: quickstart-configure-named-locations.md
+        - name: Installare un pacchetto di contenuto di Power BI
+          href: quickstart-install-power-bi-content-pack.md
+    - name: Monitoraggio
+      items:
+        - name: Indirizzare i log all'account di archiviazione
+          href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Esercitazioni
   items:
-  - name: Report
-    items:
-    - name: Accedere all'API di creazione di report con certificati
-      href: tutorial-access-api-with-certificates.md
-  - name: Monitoraggio
-    items:
-    - name: Eseguire lo streaming dei log in un hub eventi
-      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-    - name: Integrare i log attività con Splunk
-      href: tutorial-integrate-activity-logs-with-splunk.md
+    - name: Report
+      items:
+        - name: Accedere all'API di creazione di report con certificati
+          href: tutorial-access-api-with-certificates.md
+    - name: Monitoraggio
+      items:
+        - name: Eseguire lo streaming dei log in un hub eventi
+          href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+        - name: Integrare i log attività con Splunk
+          href: tutorial-integrate-activity-logs-with-splunk.md
 - name: Concetti
   items:
-  - name: Report
-    items:
-    - name: Log di controllo
-      href: concept-audit-logs.md
-    - name: Log di accesso
-      href: concept-sign-ins.md
-    - name: Accessi a rischio
-      href: concept-risky-sign-ins.md
-    - name: Eventi di rischio
-      href: concept-risk-events.md
-    - name: Utenti a rischio.
-      href: concept-user-at-risk.md
-    - name: API di creazione di report
-      href: concept-reporting-api.md
-  - name: Monitoraggio
-    items:
-    - name: Log di Azure AD in Monitoraggio di Azure
-      href: concept-activity-logs-azure-monitor.md
+    - name: Report
+      items:
+        - name: Log di controllo
+          href: concept-audit-logs.md
+        - name: Log di accesso
+          href: concept-sign-ins.md
+        - name: Accessi a rischio
+          href: concept-risky-sign-ins.md
+        - name: Eventi di rischio
+          href: concept-risk-events.md
+        - name: Utenti a rischio.
+          href: concept-user-at-risk.md
+        - name: API di creazione di report
+          href: concept-reporting-api.md
+    - name: Monitoraggio
+      items:
+        - name: Log di Azure AD in Monitoraggio di Azure
+          href: concept-activity-logs-azure-monitor.md
 - name: Guide alle procedure
-  items:
-  - name: Report
-    items:
-    - name: Trovare report sull'attività
-      href: howto-find-activity-reports.md
-    - name: Risolvere gli errori di accesso per un utente
-      href: howto-troubleshoot-sign-in-errors.md
-    - name: Correggere gli utenti contrassegnati per il rischio
-      href: howto-remediate-users-flagged-for-risk.md
-    - name: Usare il pacchetto di contenuto di Power BI per i report di Azure AD
-      href: howto-power-bi-content-pack.md
-    - name: Configurare i prerequisiti per l'API di creazione di report
-      href: howto-configure-prerequisites-for-reporting-api.md
-  - name: Monitoraggio
-    items:
-    - name: Integrare i log attività con i log di Monitoraggio di Azure
-      href: howto-integrate-activity-logs-with-log-analytics.md
-    - name: Analizzare i log attività nei log di Monitoraggio di Azure
-      href: howto-analyze-activity-logs-log-analytics.md
-    - name: Installare e usare le visualizzazioni di Log Analytics per Azure AD
-      href: howto-install-use-log-analytics-views.md
-    - name: Integrare i log attività con SumoLogic
-      href: howto-integrate-activity-logs-with-sumologic.md
-    - name: Integrare i log attività con ArcSight
-      href: howto-integrate-activity-logs-with-arcsight.md
-  - name: Risolvere problemi
-    items:
-    - name: Dati di controllo mancanti
-      href: troubleshoot-missing-audit-data.md
-    - name: Dati mancanti nel download
-      href: troubleshoot-missing-data-download.md
-    - name: Non è possibile accedere alle API Graph per la creazione di report
-      href: troubleshoot-graph-api.md
-    - name: Errori nel pacchetto di contenuto di Power BI
-      href: troubleshoot-content-pack.md
   expanded: true
+  items:
+    - name: Report
+      items:
+        - name: Trovare report sull'attività
+          href: howto-find-activity-reports.md
+        - name: Risolvere gli errori di accesso per un utente
+          href: howto-troubleshoot-sign-in-errors.md
+        - name: Correggere gli utenti contrassegnati per il rischio
+          href: howto-remediate-users-flagged-for-risk.md
+        - name: Usare il pacchetto di contenuto di Power BI per i report di Azure AD
+          href: howto-power-bi-content-pack.md
+        - name: Configurare i prerequisiti per l'API di creazione di report
+          href: howto-configure-prerequisites-for-reporting-api.md
+        - name: Come usare le cartelle di lavoro di Monitoraggio di Azure
+          href: howto-use-azure-monitor-workbooks.md
+    - name: Monitoraggio
+      items:
+        - name: Integrare i log attività con i log di Monitoraggio di Azure
+          href: howto-integrate-activity-logs-with-log-analytics.md
+        - name: Analizzare i log attività nei log di Monitoraggio di Azure
+          href: howto-analyze-activity-logs-log-analytics.md
+        - name: Installare e usare le visualizzazioni di Log Analytics per Azure AD
+          href: howto-install-use-log-analytics-views.md
+        - name: Integrare i log attività con SumoLogic
+          href: howto-integrate-activity-logs-with-sumologic.md
+        - name: Integrare i log attività con ArcSight
+          href: howto-integrate-activity-logs-with-arcsight.md
+    - name: Risolvere problemi
+      items:
+        - name: Dati di controllo mancanti
+          href: troubleshoot-missing-audit-data.md
+        - name: Dati mancanti nel download
+          href: troubleshoot-missing-data-download.md
+        - name: Non è possibile accedere alle API Graph per la creazione di report
+          href: troubleshoot-graph-api.md
+        - name: Errori nel pacchetto di contenuto di Power BI
+          href: troubleshoot-content-pack.md
 - name: riferimento
-  items:
-  - name: Report
-    items:
-    - name: Informazioni di riferimento sulle API dei log di controllo
-      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
-    - name: Informazioni di riferimento sulle API dei log di accesso
-      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
-    - name: Attività di controllo
-      href: reference-audit-activities.md
-    - name: Criteri di conservazione dei dati
-      href: reference-reports-data-retention.md
-    - name: Latenze della creazione di report
-      href: reference-reports-latencies.md
-    - name: Codici errore di accesso
-      href: reference-sign-ins-error-codes.md
-    - name: Domande frequenti
-      href: reports-faq.md
-  - name: Monitoraggio
-    items:
-    - name: Schema del log di controllo
-      href: reference-azure-monitor-audit-log-schema.md
-    - name: Schema dei log di accesso
-      href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 746e3834189b9c0c478f7bbcd8b72e6760c288f6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293771"
+  items:
+    - name: Report
+      items:
+        - name: Informazioni di riferimento sulle API dei log di controllo
+          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+        - name: Informazioni di riferimento sulle API dei log di accesso
+          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+        - name: Attività di controllo
+          href: reference-audit-activities.md
+        - name: Criteri di conservazione dei dati
+          href: reference-reports-data-retention.md
+        - name: Latenze della creazione di report
+          href: reference-reports-latencies.md
+        - name: Codici errore di accesso
+          href: reference-sign-ins-error-codes.md
+        - name: Domande frequenti
+          href: reports-faq.md
+    - name: Monitoraggio
+      items:
+        - name: Schema del log di controllo
+          href: reference-azure-monitor-audit-log-schema.md
+        - name: Schema dei log di accesso
+          href: reference-azure-monitor-sign-ins-log-schema.md

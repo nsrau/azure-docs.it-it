@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244339"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -266,9 +266,9 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Fare clic sul pulsante **Aggiungi nuova regola** per creare una nuova regola in ingresso.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | NOME | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
+    | Name | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
     | DESCRIZIONE | *Inserire una descrizione* |  |
     | Connected System | *Scegliere il connettore di AD locale* |  |
     | Connected System Object Type | **Utente** |  |
@@ -278,7 +278,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un **singolo gruppo di filtri di ambito** con la clausola seguente:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operator | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utente\_ |
 
@@ -308,9 +308,9 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
-    | NOME | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
+    | Name | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
     | DESCRIZIONE | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di AAD* ||
     | Connected System Object Type | **Utente** ||
@@ -320,7 +320,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un singolo **gruppo di filtri di ambito** con le due clausole:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True  |

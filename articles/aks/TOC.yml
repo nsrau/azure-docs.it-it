@@ -108,8 +108,6 @@
         - name: Eliminare un cluster del servizio Azure Container
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: servizio Azure Kubernetes abilitato per Azure AD
-          href: aad-integration.md
         - name: Creare nodi virtuali (anteprima)
           items:
             - name: Interfaccia della riga di comando di Azure
@@ -172,8 +170,18 @@
           href: control-kubeconfig-access.md
         - name: Proteggere il traffico di pod con i criteri di rete (anteprima)
           href: use-network-policies.md
+        - name: Usare criteri di sicurezza dei pod (anteprima)
+          href: use-pod-security-policies.md
         - name: Aggiornare le credenziali dell'entità servizio del cluster
           href: update-credentials.md
+        - name: Abilitare l'integrazione di Azure Active Directory
+          items:
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
+              href: azure-ad-integration-cli.md
+            - name: Usare il portale di Azure
+              href: azure-ad-integration.md
+        - name: Usare il controllo degli accessi in base al ruolo di Kubernetes con l'integrazione di Azure AD
+          href: azure-ad-rbac.md
         - name: Eseguire l'autenticazione con Registro Azure Container
           href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true

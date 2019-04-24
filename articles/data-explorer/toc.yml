@@ -1,149 +1,142 @@
-items:
 - name: Documentazione di Esplora dati di Azure
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Esplora dati
-    href: data-explorer-overview.md
+    - name: Informazioni su Esplora dati
+      href: data-explorer-overview.md
 - name: Guide introduttive
-  items:
-  - name: Creare un cluster e un database
-    items:
-    - name: Portale di Azure
-      href: create-cluster-database-portal.md
-    - name: Interfaccia della riga di comando di Azure
-      href: create-cluster-database-cli.md
-    - name: PowerShell
-      href: create-cluster-database-powershell.md
-    - name: C#
-      href: create-cluster-database-csharp.md
-    - name: Python
-      href: create-cluster-database-python.md
-  - name: Inserire dati
-    items:
-    - name: Streaming di dati - Hub eventi
-      href: ingest-data-event-hub.md
-    - name: Streaming di dati - Griglia di eventi
-      href: ingest-data-event-grid.md
-    - name: Dati di streaming - Kafka
-      href: ingest-data-kafka.md
-    - name: Invio in batch dei dati - Python
-      href: python-ingest-data.md
-    - name: Invio in batch dei dati - Node SDK
-      href: node-ingest-data.md
-    - name: Dati in batch - .NET Standard SDK
-      href: net-standard-ingest-data.md
-    - name: Invio in batch dei dati - Logstash
-      href: ingest-data-logstash.md
-  - name: Eseguire query sui dati
-    items:
-    - name: Interfaccia utente Web
-      href: web-query-data.md
-    - name: Python
-      href: python-query-data.md
-  - name: Visualizzare i dati
-    items:
-    - name: Power BI - Connettore
-      href: power-bi-connector.md
-    - name: Power BI - Query importata
-      href: power-bi-imported-query.md
-    - name: Power BI - Query SQL
-      href: power-bi-sql-query.md
   expanded: true
+  items:
+    - name: Creare un cluster e un database
+      items:
+        - name: Portale di Azure
+          href: create-cluster-database-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Inserire dati
+      items:
+        - name: Streaming di dati - Hub eventi
+          href: ingest-data-event-hub.md
+        - name: Streaming di dati - Griglia di eventi
+          href: ingest-data-event-grid.md
+        - name: Dati di streaming - Kafka
+          href: ingest-data-kafka.md
+        - name: Invio in batch dei dati - Python
+          href: python-ingest-data.md
+        - name: Invio in batch dei dati - Node SDK
+          href: node-ingest-data.md
+        - name: Dati in batch - .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Invio in batch dei dati - Logstash
+          href: ingest-data-logstash.md
+    - name: Eseguire query sui dati
+      items:
+        - name: Interfaccia utente Web
+          href: web-query-data.md
+        - name: Python
+          href: python-query-data.md
+    - name: Visualizzare i dati
+      items:
+        - name: Power BI - Connettore
+          href: power-bi-connector.md
+        - name: Power BI - Query importata
+          href: power-bi-imported-query.md
+        - name: Power BI - Query SQL
+          href: power-bi-sql-query.md
 - name: Esercitazioni
   items:
-  - name: Inserire dati senza usare codice
-    href: ingest-data-no-code.md
-  - name: Visualizzare i dati in Power BI
-    href: visualize-power-bi.md
+    - name: Inserire dati senza usare codice
+      href: ingest-data-no-code.md
+    - name: Visualizzare i dati in Power BI
+      href: visualize-power-bi.md
 - name: Concetti
   items:
-  - name: Panoramica dell'inserimento dati
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
-  - name: Analisi di serie temporali
-    href: time-series-analysis.md
+    - name: Panoramica dell'inserimento dati
+      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+      href: ingest-data-overview.md
+    - name: Analisi di serie temporali
+      href: time-series-analysis.md
 - name: Guide alle procedure
   items:
-  - name: Attività iniziali
-    items:
-    - name: Scrivere query
-      href: write-queries.md
-    - name: Inserire dati di esempio
-      href: ingest-sample-data.md
-  - name: Gestisci
-    items:
-    - name: Gestire le autorizzazioni per i database
-      href: manage-database-permissions.md
-    - name: Controllare l'integrità del cluster
-      href: check-cluster-health.md
-    - name: Gestire l'aumento del numero di istanze del cluster
-      href: manage-cluster-scale-out.md
-    - name: Gestire l'aumento delle prestazioni del cluster
-      href: manage-cluster-scale-up.md
-    - name: Eliminare i dati
-      href: delete-data.md
-    - name: Gestire i dati duplicati
-      href: dealing-with-duplicates.md
-  - name: Monitoraggio
-    items:
-    - name: Uso delle metriche per monitorare l'integrità del cluster
-      href: using-metrics.md
-  - name: Usare altri strumenti
-    items:
-    - name: Connettersi da Databricks tramite Python
-      href: connect-from-databricks.md
-    - name: Analizzare i dati in Jupyter Notebook e Kqlmagic
-      href: kqlmagic.md
-    - name: Copiare i dati in Azure Data Factory
-      href: data-factory-load-data.md
-    - name: Visualizzare i dati in Grafana
-      href: grafana.md
-    - name: Connettersi con ODBC
-      href: connect-odbc.md
-  - name: Risolvere problemi
-    items:
-    - name: Creazione di un cluster
-      href: troubleshoot-create-cluster.md
-    - name: Connessione a un cluster
-      href: troubleshoot-connect-cluster.md
-    - name: Uso di database e tabelle
-      href: troubleshoot-database-table.md
+    - name: Attività iniziali
+      items:
+        - name: Scrivere query
+          href: write-queries.md
+        - name: Inserire dati di esempio
+          href: ingest-sample-data.md
+    - name: Gestisci
+      items:
+        - name: Gestire le autorizzazioni per i database
+          href: manage-database-permissions.md
+        - name: Controllare l'integrità del cluster
+          href: check-cluster-health.md
+        - name: Gestire l'aumento del numero di istanze del cluster
+          href: manage-cluster-scale-out.md
+        - name: Gestire l'aumento delle prestazioni del cluster
+          href: manage-cluster-scale-up.md
+        - name: Eliminare i dati
+          href: delete-data.md
+        - name: Gestire i dati duplicati
+          href: dealing-with-duplicates.md
+    - name: Monitoraggio
+      items:
+        - name: Uso delle metriche per monitorare l'integrità del cluster
+          href: using-metrics.md
+    - name: Usare altri strumenti
+      items:
+        - name: Connettersi da Databricks tramite Python
+          href: connect-from-databricks.md
+        - name: Analizzare i dati in Jupyter Notebook e Kqlmagic
+          href: kqlmagic.md
+        - name: Copiare i dati con Azure Data Factory
+          href: data-factory-load-data.md
+        - name: Visualizzare i dati in Grafana
+          href: grafana.md
+        - name: Connettersi con ODBC
+          href: connect-odbc.md
+    - name: Risolvere problemi
+      items:
+        - name: Creazione di un cluster
+          href: troubleshoot-create-cluster.md
+        - name: Connessione a un cluster
+          href: troubleshoot-connect-cluster.md
+        - name: Uso di database e tabelle
+          href: troubleshoot-database-table.md
 - name: riferimento
   items:
-  - name: Linguaggio di query
-    href: /azure/kusto/query/
-  - name: Comandi di gestione
-    href: /azure/kusto/management/
-  - name: API
-    href: /azure/kusto/api/
-  - name: Strumenti
-    href: /azure/kusto/tools/
-  - name: Concetti
-    href: /azure/kusto/concepts/
+    - name: Linguaggio di query
+      href: /azure/kusto/query/
+    - name: Comandi di gestione
+      href: /azure/kusto/management/
+    - name: API
+      href: /azure/kusto/api/
+    - name: Strumenti
+      href: /azure/kusto/tools/
+    - name: Concetti
+      href: /azure/kusto/concepts/
 - name: Risorse
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
-  - name: Forum
-    items:
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
-    - name: Microsoft Tech Community
-      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
-    - name: Forum MSDN
-      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
-  - name: Feedback sul prodotto
-    href: https://aka.ms/adefeedback
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Stima dei costi
-    href: https://aka.ms/adecostestimator
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: c582b82f4b4caf0ee3bb007934cc4d50163fe139
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616816"
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/azure-data-explorer/'
+    - name: Forum
+      items:
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
+        - name: Microsoft Tech Community
+          href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
+    - name: Feedback sul prodotto
+      href: 'https://aka.ms/adefeedback'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+    - name: Stima dei costi
+      href: 'https://aka.ms/adecostestimator'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=data-explorer'

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236608"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -130,12 +130,6 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 
 Selezionare un'area supportata. Se si seleziona un'area non supportata, viene visualizzato un errore "Non trovato". Le regioni supportate sono state elencate in precedenza in questo articolo.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Perché viene visualizzato l'errore "è stato possibile aggiornare le impostazioni dei log di flusso per... ... InternalServerError "non corretto Quando si abilita NSG in US Gov Virginia?
-
-Ciò è dovuto a un bug in cui i provider di risorse 'Microsoft. Network' non è nuovamente registrato per una sottoscrizione di US Gov Virginia. Il team sta lavorando la correzione per questo oggetto. Come soluzione alternativa, dovrà [registrare di nuovo manualmente 'Microsoft. Network' applicazione relying Party](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Se il problema persiste, contattare il supporto. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Cosa accade se si ottiene lo stato "Impossibile caricare" nella pagina dei log di flusso NSG?
 

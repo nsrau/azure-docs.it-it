@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 1109e44ed9c6aa8a0f7305b8a50410316711589c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362448"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
 
@@ -132,7 +132,7 @@ Le impostazioni proxy Web sono configurate tramite l'interfaccia di Windows Powe
 
 3. Nel pannello **Proxy Web**, verificare le impostazioni proxy Web configurate sul dispositivo StorSimple.
    
-    ![Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
+    ![ Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
 
 
 ## <a name="errors-during-web-proxy-configuration"></a>Errori durante la configurazione del proxy Web
@@ -153,7 +153,7 @@ Se le impostazioni proxy Web sono configurate in modo errato, verranno visualizz
 > * L'elenco dei messaggi di errore riportato sopra non è esaustivo.
 > * Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure del servizio Gestione dispositivi StorSimple. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico.|
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302535"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -34,7 +34,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cavi
-| Numero di serie | Assicurarsi | Modello |
+| Numero  No. | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +42,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switch
-| Numero di serie | Assicurarsi | Modello |
+| Numero  No. | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -51,16 +51,16 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 ## <a name="list-of-devices-tested-in-the-field"></a>Elenco dei dispositivi testati nel campo
 Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti correttamente nel campo dai clienti di StorSimple. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Parametro | Valore |
+| Parametro | Value |
 | --- | --- |
 | Marca switch |Juniper |
 | Modello switch |ex4550-32F |
 | Versione sistema operativo switch |JunOS 12.3R9.4 |
 | Modello pannello |Porte caricate (PIC 0) |
 | Marca ricetrasmettitore |Juniper |
-| Modello ricetrasmettitore |Codice 740-021308  <br></br> Codice 740-030658 |
+| Modello ricetrasmettitore |Codice 740-021308  <br></br>  Codice 740-030658 |
 | Versione firmware ricetrasmettitore |Rev 01 Versione 0.0 (segnalato) |
-| Modello cavo |Ponticello duplex LC/LC 50/125µ, OM3, LSZH |
+| Modello cavo |Duplex ponticello LC/LC 50/125µ, OM3, LSZH |
 | Modello StorSimple |8600 |
 | Versione software StorSimple |6.3.9600.17491 |
 
@@ -70,7 +70,7 @@ Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cavi e moduli supportati da Mellanox
 Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
+| Numero  No. | speed | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Cavo in rame passivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |Cavo in rame passivo SFP+ 10 Gb/s 2 m |Arista |
@@ -111,7 +111,7 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 ### <a name="switches-supported-by-mellanox"></a>Switch supportati da Mellanox
 Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
+| Numero  No. | speed | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Switch blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10GbE |538113-B21 |Modulo pass-through (PTM) HP 10GbE |HP |

@@ -15,11 +15,20 @@ metadata:
   ms.author: yegu
 abstract:
   description: Configurazione app di Azure è un servizio gestito che consente agli sviluppatori di centralizzare le configurazioni delle loro applicazioni in modo semplice e sicuro.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250
+    title: 'Per iniziare (14:41)'
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    width: 250
 sections:
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: 'Informazioni su come sviluppare la prima applicazione Web con Configurazione app di Azure:'
+        text: 'Informazioni su come sviluppare la prima applicazione con Configurazione app di Azure:'
       - type: list
         style: icon48
         items:

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453187"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -89,7 +89,7 @@ Gestire la maggior parte delle impostazioni dei dati nel menu **Impostazioni ava
 
 | Impostazione nel portale di OMS | Equivalente nel portale di Azure |
 |:---|:---|
-| Log eventi di Windows           | Menu **Impostazioni avanzate** per l'area di lavoro. |
+| Registri eventi di Windows           | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Contatori delle prestazioni di Windows | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Contatori delle prestazioni di Linux   | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | log di IIS                     | Menu **Impostazioni avanzate** per l'area di lavoro. |
