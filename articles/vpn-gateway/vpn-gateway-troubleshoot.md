@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: bb1074e361610cf3a8810aaeeb83717f791eb8bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28934653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456393"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Risolvere i problemi relativi a Gateway VPN
 
@@ -32,7 +32,7 @@ Le connessioni di Gateway VPN possono presentare problemi dovuti a una serie di 
 
 * [Impostazioni di dispositivi firewall o VPN](vpn-gateway-third-party-settings.md)<br>Questo articolo offre diversi suggerimenti per risolvere i problemi relativi ai dispositivi firewall o VPN di terze parti usati con Gateway VPN. Il supporto tecnico per i dispositivi firewall o VPN di terze parti viene fornito dal fornitore del dispositivo.
 
-* [Connessioni da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Questo articolo elenca i problemi comuni di connessione da punto a sito che l'utente potrebbe riscontrare e le possibili cause e soluzioni.
+* [Connessioni da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Questo articolo elenca i problemi comuni di connessione da punto a sito che l'utente potrebbe riscontrare. e le possibili cause e soluzioni.
 
 * [Connessioni da sito a sito](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Dopo aver configurato una connessione VPN da sito a sito tra una rete locale e una rete virtuale di Azure, la connessione VPN si interrompe improvvisamente e non può essere riconnessa. Questo articolo illustra la procedura per risolvere questo tipo di problema.
 

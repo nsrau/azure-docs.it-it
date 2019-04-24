@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306824"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -48,7 +48,7 @@ Per usare le annotazioni di SignalR Service in Java funzioni, è necessario aggi
 ```
 
 > [!NOTE]
-> Per usare le associazioni di SignalR Service in Java, verificare che si usa la versione 2.4.419 o versione successiva di Azure Functions Core Tools (versione host 2.0.12332).
+> Per usare le associazioni del servizio SignalR in Java, verificare di usare la versione 2.4.419 o versione successiva di Azure Functions Core Tools (versione host 2.0.12332).
 
 ## <a name="using-signalr-service-with-azure-functions"></a>Uso del servizio di SignalR con funzioni di Azure
 

@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311939"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Eseguire la migrazione dal contratto Enterprise a API di contratto dei clienti di Microsoft
 
@@ -187,7 +187,7 @@ Modificare il nome di proprietà che contiene la matrice di record di utilizzo d
 | ExtendedCost e i costi | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | È un addebito ricorrente | Nessuna | &nbsp;  |
-| Località | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | Categoria del contatore | meterCategory | Valori stringa esatta potrebbero differire. |
 | ID contatore | meterId | Differenze tra valori stringa esatta. |
 | Nome del contatore | meterName | Valori stringa esatta potrebbero differire. |

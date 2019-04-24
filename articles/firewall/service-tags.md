@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 2/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193731"
 ---
 # <a name="azure-firewall-service-tags"></a>Tag del servizio Firewall di Azure
 

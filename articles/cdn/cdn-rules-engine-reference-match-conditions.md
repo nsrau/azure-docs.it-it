@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323825"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -35,7 +35,7 @@ Ad esempio, è possibile usare una condizione di corrispondenza per:
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Sempre](#always) | Applica un set predefinito di funzionalità a tutte le richieste.
 
@@ -43,7 +43,7 @@ NOME | Scopo
 
 La condizione di corrispondenza Dispositivo identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.  
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Dispositivo](#device) | Identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.
 
@@ -51,7 +51,7 @@ NOME | Scopo
 
 Le condizioni di corrispondenza Posizione identificano le richieste in base alla posizione del richiedente.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Numero AS](#as-number) | Identifica le richieste che hanno origine da una determinata rete.
 [Paese](#country) | Identifica le richieste che hanno origine dai paesi specificati.
@@ -60,7 +60,7 @@ NOME | Scopo
 
 Le condizioni di corrispondenza Origine identificano le richieste che puntano all'archivio della rete CDN o a un server di origine del cliente.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Origine rete CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
 [Origine cliente](#customer-origin) | Identifica le richieste di contenuto in uno specifico server di origine del cliente.
@@ -69,7 +69,7 @@ NOME | Scopo
 
 Le condizioni di corrispondenza Richiesta identificano le richieste in base alle relative proprietà.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Indirizzo IP client](#client-ip-address) | Identifica le richieste che hanno origine da un determinato indirizzo IP.
 [Parametro cookie](#cookie-parameter) | Controlla il valore specificato nei cookie associati a ogni richiesta.
@@ -86,7 +86,7 @@ NOME | Scopo
 
 Le condizioni di corrispondenza URL identificano le richieste in base ai relativi URL.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [URL Path Directory](#url-path-directory) (Directory percorso URL) | Identifica le richieste in base al percorso relativo.
 [URL Path Extension](#url-path-extension) (Estensione percorso URL) | Identifica le richieste in base all'estensione del nome file.
@@ -752,7 +752,7 @@ Informazioni chiave:
 
 Le configurazioni di esempio nella tabella seguente presuppongono che questa condizione di corrispondenza venga soddisfatta quando una richiesta corrisponde al modello URL specificato:
 
-Valore                   | Relative to (Relativo a)    | Risultato 
+Value                   | Relative to (Relativo a)    | Risultato 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Radice o Origine | Le richieste di asset denominati "test.html" o "test.php" in qualsiasi cartella soddisfano la corrispondenza a questo modello.
 /80ABCD/origin/text/*   | Radice           | L'asset richiesto corrisponde a questo modello quando soddisfa i criteri seguenti: <br />- Si trova in un'origine cliente denominata "origin". <br />- Il percorso relativo inizia con una cartella denominata "text". Questo significa che l'asset richiesto può trovarsi nella cartella "text" o in una delle sottocartelle ricorsive.
@@ -868,7 +868,7 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
-NOME  | Valore |  Risultato
+Name  | Value |  Risultato
 ------|-------|--------
 Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
@@ -895,7 +895,7 @@ Informazioni chiave:
     
 - Determinati caratteri richiedono la codifica URL. Usare il simbolo di percentuale per applicare la codifica URL ai caratteri seguenti:
 
-   Character | Codifica URL | Valore
+   Character | Codifica URL | Value
    ----------|--------------|------
    Spazio     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ Informazioni chiave:
 
    Ad esempio: 
 
-   Valore | Interpretato come 
+   Value | Interpretato come 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -960,7 +960,7 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
- NOME                 | DESCRIZIONE
+ Name                 | DESCRIZIONE
  ---------------------|------------
 user=joe              | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 \*user=\* \*optout=\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.

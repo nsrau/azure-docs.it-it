@@ -4,18 +4,18 @@ description: Convalidare le proprietà EDI e generare i riconoscimenti con il de
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427524"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
@@ -89,13 +89,13 @@ Il connettore Decode X12 esegue queste attività:
   * Controlla il numero di controllo del gruppo con gli altri numeri di controllo del gruppo dell'interscambio.
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
 * Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
-  * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  * Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  * Suddividi interscambio in set di transazioni - Sospendi interscambio in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
-  * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  * Mantieni interscambio - Sospendi set transazioni in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  * Mantieni interscambio - Sospendi interscambio in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`. 
 * Genera un riconoscimento tecnico e/o funzionale (se configurata).
   * Un riconoscimento tecnico viene generato in seguito alla convalida dell'intestazione. Il riconoscimento tecnico segnala lo stato dell'elaborazione di un'intestazione e finale di interscambio in base all'indirizzo del ricevitore.

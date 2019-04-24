@@ -1,6 +1,6 @@
 ---
 title: Report personalizzati di Verizon | Microsoft Docs
-description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, Dati trasferiti, Riscontri, Stati della cache, Percentuale riscontri cache, Dati trasferiti IPv4/IPv6.'
+description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, dati trasferiti, riscontri, stati della Cache, Cache Hit Ratio, IPV4 e IPV6 dati trasferiti.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323576"
 ---
 # <a name="custom-reports-from-verizon"></a>Report personalizzati di Verizon
 
@@ -45,17 +45,17 @@ La registrazione dei dati per il report personalizzato inizia un'ora dopo aver a
 
 Generare un report personalizzato definendo le opzioni di report seguenti:
 
-- Metrics (Metriche): sono supportate le opzioni seguenti:
+- Metriche: Sono supportate le opzioni seguenti:
 
-   - Hits (Riscontri): indica il numero totale di richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. Questa metrica non include il codice di stato restituito al client.
+   - Riscontri: Indica il numero totale di richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. Questa metrica non include il codice di stato restituito al client.
 
-   - Data Transferred (Dati trasferiti): indica la quantità totale di dati trasferiti dai server perimetrali ai client HTTP (ad esempio i Web browser) per le richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. La quantità di dati trasferiti viene calcolata aggiungendo le intestazioni di risposta HTTP al corpo della risposta. La quantità di dati trasferiti per ogni asset è quindi maggiore delle dimensioni file effettive.
+   - Dati trasferiti: Indica la quantità totale di dati trasferiti dai server perimetrali ai client HTTP (ad esempio, i browser web) per le richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. La quantità di dati trasferiti viene calcolata aggiungendo le intestazioni di risposta HTTP al corpo della risposta. La quantità di dati trasferiti per ogni asset è quindi maggiore delle dimensioni file effettive.
 
-- Groupings (Raggruppamenti): determina il tipo di statistiche visualizzate sotto il grafico a barre. Sono supportate le opzioni seguenti:
+- Raggruppamenti: Determina il tipo di statistiche visualizzate sotto il grafico a barre. Sono supportate le opzioni seguenti:
 
-   - HTTP Response Codes (Codici di risposta HTTP): organizza le statistiche in base al codice di risposta HTTP restituito dal client, ad esempio 200, 403 e così via. 
+   - Codici di risposta HTTP: Organizza le statistiche in base al codice di risposta HTTP (ad esempio, 200, 403, e così via) restituito al client. 
 
-   - Cache Status: (Stato cache): organizza le statistiche in base allo stato della cache.
+   - Stato della cache: Organizza le statistiche in base allo stato della cache.
 
 
 Per impostare le date per il report, è possibile selezionare un intervallo predefinito dall'elenco a discesa, ad esempio **Today** (Oggi) o **This Week** (Questa settimana), oppure selezionare **Custom** (Personalizzato) e immettere manualmente un intervallo di date facendo clic sulle icone del calendario. 

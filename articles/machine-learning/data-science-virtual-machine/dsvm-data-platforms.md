@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516493"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -34,7 +34,7 @@ Di seguito sono indicati gli strumenti della piattaforma di dati supportati nell
 | | |
 | ------------- | ------------- |
 | Che cos'è?   | Un'istanza locale del database relazionale      |
-| Edizioni supportate della macchina virtuale per data science      |  Windows      |
+| Edizioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Sviluppo rapido in locale con set di dati più piccoli <br/> Eseguire R In-database   |
 | Collegamenti agli esempi      |    Un piccolo esempio di set di dati di New York City viene caricato nel database SQL `nyctaxi`. <br/> Esempio di Jupyter che mostra che Microsoft R e le analisi nel database sono reperibili in:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Strumenti correlati nella macchina virtuale per data science       | SQL Server Management Studio <br/> Driver di ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
@@ -101,7 +101,7 @@ Prima di eseguire nel contesto Spark in Microsoft R Server nella versione della 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Come viene configurata o installata sulla macchina virtuale per data science? 
 |Piattaforma|Percorso di installazione ($SPARK_HOME)|
 |:--------|:--------|
-| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

@@ -1,17 +1,17 @@
 ---
 title: Ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL
-description: Questo articolo descrive come ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL.
+description: Questo articolo descrive come ottimizzare la raccolta di statistiche query in un database di Azure per il server PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422705"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL 
 Questo articolo descrive come ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL.
@@ -38,5 +38,5 @@ La funzionalità [Query Store](concepts-query-store.md) di Database di Azure per
 È consigliabile impostare `pg_stat_statements.track = NONE` nel [portale di Azure](howto-configure-server-parameters-using-portal.md) o usare l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
 Per altre informazioni, vedere: 
-- [Scenari di utilizzo di Query Store](concepts-query-store-scenarios.md) 
+- [Scenari di utilizzo dell'archivio query](concepts-query-store-scenarios.md) 
 - [Procedure consigliate per Query Store](concepts-query-store-best-practices.md) 

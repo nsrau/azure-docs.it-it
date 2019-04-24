@@ -10,11 +10,11 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500351"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in automazione di Azure
 
@@ -55,7 +55,7 @@ Per importare un modulo da PowerShell Gallery, passare a https://www.powershellg
 
 Di seguito è riportato un elenco dei cmdlet inclusi nel interno `Orchestrator.AssetManagement.Cmdlets` modulo importato in ogni Account di automazione. Questi cmdlet sono accessibili nel runbook e configurazioni DSC e consentono di interagire con le risorse all'interno dell'Account di automazione. Inoltre, i cmdlet interni consentono di recuperare i segreti da crittografati **variabile** valori, **credenziali**e crittografati **connessione** campi. I cmdlet di PowerShell di Azure non sono in grado di recuperare questi segreti. Questi cmdlet non sono necessario connettersi ad Azure in modo implicito quando vengono utilizzati. Ciò è utile per scenari in cui si dispone di una connessione, ad esempio un Account runas che è necessario usare l'autenticazione ad Azure.
 
-|NOME|DESCRIZIONE|
+|Name|DESCRIZIONE|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

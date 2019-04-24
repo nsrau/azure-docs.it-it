@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: ce949caa2b80c08f1015ee21c00197d6a95103c2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "58115393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531094"
 ---
 Se si vuole un dominio, è possibile acquistarlo direttamente nel [portale di gestione di Azure](https://portal.azure.com). Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app Web.
 

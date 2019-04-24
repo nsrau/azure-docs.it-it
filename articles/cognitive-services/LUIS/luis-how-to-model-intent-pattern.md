@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196708"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere i modelli per migliorare l'accuratezza della stima
 Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concept-patterns.md) per migliorare l'accuratezza della stima per espressioni che rivela un criterio in ordine di word e la scelta delle parole. Modelli di utilizzano specifici [sintassi](luis-concept-patterns.md#pattern-syntax) per indicare la posizione del: [entità](luis-concept-entity-types.md), entità [ruoli](luis-concept-roles.md)e il testo facoltativo.

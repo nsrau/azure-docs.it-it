@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471643"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -39,8 +39,8 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
 * Proprietà
-* Operatore
-* Valore
+* Operator
+* Value
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -61,7 +61,7 @@ Per una singola espressione le parentesi sono facoltative. La lunghezza totale d
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 * Boolean
-* string
+* String
 * Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
@@ -117,7 +117,7 @@ Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i disp
 
 Nella tabella seguente sono elencati tutti gli operatori supportati e la relativa sintassi per un'espressione singola. Gli operatori possono essere usati con o senza trattino (-) come prefisso.
 
-| Operatore | Sintassi |
+| Operator | Sintassi |
 | --- | --- |
 | Non uguale a |-ne |
 | Uguale a |-eq |

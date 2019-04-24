@@ -14,11 +14,11 @@ ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
 ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254503"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](../../azure-monitor/app/app-insights-overview.md) già illustrate, incluse alcune di terze parti.
@@ -44,8 +44,7 @@ Di seguito sono riportate implementazioni di [Application Insights](../../azure-
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
-* 
-  [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
+* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&amp;#151;che includono sia i ruoli Web che i ruoli di lavoro
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)

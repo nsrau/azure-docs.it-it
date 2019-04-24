@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400753"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419185"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -267,7 +267,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -312,7 +312,7 @@ Costruire una chiamata POST come l'esempio seguente. Usare le informazioni ripor
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

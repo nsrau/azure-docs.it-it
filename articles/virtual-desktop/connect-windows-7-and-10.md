@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: helohr
 ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328851"
 ---
 # <a name="connect-with-windows-7-and-windows-10"></a>Connettersi con Windows 7 e Windows 10
 
-> Si applica a Windows 7 e Windows 10.
+> Si applica a: Windows 7 e Windows 10.
 
 È disponibile un client scaricabile che consente di accedere alle risorse di anteprima di Desktop virtuale Windows da dispositivi che eseguono Windows 7 e Windows 10.
 

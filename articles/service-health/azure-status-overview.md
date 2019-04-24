@@ -15,11 +15,11 @@ ms.workload: Supportability
 ms.date: 02/11/2019
 ms.author: stbaron
 ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506785"
 ---
 # <a name="azure-status"></a>Stato di Azure
 [Stato di Azure](https://azure.microsoft.com/status/) offre una visualizzazione globale dell'integrità dei servizi e delle aree di Azure. Con lo stato di Azure è possibile ottenere informazioni aggiornate sulla disponibilità del servizio. Stato di Azure è disponibile per tutti gli utenti e permette di visualizzare tutti i servizi che segnalano la propria integrità, nonché gli eventi imprevisti con un ampio impatto. Per gli utenti correnti di Azure, è consigliabile tuttavia usare l'esperienza personalizzata in [Integrità dei servizi di Azure](https://aka.ms/azureservicehealth). Integrità dei servizi di Azure include tutte le interruzioni, le attività di manutenzione pianificate imminenti e gli avvisi di servizio.
@@ -39,6 +39,6 @@ Qui è possibile visualizzare gli eventi dei 90 giorni precedenti, incluso una c
 ## <a name="rss-feed"></a>Feed RSS
 Lo stato di Azure offre anche un [feed RSS](https://azure.microsoft.com/status/feed/) delle modifiche all'integrità dei servizi di Azure che è possibile sottoscrivere.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Informazioni su come ottenere una visualizzazione più personalizzata dello stato di integrità di Azure tramite [Integrità dei servizi](./service-health-overview.md).
 * Informazioni su come ottenere una visualizzazione più dettagliata dello stato di integrità di risorse di Azure specifiche tramite [Integrità risorsa](./resource-health-overview.md).

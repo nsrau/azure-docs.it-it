@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256845"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -77,7 +77,7 @@ Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **
 
 È possibile suddividere una metrica per dimensione in modo da confrontare visivamente i diversi segmenti e identificare i segmenti esterni di una dimensione.
 
-### <a name="apply-splitting"></a>Applicare separazione
+### <a name="apply-splitting"></a>Applicare la suddivisione
 
 1. Fare clic su **Applicare separazione** sopra il grafico.
  

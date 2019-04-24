@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193714"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end e pool back-end nel servizio Frontdoor di Azure
 Questo articolo descrive i concetti su come eseguire il mapping di distribuzione della tua app con il servizio di ingresso principale di Azure. Vengono inoltre illustrati i diversi termini in configurazione di ingresso principale tutto back-end dell'app.
@@ -26,7 +26,7 @@ Un back-end è uguale all'istanza di distribuzione di un'app in un'area. Servizi
 
 Back-end del servizio di ingresso principale fanno riferimento al nome host o indirizzo IP pubblico dell'app, che possono rispondere alle richieste client. Back-end non deve essere confusa con il livello di database, livello di archiviazione e così via. Back-end deve essere considerato come l'endpoint pubblico dei back-end dell'app. Quando si aggiunge un back-end in un pool di back-end di ingresso principale, è necessario anche aggiungere quanto segue:
 
-- **Tipo di host di back-end**. Il tipo di risorsa da aggiungere. Servizio di ingresso principale supporta il rilevamento automatico dei back-end di app se dal servizio app, servizio cloud o di archiviazione. Se si desidera un'altra risorsa in Azure o anche un back-end non Azure, selezionare **Custom host**.
+- **Tipo di host di back-end**. Il tipo di risorsa da aggiungere. Il servizio di ingresso principale supporta il rilevamento automatico dei back-end di app dal servizio app, servizio cloud o di archiviazione. Se si desidera un'altra risorsa in Azure o anche un back-end non Azure, selezionare **Custom host**.
 
     >[!IMPORTANT]
     >Durante la configurazione, le API non convalidano se il back-end non è accessibile da ambienti di ingresso principale. Assicurarsi che l'ingresso principale possa raggiungere il back-end.
@@ -83,7 +83,7 @@ Le impostazioni di bilanciamento del carico per il pool back-end definiscono la 
 
 - **Le dimensioni del campione**. Identifica il numero di campioni di probe di integrità è necessario prendere in considerazione per la valutazione dell'integrità back-end.
 
-- **Dimensioni del campione riuscita**. Definisce le dimensioni del campione come indicata in precedenza, il numero di campioni riuscite necessario per chiamare il back-end integro. Si supponga, ad esempio, un intervallo di probe di integrità porta d'ingresso è 30 secondi, dimensioni del campione sono 5 secondi e dimensioni del campione riuscito sono 3 secondi. Individua tramite probe ogni volta che valuta l'integrità back-end, prendiamo in esame ultimi cinque campioni più di 150 secondi (5 x 30). Almeno tre probe riusciti necessario dichiarare il back-end integro.
+- **Dimensioni del campione riuscita**. Definisce le dimensioni del campione come indicata in precedenza, il numero di campioni riuscite necessario per chiamare il back-end integro. Si supponga, ad esempio, un intervallo di probe di integrità porta d'ingresso è 30 secondi, dimensioni del campione sono 5 e dimensioni del campione riuscito sono 3. Individua tramite probe ogni volta che valuta l'integrità back-end, prendiamo in esame ultimi cinque campioni più di 150 secondi (5 x 30). Almeno tre probe riusciti necessario dichiarare il back-end integro.
 
 - **Sensibilità di latenza (latenza aggiuntiva)**. Definisce se vuoi l'ingresso principale per inviare la richiesta al back-end all'interno dell'intervallo di sensibilità misurazioni di latenza o inoltrare la richiesta al back-end più vicino.
 

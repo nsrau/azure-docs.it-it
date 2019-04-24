@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511147"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -67,30 +67,31 @@ Per altre informazioni sugli ambienti del servizio di integrazione, vedere [Acce
 
 Per funzionare correttamente ed essere sempre accessibile, l'ambiente del servizio di integrazione (ISE) deve avere porte specifiche disponibili nella propria rete virtuale. In caso contrario, se una di queste porte non è disponibile, si potrebbe perdere l'accesso per l'ISE, che potrebbe smettere di funzionare. Quando si usa un ISE in una rete virtuale, un problema di configurazione comune è la presenza di una o più porte bloccate. Per le connessioni tra l'ISE e il sistema di destinazione, il connettore che si usa potrebbe avere requisiti propri per le porte. Ad esempio, se si comunica con un sistema FTP usando il connettore FTP, assicurarsi che la porta utilizzata nel sistema FTP, ad esempio la porta 21 per l'invio di comandi, sia disponibile.
 
-Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce l'ISE, è possibile configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per queste subnet dal [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Le tabelle seguenti descrivono le porte usate dall'ISE nella rete virtuale e dove tali porte vengono usate. Un [tag di servizio](../virtual-network/security-overview.md#service-tags) rappresenta un gruppo di prefissi di indirizzi IP che consente di ridurre la complessità nella creazione di regole di sicurezza.
+Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce l'ISE, è possibile configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per queste subnet dal [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Le tabelle seguenti descrivono le porte usate dall'ISE nella rete virtuale e dove tali porte vengono usate. Il [tag di servizio di gestione risorse](../virtual-network/security-overview.md#service-tags) rappresenta un gruppo di prefissi di indirizzo IP che consentono di ridurre la complessità durante la creazione di regole di sicurezza.
 
 > [!IMPORTANT]
 > Per le comunicazioni interne all'interno di subnet, ISE è necessario aprire tutte le porte all'interno di tali subnet.
 
-| Scopo | Direzione | Porte | Tag del servizio di origine | Tag del servizio di destinazione | Note |
+| Scopo | Direction | Porte | Tag del servizio di origine | Tag del servizio di destinazione | Note |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Comunicazione dalle App per la logica di Azure | In uscita | 80 e 443 | VIRTUAL_NETWORK | INTERNET | La porta dipende dal servizio esterno con cui comunica il servizio App per la logica |
-| Azure Active Directory | In uscita | 80 e 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Dipendenza da Archiviazione di Azure | In uscita | 80 e 443 | VIRTUAL_NETWORK | Archiviazione | |
-| Comunicazione intersubnet | In ingresso e in uscita | 80 e 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Per la comunicazione tra le subnet |
-| Comunicazione alle App per la logica di Azure | In ingresso | 443 | INTERNET  | VIRTUAL_NETWORK | L'indirizzo IP per il computer o servizio che chiama qualsiasi trigger di richiesta o di un webhook che esiste nell'app per la logica. La chiusura o bloccare questa porta impedisce che le chiamate HTTP all'App per la logica con trigger di richiesta.  |
-| App per la logica della cronologia di esecuzione | In ingresso | 443 | INTERNET  | VIRTUAL_NETWORK | L'indirizzo IP per il computer in cui è visualizzare l'app per la logica della cronologia di esecuzione. Sebbene la chiusura o bloccare questa porta non impedisce di visualizzare la cronologia di esecuzione, non è possibile visualizzare gli input e output per ogni passaggio nella cronologia di esecuzione. |
-| Gestione delle connessioni | In uscita | 443 | VIRTUAL_NETWORK  | INTERNET | |
-| Pubblicare i log di diagnostica e metriche | In uscita | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | INTERNET  | VIRTUAL_NETWORK | Le richieste provengano da App per la logica [endpoint di accesso in ingresso di indirizzi IP in tale area](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Dipendenza da Gestione del servizio app | In ingresso | 454 e 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Distribuzione dei connettori | In ingresso | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessario per la distribuzione e aggiornamento dei connettori. La chiusura o bloccare questa porta fa sì che le distribuzioni di ISE a non riuscire e impedisce connettore aggiornamenti o correzioni. |
-| Dipendenza di SQL Azure | In uscita | 1433 | VIRTUAL_NETWORK | SQL |
-| Integrità risorse di Azure | In uscita | 1886 | VIRTUAL_NETWORK | INTERNET | Per pubblicare lo stato di integrità in integrità risorse |
-| Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | 5672 | VIRTUAL_NETWORK  | Hub eventi | |
-| Istanze di accesso Cache Azure per Redis tra Role Instances | In ingresso <br>In uscita | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Inoltre, per ISE funzionare con Cache di Azure per Redis, è necessario aprire tali [le porte in ingresso e in uscita descritti nella Cache di Azure per Redis domande frequenti](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | In ingresso | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Comunicazione dalle App per la logica di Azure | In uscita | 80 e 443 | VirtualNetwork | Internet | La porta dipende dal servizio esterno con cui comunica il servizio App per la logica |
+| Azure Active Directory | In uscita | 80 e 443 | VirtualNetwork | AzureActiveDirectory | |
+| Dipendenza da Archiviazione di Azure | In uscita | 80 e 443 | VirtualNetwork | Archiviazione | |
+| Comunicazione intersubnet | In ingresso e in uscita | 80 e 443 | VirtualNetwork | VirtualNetwork | Per la comunicazione tra le subnet |
+| Comunicazione alle App per la logica di Azure | In ingresso | 443 | Internet  | VirtualNetwork | L'indirizzo IP per il computer o servizio che chiama qualsiasi trigger di richiesta o di un webhook che esiste nell'app per la logica. La chiusura o bloccare questa porta impedisce che le chiamate HTTP all'App per la logica con trigger di richiesta.  |
+| App per la logica della cronologia di esecuzione | In ingresso | 443 | Internet  | VirtualNetwork | L'indirizzo IP per il computer in cui è visualizzare l'app per la logica della cronologia di esecuzione. Sebbene la chiusura o bloccare questa porta non impedisce di visualizzare la cronologia di esecuzione, non è possibile visualizzare gli input e output per ogni passaggio nella cronologia di esecuzione. |
+| Gestione delle connessioni | In uscita | 443 | VirtualNetwork  | Internet | |
+| Pubblicare i log di diagnostica e metriche | In uscita | 443 | VirtualNetwork  | AzureMonitor | |
+| Comunicazioni da Gestione traffico di Azure | In ingresso | 443 | AzureTrafficManager | VirtualNetwork | |
+| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | Internet  | VirtualNetwork | Le richieste provengano da App per la logica [endpoint di accesso in ingresso di indirizzi IP in tale area](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dipendenza da Gestione del servizio app | In ingresso | 454 e 455 | AppServiceManagement | VirtualNetwork | |
+| Distribuzione dei connettori | In ingresso | 454 & 3443 | Internet  | VirtualNetwork | Necessario per la distribuzione e aggiornamento dei connettori. La chiusura o bloccare questa porta fa sì che le distribuzioni di ISE a non riuscire e impedisce connettore aggiornamenti o correzioni. |
+| Dipendenza di SQL Azure | In uscita | 1433 | VirtualNetwork | SQL |
+| Integrità risorse di Azure | In uscita | 1886 | VirtualNetwork | Internet | Per pubblicare lo stato di integrità in integrità risorse |
+| Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement  | VirtualNetwork | |
+| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | 5672 | VirtualNetwork  | Hub eventi | |
+| Istanze di accesso Cache Azure per Redis tra Role Instances | In ingresso <br>In uscita | 6379-6383 | VirtualNetwork  | VirtualNetwork | Inoltre, per ISE funzionare con Cache di Azure per Redis, è necessario aprire tali [le porte in ingresso e in uscita descritti nella Cache di Azure per Redis domande frequenti](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | In ingresso | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>

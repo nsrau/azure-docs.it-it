@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494627"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come impostare gli avvisi per problemi di prestazioni in Monitoraggio di Azure per contenitori
 Monitoraggio di Azure per contenitori consente di monitorare le prestazioni dei carichi di lavoro contenitore che vengono distribuiti in istanze di contenitore di Azure o gestire i cluster Kubernetes che sono ospitati in Azure Kubernetes Service (AKS).
@@ -285,5 +285,5 @@ Seguire questi passaggi per creare un avviso di log in Monitoraggio di Azure usa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vista [esempi di query di log](container-insights-analyze.md#search-logs-to-analyze-data) illustrate query predefinito e alcuni esempi per valutare o personalizzare per altri scenari di avviso.
-* Per altre informazioni sul monitoraggio di Azure e su come monitorare altri aspetti del cluster servizio contenitore di AZURE, vedere [integrità vista Azure Kubernetes Service](container-insights-analyze.md).
+- Vista [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query predefinito ed esempi per valutare o personalizzare per gli avvisi, la visualizzazione o l'analisi dei cluster.
+- Per altre informazioni sul monitoraggio di Azure e su come monitorare altri aspetti del cluster servizio contenitore di AZURE, vedere [integrità vista Azure Kubernetes Service](container-insights-analyze.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459436"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -99,7 +99,7 @@ Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazi
 
 2. Il riquadro di sinistra mostra ora tutti gli account Azure a cui si è connessi. Per connettersi a un altro account, selezionare **Add an account** (Aggiungi un account).
 
-3. Se si vuole accedere a un cloud nazionale o ad Azure Stack, fare clic sull'elenco a discesa **Azure environment** (Ambiente Azure) per selezionare il cloud di Azure da usare. Dopo avere scelto l'ambiente, fare clic sul pulsante **Sign in...** (Accedi). Se si effettua l'accesso ad Azure Stack, vedere [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md) (Connettere Storage Explorer a una sottoscrizione di Azure Stack) per altre informazioni.
+3. Se si vuole accedere a un cloud nazionale o ad Azure Stack, fare clic sull'elenco a discesa **Azure environment** (Ambiente Azure) per selezionare il cloud di Azure da usare. Dopo avere scelto l'ambiente, fare clic sul pulsante **Sign in...** (Accedi). Se si effettua l'accesso ad Azure Stack, vedere [Connect Storage Explorer to an Azure Stack subscription](/azure-stack/user/azure-stack-storage-connect-se) (Connettere Storage Explorer a una sottoscrizione di Azure Stack) per altre informazioni.
 
     ![Opzione Sign In (Accedi)][2]
 

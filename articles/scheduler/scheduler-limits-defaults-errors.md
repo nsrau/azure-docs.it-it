@@ -1,49 +1,40 @@
 ---
-title: Limiti e impostazioni predefinite dell'Utilità di pianificazione
-description: Limiti e impostazioni predefinite dell'Utilità di pianificazione
+title: Limiti, quote e soglie di Utilità di pianificazione di Azure
+description: Informazioni su limiti, quote, valori predefiniti e soglie di Utilità di pianificazione di Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 478afb20f3dabec74d66d00bec325408ce6604fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531302"
 ---
-# <a name="scheduler-limits-and-defaults"></a>Limiti e impostazioni predefinite dell'Utilità di pianificazione
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Quote, limiti, impostazioni predefinite e limiti dell'utilità di pianificazione
+# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limiti, quote e soglie di Utilità di pianificazione di Azure
+
+> [!IMPORTANT]
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="limits-quotas-and-thresholds"></a>Limiti, quote e soglie
+
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>L'intestazione x-ms-request-id
-Ogni richiesta effettuata per il servizio dell’Utilità di pianificazione restituisce un'intestazione di risposta denominata**x-ms-request-id**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta.
+## <a name="x-ms-request-id-header"></a>L'intestazione x-ms-request-id
 
-Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, si può usare questo valore per riportare l'errore a Microsoft. Nel report includere il valore di x-ms-request-id, l'ora approssimativa in cui è stata eseguita la richiesta, l'identificativo della sottoscrizione, la raccolta processi e/o il processo e il tipo di operazione tentata con la richiesta.
+Ogni richiesta effettuata per il servizio dell'Utilità di pianificazione restituisce un'intestazione di risposta denominata **x-ms-request-id**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta. Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, è possibile riportare l'errore a Microsoft usando il valore dell'intestazione di risposta **x-ms-request-id** e includendo questi dettagli: 
 
-## <a name="see-also"></a>Vedere anche
- [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
+* Il valore **x-ms-request-id**
+* L'ora approssimativa in cui è stata effettuata la richiesta 
+* Gli identificatori per la sottoscrizione di Azure, la raccolta processi e il processo 
+* Il tipo di operazione tentata con la richiesta
 
- [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
+## <a name="see-also"></a>Vedere anche 
 
- [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
-
- [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
-
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
-
- [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
-
- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
-
- [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
+* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
+* [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)

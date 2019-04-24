@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515401"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhook per i servizi di riconoscimento vocale
 
@@ -38,6 +38,8 @@ Successivamente, è possibile creare un webhook.
 ## <a name="create-a-webhook"></a>Creare un webhook
 
 È possibile creare un webhook per una trascrizione offline. Lo scenario: un utente dispone di un file audio a esecuzione prolungata che desiderano trascrivere in modo asincrono con l'API di trascrizione di Batch. 
+
+Per creare una web hook di POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 I parametri di configurazione per la richiesta vengono forniti in formato JSON:
 
@@ -133,6 +135,50 @@ Invia una richiesta POST all'URL registrato se un'entità per il tipo di evento 
 ### <a name="run-a-test"></a>Eseguire un test
 
 Un rapido test può essere eseguito tramite il sito Web https://bin.webhookrelay.com. Da qui, è possibile ottenere chiamata nuovamente gli URL da passare come parametro per la richiesta HTTP POST per la creazione di un webhook, descritto in precedenza nel documento.
+
+Fare clic su 'Crea Bucket' e seguire sullo schermo le istruzioni per ottenere un hook. Usare quindi le informazioni fornite in questa pagina per registrare l'hook nel servizio di riconoscimento vocale. Il payload di un endpoint di inoltro dei messaggi - nella risposta per il completamento di una trascrizione ha un aspetto come indicato di seguito:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+Il messaggio contiene l'URL di registrazione e i modelli usati per trascrivere che la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196219"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -99,7 +99,7 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 
 Le seguenti impostazioni di cultura hanno versioni tokenizer personalizzato:
 
-|Impostazioni cultura|Versione|Scopo|
+|Impostazioni cultura|Version|Scopo|
 |--|--|--|
 |Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendoli usando un tokenizer macchina basati sull'apprendimento automatico che tenta di suddividere parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come un utterance, che è abilitato `Ich fahre einen kranken wagen`. Consentendo il contrassegno delle `kranken` e `wagen` in modo indipendente come entità diversa.|
 |Tedesco<br>`de-de`|1.0.1|Suddivide in token le parole suddividendoli in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come un utterance, rimane un token singolo. In questo modo `krankenwagen` è contrassegnato come una singola entità. |

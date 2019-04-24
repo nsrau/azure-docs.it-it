@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324254"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
@@ -30,7 +30,7 @@ La terza parte di una regola è la funzionalità. Una funzionalità definisce il
 
 Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
 [Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
@@ -43,7 +43,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare come e quando il contenuto viene memorizzato nella cache.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) (Parametri larghezza di banda) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
 [Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
@@ -73,7 +73,7 @@ NOME | Scopo
 
 Questa funzionalità è progettata per fornire informazioni aggiuntive all'interno di una regola.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Comment](#comment) | Consente di aggiungere una nota all'interno di una regola.
  
@@ -81,7 +81,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per aggiungere, modificare o eliminare le intestazioni dalla richiesta o dalla risposta.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 [Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
@@ -94,7 +94,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare i dati archiviati nei file di log non elaborati.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
 [Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
@@ -148,7 +148,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Queste funzionalità sono progettate per controllare in che modo la rete CDN comunica con un server di origine.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
 [Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
@@ -158,7 +158,7 @@ NOME | Scopo
 
 Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
 [Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
@@ -169,7 +169,7 @@ NOME | Scopo
 
 Queste funzionalità consentono il reindirizzamento o la riscrittura di una richiesta in un URL diverso.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Follow Redirects](#follow-redirects) (Segui reindirizzamenti) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
 [URL Redirect](#url-redirect) (Reindirizzamento URL) | Reindirizza le richieste tramite l'intestazione Location.
@@ -183,9 +183,9 @@ NOME | Scopo
 ### <a name="age-response-header"></a>Intestazione di risposta Age
 **Scopo**: Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
+Enabled | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
 
 **Comportamento predefinito**: Disabilitato.
@@ -200,9 +200,9 @@ Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata a
 
 I parametri di limitazione della larghezza di banda determinano se la velocità di trasferimento dati per una richiesta del client è limitata a un valore prestabilito.
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato|Consente ai POP di soddisfare le richieste di limitazione della larghezza di banda.
+Enabled|Consente ai POP di soddisfare le richieste di limitazione della larghezza di banda.
 Disabled|Fa in modo che i POP ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti vengono serviti normalmente, ossia senza limitazione della larghezza di banda.
 
 **Comportamento predefinito:** abilitata.
@@ -232,9 +232,9 @@ Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi c
 ### <a name="bypass-cache"></a>Ignora cache
 **Scopo:** determina se la richiesta deve ignorare la memorizzazione nella cache.
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato|Fa in modo che tutte le richieste giungano al server di origine, anche se i contenuti sono stati precedentemente memorizzati nella cache dei POP.
+Enabled|Fa in modo che tutte le richieste giungano al server di origine, anche se i contenuti sono stati precedentemente memorizzati nella cache dei POP.
 Disabled|Fa in modo che i POP memorizzino gli asset nella cache in base ai criteri della cache definiti nelle relative intestazioni di risposta.
 
 **Comportamento predefinito:**
@@ -294,7 +294,7 @@ Informazioni chiave:
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Cache-Control Header Treatment (Gestione intestazioni Cache-Control) nella stessa istruzione.
 
-Valore|Risultato
+Value|Risultato
 --|--
 Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/> -Sovrascrivere il `Cache-Control` intestazione generata dal server di origine. <br/>-Aggiunge il `Cache-Control` intestazione prodotta dalla funzionalità External Max-Age per la risposta.
 Pass-through|Assicura che il `Cache-Control` intestazione prodotta dalla funzionalità External Max-Age non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un' `Cache-Control` intestazione, vengono passati all'utente finale. <br/> Se il server di origine non produce un `Cache-Control` intestazione, quindi questa opzione può causare l'intestazione della risposta non contenga un `Cache-Control` intestazione.
@@ -431,9 +431,9 @@ In genere, un mancato riscontro nella cache parziale si verifica dopo che un ute
 
 Mantenere la configurazione predefinita per la piattaforma HTTP Large, poiché riduce il carico sul server di origine del cliente e aumenta la velocità con cui i clienti possono scaricare i contenuti.
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di obbligare il POP a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si troverà nella cache locale del POP.
+Enabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di obbligare il POP a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si troverà nella cache locale del POP.
 Disabled|Impedisce a un POP di eseguire il recupero in background dell'asset. Per effetto di questa impostazione, alla successiva richiesta dell'asset dalla stessa area, il POP richiederà l'asset al server di origine del cliente.
 
 **Comportamento predefinito:** abilitata.
@@ -534,9 +534,9 @@ Le intestazioni di risposta di debug per la cache possono essere richieste inclu
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Le richieste per le intestazioni di risposta di debug della cache restituiranno una risposta che include l'intestazione X-EC-Debug.
+Enabled|Le richieste per le intestazioni di risposta di debug della cache restituiranno una risposta che include l'intestazione X-EC-Debug.
 Disabled|L'intestazione della risposta X-EC-Debug verrà esclusa dalla risposta.
 
 **Comportamento predefinito:** disabilitato.
@@ -591,9 +591,9 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 ### <a name="deny-access-403"></a>Deny Access (403) (Nega accesso (403))
 **Scopo**: Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
 
-Valore | Risultato
+Value | Risultato
 ------|-------
-Attivato| Fa sì che tutte le richieste che soddisfano i criteri di corrispondenza vengano respinte con una risposta 403 - Accesso negato.
+Enabled| Fa sì che tutte le richieste che soddisfano i criteri di corrispondenza vengano respinte con una risposta 403 - Accesso negato.
 Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito prevede di consentire al server di origine di determinare il tipo di risposta da restituire.
 
 **Comportamento predefinito**: Disabled
@@ -611,7 +611,7 @@ Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito 
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Expires Header Treatment (Gestione intestazioni Expires) nella stessa istruzione.
 
-Valore|Risultato
+Value|Risultato
 --|--
 Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/>-Sovrascrivere il `Expires` intestazione generata dal server di origine.<br/>-Aggiunge il `Expires` intestazione prodotta dalla funzionalità External Max-Age per la risposta.
 Pass-through|Assicura che il `Expires` intestazione prodotta dalla funzionalità External Max-Age non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un' `Expires` intestazione, ne verrà pass-through all'utente finale. <br/>Se il server di origine non produce un' `Expires` intestazione, quindi questa opzione può causare l'intestazione della risposta non contenga un' `Expires` intestazione.
@@ -651,9 +651,9 @@ Informazioni chiave:
 
 - Le richieste possono essere reindirizzate solo ai CNAME periferici che corrispondono alla stessa piattaforma.
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Le richieste possono essere reindirizzate.
+Enabled|Le richieste possono essere reindirizzate.
 Disabled|Le richieste non verranno reindirizzate.
 
 **Comportamento predefinito:** disabilitato.
@@ -724,9 +724,9 @@ Informazioni chiave:
 
 Una richiesta no-cache si verifica quando il client HTTP invia un' `Cache-Control: no-cache` e/o `Pragma: no-cache` intestazione nella richiesta HTTP.
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato|Consente l'inoltro delle richieste no-cache di un client HTTP al server di origine. Quest'ultimo restituirà al client HTTP il corpo e le intestazioni della risposta tramite il POP.
+Enabled|Consente l'inoltro delle richieste no-cache di un client HTTP al server di origine. Quest'ultimo restituirà al client HTTP il corpo e le intestazioni della risposta tramite il POP.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di impedire alle richieste no-cache di essere inoltrate al server di origine.
 
 Per tutto il traffico di produzione, è consigliabile lasciare questa funzionalità nello stato disabilitato predefinito. In caso contrario, i server di origine non risulteranno protetti da eventuali utenti finali che attivino inavvertitamente molte richieste no-cache durante l'aggiornamento di pagine Web o dai numerosi lettori multimediali di uso comune codificati per l'invio di un'intestazione no-cache con ogni richiesta video. Se applicata a determinate directory di staging o testing non di produzione, tuttavia, questa funzionalità consente di effettuare il pull on-demand di contenuti aggiornati dal server di origine.
@@ -786,9 +786,9 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 
 Per impostazione predefinita, questo codice di stato viene restituito quando la richiesta di intervallo di byte specificata non può essere soddisfatta da un POP e non è stato specificato un campo di intestazione di richiesta If-Range.
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 intervallo non Impossibile attenersi al richiesto. I server verranno invece recapitare l'asset richiesto e restituiranno un messaggio 200 OK al client.
+Enabled|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 intervallo non Impossibile attenersi al richiesto. I server verranno invece recapitare l'asset richiesto e restituiranno un messaggio 200 OK al client.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 intervallo non Impossibile attenersi al richiesto.
 
 **Comportamento predefinito:** disabilitato.
@@ -847,9 +847,9 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 ### <a name="log-query-string"></a>Stringa di query log
 **Scopo:** determina se una stringa di query verrà archiviata insieme all'URL nei log di accesso.
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
+Enabled|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di ignorare le stringhe di query durante la registrazione degli URL in un log di accesso.
 
 **Comportamento predefinito:** disabilitato.
@@ -965,9 +965,9 @@ Informazioni chiave:
 
 Questa cache parziale può essere quindi usata per soddisfare nuove richieste dei contenuti desiderati fino a quando non risultano completamente memorizzati nella cache.
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
+Enabled|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
 Disabled|Le richieste possono generare solo una versione completamente memorizzata nella cache dei contenuti richiesti.
 
 **Comportamento predefinito:** disabilitato.
@@ -1023,9 +1023,9 @@ Le intestazioni HTTP seguenti sono incluse nell'elenco predefinito:
 
 I valori validi sono:
 
-Valore|Risultato
+Value|Risultato
 --|--
-Attivato|Fa in modo che il POP recuperi nuovamente l'asset dal server di origine.
+Enabled|Fa in modo che il POP recuperi nuovamente l'asset dal server di origine.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rendere disponibili asset di cache validi su richiesta.
 
 Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Presupponendo che una risposta con 0 byte non sia mai una risposta valida 
@@ -1086,9 +1086,9 @@ Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei
 ### <a name="stale-content-delivery-on-error"></a>Distribuzione di contenuto non aggiornato in caso di errore
 **Scopo:** determina se contenuto scaduto memorizzato nella cache verrà distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
 
-Valore|Risultato
+Value|Risultato
 -|-
-Attivato|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
+Enabled|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
 Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
 **Comportamento predefinito:** disabilitato
@@ -1126,9 +1126,9 @@ La chiave di crittografia utilizzato per crittografare e decrittografare i valor
 
 Questa funzionalità ha la precedenza sulla maggior parte delle funzionalità ad eccezione di Riscrittura URL.
 
-Valore | Risultato
+Value | Risultato
 ------|---------
-Attivato | Protegge i contenuti richiesti con l'autenticazione basata su token. Verranno soddisfatte solo le richieste provenienti da client che forniscono un token valido e ne soddisfano i requisiti. Dall'autenticazione basata su token sono escluse le transazioni FTP.
+Enabled | Protegge i contenuti richiesti con l'autenticazione basata su token. Verranno soddisfatte solo le richieste provenienti da client che forniscono un token valido e ne soddisfano i requisiti. Dall'autenticazione basata su token sono escluse le transazioni FTP.
 Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito prevede di consentire alla configurazione dell'autenticazione basata su token di determinare se una richiesta deve essere protetta.
 
 #### <a name="compatibility"></a>Compatibilità
@@ -1198,9 +1198,9 @@ I parametri interessati da questa funzionalità sono:
 
 I valori validi sono:
 
-Valore|Risultato
+Value|Risultato
 ---|----
-Attivato|Fa in modo che il POP non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL per i parametri dell'autenticazione basata su token.
+Enabled|Fa in modo che il POP non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL per i parametri dell'autenticazione basata su token.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzioni tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
 
 **Comportamento predefinito:** disabilitato.
@@ -1219,9 +1219,9 @@ Informazioni chiave:
 - L'opzione valore non può essere impostata su "ec_token".
 - Verificare che il nome definito nell'opzione valore contenga solo caratteri URL validi.
 
-Valore|Risultato
+Value|Risultato
 ----|----
-Attivato|L'opzione valore definisce il nome di parametro di stringa di query tramite il quale devono essere definiti i token.
+Enabled|L'opzione valore definisce il nome di parametro di stringa di query tramite il quale devono essere definiti i token.
 Disabled|Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
 **Comportamento predefinito:** disabilitato. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58115068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456941"
 ---
 Per abilitare la reimpostazione della password nell'applicazione con granularità fine, usare un flusso utente di **reimpostazione della password**. Tenere presente che l'opzione di reimpostazione della password a livello di tenant è specificata [qui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Questo flusso utente descrive l'esperienza utente durante la procedura di reimpostazione della password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
@@ -39,7 +39,7 @@ Fare clic su **Esegui il flusso utente**. Verificare le impostazioni specificate
 
 ![Selezionare il flusso utente ed eseguirlo](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
-| Impostazione      | Valore  |
+| Impostazione      | Value  |
 | ------------ | ------ |
 | **Applicazione** | App Contoso B2C |
 | **Selezionare l'URL di risposta** | `https://localhost:44316/` |

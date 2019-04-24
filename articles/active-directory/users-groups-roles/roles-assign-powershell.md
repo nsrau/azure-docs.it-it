@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d982ea49bdc24ccd9894c98435f1e3012d9dd156
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469095"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Assegnare ruoli di amministratore di Azure Active Directory usando PowerShell
 
-È possibile automatizzare come si assegnano ruoli agli account utente tramite Azure PowerShell. Questo articolo usa il [Azure Active Directory PowerShell versione 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) modulo.
+È possibile automatizzare come si assegnano ruoli agli account utente tramite Azure PowerShell. Questo articolo usa il [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) modulo.
 
 ## <a name="prepare-powershell"></a>Preparare PowerShell
 

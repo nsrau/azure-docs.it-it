@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437152"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -174,9 +174,11 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |81012|Questa non è una condizione di errore. Indica che l'utente che sta tentando di accedere ad Azure AD è diverso dall'utente che ha eseguito l'accesso al dispositivo. È possibile ignorare questo messaggio di errore nei log.|
 |90010|La richiesta non è supportata per diversi motivi. La richiesta viene effettuata ad esempio con un metodo di richiesta non supportata (solo il metodo POST è supportato) o l'algoritmo di firma del token richiesto non è supportato. Contattare lo sviluppatore dell'applicazione.|
 |90014| Un campo obbligatorio per un messaggio di protocollo non è presente. Contattare il proprietario dell'applicazione. Il proprietario dell'applicazione deve verificare di disporre di tutti i parametri necessari per la richiesta di accesso. |
+|90051| Token di delega non è valido. Viene specificato l'ID del Cloud nazionale non valida ({cloudId}).|
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
 |90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
+|530021|Applicazione non soddisfa i requisiti delle app approvata l'accesso condizionale.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

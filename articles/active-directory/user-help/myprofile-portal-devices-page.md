@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475858"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gestire i dispositivi connessi dal portale Profilo personale (anteprima)
 È possibile gestire i dispositivi a cui si è connessi, disabilitando quelli di cui non si è più proprietari, usando il proprio account aziendale o dell'istituto di istruzione nella pagina **Dispositivi** del portale **Profilo personale**.

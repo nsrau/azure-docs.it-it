@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515430"
 ---
 # <a name="bing-text-to-speech-api"></a>API Sintesi vocale Bing
 
@@ -40,7 +41,7 @@ Content-Length: 0
 
 Le informazioni di intestazione necessarie per il token di accesso sono le seguenti.
 
-NOME| Format | DESCRIZIONE
+Name| Format | DESCRIZIONE
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Chiave della sottoscrizione)
 
@@ -59,7 +60,7 @@ I client devono usare l'endpoint seguente per accedere al servizio di sintesi vo
 
 La tabella seguente mostra le intestazioni HTTP usate per le richieste di sintesi vocale.
 
-Intestazione |Valore |Commenti
+Intestazione |Value |Commenti
 ----|----|----
 Content-Type | application/ssml+xml | Tipo di contenuto di input.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | Formato audio di output.
@@ -70,7 +71,7 @@ Authorization | Token di autorizzazione |  Vedere le sezione <a href="#Subscript
 
 ### <a name="InputParam"></a>Parametri di input
 
-Le richieste all'API Sintesi vocale Bing vengono inviate tramite chiamate POST HTTP. Le intestazioni sono specificate nella sezione precedente. Il corpo contiene input SSML (Speech Synthesis Markup Language) che rappresenta il testo da convertire in sintesi vocale. Per una descrizione del markup usato per controllare aspetti della sintesi vocale come la lingua e il sesso del parlante, vedere la [specifica W3C SSML](http://www.w3.org/TR/speech-synthesis/).
+Le richieste all'API Sintesi vocale Bing vengono inviate tramite chiamate POST HTTP. Le intestazioni sono specificate nella sezione precedente. Il corpo contiene input SSML (Speech Synthesis Markup Language) che rappresenta il testo da convertire in sintesi vocale. Per una descrizione del markup usato per controllare aspetti della sintesi vocale come la lingua e il sesso del parlante, vedere la [specifica W3C SSML](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >Le dimensioni massime supportate per l'input SSML sono pari a 1.024 caratteri, inclusi tutti i tag.
@@ -140,43 +141,43 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Modifica dell'output vocale tramite SSML
 
-L'API Sintesi vocale Microsoft supporta SSML 1.0 secondo la definizione del W3C [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Questa sezione contiene esempi di modifica di determinate caratteristiche dell'output vocale generato, come la velocità del parlato, la pronuncia e altro, mediante tag SSML.
+L'API Sintesi vocale Microsoft supporta SSML 1.0 secondo la definizione del W3C [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Questa sezione contiene esempi di modifica di determinate caratteristiche dell'output vocale generato, come la velocità del parlato, la pronuncia e altro, mediante tag SSML.
 
 1. Aggiungere una pausa
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+   ```
 
 2. Cambiare la velocità del parlato
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 3. Pronuncia
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+   ```
 
 4. Cambiare il volume
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 5. Cambiare il tono
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 6. Cambiare il contorno prosodico
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+   ```
 
 > [!NOTE]
 > I dati audio devono essere inclusi in un file WAV 8k o 16k nel formato seguente: **codice CRC** (CRC-32): 4 byte (DWORD) con intervallo valido 0x00000000 ~ 0xFFFFFFFF; **flag del formato audio**: 4 byte (DWORD) con intervallo valido 0x00000000 ~ 0xFFFFFFFF; **conteggio campione**: 4 byte (DWORD) con intervallo valido 0x00000000 ~ 0x7FFFFFFF; **dimensioni del corpo binario**: 4 byte (DWORD) con intervallo valido 0x00000000 ~ 0x7FFFFFFF; **corpo binario**: n byte.
@@ -269,6 +270,7 @@ zh-HK | Maschio | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, A
 zh-TW | Femmina | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)"
 zh-TW | Femmina | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)"
 zh-TW | Maschio | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)"
+
  *ar-EG supporta lo standard moderno della lingua araba.
 
 > [!NOTE]

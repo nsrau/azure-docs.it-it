@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a80d2fbf42cad333ba8779973be3a9710210646
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293563"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Come configurare un'applicazione proxy dell'applicazione per l'uso di PingAccess
 

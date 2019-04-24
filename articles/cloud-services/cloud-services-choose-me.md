@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337520"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
@@ -29,7 +29,7 @@ Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non so
 
 Sono disponibili due tipi di ruoli di Servizi cloud di Azure. L'unica differenza tra i due è il modo in cui il ruolo è ospitato nella macchina virtuale:
 
-* **Ruolo Web**: distribuisce e ospita automaticamente l'app tramite IIS.
+* **Ruolo Web**: Distribuisce e ospita automaticamente l'app tramite IIS.
 
 * **Ruolo di lavoro**: non usa IIS ed esegue l'app autonomamente.
 

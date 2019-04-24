@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8794ffa1654e49690f3bd31a380ba2051b4b1da7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294963"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Informazioni sulla federazione con Azure AD
 
@@ -33,7 +33,7 @@ Per federazione si intende una raccolta di domini che hanno stabilito una relazi
 > Se si decide di usare la federazione con Active Directory Federation Services (AD FS), è possibile configurare facoltativamente la sincronizzazione dell'hash delle password come backup in caso di errore dell'infrastruttura di AD FS.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Informazioni sull'identità ibrida](whatis-phs.md)
 - [Informazioni su Azure AD Connect e Connect Health](whatis-azure-ad-connect.md)

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455139"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Risolvere i problemi per la mancata sincronizzazione di un oggetto con Azure Active Directory
 
@@ -50,11 +50,11 @@ Il processo di sincronizzazione prevede i passaggi seguenti:
 
 3. **Sincronizzazione:** le regole di sincronizzazione in ingresso e in uscita vengono eseguite in base al numero di precedenza, dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'editor delle regole di sincronizzazione da un'applicazione desktop. Le regole di sincronizzazione in ingresso importano i dati dallo spazio connettore al metaverse, mentre le regole di sincronizzazione in uscita spostano i dati dal metaverse allo spazio connettore.
 
-4. **Esportazione in AD:** dopo la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in Active Directory.
+4. **Esportazione in Active Directory:** dopo la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in Active Directory.
 
 5. **Esportazione in Azure AD:** dopo la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Azure AD in Azure AD.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per trovare gli errori, controllare in diverse aree, nell'ordine seguente:
 
@@ -69,19 +69,19 @@ La risoluzione dei problemi deve essere avviata dalla scheda **Operations** (Ope
 
 ![Screenshot di Synchronization Service Manager con la scheda Operations (Operazioni) selezionata](./media/tshoot-connect-object-not-syncing/operations.png)  
 
-Nella metà superiore della scheda **Operations** (Operazioni) sono elencate tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l'[utilità di pianificazione](how-to-connect-sync-feature-scheduler.md). Cercare eventuali esecuzioni il cui stato è diverso da **success** (esito positivo). È possibile modificare l'ordinamento facendo clic sulle intestazioni.
+Nella metà superiore della scheda **Operations** (Operazioni) sono elencate tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l' [utilità di pianificazione](how-to-connect-sync-feature-scheduler.md). Cercare eventuali esecuzioni il cui stato è diverso da **success** (esito positivo). È possibile modificare l'ordinamento facendo clic sulle intestazioni.
 
 La colonna **Status** (Stato) contiene le informazioni più importanti e segnala il problema più grave di un'esecuzione. Di seguito è riportato un breve riepilogo degli stati più comuni, ordinati in base alla priorità con cui devono essere analizzati (dove * indica varie possibili stringhe di errore).
 
-| Stato | Commento |
+| Stato | Comment |
 | --- | --- |
 | stopped-* |Impossibile completare l'esecuzione. Questa condizione si verifica, ad esempio, se il sistema remoto è inattivo e non può essere contattato. |
 | stopped-error-limit |Sono presenti più di 5.000 errori. L'esecuzione è stata arrestata automaticamente a causa dell'elevato numero di errori. |
-| completed-\*-errors |L'esecuzione è stata completata, ma sono presenti errori (meno di 5.000) che devono essere analizzati. |
-| completed-\*-warnings |L'esecuzione è stata completata, ma alcuni dati non si trovano nello stato previsto. Se sono presenti errori, questo messaggio è in genere solo un sintomo. Evitare di analizzare gli avvisi fino a quando non sono stati risolti tutti gli errori. |
-| success |Non sono presenti problemi. |
+| completato-\*-errori |L'esecuzione è stata completata, ma sono presenti errori (meno di 5.000) che devono essere analizzati. |
+| completato-\*-avvisi |L'esecuzione è stata completata, ma alcuni dati non si trovano nello stato previsto. Se sono presenti errori, questo messaggio è in genere solo un sintomo. Evitare di analizzare gli avvisi fino a quando non sono stati risolti tutti gli errori. |
+| esito positivo |Non sono presenti problemi. |
 
-Quando si seleziona una riga, la parte inferiore della scheda **Operations** (Operazioni) viene aggiornata in base ai dettagli dell'esecuzione corrispondente. All'estrema sinistra di questa area è possibile che sia presente un elenco con voci di tipo **Step #** (Passaggio n.). L'elenco viene visualizzato solo se nella foresta sono presenti più domini e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partition** (Partizione). Sotto l'intestazione **Synchronization Statistics** (Statistiche di sincronizzazione) sono presenti altre informazioni sul numero delle modifiche elaborate. Selezionare i collegamenti per ottenere un elenco degli oggetti modificati. Se alcuni oggetti presentano errori, questi verranno visualizzati sotto l'intestazione **Synchronization Errors** (Errori di sincronizzazione).
+Quando si seleziona una riga, la parte inferiore della scheda **Operations** (Operazioni) viene aggiornata in base ai dettagli dell'esecuzione corrispondente. All'estrema sinistra di questa area è possibile che sia presente un elenco con voci di tipo **Step #** (Passaggio n.). L'elenco viene visualizzato solo se nella foresta sono presenti più domini e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partition**(Partizione). Sotto l'intestazione **Synchronization Statistics** (Statistiche di sincronizzazione) sono presenti altre informazioni sul numero delle modifiche elaborate. Selezionare i collegamenti per ottenere un elenco degli oggetti modificati. Se alcuni oggetti presentano errori, questi verranno visualizzati sotto l'intestazione **Synchronization Errors** (Errori di sincronizzazione).
 
 ### <a name="errors-on-the-operations-tab"></a>Errori nella scheda Operations (Operazioni)
 In caso di errori, Synchronization Service Manager mostra sia l'oggetto con l'errore sia l'errore stesso sotto forma di collegamenti per la visualizzazione di altre informazioni.
@@ -99,7 +99,7 @@ L'errore viene visualizzato nella riga successiva. Nella figura precedente, l'er
 
 Se l'errore non fornisce informazioni sufficienti, è necessario esaminare i dati. Selezionare il collegamento con l'identificatore dell'oggetto e continuare la risoluzione del problema relativo all'[oggetto importato nello spazio connettore](#cs-import).
 
-## <a name="connector-space-object-properties"></a>Proprietà dell'oggetto nello spazio connettore
+## <a name="connector-space-object-properties"></a>Proprietà dell’oggetto spazio connettore
 Se nella scheda [**Operations**](#operations) (Operazioni) non vengono visualizzati errori, seguire l'oggetto dello spazio connettore da Active Directory al metaverse, fino ad Azure Active Directory. In questo percorso, è necessario trovare il problema.
 
 ### <a name="searching-for-an-object-in-the-cs"></a>Ricerca di un oggetto nello spazio connettore
@@ -134,7 +134,7 @@ La scheda **Lineage** (Derivazione) disponibile nella finestra **Connector Space
 
 ![Screenshot della scheda Lineage (Derivazione) nella finestra Connector Space Object Properties (Proprietà dell'oggetto spazio connettore)](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 
-Nella figura precedente, la colonna **Action** (Azione) mostra una regola di sincronizzazione in ingresso con l'azione **Provision** (Provisioning). Questo indica che l'oggetto nel metaverse rimarrà fino a quando sarà presente l'oggetto nello spazio connettore. Se invece nell'elenco delle regole di sincronizzazione è presente una regola di sincronizzazione in uscita con l'azione **Provision** (Provisioning), l'oggetto viene eliminato quando viene rimosso l'oggetto nel metaverse.  
+Nella figura precedente, la colonna **Action** (Azione) mostra una regola di sincronizzazione in ingresso con l'azione **Provision** (Provisioning). Questo indica che l'oggetto metaverse rimarrà fino a quando sarà presente l'oggetto spazio connettore. Se invece nell'elenco delle regole di sincronizzazione è presente una regola di sincronizzazione in uscita con l'azione **Provision** (Provisioning), l'oggetto viene eliminato quando viene rimosso l'oggetto nel metaverse.  
 
 ![Screenshot di una finestra di derivazione nella scheda Lineage (Derivazione) della finestra Connector Space Object Properties (Proprietà dell'oggetto spazio connettore)](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
 
@@ -154,8 +154,8 @@ Nell'anteprima è possibile esaminare l'oggetto e individuare la regola applicat
 ### <a name="log"></a>Log
 Accanto al pulsante **Preview** (Anteprima) selezionare il pulsante **Log** per aprire la pagina **Log**, in cui sono riportati lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
-## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto nel metaverse
-È in genere preferibile avviare la ricerca dallo spazio connettore di origine di Active Directory, ma è possibile avviarla anche dal metaverse.
+## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto Metaverse
+È in genere preferibile avviare la ricerca dallo spazio connettore di origine di Active Directory, Ma è anche possibile avviare la ricerca da metaverse.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>Ricerca di un oggetto nel metaverse
 In Synchronization Service Manager selezionare **Metaverse Search** (Ricerca metaverse), come illustrato nella figura seguente. Creare una query che rilevi l'utente. È possibile cercare gli attributi comuni, ad esempio **accountName** (**sAMAccountName**) e **userPrincipalName**. Per altre informazioni, vedere [Ricerca metaverse di Synchronization Service Managerr](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -185,7 +185,7 @@ Per esaminare il filtro di ambito in uscita, selezionare le regole applicabili p
   ![Screenshot di una ricerca di regole di sincronizzazione in uscita nell'editor delle regole di sincronizzazione](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
 
 
-### <a name="mv-attributes"></a>Attributi del metaverse
+### <a name="mv-attributes"></a>Attributi MV
 Nella scheda **Attributes** (Attributi) è possibile visualizzare i valori e il connettore che li ha indicati.  
 
 ![Screenshot della finestra Metaverse Object Properties (Proprietà dell'oggetto metaverse) con la scheda Attributes (Attributi) selezionata](./media/tshoot-connect-object-not-syncing/mvobject.png)  
@@ -206,7 +206,7 @@ La scheda **Connectors** (Connettori) visualizza tutti gli spazi connettore che 
 
 Se non si ha un connettore in Azure AD, rivedere la sezione [Attributi del metaverse](#mv-attributes) per verificare i criteri per il provisioning in Azure AD.
 
-Dalla scheda **Connectors** (Connettori) è possibile anche passare all'[oggetto nello spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Properties** (Proprietà).
+Dalla scheda **Connectors** (Connettori) è possibile anche passare all'[oggetto nello spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sul [servizio di sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).

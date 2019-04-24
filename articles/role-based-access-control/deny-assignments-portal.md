@@ -15,18 +15,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194372"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure
 
 Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come usare il portale di Azure per visualizzare le assegnazioni di rifiuto.
 
 > [!NOTE]
-> A questo punto, l'unico modo è possibile aggiungere il proprio negare assegnazioni consiste nell'usare progetti di architetture di Azure. Per altre informazioni, vedere [proteggere le nuove risorse con i blocchi di risorse di Azure progetti](../governance/blueprints/tutorials/protect-new-resources.md).
+> Al momento, l'unico modo per aggiungere le proprie assegnazioni di rifiuto è tramite Azure Blueprints. Per altre informazioni, vedere [Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

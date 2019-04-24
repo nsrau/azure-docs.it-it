@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498832"
 ---
 # <a name="calchistogram-method"></a>Metodo CalcHistogram
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME  |Valore | Obbligatorio?  |DESCRIZIONE
+Name  |Value | Obbligatorio?  |DESCRIZIONE
 -----------|----------|--------|----------
 **expr**    |Stringa di testo | Sì  |Espressione di query che specifica le entità su cui calcolare gli istogrammi.
 **model** |Stringa di testo | No  |Selezionare il nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.
@@ -41,7 +41,7 @@ NOME  |Valore | Obbligatorio?  |DESCRIZIONE
 
 ## <a name="response-json"></a>Risposta (JSON)
 
-NOME | DESCRIZIONE
+Name | DESCRIZIONE
 --------|---------
 **expr**  |Parametro expr della richiesta.
 **num_entities** | Numero totale di entità corrispondenti.

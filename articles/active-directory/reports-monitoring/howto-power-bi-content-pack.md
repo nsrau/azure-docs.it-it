@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437675"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -59,7 +59,7 @@ I report seguenti sono inclusi nel pacchetto di contenuto di Azure AD Power BI. 
 
 - User Name
 - Indirizzo IP
-- Località 
+- Location 
 - Stato accesso 
 
 **Grafico a imbuto SSPR**: Questo report consente di comprendere come viene usato lo strumento SSPR all'interno dell'organizzazione. È possibile scoprire il numero di reimpostazioni delle password tentate tramite lo strumento SSPR e quante di esse hanno avuto esito positivo. È anche possibile analizzare gli errori di reimpostazione delle password e comprendere perché si sono verificati determinati errori. 

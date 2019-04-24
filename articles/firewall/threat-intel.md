@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194048"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Filtro delle minacce in Azure Firewall basato su intelligence - versione di anteprima pubblica
 
-Threat intelligence basato il filtro può essere abilitato per il firewall di avviso e rifiutare il traffico da e verso gli indirizzi IP dannosi e noti domini. Gli indirizzi IP e domini sono originati da Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alla base di intelligence sulle minacce di Microsoft ed è usato da più servizi, tra cui Centro sicurezza di Azure.
+I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alla base di intelligence sulle minacce di Microsoft ed è usato da più servizi, tra cui Centro sicurezza di Azure.
 
 ![Intelligence per le minacce firewall](media/threat-intel/firewall-threat.png)
 

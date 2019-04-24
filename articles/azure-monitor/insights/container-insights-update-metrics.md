@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 15be0039006d322c3d5e19d4ef141d1543c7b1c0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494856"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare il monitoraggio di Azure per contenitori per abilitare le metriche
 Monitoraggio di Azure per contenitori viene introdotto il supporto per la raccolta di metriche da nodi di cluster di servizi di Kubernetes di Azure (AKS) e i POD e scriverli nell'archivio di metriche di monitoraggio di Azure. Questa modifica consente di offrire la tempestività migliorata per presentare i calcoli di aggregazione (Avg, Count, Min, Max somma) nei grafici delle prestazioni, supporto per l'aggiunta di grafici delle prestazioni nel dashboard del portale di Azure e supporta gli avvisi delle metriche.
@@ -35,7 +35,7 @@ L'aggiornamento del cluster per supportare queste nuove funzionalità può esser
 L'elaborazione viene assegnato il **editore di metriche di monitoraggio** ruolo all'entità servizio del cluster in modo che i dati raccolti dall'agente può essere pubblicato per la risorsa cluster. Server di pubblicazione le metriche di monitoraggio dispone dell'autorizzazione solo alle metriche di push per la risorsa, non è possibile modificare qualsiasi stato, aggiornare la risorsa o leggere tutti i dati. Per ulteriori informazioni sul ruolo, vedere [ruolo server di pubblicazione di metriche di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Prerequisiti 
-Prima di iniziare, assicurarsi che sei un membro del **[proprietario](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** ruolo sulla risorsa del cluster servizio contenitore di AZURE per abilitare la raccolta del nodo e le metriche delle prestazioni personalizzati di pod. 
+Prima di iniziare, assicurarsi che sei un membro del **[proprietario](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** ruolo sulla risorsa del cluster servizio contenitore di AZURE per abilitare la raccolta del nodo e le metriche delle prestazioni personalizzati di pod. 
 
 Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire il comando di Azure versione 2.0.59 o versione successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

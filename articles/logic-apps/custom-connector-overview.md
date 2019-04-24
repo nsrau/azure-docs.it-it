@@ -1,24 +1,20 @@
 ---
 title: Collegamenti ad argomenti sui connettori personalizzati - App per la logica di Azure | Microsoft Docs
 description: Collegamenti ad argomenti che illustrano come creare, usare, condividere e certificare connettori personalizzati
-author: ecfan
-manager: anneta
-editor: 
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 301a6547590acbb689c190dc713535f53b61cbf5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430831"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Connettori personalizzati in App per la logica
 

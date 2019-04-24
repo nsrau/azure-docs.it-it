@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236688"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usare gli strumenti da riga di comando per avviare e arrestare le macchine virtuali di Azure DevTest Labs
 Questo articolo illustra come usare Azure PowerShell o CLI di Azure per avviare o arrestare le macchine virtuali in un lab in Azure DevTest Labs. È possibile creare script di PowerShell/CLI per automatizzare queste operazioni. 
@@ -34,7 +34,7 @@ Tuttavia, in alcuni scenari, è possibile automatizzare l'avvio e arresto di mac
 - Usarlo come attività all'interno di un flusso di lavoro di integrazione continua/recapito Continuo per all'inizio del flusso di, utilizzare le macchine virtuali come computer di compilazione, computer o l'infrastruttura di test, quindi arrestare le macchine virtuali, una volta completato il processo. Un esempio di questo sarebbe il factory di immagini personalizzate con Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Il seguente script PowerShell avvia una macchina virtuale in un lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) è l'obiettivo principale dello script. Il **ResourceId** parametro è l'ID risorsa completo per la macchina virtuale nel lab. Il **azione** parametro in cui è il **avviare** oppure **arrestare** vengono impostate le opzioni a seconda di ciò che è necessario.
+Il seguente script PowerShell avvia una macchina virtuale in un lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) è l'obiettivo principale dello script. Il **ResourceId** parametro è l'ID risorsa completo per la macchina virtuale nel lab. Il **azione** parametro in cui è il **avviare** oppure **arrestare** vengono impostate le opzioni a seconda di ciò che è necessario.
 
 ```powershell
 # The id of the subscription

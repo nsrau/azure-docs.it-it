@@ -1,6 +1,6 @@
 ---
-title: Analizzare i log attività di Azure Active Directory con i log di Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Informazioni su come analizzare i log attività di Azure Active Directory con i log di Monitoraggio di Azure (anteprima)
+title: Analizzare i log attività di Azure Active Directory usando i log di monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come analizzare i log attività di Azure Active Directory usando i log di monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438245"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure (anteprima)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD analizzare i log attività con i log di monitoraggio di Azure
 
 Dopo aver [integrato i log attività di Azure AD con i log di Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md), è possibile usare le funzionalità dei log di Monitoraggio di Azure per ottenere informazioni dettagliate sull'ambiente. È anche possibile installare le [viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md) per ottenere l'accesso a report predefiniti sugli eventi di controllo e di accesso nell'ambiente in uso.
 

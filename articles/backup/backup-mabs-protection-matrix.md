@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237609"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
@@ -22,7 +22,7 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 
 ## <a name="protection-support-matrix"></a>Matrice di supporto della protezione
 
-|Carico di lavoro|Versione|Server di backup di Azure</br> installation|Backup di Azure</br> Server V3|Backup di Azure</br> Server V2|Protezione e ripristino|
+|Carico di lavoro|Version|Server di backup di Azure</br> installation|Backup di Azure</br> Server V3|Backup di Azure</br> Server V2|Protezione e ripristino|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |Computer client (a 64 e 32 bit)|Windows 10|Server fisico<br /><br />Macchina virtuale Hyper-V<br /><br />Macchina virtuale VMware|S|S|Volume, condivisione, cartella, file, volumi deduplicati<br /><br />I volumi protetti devono essere NTFS. FAT e FAT32 non sono supportati.<br /><br />Le dimensioni dei volumi devono essere di almeno 1 GB. DPM usa il servizio Copia Shadow del volume (VSS) per creare lo snapshot dei dati, che funziona solo se le dimensioni del volume sono di almeno 1 GB.|
 |Computer client (a 64 e 32 bit)|Windows 8.1|Server fisico<br /><br />Macchina virtuale Hyper-V|S|S|File<br /><br />I volumi protetti devono essere NTFS. FAT e FAT32 non sono supportati.<br /><br />Le dimensioni dei volumi devono essere di almeno 1 GB. DPM usa il servizio Copia Shadow del volume (VSS) per creare lo snapshot dei dati, che funziona solo se le dimensioni del volume sono di almeno 1 GB.|

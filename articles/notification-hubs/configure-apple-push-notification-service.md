@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237824"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurare le impostazioni di Apple Push Notification Service (APNS) per un hub di notifica nel portale di Azure
 Questo articolo illustra come configurare le impostazioni di Apple Push Notification Service (APNS) per un hub di notifica di Azure usando il portale di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Se non hai già creato un hub di notifica, crearne uno ora. Per altre informazioni, vedere [creare un hub di notifica di Azure nel portale di Azure](create-notification-hub-portal.md). 
+Se non è stato già creato un hub di notifica, crearne uno ora. Per altre informazioni, vedere [Creare un hub di notifica di Azure nel portale di Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-apple-push-notification-service"></a>Configurare il servizio Apple Push Notification
 
@@ -29,21 +29,21 @@ La procedura seguente illustra i passaggi per configurare le impostazioni di App
 
 1. Nel portale di Azure, nelle **Hub di notifica** pagina, selezionare **Apple (APNS)** nel menu a sinistra.
 
-1. Per la **modalità di autenticazione**, selezionare **certificato** oppure **Token**.
+1. Per **Modalità di autenticazione** selezionare **Certificato** oppure **Token**.
 
-   a. Se si seleziona **certificato**:
-   * Selezionare l'icona di file e quindi selezionare il *p12* file da caricare.
+   a. Se si seleziona **Certificato**:
+   * Selezionare l'icona del file e quindi il file con estensione *p12* da caricare.
    * Immettere una password.
-   * Selezionare la modalità **Sandbox**. In alternativa, per inviare notifiche push agli utenti che hanno acquistato l'app dallo store, selezionare **produzione** modalità.
+   * Selezionare la modalità **Sandbox**. In alternativa, se si vogliono inviare notifiche push agli utenti che hanno acquistato l'app dallo Store, selezionare la modalità **Produzione**.
 
-     ![Screenshot di un servizio APN il certificato nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Screenshot della configurazione di un certificato APNS nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. Se si seleziona **Token**:
 
-   * Immettere i valori per **Key ID**, **ID Bundle**, **ID Team**, e **Token**.
-   * Selezionare la modalità **Sandbox**. In alternativa, per inviare notifiche push agli utenti che hanno acquistato l'app dallo store, selezionare **produzione** modalità.
+   * Immettere i valori per **ID chiave**, **ID bundle**, **ID team** e **Token**.
+   * Selezionare la modalità **Sandbox**. In alternativa, se si vogliono inviare notifiche push agli utenti che hanno acquistato l'app dallo Store, selezionare la modalità **Produzione**.
 
-     ![Screenshot di un servizio APN token configurazione nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Screenshot della configurazione di un token APNS nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un'esercitazione con istruzioni dettagliate per eseguire il push di notifiche a dispositivi iOS, vedere l'articolo seguente: [Inviare notifiche push a dispositivi iOS con hub di notifica e servizio APN](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+Per un'esercitazione con istruzioni dettagliate per eseguire il push di notifiche a dispositivi iOS, vedere l'articolo seguente: [Effettuare il push di notifiche ai dispositivi iOS con Hub di notifica e APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)

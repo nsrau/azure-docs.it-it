@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324696"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorare l'integrità delle risorse della rete CDN di Azure
   
@@ -51,7 +51,7 @@ L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme d
 
 Di seguito sono riportati gli stati correlati all'integrità delle risorse della rete CDN di Azure.
 
-|Messaggio | Azione consigliata |
+|Messaggio | Azione consigliata |
 |---|---|
 |Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto | Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto.|
 |Il servizio di gestione della rete CDN non è attualmente disponibile | Visualizzare di nuovo questa pagina per eventuali aggiornamenti dello stato. Se il problema persiste anche dopo l'ora di risoluzione prevista, contattare il supporto tecnico.|

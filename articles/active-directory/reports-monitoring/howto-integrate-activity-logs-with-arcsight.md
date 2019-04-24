@@ -1,6 +1,6 @@
 ---
-title: Come integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure (anteprima)
+title: Come integrare i log di Azure Active Directory con ArcSight tramite Monitoraggio di Azure | Microsoft Docs
+description: Descrive come integrare i log di Azure Active Directory con ArcSight tramite Monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437023"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure (anteprima)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight tramite Monitoraggio di Azure
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) è una soluzione SIEM (informazioni di sicurezza e gestione degli eventi) che aiuta a rilevare e rispondere alle minacce alla sicurezza nella piattaforma. È ora possibile indirizzare i log di Azure Active Directory (Azure AD) ad ArcSight tramite Monitoraggio di Azure usando il connettore ArcSight per Azure AD. Questa funzionalità consente di monitorare il tenant in caso di violazione della sicurezza tramite ArcSight.  
 
@@ -59,4 +59,4 @@ Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

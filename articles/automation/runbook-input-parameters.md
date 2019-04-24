@@ -10,11 +10,11 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500038"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -30,10 +30,10 @@ I runbook di PowerShell e di Flusso di lavoro PowerShell in Automazione di Azure
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
-| `Type` |Obbligatoria. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
-| `Name` |Obbligatoria. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
-| `Mandatory` |Facoltativo. Specifica se è necessario specificare un valore per il parametro. Se la proprietà è impostata su **\$true**, è necessario specificare un valore quando viene avviato il runbook. Se la proprietà è impostata su **\$false**, il valore è facoltativo. |
-| `Default value` |Facoltativo. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
+| `Type` |Richiesto. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
+| `Name` |Richiesto. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
+| `Mandatory` |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se la proprietà è impostata su **\$true**, è necessario specificare un valore quando viene avviato il runbook. Se la proprietà è impostata su **\$false**, il valore è facoltativo. |
+| `Default value` |facoltativo. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
 
 Windows PowerShell supporta più attributi dei parametri di input di quelli elencati di seguito, ad esempio la convalida, gli alias e i set di parametri. Tuttavia, Automazione di Azure attualmente supporta solo i parametri di input sopra elencati.
 
@@ -94,7 +94,7 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
 
    | **Proprietà** | **Descrizione** |
    |:--- |:--- |
-   | `Name` |Obbligatoria. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
+   | `Name` |Richiesto. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
    | `Description` |facoltativo. Descrizione dello scopo del parametro di input. |
    | `Type` |facoltativo. Tipo di dati previsto per il valore del parametro. I tipi di parametro supportati sono **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se non è selezionato un tipo di dati, l'impostazione predefinita è **String**. |
    | `Mandatory` |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se si sceglie **Sì**, è necessario specificare un valore quando viene avviato il runbook. Se si sceglie **No**, non è necessario specificare un valore all'avvio del runbook ed è possibile impostare un valore predefinito. |
@@ -238,7 +238,7 @@ Nell'URI della richiesta sostituire i parametri seguenti:
 
 Per passare parametri al processo del runbook, usare il corpo della richiesta. Vengono usate le due proprietà seguenti, specificate in formato JSON:
 
-* **Nome del runbook:** Obbligatoria. Nome del runbook per il processo da avviare.  
+* **Nome del runbook:** Richiesto. Nome del runbook per il processo da avviare.  
 * **Parametri del runbook:** facoltativo. Dizionario dell'elenco dei parametri in formato (nome, valore) in cui il nome deve essere di tipo String e il valore può essere qualsiasi valore JSON valido.
 
 Per avviare il runbook **Get-AzureVMTextual** creato in precedenza con **VMName** e **resourceGroupName** come parametri, usare il formato JSON seguente per il corpo della richiesta.

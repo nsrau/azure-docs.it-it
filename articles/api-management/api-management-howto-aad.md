@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 10792c912e3028cd12eedb83b1b211bab20bc5a7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60529558"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -34,107 +34,51 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-1. Select ![freccia](./media/api-management-howto-aad/arrow.png).
-1. Nella casella di ricerca digitare **api**.
-1. Selezionare **Servizi Gestione API**.
-1. Selezionare l'istanza del servizio Gestione API in esecuzione.
-1. In **Sicurezza** selezionare **Identità**.
-
-1. Selezionare **+Aggiungi** nella parte superiore.
+2. Select ![freccia](./media/api-management-howto-aad/arrow.png).
+3. Nella casella di ricerca digitare **api**.
+4. Selezionare **Servizi Gestione API**.
+5. Selezionare l'istanza del servizio Gestione API in esecuzione.
+6. Sotto **sicurezza**, selezionare **identità**.
+7. Selezionare **+Aggiungi** nella parte superiore.
 
     Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**.
-1. In **Tipo di provider** selezionare **Azure Active Directory**.
+8. In **Tipo di provider** selezionare **Azure Active Directory**.
 
     Nel riquadro vengono visualizzati i controlli che consentono di immettere altre informazioni necessarie, tra cui **ID client** e **Segreto client**. Per altre informazioni su questi controlli, vedere più avanti in questo articolo.
-1. Prendere nota del contenuto del campo **URL di reindirizzamento**.
+9. Prendere nota del contenuto della **URL di reindirizzamento**.
     
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
-1. Nel browser aprire una scheda diversa. 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Select ![freccia](./media/api-management-howto-aad/arrow.png).
-1. Digitare **active**. Verrà visualizzato il riquadro **Azure Active Directory**.
-1. Selezionare **Azure Active Directory**.
-1. In **GESTISCI** selezionare **Registrazioni per l'app**.
-1. Selezionare **Registrazione nuova applicazione**.
-
-    ![Selezioni per la creazione di una nuova registrazione per l'app](./media/api-management-howto-aad/api-management-with-aad002.png)
-
-    Sulla destra verrà visualizzato il riquadro **Crea**. È qui che occorre immettere le informazioni rilevanti per l'app Azure AD.
-1. Immettere un nome per l'applicazione.
-1. Selezionare **App Web/API** per il tipo di applicazione.
-1. In URL accesso immettere l'URL di accesso del portale per sviluppatori. In questo esempio, l'URL di accesso è `https://apimwithaad.portal.azure-api.net/signin`.
-1. Selezionare **Crea** per creare l'applicazione.
-1. Per trovare l'app, selezionare **Registrazioni per l'app** ed eseguire una ricerca in base al nome.
-
-    ![Casella in cui cercare un'app](./media/api-management-howto-aad/find-your-app.png)
-1. Dopo aver registrato l'applicazione, passare a **URL di risposta** e accertarsi che **URL di reindirizzamento** sia impostato sul valore annotato al passaggio 9. 
-1. Se si vuole configurare l'applicazione (ad esempio, modificare l'**URL ID app**), selezionare **Proprietà**.
-
-    ![Apertura del riquadro "Proprietà"](./media/api-management-howto-aad/api-management-with-aad004.png)
-
-    Se per questa applicazione verranno usate più istanze di Azure AD, selezionare **Sì** per **Multi-tenant**. Il valore predefinito è **No**.
-1. Per impostare le autorizzazioni per l'applicazione, selezionare **Autorizzazioni necessarie**.
-1. Selezionare l'applicazione e quindi le caselle di controllo **Leggi i dati della directory** e **Accedi e leggi il profilo di un altro utente**.
-
-    ![Caselle di controllo per le autorizzazioni](./media/api-management-howto-aad/api-management-with-aad005.png)
-
-1. Selezionare **Concedere le autorizzazioni** dare il consenso delle autorizzazioni per l'applicazione.
-
-    Per altre informazioni sulle autorizzazioni per l'applicazione e le autorizzazioni delegate, vedere [Accesso all'API Graph][Accessing the Graph API].
+10. Nel browser aprire una scheda diversa. 
+11. Passare il [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'app in Active Directory.
+12. Sotto **Manage**, selezionare **registrazioni per l'App**.
+13. Selezionare **Nuova registrazione**. Nel **registrare un'applicazione** pagina, impostare i valori come indicato di seguito:
     
-1. Nel riquadro sinistro copiare il valore di **ID applicazione**.
+* Impostare **nome** a un nome significativo. e.g., *developer-portal*
+* Impostare **tipi di account supportati** al **gli account in questa directory dell'organizzazione solo**. 
+* Impostare **URI di reindirizzamento** sul valore annotato al passaggio 9. 
+* Scegli **registrare**. 
 
-    ![Valore di "ID applicazione"](./media/api-management-howto-aad/application-id.png)
-1. Passare all'applicazione Gestione API. 
-
-    Nella finestra **Aggiungi provider di identità** incollare il valore di **ID applicazione** nella casella **ID client**.
-1. Tornare alla configurazione di Azure AD e selezionare **Chiavi**.
-1. Creare una nuova chiave specificando un nome e una durata. 
-1. Selezionare **Salva**. La chiave viene generata.
-
-    Copiare la chiave negli Appunti.
-
-    ![Selezioni per la creazione di una chiave](./media/api-management-howto-aad/api-management-with-aad006.png)
-
-    > [!NOTE]
-    > Annotare il valore relativo alla chiave. Una volta chiuso il riquadro di configurazione di Azure AD, la chiave non potrà più essere visualizzata.
-    > 
-    > 
-
-1. Passare all'applicazione Gestione API. 
-
-    Nella finestra **Aggiungi provider di identità** incollare la chiave nella casella di testo **Segreto client**.
+14.  Dopo aver registrata l'applicazione, copiare il **ID applicazione (client)** dalle **Panoramica** pagina. 
+15. Tornare all'istanza di gestione API. Nel **Aggiungi provider di identità** finestra, incollare le **ID applicazione (client)** valore il **ID Client** casella.
+16. Tornare alla configurazione di Azure AD, selezionare **certificati e i segreti** sotto **Gestisci**. Selezionare il **nuovo segreto client** pulsante. Immettere un valore in **Description**, selezionare un'opzione per **Expires** e scegliere **Add**. Copiare il valore del segreto client prima di lasciare la pagina. Saranno necessari nel passaggio successivo. 
+17. Tornare all'istanza di gestione API, incollare la chiave privata nel **segreto Client** casella.
 
     > [!IMPORTANT]
     > Assicurarsi di aggiornare il **segreto client** prima della scadenza della chiave. 
     >  
     >
 
-1. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
+18. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
 
-    Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. A tale scopo, l'amministratore globale deve:
-    
-    a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
-    
-    b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
-    
-    c. Selezionare **Submit** (Invia). 
-    
-    Nell'esempio seguente, un amministratore globale di miaoaad.onmicrosoft.com tenta di concedere l'autorizzazione a questo portale per sviluppatori specifico. 
+> [!NOTE]
+> Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: una. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
+> b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
+> c. Selezionare **Submit** (Invia). 
 
-1. Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
-
-    ![Pulsante "Aggiungi" nel riquadro "Aggiungi provider di identità"](./media/api-management-howto-aad/api-management-with-aad007.png)
+19.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 
 Dopo aver salvato le modifiche, gli utenti nell'istanza di Azure AD specificata possono accedere al portale per sviluppatori seguendo i passaggi descritti in [Accedere al portale per sviluppatori con un account Azure AD](#log_in_to_dev_portal).
 
-![Immissione del nome di un tenant di Azure AD](./media/api-management-howto-aad/api-management-aad-consent.png)
-
-Nella schermata successiva viene chiesto all'amministratore globale di confermare l'autorizzazione. 
-
-![Conferma dell'assegnazione delle autorizzazioni](./media/api-management-howto-aad/api-management-permissions-form.png)
-
-Se un amministratore non globale cerca di accedere prima che un amministratore globale conceda le autorizzazioni, il tentativo di accesso non riesce e viene visualizzata una schermata di errore.
 
 ## <a name="add-an-external-azure-ad-group"></a>Aggiungere un gruppo di Azure AD esterno
 
@@ -145,10 +89,10 @@ Prima di configurare un gruppo esterno di Azure AD, è necessario configurare l'
 I gruppi esterni di Azure AD vengono aggiunti dalla scheda **Gruppi** dell'istanza di Gestione API.
 
 1. Selezionare la scheda **Gruppi** .
-1. Selezionare il pulsante **Aggiungi gruppo AAD**.
+2. Selezionare il pulsante **Aggiungi gruppo AAD**.
    ![Pulsante "Aggiungi gruppo AAD"](./media/api-management-howto-aad/api-management-with-aad008.png)
-1. Selezionare il gruppo che si vuole aggiungere.
-1. Scegliere il pulsante **Seleziona**.
+3. Selezionare il gruppo che si vuole aggiungere.
+4. Scegliere il pulsante **Seleziona**.
 
 Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e configurarne le proprietà. Nella scheda **Gruppi** selezionare il nome del gruppo. Da qui è possibile modificare le informazioni del gruppo nelle caselle **Nome** e **Descrizione**.
  

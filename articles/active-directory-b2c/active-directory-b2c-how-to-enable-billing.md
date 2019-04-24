@@ -11,11 +11,11 @@ ms.date: 01/24/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317913"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Collegare una sottoscrizione di Azure a un tenant di Azure Active Directory B2C
 

@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462589"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informazioni di riferimento su Project URL Preview v7
 
@@ -73,17 +73,17 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 ## <a name="query-parameters"></a>Parametri della query
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query. La query deve essere un URL assoluto con schema http o https; non sono supportati URL relativi o altri schemi, ad esempio ftp://
 
-|NOME|Valore|Type|Obbligatorio|
+|Name|Value|Type|Obbligatorio|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|string|Sì|
-|<a name="query" />q|URL per l'anteprima|string|Sì|
-|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|string|No |
-|<a name="safesearch"/>safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e il flag *isFamilyFriendly* non viene restituito. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |string|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.|
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|String|Sì|
+|<a name="query" />q|URL per l'anteprima|String|Sì|
+|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No |
+|<a name="safesearch"/>safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e il flag *isFamilyFriendly* non viene restituito. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |String|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.|
 
 ## <a name="response-objects"></a>Oggetti della risposta
 Lo schema di risposta è [WebPage] o ErrorResponse, come nell'API Ricerca Web. Se la richiesta ha esito negativo, l'oggetto di livello superiore è [ErrorResponse](#errorresponse).
 
-|Oggetto|DESCRIZIONE|
+|Object|DESCRIZIONE|
 |------------|-----------------|
 |[WebPage](#webpage)|Oggetto JSON di livello superiore che contiene gli attributi dell'anteprima.|
 
@@ -92,36 +92,36 @@ Definisce l'errore che si è verificato.
 
 |Elemento|DESCRIZIONE|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|string|
-|<a name="error-message" />message|Descrizione dell'errore.|string|
-|<a name="error-moredetails" />moreDetails|Descrizione che fornisce altre informazioni sull'errore.|string|
-|<a name="error-parameter" />parameter|Parametro di query nella richiesta che ha causato l'errore.|string|
-|<a name="error-subcode" />subCode|Codice di errore che identifica l'errore. Se ad esempio `code` è InvalidRequest, `subCode` potrebbe essere ParameterInvalid o ParameterInvalidValue. |string|
-|<a name="error-value" />value|Valore del parametro di query che non è valido.|string|
+|<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|String|
+|<a name="error-message" />message|Descrizione dell'errore.|String|
+|<a name="error-moredetails" />moreDetails|Descrizione che fornisce altre informazioni sull'errore.|String|
+|<a name="error-parameter" />parameter|Parametro di query nella richiesta che ha causato l'errore.|String|
+|<a name="error-subcode" />subCode|Codice di errore che identifica l'errore. Se ad esempio `code` è InvalidRequest, `subCode` potrebbe essere ParameterInvalid o ParameterInvalidValue. |String|
+|<a name="error-value" />value|Valore del parametro di query che non è valido.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.
 
-|NOME|Valore|Type|
+|Name|Value|Type|
 |----------|-----------|----------|
-|_type|Hint per il tipo.|string|
+|_type|Hint per il tipo.|String|
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error](#error)[]|
 
 ### <a name="webpage"></a>WebPage
 Definisce le informazioni su una pagina Web in anteprima.
 
-|NOME|Valore|Type|
+|Name|Value|Type|
 |----------|-----------|----------|
-|name|Titolo della pagina, non necessariamente il titolo HTML|string|
-|URL|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|string|
-|description|Breve descrizione della pagina e del contenuto|string|
+|name|Titolo della pagina, non necessariamente il titolo HTML|String|
+|url|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|String|
+|description|Breve descrizione della pagina e del contenuto|String|
 |isFamilyFriendly|Più preciso per gli elementi nell'indice Web; i recuperi in tempo reale eseguono questo rilevamento esclusivamente in base all'URL e non al contenuto della pagina|boolean|
-|primaryImageOfPage/contentUrl|URL di un'immagine rappresentativa da includere nell'anteprima|string|
+|primaryImageOfPage/contentUrl|URL di un'immagine rappresentativa da includere nell'anteprima|String|
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valore|Type|
+|Name|Value|Type|
 |-------------|-----------------|----------|
-|id|Identificatore di risorsa|string|
+|id|Identificatore di risorsa|String|
 
 ## <a name="error-codes"></a>Codici di errore
 

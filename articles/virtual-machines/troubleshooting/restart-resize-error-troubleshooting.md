@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306977"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
@@ -32,7 +32,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 [Visualizzare i log attività per gestire le risorse di Azure](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una VM arrestata
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una macchina virtuale arrestata
 Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazione.
 
 ### <a name="cause"></a>Causa
@@ -45,7 +45,7 @@ La richiesta di avvio della VM arrestata deve essere eseguita nel cluster origin
   2. Dopo l'arresto di tutte le VM, selezionare le VM arrestate e fare clic su Avvia.
 * Ripetere la richiesta di riavvio in un secondo momento.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Errore durante il ridimensionamento di una VM esistente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Errore durante il ridimensionamento di una macchina virtuale esistente
 Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
 
 ### <a name="cause"></a>Causa

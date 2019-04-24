@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203323"
 ---
-# <a name="categorize-images"></a>Categorizzare le immagini
+# <a name="categorize-images-by-subject-matter"></a>Classificare le immagini in base alla materia
 
 Oltre ai tag e a una descrizione, Visione artificiale restituisce le categorie basate su tassonomia rilevate in un'immagine. A differenza dei tag, le categorie sono organizzate in una gerarchia ereditaria padre/figlio e ne è disponibile un numero inferiore (86, rispetto alle migliaia di tag). Tutti i nomi di categoria sono in inglese. La categorizzazione può essere eseguita da sola o insieme al più recente modello basato sui tag.
 
@@ -53,7 +53,7 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 La tabella seguente illustra una serie di immagini tipiche e la categoria restituita da Visione artificiale per ogni immagine.
 
-| Image | Categoria |
+| Image | Category |
 |-------|----------|
 | ![Quattro persone che posano insieme come una famiglia](./Images/family_photo.png) | people_group |
 | ![Cucciolo seduto in un prato](./Images/cute_dog.png) | animal_dog |

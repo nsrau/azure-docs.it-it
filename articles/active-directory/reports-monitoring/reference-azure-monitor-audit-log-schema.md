@@ -1,6 +1,6 @@
 ---
-title: Interpretare lo schema del log di controllo di Azure Active Directory in Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Descrizione dello schema del log di controllo di Azure AD per l'uso in Monitoraggio di Azure (anteprima)
+title: Interpretare lo schema di log di controllo di Azure Active Directory in Monitoraggio di Azure | Microsoft Docs
+description: Descrivere lo schema di log di controllo di Azure AD per l'uso in Monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437074"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
 

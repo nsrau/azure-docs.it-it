@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532357"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure
 Se si usa SQL Server Integration Services (SSIS) e si desidera eseguire la migrazione di progetti/pacchetti SSIS dal database SSISDB di origine ospitato da SQL Server al database SSISDB di destinazione ospitato dal server del database SQL di Azure o dall'istanza gestita di database SQL di Azure, è possibile ridistribuirli tramite la procedura guidata di distribuzione di Integration Services. È possibile avviare la procedura guidata all'interno di SQL Server Management Studio (SSMS).

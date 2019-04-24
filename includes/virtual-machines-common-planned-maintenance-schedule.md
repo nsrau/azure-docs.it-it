@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232789"
 ---
 ## <a name="multi-and-single-instance-vms"></a>VM a istanza singola e a istanza multipla
 Molti clienti che usano Azure segnalano come essenziale la possibilità di pianificare la manutenzione delle macchine virtuali, a causa del tempo di inattività di circa 15 minuti che si verifica durante la manutenzione. Per controllare il momento in cui le VM vengono sottoposte a manutenzione pianificata è possibile usare il set di disponibilità.

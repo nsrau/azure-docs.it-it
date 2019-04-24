@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 879f5939f110fb841ad160bf09f597edcdd86d31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502197"
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introduzione alla macchina virtuale per l'apprendimento avanzato - Azure
 
@@ -31,7 +31,7 @@ Gli algoritmi di apprendimento avanzato e le reti neurali profonde compaiono sem
 ## <a name="what-is-deep-learning-virtual-machine"></a>Cos'è la macchina virtuale per l'apprendimento avanzato? 
 La macchina virtuale per l'apprendimento avanzato è una variante configurata in modo particolare della [macchina virtuale per data science](overview.md) (DSVM) che semplifica l'utilizzo delle istanze di VM basate su GPU per l'addestramento dei modelli di apprendimento avanzato. È supportata in Windows 2016 e nella macchina virtuale per data science Ubuntu.  Condivide le stesse immagini di VM di base (e pertanto tutto il ricco set di strumenti) della DSVM ma è configurata in modo da semplificare l'apprendimento avanzato. Sono forniti anche esempi end-to-end per la comprensione di immagini e testo, che sono ampiamente applicabili a molti scenari AI reali. La macchina virtuale per l'apprendimento avanzato tenta inoltre di facilitare l'individuazione della vasta gamma di strumenti ed esempi della DSVM presentando un catalogo degli strumenti ed esempi nella macchina virtuale. In termini di strumenti, la macchina virtuale per l'apprendimento avanzato fornisce numerosi framework di apprendimento diffusi, strumenti per acquisire e pre-elaborare immagini e dati di testo. Per un elenco completo degli strumenti, vedere la [pagina della panoramica relativa alla macchina virtuale per data science](overview.md#whats-included-in-the-data-science-vm). 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per iniziare con la macchina virtuale per l'apprendimento avanzato, eseguire i passaggi seguenti:
 

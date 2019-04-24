@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292086"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta in Azure Active Directory
 

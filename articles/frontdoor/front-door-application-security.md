@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193918"
 ---
 # <a name="application-layer-security-with-front-door"></a>Sicurezza del livello dell'applicazione con Frontdoor
 Il servizio Frontdoor di Azure offre funzionalità di protezione per le applicazioni Web per proteggere questo tipo di applicazioni da attacchi di rete ed exploit di vulnerabilità Web comuni come SQL injection o Cross Site Scripting (XSS). Abilitata per i front-end HTTP(S), la sicurezza del livello dell'applicazione di Frontdoor viene distribuita a livello globale ed è sempre attiva, permettendo così di bloccare gli attacchi dannosi alla periferia della rete di Azure, molto lontano dai back-end. Grazie a una maggiore sicurezza e all'ottimizzazione delle prestazioni, Frontdoor offre esperienze Web veloci e sicure agli utenti finali.

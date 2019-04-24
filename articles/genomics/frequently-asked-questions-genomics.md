@@ -1,5 +1,5 @@
 ---
-title: 'Genomica di Microsoft: Domande comuni - Domande frequenti| Microsoft Docs'
+title: 'Microsoft Genomics: Domande frequenti - domande frequenti | Microsoft Docs'
 titleSuffix: Azure
 description: Risposte alle domande comuni poste ai clienti su Genomica di Microsoft.
 services: genomics
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445550"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Domande frequenti
 
 Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md). Per altre informazioni sulla risoluzione dei problemi, vedere [Guida per la risoluzione dei problemi](troubleshooting-guide-genomics.md). 
 
@@ -73,7 +73,8 @@ La chiave dell'account di archiviazione viene utilizzata per creare token di acc
 ## <a name="what-genome-references-can-i-use"></a>Quali rierimenti del genoma è possibile usare?
 
 Sono supportati questi riferimenti:
- |riferimento              | Valore di `-pa/--process-args` |
+
+ |Riferimenti              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -84,19 +85,19 @@ Sono supportati questi riferimenti:
 
 msgen riconosce i file di configurazione nel formato seguente:
 * Tutte le opzioni vengono fornite come coppie chiave-valore con i valori separati dalle chiavi da una virgola.
-Lo spazio vuoto viene ignorato.
+  Lo spazio vuoto viene ignorato.
 * Le righe che iniziano con `#` sono ignorate.
 * Qualsiasi argomento della riga di comando nel formato lungo può essere convertito in una chiave eliminando i trattini iniziali e sostituendo i trattini tra le parole con caratteri di sottolineatura. Di seguito sono riportati alcuni esempi di conversione:
 
- |Argomento della riga di comando            | Riga del file di configurazione |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Argomento della riga di comando            | Riga del file di configurazione |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Usare le risorse seguenti per iniziare a usare Genomica di Microsoft:
-- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft ](quickstart-run-genomics-workflow-portal.md)
+- Iniziare eseguendo il primo flusso di lavoro tramite il servizio Genomica di Microsoft. [Eseguire un flusso di lavoro tramite il servizio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Inviare i dati per l'elaborazione tramite il servizio Genomica di Microsoft: [File di FASTQ abbinati](quickstart-input-pair-FASTQ.md) | [File di Monitoraggio attività di business](quickstart-input-BAM.md) | [Più file di FASTQ o Monitoraggio attività di business](quickstart-input-multiple.md) 
 

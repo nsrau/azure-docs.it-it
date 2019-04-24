@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6778df746a64f944b51570f8774c0e84c7d88658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417486"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione dell'hash delle password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione dell'hash delle password, necessaria per l'autenticazione NTLM (NT LAN Manager) e Kerberos ad Azure AD Domain Services. Al termine della configurazione della sincronizzazione dell'hash delle password, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -28,6 +28,7 @@ Nelle attività precedenti è stato abilitato Azure Active Directory Domain Serv
 La procedura da eseguire è diversa per gli account utente solo cloud rispetto agli account utente sincronizzati dalla directory locale tramite Azure AD Connect. 
 
 <br>
+
 | **Tipo di account utente** | **Passaggi da eseguire** |
 | --- |---|
 | **Account utente cloud creati in Azure AD** |**&#x2713;** [Seguire le istruzioni in questo articolo](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |

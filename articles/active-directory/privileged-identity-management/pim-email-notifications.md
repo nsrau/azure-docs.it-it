@@ -17,11 +17,11 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60289192"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
@@ -34,7 +34,7 @@ I messaggi di posta elettronica inviati da PIM per i ruoli di Azure e Azure AD h
 - Indirizzo di posta elettronica: **azure-noreply\@microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Di seguito è riportato un esempio:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
 
 - PIM: Ad Alain Charon è stato assegnato in modo permanente il ruolo Lettore di backup
 
@@ -50,9 +50,9 @@ I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD va
 
 | Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
 | --- | --- | --- | --- |
-| Amministratore del ruolo con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
-| Amministratore della sicurezza</br>(Attivato/Idoneo) | N. | Sì* | Sì |
-| Amministratore globale</br>(Attivato/Idoneo) | N. | Sì* | Sì |
+| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
+| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Sì |
+| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Sì |
 
 \* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
 

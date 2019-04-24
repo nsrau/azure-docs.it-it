@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498781"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351950"
 
 -----
 
-**Domanda:** *Quali lingue sono supportate con Visione artificiale?*
-
-**Risposta:** Le lingue supportate comprendono:
-
-| | | Lingue supportate | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danese (da-DK)  | Olandese (nl-NL)     | Inglese           | Finlandese (fi-FI)            |Francese (fr-FR)
-| Tedesco (de-DE)  | Greco (el-GR)     | Ungherese (hu-HU) | Italiano (it-IT)            | Giapponese (ja-JP)
-| Coreano (ko-KR)  | Norvegese (nb-NO) | Polacco (pl-PL)    | Portoghese (pt-BR) (pt-PT) | Russo (ru-RU)
-| Spagnolo (es-ES)   | Svedese (sv-SV)     | Turco (tr-TR)   |                            |
-
------
-
 **Domanda:** *È possibile usare Visione artificiale per leggere targhe?*
 
 **Risposta:** L'API Visione artificiale offre un buon livello di rilevamento del testo con OCR, ma non è attualmente ottimizzata per le targhe. Microsoft si impegna a migliorare costantemente i servizi e il riconoscimento OCR delle targhe automobilistiche è stato aggiunto all'elenco delle richieste di funzionalità.
-
------
-
-**Domanda:** *Quali lingue sono supportate per il riconoscimento della grafia?*
-
-**Risposta:** Attualmente è supportata solo la lingua inglese.
 
 -----
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302500"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -59,7 +59,7 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Errori di processo quando la macchina virtuale viene sospesa nell'hypervisor
 Se nell'array virtuale StorSimple è in corso un processo e il dispositivo (macchina virtuale con provisioning in hypervisor) viene sospeso per più di 15 minuti, il processo ha esito negativo. Ciò è dovuto al fatto che l'ora dell'array virtuale StorSimple non è più sincronizzata con l'ora di Microsoft Azure. 
 
-Verrà visualizzato un errore indicante che l'ora del dispositivo non è sincronizzata con l'ora di Microsoft Azure per un valore superiore a 15 minuti. Verificare che l'hypervisor e l'ora dei dispositivi siano sincronizzati con un server NTP. Assicurarsi che non vi siano problemi di connettività. Per risolvere i problemi di connettività, eseguire i test diagnostici dall'interfaccia utente Web locale del dispositivo virtuale.
+Verrà visualizzato l'errore seguente: "L'ora del dispositivo è sincronizzato con l'ora di Microsoft Azure da più di 15 minuti. Verificare che l'hypervisor e l'ora dei dispositivi siano sincronizzati con un server NTP. Assicurarsi che non vi siano problemi di connettività. Per risolvere i problemi di connettività, eseguire i test diagnostici dall'interfaccia utente Web locale del dispositivo virtuale.
 
 Questi errori possono verificarsi con processi di backup, ripristino, aggiornamento e failover. Se il provisioning della macchina virtuale viene eseguito in Hyper-V, l'ora della macchina virtuale alla fine si sincronizza con l'hypervisor. Quando ciò accade, è possibile riavviare il processo.
 

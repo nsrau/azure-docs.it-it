@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237998"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Log di diagnostica Azure Stream all'area di lavoro di Log Analitica in Monitoraggio di Azure
 
@@ -124,7 +124,7 @@ Azure Data Factory, a causa di un set molto dettagliato dei log, è una risorsa 
 - *Parametri dell'utente definiti nei confronti di qualsiasi attività nella pipeline*: esisterà una nuova colonna per ogni parametro denominato in modo univoco utenti su qualsiasi attività creata. 
 - *Attività input e output*: queste variano in un'attività a altra e generare una grande quantità di colonne loro natura dettagliato. 
  
-Come con le proposte di soluzione più ampia riportato di seguito, si consiglia di isolare i log di Azure Data Factory nella propria area di lavoro per ridurre al minimo le probabilità di questi log alcun impatto sugli altri tipi di log vengono raccolti in aree di lavoro. Si prevede di avere a cura di log per Azure Data Factory disponibili mid-aprile 2019.
+Come con le proposte di soluzione più ampia riportato di seguito, si consiglia di isolare i log di Azure Data Factory nella propria area di lavoro per ridurre al minimo le probabilità di questi log alcun impatto sugli altri tipi di log vengono raccolti in aree di lavoro. Si prevede di avere curata i log per Azure Data Factory è disponibile a breve.
  
 #### <a name="workarounds"></a>Soluzioni alternative
 A breve termine, fino a quando non viene ridefinito il limite di 500 colonne, è consigliabile separare i tipi di dati dettagliati in aree di lavoro separate per ridurre la possibilità di raggiungere il limite.

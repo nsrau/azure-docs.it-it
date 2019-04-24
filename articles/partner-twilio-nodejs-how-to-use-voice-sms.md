@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
 ms.openlocfilehash: d9f419c48f64ba697e031dfc680bc9cb12bba5c4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422913"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Uso di Twilio per le funzionalità voce, VoIP e SMS in Azure
 In questa guida viene illustrato come sviluppare app che comunicano con Twilio e Node.js in Azure.
@@ -234,7 +234,7 @@ Ridistribuire l'applicazione in Azure. Dovrebbe essere possibile inviare il modu
 
 <a id="nextsteps"/>
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 In questa esercitazione si sono apprese le nozioni di base sull'utilizzo di Node.js e Twilio per creare applicazioni di comunicazione. Questi esempi, tuttavia, offrono solo un'idea delle possibilità offerte da Twilio e Node.js. Per altre informazioni sull'uso di Twilio con Node.js, vedere le risorse seguenti:
 
 * [Documentazione ufficiale del modulo][docs]

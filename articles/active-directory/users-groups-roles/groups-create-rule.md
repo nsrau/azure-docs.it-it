@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472143"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
@@ -48,9 +48,9 @@ Per esempi di sintassi, le proprietà supportate, operatori e valori per una reg
 
 Se la regola che è stato immesso non è valida, una spiegazione del motivo per cui non può essere elaborata la regola viene visualizzata nell'angolo superiore destro del portale. Leggerla attentamente per capire come correggere la regola.
 
-## <a name="turn-on-or-off-welcome-email"></a>Attivare o disattivare il messaggio di benvenuto
+## <a name="turn-on-or-off-welcome-email"></a>Attivare o disattivare il messaggio di posta elettronica di benvenuto
 
-Quando viene creato un nuovo gruppo di Office 365, è possibile che gli utenti che vengono aggiunti al gruppo viene inviata una notifica di benvenuto. In un secondo momento, se gli attributi di un utente o un dispositivo cambiano, tutte le regole di gruppo dinamico all'interno dell'organizzazione verranno elaborate modifiche dell'appartenenza. Utenti aggiunti ricevono quindi anche la notifica iniziale. È possibile disattivare questo comportamento nel [PowerShell per Exchange](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando viene creato un nuovo gruppo di Office 365, è possibile che gli utenti che vengono aggiunti al gruppo viene inviata una notifica di benvenuto. In un secondo momento, se gli attributi di un utente o un dispositivo cambiano, tutte le regole di gruppo dinamico all'interno dell'organizzazione verranno elaborate modifiche dell'appartenenza. Anche gli utenti aggiunti ricevono la notifica di benvenuto. È possibile disattivare questo comportamento nel [PowerShell per Exchange](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="check-processing-status-for-a-rule"></a>Controllare lo stato di elaborazione per una regola
 
