@@ -16,11 +16,11 @@ ms.date: 06/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a556b38ca4947b71555ba7b023607b392900bdaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60429522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Esercitazione: Integrazione di Azure Active Directory con The Cloud Security Fabric
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     
     | |
     |--|

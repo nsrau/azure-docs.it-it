@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442590"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione di Proxy applicazione Azure AD
 
@@ -158,7 +158,7 @@ I seguenti elementi di progettazione è necessario aumentare il successo del pro
 3. Quindi aggiungere il metodo di accesso SSO per l'applicazione ed eseguire nuovamente il test per convalidare l'accesso.
 4. Applicare l'accesso condizionale e i criteri di autenticazione a più fattori come richiesto. Testare e convalidare l'accesso.
 
-**Risoluzione dei problemi degli strumenti**: Per risolvere il problema, sempre per iniziare, convalidare l'accesso all'applicazione pubblicata dal browser nell'host del connettore e verificare che l'applicazione funzioni come previsto. Quanto più semplice il programma di installazione, facile per determinare la causa radice, quindi, prendere in considerazione durante il tentativo di riprodurre i problemi con una configurazione minima, ad esempio usando solo un singolo connettore e SSO non è. In alcuni casi, può rivelarsi indispensabile risolvere i problemi di accesso o il contenuto in applicazioni a cui accede tramite un proxy web, ad esempio Fiddler di Telerik strumenti di debug. Fiddler può anche agire come proxy per consentire di traccia ed eseguire il debug del traffico per le piattaforme per dispositivi mobili come iOS e Android e praticamente qualsiasi cosa che può essere configurato per route tramite un proxy. Vedere le [Guida alla risoluzione dei](/application-proxy-troubleshoot.md) per altre informazioni.
+**Risoluzione dei problemi degli strumenti**: Per risolvere il problema, sempre per iniziare, convalidare l'accesso all'applicazione pubblicata dal browser nell'host del connettore e verificare che l'applicazione funzioni come previsto. Quanto più semplice il programma di installazione, facile per determinare la causa radice, quindi, prendere in considerazione durante il tentativo di riprodurre i problemi con una configurazione minima, ad esempio usando solo un singolo connettore e SSO non è. In alcuni casi, può rivelarsi indispensabile risolvere i problemi di accesso o il contenuto in applicazioni a cui accede tramite un proxy web, ad esempio Fiddler di Telerik strumenti di debug. Fiddler può anche agire come proxy per consentire di traccia ed eseguire il debug del traffico per le piattaforme per dispositivi mobili come iOS e Android e praticamente qualsiasi cosa che può essere configurato per route tramite un proxy. Vedere le [Guida alla risoluzione dei](application-proxy-troubleshoot.md) per altre informazioni.
 
 ## <a name="implement-your-solution"></a>Implementare una soluzione
 

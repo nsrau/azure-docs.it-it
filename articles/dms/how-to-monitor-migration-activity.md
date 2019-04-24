@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532749"
 ---
 # <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
@@ -67,7 +67,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Migrazione completata.</td>
     </tr>
     <tr>
-      <td>Operazione non riuscita</td>
+      <td>Failed</td>
       <td>Migrazione non riuscita. Fare clic sui dettagli della migrazione per visualizzare gli errori di migrazione.</td>
     </tr>
     <tr>

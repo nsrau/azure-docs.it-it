@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497222"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori 
 Con Monitoraggio di Azure per i contenitori è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster del servizio Azure Kubernetes (AKS) da due prospettive, direttamente da un cluster AKS o visualizzando tutti i cluster AKS in una sottoscrizione da Monitoraggio di Azure. Quando si monitora uno specifico cluster AKS è anche possibile visualizzare Istanze di Azure Container (ACI).
@@ -40,8 +40,9 @@ Per visualizzare lo stato di integrità di tutti i cluster di servizio Azure Kub
 Dalla scheda **Cluster monitorati** si apprende quanto segue:
 
 1. Quanti cluster si trovano in uno stato critico o non integro e quanti sono integri o non inviano dati (ossia si trovano in uno stato sconosciuto)?
-1. Le distribuzioni del [motore del servizio Azure Kubernetes (AKS-engine)](https://github.com/Azure/aks-engine) sono tutte integre?
-1. Quanti nodi o pod di sistema e utente sono distribuiti per ogni cluster?  
+2. Le distribuzioni del [motore del servizio Azure Kubernetes (AKS-engine)](https://github.com/Azure/aks-engine) sono tutte integre?
+3. Il numero di nodi, utente e i POD system vengono distribuiti per ogni cluster?
+4. Quanto spazio su disco disponibile ed è presente un problema di capacità?
 
 Gli stati di integrità inclusi sono: 
 
@@ -55,7 +56,7 @@ Gli stati di integrità inclusi sono:
 * **Configurazione non valida**: Monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
 * **Dati non disponibili**: dati non inviati all'area di lavoro negli ultimi 30 minuti.
 
-Lo stato di integrità calcola lo stato complessivo del cluster come il *peggiore* dei tre stati con un'unica eccezione: se uno dei tre stati è *sconosciuto*, lo stato complessivo del cluster è indicato come **Sconosciuto**.  
+Lo stato di integrità viene calcolato lo stato complessivo del cluster come *nel caso peggiore* i tre stati con un'unica eccezione: se uno qualsiasi dei tre stati *sconosciuto*, mostrerà lo stato complessivo di cluster **Unknown**.  
 
 La tabella seguente fornisce i dettagli del calcolo controllando gli stati di integrità per un cluster monitorato nella vista multicluster.
 
@@ -131,9 +132,9 @@ Quando si passa alle schede **Nodi**, **Controller** e **Contenitori**, sul lato
 
 ![Riquadro delle proprietà di esempio delle prospettive Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Quando si espandono gli oggetti nella gerarchia, il riquadro delle proprietà viene aggiornato in base all'oggetto selezionato. Dal riquadro è anche possibile visualizzare gli eventi Kubernetes con ricerche nei log predefinite facendo clic sul collegamento **Visualizza log eventi di Kubernetes** nella parte superiore del riquadro. Per altre informazioni sulla visualizzazione dei dati dei log di Kubernetes, vedere [Eseguire ricerche nei log per analizzare i dati](#search-logs-to-analyze-data). Mentre si esaminano i contenitori nella visualizzazione **Contenitori**, è possibile vedere i log dei contenitori in tempo reale. Per altre informazioni su questa funzionalità e sulla configurazione necessaria per concedere e controllare l'accesso, vedere [Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (Anteprima)](container-insights-live-logs.md). 
+Quando si espandono gli oggetti nella gerarchia, il riquadro delle proprietà viene aggiornato in base all'oggetto selezionato. Dal riquadro è anche possibile visualizzare gli eventi Kubernetes con ricerche nei log predefinite facendo clic sul collegamento **Visualizza log eventi di Kubernetes** nella parte superiore del riquadro. Per altre informazioni sulla visualizzazione dei dati dei log di Kubernetes, vedere [Eseguire ricerche nei log per analizzare i dati](container-insights-log-search.md). Mentre si esaminano i contenitori nella visualizzazione **Contenitori**, è possibile vedere i log dei contenitori in tempo reale. Per altre informazioni su questa funzionalità e sulla configurazione necessaria per concedere e controllare l'accesso, vedere [Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (Anteprima)](container-insights-live-logs.md). 
 
-Usare l'opzione **+ Aggiungi filtro** nella parte superiore della pagina per filtrare i risultati per la visualizzazione in base a **Servizio**, **Nodo** o **Spazio dei nomi** e, dopo aver selezionato l'ambito, selezionare uno dei valori indicati nel campo **Seleziona valore/i**.  Dopo la configurazione, il filtro viene applicato a livello globale durante la visualizzazione di qualsiasi prospettiva del cluster AKS.  La formula supporta solo il segno di uguale.  È possibile aggiungere altri filtri sopra il primo per limitare ulteriormente i risultati.  Ad esempio, se si specificato un filtro in base a **Nodo**, il secondo filtro consente di selezionare solo **Servizio** oppure **Spazio dei nomi**.  
+Usare la **+ Aggiungi filtro** opzione nella parte superiore della pagina per filtrare i risultati per la visualizzazione dal **Service**, **nodo**, **Namespace**, o  **Pool di nodi** dopo aver selezionato l'ambito di filtro, quindi selezionare uno dei valori indicati nella **Seleziona valore/i** campo.  Dopo la configurazione, il filtro viene applicato a livello globale durante la visualizzazione di qualsiasi prospettiva del cluster AKS.  La formula supporta solo il segno di uguale.  È possibile aggiungere altri filtri sopra il primo per limitare ulteriormente i risultati.  Ad esempio, se si specificato un filtro in base a **Nodo**, il secondo filtro consente di selezionare solo **Servizio** oppure **Spazio dei nomi**.  
 
 ![Esempio di utilizzo del filtro per limitare i risultati](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -172,7 +173,7 @@ Le informazioni presentate quando si visualizzano i nodi sono descritte nella ta
 
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
-| NOME | Nome dell'host. |
+| Name | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°) | Valore effettivo dei nodi medio durante l'intervallo di tempo selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
@@ -201,7 +202,7 @@ Le informazioni presentate quando si visualizzano i controller sono descritte ne
 
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
-| NOME | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato di rollup quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della media della percentuale media di ogni entità per la metrica selezionata e percentile. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -238,7 +239,7 @@ Le informazioni presentate quando si visualizzano i contenitori sono descritte n
 
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
-| NOME | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -258,49 +259,6 @@ Le icone nel campo relativo allo stato indicano lo stato online dei pod, come de
 | ![Icona di stato Terminato](./media/container-insights-analyze/containers-terminated-icon.png) | Arresto completato o arresto non riuscito|  
 | ![Icona di stato Non riuscito](./media/container-insights-analyze/containers-failed-icon.png) | Stato Non riuscito |  
 
-
-## <a name="container-data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati dei contenitori
-Informazioni dettagliate dei contenitori raccoglie le varie metriche delle prestazioni e i vari dati di log da host del contenitore e contenitori. I dati vengono raccolti ogni tre minuti.
-
-### <a name="container-records"></a>Record dei contenitori
-
-La tabella seguente mostra esempi di record raccolti da Monitoraggio di Azure per contenitori e i tipi di dati visualizzati nei risultati della ricerca nei log:
-
-| Tipo di dati | Tipo di dati in Ricerca log | Campi |
-| --- | --- | --- |
-| Prestazioni per host e contenitori | `Perf` | Computer, ObjectName, CounterName &#40;% tempo processore, MB di letture disco, MB di scritture disco MB utilizzo di memoria, byte di ricezione di rete, byte di invio di rete, utilizzo del processore in secondi, rete&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Inventario delle immagini dei contenitori | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Log contenitori | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Log servizio contenitori | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Inventario di nodi contenitore | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Processo contenitore | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventario dei pod in un cluster Kubernetes | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
-| Inventario dei nodi di un cluster Kubernetes | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Eventi di Kubernetes | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
-| Servizi nel cluster Kubernetes | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Metriche delle prestazioni per la parte dei nodi del cluster Kubernetes | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Metriche delle prestazioni per la parte dei contenitori del cluster Kubernetes | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-
-## <a name="search-logs-to-analyze-data"></a>Eseguire ricerche nei log per analizzare i dati
-Log Analytics consente di individuare tendenze, diagnosticare i colli di bottiglia, effettuare previsioni o correlare dati che consentono di determinare se la configurazione corrente del cluster è ottimale. Sono disponibili ricerche predefinite nei log che è possibile iniziare a usare immediatamente o personalizzare per restituire le informazioni nel modo che si preferisce. 
-
-È possibile eseguire un'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **View Kubernetes event logs** (Visualizza registri eventi Kubernetes) o **View container logs** (Visualizza log contenitore) nel riquadro di anteprima. La pagina **Ricerca log** viene visualizzata sulla destra della pagina attiva del portale di Azure.
-
-![Analizzare i dati in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-L'output dei log dei contenitori inoltrato a Log Analytics è costituito da STDOUT e STDERR. Poiché Monitoraggio di Azure monitora il servizio Kubernetes gestito da Azure, i dati di Kube-system non vengono attualmente raccolti a causa della grande quantità di dati generati. 
-
-### <a name="example-log-search-queries"></a>Esempio di query di ricerca log
-Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:
-
-| Query | DESCRIZIONE | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Elencare tutte le informazioni sul ciclo di vita di un contenitore| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventi di Kubernetes|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Inventario delle immagini | 
-| **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
-| **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
-
 ## <a name="next-steps"></a>Passaggi successivi
-Monitoraggio di Azure per i contenitori non include un set predefinito di avvisi che è possibile copiare e modificare in base ai processi e alle procedure di supporto. Rivedere [Creare avvisi sulle prestazioni con Monitoraggio di Azure per i contenitori](container-insights-alerts.md) per imparare a creare gli avvisi consigliati per un utilizzo elevato di CPU e memoria.  
+- Rivedere le [creare avvisi sulle prestazioni con monitoraggio di Azure per contenitori](container-insights-alerts.md) per imparare a creare avvisi per un utilizzo elevato della CPU e memoria supportare le procedure e processi operativi o DevOps. 
+- Vista [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query predefinito ed esempi per valutare o personalizzare per gli avvisi, la visualizzazione o l'analisi dei cluster.

@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418283"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
+| Value | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
 | Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
 
 ### <a name="example"></a>Esempio

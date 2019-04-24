@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519080"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparare e caricare immagini nell'applicazione Azure IoT Central
 
@@ -56,7 +56,7 @@ In tutte le quattro posizioni è possibile usare immagini PNG, GIF o JPEG.
 
 La tabella seguente riepiloga le dimensioni di immagine ammesse:
 
-| Località | Dimensioni |
+| Location | Dimensioni |
 | -------- | ------ |
 | Application Manager | 268 x 160 px |
 | Modello di dispositivo | 64 x 64 px |

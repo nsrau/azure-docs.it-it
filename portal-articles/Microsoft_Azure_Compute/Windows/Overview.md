@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61234654"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
 
@@ -46,9 +46,7 @@ Informazioni su come distribuire, gestire e monitorare le macchine virtuali Wind
 
 ## <a name="free-pluralsight-video-training"></a>Video di formazione gratuiti su PluralSight
 
-- [Gestione dell'infrastruttura](https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Introduzione alle macchine virtuali](https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Introduzione al monitoraggio IaaS](https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02")
+- [Amministratore di Azure](https://go.microsoft.com/fwlink/?linkid=2012827)
 
 ## <a name="samples"></a>Esempi
 

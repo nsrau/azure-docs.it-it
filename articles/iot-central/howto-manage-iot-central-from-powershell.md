@@ -9,11 +9,11 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533272"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gestire IoT Central da Azure PowerShell
 
@@ -66,8 +66,8 @@ Lo script crea prima un gruppo di risorse nell'area Stati Uniti orientali per l'
 |Parametro         |Description |
 |------------------|------------|
 |ResourceGroupName |Gruppo di risorse che contiene l'applicazione. Questo gruppo di risorse deve già esistere nella sottoscrizione. |
-|Località |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale** ed **Europa occidentale**. |
-|NOME              |Nome dell'applicazione nel portale di Azure. |
+|Location |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale** ed **Europa occidentale**. |
+|Name              |Nome dell'applicazione nel portale di Azure. |
 |Sottodominio         |Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
 |Sku               |L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modello          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |

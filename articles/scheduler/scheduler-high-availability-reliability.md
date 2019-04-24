@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533384"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Livelli elevati di disponibilità e affidabilità per l'Utilità di pianificazione di Azure
 
@@ -50,7 +50,7 @@ L'Utilità di pianificazione di Azure garantisce la propria disponibilità eleva
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Criteri di ripetizione
+### <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
 
 L'Utilità di pianificazione di Azure consente di configurare criteri di ripetizione. Se un processo non riesce, per impostazione predefinita l'Utilità di pianificazione tenta di eseguire nuovamente il processo quattro volte, a intervalli di 30 secondi. È possibile impostare questi criteri di ripetizione in modo che siano più aggressivi (ad esempio, dieci volte a intervalli di 30 secondi) o meno aggressivi (ad esempio, due volte a distanza di un giorno l’una dall'altra).
 
@@ -72,7 +72,7 @@ Per informazioni su come configurare un endpoint alternativo, vedere [errorActio
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Informazioni sull'Utilità di pianificazione di Azure](scheduler-intro.md)
+* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)
 * [Creare pianificazioni complesse e ricorrenze avanzate](scheduler-advanced-complexity.md)
-* [Limiti, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)
+* [Limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)

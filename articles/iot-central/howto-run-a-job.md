@@ -9,11 +9,11 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519361"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione Azure IoT Central
 
@@ -75,7 +75,7 @@ Dopo aver creato un processo, il **stato** degli aggiornamenti delle colonne con
 | Messaggio di stato       | Significato dello stato                                          |
 | -------------------- | ------------------------------------------------------- |
 | Completi            | Questo processo è stato eseguito in tutti i dispositivi.              |
-| Operazione non riuscita               | Questo processo è non riuscito e non è stato completamente eseguito sui dispositivi.  |
+| Failed               | Questo processo è non riuscito e non è stato completamente eseguito sui dispositivi.  |
 | In sospeso              | Questo processo non è ancora iniziato l'esecuzione nei dispositivi.         |
 | In esecuzione              | Questo processo è attualmente in esecuzione sui dispositivi.             |
 | Arrestato              | Questo processo è stato arrestato manualmente da un utente.           |
@@ -85,7 +85,7 @@ Il messaggio di stato è seguito da una panoramica dei dispositivi nel processo.
 | Messaggio di stato       | Significato dello stato                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | Succeeded            | Il numero di dispositivi che il processo è stato eseguito correttamente in.       |
-| Operazione non riuscita               | Il numero di dispositivi che il processo non è stato eseguito in.       |
+| Failed               | Il numero di dispositivi che il processo non è stato eseguito in.       |
 
 ### <a name="view-the-device-status"></a>Visualizzare lo stato del dispositivo
 
@@ -94,7 +94,7 @@ Per visualizzare lo stato del processo e tutti i dispositivi interessati, selezi
 | Messaggio di stato       | Significato dello stato                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Completi            | Il processo è stato eseguito su questo dispositivo.                                     |
-| Operazione non riuscita               | Il processo non è stato eseguito su questo dispositivo. Il messaggio di errore Mostra altre informazioni.  |
+| Failed               | Il processo non è stato eseguito su questo dispositivo. Il messaggio di errore Mostra altre informazioni.  |
 | In sospeso              | In questo dispositivo non ha ancora eseguito il processo.                                   |
 
 > [!NOTE]

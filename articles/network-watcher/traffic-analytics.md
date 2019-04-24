@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430132"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -130,14 +130,6 @@ Per informazioni su come controllare le autorizzazioni di accesso utente, vedere
 ### <a name="enable-network-watcher"></a>Abilitare Network Watcher
 
 Per analizzare il traffico, è necessario avere un'istanza di Network Watcher esistente o [abilitare un'istanza di Network Watcher](network-watcher-create.md) in ogni area in cui sono presenti gruppi di sicurezza di rete per cui si vuole analizzare il traffico. Analisi del traffico può essere abilitata per i gruppi di sicurezza di rete ospitati in una delle [aree supportate](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>Registrare di nuovo il provider di risorse di rete
-
-Prima di poter usare Analisi del traffico, è necessario registrare di nuovo il provider di risorse di rete. Fare clic su **Prova** nella casella di codice seguente per aprire Azure Cloud Shell. Cloud Shell consente di accedere automaticamente alla sottoscrizione di Azure. Dopo che Cloud Shell è stato aperto, immettere il comando seguente per registrare di nuovo il provider di risorse di rete:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Selezionare un gruppo di sicurezza di rete
 
