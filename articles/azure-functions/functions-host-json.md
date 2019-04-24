@@ -171,7 +171,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
-|Enabled|true|Indica se la funzionalità è abilitata. | 
+|enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
