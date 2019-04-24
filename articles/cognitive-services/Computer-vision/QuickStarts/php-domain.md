@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Contenuto di immagini specifico di dominio - REST, PHP'
+title: 'Guida introduttiva: Contenuto specifico di dominio - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identificano luoghi di interesse in un'immagine in base a un modello di dominio usando l'API Visione artificiale con PHP.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877021"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011113"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Guida introduttiva: Riconoscere contenuto specifico di dominio usando l'API REST e PHP con Visione artificiale
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 - È necessario aver installato [PHP](https://secure.php.net/downloads.php).
 - È necessario aver installato [Pear](https://pear.php.net).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 

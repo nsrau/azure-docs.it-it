@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887421"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011300"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Esempio: Come rilevare il sentiment con Analisi del testo
 
-L'[API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) valuta l'input di testo e restituisce un punteggio di sentiment per ogni documento, con valori compresi tra 0 (negativo) e 1 (positivo).
+L'[API Analisi del sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) valuta l'input di testo e restituisce un punteggio di sentiment per ogni documento, con valori compresi tra 0 (negativo) e 1 (positivo).
 
 Questa funzionalità è utile per il rilevamento del sentiment positivo e negativo nei social media, nelle recensioni dei clienti e nei forum di discussione. Il contenuto viene fornito dall'utente, mentre modelli e dati di training vengono forniti dal servizio.
 
@@ -37,7 +37,7 @@ La funzione Analisi del sentiment viene eseguita sull'intero documento, a differ
 
 La funzione Analisi del sentiment genera risultati di qualità più elevata quando viene eseguita su blocchi di testo di dimensioni minori, a differenza dell'estrazione di espressioni chiave, che offre prestazioni migliori in blocchi di testo di maggiori dimensioni. Per ottenere risultati ottimali da entrambe le operazioni, provare a ristrutturare gli input di conseguenza.
 
-È necessario disporre di documenti JSON nel formato seguente: id, testo, lingua
+È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua
 
 Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. Di seguito è riportato un esempio di contenuto che può essere inviato per l'analisi del sentiment.
 
@@ -77,16 +77,16 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Analisi del sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
 > [!Tip]
-> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) per strutturare la richiesta e inviarla tramite POST al servizio.
+> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) per strutturare la richiesta e inviarla tramite POST al servizio.
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Pubblicare la richiesta
 
@@ -135,9 +135,9 @@ L'esempio seguente mostra la risposta per la raccolta di documenti in questo art
 
 In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'analisi del sentiment eseguita tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
-+ L'[API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) è disponibile solo per determinate lingue.
++ L'[API Analisi del sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) è disponibile solo per determinate lingue.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
-+ La richiesta POST viene indirizzata a un endpoint `/sentiment` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
++ La richiesta POST è a un endpoint `/sentiment`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
 + L'output di risposta, costituito da un punteggio di sentiment per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
 ## <a name="see-also"></a>Vedere anche  

@@ -1,6 +1,6 @@
 ---
 title: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure | Microsoft Docs
-description: Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione della piattaforma UWP (Universal Windows Platform).
+description: Informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione della piattaforma UWP (Universal Windows Platform).
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403205"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006931"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra come creare un hub di notifica per inviare notific
 > [!NOTE]
 > Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-In questa esercitazione vengono completati i passaggi seguenti:
+Seguire questa procedura:
 
 > [!div class="checklist"]
 > * Creare un'app in Windows Store
@@ -45,6 +45,11 @@ In questa esercitazione vengono completati i passaggi seguenti:
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) o versione successiva.
 - [Strumenti per lo sviluppo di app UWP installati](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Account di Windows Store attivo
+- Verificare che l'impostazione **Ottieni notifiche delle app e da altri mittenti** sia abilitata. 
+    - Aprire la finestra **Impostazioni** sul computer.
+    - Selezionare il riquadro **Sistema**.
+    - Selezionare **Notifiche e azioni** dal menu a sinistra. 
+    - Verificare che l'impostazione **Ottieni notifiche delle app e da altri mittenti** sia abilitata. Se non lo è, abilitarla. 
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni relative a Hub di notifica per le app UWP.
 
@@ -170,8 +175,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
     ![Messaggio di notifica](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questa esercitazione sono state inviate notifiche di trasmissione a tutti i dispositivi Windows usando il portale o un'app console. Per informazioni sulle procedure per eseguire il push di notifiche a dispositivi specifici, passare all'esercitazione seguente:
+Sono state inviate notifiche di trasmissione a tutti i dispositivi Windows usando il portale o un'app console. Per informazioni sulle procedure per eseguire il push di notifiche a dispositivi specifici, passare all'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 >[Eseguire il push di notifiche a dispositivi specifici](

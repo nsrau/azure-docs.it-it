@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007405"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Esercitazione: Creare un'app Flask con Servizi cognitivi di Azure
@@ -42,7 +42,7 @@ Flask è un microframework per la creazione di applicazioni Web. Offre quindi gl
 Per chi vuole approfondire l'argomento dopo questa esercitazione, ecco alcuni collegamenti utili:
 
 * [Documentazione di Flask](http://flask.pocoo.org/)
-* [Flask for Dummies - A Beginner's Guide to Flask (Guida per principianti di Flask)](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
+* [Flask for Dummies - A Beginner's Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1) (Guida per principianti di Flask)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,7 +60,7 @@ Ecco il software e le chiavi di sottoscrizione che è necessario avere per quest
 
 Come accennato in precedenza, è necessario avere tre chiavi di sottoscrizione per questa esercitazione. Quindi, è necessario creare una risorsa all'interno dell'account di Azure per:
 * Traduzione testuale
-* Analisi del testo
+* Text Analytics
 * Servizi Voce
 
 Per le istruzioni dettagliate su come creare le risorse, vedere [Creare un account di Servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
@@ -241,7 +241,7 @@ Questi esempi illustrano come visualizzare le pagine HTML per un utente, ma le r
 
 4. Aprire un browser e passare all'URL specificato. Dovrebbe essere visualizzata l'app a pagina singola. Premere **CTRL+C** per terminare l'app.
 
-## <a name="translate-text"></a>Tradurre testo
+## <a name="translate-text"></a>Traduci testo
 
 Dopo aver visto come funziona una semplice app Flask, procedere come segue:
 
@@ -470,7 +470,7 @@ Passare all'indirizzo del server fornito. Digitare un testo nell'area di input, 
 
 Premere **CTRL +C** per terminare l'app e passare alla sezione successiva.
 
-## <a name="analyze-sentiment"></a>Analizzare il sentiment
+## <a name="analyze-sentiment"></a>Analizzare la valutazione
 
 L'[API Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) consente di eseguire l'analisi del sentiment, estrarre frasi chiave dal testo o rilevare la lingua di origine. In questa app verrà usata l'analisi del sentiment per determinare se il giudizio sul testo fornito è positivo, neutro o negativo. L'API restituisce un punteggio numerico compreso tra 0 e 1. I punteggi vicini all'1 indicano una valutazione positiva e i punteggi vicini allo 0 indicano una valutazione negativa.
 

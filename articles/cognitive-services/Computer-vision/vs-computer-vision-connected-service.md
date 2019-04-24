@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450944"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995065"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usare Servizi connessi in Visual Studio per connettersi all'API Visione artificiale
 
@@ -38,15 +38,15 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso di
 1. In **Esplora soluzioni** scegliere **Aggiungi** > **Servizio connesso**.
    Nella pagina Servizio connesso visualizzata sono elencati i servizi che è possibile aggiungere al progetto.
 
-   ![Screenshot di un menu di scelta rapida in un progetto di Visual Studio: Aggiungi > Servizio connesso](../media/vs-common/Connected-Service-Menu.PNG)
+   ![menu di scelta rapida in un progetto di Visual Studio: Aggiungi > Servizio connesso](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Nel menu dei servizi disponibili scegliere **API Visione artificiale di Servizi cognitivi**.
 
-   ![Menu Servizi connessi, con l'opzione per l'analisi delle immagini con Visione artificiale evidenziata](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu "Servizi connessi: Analizzare le immagini" illustrato](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se è stato effettuato l'accesso a Visual Studio e al proprio account è associata una sottoscrizione di Azure, viene visualizzata una pagina contenente un elenco a discesa con le sottoscrizioni.
 
-   ![Una finestra di Visual Studio "API visione artificiale" con l'elenco a discesa Sottoscrizione evidenziato](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Finestra di API Visione artificiale con l'elenco a discesa Sottoscrizione evidenziato](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selezionare la sottoscrizione da usare e quindi scegliere un nome per l'API Visione artificiale oppure scegliere il collegamento di modifica per cambiare il nome generato automaticamente, scegliere il gruppo di risorse e il piano tariffario.
 
@@ -256,7 +256,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso di
 
 Quando non è più necessario, eliminare il gruppo di risorse. In questo modo vengono eliminati il servizio cognitivo e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
-1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questa guida introduttiva, selezionarlo.
+1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.
 2. Selezionare **Elimina gruppo di risorse**.
 3. Nella casella **DIGITARE IL NOME DEL GRUPPO DI RISORSE:** digitare il nome del gruppo di risorse e selezionare **Elimina**.
 

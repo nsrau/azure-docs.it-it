@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure (anteprima) | Microsoft Docs'
-description: Informazioni su come configurare Diagnostica di Azure per eseguire il push dei log di Azure Active Directory a un hub eventi (anteprima)
+title: 'Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure | Microsoft Docs'
+description: Informazioni su come configurare Diagnostica di Azure per eseguire il push dei log di Azure Active Directory a un hub eventi
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436932"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995598"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure (anteprima)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure
 
 In questa esercitazione viene descritto come configurare le impostazioni di diagnostica di Monitoraggio di Azure per trasmettere i log di Azure Active Directory (Azure AD) a un hub eventi di Azure. Questo meccanismo consente di integrare i log con strumenti SIEM (Security Information and Event Management, informazioni di sicurezza e gestione degli eventi) di terze parti, come Splunk e QRadar.
 

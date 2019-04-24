@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Linux) - Servizi Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Linux) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in C++ su Linux con Speech SDK
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012365"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Eseguire la sintesi vocale in C++ su Linux con Speech SDK
+# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Eseguire la sintesi vocale in C++ su Linux con Speech SDK
 
 In questo articolo viene creata un'applicazione console C++ per Ubuntu Linux 16.04 o 18.04. È possibile usare [Speech SDK](speech-sdk.md) di Servizi cognitivi per eseguire la sintesi vocale in tempo reale e riprodurre la voce dall'altoparlante del PC. L'applicazione viene compilata con il [Speech SDK per Linux](https://aka.ms/csspeech/linuxbinary) e il compilatore C++ della distribuzione di Linux (ad esempio, `g++`).
 

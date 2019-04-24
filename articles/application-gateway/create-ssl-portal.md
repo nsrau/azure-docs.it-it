@@ -1,44 +1,42 @@
 ---
-title: Configurare un gateway applicazione con la terminazione SSL - Portale di Azure | Microsoft Docs
-description: Informazioni su come configurare un gateway applicazione e aggiungere un certificato per la terminazione SSL con il portale di Azure.
+title: 'Esercitazione: Configurare un gateway applicazione con la terminazione SSL - Portale di Azure'
+description: Questa esercitazione descrive come configurare un gateway applicazione e aggiungere un certificato per la terminazione SSL con il portale di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.date: 5/15/2018
+ms.topic: tutorial
+ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091835"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677851"
 ---
-# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
+# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
 
 È possibile usare il portale di Azure per configurare un [gateway applicazione](overview.md) con un certificato per la terminazione SSL che usa macchine virtuali per i server back-end.
 
-In questo articolo viene spiegato come:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato
 > * Creare un gateway applicazione con il certificato
 > * Creare le macchine virtuali usate come server back-end
+> * Testare il gateway applicazione
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-In questa sezione usare [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) per creare un certificato autofirmato da caricare nel portale di Azure durante la creazione del listener per il gateway applicazione.
+In questa sezione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Il certificato viene caricato nel portale di Azure quando si crea il listener per il gateway applicazione.
 
 Nel computer locale aprire una finestra di Windows PowerShell come amministratore. Eseguire il comando seguente per creare il certificato:
 
@@ -72,11 +70,11 @@ Export-PfxCertificate \
 
 Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. È possibile creare una rete virtuale durante la creazione del gateway applicazione.
 
-1. Fare clic su **Nuovo** nell'angolo in alto a sinistra nel portale di Azure.
+1. Selezionare **Nuovo** nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 3. Immettere *myAppGateway* come nome del gateway applicazione e *myResourceGroupAG* come nuovo gruppo di risorse.
-4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
-5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
+4. Accettare i valori predefiniti per le altre impostazioni e quindi selezionare **OK**.
+5. Selezionare **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
    - *myVNet* come nome della rete virtuale.
    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
@@ -85,11 +83,11 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 
      ![Creare una rete virtuale](./media/create-ssl-portal/application-gateway-vnet.png)
 
-6. Fare clic su **OK** per creare la rete virtuale e la subnet.
-7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
-8. Fare clic su **HTTPS** come protocollo del listener e assicurarsi che la porta definita sia la **443**.
-9. Fare clic sull'icona della cartella e cercare il certificato *appgwcert.pfx* creato in precedenza per caricarlo.
-10. Immettere *mycert1* come nome del certificato e *Azure123456!* come password, quindi fare clic su **OK**.
+6. Selezionare **OK** per creare la rete virtuale e la subnet.
+7. Selezionare **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi selezionare **OK**.
+8. Selezionare **HTTPS** come protocollo del listener e assicurarsi che la porta definita sia la **443**.
+9. Selezionare l'icona della cartella e cercare il certificato *appgwcert.pfx* creato in precedenza per caricarlo.
+10. Immettere *mycert1* come nome del certificato e *Azure123456!* come password, quindi selezionare **OK**.
 
     ![Creare il nuovo gateway applicazione](./media/create-ssl-portal/application-gateway-create.png)
 
@@ -97,21 +95,21 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 
 ### <a name="add-a-subnet"></a>Aggiungere una subnet
 
-1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi su **myVNet** nell'elenco delle risorse.
-2. Fare clic su **Subnet** e quindi su **Subnet**.
+1. Selezionare **Tutte le risorse** nel menu a sinistra e quindi selezionare **myVNet** nell'elenco delle risorse.
+2. Selezionare **Subnet** e quindi **Subnet**.
 
     ![Creare una subnet](./media/create-ssl-portal/application-gateway-subnet.png)
 
-3. Immettere *myBackendSubnet* come nome della subnet e quindi fare clic su **OK**.
+3. Immettere *myBackendSubnet* come nome della subnet e quindi selezionare **OK**.
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
-In questo esempio, vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione.
+In questo esempio vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. Viene anche installato IIS nelle macchine virtuali per verificare che il gateway applicazione sia stato creato correttamente.
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-1. Fare clic su **Nuovo**.
-2. Fare clic su **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
+1. Selezionare **Nuovo**.
+2. Selezionare **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
 3. Immettere i valori seguenti per la macchina virtuale:
 
     - *myVM* come nome della macchina virtuale.
@@ -119,11 +117,11 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
     - *Azure123456!* come password.
     - Selezionare **Usa esistente** e quindi *myResourceGroupAG*.
 
-4. Fare clic su **OK**.
-5. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e fare clic su **Seleziona**.
+4. Selezionare **OK**.
+5. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e quindi **Seleziona**.
 6. Assicurarsi che **myVNet** sia selezionato per la rete virtuale e che la subnet sia **myBackendSubnet**. 
-7. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
-8. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
+7. Selezionare **Disabilitato** per disabilitare la diagnostica di avvio.
+8. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**.
 
 ### <a name="install-iis"></a>Installare IIS
 
@@ -149,17 +147,17 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
 
 ### <a name="add-backend-servers"></a>Aggiungere i server back-end
 
-1. Fare clic su **Tutte le risorse** e quindi su **myAppGateway**.
-1. Fare clic su **Pool back-end**. È stato creato automaticamente un pool predefinito con il gateway applicazione. Fare clic su **appGatewayBackendPool**.
-1. Fare clic su **Aggiungi destinazione** per aggiungere ogni macchina virtuale creata al pool back-end.
+1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
+1. Selezionare **Pool back-end**. È stato creato automaticamente un pool predefinito con il gateway applicazione. Selezionare **appGatewayBackendPool**.
+1. Selezionare **Aggiungi destinazione** per aggiungere ogni macchina virtuale creata al pool back-end.
 
     ![Aggiungere i server back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-1. Fare clic su **Save**.
+1. Selezionare **Salva**.
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Fare clic su **Tutte le risorse** e quindi su **myAGPublicIPAddress**.
+1. Selezionare **Tutte le risorse** e quindi **myAGPublicIPAddress**.
 
     ![Registrare l'indirizzo IP pubblico del gateway applicazione](./media/create-ssl-portal/application-gateway-ag-address.png)
 
@@ -173,11 +171,5 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Creare un gateway applicazione con il certificato
-> * Creare le macchine virtuali usate come server back-end
-
-Per altre informazioni sui gateway applicazione e sulle risorse associate, continuare con le procedure dettagliate.
+> [!div class="nextstepaction"]
+> [Altre informazioni sulle operazioni che è possibile eseguire con il gateway applicazione di Azure](application-gateway-introduction.md)

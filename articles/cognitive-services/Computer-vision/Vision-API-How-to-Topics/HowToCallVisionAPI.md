@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563371"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011244"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Esempio: Come chiamare l'API Visione artificiale
 
@@ -47,8 +47,7 @@ Le funzionalità sono suddivise in:
 
 Per ogni chiamata all'API Visione artificiale è richiesta una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o essere specificata nell'intestazione della richiesta.
 
-Per ottenere una chiave di sottoscrizione, vedere [Come ottenere le chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Per ottenere una chiave della versione di valutazione gratuita vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
 
 1. Passaggio della chiave di sottoscrizione tramite una stringa di query. Vedere di seguito un esempio di API Visione artificiale:
 

@@ -9,10 +9,10 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492312"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
@@ -126,8 +126,8 @@ Usare le informazioni nella tabella seguente per configurare un'altra macchina v
 |Impostazione  |Valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
-|IP pubblico|**Nessuna**|
-|Porte in ingresso pubbliche|**Nessuna**|
+|IP pubblico|**Nessuno**|
+|Porte in ingresso pubbliche|**Nessuno**|
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
 
@@ -257,4 +257,4 @@ A questo punto si è verificato che le regole del firewall funzionano:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
