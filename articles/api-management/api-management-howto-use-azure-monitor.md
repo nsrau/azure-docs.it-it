@@ -193,8 +193,8 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
 | resourceId | stringa | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
-| statico | stringa | Metodo HTTP della richiesta in ingresso |
-| URL | stringa | URL della richiesta in ingresso |
+| method | stringa | Metodo HTTP della richiesta in ingresso |
+| url | stringa | URL della richiesta in ingresso |
 | clientProtocol | stringa | Versione del protocollo HTTP della richiesta in ingresso |
 | responseCode | numero intero | Codice di stato della risposta HTTP inviata a un client |
 | backendMethod | stringa | Metodo HTTP della richiesta inviata a un back-end |
@@ -213,13 +213,13 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | userId | stringa | Identificatore dell'entità utente per la richiesta corrente | 
 | apimSubscriptionId | stringa | Identificatore dell'entità sottoscrizione per la richiesta corrente | 
 | backendId | stringa | Identificatore dell'entità back-end per la richiesta corrente | 
-| LastError | object | Errore di elaborazione dell'ultima richiesta | 
+| lastError | object | Errore di elaborazione dell'ultima richiesta | 
 | elapsed | numero intero | Numero di millisecondi trascorsi da quando il gateway ha ricevuto la richiesta fino al momento in cui si è verificato l'errore | 
-| una sezione source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
+| source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
 | scope | stringa | Ambito del documento dei criteri contenente il criterio che ha causato l'errore | 
 | section | stringa | Sezione del documento dei criteri contenente il criterio che ha causato l'errore | 
 | reason | stringa | Motivo dell'errore | 
-| Message | stringa | Messaggio di errore | 
+| message | stringa | Messaggio di errore | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
