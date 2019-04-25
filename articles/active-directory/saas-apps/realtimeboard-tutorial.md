@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283138"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Esercitazione: Integrazione di Azure Active Directory con RealtimeBoard
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RealtimeBoard, seguire 
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>Configurare l'accesso Single Sign-On di RealtimeBoard
 
-Per configurare l'accesso Single Sign-On sul lato **RealtimeBoard**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di RealtimeBoard](). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **RealtimeBoard**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al team di supporto di RealtimeBoard. La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 

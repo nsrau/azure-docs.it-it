@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89376bf654a23b37e004a1b9b00e32a0c2ac3e2a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495073"
 documentType: LandingData
 title: Azure per contenitori
 metadata:
-  document_id: 
-  title: Azure per contenitori - Guide introduttive, esercitazioni, informazioni di riferimento sulle API
-  description: Iniziare a gestire e distribuire app per contenitori con Azure usando guide introduttive, esercitazioni e strumenti per contenitori.
-  keywords: Azure, Contenitori, Docker, API, Kubernetes
+  document_id: null
+  title: 'Azure per contenitori - Guide introduttive, esercitazioni, informazioni di riferimento sulle API'
+  description: 'Iniziare a gestire e distribuire app per contenitori con Azure usando guide introduttive, esercitazioni e strumenti per contenitori.'
+  keywords: 'Azure, Contenitori, Docker, API, Kubernetes'
   author: dlepow
   ms.author: danlep
   manager: jeconnoc
@@ -19,68 +13,69 @@ metadata:
   ms.topic: article
   ms.prod: azure
   featureFlags:
-  - clicktale
+    - clicktale
   ms.technology: azure
   ms.devlang: multiple
   ms.service: multiple
 sections:
-- items:
-  - type: markdown
-    text: "Iniziare a distribuire e gestire app per contenitori con gli strumenti e i servizi di Azure per contenitori. \n"
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come usare i contenitori con i servizi di Azure.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: markdown
+        text: |
+          Iniziare a distribuire e gestire app per contenitori con gli strumenti e i servizi di Azure per contenitori. 
+  - title: Guide introduttive di 5 minuti
     items:
-    - href: ../aks/kubernetes-walkthrough.md
-      title: Creare un cluster Kubernetes con il servizio Azure Kubernetes
-      image:
-        src: /azure/media/index/ContainerService.svg
-    - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
-      title: Distribuire un'applicazione contenitore Windows con Service Fabric
-      image:
-        src: /azure/media/index/Fabric.svg
-    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
-      title: Creare un'app in contenitori con App Web per contenitori di Azure
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-    - href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-      title: Creare un registro Docker privato in Registro Azure Container
-      image:
-        src: /azure/media/index/container-registry.svg
-    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      title: Eseguire un'app contenitore su richiesta in Istanze di Azure Container
-      image:
-        src: /azure/media/index/containerinstances.svg
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come distribuire, gestire e aggiornare le app per contenitori con i servizi di Azure
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni su come usare i contenitori con i servizi di Azure.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: ../aks/kubernetes-walkthrough.md
+            title: Creare un cluster Kubernetes con il servizio Azure Kubernetes
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Distribuire un'applicazione contenitore Windows con Service Fabric
+            image:
+              src: /azure/media/index/Fabric.svg
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
+            title: Creare un'app in contenitori con App Web per contenitori di Azure
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Creare un registro Docker privato in Registro Azure Container
+            image:
+              src: /azure/media/index/container-registry.svg
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            title: Eseguire un'app contenitore su richiesta in Istanze di Azure Container
+            image:
+              src: /azure/media/index/containerinstances.svg
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Creare e distribuire un contenitore nel servizio Azure Kubernetes</a>
-    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Creare e distribuire un'app per contenitori .NET in Azure Service Fabric</a>
-    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Creare un'app multi-contenitore nell'app Web per contenitori</a>
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Creare e distribuire immagini di contenitori con Attività del Registro Azure Container</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Creare e distribuire un contenitore in Istanze di Azure Container</a>
-- title: Sviluppare le proprie competenze con Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Informazioni su come distribuire, gestire e aggiornare le app per contenitori con i servizi di Azure'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Creare e distribuire un contenitore nel servizio Azure Kubernetes</a>
+          - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Creare e distribuire un'app per contenitori .NET in Azure Service Fabric</a>
+          - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Creare un'app multi-contenitore nell'app Web per contenitori</a>
+          - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Creare e distribuire immagini di contenitori con Attività del Registro Azure Container</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Creare e distribuire un contenitore in Istanze di Azure Container</a>
+  - title: Sviluppare le proprie competenze con Microsoft Learn
     items:
-    - title: Eseguire contenitori Docker con Istanze di Azure Container
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-        href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Compilare e archiviare immagini del contenitore con Registro Azure Container
-      href: /learn/modules/build-and-store-container-images/
-      image:
-        src: /learn/achievements/build-and-store-container-images.svg
-        href: /learn/modules/build-and-store-container-images/
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Eseguire contenitori Docker con Istanze di Azure Container
+            href: /learn/modules/run-docker-with-azure-container-instances/
+            image:
+              src: /learn/achievements/run-docker-with-azure-container-instances.svg
+              href: /learn/modules/run-docker-with-azure-container-instances/
+          - title: Compilare e archiviare immagini del contenitore con Registro Azure Container
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/

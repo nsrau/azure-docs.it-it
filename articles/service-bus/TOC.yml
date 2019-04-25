@@ -1,4 +1,3 @@
-items:
 - name: Documentazione sul bus di servizio
   href: index.md
 - name: Bus di servizio
@@ -7,13 +6,7 @@ items:
   href: /azure/service-bus-relay
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
-  - name: Calcolatore prezzi
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 0c2db791f9e9419216868b15fe833327bf20202e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340881"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'

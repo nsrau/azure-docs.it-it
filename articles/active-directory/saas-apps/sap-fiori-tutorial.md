@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Fiori
@@ -175,8 +175,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Fiori, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Fiori](common/sp-identifier-reply.png)
 
-    d. Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
-    `https://<your company instance of SAP Fiori>`
+    d. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Alcuni clienti hanno segnalato un errore di configurazione non valida dell'URL di risposta per la propria istanza. Se viene visualizzato un tale errore, è possibile usare lo script di PowerShell seguente come metodo alternativo per impostare l'URL di risposta corretto per l'istanza:
@@ -213,7 +212,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Fiori, seguire ques
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Esercitazione: Integrazione di Azure Active Directory con Trakstar
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Trakstar](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** copiare il valore trovato in **ACS (Consumer) URL** (URL ACS consumer), visualizzabile selezionando Settings > Authentication & SSO (Impostazioni > Autenticazione & SSO) in Trakstar, nel formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. Nella casella di testo **URL accesso** copiare il valore trovato in **ACS (Consumer) URL** (URL ACS - Consumer) in Trakstar (Settings > Authentication & SSO) (Impostazioni > Autenticazione e SSO) nel formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
     b. Nella casella di testo **Identificatore (ID entità)** non modificare il valore predefinito: `https://app.trakstar.com`
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, accedere a Trakstar come amministratore.
     > Se la scheda "Authentication & SSO" (Autenticazione & SSO) non è visibile in Settings (Impostazioni), è possibile che la funzionalità non sia disponibile. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 

@@ -5,34 +5,28 @@ metadata:
   title: Integrazioni con gli strumenti per sviluppatori
   meta.description: from-team
   services: from-team
-  author: 
+  author: null
   manager: from-team
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: from-team
   ms.tgt_pltfrm: from-team
   ms.devlang: from-team
   ms.topic: landing-page
   ms.date: 09/15/2017
   ms.author: from-team
-  ms.openlocfilehash: 8ed2db241ae79b549f96581b67625114fd658c67
-  ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 05/04/2018
-  ms.locfileid: "33206090"
 abstract:
-  description: 
+  description: null
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsA
+  - title: null
     items:
-    - html: <a href="/java/azure/intellij/azure-toolkit-for-intellij"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_intellij.svg" alt=""> <br><b>IntelliJ</b></a> <p>Il Toolkit di Azure per IntelliJ offre modelli e funzionalità per creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo integrato (IDE) di IntelliJ.</p>
-    - html: <a href="/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_maven.svg" alt=""> <br><b>Maven</b></a> <p>Il plug-in Maven per App Web di Azure disponibile per Apache Maven consente una facile integrazione del servizio app di Azure nei progetti Maven e semplifica il processo con cui gli sviluppatori distribuiscono app Web nel servizio app di Azure.</p>
-    - html: <a href="/java/azure/eclipse/azure-toolkit-for-eclipse"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_eclipse.svg" alt=""> <br><b>Eclipse</b></a> <p>Azure Toolkit for Eclipse offre modelli e funzionalità per creare, sviluppare, testare e distribuire con facilità applicazioni cloud in Azure dall'ambiente di sviluppo integrato di Eclipse.</p>
-    - html: <a href="/azure/ansible/"> <img height="48" width="48" src="../media/index/ansible.svg" alt=""> <br><b>Ansible</b></a> <p>Automatizzare il provisioning cloud, la gestione della configurazione e le distribuzioni dell'applicazione.</p>
-    - html: <a href="/azure/jenkins/"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> <br><b>Jenkins</b></a> <p>Compilare le app nel cloud e distribuirle in Azure.</p>
-    - html: <a href="/azure/terraform/"> <img height="48" width="48" src="../media/index/terraform.png" alt=""> <br><b>Terraform</b></a> <p>Eseguire in modo affidabile il controllo delle versioni e la creazione dell'infrastruttura in Azure.</p>
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: '<a href="/java/azure/intellij/azure-toolkit-for-intellij"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_intellij.svg" alt=""> <br><b>IntelliJ</b></a> <p>Il Toolkit di Azure per IntelliJ offre modelli e funzionalità per creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l''ambiente di sviluppo integrato (IDE) di IntelliJ.</p>'
+          - html: '<a href="/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_maven.svg" alt=""> <br><b>Maven</b></a> <p>Il plug-in Maven per App Web di Azure disponibile per Apache Maven consente una facile integrazione del servizio app di Azure nei progetti Maven e semplifica il processo con cui gli sviluppatori distribuiscono app Web nel servizio app di Azure.</p>'
+          - html: '<a href="/java/azure/eclipse/azure-toolkit-for-eclipse"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_eclipse.svg" alt=""> <br><b>Eclipse</b></a> <p>Azure Toolkit for Eclipse offre modelli e funzionalità per creare, sviluppare, testare e distribuire con facilità applicazioni cloud in Azure dall''ambiente di sviluppo integrato di Eclipse.</p>'
+          - html: '<a href="/azure/ansible/"> <img height="48" width="48" src="../media/index/ansible.svg" alt=""> <br><b>Ansible</b></a> <p>Automatizzare il provisioning cloud, la gestione della configurazione e le distribuzioni dell''applicazione.</p>'
+          - html: '<a href="/azure/jenkins/"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> <br><b>Jenkins</b></a> <p>Compilare le app nel cloud e distribuirle in Azure.</p>'
+          - html: <a href="/azure/terraform/"> <img height="48" width="48" src="../media/index/terraform.png" alt=""> <br><b>Terraform</b></a> <p>Eseguire in modo affidabile il controllo delle versioni e la creazione dell'infrastruttura in Azure.</p>

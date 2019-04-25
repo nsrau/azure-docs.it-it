@@ -1,35 +1,28 @@
-items:
 - name: Panoramica
   items:
-  - name: Considerazioni sulle macchine virtuali Oracle
-    href: oracle-considerations.md
+    - name: Considerazioni sulle macchine virtuali Oracle
+      href: oracle-considerations.md
 - name: Guide introduttive
   items:
-  - name: Creare un database Oracle
-    href: oracle-database-quick-create.md
+    - name: Creare un database Oracle
+      href: oracle-database-quick-create.md
 - name: Esercitazioni
   items:
-  - name: Configurare Oracle ASM
-    href: configure-oracle-asm.md
-  - name: Configurare Oracle DataGuard
-    href: configure-oracle-dataguard.md
-  - name: Configurare Oracle GoldenGate
-    href: configure-oracle-golden-gate.md
+    - name: Configurare Oracle ASM
+      href: configure-oracle-asm.md
+    - name: Configurare Oracle DataGuard
+      href: configure-oracle-dataguard.md
+    - name: Configurare Oracle GoldenGate
+      href: configure-oracle-golden-gate.md
 - name: Concetti
   items:
-  - name: Definire l'architettura di un database Oracle
-    href: oracle-design.md
-  - name: Strategia di backup per un database Oracle
-    href: oracle-backup-recovery.md
-  - name: Opzioni di ripristino di emergenza di Oracle
-    href: oracle-disaster-recovery.md
+    - name: Definire l'architettura di un database Oracle
+      href: oracle-design.md
+    - name: Strategia di backup per un database Oracle
+      href: oracle-backup-recovery.md
+    - name: Opzioni di ripristino di emergenza di Oracle
+      href: oracle-disaster-recovery.md
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340609"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'

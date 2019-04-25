@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371157"
 documentType: LandingData
 title: Documentazione del servizio Azure Machine Learning
 metadata:
   title: Documentazione del servizio Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.
+  description: 'Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -22,60 +16,60 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.
+  description: 'Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 130
       src: media/index/video.png
       width: 250
-    title: Guarda il video (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    title: 'Guarda il video (9:58)'
+    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
     width: 250
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: "Dopo aver   <a href=\"setup-create-workspace\">creato un'area di lavoro</a> per il servizio Azure Machine Learning, è possibile iniziare seguendo queste guide introduttive:"
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria).
-    - html: <a href="quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale).
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come preparare i dati, configurare esperimenti, eseguire il training e rendere operativi i modelli di Machine Learning:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: "Dopo aver \_ <a href=\"setup-create-workspace\">creato un'area di lavoro</a> per il servizio Azure Machine Learning, è possibile iniziare seguendo queste guide introduttive:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria).
+          - html: <a href="quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale).
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="tutorial-train-models-with-aml">Eseguire il training</a> e <a href="tutorial-deploy-models-with-aml">distribuire</a> modelli di classificazione delle immagini (<b>serie in due parti</b>).
-    - html: <a href="tutorial-data-prep">Preparare i dati</a> e <a href="tutorial-auto-train-models">usare tecniche automatizzate di Machine Learning</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).
-- title: Esempi
-  items:
-  - type: paragraph
-    text: Esplorare il servizio in Github con i <a href="samples-notebooks">notebook Jupyter</a>.
-- title: riferimento
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come preparare i dati, configurare esperimenti, eseguire il training e rendere operativi i modelli di Machine Learning:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-train-models-with-aml">Eseguire il training</a> e <a href="tutorial-deploy-models-with-aml">distribuire</a> modelli di classificazione delle immagini (<b>serie in due parti</b>).
+          - html: <a href="tutorial-data-prep">Preparare i dati</a> e <a href="tutorial-auto-train-models">usare tecniche automatizzate di Machine Learning</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).
+  - title: Esempi
     items:
-    - html: '<a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora'
-    - html: '<a href="https://aka.ms/data-prep-sdk">Preparazione dei dati</a> - SDK Python: preparazione e trasformazione dei dati'
-    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: raccolta di dati nei servizi Web distribuiti'
-- title: Altre tecnologie di Azure Machine Learning
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Esplorare il servizio in Github con i <a href="samples-notebooks">notebook Jupyter</a>.
+  - title: riferimento
     items:
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-    - title: Macchina virtuale di data science
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora'
+          - html: '<a href="https://aka.ms/data-prep-sdk">Preparazione dei dati</a> - SDK Python: preparazione e trasformazione dei dati'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: raccolta di dati nei servizi Web distribuiti'
+  - title: Altre tecnologie di Azure Machine Learning
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/
+          - title: Macchina virtuale di data science
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

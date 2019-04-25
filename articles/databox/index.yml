@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5191d259c24a30b6e435fdb2adb93a4345f6ae77
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159095"
 documentType: LandingData
 title: Documentazione di Azure Data Box - Trasferimento offline
 metadata:
   title: Documentazione di Azure Data Box - Trasferimento offline
-  description: Usare i dispositivi Data Box per il trasferimento dei dati offline ad Azure in caso di limiti di tempo, di rete o di costi.
+  description: 'Usare i dispositivi Data Box per il trasferimento dei dati offline ad Azure in caso di limiti di tempo, di rete o di costi.'
   services: databox
   author: alkohli
   manager: twooley
@@ -21,30 +15,30 @@ metadata:
 abstract:
   description: 'La famiglia di prodotti Azure Data Box consente di trasferire centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. Usare i dispositivi Data Box per il trasferimento dei dati offline in caso di limiti di tempo, di rete o di costi.<p>A seconda delle dimensioni dei dati, scegliere tra Data Box Disk, Data Box o Data Box Heavy<SUP>Anteprima</SUP>. Per ogni dispositivo, il trasferimento in Azure viene eseguito in 4 semplici passaggi: ordine, ricezione, copia dei dati sul dispositivo e restituzione del dispositivo ad Azure. Nel data center di Azure, i dati vengono caricati e quindi cancellati.</p><p>Le guide introduttive e le esercitazioni illustrano come sfruttare Data Box per il trasferimento dei dati offline.</p>'
 sections:
-- title: Guida introduttiva
-  items:
-  - type: list
-    style: icon48
+  - title: Guida introduttiva
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Configurare Data Box nel portale di Azure
-      href: /azure/databox/data-box-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Configurare Data Box Disk nel portale di Azure
-      href: /azure/databox/data-box-disk-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Iscriversi a Data Box Heavy<SUP>Anteprima</SUP>
-      href: /azure/databox/data-box-heavy-overview#sign-up
-- title: Esercitazioni
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Configurare Data Box nel portale di Azure
+            href: /azure/databox/data-box-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Configurare Data Box Disk nel portale di Azure
+            href: /azure/databox/data-box-disk-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Iscriversi a Data Box Heavy<SUP>Anteprima</SUP>
+            href: '/azure/databox/data-box-heavy-overview#sign-up'
+  - title: Esercitazioni
     items:
-    - title: Per Data Box
-      html: <p><a href="/azure/databox/data-box-deploy-ordered">Ordinare Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Collegare e connettere Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copiare i dati in Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Restituire Azure Data Box e verificare il caricamento</a></p>
-    - title: Per Data Box Disk
-      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Ordinare Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Disimballare, connettere e sbloccare Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copiare i dati in Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Restituire Azure Data Box Disk e verificare il caricamento</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Per Data Box
+            html: <p><a href="/azure/databox/data-box-deploy-ordered">Ordinare Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Collegare e connettere Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copiare i dati in Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Restituire Azure Data Box e verificare il caricamento</a></p>
+          - title: Per Data Box Disk
+            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Ordinare Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Disimballare, connettere e sbloccare Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copiare i dati in Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Restituire Azure Data Box Disk e verificare il caricamento</a></p>'

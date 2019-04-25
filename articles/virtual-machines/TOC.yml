@@ -1,4 +1,3 @@
-items:
 - name: Documentazione delle macchine virtuali
   href: index.yml
 - name: Macchine virtuali Linux in Azure
@@ -9,29 +8,23 @@ items:
   href: extensions/overview.md
 - name: Carichi di lavoro
   items:
-  - name: Oracle
-    href: workloads/oracle/oracle-considerations.md
-  - name: SAP
-    href: workloads/sap/get-started.md
-  - name: Re-hosting del mainframe
-    href: workloads/mainframe-rehosting/overview.md
+    - name: Oracle
+      href: workloads/oracle/oracle-considerations.md
+    - name: SAP
+      href: workloads/sap/get-started.md
+    - name: Re-hosting del mainframe
+      href: workloads/mainframe-rehosting/overview.md
 - name: Distribuzioni classiche
   items:
-  - name: Macchine virtuali Linux con distribuzione classica
-    href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
-  - name: Macchine virtuali Windows con distribuzione classica
-    href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+    - name: Macchine virtuali Linux con distribuzione classica
+      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+    - name: Macchine virtuali Windows con distribuzione classica
+      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
 - name: Risorse
   items:
-  - name: Sviluppare le proprie competenze con Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Calcolatore prezzi
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 7f253c1ed2b4910e18acd65367cd8e0e10574c0d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737757"
+    - name: Sviluppare le proprie competenze con Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'

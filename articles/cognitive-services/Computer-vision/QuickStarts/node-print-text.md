@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo stampato - REST, Node.js'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Node.js.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7623c126e47a05b5a4be0c23baa191c4de8a766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba747c5333ea3966969360f45a51b10a890aa53
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856312"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998499"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Node.js in Visione artificiale
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 - È necessario aver installato [Node.js](https://nodejs.org) 4.x o versione successiva.
 - È necessario aver installato [npm](https://www.npmjs.com/).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 

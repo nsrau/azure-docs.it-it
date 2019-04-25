@@ -2,19 +2,19 @@
 title: Documentazione di Azure Power BI Embedded - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come incorporare visualizzazioni di dati e report interattivi di Power BI nelle app. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 services: power-bi-embedded
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 manager: kfile
 layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 8c7ee917234891123392a7954bf704e1ff2a70e1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: decbe7c59f46ea77b1f5088bab8daf64722f2a8c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110700"
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentazione di Power BI Embedded
 

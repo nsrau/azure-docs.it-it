@@ -1,64 +1,58 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517012"
 documentType: LandingData
 title: Documentazione di Database di Azure per MariaDB
 metadata:
   title: Documentazione su MariaDB in Azure - Esercitazioni e informazioni di riferimento sulle API
-  description: Database di Azure per MariaDB è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato sul motore di database MariaDB open source.
+  description: 'Database di Azure per MariaDB è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato sul motore di database MariaDB open source.'
   author: ajlam
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
   ms.date: 03/25/2019
 abstract:
-  description: Database di Azure per MariaDB è un servizio di database relazionale basato sul motore del server MariaDB open source.  È un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con Database di Azure per MariaDB sfruttando la piattaforma e gli strumenti open source preferiti. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Database di Azure per MariaDB.
+  description: 'Database di Azure per MariaDB è un servizio di database relazionale basato sul motore del server MariaDB open source.  È un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con Database di Azure per MariaDB sfruttando la piattaforma e gli strumenti open source preferiti. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Database di Azure per MariaDB.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come creare un database MariaDB in Azure con:'
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Portale di Azure
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come progettare il database e sviluppare app:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come creare un database MariaDB in Azure con:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Portale di Azure
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+  - title: Esercitazioni dettagliate
     items:
-    - html: Progettare un database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">portale di Azure</a> | <a href="/azure/mariadb/tutorial-design-database-cli">interfaccia della riga di comando di Azure</a>
-- title: Esempi
-  items:
-  - type: paragraph
-    text: Trovare script per gestire le attività comuni.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Informazioni su come progettare il database e sviluppare app:'
+      - type: list
+        style: unordered
+        items:
+          - html: 'Progettare un database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">portale di Azure</a> | <a href="/azure/mariadb/tutorial-design-database-cli">interfaccia della riga di comando di Azure</a>'
+  - title: Esempi
     items:
-    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Interfaccia della riga di comando di Azure</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Trovare script per gestire le attività comuni.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Interfaccia della riga di comando di Azure</a>
+  - title: riferimento
     items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/mariadb">Interfaccia della riga di comando di Azure</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mariadb/">API REST</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Modelli di Resource Manager</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/mariadb">Interfaccia della riga di comando di Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/mariadb/">API REST</a></p>
+          - title: Azure Resource Manager
+            html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Modelli di Resource Manager</a></p>

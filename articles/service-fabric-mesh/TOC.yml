@@ -1,108 +1,101 @@
-items:
 - name: Documentazione di mesh Service Fabric
   href: index.yml
 - name: Panoramica
-  items:
-  - name: Informazioni su mesh Service Fabric
-    href: service-fabric-mesh-overview.md
   expanded: true
+  items:
+    - name: Informazioni su mesh Service Fabric
+      href: service-fabric-mesh-overview.md
 - name: Guide introduttive
   items:
-  - name: Distribuire Hello World
-    href: service-fabric-mesh-quickstart-deploy-container.md
-  - name: Creare un'app Web con Visual Studio
-    href: service-fabric-mesh-quickstart-dotnet-core.md
+    - name: Distribuire Hello World
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Creare un'app Web con Visual Studio
+      href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Esercitazioni
   items:
-  - name: Compilare e distribuire un'app Mesh con Visual Studio
-    items:
-    - name: 1 - Creare un'app Mesh
-      href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2 - Eseguire il debug di un'app Mesh
-      href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-    - name: 3 - Distribuire un'app Mesh
-      href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
-    - name: 4 - Aggiornare un'app Mesh
-      href: service-fabric-mesh-tutorial-upgrade.md
-    - name: 5 - Pulire le risorse Mesh
-      href: service-fabric-mesh-tutorial-cleanup-resources.md
-  - name: Distribuire, ridimensionare e aggiornare un'app Service Fabric Mesh con un modello
-    items:
-    - name: 1 - Distribuire un'app Service Fabric Mesh
-      href: service-fabric-mesh-tutorial-template-deploy-app.md
-    - name: 2 - Ridimensionare i servizi in un'applicazione
-      href: service-fabric-mesh-tutorial-template-scale-services.md
-    - name: 3 - Aggiornare un'applicazione
-      href: service-fabric-mesh-tutorial-template-upgrade-app.md
-    - name: 4 - Rimuovere un'applicazione
-      href: service-fabric-mesh-tutorial-template-remove-app.md
+    - name: Compilare e distribuire un'app Mesh con Visual Studio
+      items:
+        - name: 1 - Creare un'app Mesh
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2 - Eseguire il debug di un'app Mesh
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3 - Distribuire un'app Mesh
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+        - name: 4 - Aggiornare un'app Mesh
+          href: service-fabric-mesh-tutorial-upgrade.md
+        - name: 5 - Pulire le risorse Mesh
+          href: service-fabric-mesh-tutorial-cleanup-resources.md
+    - name: 'Distribuire, ridimensionare e aggiornare un''app Service Fabric Mesh con un modello'
+      items:
+        - name: 1 - Distribuire un'app Service Fabric Mesh
+          href: service-fabric-mesh-tutorial-template-deploy-app.md
+        - name: 2 - Ridimensionare i servizi in un'applicazione
+          href: service-fabric-mesh-tutorial-template-scale-services.md
+        - name: 3 - Aggiornare un'applicazione
+          href: service-fabric-mesh-tutorial-template-upgrade-app.md
+        - name: 4 - Rimuovere un'applicazione
+          href: service-fabric-mesh-tutorial-template-remove-app.md
 - name: Concetti
   items:
-  - name: Terminologia
-    href: service-fabric-mesh-terminology.md
-  - name: Risorse di Service Fabric
-    href: service-fabric-mesh-service-fabric-resources.md
-  - name: Reti e gateway
-    href: service-fabric-mesh-networks-and-gateways.md
-  - name: Scalabilità del servizio
-    href: service-fabric-mesh-scalability.md
-  - name: Monitoraggio e diagnostica
-    href: service-fabric-mesh-monitoring-diagnostics.md
-  - name: Stato di archiviazione
-    href: service-fabric-mesh-storing-state.md
-  - name: Segreti
-    href: service-fabric-mesh-secrets-overview.md
+    - name: Terminologia
+      href: service-fabric-mesh-terminology.md
+    - name: Risorse di Service Fabric
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: Reti e gateway
+      href: service-fabric-mesh-networks-and-gateways.md
+    - name: Scalabilità del servizio
+      href: service-fabric-mesh-scalability.md
+    - name: Monitoraggio e diagnostica
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Stato di archiviazione
+      href: service-fabric-mesh-storing-state.md
+    - name: Segreti
+      href: service-fabric-mesh-secrets-overview.md
 - name: Guide alle procedure
   items:
-  - name: Configurazione dell'ambiente di sviluppo
-    href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
-  - name: Configurare l'interfaccia della riga di comando di mesh Service Fabric
-    href: service-fabric-mesh-howto-setup-cli.md
-  - name: Distribuire un'app .NET esistente in un contenitore
-    href: service-fabric-mesh-howto-containerize-vs.md
-  - name: Ottimizzare le prestazioni di Visual Studio
-    href: service-fabric-mesh-howto-optimize-vs.md
-  - name: Configurare le risorse del gateway
-    href: service-fabric-mesh-howto-configure-gateways.md
-  - name: Ridimensionare i servizi automaticamente
-    href: service-fabric-mesh-howto-auto-scale-services.md
-  - name: Archiviare lo stato con un volume di File di Azure
-    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
-  - name: Archiviare lo stato con il volume Reliable Disk di Service Fabric
-    href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
-  - name: Gestire i segreti
-    href: service-fabric-mesh-howto-manage-secrets.md
-  - name: Trovare esempi
-    href: service-fabric-mesh-howto-find-samples.md
+    - name: Configurazione dell'ambiente di sviluppo
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Configurare l'interfaccia della riga di comando di mesh Service Fabric
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: Distribuire un'app .NET esistente in un contenitore
+      href: service-fabric-mesh-howto-containerize-vs.md
+    - name: Ottimizzare le prestazioni di Visual Studio
+      href: service-fabric-mesh-howto-optimize-vs.md
+    - name: Configurare le risorse del gateway
+      href: service-fabric-mesh-howto-configure-gateways.md
+    - name: Ridimensionare i servizi automaticamente
+      href: service-fabric-mesh-howto-auto-scale-services.md
+    - name: Archiviare lo stato con un volume di File di Azure
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Archiviare lo stato con il volume Reliable Disk di Service Fabric
+      href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
+    - name: Gestire i segreti
+      href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Trovare esempi
+      href: service-fabric-mesh-howto-find-samples.md
 - name: riferimento
   items:
-  - name: API REST del provider di risorse di Service Fabric Mesh
-    href: /rest/api/servicefabric/sfmeshrp-index
-  - name: API REST delle risorse client di Service Fabric
-    href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
-  - name: Informazioni di riferimento sull'interfaccia della riga di comando Maven di Service Fabric
-    href: service-fabric-mesh-reference-maven.md
-  - name: Modello di Resource Manager
-    href: /azure/templates/microsoft.servicefabricmesh/allversions
+    - name: API REST del provider di risorse di Service Fabric Mesh
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: API REST delle risorse client di Service Fabric
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+    - name: Informazioni di riferimento sull'interfaccia della riga di comando Maven di Service Fabric
+      href: service-fabric-mesh-reference-maven.md
+    - name: Modello di Resource Manager
+      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Risorse
   items:
-  - name: Domande frequenti
-    href: service-fabric-mesh-faq.md
-  - name: Applicazioni di esempio
-    href: https://github.com/Azure-Samples/service-fabric-mesh
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=service-fabric-mesh
-  - name: Video
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: dc098445928ca07eb29260c650321e17f00c7dfe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353975"
+    - name: Domande frequenti
+      href: service-fabric-mesh-faq.md
+    - name: Applicazioni di esempio
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'

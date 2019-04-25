@@ -3,7 +3,7 @@
   href: Home.md
 - name: Attività iniziali
   href: GettingStarted.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Informazioni di riferimento sulle API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c'

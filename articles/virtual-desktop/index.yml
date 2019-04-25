@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400255"
 documentType: LandingData
 title: Documentazione dell'anteprima di Desktop virtuale Windows
 metadata:
-  title: Documentazione dell'anteprima di Desktop virtuale Windows - Esercitazioni, guide introduttive, informazioni di riferimento sulle API | Microsoft Docs
+  title: 'Documentazione dell''anteprima di Desktop virtuale Windows - Esercitazioni, guide introduttive, informazioni di riferimento sulle API | Microsoft Docs'
   description: L'anteprima di Desktop virtuale Windows per Azure è un'esperienza Windows 10 Enterprise multiutente virtualizzata nel cloud.
   author: Heidilohr
   manager: daveba
@@ -18,30 +12,30 @@ metadata:
   ms.date: 02/20/2019
   ms.author: helohr
 abstract:
-  description: Consente di offrire un'esperienza di desktop remoto e app remote in qualsiasi dispositivo. Combina Microsoft 365 e Azure per offrire agli utenti l'unica esperienza Windows 10 multisessione, con scalabilità eccellente e costi ridotti per IT.
+  description: 'Consente di offrire un''esperienza di desktop remoto e app remote in qualsiasi dispositivo. Combina Microsoft 365 e Azure per offrire agli utenti l''unica esperienza Windows 10 multisessione, con scalabilità eccellente e costi ridotti per IT.'
 sections:
-- title: Panoramica
-  items:
-  - type: paragraph
-    text: Informazioni sull'anteprima di Desktop virtuale Windows e su come usarlo. Esercitazioni, procedure, informazioni di riferimento e altro ancora che spiegano come configurare pool di host e tenant, nonché assegnare ruoli agli utenti per l'ambiente Desktop virtuale Windows.
-  - type: list
-    style: unordered
+  - title: Panoramica
     items:
-    - html: <a href="/azure/virtual-desktop/overview">Informazioni sull'anteprima di Desktop virtuale Windows</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni sull'installazione e la configurazione di Desktop virtuale Windows e sulla connessione al client quando è pronto.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Informazioni sull''anteprima di Desktop virtuale Windows e su come usarlo. Esercitazioni, procedure, informazioni di riferimento e altro ancora che spiegano come configurare pool di host e tenant, nonché assegnare ruoli agli utenti per l''ambiente Desktop virtuale Windows.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">Informazioni sull'anteprima di Desktop virtuale Windows</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Creare un tenant in Desktop virtuale Windows</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Creare un pool di host con Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Gestire gruppi di app per Desktop virtuale Windows</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Creare entità servizio e assegnazioni di ruolo con PowerShell</a>
-- title: riferimento
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Informazioni sull'installazione e la configurazione di Desktop virtuale Windows e sulla connessione al client quando è pronto.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Creare un tenant in Desktop virtuale Windows</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Creare un pool di host con Azure Marketplace</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Gestire gruppi di app per Desktop virtuale Windows</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Creare entità servizio e assegnazioni di ruolo con PowerShell</a>
+  - title: riferimento
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

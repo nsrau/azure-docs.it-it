@@ -1,24 +1,24 @@
 ---
-title: Creare un gateway applicazione che ospita più siti Web - Portale di Azure
-description: Informazioni su come creare un gateway applicazione che ospita più siti Web usando il portale di Azure.
+title: 'Esercitazione: Creare un gateway applicazione che ospita più siti Web usando il portale di Azure'
+description: Questa esercitazione descrive come creare un gateway applicazione che ospita più siti Web usando il portale di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080168"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999026"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
-È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questo articolo vengono definiti pool di indirizzi back-end con macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questo articolo presuppone che l'utente sia proprietario di più domini e che usi esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
 
-In questo articolo viene spiegato come:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un gateway applicazione
@@ -115,7 +115,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
       -Settings $publicSettings
     ```
 
-3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere i nomi dei *fabrikamVM* per il nome e per il valore di VMName in Set-AzVMExtension.
+3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *fabrikamVM* come nome e valore di VMName in Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creare pool back-end con le macchine virtuali
 
@@ -146,7 +146,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 
 Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
-In questo esempio si creano due nuove regole e si elimina la regola predefinita che è stata creata al momento della creazione del gateway applicazione. 
+In questo esempio si creano due nuove regole e si elimina la regola predefinita creata al momento della creazione del gateway applicazione.
 
 1. Fare clic su **Regole** e quindi su **Base**.
 2. Immettere *contosoRule* come nome.
@@ -171,7 +171,7 @@ Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibi
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
+1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
 
     ![Testare il sito contoso nel gateway applicazione](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 
@@ -179,6 +179,18 @@ Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibi
 
     ![Testare il sito fabrikam nel gateway applicazione](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando le risorse create con il gateway applicazione non sono più necessarie, rimuovere il gruppo di risorse. La rimozione del gruppo di risorse comporta anche la rimozione del gateway applicazione e di tutte le risorse correlate.
+
+Per rimuovere il gruppo di risorse:
+
+1. Nel menu a sinistra del portale di Azure, selezionare **Gruppi di risorse**.
+2. Nella pagina **Gruppo di risorse** cercare **myResourceGroupAG** nell'elenco e selezionarlo.
+3. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**.
+4. Immettere *myResourceGroupAG* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e quindi selezionare **Elimina**
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare il servizio app con il gateway applicazione](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Altre informazioni sulle operazioni che è possibile eseguire con il gateway applicazione di Azure](application-gateway-introduction.md)

@@ -1,55 +1,48 @@
-items:
 - name: Re-hosting del mainframe
   items:
-  - name: Panoramica
-    items:
-    - name: Attività iniziali
-      href: overview.md
-    - name: Carichi di lavoro
-      href: partner-workloads.md
-  - name: Concetti
-    items:
-    - name: Calcolo
-      href: concepts/mainframe-compute-azure.md
-    - name: Archiviazione
-      href: concepts/mainframe-storage-azure.md
-  - name: Micro Focus
-    items:
-    - name: Attività iniziali
-      href: microfocus/get-started.md
-    - name: Installare Enterprise Server
-      href: microfocus/set-up-micro-focus-azure.md
-    - name: Eseguire CICS BankDemo
-      href: microfocus/demo.md
-    - name: Enterprise Server in contenitori
-      href: microfocus/run-enterprise-server-container.md
-  - name: TmaxSoft OpenFrame
-    items:
-    - name: Attività iniziali
-      href: tmaxsoft/get-started.md
-    - name: Installare OpenFrame
-      href: tmaxsoft/install-openframe-azure.md
-  - name: IBM
-    items:
-    - name: Attività iniziali
-      href: ibm/get-started.md
-    - name: Installare IBM zD&T
-      href: ibm/install-ibm-z-environment.md
-    - name: Configurare ADCD in zD&T
-      href: ibm/demo.md
-    - name: IBM DB2 pureScale
-      href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-    - name: Distribuire IBM DB2 pureScale
-      href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-  - name: Risorse
-    items:
-    - name: White paper
-      href: mainframe-white-papers.md
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/updates/
-ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788854"
+    - name: Panoramica
+      items:
+        - name: Attività iniziali
+          href: overview.md
+        - name: Carichi di lavoro
+          href: partner-workloads.md
+    - name: Concetti
+      items:
+        - name: Calcolo
+          href: concepts/mainframe-compute-azure.md
+        - name: Archiviazione
+          href: concepts/mainframe-storage-azure.md
+    - name: Micro Focus
+      items:
+        - name: Attività iniziali
+          href: microfocus/get-started.md
+        - name: Installare Enterprise Server
+          href: microfocus/set-up-micro-focus-azure.md
+        - name: Eseguire CICS BankDemo
+          href: microfocus/demo.md
+        - name: Enterprise Server in contenitori
+          href: microfocus/run-enterprise-server-container.md
+    - name: TmaxSoft OpenFrame
+      items:
+        - name: Attività iniziali
+          href: tmaxsoft/get-started.md
+        - name: Installare OpenFrame
+          href: tmaxsoft/install-openframe-azure.md
+    - name: IBM
+      items:
+        - name: Attività iniziali
+          href: ibm/get-started.md
+        - name: Installare IBM zD&T
+          href: ibm/install-ibm-z-environment.md
+        - name: Configurare ADCD in zD&T
+          href: ibm/demo.md
+        - name: IBM DB2 pureScale
+          href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+        - name: Distribuire IBM DB2 pureScale
+          href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: Risorse
+      items:
+        - name: White paper
+          href: mainframe-white-papers.md
+        - name: Roadmap per Azure
+          href: 'https://azure.microsoft.com/updates/'
