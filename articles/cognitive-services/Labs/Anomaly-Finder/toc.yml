@@ -32,7 +32,7 @@
       href: tutorials/python-tutorial.md
     - name: App Web JavaScript
       href: tutorials/javascript-tutorial.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Informazioni di riferimento sull'API Ricerca di anomalie
       href: apiref.md

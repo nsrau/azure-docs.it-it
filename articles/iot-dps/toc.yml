@@ -1,232 +1,225 @@
-items:
 - name: Documentazione del servizio Device Provisioning in hub IoT di Azure
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sul servizio Device Provisioning in hub IoT
-    href: about-iot-dps.md
+    - name: Informazioni sul servizio Device Provisioning in hub IoT
+      href: about-iot-dps.md
 - name: Guide introduttive
-  items:
-  - name: Configurare il provisioning automatico - Interfaccia della riga di comando di Azure
-    href: quick-setup-auto-provision-cli.md
-  - name: Configurare il provisioning automatico - Portale
-    href: quick-setup-auto-provision.md
-  - name: Configurare il provisioning automatico - Modello
-    href: quick-setup-auto-provision-rm.md
-  - name: Effettuare il provisioning automatico di un dispositivo simulato
-    items:
-    - name: Attestazione TPM
-      items:
-      - name: C
-        href: quick-create-simulated-device.md
-      - name: Java
-        href: quick-create-simulated-device-tpm-java.md
-      - name: C#
-        href: quick-create-simulated-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-tpm-node.md
-      - name: Python
-        href: quick-create-simulated-device-tpm-python.md
-    - name: Attestazione X.509
-      items:
-      - name: C
-        href: quick-create-simulated-device-x509.md
-      - name: Java
-        href: quick-create-simulated-device-x509-java.md
-      - name: C#
-        href: quick-create-simulated-device-x509-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-x509-node.md
-      - name: Python
-        href: quick-create-simulated-device-x509-python.md
-    - name: Attestazione con chiave simmetrica
-      items:
-      - name: C
-        href: quick-create-simulated-device-symm-key.md
-  - name: Registrazione dei dispositivi con le API del servizio di provisioning
-    items:
-    - name: Attestazione TPM
-      items:
-      - name: Java
-        href: quick-enroll-device-tpm-java.md
-      - name: C#
-        href: quick-enroll-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-tpm-node.md
-      - name: Python
-        href: quick-enroll-device-tpm-python.md
-    - name: Attestazione X.509
-      items:
-      - name: Java
-        href: quick-enroll-device-x509-java.md
-      - name: C#
-        href: quick-enroll-device-x509-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-x509-node.md
-      - name: Python
-        href: quick-enroll-device-x509-python.md
   expanded: true
+  items:
+    - name: Configurare il provisioning automatico - Interfaccia della riga di comando di Azure
+      href: quick-setup-auto-provision-cli.md
+    - name: Configurare il provisioning automatico - Portale
+      href: quick-setup-auto-provision.md
+    - name: Configurare il provisioning automatico - Modello
+      href: quick-setup-auto-provision-rm.md
+    - name: Effettuare il provisioning automatico di un dispositivo simulato
+      items:
+        - name: Attestazione TPM
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-tpm-node.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
+        - name: Attestazione X.509
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-x509-node.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+        - name: Attestazione con chiave simmetrica
+          items:
+            - name: C
+              href: quick-create-simulated-device-symm-key.md
+    - name: Registrazione dei dispositivi con le API del servizio di provisioning
+      items:
+        - name: Attestazione TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
+        - name: Attestazione X.509
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
+            - name: 'C#'
+              href: quick-enroll-device-x509-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
+            - name: Python
+              href: quick-enroll-device-x509-python.md
 - name: Esercitazioni
   items:
-  - name: 1 - Configurare le risorse cloud
-    href: tutorial-set-up-cloud.md
-  - name: 2 - Configurare il dispositivo
-    href: tutorial-set-up-device.md
-  - name: 3 - Effettuare il provisioning di un dispositivo in un hub IoT
-    items:
-    - name: C
-      href: tutorial-provision-device-to-hub.md
-    - name: C#
-      href: tutorial-net-provision-device-to-hub.md
-  - name: 4 - Effettuare il provisioning di dispositivi in più hub
-    href: tutorial-provision-multiple-hubs.md
-  - name: 5 - Eseguire il provisioning delle registrazioni di gruppo
-    href: tutorial-group-enrollments.md
+    - name: 1 - Configurare le risorse cloud
+      href: tutorial-set-up-cloud.md
+    - name: 2 - Configurare il dispositivo
+      href: tutorial-set-up-device.md
+    - name: 3 - Effettuare il provisioning di un dispositivo in un hub IoT
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
+    - name: 4 - Effettuare il provisioning di dispositivi in più hub
+      href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Eseguire il provisioning delle registrazioni di gruppo
+      href: tutorial-group-enrollments.md
 - name: Concetti
   items:
-  - name: Provisioning automatico
-    href: concepts-auto-provisioning.md
-  - name: Ripetizione del provisioning
-    href: concepts-device-reprovision.md
-  - name: Dispositivi
-    href: concepts-device.md
-  - name: Security
-    href: concepts-security.md
-  - name: Service
-    href: concepts-service.md
-  - name: Attestazione TPM
-    href: concepts-tpm-attestation.md
-  - name: Attestazione con chiave simmetrica
-    href: concepts-symmetric-key-attestation.md
+    - name: Provisioning automatico
+      href: concepts-auto-provisioning.md
+    - name: Ripetizione del provisioning
+      href: concepts-device-reprovision.md
+    - name: Dispositivi
+      href: concepts-device.md
+    - name: Security
+      href: concepts-security.md
+    - name: Service
+      href: concepts-service.md
+    - name: Attestazione TPM
+      href: concepts-tpm-attestation.md
+    - name: Attestazione con chiave simmetrica
+      href: concepts-symmetric-key-attestation.md
 - name: Guide alle procedure
   items:
-  - name: Connettere MXChip IoT DevKit all'hub IoT
-    href: how-to-connect-mxchip-iot-devkit.md
-  - name: Gestire la configurazione del servizio Device Provisioning
-    items:
-    - name: Gestire le registrazioni - Portale
-      href: how-to-manage-enrollments.md
-    - name: Gestire le registrazioni - SDK per servizi
-      href: how-to-manage-enrollments-sdks.md
-    - name: Configurare certificati della CA verificati
-      href: how-to-verify-certificates.md
-    - name: Rinnovare i certificati dei dispositivi
-      href: how-to-roll-certificates.md
-    - name: Effettuare di nuovo il provisioning dei dispositivi
-      href: how-to-reprovision.md
-    - name: Gestire la revoca delle registrazioni
-      href: how-to-revoke-device-access-portal.md
-    - name: Gestire il deprovisioning
-      href: how-to-unprovision-devices.md
-  - name: Gestire il servizio Device Provisioning
-    items:
-    - name: Configurare il servizio Device Provisioning con l'interfaccia della riga di comando di Azure
-      href: how-to-manage-dps-with-cli.md
-    - name: Controllare l'accesso alle API del servizio di provisioning
-      href: how-to-control-access.md
-  - name: Effettuare il provisioning di dispositivi IoT Edge
-    items:
-    - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
-      maintainContext: true
-    - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
-  - name: Usare meccanismi di attestazione con SDK
-    href: use-hsm-with-sdk.md
-  - name: Effettuare il provisioning per la multi-tenancy
-    href: how-to-provision-multitenant.md
-  - name: Usare criteri di allocazione personalizzati
-    href: how-to-use-custom-allocation-policies.md
-  - name: Usare chiavi simmetriche con dispositivi legacy
-    href: how-to-legacy-device-symm-key.md
-  - name: Usare gli strumenti SDK per lo sviluppo
-    href: how-to-use-sdk-tools.md
+    - name: Connettere MXChip IoT DevKit all'hub IoT
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: Gestire la configurazione del servizio Device Provisioning
+      items:
+        - name: Gestire le registrazioni - Portale
+          href: how-to-manage-enrollments.md
+        - name: Gestire le registrazioni - SDK per servizi
+          href: how-to-manage-enrollments-sdks.md
+        - name: Configurare certificati della CA verificati
+          href: how-to-verify-certificates.md
+        - name: Rinnovare i certificati dei dispositivi
+          href: how-to-roll-certificates.md
+        - name: Effettuare di nuovo il provisioning dei dispositivi
+          href: how-to-reprovision.md
+        - name: Gestire la revoca delle registrazioni
+          href: how-to-revoke-device-access-portal.md
+        - name: Gestire il deprovisioning
+          href: how-to-unprovision-devices.md
+    - name: Gestire il servizio Device Provisioning
+      items:
+        - name: Configurare il servizio Device Provisioning con l'interfaccia della riga di comando di Azure
+          href: how-to-manage-dps-with-cli.md
+        - name: Controllare l'accesso alle API del servizio di provisioning
+          href: how-to-control-access.md
+    - name: Effettuare il provisioning di dispositivi IoT Edge
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
+    - name: Usare meccanismi di attestazione con SDK
+      href: use-hsm-with-sdk.md
+    - name: Effettuare il provisioning per la multi-tenancy
+      href: how-to-provision-multitenant.md
+    - name: Usare criteri di allocazione personalizzati
+      href: how-to-use-custom-allocation-policies.md
+    - name: Usare chiavi simmetriche con dispositivi legacy
+      href: how-to-legacy-device-symm-key.md
+    - name: Usare gli strumenti SDK per lo sviluppo
+      href: how-to-use-sdk-tools.md
 - name: riferimento
   items:
-  - name: API REST
-    href: /rest/api/iot-dps
-  - name: Modello di Resource Manager
-    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
-  - name: Azure IoT SDK per C
-    href: https://github.com/Azure/azure-iot-sdk-c
-  - name: Azure IoT SDK per Python
-    href: https://github.com/Azure/azure-iot-sdk-python
-  - name: Azure IoT SDK per Node.js
-    href: https://github.com/Azure/azure-iot-sdk-node
-  - name: Azure IoT SDK per Java
-    href: https://github.com/Azure/azure-iot-sdk-java
-  - name: Azure IoT SDK per .NET
-    href: https://github.com/Azure/azure-iot-sdk-csharp
+    - name: API REST
+      href: /rest/api/iot-dps
+    - name: Modello di Resource Manager
+      href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
+    - name: Azure IoT SDK per C
+      href: 'https://github.com/Azure/azure-iot-sdk-c'
+    - name: Azure IoT SDK per Python
+      href: 'https://github.com/Azure/azure-iot-sdk-python'
+    - name: Azure IoT SDK per Node.js
+      href: 'https://github.com/Azure/azure-iot-sdk-node'
+    - name: Azure IoT SDK per Java
+      href: 'https://github.com/Azure/azure-iot-sdk-java'
+    - name: Azure IoT SDK per .NET
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp'
 - name: Risorse correlate
   items:
-  - name: Soluzioni
-    items:
-    - name: Acceleratori di soluzioni IoT
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Servizi della piattaforma
-    items:
-    - name: Hub IoT
-      href: /azure/iot-hub
-    - name: Servizio Device Provisioning in hub IoT
-      href: /azure/iot-dps
-    - name: Mappe
-      href: /azure/azure-maps
-    - name: SDK per servizi
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT SDK per dispositivi
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Soluzioni
+      items:
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Servizi della piattaforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Servizio Device Provisioning in hub IoT
+          href: /azure/iot-dps
+        - name: Mappe
+          href: /azure/azure-maps
+        - name: SDK per servizi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT SDK per dispositivi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
-  - name: Esempi di Azure IoT per C# (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Esempi di Azure IoT per Node.js
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Esempi di Azure IoT per Java
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Esempi di Azure IoT per Python
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: Esempi di Azure IoT per la piattaforma iOS
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Hub IoT Azure
-    href: https://azure.microsoft.com/services/iot-hub/
-  - name: Catalogo dei dispositivi Azure Certified per IoT
-    href: https://catalog.azureiotsolutions.com/
-  - name: Centro per sviluppatori Azure IoT
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Richieste di dati del cliente
-    href: iot-dps-customer-data-requests.md
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Strumento Device Explorer
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: Strumento iothub-diagnostics
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Calcolatore prezzi
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Case study tecnici
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Video
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 8b48f3ffa0f647faeb4284ea636b572a2a404e95
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533120"
+    - name: 'Esempi di Azure IoT per C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Esempi di Azure IoT per Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Esempi di Azure IoT per Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Esempi di Azure IoT per Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Esempi di Azure IoT per la piattaforma iOS
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Hub IoT Azure
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Catalogo dei dispositivi Azure Certified per IoT
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Centro per sviluppatori Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Richieste di dati del cliente
+      href: iot-dps-customer-data-requests.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Strumento Device Explorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Strumento iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Case study tecnici
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619221"
 documentType: LandingData
 title: Documentazione sul portale di Azure
 metadata:
@@ -23,29 +17,29 @@ metadata:
   ms.date: 10/08/2018
   ms.author: kfollis
 abstract:
-  description: Il portale di Azure è una console unificata basata sul Web che consente di creare, gestire e monitorare qualsiasi elemento, da semplici app Web ad applicazioni cloud complesse. Include un dashboard personalizzabile e opzioni per l'accessibilità.
+  description: 'Il portale di Azure è una console unificata basata sul Web che consente di creare, gestire e monitorare qualsiasi elemento, da semplici app Web ad applicazioni cloud complesse. Include un dashboard personalizzabile e opzioni per l''accessibilità.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>È possibile eseguire il portale di Azure in tutti i moderni browser e dispositivi tablet e desktop.</p>
-      title: Browser e dispositivi supportati
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>È possibile modificare il contrasto o la combinazione di colori nel portale di Azure.</p>
-      title: Attivare il contrasto elevato
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Informazioni sui tasti di scelta rapida disponibili nell'intero portale di Azure.</p>
-      title: Tasti di scelta rapida
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.</p>
-      title: Creare e condividere dashboard di Azure
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>È possibile pubblicare e condividere un dashboard con altri utenti dell'organizzazione.</p>
-      title: Condividere i dashboard con il Controllo degli accessi in base al ruolo
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Creare e pubblicare a livello di codice i dashboard per l'organizzazione</p>
-      title: Creare i dashboard di Azure a livello di codice
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: <p>È possibile eseguire il portale di Azure in tutti i moderni browser e dispositivi tablet e desktop.</p>
+            title: Browser e dispositivi supportati
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>È possibile modificare il contrasto o la combinazione di colori nel portale di Azure.</p>
+            title: Attivare il contrasto elevato
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Informazioni sui tasti di scelta rapida disponibili nell'intero portale di Azure.</p>
+            title: Tasti di scelta rapida
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.</p>
+            title: Creare e condividere dashboard di Azure
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>È possibile pubblicare e condividere un dashboard con altri utenti dell'organizzazione.</p>
+            title: Condividere i dashboard con il Controllo degli accessi in base al ruolo
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Creare e pubblicare a livello di codice i dashboard per l'organizzazione</p>
+            title: Creare i dashboard di Azure a livello di codice

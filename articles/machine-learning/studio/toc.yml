@@ -1,197 +1,190 @@
-items:
 - name: Documentazione di Machine Learning Studio
   href: index.yml
 - name: Panoramica
-  items:
-  - name: Machine Learning Studio
-    displayName: overview
-    href: what-is-ml-studio.md
-  - name: Confrontare i prodotti Machine Learning
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-    maintainContext: true
   expanded: true
+  items:
+    - name: Machine Learning Studio
+      displayName: overview
+      href: what-is-ml-studio.md
+    - name: Confrontare i prodotti Machine Learning
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+      maintainContext: true
 - name: Esercitazioni
   items:
-  - name: Creare la prima sperimentazione
-    displayName: quickstart
-    href: create-experiment.md
-  - name: Creare una soluzione predittiva
-    items:
-    - name: 1 - Creare un esperimento
-      href: tutorial-part1-credit-risk.md
-    - name: 2 - Eseguire il training e la valutazione
-      href: tutorial-part2-credit-risk-train.md
-    - name: 3 - Distribuire il servizio Web
-      href: tutorial-part3-credit-risk-deploy.md
+    - name: Creare la prima sperimentazione
+      displayName: quickstart
+      href: create-experiment.md
+    - name: Creare una soluzione predittiva
+      items:
+        - name: 1 - Creare un esperimento
+          href: tutorial-part1-credit-risk.md
+        - name: 2 - Eseguire il training e la valutazione
+          href: tutorial-part2-credit-risk-train.md
+        - name: 3 - Distribuire il servizio Web
+          href: tutorial-part3-credit-risk-deploy.md
 - name: Esempi
   items:
-  - name: Set di dati disponibili
-    href: use-sample-datasets.md
-  - name: Raccolta di intelligenza artificiale per Azure
-    href: gallery-how-to-use-contribute-publish.md
+    - name: Set di dati disponibili
+      href: use-sample-datasets.md
+    - name: Raccolta di intelligenza artificiale per Azure
+      href: gallery-how-to-use-contribute-publish.md
 - name: Concetti
   items:
-  - name: Analisi scientifica dei dati per principianti
-    items:
-    - name: 1 - Cinque domande
-      href: data-science-for-beginners-the-5-questions-data-science-answers.md
-    - name: 2 - I dati sono pronti?
-      href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-    - name: 3 - Porre la domanda corretta
-      href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-    - name: 4 - Prevedere una risposta
-      href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-    - name: 5 - Copiare il lavoro di altre persone
-      href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: Gestione di modelli
-    displayName: deploy, consume, web service
-    href: deploy-consume-web-service-guide.md
+    - name: Analisi scientifica dei dati per principianti
+      items:
+        - name: 1 - Cinque domande
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2 - I dati sono pronti?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3 - Porre la domanda corretta
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4 - Prevedere una risposta
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5 - Copiare il lavoro di altre persone
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: Gestione di modelli
+      displayName: 'deploy, consume, web service'
+      href: deploy-consume-web-service-guide.md
 - name: Guide alle procedure
   items:
-  - name: Gestire un'area di lavoro
-    items:
-    - name: Create
-      href: create-workspace.md
-    - name: Gestisci
-      href: manage-workspace.md
-    - name: Risolvere problemi
-      href: troubleshooting-creating-ml-workspace.md
-    - name: Eseguire la distribuzione usando ARM
-      href: deploy-with-resource-manager-template.md
-  - name: Importare dati di training
-    items:
-    - name: Importa dati
-      href: import-data.md
-    - name: Usare i dati da SQL locale
-      displayName: on-premises
-      href: use-data-from-an-on-premises-sql-server.md
-  - name: Eseguire il training dei modelli
-    items:
-    - name: Gestione del ciclo di vita degli esperimenti
-      href: version-control.md
-    - name: Gestire le iterazioni delle sperimentazioni
-      href: manage-experiment-iterations.md
-    - name: Usare PowerShell per creare modelli
-      displayName: endpoint, endpoints
-      href: create-models-and-endpoints-with-powershell.md
-    - name: Provare gli esperimenti nella raccolta di intelligenza artificiale
-      displayName: gallery
-      href: sample-experiments.md
-    - name: Valutare e interpretare i risultati
+    - name: Gestire un'area di lavoro
       items:
-      - name: Valutare le prestazioni
-        href: evaluate-model-performance.md
-      - name: Ottimizzare i parametri
-        displayName: optimization
-        href: algorithm-parameters-optimize.md
-      - name: Interpretare i risultati
-        href: interpret-model-results.md
-      - name: Debug
-        href: debug-models.md
-    - name: Ripetere il training dei modelli
+        - name: Create
+          href: create-workspace.md
+        - name: Gestisci
+          href: manage-workspace.md
+        - name: Risolvere problemi
+          href: troubleshooting-creating-ml-workspace.md
+        - name: Eseguire la distribuzione usando ARM
+          href: deploy-with-resource-manager-template.md
+    - name: Importare dati di training
       items:
-      - name: Nuovi servizi Web
-        href: retrain-machine-learning-model.md
-      - name: Servizi Web classici
-        href: retrain-classic-web-service.md
-    - name: Usare R e Python
+        - name: Importa dati
+          href: import-data.md
+        - name: Usare i dati da SQL locale
+          displayName: on-premises
+          href: use-data-from-an-on-premises-sql-server.md
+    - name: Eseguire il training dei modelli
       items:
-      - name: Introduzione a R
-        href: r-get-started.md
-      - name: Eseguire script R
-        href: extend-your-experiment-with-r.md
-      - name: Creare moduli R personalizzati
-        href: custom-r-modules.md
-      - name: Eseguire script Python
-        href: execute-python-scripts.md
-  - name: Selezionare un algoritmo
-    items:
-    - name: Scegliere gli algoritmi
-      href: algorithm-choice.md
-    - name: Foglio informativo sugli algoritmi
-      href: algorithm-cheat-sheet.md
-    - name: Esempi di algoritmi
-      displayName: infographic, studio basics
-      href: basics-infographic-with-algorithm-examples.md
-  - name: Distribuire i modelli
-    items:
-    - name: Distribuire un servizio Web
-      displayName: publish, multiple regions
-      href: publish-a-machine-learning-web-service.md
-    - name: Funzionamento
-      href: model-progression-experiment-to-web-service.md
-    - name: Preparare la distribuzione
-      href: convert-training-experiment-to-scoring-experiment.md
-    - name: Usare dati esterni
-      displayName: import, export
-      href: web-services-that-use-import-export-modules.md
-    - name: Usare parametri dei servizi Web
-      href: web-service-parameters.md
-    - name: Abilitazione della registrazione
-      href: web-services-logging.md
-  - name: Gestire i servizi Web
-    items:
-    - name: Usare il portale dei servizi Web
-      href: manage-new-webservice.md
-    - name: Gestire con le API
-      displayName: endpoint, endpoints
-      href: manage-web-service-endpoints-using-api-management.md
-    - name: Creare endpoint
-      displayName: scale, scaling
-      href: create-endpoint.md
-  - name: Utilizzare i modelli
-    items:
-    - name: Panoramica
-      href: consume-web-services.md
-    - name: Usare Excel
-      href: consuming-from-excel.md
-    - name: Usare il componente aggiuntivo di Excel
-      href: excel-add-in-for-web-services.md
-    - name: Usare un pool di Batch
-      href: dedicated-capacity-for-bes-jobs.md
-  - name: Casi d'uso
-    items:
-    - name: Varianza dei clienti
-      href: azure-ml-customer-churn-scenario.md
-    - name: Analisi del sentiment
-      href: text-analytics-module-tutorial.md
-    - name: Eseguire la migrazione di analisi da Excel a Studio
-      href: linear-regression-in-azure.md
-  - name: Eliminare ed esportare dati dei clienti
-    items:
-    - name: Dati di Studio
-      displayName: export
-      href: export-delete-personal-data-dsr.md
-    - name: Dati della raccolta
-      displayName: export
-      href: ai-gallery-control-personal-data-dsr.md
+        - name: Gestione del ciclo di vita degli esperimenti
+          href: version-control.md
+        - name: Gestire le iterazioni delle sperimentazioni
+          href: manage-experiment-iterations.md
+        - name: Usare PowerShell per creare modelli
+          displayName: 'endpoint, endpoints'
+          href: create-models-and-endpoints-with-powershell.md
+        - name: Provare gli esperimenti nella raccolta di intelligenza artificiale
+          displayName: gallery
+          href: sample-experiments.md
+        - name: Valutare e interpretare i risultati
+          items:
+            - name: Valutare le prestazioni
+              href: evaluate-model-performance.md
+            - name: Ottimizzare i parametri
+              displayName: optimization
+              href: algorithm-parameters-optimize.md
+            - name: Interpretare i risultati
+              href: interpret-model-results.md
+            - name: Debug
+              href: debug-models.md
+        - name: Ripetere il training dei modelli
+          items:
+            - name: Nuovi servizi Web
+              href: retrain-machine-learning-model.md
+            - name: Servizi Web classici
+              href: retrain-classic-web-service.md
+        - name: Usare R e Python
+          items:
+            - name: Introduzione a R
+              href: r-get-started.md
+            - name: Eseguire script R
+              href: extend-your-experiment-with-r.md
+            - name: Creare moduli R personalizzati
+              href: custom-r-modules.md
+            - name: Eseguire script Python
+              href: execute-python-scripts.md
+    - name: Selezionare un algoritmo
+      items:
+        - name: Scegliere gli algoritmi
+          href: algorithm-choice.md
+        - name: Foglio informativo sugli algoritmi
+          href: algorithm-cheat-sheet.md
+        - name: Esempi di algoritmi
+          displayName: 'infographic, studio basics'
+          href: basics-infographic-with-algorithm-examples.md
+    - name: Distribuire i modelli
+      items:
+        - name: Distribuire un servizio Web
+          displayName: 'publish, multiple regions'
+          href: publish-a-machine-learning-web-service.md
+        - name: Funzionamento
+          href: model-progression-experiment-to-web-service.md
+        - name: Preparare la distribuzione
+          href: convert-training-experiment-to-scoring-experiment.md
+        - name: Usare dati esterni
+          displayName: 'import, export'
+          href: web-services-that-use-import-export-modules.md
+        - name: Usare parametri dei servizi Web
+          href: web-service-parameters.md
+        - name: Abilitazione della registrazione
+          href: web-services-logging.md
+    - name: Gestire i servizi Web
+      items:
+        - name: Usare il portale dei servizi Web
+          href: manage-new-webservice.md
+        - name: Gestire con le API
+          displayName: 'endpoint, endpoints'
+          href: manage-web-service-endpoints-using-api-management.md
+        - name: Creare endpoint
+          displayName: 'scale, scaling'
+          href: create-endpoint.md
+    - name: Utilizzare i modelli
+      items:
+        - name: Panoramica
+          href: consume-web-services.md
+        - name: Usare Excel
+          href: consuming-from-excel.md
+        - name: Usare il componente aggiuntivo di Excel
+          href: excel-add-in-for-web-services.md
+        - name: Usare un pool di Batch
+          href: dedicated-capacity-for-bes-jobs.md
+    - name: Casi d'uso
+      items:
+        - name: Varianza dei clienti
+          href: azure-ml-customer-churn-scenario.md
+        - name: Analisi del sentiment
+          href: text-analytics-module-tutorial.md
+        - name: Eseguire la migrazione di analisi da Excel a Studio
+          href: linear-regression-in-azure.md
+    - name: Eliminare ed esportare dati dei clienti
+      items:
+        - name: Dati di Studio
+          displayName: export
+          href: export-delete-personal-data-dsr.md
+        - name: Dati della raccolta
+          displayName: export
+          href: ai-gallery-control-personal-data-dsr.md
 - name: riferimento
   items:
-  - name: Informazioni di riferimento su algoritmi e moduli
-    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
-  - name: Moduli di Azure PowerShell
-    href: powershell-module.md
-  - name: Codici di errore del servizio Web
-    href: web-service-error-codes.md
-  - name: API di gestione REST
-    href: /rest/api/machinelearning
+    - name: Informazioni di riferimento su algoritmi e moduli
+      href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
+    - name: Moduli di Azure PowerShell
+      href: powershell-module.md
+    - name: Codici di errore del servizio Web
+      href: web-service-error-codes.md
+    - name: API di gestione REST
+      href: /rest/api/machinelearning
 - name: Risorse
   items:
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
-  - name: Supporto
-    href: support-aml-studio.md
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/regions/services/
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Reti neurali personalizzate (Net#)
-    href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: 4dacfd217bf089dac87128107901a17805117b4e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183782"
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning-studio'
+    - name: Supporto
+      href: support-aml-studio.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: 'Reti neurali personalizzate (Net#)'
+      href: azure-ml-netsharp-reference-guide.md

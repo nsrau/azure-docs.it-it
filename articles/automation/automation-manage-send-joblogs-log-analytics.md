@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496591"
@@ -97,9 +97,9 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
+| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Resource | Nome dell'account di Automazione |
+| Risorsa | Nome dell'account di Automazione |
 | SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Descrive lo stato del risultato del processo di runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
@@ -120,9 +120,9 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
+| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Resource | Nome dell'account di Automazione |
+| Risorsa | Nome dell'account di Automazione |
 | SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Include il flusso di output dal runbook. |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |

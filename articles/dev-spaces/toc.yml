@@ -1,79 +1,72 @@
-items:
 - name: Azure Dev Spaces
   items:
-  - name: Panoramica
-    href: index.yml
-  - name: Guide introduttive
-    items:
-    - name: Java (Visual Studio Code & interfaccia della riga di comando)
-      href: quickstart-java.md
-    - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
-      href: quickstart-netcore.md
-    - name: .NET Core (Visual Studio 2017)
-      href: quickstart-netcore-visualstudio.md
-    - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
-      href: quickstart-nodejs.md
-  - name: Esercitazioni
-    items:
-    - name: Java (Visual Studio Code & interfaccia della riga di comando)
+    - name: Panoramica
+      href: index.yml
+    - name: Guide introduttive
       items:
-      - name: 1 - Introduzione
-        href: get-started-java.md
-      - name: 2 - Sviluppo di più servizi
-        href: multi-service-java.md
-      - name: 3 - Sviluppo in team
-        href: team-development-java.md
-    - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
+        - name: Java (Visual Studio Code & interfaccia della riga di comando)
+          href: quickstart-java.md
+        - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
+          href: quickstart-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          href: quickstart-netcore-visualstudio.md
+        - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
+          href: quickstart-nodejs.md
+    - name: Esercitazioni
       items:
-      - name: 1 - Introduzione
-        href: get-started-netcore.md
-      - name: 2 - Sviluppo di più servizi
-        href: multi-service-netcore.md
-      - name: 3 - Sviluppo in team
-        href: team-development-netcore.md
-    - name: .NET Core (Visual Studio 2017)
+        - name: Java (Visual Studio Code & interfaccia della riga di comando)
+          items:
+            - name: 1 - Introduzione
+              href: get-started-java.md
+            - name: 2 - Sviluppo di più servizi
+              href: multi-service-java.md
+            - name: 3 - Sviluppo in team
+              href: team-development-java.md
+        - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
+          items:
+            - name: 1 - Introduzione
+              href: get-started-netcore.md
+            - name: 2 - Sviluppo di più servizi
+              href: multi-service-netcore.md
+            - name: 3 - Sviluppo in team
+              href: team-development-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          items:
+            - name: 1 - Introduzione
+              href: get-started-netcore-visualstudio.md
+            - name: 2 - Sviluppo di più servizi
+              href: multi-service-netcore-visualstudio.md
+            - name: 3 - Sviluppo in team
+              href: team-development-netcore-visualstudio.md
+        - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
+          items:
+            - name: 1 - Introduzione
+              href: get-started-nodejs.md
+            - name: 2 - Sviluppo di più servizi
+              href: multi-service-nodejs.md
+            - name: 3 - Sviluppo in team
+              href: team-development-nodejs.md
+    - name: Concetti
       items:
-      - name: 1 - Introduzione
-        href: get-started-netcore-visualstudio.md
-      - name: 2 - Sviluppo di più servizi
-        href: multi-service-netcore-visualstudio.md
-      - name: 3 - Sviluppo in team
-        href: team-development-netcore-visualstudio.md
-    - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
+        - name: Funzionamento di Dev Spaces
+          href: how-dev-spaces-works.md
+    - name: Procedure
       items:
-      - name: 1 - Introduzione
-        href: get-started-nodejs.md
-      - name: 2 - Sviluppo di più servizi
-        href: multi-service-nodejs.md
-      - name: 3 - Sviluppo in team
-        href: team-development-nodejs.md
-  - name: Concetti
-    items:
-    - name: Funzionamento di Dev Spaces
-      href: how-dev-spaces-works.md
-  - name: Procedure
-    items:
-    - name: Creare un cluster Kubernetes usando Azure Cloud Shell
-      href: how-to/create-cluster-cloud-shell.md
-    - name: Condividere Azure Dev Spaces
-      href: how-to/share-dev-spaces.md
-    - name: Gestire i segreti
-      href: how-to/manage-secrets.md
-    - name: Usare un feed NuGet personalizzato
-      href: how-to/use-custom-nuget-feed.md
-    - name: Usare kubectl con Azure Dev Spaces
-      href: how-to/use-kubectl-with-azure-dev-spaces.md
-    - name: Aggiornare Azure Dev Spaces Tools
-      href: how-to/upgrade-tools.md
-    - name: Uso di CI/CD con Azure Dev Spaces
-      href: how-to/setup-cicd.md
-    - name: Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
-      href: how-to/dev-spaces-business-continuity.md
-  - name: risoluzione dei problemi
-    href: troubleshooting.md
-ms.openlocfilehash: 2584af119ba13e87d4249ce7cc7f605d88baa88e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341323"
+        - name: Creare un cluster Kubernetes usando Azure Cloud Shell
+          href: how-to/create-cluster-cloud-shell.md
+        - name: Condividere Azure Dev Spaces
+          href: how-to/share-dev-spaces.md
+        - name: Gestire i segreti
+          href: how-to/manage-secrets.md
+        - name: Usare un feed NuGet personalizzato
+          href: how-to/use-custom-nuget-feed.md
+        - name: Usare kubectl con Azure Dev Spaces
+          href: how-to/use-kubectl-with-azure-dev-spaces.md
+        - name: Aggiornare Azure Dev Spaces Tools
+          href: how-to/upgrade-tools.md
+        - name: Uso di CI/CD con Azure Dev Spaces
+          href: how-to/setup-cicd.md
+        - name: Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
+          href: how-to/dev-spaces-business-continuity.md
+    - name: risoluzione dei problemi
+      href: troubleshooting.md

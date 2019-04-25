@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408732"
 documentType: LandingData
 title: Documentazione di Controllo degli accessi in base al ruolo per le risorse di Azure
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione sul controllo degli accessi in base al ruolo per le risorse di Azure | Microsoft Docs
-  description: Informazioni sul controllo degli accessi in base al ruolo per la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
+  description: 'Informazioni sul controllo degli accessi in base al ruolo per la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.'
   services: active-directory
   author: rolyon
   manager: mtillman
@@ -21,42 +15,42 @@ metadata:
   ms.date: 02/16/2019
   ms.author: rolyon
 abstract:
-  description: Il controllo degli accessi in base al ruolo è un sistema che consente di gestire in modo granulare l'accesso per le risorse di Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+  description: 'Il controllo degli accessi in base al ruolo è un sistema che consente di gestire in modo granulare l''accesso per le risorse di Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all''interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-get-started.png
       width: 200
-    title: Bloccare l'accesso ad Azure (1:16)
-    href: https://www.youtube.com/embed/FKBoWWKRnvI
+    title: 'Bloccare l''accesso ad Azure (1:16)'
+    href: 'https://www.youtube.com/embed/FKBoWWKRnvI'
     width: 200
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="/azure/role-based-access-control/check-access">Visualizzare l'accesso per un utente</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/role-based-access-control/check-access">Visualizzare l'accesso per un utente</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concedere l'accesso a un utente - Portale</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concedere l'accesso a un gruppo - PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creare un ruolo personalizzato - PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creare un ruolo personalizzato - Interfaccia della riga di comando</a>
-- title: Sviluppare le proprie competenze con Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concedere l'accesso a un utente - Portale</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concedere l'accesso a un gruppo - PowerShell</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creare un ruolo personalizzato - PowerShell</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creare un ruolo personalizzato - Interfaccia della riga di comando</a>
+  - title: Sviluppare le proprie competenze con Microsoft Learn
     items:
-    - title: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
-      href: /learn/modules/secure-azure-resources-with-rbac/
-      image:
-        src: /learn/achievements/secure-azure-resources-with-rbac.svg
-        href: /learn/modules/secure-azure-resources-with-rbac/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-active-directory">Altre risorse di apprendimento interattivo</a>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
+            href: /learn/modules/secure-azure-resources-with-rbac/
+            image:
+              src: /learn/achievements/secure-azure-resources-with-rbac.svg
+              href: /learn/modules/secure-azure-resources-with-rbac/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-active-directory">Altre risorse di apprendimento interattivo</a>

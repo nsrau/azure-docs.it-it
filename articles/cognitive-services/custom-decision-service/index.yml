@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6768d2a313a1d781c6db23dff404aed2efc99f31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228339"
 documentType: LandingData
 title: Documentazione del Servizio decisionale personalizzato
 metadata:
   title: Documentazione del Servizio decisionale personalizzato - Esercitazioni e informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs
-  meta.description: Learn how to create a contextual, decision-making API that improves with experience
+  meta.description: 'Learn how to create a contextual, decision-making API that improves with experience'
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -23,32 +17,32 @@ metadata:
 abstract:
   description: Il Servizio decisionale personalizzato di Azure consente di creare sistemi intelligenti con un'API per processi decisionali contestualizzati basata sul cloud che diventa più precisa con l'esperienza. Il Servizio decisionale personalizzato sfrutta la potenza dell'apprendimento per rinforzo e adatta il contenuto nell'applicazione per ottimizzare la partecipazione complessiva degli utenti. Il sistema incorpora in tempo reale il feedback degli utenti nelle decisioni e risponde alle tendenze emergenti e alle ultime notizie in pochi minuti. Con queste guide introduttive è possibile ottenere informazioni su come registrare l'applicazione e chiamare l'API da un browser o un'app. Con le esercitazioni sarà quindi possibile personalizzare gli articoli e rappresentare il contenuto come "funzionalità" pronte per Machine Learning.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: "Registrare l'applicazione e chiamare l'API Servizio decisionale personalizzato di Azure direttamente dal browser o dall'app per smartphone:"
-  - type: list
-    style: unordered
+  - title: Guide introduttive di 5 minuti
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registrare l'applicazione</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Chiamare l'API da un browser</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Chiamare l'API da un'app</a>
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Personalizzare gli articoli sulla pagina iniziale di un sito Web e specificare il contenuto come "funzionalità" pronte per Machine Learning con le API Servizio decisionale personalizzato:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Registrare l''applicazione e chiamare l''API Servizio decisionale personalizzato di Azure direttamente dal browser o dall''app per smartphone:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registrare l'applicazione</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Chiamare l'API da un browser</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Chiamare l'API da un'app</a>
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personalizzazione degli articoli</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
-- title: riferimento
-  items:
-  - type: paragraph
-    text: Queste API interagiscono. Nelle informazioni di riferimento sulle API esistono tre API che contribuiscono al processo decisionale personalizzato. L'API Sperimentazione usa i file di log generati dall'API LogDownloader. Negli articoli vengono condivisi scenari dettagliati.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Personalizzare gli articoli sulla pagina iniziale di un sito Web e specificare il contenuto come "funzionalità" pronte per Machine Learning con le API Servizio decisionale personalizzato:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personalizzazione degli articoli</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
+  - title: riferimento
     items:
-    - title: API
-      html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Sperimentazione</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>
+      - type: paragraph
+        text: Queste API interagiscono. Nelle informazioni di riferimento sulle API esistono tre API che contribuiscono al processo decisionale personalizzato. L'API Sperimentazione usa i file di log generati dall'API LogDownloader. Negli articoli vengono condivisi scenari dettagliati.
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Sperimentazione</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>
