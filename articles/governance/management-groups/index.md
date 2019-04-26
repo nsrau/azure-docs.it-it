@@ -4,15 +4,15 @@ description: Informazioni sui gruppi di gestione, sul funzionamento delle autori
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874336"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -47,9 +47,8 @@ Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondu
 
 ### <a name="important-facts-about-the-root-management-group"></a>Informazioni importanti sul gruppo di gestione radice
 
-- Il nome e l'ID del gruppo di gestione radice sono assegnati per impostazione predefinita. Il nome visualizzato può essere aggiornato in qualsiasi momento in modo che appaia in modo diverso all'interno del portale di Azure. Per [modificare il nome](manage.md#change-the-name-of-a-management-group), all'account deve essere assegnato il ruolo Proprietario o Collaboratore per il gruppo di gestione radice.
-  - Il nome sarà "Gruppo radice tenant".
-  - L'ID sarà l'ID di Azure Active Directory.
+- Per impostazione predefinita, il nome visualizzato del gruppo di gestione radice è **Gruppo radice tenant**. L'ID corrisponde all'ID di Azure Active Directory.
+- Per cambiare il nome visualizzato, all'account deve essere assegnato il ruolo Proprietario o Collaboratore per il gruppo di gestione radice. Per la procedura, vedere [Modificare il nome di un gruppo di gestione](manage.md#change-the-name-of-a-management-group).
 - A differenza degli altri gruppi di gestione, il gruppo di gestione radice non può essere spostato o eliminato.  
 - Tutte le sottoscrizioni e i gruppi di gestione sono ricondotti all'unico gruppo di gestione radice all'interno della directory.
   - Tutte le risorse nella directory sono ricondotte al gruppo di gestione radice ai fini della gestione globale.
