@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: Piani di servizio DTU
           href: sql-database-service-tiers-dtu.md
+        - name: Livello di elaborazione serverless
+          href: sql-database-serverless.md
         - name: Pagare in anticipo la capacità riservata
           href: sql-database-reserved-capacity.md
         - name: Eseguire la migrazione dal livello di servizio Premium RS
@@ -128,6 +130,7 @@
       items:
         - name: Panoramica
           href: sql-database-service-tiers-general-purpose-business-critical.md
+          displayName: provisioned compute tier
         - name: Livelli di servizio Utilizzo generico/Standard
           href: sql-database-service-tier-general-purpose.md
         - name: Livelli di servizio Business critical/Premium
