@@ -27,10 +27,10 @@ Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di 
 
 | Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
-| Nome visualizzato |stringa |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
-| Valore |stringa |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
-|Segreto|boolean|Determina se il valore è un segreto e se deve essere crittografato.|
-| Tag |matrice di valori string |Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
+| `Display name` |stringa |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
+| `Value` |stringa |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
+| `Secret` |boolean|Determina se il valore è un segreto e se deve essere crittografato.|
+| `Tags` |matrice di valori string |Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
