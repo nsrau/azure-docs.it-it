@@ -214,7 +214,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se ancora non lo si è fatto, scaricare il connettore Spark per il database Azure SQL dal [repository GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) ed esplorare le risorse aggiuntive nel repository:
+Se ancora non lo si è fatto, scaricare il connettore Spark per il database SQL di Azure e SQL Server dal [repository GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) ed esplorare le risorse aggiuntive nel repository:
 
 -   [Esempi di notebook Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Script di esempio (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)

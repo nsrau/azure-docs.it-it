@@ -41,7 +41,7 @@ Per leggere i dati dalla tabella SQL di Azure:
 2. Digitare import nella casella di ricerca dei componenti.
 3. Nell'elenco dei risultati aggiungere un modulo *Import data* nell'area di disegno dell'esperimento.
 4. Connettere l'output del modulo *Import Data* (Importa dati) e l'input del modulo *Clean Missing Data* (Pulisci dati mancanti).
-5. Nel riquadro delle proprietà selezionare **Azure SQL Database** in the **Data Source** (Origine dati).
+5. Nel riquadro delle proprietà selezionare **Azure SQL Database** (Database SQL di Azure) in **Data Source** (Origine dati).
 6. Immettere le informazioni appropriate per il database nei campi **Database server name** (Nome server database), **Database name** (Nome database), **User name** (Nome utente) e **Password**.
 7. Immettere la query seguente nel campo Database query (Query database).
 
@@ -72,7 +72,7 @@ Configurare quindi l'esperimento predittivo da cui distribuire il servizio Web.
 3. Digitare export nella casella di ricerca di componenti.
 4. Nell'elenco dei risultati aggiungere un modulo *Export Data* nell'area di disegno dell'esperimento.
 5. Connettere l'output del modulo *Score Model* (Modello di punteggio) e l'input del modulo *Export Data* (Esporta dati).
-6. Nel riquadro delle proprietà selezionare **Azure SQL Database** (Database SQL Azure) come destinazione dei dati.
+6. Nel riquadro delle proprietà selezionare **Azure SQL Database** (Database SQL di Azure) come destinazione dei dati.
 7. Immettere le informazioni appropriate per il database nei campi **Database server name** (Nome server database), **Database name** (Nome database), **Server user account name** (Nome account utente server) e **Server user account password** (Password account utente server).
 8. Nel campo **Comma separated list of columns to be saved** (Elenco di colonne da salvare delimitato da virgole) digitare Scored Labels.
 9. Nel campo **Data table name**(Nome tabella dati) digitare dbo.ScoredLabels. Se non esiste, la tabella viene creata quando viene eseguito l'esperimento o viene chiamato il servizio Web.

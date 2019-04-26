@@ -39,7 +39,7 @@ Per saperne di più, vedere la [pagina Dettagli prezzi di Data Factory][adf-pric
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>In che modo è possibile iniziare a usare Azure Data Factory?
 * Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
-* Per un'esercitazione su come **copiare o spostare i dati** usando l'attività di copia, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Per un'esercitazione su come **copiare o spostare i dati** usando l'attività di copia, vedere [Copiare dati da un archivio BLOB al database SQL di Azure usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Per un'esercitazione su come **trasformare i dati** usando l'attività Hive di HDInsight, vedere [Elaborare i dati eseguendo lo script Hive in un cluster Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>In quali paesi è disponibile Data Factory?

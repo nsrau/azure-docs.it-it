@@ -1,6 +1,6 @@
 ---
 title: Codice del file evento XEvent per il database SQL | Documentazione Microsoft
-description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario.
+description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Database SQL di Azure. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -25,7 +25,7 @@ ms.locfileid: "60331172"
 
 Si desidera un esempio di codice completo per un modo affidabile per acquisire e segnalare informazioni per un evento esteso.
 
-In Microsoft SQL Server la [destinazione del file evento](https://msdn.microsoft.com/library/ff878115.aspx) viene utilizzata per archiviare l'output di eventi in un file di disco rigido locale. Tuttavia, tali file non sono disponibili per il Azure SQL Database. Invece, utilizziamo il servizio Archiviazione di Azure per supportare la destinazione del file evento.
+In Microsoft SQL Server la [destinazione del file evento](https://msdn.microsoft.com/library/ff878115.aspx) viene utilizzata per archiviare l'output di eventi in un file di disco rigido locale. Tuttavia, tali file non sono disponibili per il database SQL di Azure. Invece, utilizziamo il servizio Archiviazione di Azure per supportare la destinazione del file evento.
 
 Questo argomento presenta un esempio di codice in due fasi:
 
@@ -244,7 +244,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È necessario modificare lo script di Transact-SQL per utilizzare tali valori. Trovare **TODO** nello script di Transact-SQL per individuare i punti di modifica.
 
 1. Aprire SQL Server Management Studio (ssms.exe).
-2. Connettersi al database di Azure SQL Database
+2. Connettersi al database di Database SQL di Azure.
 3. Fare clic per aprire un nuovo riquadro di query.
 4. Incollare il seguente script di Transact-SQL nel riquadro della query.
 5. Trovare ogni **TODO** nello script e apportare le modifiche appropriate.
