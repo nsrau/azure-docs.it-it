@@ -11,15 +11,15 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269113"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Guida introduttiva: esplorare le API REST di Ricerca di Azure con Postman
 > [!div class="op_single_selector"]
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -85,7 +85,7 @@ L'URL è stato esteso per includere il nome dell'indice `hotel`.
 Per eseguire questa operazione in Postman:
 
 1. Modificare il verbo in **PUT**.
-2. Copiare questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Copiare in questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
 3. Specificare la definizione di indice mostrata di seguito nel corpo della richiesta
 4. Fare clic su **Invia**
 
@@ -129,7 +129,7 @@ L'URL è stato esteso per includere le raccolte `docs` e l'operazione `index`.
 Per eseguire questa operazione in Postman:
 
 1. Modificare il verbo in **POST**.
-2. Copiare questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Copiare in questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 3. Specificare i documenti JSON mostrati di seguito nel corpo della richiesta
 4. Fare clic su **Invia**
 
@@ -219,7 +219,7 @@ L'URL viene esteso per includere una stringa di query, specificata usando l'oper
 Per eseguire questa operazione in Postman:
 
 + Modificare il verbo in **GET**.
-+ Copiare questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Copiare in questo URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Fare clic su **Invia**
 
 Questa query cerca il termine "motel" e restituisce il numero di documenti nei risultati della ricerca. La richiesta e la risposta dovrebbero essere simili allo screenshot seguente per Postman dopo avere fatto clic su **Send** (Invia). Il codice di stato dovrebbe essere 200.
@@ -247,7 +247,7 @@ Questa sezione è equivalente alle sezioni precedenti, ma contiene schermate e i
 
 Formulare una richiesta simile allo screenshot seguente. Scegliere **GET** come verbo. Fiddler aggiunge `User-Agent=Fiddler`. È possibile incollare due intestazioni delle richieste aggiuntive nelle nuove righe al di sotto dell'elemento. Includere il tipo di contenuto e la chiave API per il servizio, usando la chiave di accesso di amministratore per il servizio.
 
-Per la destinazione, copiare una versione modificata dell'URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+Per la destinazione, copiare in una versione modificata dell'URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
 
 ![Intestazione della richiesta Fiddler][1]
 

@@ -522,7 +522,7 @@ Eseguire Invoke-Command e il comando successivo fino a quando lo stato di una se
 Per ogni sezione vengono copiate due righe di dati dal file di origine nella tabella emp del database SQL di Azure. Nella tabella emp vengono quindi visualizzati 24 nuovi record quando tutte le sezioni sono state elaborate correttamente e hanno stato Pronta. 
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata usata l'API REST per creare una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata usata l'API REST per creare una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 2. Creare **servizi collegati**:

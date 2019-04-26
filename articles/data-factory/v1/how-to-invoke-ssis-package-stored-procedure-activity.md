@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487924"
@@ -86,7 +86,7 @@ Creare un servizio collegato per collegare il database SQL di Azure che ospita i
     4. Sostituire `<password>` con la password dell'utente. 
     5. Distribuire il servizio collegato facendo clic sul pulsante **Distribuisci** sulla barra degli strumenti. 
 
-        ![Servizio collegato per il database SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
+        ![Servizio collegato per il database SQL di Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
 
 ### <a name="create-a-dummy-dataset-for-output"></a>Creare un set di dati fittizio per l'output
 Questo set di dati di output è un set di dati fittizio che determina la pianificazione della pipeline. Si noti che il parametro frequency è impostato su Hour e il parametro interval è impostato su 1. Pertanto, la pipeline viene eseguita una volta ogni ora tra le ore di inizio e fine della pipeline. 

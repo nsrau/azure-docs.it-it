@@ -238,7 +238,7 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 - **L'accesso non è autorizzato oppure è stata usata una password errata:**
 
-  Quando un account di accesso non dispone di autorizzazioni per il server di database SQL di Azure o la password usata non è corretta, la connessione al server di database SQL di Azure viene negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve fornire le credenziali di sicurezza necessarie. Per altre informazioni sulla preparazione degli account di accesso, vedere [Controllo e concessione dell'accesso al database](sql-database-manage-logins.md).
+  Quando un account di accesso non dispone di autorizzazioni per il server di database SQL di Azure o la password usata non è corretta, la connessione al server di database SQL di Azure viene negata. La creazione di un'impostazione del firewall fornisce ai client soltanto un'opportunità di connessione al server; ogni client deve fornire le credenziali di sicurezza necessarie. Per altre informazioni sulla preparazione degli account di accesso, vedere [Gestione di database, account di accesso e utenti nel database SQL di Azure](sql-database-manage-logins.md).
 
 - **Indirizzo IP dinamico:**
 

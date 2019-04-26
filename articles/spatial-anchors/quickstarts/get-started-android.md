@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880040"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995898"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android con Ancoraggi nello spazio di Azure
 
@@ -37,7 +37,7 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
   - Se in esecuzione su macOS, installare Git tramite HomeBrew. Immettere il comando seguente in una singola riga del terminale: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Quindi eseguire `brew install git`.
   - Per creare l'esempio in NDK, sarà anche necessario installare gli strumenti NDK e CMake 3.6 SDK in Android Studio.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">abilitato per lo sviluppo</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">idoneo per ARCore</a>.
-- L'app deve essere destinata ad ARCore 1.5 (il supporto per ARCore 1.6+ verrà aggiunto prossimamente)
+- L'app deve avere come destinazione ARCore 1.7.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Se si crea l'esempio in NDK Android, sarà necessario scaricare `arcore_c_api.h` da [qui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h) e inserirlo in `Android\NDK\libraries\include`.
+Se si crea l'esempio in NDK Android, sarà necessario scaricare `arcore_c_api.h` da [qui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) e inserirlo in `Android\NDK\libraries\include`.
 
 Aprire Android Studio.
 

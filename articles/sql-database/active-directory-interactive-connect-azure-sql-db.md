@@ -1,6 +1,6 @@
 ---
 title: Utilizzo della modalità ActiveDirectoryInteractive per la connessione a SQL | Microsoft Docs
-description: Esempio di codice C#, con spiegazioni, per la connessione al database SQL di Microsoft Azure tramite la modalità SqlAuthenticationMethod.ActiveDirectoryInteractive.
+description: Esempio di codice C#, con spiegazioni, per la connessione al database SQL di Azure tramite la modalità SqlAuthenticationMethod.ActiveDirectoryInteractive.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

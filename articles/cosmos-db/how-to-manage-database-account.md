@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283002"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos

@@ -1,21 +1,21 @@
 ---
 title: Come configurare funzionalità multimaster in Azure Cosmos DB
 description: Informazioni su come configurare funzionalità multimaster nelle applicazioni in Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312141"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682271"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Come configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
 
-Per usare le funzionalità multimaster nelle applicazioni, è necessario abilitare le scritture in più aree e configurare la funzionalità di multihoming. Il multihoming viene configurato impostando la regione corrente in cui viene distribuita l'applicazione.
+Per usare le funzionalità multimaster nelle applicazioni, è necessario abilitare le scritture in più aree e configurare la funzionalità di multihoming in Azure Cosmos DB. Il multihoming viene configurato impostando la regione in cui viene distribuita l'applicazione.
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su multimaster, distribuzione globale e coerenza in Azure Cosmos DB. Vedere gli articoli seguenti:
+Successivamente si possono leggere gli articoli seguenti:
 
 * [Utilizzare i token di sessione per gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Tipi di conflitto e criteri di risoluzione in Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Disponibilità elevata in Azure Cosmos DB](high-availability.md)
-
+* [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 * [Scelta del livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Compromessi tra coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+* [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)

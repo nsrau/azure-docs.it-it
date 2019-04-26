@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456007"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995677"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 [supporta un servizio spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
 
 Questa guida introduttiva illustra come creare un account tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -63,7 +63,7 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Creare un account usando il portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -128,7 +128,7 @@ Installare il modulo Az.Storage
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
 Usare il comando `Login-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
 

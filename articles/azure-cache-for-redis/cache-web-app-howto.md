@@ -16,10 +16,10 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886370"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
@@ -116,7 +116,7 @@ Poiché il file *CacheSecrets.config* non viene distribuito in Azure con l'appli
 2. Nel file *web.config* individuare l'elemento `<appSetting>`. Aggiungere quindi l'attributo `file` seguente. Se è stato usato un nome o un percorso di file diverso, sostituire i valori dell'esempio con questi valori.
 
 * Prima: `<appSettings>`
-* Dopo:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Dopo: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'elemento `<appSettings>` . Il runtime ignora l'attributo file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione alla cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file *CacheSecrets.config* non viene distribuito.
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351848"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001559"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Come analizzare video in tempo reale
 
@@ -216,7 +216,7 @@ Le funzionalità di riconoscimento delle immagini, della voce, dei video o del t
 
 ## <a name="summary"></a>Summary
 
-In questa guida è stato appreso come eseguire l'analisi near real time di video in diretta streaming usando le API Viso, Visione artificiale ed Emozioni e come usare il codice di esempio per iniziare. È possibile iniziare a creare la propria app con chiavi API gratuite nella [pagina di accesso a Servizi cognitivi Microsoft](https://azure.microsoft.com/try/cognitive-services/). 
+In questa guida è stato appreso come eseguire l'analisi near real time di video in diretta streaming usando le API Viso, Visione artificiale ed Emozioni e come usare il codice di esempio per iniziare. È possibile iniziare a creare la propria app con chiavi API gratuite nella [pagina di accesso a Servizi cognitivi di Azure](https://azure.microsoft.com/try/cognitive-services/). 
 
 È gradito ricevere commenti e suggerimenti nel [repository GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, per commenti più approfonditi sulle API, nel  [sito UserVoice](https://cognitive.uservoice.com/).
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224470"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011283"
 ---
 # <a name="key-value-store"></a>Archivio chiave-valore
 
@@ -106,4 +106,5 @@ I dati di configurazione archiviati in un archivio di configurazione app, che in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Concetto: Snapshot temporizzato](concept-point-time-snapshot.md)  
+> [!div class="nextstepaction"]
+> [Snapshot temporizzato](./concept-point-time-snapshot.md)  

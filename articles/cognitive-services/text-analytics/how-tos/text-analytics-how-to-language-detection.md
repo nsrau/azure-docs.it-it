@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886786"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002273"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Esempio: Come rilevare la lingua con Analisi del testo
 
-L'[API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi. Analisi del testo riconosce fino a 120 lingue.
+L'[API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi. Analisi del testo riconosce fino a 120 lingue.
 
 Questa funzionalità è utile per gli archivi di contenuto che includono testo arbitrario, in cui la lingua è sconosciuta. È possibile analizzare i risultati di questa analisi per determinare la lingua usata nel documento di input. La risposta restituisce inoltre un punteggio che riflette il livello di attendibilità del modello (un valore compreso tra 0 e 1).
 
@@ -27,7 +27,7 @@ Questa funzionalità è utile per gli archivi di contenuto che includono testo a
 
 ## <a name="preparation"></a>Operazioni preliminari
 
-È necessario disporre di documenti JSON nel formato seguente: id, testo
+È necessario disporre di documenti JSON nel formato seguente: ID, testo
 
 Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. Di seguito è riportato un esempio di contenuto che può essere inviato per il rilevamento della lingua.
 
@@ -62,16 +62,16 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Impostare l'endpoint HTTP per il rilevamento della lingua usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Impostare l'endpoint HTTP per il rilevamento della lingua usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
 > [!Tip]
-> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per strutturare una richiesta e inviarla tramite POST al servizio.
+> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) per strutturare una richiesta e inviarla tramite POST al servizio.
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Pubblicare la richiesta
 
@@ -206,9 +206,9 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilevamento della lingua tramite Analisi del testo in Servizi cognitivi. Di seguito è riportata una rapida sintesi dei punti principali illustrati in precedenza:
 
-+ L'[API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) è disponibile per 120 lingue.
++ L'[API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) è disponibile per 120 lingue.
 + I documenti JSON nel corpo della richiesta includono un ID e il testo.
-+ La richiesta POST viene indirizzata a un endpoint `/languages` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
++ La richiesta POST è a un endpoint `/languages`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
 + L'output di risposta, costituito da identificatori di lingua per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
 ## <a name="see-also"></a>Vedere anche  

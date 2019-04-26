@@ -365,7 +365,7 @@ Passare alla home page della data factory:
 5. Per monitorare la pipeline e i set di dati creati in questa esercitazione, seguire le istruzioni riportate nella sezione su come [monitorare set di dati e pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline). Attualmente, Visual Studio non supporta il monitoraggio delle pipeline di Data Factory. 
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 2. Creare **servizi collegati**:

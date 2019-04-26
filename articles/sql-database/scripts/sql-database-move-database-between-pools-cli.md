@@ -1,5 +1,5 @@
 ---
-title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL | Microsoft Docs
+title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL di Azure in un pool elastico SQL | Microsoft Docs
 description: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL
 services: sql-database
 ms.service: sql-database

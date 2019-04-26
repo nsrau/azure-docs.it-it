@@ -129,7 +129,7 @@ I limiti seguenti si applicano quando si usa Azure Resource Manager e i gruppi d
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="container-registry-limits"></a>Limiti per Registro contenitori
-La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizio](./container-registry/container-registry-skus.md) Base, Standard e Premium.
+La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizio](./container-registry/container-registry-skus.md) Basic, Standard e Premium.
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 

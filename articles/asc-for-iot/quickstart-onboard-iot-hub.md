@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862387"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010561"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Guida introduttiva: Abilitare il servizio nell'hub IoT
 
@@ -45,7 +45,7 @@ Questo articolo illustra come abilitare l'anteprima del servizio Centro sicurezz
 Per abilitare la sicurezza nell'hub IoT, eseguire le operazioni seguenti: 
 
 1. Aprire l'**hub IoT** nel portale di Azure. 
-2. Selezionare e aprire **Sicurezza** nel menu a sinistra. 
+2. Nel menu **Sicurezza** fare clic su **Panoramica**, quindi su **Avvia anteprima**. 
 3. Scegliere **Enable IoT Security** (Abilita sicurezza IoT). 
 4. Fornire i dettagli dell'area di lavoro Log Analytics. 
    - Scegliere di archiviare gli **eventi non elaborati** oltre ai tipi informazioni predefiniti lasciando l'opzione **raw event** **attivata**. 
