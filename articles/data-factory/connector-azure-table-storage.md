@@ -236,7 +236,7 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureTableSource**. |Sì |
-| AzureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati. Vedere gli esempi nella sezione seguente. |No  |
+| azureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati. Vedere gli esempi nella sezione seguente. |No  |
 | azureTableSourceIgnoreTableNotFound |Indica se consentire l'eccezione di tabella non esistente.<br/>I valori consentiti sono **True** e **False** (predefinito). |No  |
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
