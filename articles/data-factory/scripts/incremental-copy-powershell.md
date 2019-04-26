@@ -1,6 +1,6 @@
 ---
 title: 'Script di PowerShell: eseguire il caricamento incrementale dei dati usando Azure Data Factory | Microsoft Docs'
-description: Questo script PowerShell mostra come usare Azure Data Factory per copiare i dati in modo incrementale da un database SQL di Microsoft Azure ad Archiviazione BLOB di Azure.
+description: Questo script PowerShell mostra come usare Azure Data Factory per copiare i dati in modo incrementale da un database SQL di Azure ad Archiviazione BLOB di Azure.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -13,7 +13,7 @@ ms.date: 10/31/2017
 ms.author: jingwang
 ms.openlocfilehash: 5ae6d6ed06aa5734dc601e6e72ba55ec8ddf7bcf
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57440591"

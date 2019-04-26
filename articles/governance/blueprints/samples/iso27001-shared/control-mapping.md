@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 93a26311216ca5682c02a319f989b3d342a33ce1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256482"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005299"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -26,6 +26,12 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 - [Anteprima]: Audit minimum number of owners for subscription
 - [Anteprima]: Audit maximum number of owners for a subscription
+
+## <a name="a821-classification-of-information"></a>A.8.2.1 Classificazione delle informazioni
+
+Il [Servizio Valutazione della vulnerabilità di SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) può aiutare a individuare i dati sensibili archiviati nei database e include suggerimenti per la loro classificazione. Questo progetto assegna una definizione dei [Criteri di Azure](../../../policy/overview.md) per controllare che le vulnerabilità identificate durante l'analisi della Valutazione della vulnerabilità di SQL vengano risolte.
+
+- [Anteprima]: Monitor SQL vulnerability assessment results in Azure Security Center
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Accesso a reti e servizi di rete
 
@@ -41,22 +47,17 @@ Identificando le risorse in violazione di questi criteri, è possibile adottare 
 - Controlla l'uso delle macchine virtuali della versione classica
 - Controlla macchine virtuali che non usano dischi gestiti
 
-## <a name="a922-user-access-provisioning"></a>A.9.2.2 Provisioning degli accessi utente
-
-Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) per gestire chi ha accesso alle risorse di Azure. Questo progetto assegna tre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) per istanze di SQL Server e [Service Fabric](../../../../service-fabric/service-fabric-overview.md). L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
-
-- Controlla il provisioning di un amministratore di Azure Active Directory per SQL Server
-- Controlla l'utilizzo di Azure Active Directory per l'autenticazione client in Service Fabric
-- Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati
-
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestione dei diritti di accesso con privilegi
 
-Questo progetto consente di restringere e controllare i diritti di accesso con privilegi assegnando quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di scrittura e gli account con autorizzazioni di proprietario e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
+Questo progetto consente di restringere e controllare i diritti di accesso con privilegi assegnando quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di scrittura e gli account con autorizzazioni di proprietario e/o di scrittura per cui non è abilitata l'autenticazione a più fattori. Azure implementa il controllo degli accessi in base al ruolo per gestire chi ha accesso alle risorse di Azure. Questo progetto assegna tre definizioni di Criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
 
 - [Anteprima]: Audit accounts with owner permissions who are not MFA enabled on a subscription
 - [Anteprima]: Audit accounts with write permissions who are not MFA enabled on a subscription
 - [Anteprima]: Audit external accounts with owner permissions on a subscription
 - [Anteprima]: Audit external accounts with write permissions on a subscription
+- Controlla il provisioning di un amministratore di Azure Active Directory per SQL Server
+- Controlla l'utilizzo di Azure Active Directory per l'autenticazione client in Service Fabric
+- Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati
 
 ## <a name="a924-management-of-secret-authentication-information-of-users"></a>A.9.2.4 Gestione delle informazioni di autenticazione degli utenti tramite segreto
 
@@ -83,6 +84,14 @@ Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-
 
 - [Anteprima]: Audit deprecated accounts on a subscription
 - [Anteprima]: Audit deprecated accounts with owner permissions on a subscription
+
+## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedure di accesso sicure
+
+Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Multi-Factor Authentication di Azure offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
+
+- [Anteprima]: Audit accounts with owner permissions who are not MFA enabled on a subscription
+- [Anteprima]: Audit accounts with read permissions who are not MFA enabled on a subscription
+- [Anteprima]: Audit accounts with write permissions who are not MFA enabled on a subscription
 
 ## <a name="a943-password-management-system"></a>A.9.4.3 Sistema di gestione delle password
 
@@ -121,7 +130,8 @@ Identificando le risorse di Azure le cui configurazioni di crittografia potrebbe
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 Registrazione di eventi
 
-Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando sette definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log sulle risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
+Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando sette definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log sulle risorse di Azure.
+I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure.
 
 - [Anteprima]: Controlla la distribuzione di Dependency Agent - Immagine macchina virtuale (sistema operativo) non in elenco
 - [Anteprima]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
@@ -131,9 +141,39 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
 
-## <a name="a121-management-of-technical-vulnerabilities"></a>A.12.1 Gestione di vulnerabilità tecniche
+## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Log amministratore e operatore
 
-Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando cinque definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano gli aggiornamenti di sistema mancanti, oltre alle vulnerabilità del sistema operativo, di SQL e delle macchine virtuali. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
+Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando sette definizioni di Criteri di Azure che controllano le impostazioni dei log sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure.
+
+- [Anteprima]: Controlla la distribuzione di Dependency Agent - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Monitor unaudited SQL database in Azure Security Center
+- Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+- Controlla le impostazioni di controllo a livello del server SQL
+
+## <a name="a1244-clock-synchronization"></a>A.12.4.4 Sincronizzazione dell'orologio
+
+Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando sette definizioni di Criteri di Azure che controllano le impostazioni dei log sulle risorse di Azure. I log di Azure si basano sulla sincronizzazione degli orologi interni per creare un record correlato al tempo degli eventi nelle risorse.
+
+- [Anteprima]: Controlla la distribuzione di Dependency Agent - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- [Anteprima]: Monitor unaudited SQL database in Azure Security Center
+- Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+- Controlla le impostazioni di controllo a livello del server SQL
+
+## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Installazione del software nei sistemi operativi
+
+Il controllo applicazione adattivo è una soluzione di Centro sicurezza di Azure che consente di controllare quali applicazioni possono essere eseguite nelle VM situate in Azure. Questo progetto assegna una definizione di Criteri di Azure che monitora le modifiche apportate al set di applicazioni consentite. Questa funzionalità consente di controllare l'installazione del software e delle applicazioni nelle macchine virtuali di Azure.
+
+- [Anteprima]: Monitor possible app Whitelisting in Azure Security Center
+
+## <a name="a1261-management-of-technical-vulnerabilities"></a>A.12.6.1 Gestione di vulnerabilità tecniche
+
+Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando cinque definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano gli aggiornamenti di sistema mancanti, oltre alle vulnerabilità del sistema operativo, di SQL e delle macchine virtuali nel Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite.
 
 - [Anteprima]: Monitor missing Endpoint Protection in Azure Security Center
 - [Anteprima]: Monitor missing system updates in Azure Security Center
@@ -149,9 +189,12 @@ Il controllo applicazione adattivo è una soluzione di Centro sicurezza di Azure
 
 ## <a name="a1311-network-controls"></a>A.13.1.1 Controlli di rete
 
-Questo progetto consente di gestire e controllare le reti assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora i gruppi di sicurezza di rete con regole permissive. Le regole troppo permissive potrebbero consentire l'accesso non autorizzato alla rete e dovranno essere riviste.
+Questo progetto consente di gestire e controllare le reti assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora i gruppi di sicurezza di rete con regole permissive. Le regole troppo permissive potrebbero consentire l'accesso non autorizzato alla rete e dovranno essere riviste. Questo progetto assegna anche tre definizioni di Criteri di Azure che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
 
 - [Anteprima]: Monitor permissive network access in Azure Security Center
+- [Anteprima]: Monitor unprotected network endpoints in Azure Security Center
+- [Anteprima]: Monitor unprotected web application in Azure Security Center
+- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Criteri e procedure di trasferimento delle informazioni
 
@@ -159,24 +202,6 @@ Questo progetto consente di assicurarsi che il trasferimento di informazioni con
 
 - Controlla l'abilitazione delle sole connessioni sicure alla cache Redis
 - Controlla il trasferimento sicuro negli account di archiviazione
-
-## <a name="a1413-protecting-application-services-transactions"></a>A.14.1.3 Protezione delle transazioni dei servizi per le applicazioni
-
-Questo progetto consente di proteggere gli asset del sistema informativo assegnando tre definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
-
-- [Anteprima]: Monitor unprotected network endpoints in Azure Security Center
-- [Anteprima]: Monitor unprotected web application in Azure Security Center
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-
-## <a name="a1613-reporting-information-security-weaknesses"></a>A.16.1.3 Report sulle debolezze della sicurezza delle informazioni
-
-Questo progetto consente di rimanere sempre informati sulle vulnerabilità del sistema assegnando cinque definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità, lo stato delle patch e gli avvisi su malware in Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite.
-
-- [Anteprima]: Monitor missing Endpoint Protection in Azure Security Center
-- [Anteprima]: Monitor missing system updates in Azure Security Center
-- [Anteprima]: Monitor OS vulnerabilities in Azure Security Center
-- [Anteprima]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Anteprima]: Monitor VM Vulnerabilities in Azure Security Center
 
 ## <a name="next-steps"></a>Passaggi successivi
 

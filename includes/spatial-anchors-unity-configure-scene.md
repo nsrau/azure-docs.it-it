@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 4badd7b3ea308968e514a58463f08e58243a3387
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e796e836a8250c665ac09b66b51ed32380e56723
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908519"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012136"
 ---
 Il passaggio successivo consiste nel configurare l'app in modo da usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
 
-Nel riquadro **Hierarchy** (Gerarchia) selezionare l'oggetto gioco **AzureSpatialAnchors**. Nel riquadro **Inspector** (Controllo) immettere `Account Key` come valore per `Spatial Anchors Account Key` e `Account ID` come valore per `Spatial Anchors Account Id`.
+Nel riquadro **Progetto** passare a `Assets\AzureSpatialAnchorsPlugin\Examples\Resources`. Selezionare `AzureSpatialAnchorsDemoConfig`. Nel riquadro **Inspector** (Controllo) immettere `Account Key` come valore per `Spatial Anchors Account Key` e `Account ID` come valore per `Spatial Anchors Account Id`.

@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576889"
@@ -496,7 +496,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 | newClusterSparkConf  | Set di coppia chiave-valore di configurazione Spark facoltative specificate dall'utente. Gli utenti possono anche passare una stringa di opzioni JVM aggiuntive al driver e agli executor rispettivamente tramite spark.driver.extraJavaOptions e spark.executor.extraJavaOptions. | No   |
 
 
-## <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
+## <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL di Azure
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’ [Attività di stored procedure](transform-data-using-stored-procedure.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](connector-azure-sql-database.md#linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Servizio collegato di Azure SQL Data Warehouse

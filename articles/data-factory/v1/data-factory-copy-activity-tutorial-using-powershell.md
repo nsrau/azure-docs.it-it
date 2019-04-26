@@ -556,7 +556,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 Vedere le [informazioni di riferimento per i cmdlet di Data factory](/powershell/module/az.datafactory) per la documentazione completa sui cmdlet di Data factory.
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 1. Creare **servizi collegati**:

@@ -59,7 +59,7 @@ In questa esercitazione si crea una data factory con le entità di Data Factory 
 | Entità | DESCRIZIONE |
 | --- | --- |
 | Servizio collegato Archiviazione di Azure |Collega l'account di archiviazione di Azure alla data factory. Archiviazione di Azure è l'archivio dati di origine e il database SQL di Azure è l'archivio dati del sink per l'attività di copia nell'esercitazione. Specifica l'account di archiviazione che contiene i dati di input per l'attività di copia. |
-| Servizio collegato per il database SQL Azure |Collega il database SQL di Azure alla data factory. Specifica il database SQL di Azure che contiene i dati di output per l'attività di copia. |
+| Servizio collegato per il database SQL di Azure |Collega il database SQL di Azure alla data factory. Specifica il database SQL di Azure che contiene i dati di output per l'attività di copia. |
 | Set di dati di input del BLOB di Azure |Fa riferimento al servizio collegato di archiviazione di Azure. Il servizio collegato fa riferimento a un account di archiviazione di Azure e il set di dati del BLOB di Azure specifica il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input. |
 | Set di dati di output di SQL Azure |Fa riferimento al servizio collegato SQL di Azure. Il servizio collegato SQL di Azure fa riferimento a un server di Azure SQL e il set di dati SQL di Azure specifica il nome della tabella che contiene i dati di output. |
 | Data Pipeline |La pipeline ha un'attività di tipo copia che accetta il set di dati del BLOB di Azure come input e il set di dati SQL di Azure come output. L'attività di copia esegue la copia dei dati da un BLOB di Azure a una tabella nel database SQL di Azure. |
@@ -414,7 +414,7 @@ AzureStorageLinkedService collega l'account di archiviazione di Azure alla data 
 
 connectionString usa i parametri storageAccountName e storageAccountKey. I valori per questi parametri sono stati passati usando un file di configurazione. La definizione usa anche le variabili azureStorageLinkedService e dataFactoryName definite nel modello. 
 
-#### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
+#### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL di Azure
 AzureSqlLinkedService collega il database SQL di Azure alla data factory. I dati copiati dall'archivio BLOB vengono archiviati in questo database. Come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) è stata creata la tabella emp in questo database. In questa sezione si specificano il nome del server di Azure SQL, il nome del database, il nome utente e la password utente. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Azure SQL, vedere [Servizio collegato Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json

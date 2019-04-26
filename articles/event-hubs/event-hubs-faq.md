@@ -164,7 +164,7 @@ Gli eventi utilizzati da un hub eventi, nonché le operazioni di gestione e le c
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Si applicano costi di connessione negoziata ad Hub eventi?
 
-I costi di connessione si applicano solo quando viene usato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di usare AMQP, ad esempio per ottenere un flusso di eventi più efficiente o consentire la comunicazione bidirezionale in scenari di comando e controllo IoT, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/) per i dettagli relativi al numero di connessioni incluse in ogni livello del servizio.
+I costi di connessione si applicano solo quando viene usato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di usare AMQP, ad esempio per ottenere un flusso di eventi più efficiente o consentire la comunicazione bidirezionale in scenari di comando e controllo IoT, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/) per i dettagli relativi al numero di connessioni incluse in ogni livello di servizio.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Come viene fatturata l'acquisizione di Hub eventi?
 

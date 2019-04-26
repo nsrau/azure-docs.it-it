@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629471"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009243"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Unity HoloLens che usa Ancoraggi nello spazio di Azure
 
@@ -78,6 +78,8 @@ Al termine dell'esportazione, verrà visualizzata una cartella contenente il pro
 Nella cartella fare doppio clic su **HelloAR U3D.sln** per aprire il progetto in Visual Studio.
 
 Impostare **Configurazione soluzione** su **Versione**, impostare **Piattaforme soluzione** su **x86** e selezionare **Dispositivo** nelle opzioni di destinazione della distribuzione.
+
+Se si usa HoloLens 2, usare **ARM** come **piattaforma soluzione**, invece di **x86**.
 
    ![Configurazione di Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

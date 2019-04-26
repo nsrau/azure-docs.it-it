@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298416"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682985"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: Creare un registro contenitori privato usando il portale di Azure
 
@@ -61,7 +61,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 Per elencare le immagini presenti nel registro, passare al registro nel portale e scegliere **Repository**, quindi selezionare il repository creato con `docker push`.
 
-In questo esempio è stato selezionato il repository **busybox** ed è possibile vedere l'immagine contraddistinta dal tag `v1` in **TAGS**.
+In questo esempio è stato selezionato il repository **hello-world** ed è possibile vedere l'immagine `v1` contrassegnata in **TAGS**.
 
 ![Elencare le immagini del contenitore nel portale di Azure][qs-portal-09]
 

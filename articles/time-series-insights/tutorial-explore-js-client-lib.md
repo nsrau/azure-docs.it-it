@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150082"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Esercitazione: Esplorare la libreria client JavaScript per Azure Time Series Insights
 
@@ -28,6 +28,9 @@ Questa esercitazione descrive quanto segue:
 > * Applicazione di esempio Time Series Insights.
 > * Libreria client JavaScript per Time Series Insights.
 > * Modo in cui l'applicazione di esempio usa la libreria per visualizzare i dati di Time Series Insights.
+
+> [!NOTE]
+> I file di origine dell'applicazione di esempio Time Series Insights sono reperibili nel [repository GitHub di esempio](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial) fornito.
 
 ## <a name="video"></a>Video: 
 
@@ -57,7 +60,7 @@ Durante questa esercitazione viene usata l'applicazione di esempio Time Series I
 
 ### <a name="page-source-and-structure"></a>Codice sorgente e struttura della pagina
 
-Visualizzare prima di tutto il codice sorgente HTML e JavaScript alla base della pagina di cui viene eseguito il rendering nel browser. Non verranno esaminati tutti gli elementi, ma verranno descritte le sezioni principali per dare un'idea del funzionamento della pagina:
+Visualizzare prima di tutto il [codice sorgente HTML e JavaScript](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) alla base della pagina di cui viene eseguito il rendering nel browser. Non verranno esaminati tutti gli elementi, ma verranno descritte le sezioni principali per dare un'idea del funzionamento della pagina:
 
 1. Aprire **Strumenti di sviluppo** nel browser. Esaminare gli elementi HTML che costituiscono la pagina corrente, chiamati anche albero DOM o HTML.
 
@@ -109,7 +112,7 @@ Come accennato in precedenza, questo esempio è un'applicazione a pagina singola
 
 2. Successivamente l'applicazione richiede un "token di accesso" di Azure AD. Il token di accesso viene generato per un set limitato di autorizzazioni per un identificatore di servizio/API specifico https://api.timeseries.azure.com. L'identificatore di servizio/API è noto anche come token "audience". Le autorizzazioni per il token vengono rilasciate per conto dell'utente connesso. L'identificatore per il servizio e/o l'API è ancora un'altra proprietà contenuta nella registrazione di Azure AD dell'applicazione. Quando ADAL restituisce il token di accesso all'applicazione, questo viene passato come "bearer token" durante l'accesso alle API del servizio Time Series Insights.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>Identificazione dei controlli
 
@@ -191,7 +194,7 @@ Esaminare il codice alla base di alcuni controlli grafico standard mostrati nell
 
 Come specificato nel passaggio 3 della sezione [Codice sorgente e struttura della pagina](#page-source-and-structure), i controlli grafico sono disposti in righe sulla pagina e per ognuno è presente una riga per un titolo descrittivo. In questo esempio i tre grafici vengono popolati sotto l'elemento `<div>` del titolo "Multiple Chart Types From the Same Data" (Più tipi di grafico dagli stessi dati) e sono associati ai tre elementi `<div>` sottostanti:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 La sezione di codice JavaScript seguente usa i modelli descritti in precedenza per creare espressioni di aggregazione Time Series Insights, usarle per eseguire query per dati di Time Series Insights ed eseguire il rendering dei tre grafici. Notare i tre tipi usati all'interno dello spazio dei nomi `tsiClient.ux`: `LineChart`, `BarChart` e `PieChart`, per creare ed eseguire il rendering dei rispettivi grafici. Notare inoltre che tutti i tre grafici possono usare gli stessi dati delle espressioni di aggregazione, `transformedResult`:
 
@@ -232,7 +235,7 @@ Visivamente, le finestre popup/i marcatori a forma di rombo usati per indicare g
 
 Un altro esempio di funzionalità avanzate è rappresentato dai menu di scelta rapida personalizzati. I menu di scelta rapida personalizzati sono utili per l'attivazione di azioni e passaggi logici successivi nell'ambito dell'applicazione.
 
-Osservare il codice sottostante alla sezione del codice HTML sotto il commento `// Example 13/14/15`. Questo codice esegue inizialmente il rendering di un grafico a linee sotto il titolo "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu di scelta rapida per creare il grafico a torta/a barre) e il grafico è associato all'elemento `<div>` con valore di ID `chart13`. Usando i menu di scelta rapida, il grafico a linee offre la possibilità di creare in modo dinamico un grafico a torta e un grafico a barre, associati a elementi `<div>` con ID `chart14` e `chart15`. Inoltre, i grafici a torta e i grafici a barre usano i menu a scelta rapida anche per abilitare funzionalità proprie: la possibilità rispettivamente di copiare dati dal grafico a torta al grafico a barre e stampare i dati del grafico a barre nella finestra della console del browser.
+Osservare il codice sottostante alla sezione del codice HTML sotto il commento `// Example 13/14/15`. Questo codice esegue inizialmente il rendering di un grafico a linee sotto il titolo "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu contestuale per creare un grafico a torta/a barre) e il grafico è associato all'elemento `<div>` con valore di ID `chart13`. Usando i menu di scelta rapida, il grafico a linee offre la possibilità di creare in modo dinamico un grafico a torta e un grafico a barre, associati a elementi `<div>` con ID `chart14` e `chart15`. Inoltre, i grafici a torta e i grafici a barre usano i menu a scelta rapida anche per abilitare funzionalità proprie: la possibilità rispettivamente di copiare dati dal grafico a torta al grafico a barre e stampare i dati del grafico a barre nella finestra della console del browser.
 
 1. Prima di tutto, viene definita una serie di azioni personalizzate. Ogni azione contiene una matrice con uno o più elementi. Ogni elemento definisce una singola voce di menu di scelta rapida:
 
@@ -283,9 +286,12 @@ Questa esercitazione illustra come:
 > * Usare le API nella libreria client JavaScript per Time Series Insights.
 > * Usare JavaScript per creare e popolare controlli grafico con dati di Time Series Insights.
 
-Come descritto, l'applicazione di esempio Time Series Insights usa un set di dati dimostrativi. Per informazioni su come creare un ambiente Time Series Insights personalizzato e i relativi set di dati, passare all'articolo seguente:
+Come illustrato, l'applicazione di esempio Time Series Insights usa un set di dati dimostrativi. Per informazioni su come creare un ambiente Time Series Insights personalizzato e i relativi set di dati, passare all'articolo seguente:
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Creare un ambiente Azure Time Series Insights](tutorial-create-populate-tsi-environment.md)
 
+In alternativa, visualizzare i file di origine dell'applicazione di esempio Time Series Insights:
 
+> [!div class="nextstepaction"]
+> [Repository di app di esempio Time Series Insights](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

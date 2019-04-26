@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756274"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149530"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Eseguire le applicazioni nel servizio Azure Kubernetes
 
@@ -52,7 +52,7 @@ Il file manifesto di esempio del repository Git clonato nella prima esercitazion
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Sostituire *microsoft* con il nome del server di accesso di Registro Azure Container. Il nome dell'immagine è presente nella riga 47 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
+Sostituire *microsoft* con il nome del server di accesso di Registro Azure Container. Il nome dell'immagine è presente nella riga 51 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
 
 ```yaml
 containers:
