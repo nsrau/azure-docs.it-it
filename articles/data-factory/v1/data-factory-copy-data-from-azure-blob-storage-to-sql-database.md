@@ -85,7 +85,7 @@ Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **A
 4. Fare clic su **X**per chiudere tutti i pannelli.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Preparare l'archivio BLOB e il database SQL
-Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazione seguendo questa procedura:  
+Preparare ora l'archivio BLOB di Azure e il database SQL di Azure per l'esercitazione seguendo questa procedura:  
 
 1. Avviare il Blocco note. Copiare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStarted** nel disco rigido.
 

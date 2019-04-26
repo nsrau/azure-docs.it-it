@@ -84,7 +84,7 @@ Dopo aver creato un'istanza del Servizio Migrazione del database di Azure, crear
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Creare un oggetto informazioni di connessione del database per le connessioni di origine e di destinazione
 È possibile creare un oggetto informazioni di connessione del database usando il cmdlet `New-AzDmsConnInfo`. Questo cmdlet si aspetta i parametri seguenti:
 - *ServerType*. Il tipo di connessione al database richiesta, ad esempio SQL, Oracle o MySQL. Usare SQL per SQL Server e SQL Azure.
-- *DataSource*. Il nome o indirizzo IP di un'istanza Microsoft SQL Server o un database SQL Azure.
+- *DataSource*. Il nome o indirizzo IP di un'istanza Microsoft SQL Server o un database SQL di Azure.
 - *AuthType*. Il tipo di autenticazione per la connessione, che può essere SqlAuthentication o WindowsAuthentication.
 - Il parametro *TrustServerCertificate* imposta un valore che indica se il canale è crittografato, bypassando l'analisi della catena di certificati per convalidare l'attendibilità. Il valore può essere "true" o "false".
 
