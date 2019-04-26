@@ -55,7 +55,7 @@ Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Web** |Yes |
-| URL | URL dell'origine Web |Yes |
+| url | URL dell'origine Web |Yes |
 | authenticationType | Il valore consentito è: **Anonymous**. |Yes |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
 
