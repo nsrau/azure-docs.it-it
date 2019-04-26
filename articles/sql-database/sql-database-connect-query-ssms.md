@@ -58,7 +58,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
-In SMSS connettersi al database SQL di Azure.
+In SMSS connettersi al server di database SQL di Azure.
 
 > [!IMPORTANT]
 > Un server di Database SQL di Azure è in ascolto sulla porta 1433. Per connettersi a un server di database SQL protetto da un firewall aziendale, è necessario che nel firewall sia aperta tale porta.

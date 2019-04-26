@@ -23,7 +23,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 > [!div class="checklist"]
 > * Creare un database singolo con il portale di Azure*
-> * Configurare una regola del firewall per gli indirizzi IP a livello di server con il portale di Azure
+> * Configurare una regola del firewall IP a livello di server con il portale di Azure
 > * Connettersi al database con ADO.NET e Visual Studio
 > * Creare tabelle con ADO.NET
 > * Inserire, aggiornare ed eliminare dati con ADO.NET
@@ -79,9 +79,9 @@ Per creare un database singolo vuoto, seguire questa procedura.
 
    ![notifica](./media/sql-database-design-first-database/notification.png)
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall per gli indirizzi IP a livello di server
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall IP a livello di server
 
-Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server a meno che una regola del firewall non consenta allo specifico indirizzo IP di superare il firewall. Per abilitare la connettività esterna al database singolo, è prima di tutto necessario aggiungere una regola del firewall per l'indirizzo IP o l'intervallo di indirizzi IP. Per creare una [regola del firewall per gli indirizzi IP a livello di server di database SQL](sql-database-firewall-configure.md), seguire questa procedura.
+Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server a meno che una regola del firewall non consenta allo specifico indirizzo IP di superare il firewall. Per abilitare la connettività esterna al database singolo, è prima di tutto necessario aggiungere una regola del firewall IP o l'intervallo di indirizzi IP. Per creare una [regola del firewall IP a livello di server di database SQL](sql-database-firewall-configure.md), seguire questa procedura.
 
 > [!IMPORTANT]
 > Il servizio Database SQL comunica sulla porta 1433. Se si intende connettersi al servizio da una rete aziendale, il firewall della rete potrebbe non consentire il traffico in uscita sulla porta 1433. In questo caso, non è possibile connettersi al database singolo a meno che l'amministratore non apra la porta 1433.
@@ -92,13 +92,13 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
    ![Nome del server](./media/sql-database-design-first-database/server-name.png)
 
-3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server del database SQL.
+3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server di database SQL.
 
-   ![regola del firewall per gli indirizzi IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![regola del firewall IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
+4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall IP. Una regola del firewall IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Fare clic su **Save**. Viene creata una regola del firewall per gli indirizzi IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 

@@ -15,7 +15,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57453032"
@@ -38,7 +38,7 @@ Questa sezione si applica quando vengono soddisfatte le condizioni seguenti:
 
   AND
 
-- Il server di Database SQL *non* è configurato con la regola dell'endpoint di servizio di rete virtuale.
+- Il server di database SQL *non* è configurato con la regola dell'endpoint servizio di rete virtuale.
 
 ### <a name="solution"></a>Soluzione
 
@@ -54,7 +54,7 @@ Questa sezione si applica quando una delle condizioni seguenti è vera:
 
   Oppure
 
-- Il server di Database SQL di Azure è configurato con la regola dell'endpoint di servizio di rete virtuale.
+- Il server di database SQL di Azure è configurato con la regola dell'endpoint servizio di rete virtuale.
 
   Oppure
 

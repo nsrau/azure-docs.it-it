@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58108747"
@@ -24,7 +24,7 @@ ms.locfileid: "58108747"
 Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. La funzionalità di conservazione a lungo termine consente di archiviare i backup completi del database SQL in una risorsa di archiviazione BLOB [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) fino a un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
 
 > [!NOTE]
-> È possibile abilitare la conservazione a lungo termine per database singoli e in pool. Non è ancora disponibile per database con istanze in Istanze gestite. È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
+> È possibile abilitare la conservazione a lungo termine per database singoli e in pool. Non è ancora disponibile per database dell'istanza in Istanze gestite. È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine del database SQL
@@ -57,7 +57,7 @@ W=12 settimane (84 giorni), M=12 mesi (365 giorni), Y=10 anni (3650 giorni), Wee
 
 
 
-Se fosse necessario modificare i criteri sopra riportati e impostare W=0 (nessun backup settimanale), la cadenza delle copie di backup cambierebbe, come illustrato dalle date evidenziate nella tabella precedente. La quantità di archiviazione necessaria per conservare questi backup si ridurrebbe di conseguenza. 
+Se fosse necessario modificare i criteri sopra riportati e impostare W=0 (nessun backup settimanale), la cadenza delle copie di backup cambierebbe, come illustrato dalle date evidenziate nella tabella precedente. Lo spazio di archiviazione necessario per conservare questi backup si ridurrebbe di conseguenza. 
 
 > [!NOTE]
 > 1. Le copie per la conservazione a lungo termine vengono create dal servizio di archiviazione di Azure in modo che il processo di copia non abbia alcun impatto sulle prestazioni del database esistente.
