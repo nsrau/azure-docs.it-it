@@ -36,7 +36,7 @@ In particolare, il connettore del database SQL di Azure supporta queste funzioni
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, aggiungere dati alla tabella di destinazione o richiamare una stored procedure con logica personalizzata durante la copia.
 
-La funzionalità [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) di database SQL Server non è attualmente supportata. 
+La funzionalità [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) del database SQL di Azure non è attualmente supportata. 
 
 > [!IMPORTANT]
 > Se si copiano i dati tramite il runtime di integrazione di Azure Data Factory, configurare un [firewall del server SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) per consentire ai servizi di Azure di accedere al server.

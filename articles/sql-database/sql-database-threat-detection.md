@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60331478"
 ---
-# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Rilevamento delle minacce del database SQL di Azure per database autonomi o in pool
+# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Rilevamento delle minacce del database SQL di Azure per database singoli o in pool
 
 [Rilevamento delle minacce](sql-database-threat-detection-overview.md) consente di rilevare le attività anomale in database singoli e in pool, che possono indicare tentativi di accesso o exploit dei database, insoliti e potenzialmente dannosi. Rilevamento delle minacce può identificare **potenziali attacchi SQL injection**, **accesso da una posizione o un data center insoliti**, **accesso da un'entità di sicurezza insolita o da un'applicazione potenzialmente dannosa** e **attacco di forza bruta a credenziali SQL**. Per altre informazioni dettagliate, vedere [Avvisi di rilevamento minacce](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
@@ -30,7 +30,7 @@ ms.locfileid: "60331478"
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurare il rilevamento delle minacce per il database tramite il portale di Azure
 
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Passare alla pagina di configurazione del server del database SQL di Azure che si vuole proteggere. Nelle impostazioni di sicurezza, selezionare **Sicurezza dei dati avanzata**.
+2. Passare alla pagina di configurazione del server di database SQL di Azure che si vuole proteggere. Nelle impostazioni di sicurezza, selezionare **Sicurezza dei dati avanzata**.
 3. Nella pagina di configurazione **Sicurezza dei dati avanzata**:
 
    - Abilitare Sicurezza dei dati avanzata nel server.

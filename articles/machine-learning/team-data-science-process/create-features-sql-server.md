@@ -32,7 +32,7 @@ Questa attività è un passaggio del [Processo di analisi scientifica dei dati p
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md)
-* I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
+* I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database SQL di Azure per Azure Machine Learning](move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
 ## <a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  

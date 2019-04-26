@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Generare i metadati per immagini di Archiviazione di Azure'
+title: 'Esercitazione: Generare i metadati per le immagini di Azure'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app web per generare i metadati per le immagini.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448000"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005991"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -52,11 +52,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Tornare al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
 
-    ![Visualizzazione delle chiavi di accesso](../Images/copy-vision-endpoint.png)
+    ![Pagina del portale di Azure con l'URL endpoint e il collegamento delle chiavi di accesso evidenziato](../Images/copy-vision-endpoint.png)
 
 1. Nella finestra successiva, copiare il valore della **CHIAVE 1** negli Appunti.
 
-    ![Copia della chiave di accesso](../Images/copy-vision-key.png)
+    ![Finestra di dialogo Gestisci chiavi con il pulsante di copia evidenziato](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Aggiungere le credenziali dell'API Visione artificiale
 
@@ -136,7 +136,7 @@ Salvare le modifiche in Visual Studio e premere **CTRL+F5** per avviare l'applic
 
 Per visualizzare tutti i metadati allegati, usare Azure Storage Explorer per visualizzare il contenitore di archiviazione in uso per le immagini. Fare clic con il pulsante destro del mouse su un BLOB qualsiasi nel contenitore e scegliere **Proprietà**. Nella finestra di dialogo, verrà visualizzato un elenco di coppie chiave-valore. La descrizione dell'immagine generata dal computer viene archiviata nell'elemento "Sottotitolo" e le parole chiave di ricerca vengono archiviate in "Tag0", "Tag1" e così via. Al termine, fare clic su **Annulla** per chiudere la finestra di dialogo.
 
-![Metadati BLOB](../Images/blob-metadata.png)
+![Finestra di dialogo Proprietà immagine, con i tag dei metadati elencati](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

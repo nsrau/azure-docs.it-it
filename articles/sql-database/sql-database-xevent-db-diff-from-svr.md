@@ -1,6 +1,6 @@
 ---
 title: Eventi estesi nel database SQL | Documentazione Microsoft
-description: Vengono descritti gli eventi estesi (XEvent) in Azure SQL Database e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
+description: Vengono descritti gli eventi estesi (XEvent) in Database SQL di Azure e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -109,7 +109,7 @@ In Microsoft SQL Server le viste del catalogo simili sono denominate senza la pa
 - **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
-Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e Azure SQL Database:
+Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e database SQL di Azure:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -176,7 +176,7 @@ Il token della firma di accesso condiviso generato per il contenitore di Archivi
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più memoria attiva di quanto è adatto per l'intero sistema. Pertanto il sistema di Azure SQL Database imposta e regola in modo dinamico i limiti sulla quantità di memoria attiva che può essere accumulata da una sessione di eventi. Molti fattori vengono utilizzati nel calcolo dinamico.
+Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più memoria attiva di quanto è adatto per l'intero sistema. Pertanto il sistema di Database SQL di Azure imposta e regola in modo dinamico i limiti sulla quantità di memoria attiva che può essere accumulata da una sessione di eventi. Molti fattori vengono utilizzati nel calcolo dinamico.
 
 Se si riceve un messaggio di errore che indica che è stato applicato un massimo di memoria, alcune azioni correttive da eseguire sono:
 

@@ -32,7 +32,7 @@ Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per s
 
 ## <a name="connected-sources"></a>Origini connesse
 
-Analisi SQL di Azure è una soluzione di monitoraggio solo per cloud che supporta il flusso dei dati di telemetria di diagnostica per i database SQL di Azure: singoli, in pool e di istanza gestita. Come la soluzione non usa agenti per connettersi a monitoraggio di Azure, la soluzione non supporta il monitoraggio di SQL Server ospitato in locale o in macchine virtuali, vedere la tabella di compatibilità seguente.
+Analisi SQL di Azure è una soluzione di monitoraggio solo per cloud che supporta il flusso dei dati di telemetria di diagnostica per i database SQL di Azure: singoli, in pool e dell'istanza gestita. Come la soluzione non usa agenti per connettersi a monitoraggio di Azure, la soluzione non supporta il monitoraggio di SQL Server ospitato in locale o in macchine virtuali, vedere la tabella di compatibilità seguente.
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |

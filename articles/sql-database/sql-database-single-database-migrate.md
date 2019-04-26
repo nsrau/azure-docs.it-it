@@ -1,5 +1,5 @@
 ---
-title: Migrazione di un database SQL Server a un database singolo/con pooling nel database SQL di Azure | Microsoft Docs
+title: Migrazione di un database SQL Server a un database singolo/in pool nel database SQL di Azure | Microsoft Docs
 description: Informazioni sulla migrazione del database SQL Server a un databsase singolo o a un pool elastico nel database SQL di Azure.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
@@ -54,7 +54,7 @@ L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazio
 
 L'elenco seguente contiene indicazioni che permettono di ottimizzare le prestazioni durante il processo di importazione.
 
-- Scegliere il livello di servizio e la quantità di calcolo più elevati consentiti dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione.
+- Scegliere il livello di servizio e le dimensioni di calcolo più elevati consentiti dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione.
 - Ridurre al minimo la distanza tra il file BACPAC e il data center di destinazione.
 - Disabilitare le statistiche automatiche durante la migrazione.
 - Partizionare tabelle e indici.
