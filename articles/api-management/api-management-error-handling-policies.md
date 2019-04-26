@@ -79,13 +79,13 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
   
 | NOME     | type   | DESCRIZIONE                                                                                               | Obbligatoria |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Sorgente   | stringa | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
-| Motivo   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
-| Message  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| Scope    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
-| Sezione  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
-| path     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
-| PolicyId | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
+| `Source`   | stringa | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
+| `Reason`   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
+| `Message`  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| `Scope`    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
+| `Section`  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
+| `Path`     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
+| `PolicyId` | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.  
