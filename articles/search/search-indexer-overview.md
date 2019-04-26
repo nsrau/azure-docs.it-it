@@ -1,6 +1,6 @@
 ---
 title: Indicizzatori per la ricerca per indicizzazione delle origini dati durante l'indicizzazione - Ricerca di Azure
-description: Effettuare una ricerca per indicizzazione in un database SQL, in Azure Cosmos DB o in Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
+description: Effettuare una ricerca per indicizzazione in un database SQL di Azure, in Azure Cosmos DB o in Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search

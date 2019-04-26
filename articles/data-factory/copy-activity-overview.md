@@ -61,7 +61,7 @@ L’attività di copia supporta anche la lettura e scrittura di file in formati 
 * Copiare i dati nel Server SQL in locale e scrivere in Azure Data Lake Storage Gen2 in formato Parquet.
 * Copiare i file in formato testo (CSV) dal file system locale e scrivere nel BLOB di Azure nel formato Avro.
 * Copiare i file compressi dal File System locale e decomprimerli in Azure Data Lake Storage Gen2.
-* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL Azure.
+* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL di Azure.
 * E molti altri casi con la serializzazione/deserializzazione o compressione/decompressione necessario.
 
 ## <a name="supported-regions"></a>Aree supportate

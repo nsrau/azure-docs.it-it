@@ -2,20 +2,16 @@
 title: Proteggere l'accesso a un insieme di credenziali delle chiavi - Azure Key Vault | Microsoft Docs
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60304949"
@@ -89,7 +85,7 @@ L'accesso al piano dati viene concesso impostando i criteri di accesso di Key Va
 > I criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
 >
 
-È possibile limitare l'accesso al piano dati usando gli [endpoint di servizio della rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole della rete virtuale](key-vault-network-security.md) per un ulteriore livello di sicurezza.
+È possibile limitare l'accesso al piano dati usando gli [endpoint servizio di rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole di rete virtuale](key-vault-network-security.md) per un ulteriore livello di sicurezza.
 
 ## <a name="example"></a>Esempio
 
