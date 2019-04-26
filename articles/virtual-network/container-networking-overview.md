@@ -29,7 +29,7 @@ ms.locfileid: "59579122"
 
 - Un indirizzo IP di rete virtuale viene assegnato a ogni pod, che può essere costituito da uno o più contenitori.
 - I pod possono connettersi a reti virtuali con peering e all'ambiente locale tramite ExpressRoute o una VPN da sito a sito. I pod sono raggiungibili anche da reti con peering e locali.
-- I pod possono accedere a servizi, ad esempio Archiviazione di Azure e database SQL di Azure, protetti da endpoint di servizio di rete virtuale.
+- I pod possono accedere a servizi, ad esempio Archiviazione di Azure e database SQL di Azure, protetti da endpoint servizio di rete virtuale.
 - Route e gruppi di sicurezza di rete possono essere applicati direttamente ai pod.
 - I pod possono essere posizionati direttamente dietro un servizio di bilanciamento del carico pubblico o interno di Azure, analogamente alle macchine virtuali.
 - Ai pod può essere assegnato un indirizzo IP pubblico, per renderli direttamente accessibili da Internet. I pod possono anche accedere a Internet.

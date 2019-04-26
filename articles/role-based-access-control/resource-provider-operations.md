@@ -690,9 +690,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Cache/operations/read | Elenca le operazioni supportate dal provider "Microsoft.Cache". |
 > | Azione | Microsoft.Cache/redis/delete | Elimina l'intera Cache Redis |
 > | Azione | Microsoft.Cache/redis/export/action | Esporta i dati Redis nei BLOB di archiviazione predefiniti nel formato specificato |
-> | Azione | Microsoft.Cache/redis/firewallRules/delete | Elimina le regole del firewall per gli indirizzi IP di una cache Redis |
-> | Azione | Microsoft.Cache/redis/firewallRules/read | Ottiene le regole del firewall per gli indirizzi IP di una cache Redis |
-> | Azione | Microsoft.Cache/redis/firewallRules/write | Modifica le regole del firewall per gli indirizzi IP di una cache Redis |
+> | Azione | Microsoft.Cache/redis/firewallRules/delete | Elimina le regole del firewall IP di una cache Redis |
+> | Azione | Microsoft.Cache/redis/firewallRules/read | Ottiene le regole del firewall IP di una cache Redis |
+> | Azione | Microsoft.Cache/redis/firewallRules/write | Modifica le regole del firewall IP di una cache Redis |
 > | Azione | Microsoft.Cache/redis/forceReboot/action | Forza il riavvio di un'istanza della cache, con possibile perdita di dati. |
 > | Azione | Microsoft.Cache/redis/import/action | Importa i dati di un formato specificato da più BLOB in Redis |
 > | Azione | Microsoft.Cache/redis/linkedservers/delete | Elimina un server collegato da una cache Redis |
@@ -4818,7 +4818,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Sql/managedInstances/databases/delete | Elimina un database gestito esistente |
 > | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa |
 > | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per la risorsa |
-> | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Ottiene i log disponibili per i database di istanza gestita |
+> | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Ottiene i log disponibili per i database dell'istanza gestita |
 > | Azione | Microsoft.Sql/managedInstances/databases/read | Ottiene un database gestito esistente |
 > | Azione | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Elenca le etichette di riservatezza di un determinato database |
 > | Azione | Microsoft.Sql/managedInstances/databases/schemas/read | Ottenere uno schema di database gestito. |

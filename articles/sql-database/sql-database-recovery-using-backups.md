@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620479"
@@ -38,7 +38,7 @@ Quando si usa un livello di servizio Standard o Premium, un database ripristinat
 - Ripristino di P11 – P15 in S4 S12 o P1 – P6 se le dimensioni massime del database sono maggiori di 500 GB.
 - Ripristino di P1–P6 in S4-S12 se le dimensioni massime del database sono maggiori di 250 GB.
 
-Viene addebitato un costo aggiuntivo perché la dimensione massima del database ripristinato è superiore alla dimensione di archiviazione inclusa per la dimensione di calcolo; vengono applicati costi aggiuntivi per l'archiviazione aggiuntiva di cui viene eseguito il provisioning che supera la dimensione inclusa. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa.
+Viene addebitato un costo aggiuntivo perché la dimensione massima del database ripristinato è superiore allo spazio di archiviazione incluso per le dimensioni di calcolo; vengono applicati costi aggiuntivi per l'archiviazione aggiuntiva di cui viene eseguito il provisioning che supera lo spazio incluso. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa.
 
 > [!NOTE]
 > [I backup di database automatici](sql-database-automated-backups.md) vengono usati quando si crea un [copia del database](sql-database-copy.md).
@@ -71,19 +71,19 @@ Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-È possibile ripristinare un database autonomo, in pool o di istanza a un punto specifico nel tempo come un nuovo database nello stesso server tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases). Un database può essere ripristinato a qualsiasi livello di servizio o dimensione di calcolo. Assicurarsi di disporre di risorse sufficienti sul server in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e alla dimensione di calcolo. Non è previsto alcun addebito fino al completamento del ripristino del database.
+È possibile ripristinare un database autonomo, in pool o dell'istanza a un punto specifico nel tempo come un nuovo database nello stesso server tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases). Un database può essere ripristinato a qualsiasi livello di servizio o valore di dimensioni di calcolo. Assicurarsi di disporre di risorse sufficienti sul server in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di servizio e alle dimensioni di calcolo. Non è previsto alcun addebito fino al completamento del ripristino del database.
 
 In genere si ripristina un database a un punto precedente per scopi di ripristino. Quando si esegue questa operazione, è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale.
 
 - **Sostituzione del database**
 
-  Se il database ripristinato è inteso come database sostitutivo dell'originale, è necessario verificare che la dimensione di calcolo e/o il livello di servizio sia appropriato e ridimensionare il database, se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
+  Se il database ripristinato è inteso come database sostitutivo dell'originale, è necessario verificare che le dimensioni di calcolo e/o il livello di servizio siano appropriati e ridimensionare il database, se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
 - **Ripristino dei dati**
 
   Se si prevede di recuperare dati dal database ripristinato in caso di errore dell'applicazione o dell'utente, è necessario scrivere ed eseguire gli opportuni script di ripristino per estrarre i dati dal database ripristinato e inserirli nel database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione verrà annullata e non verrà addebitata per il database il cui ripristino non è stato completato.
 
-Per eseguire il ripristino di un database singolo, in pool o di istanza a un determinato momento nel tempo tramite il portale di Azure, aprire la pagina per il database e fare clic su **Ripristina** nella barra degli strumenti.
+Per eseguire il ripristino di un database singolo, in pool o dell'istanza a un determinato momento nel tempo tramite il portale di Azure, aprire la pagina per il database e fare clic su **Ripristina** nella barra degli strumenti.
 
 ![ripristino a un determinato momento nel tempo](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 

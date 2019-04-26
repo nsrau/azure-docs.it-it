@@ -93,7 +93,7 @@ In Visual Studio Code impostare la modalità di linguaggio su **SQL** per abilit
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
-Usare Visual Studio Code per stabilire una connessione al server del database SQL di Azure.
+Usare Visual Studio Code per stabilire una connessione al server di database SQL di Azure.
 
 > [!IMPORTANT]
 > Prima di continuare, assicurarsi di avere a disposizione le informazioni di accesso e del server. Se dopo aver iniziato a immettere le informazioni del profilo di connessione si sposta lo stato attivo da Visual Studio Code, sarà necessario iniziare di nuovo la creazione del profilo.

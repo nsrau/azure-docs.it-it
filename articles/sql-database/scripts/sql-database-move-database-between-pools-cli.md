@@ -21,7 +21,7 @@ ms.locfileid: "59357579"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL
 
-Questo script di esempio dell'interfaccia della riga di comando di Azure crea due pool elastici e sposta un database SQL di Azure da un pool elastico SQL all'altro, quindi sposta il database all'esterno di un pool elastico nella dimensione di calcolo di un singolo database.
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea due pool elastici e sposta un database SQL di Azure da un pool elastico SQL all'altro, quindi sposta il database all'esterno di un pool elastico nelle dimensioni di calcolo di un singolo database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -49,7 +49,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita un database singolo o un pool elastico. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Crea una regola del firewall per consentire l'accesso a tutti i database singoli in pool elastici presenti sul server del database SQL dall'intervallo di indirizzi IP immesso. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Crea una regola del firewall per consentire l'accesso a tutti i database singoli in pool elastici presenti sul server di database SQL dall'intervallo di indirizzi IP immesso. |
 | [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Crea un database singolo o un pool elastico. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

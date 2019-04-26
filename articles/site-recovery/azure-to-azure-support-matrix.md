@@ -10,7 +10,7 @@ ms.date: 04/22/2019
 ms.author: raynew
 ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60502097"
@@ -243,7 +243,7 @@ Proxy non autenticato | Supportato | [Learn more].(site-recovery-azure-to-azure-
 Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.    
 Connessione site-to-site VPN da sito locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che le route definite dall'utente e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)    
 Connessione da rete virtuale a rete virtuale | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)  
-Endpoint del servizio Rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
+Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
 Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 

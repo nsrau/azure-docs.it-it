@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/12/2019
 ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678599"
@@ -27,7 +27,7 @@ Automaticamente, Database SQL Crea backup dei database in cui vengono mantenute 
 
 ## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL
 
-Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server), [differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e del [log delle transazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti, mentre i backup differenziali ogni 12 ore. Tale frequenza è determinata dalla dimensione di calcolo e dalla quantità delle attività del database. I backup del log delle transazioni, completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. I backup vengono archiviati nel BLOB del servizio di archiviazione con ridondanza geografica e accesso in lettura e vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
+Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server), [differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e del [log delle transazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti, mentre i backup differenziali ogni 12 ore. Tale frequenza è determinata dalle dimensioni di calcolo e dalla quantità delle attività del database. I backup del log delle transazioni, completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. I backup vengono archiviati nel BLOB del servizio di archiviazione con ridondanza geografica e accesso in lettura e vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
 
 È possibile usare questi backup per:
 
@@ -61,9 +61,9 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 - Il livello di servizio Standard è di 5 settimane.
 - Il livello di servizio premium è di 5 settimane.
 
-#### <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+#### <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
-Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e di istanza). Per tutti i database SQL di Azure (database singoli, in pool e di istanza), è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
+Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e dell'istanza). Per tutti i database SQL di Azure (database singoli, in pool e dell'istanza), è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se si riduce il periodo di memorizzazione corrente, tutti i backup esistenti anteriori al periodo di conservazione dei nuovi non sono più disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
@@ -72,7 +72,7 @@ Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vc
 
 ### <a name="backups-for-point-in-time-restore"></a>Backup per il ripristino temporizzato
 
-Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alla dimensione di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. È possibile modificare o disabilitare i processi di backup. 
+Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alle dimensioni di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. È possibile modificare o disabilitare i processi di backup. 
 
 I backup di ripristino temporizzato sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -87,7 +87,7 @@ Come i backup di ripristino temporizzato, i backup di conservazione a lungo term
 Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Costi di archiviazione
-7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Una quantità di risorse di archiviazione minima equivalente al 100% delle dimensioni del database viene fornita senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
+7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Uno spazio di archiviazione minimo equivalente al 100% delle dimensioni del database viene fornito senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
 
 Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

@@ -21,7 +21,7 @@ ms.locfileid: "59357809"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Usare Use PowerShell per creare pool elastici e spostare database tra pool elastici
 
-Questo esempio di script di PowerShell crea due pool elastici e sposta un database da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico nella dimensione di calcolo di un database singolo.
+Questo esempio di script di PowerShell crea due pool elastici e sposta un database da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico nelle dimensioni di calcolo di un database singolo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

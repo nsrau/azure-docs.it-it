@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549730"
@@ -28,9 +28,9 @@ Il [database SQL di Microsoft Azure](sql-database-technical-overview.md) e [SQL 
 > [!IMPORTANT]
 > Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per ulteriori informazioni sulla configurazione di rete necessaria.
 
-## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regole della rete virtuale come alternativa alle regole IP
+## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regole di rete virtuale come alternativa alle regole IP
 
-Oltre alle regole IP, il firewall gestisce anche le *regole della rete virtuale*. Le regole della rete virtuale si basano sugli endpoint di servizio di Rete virtuale. In alcuni casi le regole della rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
+Oltre alle regole IP, il firewall gestisce anche le *regole di rete virtuale*. Le regole di rete virtuale si basano sugli endpoint servizio di rete virtuale. In alcuni casi le regole di rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint servizio di rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -67,7 +67,7 @@ I tentativi di connessione da Internet e Azure devono prima superare il firewall
 Quando un computer cerca di connettersi al server di database da Internet, il firewall confronta prima l'indirizzo IP di origine della richiesta con le regole del firewall IP a livello di database, per il database richiesto dalla connessione:
 
 - Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole del firewall IP a livello di database, viene consentita la connessione al database SQL che contiene le regole.
-- Se l'indirizzo IP della richiesta non rientra in uno degli intervalli specificati nelle regole del firewall IP a livello di database, vengono controllate le regole del firewall IP a livello di server. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole del firewall IP a livello di server, viene consentita la connessione. Le regole del firewall IP a livello di server si applicano a tutti i database SQL nel server di Azure SQL.  
+- Se l'indirizzo IP della richiesta non rientra in uno degli intervalli specificati nella regola del firewall IP a livello di database, vengono controllate le regole del firewall IP a livello di server. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole del firewall IP a livello di server, viene consentita la connessione. Le regole del firewall IP a livello di server si applicano a tutti i database SQL nel server di Azure SQL.  
 - Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole del firewall IP a livello di database o di server, la richiesta di connessione ha esito negativo.
 
 > [!NOTE]
@@ -169,7 +169,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> Per esempi di PowerShell nel contesto di un avvio rapido, vedere [Creare un database usando PowerShell](sql-database-powershell-samples.md) e [Creare un singolo database e configurare una regola del firewall IP a livello di server del database SQL usando PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> Per esempi di PowerShell nel contesto di un avvio rapido, vedere [Creare un database usando PowerShell](sql-database-powershell-samples.md) e [Creare un singolo database e configurare una regola del firewall IP a livello di server di database SQL usando PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>Gestire regole del firewall IP a livello di server tramite l'interfaccia della riga di comando di Azure
 
@@ -200,7 +200,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Eliminare la regola del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Rimuove regole del firewall IP a livello di server |
 | [Ottenere le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Ottiene regole del firewall IP a livello di server |
 
-## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Regole del firewall UP a livello di server e a livello di database a confronto
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Regole del firewall IP a livello di server e a livello di database a confronto
 
 D: Gli utenti di un database devono essere completamente isolati da un altro database?
 In caso affermativo, concedere l'accesso tramite le regole del firewall IP a livello di database. Per evitare di usare le regole del firewall IP a livello di server, consentendo l'accesso attraverso il firewall a tutti i database, ridurre la profondità delle difese.

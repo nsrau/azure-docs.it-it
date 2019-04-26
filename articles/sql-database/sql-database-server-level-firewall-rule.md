@@ -31,16 +31,16 @@ Questa guida introduttiva usa come punto di partenza le risorse create in [Crear
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall per gli indirizzi IP a livello di server
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall IP a livello di server
 
-Il servizio Database SQL crea un firewall a livello di server di database per database singoli e in pool. Questo firewall impedisce alle applicazioni client di connettersi al server o ai suoi database singoli o in pool a meno che non si crei una regola del firewall per gli indirizzi IP per aprire il firewall. Per una connessione da un indirizzo IP esterno ad Azure, creare una regola del firewall per un indirizzo IP specifico o un intervallo di indirizzi a cui consentire la connessione. Per altre informazioni sulle regole del firewall per gli indirizzi IP a livello di server e di database, vedere [Regole del firewall per gli indirizzi IP a livello di server di database SQL e a livello di database](sql-database-firewall-configure.md).
+Il servizio Database SQL crea un firewall a livello di server di database per database singoli e in pool. Questo firewall impedisce alle applicazioni client di connettersi al server o ai suoi database singoli o in pool a meno che non si crei una regola del firewall IP per aprire il firewall. Per una connessione da un indirizzo IP esterno ad Azure, creare una regola del firewall per un indirizzo IP specifico o un intervallo di indirizzi a cui consentire la connessione. Per altre informazioni sulle regole del firewall IP a livello di server e di database, vedere [Regole del firewall IP a livello di server di database SQL e a livello di database](sql-database-firewall-configure.md).
 
 > [!NOTE]
-> Il database SQL comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
+> Il database SQL comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 > [!IMPORTANT]
-> Una regola del firewall di 0.0.0.0 consente a tutti i servizi di Azure di passare attraverso la regola del firewall a livello di server e di provare a connettersi a un database singolo o in pool attraverso il server. Per informazioni sull'uso delle regole della rete virtuale, vedere [Regole della rete virtuale come alternativa alle regole IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Una regola del firewall di 0.0.0.0 consente a tutti i servizi di Azure di passare attraverso la regola del firewall a livello di server e di provare a connettersi a un database singolo o in pool attraverso il server. Per informazioni sull'uso delle regole di rete virtuale, vedere [Regole di rete virtuale come alternativa alle regole IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
 
-Seguire questi passaggi per creare una regola del firewall per gli indirizzi IP a livello di server per l'indirizzo IP del client e abilitare la connettività esterna tramite il firewall del database SQL solo per il proprio indirizzo IP.
+Seguire questi passaggi per creare una regola del firewall IP a livello di server per l'indirizzo IP del client e abilitare la connettività esterna tramite il firewall del database SQL solo per il proprio indirizzo IP.
 
 1. Al termine della distribuzione del [database SQL di Azure necessario come prerequisito](#prerequisites), scegliere **Database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione.
 
@@ -50,19 +50,19 @@ Seguire questi passaggi per creare una regola del firewall per gli indirizzi IP 
 
 3. Selezionare **Imposta firewall server** sulla barra degli strumenti. Verrà visualizzata la pagina **Impostazioni del firewall** per il server di database.
 
-   ![regola del firewall per gli indirizzi IP a livello di server](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![regola del firewall IP a livello di server](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-4. Scegliere **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP a livello di server. Una regola del firewall per gli indirizzi IP a livello di server può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
+4. Scegliere **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall IP a livello di server. Una regola del firewall IP a livello di server può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
    > [!IMPORTANT]
    > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionare **NO** in questa pagina per disabilitare tutti i servizi di Azure.
    >
 
-5. Selezionare **Salva**. Viene creata una regola del firewall per gli indirizzi IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+5. Selezionare **Salva**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 6. Chiudere la pagina **Impostazioni del firewall**.
 
-È ora possibile connettersi al server del database SQL e ai relativi database usando SQL Server Management Studio o un altro strumento a scelta da questo indirizzo IP, con l'account amministratore del server creato in precedenza.
+È ora possibile connettersi al server di database SQL e ai relativi database usando SQL Server Management Studio o un altro strumento a scelta da questo indirizzo IP, con l'account amministratore del server creato in precedenza.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

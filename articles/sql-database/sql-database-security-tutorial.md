@@ -56,7 +56,7 @@ Per tutti i passaggi dell'esercitazione, accedere al [portale di Azure](https://
 
 ## <a name="create-firewall-rules"></a>Creare regole del firewall
 
-I database SQL sono protetti da firewall in Azure. Per impostazione predefinita, tutte le connessioni al server e al database vengono rifiutate, ad eccezione di quelle provenienti da altri servizi di Azure. Per altre informazioni, vedere [Regole firewall a livello di server e di database per il database SQL di Azure](sql-database-firewall-configure.md).
+I database SQL sono protetti da firewall in Azure. Per impostazione predefinita, tutte le connessioni al server e al database vengono rifiutate, ad eccezione di quelle provenienti da altri servizi di Azure. Per altre informazioni, vedere [Regole firewall a livello di database e di server di database SQL di Azure](sql-database-firewall-configure.md).
 
 La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO**. Quindi, creare un [IP riservato (distribuzione classica)](../virtual-network/virtual-networks-reserved-public-ip.md) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
 

@@ -28,18 +28,18 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
-È possibile impostare il livello di servizio, la dimensione di calcolo e la quantità di risorse di archiviazione mediante il [portale di Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), l'[interfaccia della riga di comando di Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o l'[API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+È possibile impostare il livello di servizio, le dimensioni di calcolo e lo spazio di archiviazione mediante il [portale di Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), l'[interfaccia della riga di comando di Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o l'[API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
 > Per la scalabilità indicazioni e considerazioni, vedere [ridimensionare un pool elastico](sql-database-elastic-pool-scale.md)
 > [!NOTE]
-> I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno la stessa dimensione di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
+> I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno le stesse dimensioni di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 4 (parte 1)
 
-|Dimensione di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Dimensioni di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
@@ -67,7 +67,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 4 (parte 2)
 
-|Dimensione di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Dimensioni di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
@@ -95,7 +95,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 5 (parte 1)
 
-|Dimensione di calcolo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Dimensioni di calcolo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
@@ -123,7 +123,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 5 (parte 2)
 
-|Dimensione di calcolo|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Dimensioni di calcolo|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
@@ -152,7 +152,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 1)
 
-|Dimensione di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Dimensioni di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
@@ -169,7 +169,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per questa dimensione di calcolo|50|100|100|100|100|
+|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Numero di repliche|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -180,7 +180,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 2)
 
-|Dimensione di calcolo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Dimensioni di calcolo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
@@ -208,7 +208,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 1)
 
-|Dimensione di calcolo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Dimensioni di calcolo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
@@ -225,7 +225,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per questa dimensione di calcolo|50|100|100|100|100|100|
+|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Numero di repliche|4|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -236,7 +236,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 2)
 
-|Dimensione di calcolo|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Dimensioni di calcolo|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|

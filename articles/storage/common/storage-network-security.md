@@ -10,7 +10,7 @@ ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280741"
@@ -132,9 +132,9 @@ Per applicare una regola di rete virtuale a un account di archiviazione, l'utent
 
 Gli account di archiviazione e le reti virtuali alle quali è stato garantito l'accesso possono trovarsi in sottoscrizioni diverse, ma tali sottoscrizioni devono appartenere allo stesso tenant di Azure AD.
 
-### <a name="managing-virtual-network-rules"></a>Gestione delle regole della rete virtuale
+### <a name="managing-virtual-network-rules"></a>Gestione delle regole di rete virtuale
 
-Le regole della rete virtuale per gli account di archiviazione possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando v2.
+Le regole di rete virtuale per gli account di archiviazione possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando v2.
 
 #### <a name="azure-portal"></a>Portale di Azure
 
@@ -157,7 +157,7 @@ Le regole della rete virtuale per gli account di archiviazione possono essere ge
 
 1. Installare [Azure PowerShell](/powershell/azure/install-Az-ps) e [accedere](/powershell/azure/authenticate-azureps).
 
-1. Visualizzare l'elenco delle regole della rete virtuale.
+1. Visualizzare l'elenco delle regole di rete virtuale.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
@@ -190,7 +190,7 @@ Le regole della rete virtuale per gli account di archiviazione possono essere ge
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
-1. Visualizzare l'elenco delle regole della rete virtuale.
+1. Visualizzare l'elenco delle regole di rete virtuale.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -231,11 +231,11 @@ Specificare gli intervalli di indirizzi Internet consentiti con la [notazione CI
 Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con _10.*_, _172.16.*_ - _172.31.*_ e _192.168.*_.
 
    > [!NOTE]
-   > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole della rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
+   > Le regole della rete IP non hanno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
 
 Attualmente sono supportati solo gli indirizzi IPV4.
 
-Ogni account di archiviazione supporta fino a 100 regole di rete IP, che possono essere combinate con le [regole della rete virtuale](#grant-access-from-a-virtual-network).
+Ogni account di archiviazione supporta fino a 100 regole di rete IP, che possono essere combinate con le [regole di rete virtuale](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurazione dell'accesso da reti locali
 

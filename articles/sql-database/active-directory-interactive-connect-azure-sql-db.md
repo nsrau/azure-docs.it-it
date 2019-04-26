@@ -14,7 +14,7 @@ ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58850177"
@@ -131,7 +131,7 @@ Prima di eseguire il C# programma, è consigliabile verificare che il programma 
 
 ### <a name="verify-sql-database-firewall-ip-addresses"></a>Verificare gli indirizzi IP dei firewall del database SQL
 
-Eseguire SSMS dallo stesso computer e nello stesso edificio in cui si intende eseguire il programma in C#. Per questo test, qualsiasi **autenticazione** modalità è OK. Se viene segnalato che il firewall del server di database non accetta l'indirizzo IP specificato, vedere [Regole firewall a livello di server e di database per il database SQL di Azure](sql-database-firewall-configure.md) per indicazioni.
+Eseguire SSMS dallo stesso computer e nello stesso edificio in cui si intende eseguire il programma in C#. Per questo test, qualsiasi **autenticazione** modalità è OK. Se viene segnalato che il firewall del server di database non accetta l'indirizzo IP specificato, vedere [Regole firewall a livello di database e di server di database SQL di Azure](sql-database-firewall-configure.md) per indicazioni.
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Verificare l'autenticazione a più fattori di Azure Active Directory
 

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57880433"
@@ -55,7 +55,7 @@ In seguito a un ripristino di emergenza, il server di database SQL potrebbe veni
 
 Le proprietà seguenti si applicano a ogni alias DNS per il server di database SQL:
 
-- *Nome univoco*: ogni nome di alias creato è univoco tra tutti i server del database SQL di Azure, proprio come avviene per i nomi dei server.
+- *Nome univoco*: ogni nome di alias creato è univoco tra tutti i server di database SQL di Azure, proprio come avviene per i nomi dei server.
 - *Server obbligatorio:* è possibile creare un alias DNS solo se fa riferimento a un solo server, che deve esistere già. Un alias aggiornato deve sempre fare riferimento a un solo server esistente.
   - Quando si elimina un server di database SQL, Azure System elimina anche tutti gli alias DNS che fanno riferimento al server.
 - *Nessuna associazione alle aree:* gli alias DNS non sono associati a un'area. Qualsiasi alias DNS può essere aggiornato per fare riferimento a un server di database SQL di Azure che si trova in qualsiasi area geografica.

@@ -13,7 +13,7 @@ ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576334"
@@ -171,7 +171,7 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 | CatalogServerEndpoint | L'endpoint del server di istanza gestita/database SQL di Azure esistente per ospitare il database SSIS. |
 | CatalogAdminUserName | Il nome utente amministratore del server di istanza gestita/database SQL di Azure esistente. Il servizio Data Factory utilizza queste informazioni per preparare e gestire il database SSIS per conto dell'utente. |
 | CatalogAdminPassword | La password amministratore del server di istanza gestita/database SQL di Azure esistente. |
-| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server del database SQL di Azure esistente.  Non applicabile all'Istanza gestita di database SQL di Azure che ospita il database SSIS. |
+| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server di database SQL di Azure esistente.  Non applicabile all'Istanza gestita di database SQL di Azure che ospita il database SSIS. |
 | VNetId | L'ID della risorsa di rete virtuale per aggiungere un runtime di integrazione SSIS di Azure. |
 | Subnet | Il nome della subnet per aggiungere un runtime di integrazione SSIS di Azure. |
 | ID | L’ID di risorsa del runtime di integrazione SSIS di Azure. |

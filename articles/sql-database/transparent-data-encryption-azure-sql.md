@@ -38,7 +38,7 @@ In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittograf
 Microsoft inoltre sposta e gestisce le chiavi senza problemi in base alle esigenze per la replica geografica e ne esegue il ripristino.
 
 > [!IMPORTANT]
-> Tutti i nuovi database SQL vengono crittografati per impostazione predefinita tramite TDE gestita del servizio. I database di Istanza gestita di database SQL di Azure, i database SQL esistenti prima di maggio 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia di database non sono crittografati per impostazione predefinita.
+> Tutti i nuovi database SQL vengono crittografati per impostazione predefinita tramite TDE gestita del servizio. I database dell'istanza gestita di database SQL di Azure, i database SQL esistenti prima di maggio 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia di database non sono crittografati per impostazione predefinita.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gestita dal cliente: Bring Your Own Key
 

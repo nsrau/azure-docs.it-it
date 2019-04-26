@@ -67,9 +67,9 @@ Usare il menu di spostamento nel riquadro sinistro del portale per scegliere l'o
 
   La prima volta che si visita questa pagina, il pulsante di opzione **Tutte le reti** deve essere selezionato. Questo significa che lo spazio dei nomi di Hub eventi di Azure consente tutte le connessioni in ingresso.
 
-## <a name="add-virtual-network-service-endpoint"></a>Aggiungere endpoint del servizio di rete virtuale
+## <a name="add-virtual-network-service-endpoint"></a>Aggiungere endpoint servizio di rete virtuale
 
-Per limitare l'accesso, è necessario integrare l'endpoint del servizio di Rete virtuale per questo spazio dei nomi di Hub eventi.
+Per limitare l'accesso, è necessario integrare l'endpoint servizio di rete virtuale per questo spazio dei nomi di Hub eventi.
 
 1. Fare clic sul pulsante di opzione **Reti selezionate** nella parte superiore della pagina per abilitare il resto della pagina con le opzioni del menu.
   ![reti selezionate](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-selecting-selected-networks.png)
@@ -80,7 +80,7 @@ Per limitare l'accesso, è necessario integrare l'endpoint del servizio di Rete 
 4. È necessario abilitare l'endpoint di servizio prima di aggiungere la rete virtuale all'elenco. Se l'endpoint di servizio non è abilitato, il portale richiederà di abilitarlo.
   ![seleziona subnet e abilita endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-enabling.png)
     > [!NOTE]
-    > Se non si è in grado di attivare l'endpoint di servizio, è possibile ignorare quello mancante usando il modello ARM. Questa funzionalità non è disponibile sul portale.
+    > Se non si è in grado di attivare l'endpoint di servizio, è possibile ignorare l'endpoint servizio di rete virtuale mancante usando il modello ARM. Questa funzionalità non è disponibile sul portale.
 
 5. Dopo aver abilitato l'endpoint di servizio nella subnet selezionata, si può procedere ad aggiungerla all'elenco delle reti virtuali consentite.
   ![aggiunta della subnet dopo l'abilitazione dell'endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-adding.png)

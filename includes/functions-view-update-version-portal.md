@@ -9,11 +9,11 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d06bda1826964b019edb156375885c7f389ca6ec
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61026696"
 ---
 Eseguire la procedura seguente per visualizzare e aggiornare la versione del runtime usata attualmente da un'app per le funzioni.
 

@@ -19,4 +19,4 @@ ms.locfileid: "55105052"
 
 |  |  |
 |---------|---------|
-| [Controllare gli insiemi di credenziali per rilevare istanze senza endpoint di reti virtuali](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Controlla gli insiemi di credenziali Key Vault per rilevare istanze senza endpoint di servizio di reti virtuali. |
+| [Controllare gli insiemi di credenziali per rilevare istanze senza endpoint di reti virtuali](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Controlla gli insiemi di credenziali Key Vault per rilevare istanze senza endpoint servizio di rete virtuale. |

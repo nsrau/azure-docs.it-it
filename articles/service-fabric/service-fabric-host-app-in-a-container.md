@@ -183,7 +183,7 @@ Durante la creazione del cluster:
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Consentire all'applicazione in esecuzione in Azure di accedere al database SQL
-In precedenza è stata creata una regola del firewall SQL per concedere l'accesso all'applicazione in esecuzione in locale.  A questo punto è necessario consentire all'applicazione in esecuzione in Azure di accedere al database SQL.  Creare un [endpoint di servizio di rete virtuale](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) per il cluster di Service Fabric e quindi creare una regola per consentire a tale endpoint di accedere al database SQL. Assicurarsi di specificare la variabile del gruppo di risorse cluster di cui si è preso nota durante la creazione del cluster. 
+In precedenza è stata creata una regola del firewall SQL per concedere l'accesso all'applicazione in esecuzione in locale.  A questo punto è necessario consentire all'applicazione in esecuzione in Azure di accedere al database SQL.  Creare un [endpoint servizio di rete virtuale](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) per il cluster di Service Fabric e quindi creare una regola per consentire a tale endpoint di accedere al database SQL. Assicurarsi di specificare la variabile del gruppo di risorse cluster di cui si è preso nota durante la creazione del cluster. 
 
 ```powershell
 # Create a virtual network service endpoint

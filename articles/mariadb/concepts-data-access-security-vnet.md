@@ -13,11 +13,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60332832"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MariaDB
 
 Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server di Database di Azure per MariaDB accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole di rete virtuale è talvolta la scelta ideale per consentire le comunicazioni con il server di Database di Azure per MariaDB.
 
-Per creare una regola di rete virtuale, devono innanzitutto essere disponibili una [rete virtuale][vm-virtual-network-overview] (VNet) e un [endpoint di servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] a cui la regola possa fare riferimento. La figura seguente illustra il funzionamento di un endpoint di servizio di rete virtuale con Database di Azure per MariaDB:
+Per creare una regola di rete virtuale, devono innanzitutto essere disponibili una [rete virtuale][vm-virtual-network-overview] (VNet) e un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] a cui la regola possa fare riferimento. La figura seguente illustra il funzionamento di un endpoint servizio di rete virtuale con Database di Azure per MariaDB:
 
 ![Esempio del funzionamento di un endpoint di servizio di rete virtuale](media/concepts-data-access-security-vnet/vnet-concept.png)
 
@@ -32,7 +32,7 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 **Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint del servizio di rete virtuale:** un [endpoint del servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
+**Endpoint del servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di Database di Azure per MariaDB è una subnet presente nell'elenco di controllo di accesso (ACL) del server di Database di Azure per MariaDB. Per essere inclusa nell'elenco ACL del server di Database di Azure per MariaDB, la subnet deve contenere il nome tipo **Microsoft.Sql**.
 
@@ -48,11 +48,11 @@ Una regola di rete virtuale indica al server di Database di Azure per MariaDB di
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Vantaggi di una regola di rete virtuale
 
-Finché non si interviene, le macchine virtuali nelle subnet non possono comunicare con il server di Database di Azure per MariaDB. Un'azione che stabilisce la comunicazione è la creazione di una regola della rete virtuale. La base logica per la scelta dell'approccio delle regole di rete virtuale richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
+Finché non si interviene, le macchine virtuali nelle subnet non possono comunicare con il server di Database di Azure per MariaDB. Un'azione che stabilisce la comunicazione è la creazione di una regola di rete virtuale. La base logica per la scelta dell'approccio delle regole di rete virtuale richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
 
 ### <a name="a-allow-access-to-azure-services"></a>R. Possibilità di accedere ai servizi di Azure
 
-Il riquadro Sicurezza connessione contiene un pulsante **ON/OFF** con l'etichetta **Consenti l'accesso a Servizi di Azure**. L'impostazione **ON** consente le comunicazioni da tutti gli indirizzi IP di Azure e tutte le subnet di Azure. Questi indirizzi IP o subnet di Azure potrebbero non essere di proprietà dell'utente. Questa impostazione **ON** è probabilmente più aperta rispetto al livello desiderato per l'istanza di Database di Azure per MariaDB. La funzione delle regole della rete virtuale offre un controllo molto più granulare.
+Il riquadro Sicurezza connessione contiene un pulsante **ON/OFF** con l'etichetta **Consenti l'accesso a Servizi di Azure**. L'impostazione **ON** consente le comunicazioni da tutti gli indirizzi IP di Azure e tutte le subnet di Azure. Questi indirizzi IP o subnet di Azure potrebbero non essere di proprietà dell'utente. Questa impostazione **ON** è probabilmente più aperta rispetto al livello desiderato per l'istanza di Database di Azure per MariaDB. La funzione delle regole di rete virtuale offre un controllo molto più granulare.
 
 ### <a name="b-ip-rules"></a>B. Regole IP
 
@@ -60,7 +60,7 @@ Il firewall di Database di Azure per MariaDB consente di specificare gli interva
 
 È possibile recuperare l'opzione IP ottenendo un indirizzo IP *statico* per la macchina virtuale. Per i dettagli, vedere [Configurare indirizzi IP privati per una VM mediante il portale di Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
-Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. Le regole della rete virtuale sono più semplici da creare e gestire.
+Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. Le regole di rete virtuale sono più semplici da creare e gestire.
 
 ### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Non è ancora possibile avere Database di Azure per MariaDB in una subnet, se non si definisce un endpoint di servizio
 
@@ -70,30 +70,30 @@ Tuttavia, a partire da agosto 2018, il servizio Database di Azure per MariaDB no
 
 <a name="anch-details-about-vnet-rules-38q" />
 
-## <a name="details-about-virtual-network-rules"></a>Dettagli sulle regole della rete virtuale
+## <a name="details-about-virtual-network-rules"></a>Dettagli sulle regole di rete virtuale
 
-Questa sezione illustra alcuni dettagli sulle regole della rete virtuale.
+Questa sezione illustra alcuni dettagli sulle regole di rete virtuale.
 
 ### <a name="only-one-geographic-region"></a>Una sola area geografica
 
-Un endpoint del servizio Rete virtuale si applica a una sola area di Azure. L'endpoint non consente ad altre aree di accettare le comunicazioni dalla subnet.
+Ogni endpoint servizio di rete virtuale si applica a una sola area di Azure. L'endpoint non consente ad altre aree di accettare le comunicazioni dalla subnet.
 
-Ogni regola della rete virtuale è limitata all'area a cui si applica il relativo endpoint sottostante.
+Ogni regola di rete virtuale è limitata all'area a cui si applica il relativo endpoint sottostante.
 
 ### <a name="server-level-not-database-level"></a>A livello di server, non a livello di database
 
-Ogni regola di rete virtuale si applica all'intero server di Database di Azure per MariaDB, non solo a un determinato database nel server. In altre parole, la regola della rete virtuale si applica a livello di server, non a livello di database.
+Ogni regola di rete virtuale si applica all'intero server di Database di Azure per MariaDB, non solo a un determinato database nel server. In altre parole, la regola di rete virtuale si applica a livello di server, non a livello di database.
 
 ### <a name="security-administration-roles"></a>Ruoli di amministrazione di sicurezza
 
-I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servizio Rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
+I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
 - **Amministratore di rete:** &nbsp; attiva l'endpoint.
 - **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per MariaDB.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
-I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole della rete virtuale. È necessario solo un subset delle relative funzionalità.
+I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
 È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)] [ rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. È possibile usare il ruolo personalizzato anziché coinvolgere l'amministratore di rete o di database. La superficie di attacco dell'esposizione a rischi per la sicurezza è ridotta se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
 
@@ -112,13 +112,13 @@ Per Database di Azure per MariaDB, la funzionalità delle regole di rete virtual
 
 - Ogni server di Database di Azure per MariaDB può includere fino a 128 voci ACL per qualsiasi rete virtuale specificata.
 
-- Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][resource-manager-deployment-model-568f].
+- Le regole di rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][resource-manager-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio rete virtuale nel Database di Azure per MariaDB usando il tag di servizio **Microsoft. SQL** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MariaDB, Database di Azure per MySQL, Database di Azure per PostgreSQL, database SQL di Azure e Azure SQL Data Warehouse.
+- L'attivazione degli endpoint servizio di rete virtuale in Database di Azure per MariaDB usando il tag di servizio **Microsoft. SQL** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MariaDB, Database di Azure per MySQL, Database di Azure per PostgreSQL, database SQL di Azure e Azure SQL Data Warehouse.
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
-- Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole della rete virtuale:
+- Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole di rete virtuale:
     - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
     - Ambiente locale tramite [ExpressRoute][expressroute-indexmd-744v]
 

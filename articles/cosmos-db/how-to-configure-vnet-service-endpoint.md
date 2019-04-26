@@ -1,6 +1,6 @@
 ---
 title: Configurare l'accesso basato su rete virtuale e subnet per l'account Azure Cosmos DB
-description: Questo documento descrive i passaggi necessari per configurare un endpoint di rete virtuale per Azure Cosmos DB.
+description: Questo documento descrive i passaggi necessari per configurare un endpoint servizio di rete virtuale per Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59785031"
@@ -26,7 +26,7 @@ ms.locfileid: "59785031"
 >
 > Per altre informazioni, vedere la procedura descritta nella sezione [Migrazione da una regola del firewall IP a un elenco di controllo di accesso della rete virtuale](#migrate-from-firewall-to-vnet) di questo articolo. 
 
-Le sezioni seguenti descrivono come configurare un endpoint di servizio della rete virtuale per un account Azure Cosmos DB.
+Le sezioni seguenti descrivono come configurare un endpoint servizio di rete virtuale per un account Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,7 +50,7 @@ Le sezioni seguenti descrivono come configurare un endpoint di servizio della re
    ![Rete virtuale e subnet configurate correttamente](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
 > [!NOTE]
-> Per abilitare gli endpoint di servizio della rete virtuale sono necessarie le autorizzazioni seguenti per la sottoscrizione:
+> Per abilitare gli endpoint servizio di rete virtuale sono necessarie le autorizzazioni seguenti per la sottoscrizione:
 >   * Sottoscrizione con la rete virtuale: Collaboratore Rete
 >   * Sottoscrizione con account Azure Cosmos DB: Collaboratore Account DocumentDB
 >   * Se la rete virtuale e un account Azure Cosmos DB si trovano in sottoscrizioni diverse, assicurarsi che la sottoscrizione con rete virtuale disponga anche `Microsoft.DocumentDB` provider di risorse registrato. Per registrare un provider di risorse, vedere [provider di risorse di Azure e i tipi](../azure-resource-manager/resource-manager-supported-services.md) articolo. 
@@ -172,7 +172,7 @@ Usare questa procedura per configurare un endpoint di servizio per un account Az
      -Properties $CosmosDBProperties
    ```
 
-1. Eseguire il comando seguente per verificare che l'account Azure Cosmos DB venga aggiornato con l'endpoint di servizio della rete virtuale configurato nel passaggio precedente:
+1. Eseguire il comando seguente per verificare che l'account Azure Cosmos DB venga aggiornato con l'endpoint servizio di rete virtuale configurato nel passaggio precedente:
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzResource `

@@ -29,7 +29,7 @@ Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewa
 Questo articolo fornisce e descrive uno script di PowerShell che esegue le azioni seguenti:
 
 1. Creare un *endpoint del servizio virtuale* di Microsoft Azure nella subnet.
-2. Aggiungere l'endpoint al firewall del server di database SQL di Azure per creare una *regola della rete virtuale*.
+2. Aggiungere l'endpoint al firewall del server di database SQL di Azure per creare una *regola di rete virtuale*.
 
 Le ragioni per la creazione di una regola sono descritte in: [Endpoint del servizio virtuale per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -44,13 +44,13 @@ Le ragioni per la creazione di una regola sono descritte in: [Endpoint del servi
 
 Questo articolo evidenzia le **New-AzSqlServerVirtualNetworkRule** cmdlet che aggiunge l'endpoint della subnet all'elenco di controllo di accesso (ACL) del server di Database SQL di Azure, creando una regola.
 
-L'elenco seguente mostra la sequenza degli altri *principali* cmdlet che è necessario eseguire per prepararsi per la chiamata a **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola della rete virtuale"](#a-script-30):
+L'elenco seguente mostra la sequenza degli altri *principali* cmdlet che è necessario eseguire per prepararsi per la chiamata a **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola di rete virtuale"](#a-script-30):
 
 1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un oggetto subnet.
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): crea la rete virtuale, assegnandovi la subnet.
 3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): assegna un endpoint del servizio virtuale alla subnet.
 4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): rende persistenti gli aggiornamenti apportati alla rete virtuale.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): dopo che la subnet è diventata un endpoint, aggiunge la subnet come regola della rete virtuale all'elenco di controllo di accesso del server di database SQL di Azure.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): dopo che la subnet è diventata un endpoint, aggiunge la subnet come regola di rete virtuale all'elenco di controllo di accesso del server di database SQL di Azure.
    - Questo cmdlet offre il parametro **-IgnoreMissingVNetServiceEndpoint**, a partire dal modulo PowerShell di Azure RM versione 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Prerequisiti per l'esecuzione di PowerShell
@@ -470,7 +470,7 @@ Lo script principale di PowerShell è concluso.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Verificare che la subnet sia un endpoint
 
-Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. È possibile usare il [portale di Azure][http-azure-portal-link-ref-477t] per creare una regola della rete virtuale dall'endpoint.
+Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. È possibile usare il [portale di Azure][http-azure-portal-link-ref-477t] per creare una regola di rete virtuale dall'endpoint.
 
 Nel caso in cui non si sia certi che la subnet abbia il nome del tipo **Microsoft.Sql**, è possibile eseguire lo script di PowerShell seguente per completare queste azioni:
 

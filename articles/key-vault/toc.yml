@@ -74,7 +74,7 @@
       href: key-vault-ovw-soft-delete.md
     - name: Limitazione
       href: key-vault-ovw-throttling.md
-    - name: Endpoint del servizio Rete virtuale
+    - name: Endpoint servizio di rete virtuale
       href: key-vault-overview-vnet-service-endpoints.md
     - name: 'Autenticazione, richieste e risposte'
       href: authentication-requests-and-responses.md

@@ -89,7 +89,7 @@ Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server
 4. Fare clic su **Salva** e quindi fare clic su **X** per chiudere la pagina **Sicurezza connessione**.
 
    > [!NOTE]
-   > Il server PostgreSQL Azure comunica sulla porta 5432. Se si sta cercando di connettersi da una rete aziendale, il traffico in uscita sulla porta 5432 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 5432.
+   > Il server PostgreSQL Azure comunica sulla porta 5432. Se si sta cercando di connettersi da una rete aziendale, il traffico in uscita sulla porta 5432 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 5432.
    >
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione

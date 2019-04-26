@@ -1,6 +1,6 @@
 ---
 title: Esempi di script dell'interfaccia della riga di comando di Azure per il database SQL | Microsoft Docs
-description: Esempi di script dell'interfaccia della riga di comando di Azure per creare e gestire server per database SQL di Azure, pool elastici, database e firewall.
+description: Esempi di script dell'interfaccia della riga di comando di Azure per creare e gestire server di database SQL di Azure, pool elastici, database e firewall.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -39,8 +39,8 @@ La tabella seguente include collegamenti a esempi di script dell'interfaccia del
 | [Creare un database singolo e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando crea un singolo database SQL di Azure e configura una regola del firewall a livello di server. |
 | [Creare pool elastici e spostare i database in pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando crea pool elastici SQL, sposta i database SQL di Azure in pool e modifica le dimensioni di calcolo.|
 |**Ridimensionare un database singolo e un pool elastico**||
-| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un singolo database SQL di Azure per ottenere una dimensione di calcolo diversa dopo aver recuperato informazioni sulle dimensioni del database tramite query. |
-| [Ridimensionare un pool elastico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un pool elastico SQL impostando una dimensione di calcolo diversa.  |
+| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un singolo database SQL di Azure per ottenere dimensioni di calcolo diverse dopo aver recuperato informazioni sulle dimensioni del database tramite query. |
+| [Ridimensionare un pool elastico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un pool elastico SQL impostando dimensioni di calcolo diverse.  |
 |||
 
 Vedere altre informazioni sull'[API dell'interfaccia della riga di comando di Azure per i database singoli](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

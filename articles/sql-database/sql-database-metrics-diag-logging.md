@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59548639"
@@ -23,7 +23,7 @@ ms.locfileid: "59548639"
 
 In questo argomento si apprenderà come configurare la registrazione dei dati di telemetria di diagnostica per il Database SQL di Azure tramite il portale di Azure, PowerShell, CLI di Azure, API REST di monitoraggio di Azure e il modello di Azure Resource Manager. Questi dati diagnostici sono utilizzabile per valutare l'utilizzo delle risorse e le statistiche di esecuzione di query. 
 
-I database singoli, i database in pool elastici e i database di istanza in un'istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
+I database singoli, i database in pool di pool elastici e i database dell'istanza in un'istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
 
 - **Analisi SQL di Azure**: per ottenere un monitoraggio intelligente dei database SQL di Azure che includa i report delle prestazioni, gli avvisi e i suggerimenti di mitigazione dei rischi.
 - **Hub eventi di Azure**: per integrare i dati di telemetria del database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
@@ -133,7 +133,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per i database sing
    - È possibile creare fino a tre connessioni parallele per lo streaming dei dati di telemetria diagnostica.
    - Selezionare **+Add diagnostic setting** (Aggiungi impostazione di diagnostica) per configurare flussi paralleli di dati di diagnostica in più risorse.
 
-   ![Abilitare la diagnostica per i database singoli, in pool o di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Abilitare la diagnostica per i database singoli, in pool o dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per l'esperienza di monitoraggio standard, basato su eventi, selezionare le caselle di controllo seguenti per la telemetria dei log di diagnostica del database: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errori**, **DatabaseWaitStatistics**, **Timeout**, **Blocchi** e **Deadlock**.
@@ -185,7 +185,7 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurare il flusso di dati di telemetria di diagnostica, ad esempio i database
 
-   ![Icona del database di istanza nell'istanza gestita](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+   ![Icona del database dell'istanza nell'istanza gestita](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
 Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio database, seguire questa procedura:
 
@@ -195,7 +195,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio databas
    - È possibile creare fino a tre (3) connessioni parallele per lo streaming dei dati di telemetria diagnostica.
    - Selezionare **+Add diagnostic setting** (Aggiungi impostazione di diagnostica) per configurare flussi paralleli di dati di diagnostica in più risorse.
 
-   ![Abilitare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Abilitare la diagnostica per i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.

@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire server di database e database SQL singoli di Azure | Microsoft Docs
+title: Creare e gestire database singoli e server di database SQL di Azure | Microsoft Docs
 description: Informazioni sulla creazione e sulla gestione dei server di database SQL e dei database singoli.
 services: sql-database
 ms.service: sql-database
@@ -81,7 +81,7 @@ Per creare e gestire server di database SQL di Azure, database singoli e in pool
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Ottiene le regole del firewall per un server|
 |[Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|Modifica una regola del firewall in un server|
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Elimina una regola del firewall da un server|
-| New-AzSqlServerVirtualNetworkRule | Crea una [*regola della rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
+| New-AzSqlServerVirtualNetworkRule | Crea una [*regola di rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
 
 ## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Interfaccia della riga di comando di Azure: Gestire database singoli e server di database SQL
 
