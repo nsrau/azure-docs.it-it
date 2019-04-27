@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457652"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Come usare Twilio per le funzionalità voce ed SMS in Ruby
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -57,7 +57,7 @@ Di seguito è riportato un elenco dei verbi Twilio.
 * **&lt;Hangup&gt;**: termina una chiamata.
 * **&lt;Play&gt;**: riproduce un file audio.
 * **&lt;Pause&gt;**: attende in modo silenzioso per un numero di secondi specificato.
-* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL del file contenente la registrazione.
+* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL di un file contenente la registrazione.
 * **&lt;Redirect&gt;**: trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
 * **&lt;Reject&gt;**: rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
 * **&lt;Say&gt;**: effettua la sintesi vocale del testo durante una chiamata.
@@ -161,7 +161,7 @@ Per elaborare gli SMS in arrivo è necessario aggiornare l'URL in `http://yourdo
 
 Dopo aver apportato la modifica, riavviare l'app Web. Prendere il telefono e inviare un SMS al proprio numero Twilio. Si dovrebbe ricevere un SMS di risposta con il testo "Hey, thanks for the ping! Twilio and Azure rock!".
 
-## <a id="additional_services"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
+## <a id="additional_services"></a>Procedura: Usare servizi Twilio aggiuntivi
 Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
 
 ### <a id="NextSteps"></a>Passaggi successivi

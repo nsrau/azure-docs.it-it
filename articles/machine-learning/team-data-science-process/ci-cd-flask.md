@@ -12,11 +12,11 @@ ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103558"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Creazione di una pipeline di integrazione continua in Azure tramite Docker, Kubernetes e Python Flask
 Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi di lavoro: i data scientist che compilano modelli di Machine Learning e gli sviluppatori di app che compilano l'applicazione e la espongono per gli utenti finali. Questo articolo illustra come implementare una pipeline di integrazione continua/recapito continuo per un'applicazione di intelligenza artificiale. L'applicazione di intelligenza artificiale è una combinazione del codice di applicazione incorporato con un modello di Machine Learning (ML) di cui è stato eseguito il training. In questo articolo viene recuperato un modello di cui è già stato eseguito il training da un account di archiviazione BLOB privato di Azure, ma è possibile usare anche un account AWS S3. Nell'articolo viene usata una semplice applicazione Web Python Flask.

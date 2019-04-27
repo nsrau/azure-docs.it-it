@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129641"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -129,7 +129,7 @@ Per impostazione predefinita, le pagine Web vengono aggiunte in cima ai risultat
 > [!NOTE]
 > tutti i confronti tra query di ricerca dell'utente e query di ricerca dell'elemento da aggiungere sono maiuscole/minuscole.
 
-| Valore | DESCRIZIONE                                                                          |
+| Value | DESCRIZIONE                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Starts with (Inizia con) | Affinché vi sia una corrispondenza per l'elemento aggiunto in alto, la stringa di query dell'utente deve iniziare con la stringa di query dell'elemento aggiunto in alto |
 | Ends with (Finisce con)   | Affinché vi sia una corrispondenza per l'elemento aggiunto in alto, la stringa di query dell'utente deve finire con la stringa di query dell'elemento aggiunto in alto.  |

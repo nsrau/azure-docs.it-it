@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472857"
 ---
 # <a name="container-skus-tab"></a>Scheda SKU del contenitore
 
@@ -52,12 +52,12 @@ I metadati del contenitore includono informazioni di riferimento dei dettagli de
     
 I **dettagli del repository di immagini** illustrati nella precedente acquisizione di schermata includono i campi seguenti:
 
--   **ID sottoscrizione**: l'ID della sottoscrizione di Azure in cui si trova il Registro contenitori di Azure.
--   **Nome del gruppo di risorse**: il nome del gruppo di risorse del Registro contenitori di Azure.
--   **Nome del Registro**: il nome del Registro contenitori di Azure.
+-   **ID sottoscrizione**: l'ID della sottoscrizione di Azure in cui si trova il Registro Azure Container.
+-   **Nome del gruppo di risorse**: il nome del gruppo di risorse di Registro Azure Container.
+-   **Nome del Registro**: il nome di Registro Azure Container.
 -   **Nome del repository**: il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
--   **Nome utente**: il nome utente (nome utente amministratore) associato al Registro contenitori di Azure.
--   **Password**: la password associata al Registro contenitori di Azure.
+-   **Nome utente**: il nome utente (nome utente amministratore) associato al Registro Azure Container.
+-   **Password**: la password associata al Registro Azure Container.
 
     >[!NOTE]
     >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.

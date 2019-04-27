@@ -3,8 +3,8 @@ title: Pianificare le reti virtuali di Azure | Microsoft Docs
 description: Informazioni su come pianificare le reti virtuali in base ai requisiti di isolamento, connettività e località.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034740"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -63,7 +63,7 @@ Una rete virtuale può essere segmentata in una o più subnet fino a raggiungere
 - Ogni subnet deve disporre di un intervallo di indirizzi univoci, specificato nel formato CIDR all'interno dello spazio di indirizzi della rete virtuale. L'intervallo di indirizzi non può sovrapporsi ad altre subnet all'interno della rete virtuale.
 - Se si prevede di distribuire alcune risorse del servizio di Azure in una rete virtuale, potrebbero richiedere, o creare, le proprie subnet, in tal caso ci deve essere abbastanza spazio non allocato per consentire loro di farlo. Per determinare se un servizio di Azure crea una propria subnet, vedere le informazioni per ogni [servizio di Azure che può essere distribuito in una rete virtuale](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Ad esempio, se si connette una rete virtuale a una rete locale tramite un Gateway VPN di Azure, la rete virtuale deve avere una subnet dedicata per il gateway. Altre informazioni sulle [subnet del gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Per impostazione predefinita, Azure indirizza il traffico di rete tra tutte le subnet in una rete virtuale. È possibile eseguire l'override di routing per evitare il routing di Azure tra le subnet, oppure per instradare il traffico tra subnet attraverso un' appliance virtuale di rete, ad esempio. Se è necessario che il traffico tra le risorse nella stessa rete virtuale fluisca attraverso un'appliance virtuale di rete (vulnerabilità), distribuire le risorse in subnet diverse. Altre informazioni in [sicurezza](#security).
-- È possibile limitare l'accesso alle risorse di Azure, come ad esempio un account di archiviazione di Azure o un database SQL di Azure, per le subnet specifiche con un endpoint di servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
+- È possibile limitare l'accesso alle risorse di Azure, come ad esempio un account di archiviazione di Azure o un database SQL di Azure, per le subnet specifiche con un endpoint servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
 - È possibile associare zero o un gruppo di sicurezza di rete ad ogni subnet in una rete virtuale. È possibile associare lo stesso gruppo di protezione o un altro per ogni subnet di rete. Ogni gruppo di sicurezza di rete contiene regole che consentono o negano il traffico da e verso le origini e le destinazioni. Vedere altre informazioni sui [gruppi di sicurezza di rete](#traffic-filtering).
 
 ## <a name="security"></a>Sicurezza

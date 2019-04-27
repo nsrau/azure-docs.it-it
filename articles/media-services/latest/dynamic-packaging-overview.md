@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104123"
 ---
 # <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -197,6 +197,10 @@ Applicazione di filtri dinamici viene utilizzato per controllare il numero di in
 
 > [!NOTE]
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
+
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

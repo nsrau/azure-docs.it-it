@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481192"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i tipi di output disponibili per un processo Azure Stream Analitica. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire ulteriormente analitica di business e il data warehousing dei dati.
@@ -82,7 +82,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Il nome del database in cui si sta inviando l'output. |
-| Nome server | Nome server del database SQL di Azure. |
+| Nome server | Nome del server di database SQL. |
 | Username | Il nome utente che ha accesso in scrittura al database. Analitica Stream supporta solo l'autenticazione di SQL. |
 | Password | Password per la connessione al database. |
 | Tabella | Nome della tabella in cui viene scritto l'output. Il nome della tabella è tra maiuscole e minuscole. Lo schema della tabella deve corrispondere esattamente il numero di campi e i tipi che genera l'output del processo. |

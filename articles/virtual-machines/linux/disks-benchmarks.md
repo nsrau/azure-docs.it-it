@@ -2,19 +2,20 @@
 title: Benchmarking delle applicazioni nell'archiviazione su disco di Azure - dischi gestiti
 description: Informazioni sul processo di benchmarking delle applicazioni in Azure.
 services: virtual-machines-linux,storage
-author: roygara
-ms.author: rogarana
-ms.date: 01/11/2019
+author: rockboyfor
+ms.author: v-yeche
+origin.date: 01/11/2019
+ms.date: 04/01/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: 21ed4e9a6b1da10d0ae4c276612459506e13d94f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474369"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking di un disco
 

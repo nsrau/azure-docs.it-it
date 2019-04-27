@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 0466265ad5a24e8ea6dc5079e2b4006d74e7dde0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097686"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "38452533"
 ## <a name="overview"></a>Panoramica
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../../../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
 
 Per configurare un listener per un gruppo di disponibilità AlwaysOn nel modello di Resource Manager, vedere [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità AlwaysOn in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

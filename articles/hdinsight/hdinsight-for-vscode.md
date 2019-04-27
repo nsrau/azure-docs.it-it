@@ -2,7 +2,6 @@
 title: Strumenti di Azure HDInsight - Usare Visual Studio Code per Hive, LLAP o PySpark | Microsoft Docs
 description: Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code per creare e inviare query e script.
 Keywords: Visual Studio Code, gli strumenti di Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
-services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098338"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
@@ -310,20 +309,20 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | name | description | type | 
     | :- | :- | :- | 
     | file | File contenente l'applicazione da eseguire | percorso (obbligatorio) | 
-    | proxyUser | Utente da rappresentare durante l'esecuzione del processo | stringa | 
-    | className | Classe principale Java/Spark dell'applicazione | stringa |
+    | proxyUser | Utente da rappresentare durante l'esecuzione del processo | string | 
+    | className | Classe principale Java/Spark dell'applicazione | string |
     | args | Argomenti della riga di comando per l'applicazione | elenco di stringhe | 
     | file JAR | file JAR da usare in questa sessione | Elenco di stringhe | 
     | pyFiles | File di Python da usare in questa sessione | Elenco di stringhe |
     | input | file da usare in questa sessione | Elenco di stringhe |
-    | driverMemory | Quantità di memoria da usare per il processo del driver | stringa |
+    | driverMemory | Quantità di memoria da usare per il processo del driver | string |
     | driverCores | Numero di core da usare per il processo del driver | int |
-    | executorMemory | Quantità di memoria da usare per ogni processo executor | stringa |
+    | executorMemory | Quantità di memoria da usare per ogni processo executor | string |
     | executorCores | Numero di core da usare per ogni executor | int |
     | numExecutors | Numero di executor da avviare per questa sessione | int |
     | archives | Archivi da usare in questa sessione | Elenco di stringhe |
-    | coda | Nome della coda a cui YARN viene effettuato l'invio | stringa |
-    | name | Nome della sessione | stringa |
+    | coda | Nome della coda a cui YARN viene effettuato l'invio | string |
+    | name | Nome della sessione | string |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
 
     Contenuto risposta   
@@ -335,7 +334,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | appId | ID applicazione della sessione |  string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
     | log | Righe di log | elenco di stringhe |
-    | state |   Stato batch | stringa |
+    | state |   Stato batch | string |
 
 >[!NOTE]
 >La configurazione di livy assegnata verrà visualizzata nel riquadro di output quando si invia lo script.

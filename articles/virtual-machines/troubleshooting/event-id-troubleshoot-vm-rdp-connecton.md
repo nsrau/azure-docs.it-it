@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485417"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
 
@@ -288,7 +288,7 @@ Il nome host ha voci e dipendenze in Database interno di Windows, che è necessa
 
 Per risolvere questo problema, è necessario reinstallare il ruolo Gestore connessione Desktop remoto e Database interno di Windows.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Schannel Events (Eventi di Schannel)](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
 

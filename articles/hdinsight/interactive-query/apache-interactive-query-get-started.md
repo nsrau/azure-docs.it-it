@@ -1,7 +1,6 @@
 ---
 title: Usare Interactive Query in Azure HDInsight
 description: Informazioni su come usare Interactive Query (Hive LLAP) con HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126597"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usare Interactive Query in HDInsight
 Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) di Azure HDInsight. Interactive Query supporta la memorizzazione nella cache in memoria, che rende le query Apache Hive più veloci e molto più interattive.

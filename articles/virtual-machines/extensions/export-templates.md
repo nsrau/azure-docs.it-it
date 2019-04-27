@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484039"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Esportazione di gruppi di risorse contenenti estensioni macchina virtuale
 

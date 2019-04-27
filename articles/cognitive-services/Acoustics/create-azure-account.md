@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335696"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>Configurazione dell'Account Azure Batch acustica progetto
 Questa procedura viene illustrata l'impostazione di un account Azure Batch per l'utilizzo con progetti acustica Unity e Unreal integrazioni di motore.

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338516"
+ms.locfileid: "62098287"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedura di failover di ripristino di emergenza
 
@@ -35,34 +35,20 @@ Esistono due casi diversi da prendere in considerazione per il failover nel sito
 >[!NOTE]
 >È necessario eseguire i passaggi seguenti nell'unità HANA in istanze Large, che rappresenta l'unità di ripristino di emergenza. 
  
-Per ripristinare gli snapshot di archiviazione replicata più recenti, completare i passaggi seguenti: 
+Per ripristinare gli snapshot più recente archiviazione replicata, eseguire i passaggi elencati nella sezione **'Eseguire failover di ripristino di emergenza completo - azure_hana_dr_failover'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Arrestare l'istanza non di produzione di HANA nell'unità di ripristino di emergenza di HANA in istanze Large in esecuzione. Il motivo è la presenza di un'istanza di produzione HANA inattiva preinstallata.
-1. Assicurarsi che nessun processo SAP HANA sia più in esecuzione. A questo scopo, usare il comando `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. L'output dovrebbe mostrare il processo **hdbdaemon** con stato arrestato e nessun altro processo HANA con stato in esecuzione o avviato.
-1. Nell'unità HANA in istanze Large del sito di ripristino di emergenza eseguire lo script *azure_hana_dr_failover.pl*. Lo script richiede che venga ripristinato un tipo di SID SAP HANA. Quando viene richiesto, digitare uno o l'unico SID SAP HANA che è stato replicato e che viene mantenuto nel file *HANABackupCustomerDetails.txt* nell'unità HANA in istanze Large nel sito di ripristino di emergenza. 
+Se si desidera disporre di più istanze di SAP HANA effettuate il failover, è necessario eseguire il comando azure_hana_dr_failover più volte. Quando viene richiesto, digitare il SID SAP HANA di cui si vuole eseguire il failover e il ripristino. 
 
-      Se si vuole eseguire il failover di più istanze di SAP HANA, è necessario eseguire lo script diverse volte. Quando viene richiesto, digitare il SID SAP HANA di cui si vuole eseguire il failover e il ripristino. Al termine, lo script mostra un elenco di punti di montaggio dei volumi che vengono aggiunti all'unità HANA in istanze Large. Questo elenco include anche i volumi di ripristino di emergenza ripristinati.
 
-1. Montare i volumi di ripristino di emergenza ripristinati usando i comandi del sistema operativo Linux nell'unità HANA in istanze Large nel sito di ripristino di emergenza. 
-1. Avviare l'istanza di produzione di SAP HANA inattiva.
-1. Se si sceglie di copiare i log di backup del log delle transazioni per ridurre il valore RPO, è necessario unire questi backup del log delle transazioni nella nuova directory /hana/logbackups di ripristino di emergenza appena montata. Non sovrascrivere i backup esistenti, ma copiare quelli più recenti che non sono stati replicati con l'ultima replica di uno snapshot di archiviazione.
-1. È anche possibile ripristinare singoli file degli snapshot replicati nel volume /hana/shared/PRD nell'area di Azure di ripristino di emergenza. 
-
-È possibile eseguire anche il test del failover del ripristino di emergenza senza conseguenze per la relazione di replica effettiva. Per eseguire un failover di test, seguire i passaggi 1 e 2 precedenti e quindi continuare con il passaggio 3 seguente.
+È possibile eseguire anche il test del failover del ripristino di emergenza senza conseguenze per la relazione di replica effettiva. Per eseguire un failover di test, seguire i passaggi descritti in **'Di eseguire un test di failover di ripristino di emergenza - azure_hana_test_dr_failover'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->*Non* eseguire transazioni di produzione nell'istanza creata nel sito di ripristino di emergenza tramite il processo di **test di un failover** con lo script presentato nel passaggio 3. Il comando crea un set di volumi che non hanno relazione con il sito primario. Di conseguenza, *non* sarà possibile eseguire una nuova sincronizzazione con il sito primario. 
+>Effettuare *non* eseguire transazioni di produzione nell'istanza che è stato creato nel sito di ripristino di emergenza tramite il processo di **test di un failover**. Azure_hana_test_dr_failover tale comando crea un set di volumi che non hanno relazione con il sito primario. Di conseguenza, *non* sarà possibile eseguire una nuova sincronizzazione con il sito primario. 
 
-Passaggio 3 per il test del failover:
+Se si vuole testare più istanze di SAP HANA, è necessario eseguire lo script più volte. Quando viene richiesto, digitare il SID SAP HANA dell'istanza da testare per il failover. 
 
-Nell'unità HANA in istanze Large del sito di ripristino di emergenza eseguire lo script **azure_hana_test_dr_failover.pl**. Questo script *non* interrompe la relazione di replica tra il sito primario e il sito di ripristino di emergenza. Al contrario, questo script clona i volumi di archiviazione di ripristino di emergenza. Dopo che il processo di clonazione ha esito positivo, i volumi clonati vengono ripristinati allo stato dello snapshot più recente e quindi montati nell'unità di ripristino di emergenza. Lo script richiede che venga ripristinato un tipo di SID SAP HANA. Digitare uno o l'unico SID SAP HANA che è stato replicato e che viene mantenuto nel file *HANABackupCustomerDetails.txt* nell'unità HANA in istanze Large nel sito di ripristino di emergenza. 
-
-Se si vuole testare più istanze di SAP HANA, è necessario eseguire lo script più volte. Quando viene richiesto, digitare il SID SAP HANA dell'istanza da testare per il failover. Al termine, lo script mostra un elenco di punti di montaggio dei volumi che vengono aggiunti all'unità HANA in istanze Large. Questo elenco comprende anche i volumi di ripristino di emergenza clonati.
-
-Continuare con il passaggio 4.
-
-   >[!NOTE]
-   >Se è necessario eseguire il failover nel sito di ripristino di emergenza per salvare alcuni dati che sono stati eliminati ore prima e di conseguenza i volumi di ripristino di emergenza devono essere impostati su uno snapshot più recente, è necessario usare questa procedura. 
+>[!NOTE]
+>Se è necessario eseguire il failover al sito di ripristino di emergenza per salvare alcuni dati che sono stati eliminati ore fa ed è necessario i volumi di ripristino di emergenza sia impostato su uno snapshot precedente, questa procedura è valida. 
 
 1. Arrestare l'istanza non di produzione di HANA nell'unità di ripristino di emergenza di HANA in istanze Large in esecuzione. Il motivo è la presenza di un'istanza di produzione HANA inattiva preinstallata.
 1. Assicurarsi che nessun processo SAP HANA sia più in esecuzione. A questo scopo, usare il comando `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. L'output dovrebbe mostrare il processo **hdbdaemon** in uno stato arrestato e nessun altro processo HANA in esecuzione o con stato avviato.
@@ -121,34 +107,8 @@ Questa è la sequenza dei passaggi da eseguire:
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorare la replica di ripristino di emergenza
 
-È possibile monitorare lo stato di avanzamento della replica di archiviazione eseguendo lo script `azure_hana_replication_status.pl`. Per poter funzionare nel modo previsto, questo script deve essere eseguito da un'unità in esecuzione nella posizione di ripristino di emergenza. Lo script funziona indipendentemente dal fatto che la replica sia o meno attiva. Lo script può essere eseguito per ogni unità di istanze Large di HANA del tenant nella posizione di ripristino di emergenza. Non può essere usato per ottenere informazioni dettagliate sul volume di avvio.
+È possibile monitorare lo stato di avanzamento della replica di archiviazione eseguendo lo script `azure_hana_replication_status`. Questo comando deve essere eseguito da un'unità in esecuzione nella posizione di ripristino di emergenza a funzionare come previsto. Il comando funziona indipendentemente dal fatto che la replica sia attiva. Il comando può essere eseguito per ogni unità di istanze Large di HANA del tenant nella posizione di ripristino di emergenza. Non può essere usato per ottenere informazioni dettagliate sul volume di avvio. Per informazioni dettagliate del comando e il relativo output leggere **'Ottenere lo stato della replica di ripristino di emergenza - azure_hana_replication_status'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Chiamare lo script con questo comando:
-```
-./azure_hana_replication_status.pl
-```
 
-L'output viene suddiviso per volume nelle sezioni seguenti:  
-
-- Stato del collegamento
-- Attività di replica corrente
-- Snapshot più recente replicato 
-- Dimensioni dello snapshot più recente
-- Tempo di ritardo corrente tra snapshot, ovvero tra l'ultima replica snapshot completata e il momento attuale
-
-Lo stato del collegamento viene visualizzato come **attivo**, a meno che il collegamento tra le posizioni non sia stato interrotto o non sia in corso un evento di failover. L'attività di replica si riferisce al fatto che sia in corso la replica dei dati oppure che i dati siano inattivi o ci siano altre attività in corso nel collegamento. L'ultimo snapshot replicato dovrebbe essere visualizzato solo come `snapmirror…`. Vengono quindi visualizzate le dimensioni dell'ultimo snapshot. Infine, viene visualizzato il tempo di ritardo. Il tempo di ritardo rappresenta il tempo tra la replica pianificata e il completamento della replica. Un tempo di ritardo può superare un'ora per la replica dei dati, in particolare per la replica iniziale, anche se la replica è stata avviata. Il tempo di ritardo continua ad aumentare fino al termine della replica in corso.
-
-Di seguito viene fornito un esempio dell'output:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**Passaggi successivi**
-- Consultare [Monitoraggio e risoluzione dei problemi dal lato HANA](hana-monitor-troubleshoot.md).
+## <a name="next-steps"></a>Passaggi successivi
+- Fare riferimento a [il monitoraggio e la risoluzione dei problemi dal lato HANA](hana-monitor-troubleshoot.md).

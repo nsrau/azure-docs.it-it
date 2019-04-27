@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478514"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
@@ -107,11 +107,10 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>Campi del file CSV driveset
 
-| Campi | Valore |
+| Campi | Value |
 | --- | --- |
 | DriveLetter | **[Obbligatorio]**<br/> Ogni unità fornita allo strumento come destinazione deve includere un volume NTFS semplice e deve avere una lettera di unità assegnata.<br/> <br/>**Esempio**: R o r |
-| FormatOption | 
-  **[Obbligatorio]** Format &#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
+| FormatOption | **[Obbligatorio]** Format &amp;#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
 | SilentOrPromptOnFormat | **[Obbligatorio]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: se si specifica questo valore, l'utente può eseguire lo strumento in modalità non interattiva. <br/>**PromptOnFormat**: lo strumento richiede all'utente di confermare se l'azione è veramente prevista per tutti i formati.<br/><br/>Se non è impostato, il comando verrà interrotto e verrà visualizzato il messaggio di errore: "Incorrect value for SilentOrPromptOnFormat: none" |
 | Crittografia | **[Obbligatorio]** Encrypt &#124; AlreadyEncrypted<br/> Il valore di questo campo indica quale disco crittografare. <br/><br/>**Encrypt**: lo strumento formatta l'unità. Se il campo "FormatOption" è impostato su "Format", il valore di questo campo deve essere "Encrypt". Se in questo caso viene specificato"AlreadyEncrypted", viene restituito l'errore seguente: "When Format is specified, Encrypt must also be specified" (Quando viene specificato Format, è necessario specificare anche Encrypt).<br/>**AlreadyEncrypted**: lo strumento decrittografa l'unità usando la chiave BitLocker specificata nel campo "ExistingBitLockerKey". Se il valore del campo "FormatOption" è "AlreadyFormatted", il valore di questo campo può essere "Encrypt" o "AlreadyEncrypted". |
 | ExistingBitLockerKey | **[Obbligatorio]** Se il valore del campo "Encryption" è "AlreadyEncrypted",<br/> il valore di questo campo corrisponde alla chiave BitLocker associata al disco specifico. <br/><br/>Se il valore del campo "Encryption" è "Encrypt", questo campo deve essere lasciato vuoto.  Se in questo caso è specificata una chiave BitLocker, viene restituito l'errore "Bitlocker Key should not be specified".<br/>  **Esempio**: 060456-014509-132033-080300-252615-584177-672089-411631|

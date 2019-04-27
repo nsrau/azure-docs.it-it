@@ -1,19 +1,18 @@
 ---
 title: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 description: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124391"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 
@@ -295,7 +294,7 @@ Questo documento ha illustrato come installare CaffeOnSpark tramite l'esecuzione
 
 ### <a name="scenarios"></a>Scenari
 * [Apache Spark con apprendimento automatico: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per prevedere i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)

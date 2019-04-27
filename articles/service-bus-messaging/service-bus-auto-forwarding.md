@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098593"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
 
@@ -46,6 +46,10 @@ L'entità di destinazione deve essere presente al momento della creazione dell'e
 ![Scenario di inoltro automatico][1]
 
 Se uno dei rappresentanti si assenta, viene riempita la coda personale, ma non l'argomento ERP. In questo scenario, poiché un rappresentante di vendita non ha ricevuto alcun messaggio, nessuno degli argomenti ERP raggiunge la quota.
+
+> [!NOTE]
+> All'impostazione di inoltro automatico, il valore per AutoDeleteOnIdle nella destinazione viene impostato automaticamente sul valore massimo del tipo di dati.
+> Questa operazione viene eseguita per verificare che sia sempre presente una destinazione per inoltrare il messaggio.
 
 ## <a name="autoforwarding-considerations"></a>Considerazioni sull'inoltro automatico
 

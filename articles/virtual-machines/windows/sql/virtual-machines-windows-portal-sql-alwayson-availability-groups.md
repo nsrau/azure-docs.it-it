@@ -16,13 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129554"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare i gruppi di disponibilità AlwaysOn in macchine virtuali di Azure automaticamente: Gestione risorse
 
 Questa esercitazione illustra come creare un gruppo di disponibilità di SQL Server che usa macchine virtuali di Azure Resource Manager. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
 
@@ -185,7 +185,7 @@ In **Impostazioni di SQL Server** rivedere e modificare il prefisso del nome del
 
 Rivedere le impostazioni e fare clic su **OK**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 Convalidare le impostazioni nella pagina di riepilogo di Azure. È anche possibile scaricare il modello. Esaminare il riepilogo. Fare clic su **OK**.
 
 ### <a name="buy"></a>Acquistare

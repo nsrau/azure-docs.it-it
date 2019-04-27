@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401187"
 ---
 # <a name="analyze-method"></a>Metodo analyze
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 NOME | Type | Obbligatorio | DESCRIZIONE
 -----|-------|----------|------------
-**language**    | stringa | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
+**language**    | string | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
 **analyzerIds** | elenco di stringhe | Sì | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
-**text**        | stringa | Sì | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
+**text**        | string | Sì | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
 
 ## <a name="response-json"></a>Risposta (JSON)
 
@@ -52,7 +52,7 @@ I risultati sono simili ai seguenti:
 
 NOME | Type | DESCRIZIONE
 -----|------|--------------
-analyzerId | stringa | GUID dell'analizzatore specificato
+analyzerId | string | GUID dell'analizzatore specificato
 risultato | object | risultato dell'analizzatore
 
 Si noti che il tipo del risultato dipende dal tipo di analizzatore di input.
@@ -67,8 +67,8 @@ result[x].Len | int | lunghezza in caratteri di ogni frase |
 result[x].Tokens | elenco di oggetti token | limiti dei token identificati all'interno della frase |
 result[x].Tokens[y].Offset | int | offset di caratteri iniziale del token |
 result[x].Tokens[y].Len | int | lunghezza in caratteri del token |
-result[x].Tokens[y].RawToken | stringa | caratteri all'interno di tale token, prima della normalizzazione |
-result[x].Tokens[y].NormalizedToken | stringa | forma normalizzata del carattere, utilizzabile in modo sicuro in un [albero di analisi](Constituency-Parsing.md); ad esempio, un carattere di parentesi di apertura '(' diventa '-LRB-' |
+result[x].Tokens[y].RawToken | string | caratteri all'interno di tale token, prima della normalizzazione |
+result[x].Tokens[y].NormalizedToken | string | forma normalizzata del carattere, utilizzabile in modo sicuro in un [albero di analisi](Constituency-Parsing.md); ad esempio, un carattere di parentesi di apertura '(' diventa '-LRB-' |
 
 Input di esempio: 'This is a test. Hello.'
 Risposta di esempio JSON:

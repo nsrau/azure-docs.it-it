@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310979"
+ms.locfileid: "62736812"
 ---
 # <a name="use-firewall-rules"></a>Uso delle regole del firewall
 
@@ -149,7 +149,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso al bus di servizio dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint del servizio Rete virtuale con il bus di servizio di Azure][lnk-vnet]
+- [Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure][lnk-vnet]
 
 <!-- Links -->
 

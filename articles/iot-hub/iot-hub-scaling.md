@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125577"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -83,7 +83,7 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 | [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sì | Sì |
 | Invio evento modulo | Sì | Sì |
 | [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sì | Sì |
-| [Operazioni in blocco su dispositivi](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì | 
+| [Operazioni in blocco su dispositivi](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì | 
 | [Eliminazione coda di comandi](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sì |
 | [Recupero dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sì |
 | Recupero modulo gemello |   | Sì |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471953"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.

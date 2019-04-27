@@ -9,11 +9,11 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478675"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
 È possibile chiamare l'operazione [Get Job](/rest/api/storageimportexport/jobs) per recuperare informazioni su entrambi i processi: importazione ed esportazione. Le informazioni restituite includono:

@@ -1,7 +1,6 @@
 ---
 title: 'Azione script: installare pacchetti Python con Jupyter in Azure HDInsight'
 description: Istruzioni dettagliate su come usare l’azione script e configurare notebook di Jupyter disponibili con cluster HDInsight Spark per l'uso di pacchetti Python esterni.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097913"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare Azioni script per installare pacchetti Python esterni per notebook di Jupyter in cluster Apache Spark in HDInsight
 > [!div class="op_single_selector"]
@@ -65,7 +64,7 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 4. Immettere i valori seguenti per il **invia azione script** finestra:  
 
 
-    |Parametro | Valore |
+    |Parametro | Value |
     |---|---|
     |Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
     |NOME |Immettere `tensorflow` nella casella di testo.|

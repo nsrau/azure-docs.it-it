@@ -12,11 +12,11 @@ ms.date: 03/28/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61379211"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -57,11 +57,11 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 
 È consigliabile rendere le seguenti QnA di chit-chat più specifiche:
 
-* Identificarsi
+* Chi si sta autenticando?
 * Cosa fare
 * Quanti anni hai?
 * Chi ti ha creato?
-* Salve
+* Ciao
    
 
 ## <a name="rankingscoring"></a>Classificazione e assegnazione dei punteggi
@@ -73,7 +73,7 @@ Il punteggio di attendibilità predefinito che viene usato come soglia è 50, ma
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
 
-|Query originale|Query alternative|Cambia| 
+|Query originale|Query alternative|Modifica| 
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|

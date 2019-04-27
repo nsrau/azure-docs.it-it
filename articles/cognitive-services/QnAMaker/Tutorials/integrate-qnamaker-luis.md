@@ -12,11 +12,11 @@ ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431310"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.

@@ -13,11 +13,11 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61486151"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
@@ -250,7 +250,7 @@ I carichi di lavoro generati dallo script del generatore di carico hanno puramen
 
 - Per informazioni sui pool elastici, vedere:
 
-  - [I pool di database elastici consentono di gestire e ridimensionare più database SQL](sql-database-elastic-pool.md)
+  - [I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure](sql-database-elastic-pool.md)
   - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

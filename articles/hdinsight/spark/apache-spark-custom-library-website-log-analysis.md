@@ -1,7 +1,6 @@
 ---
 title: 'Analizzare i log del sito Web con le librerie Python in Spark: Azure'
 description: Questo notebook dimostra come analizzare i dati dei log mediante una libreria personalizzata con Spark in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124442"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Apache Spark in HDInsight
 
@@ -204,7 +203,7 @@ Dopo avere salvato i dati come tabella Apache Hive, nella sezione successiva ver
 ### <a name="scenarios"></a>Scenari
 * [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per prevedere i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)

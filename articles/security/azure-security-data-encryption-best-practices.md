@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: barclayn
 ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125120"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
 

@@ -9,11 +9,11 @@ ms.date: 01/30/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483733"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure
 
@@ -228,7 +228,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
     --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 I comandi dell'interfaccia della riga di comando classica di Azure da usare con le risorse di archiviazione sono disponibili qui:
 

@@ -15,11 +15,11 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110362"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Aggiunta di risorse di Automazione di Azure a una soluzione di gestione (anteprima)
 > [!NOTE]
@@ -114,7 +114,7 @@ Le proprietà dei processi di automazione sono descritte nella tabella seguente.
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | runbook |Entità name singola con il nome del runbook da avviare. |
-| parameters |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
+| Parametri |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
 
 Il processo include il nome del runbook e i valori dei parametri da inviare al runbook.  Il processo deve [dipendere]( solutions-solution-file.md#resources) dal runbook in fase di avvio, poiché questo deve essere creato prima del processo.  Se sono presenti più runbook da avviare, è possibile definire l'ordine di avvio impostando un processo in modo che dipenda da un altro processo che deve essere eseguito prima.
 
@@ -281,10 +281,10 @@ Se si imposta il valore iniziale per la variabile, è necessario configurarla co
 
 | Tipo di dati | DESCRIZIONE | Esempio | Risoluzione |
 |:--|:--|:--|:--|
-| string   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
+| stringa   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valore numerico con virgolette singole.| "64" | 64 |
 | boolean  | **true** o **false** tra virgolette.  Si noti che questo valore deve essere minuscolo. | "true" | true |
-| datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduli
 La soluzione di gestione non deve necessariamente definire i [moduli globali](../../automation/automation-integration-modules.md) usati dai runbook, poiché saranno sempre disponibili nel proprio account di automazione.  È tuttavia necessario includere una risorsa per qualsiasi altro modulo usato dai runbook.

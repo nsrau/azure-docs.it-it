@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Informazioni sugli indirizzi IP pubblici e privati in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108145"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -78,6 +79,9 @@ Gli indirizzi IP pubblici con SKU Standard sono:
  
 > [!NOTE]
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
+
+> [!NOTE]
+> Solo gli indirizzi IP pubblici con SKU basic sono disponibili quando si usa [istanza del servizio metadati IMDS](../virtual-machines/windows/instance-metadata-service.md). Lo SKU standard non è supportato.
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 50c4fd512206cdf17ebb555acb88de2a3f74c2bd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472669"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Creare le risorse tecniche per un'offerta di applicazione Azure
 

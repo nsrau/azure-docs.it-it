@@ -1,5 +1,5 @@
 ---
-title: Come installare HANA in SAP HANA di Azure (istanze Large) | Microsoft Docs
+title: Come installare HANA su SAP HANA di Azure (Istanze large) | Microsoft Docs
 description: Come installare HANA in SAP HANA di Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f4629894933507bda7359fb034c4079d38100029
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098480"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Installare HANA in SAP HANA di Azure (istanze Large)
 
@@ -54,8 +54,8 @@ Per eseguire questa operazione, è necessario un utente S o un altro utente SAP,
    > Non copiare i pacchetti di installazione nel volume LUN radice o di avvio perché lo spazio è limitato e deve essere usato anche da altri processi.
 
 
-## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>Installare SAP HANA nell'unità di HANA in istanze Large
-Per installare SAP HANA, accedere come utente ROOT. Solo l'utente ROOT ha autorizzazioni sufficienti per l'installazione di SAP HANA. Impostare le autorizzazioni per la directory copiata in /hana/shared.
+## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>Installare SAP HANA nell'unità di istanze Large di HANA
+Per installare SAP HANA, accedere come utente ROOT. Solo l'utente radice ha autorizzazioni sufficienti per l'installazione di SAP HANA. Impostare le autorizzazioni per la directory copiata in /hana/shared.
 
 ```
 chmod –R 744 <Installation bits folder>
@@ -107,11 +107,11 @@ Come percorso di installazione usare la directory /hana/shared. Nel passaggio su
 > [!Note]
 > Il SID specificato al momento della definizione delle proprietà di sistema (due schermate fa) deve corrispondere al SID dei punti di montaggio. Se non vi è corrispondenza, tornare indietro e modificare il SID specificando il valore del SID dei punti di montaggio.
 
-Nel passaggio successivo verificare il nome host e, se necessario, correggerlo. 
+Nel passaggio successivo occorre verificare il nome host e, se necessario, correggerlo. 
 
 ![Screenshot della schermata di gestione del ciclo di vita di SAP HANA con il nome host](./media/hana-installation/image24_review_host_name.PNG)
 
-Nel passaggio successivo è necessario anche recuperare i dati forniti a Microsoft quando è stata ordinata la distribuzione di HANA in istanze Large. 
+Nel passaggio successivo è necessario anche recuperare i dati forniti a Microsoft quando è stata ordinata la distribuzione di tipo istanze Large di HANA. 
 
 ![Screenshot della schermata di gestione del ciclo di vita di SAP HANA con i campi dell'amministratore di sistema da definire](./media/hana-installation/image25_provide_guid.PNG)
 

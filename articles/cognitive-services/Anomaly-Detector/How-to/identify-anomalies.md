@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432349"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: Usare l'API rilevatore di anomalie in dati delle serie temporali  
 

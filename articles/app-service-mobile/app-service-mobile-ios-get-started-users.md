@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128150"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -212,7 +212,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
 
 5. Fare clic su *Run* (Esegui) per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altre informazioni su questo argomento, consultare il [documentazione Apple][2]
+L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altre informazioni su questo argomento, vedere la [documentazione Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

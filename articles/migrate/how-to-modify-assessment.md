@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129824"
 ---
 # <a name="customize-an-assessment"></a>Personalizzare una valutazione
 
@@ -47,7 +47,7 @@ ms.locfileid: "54200310"
 
 Quando si specifica che il criterio di dimensionamento deve essere locale, Azure Migrate non considera i dati delle prestazioni delle macchine virtuali e le ridimensiona in base alla configurazione locale. Se il criterio di dimensionamento è basato sulle prestazioni, il dimensionamento viene eseguito in base ai dati di utilizzo, ad esempio se è presente una macchina virtuale locale con 4 core e 8 GB di memoria, con un utilizzo della CPU e della memoria del 50%. Se il criterio di dimensionamento è il dimensionamento locale, è consigliato uno SKU di macchina virtuale di Azure con 4 core e 8 GB di memoria, ma, se il criterio di dimensionamento è basato sulle prestazioni, è consigliato uno SKU di macchina virtuale con 2 core e 4 GB perché, pur consigliando le dimensioni, va considerata la percentuale di utilizzo.
 
-Analogamente, per i dischi, il dimensionamento dei dischi dipende da due proprietà di valutazione: i criteri di dimensionamento e il tipo di archiviazione. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è automatico, vengono considerati i valori relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco per identificare il tipo di disco di destinazione (Standard o Premium). Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è Premium, è consigliabile un disco Premium. Lo SKU del disco Premium in Azure viene selezionato in base alle dimensioni del disco locale. La stessa logica si applica al dimensionamento del disco quando il criterio di dimensionamento è quello locale e il tipo di archiviazione è Standard o Premium.
+Analogamente, per i dischi, il dimensionamento dei dischi dipende da due proprietà di valutazione: i criteri di dimensionamento e il tipo di archiviazione. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è automatico, vengono considerati i valori relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco per identificare il tipo di disco di destinazione (Standard o Premium). Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è Premium, è consigliabile un disco Premium. La SKU del disco Premium in Azure viene selezionato in base alle dimensioni del disco locale. La stessa logica si applica al dimensionamento del disco quando il criterio di dimensionamento è quello locale e il tipo di archiviazione è Standard o Premium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Qual è l'impatto della cronologia delle prestazioni e dell'utilizzo percentile sulle dimensioni consigliate?
 

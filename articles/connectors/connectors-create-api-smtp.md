@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106151"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
 
@@ -53,12 +53,12 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
 1. Quando richiesto, specificare queste informazioni di connessione:
 
-   | Proprietà | Obbligatoria | DESCRIZIONE |
+   | Proprietà | Obbligatorio | DESCRIZIONE |
    |----------|----------|-------------|
-   | **Connection Name** (Nome connessione) | Yes | Nome per la connessione al server SMTP | 
-   | **Indirizzo del server SMTP** | Yes | Indirizzo relativo al server SMTP | 
-   | **Nome utente** | Yes | Nome utente per l'account SMTP | 
-   | **Password** | Yes | Password per l'account SMTP | 
+   | **Connection Name** (Nome connessione) | Sì | Nome per la connessione al server SMTP | 
+   | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
+   | **Nome utente** | Sì | Nome utente per l'account SMTP | 
+   | **Password** | Sì | Password per l'account SMTP | 
    | **Porta del server SMTP** | No  | Porta specifica sul server SMTP che si vuole usare | 
    | **Abilitare SSL?** | No  | Attivare o disattivare la crittografia SSL. | 
    |||| 

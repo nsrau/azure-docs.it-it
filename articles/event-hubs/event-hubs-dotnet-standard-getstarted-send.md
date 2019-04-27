@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce98502113e75aea8deef7dbc7363662827634f3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e572a9e19da144be61faefacc370cf512f5079ac
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738406"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Inviare eventi a o ricevere eventi da hub eventi di Azure usando .NET Core
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT). Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -195,8 +195,7 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
 6. Eseguire il programma e assicurarsi che non siano presenti errori.
 
 ## <a name="receive-events"></a>Ricevere eventi
-In questa sezione viene illustrato come scrivere un'applicazione console .NET Core che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) illustra come usare l'host processore di eventi con più ricevitori.
-
+In questa sezione viene illustrato come scrivere un'applicazione console .NET Core che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo.
 > [!NOTE]
 > È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), sostituire le stringhe `EventHubConnectionString`, `EventHubName`, `StorageAccountName`, `StorageAccountKey` e `StorageContainerName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 

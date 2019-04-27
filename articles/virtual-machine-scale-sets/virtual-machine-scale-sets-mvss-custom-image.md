@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
-ms.author: manayar
+origin.date: 05/10/2017
+ms.date: 11/30/2018
+ms.author: v-junlch
 ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108378"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Aggiungere un'immagine personalizzata in un modello di set di scalabilità di Azure
 
@@ -115,6 +116,8 @@ In `imageReference` del set di scalabilità `storageProfile` anziché specificar
 In questo esempio viene usata la funzione `resourceId` per ottenere l'ID della risorsa dell'immagine creata nello stesso modello. Se l'immagine del disco gestito è stata creata in precedenza, è necessario indicare invece l'ID di tale immagine. L'ID deve essere nel formato seguente: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+
+<!-- Update_Description: update metedata properties -->

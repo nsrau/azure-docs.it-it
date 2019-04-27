@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107874"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ In questo caso l'attività principale viene usata per convertire un URI che hann
 
 Lo schema URI dettagliato per Data Lake Storage Gen1 è riportato [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store), ma quello generale è *adl://mydatalakestore.azuredatalakestore.net/\<percorso_file\>.*
 
-Viene illustrato lo schema URI per l'accesso ai file di Data Lake Storage Gen2 [in questo caso](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) in modo dettagliato, ma parlando in generale, è `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Viene illustrato lo schema URI per l'accesso ai file di Data Lake Storage Gen2 [in questo caso](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in modo dettagliato, ma parlando in generale, è `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Sarà necessario esaminare le applicazioni esistenti e verificare di aver modificato correttamente gli URI in modo che puntino a quelli di Data Lake Storage Gen2. Sarà anche necessario aggiungere le credenziali appropriate. Infine, il modo in cui si ritirano le applicazioni originali e le si sostituiscono con la nuova applicazione dovrà essere strettamente allineato alla strategia di aggiornamento generale.
 

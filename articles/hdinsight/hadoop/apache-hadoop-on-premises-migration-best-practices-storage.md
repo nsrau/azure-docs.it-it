@@ -1,7 +1,6 @@
 ---
 title: Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
 description: Informazioni sulle procedure consigliate di archiviazione per la migrazione dei cluster Hadoop locali in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095286"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
 
@@ -172,11 +171,11 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 5. Per limitare l'accesso a un contenitore con firma di accesso condiviso, aggiungere una voce personalizzata alla configurazione core-site per il cluster nella proprietà Ambari HDFS Configs Advanced Custom core-site Add.
 
-6. Per i campi  **Key**  (Chiave) e  **Value**  (Valore), usare i valori seguenti:
+6. Usare i valori seguenti per i campi **Key** e **Value**:
 
     **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valore**: Chiave di firma di accesso condiviso restituita dall'applicazione Python nel passaggio 4 precedente.
 
-7. Fare clic sul pulsante  **Add**  (Aggiungi) per salvare la chiave e il valore e quindi fare clic su  **Save**  (Salva) per salvare le modifiche della configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su  **Save** (Salva).
+7. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
 8. Nell'interfaccia utente Web di Ambari selezionare HDFS dall'elenco a sinistra e quindi selezionare  **Restart All Affected**  (Reimposta tutti gli interessati) dall'elenco a discesa Service Actions (Azioni servizio) a destra. Quando richiesto, selezionare  **Confirm Restart All** (Conferma reimpostazione).
 

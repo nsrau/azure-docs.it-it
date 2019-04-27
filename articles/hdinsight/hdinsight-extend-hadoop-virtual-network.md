@@ -1,19 +1,18 @@
 ---
 title: Estendere HDInsight con Rete virtuale - Azure
 description: Informazioni su come usare Rete virtuale di Azure per la connessione di HDInsight ad altre risorse cloud o risorse nel proprio data center
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097338"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 

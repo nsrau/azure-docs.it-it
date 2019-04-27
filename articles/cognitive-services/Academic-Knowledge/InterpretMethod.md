@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57975492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61338453"
 ---
 # <a name="interpret-method"></a>Metodo Interpret
 
@@ -29,7 +29,7 @@ Per fornire un'esperienza interattiva, è possibile chiamare ripetutamente quest
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME     | Valore | Obbligatorio?  | DESCRIZIONE
+NOME     | Value | Obbligatorio?  | DESCRIZIONE
 ---------|---------|---------|---------
 **query**    | Stringa di testo | Sì | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
 **model**    | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        

@@ -16,11 +16,11 @@ ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
 
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
     c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel **nome utente** tipo di campo **brittasimon\@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -206,7 +206,7 @@ Per consentire agli utenti di Azure AD di accedere a Workspot Control, è necess
 
     b. Nella casella di testo **Last name** (Cognome) immettere il cognome dell'utente, ad esempio **Simon**.
 
-    c. Nelle **messaggio di posta elettronica** testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon\@contoso.com**.
+    c. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon\@contoso.com**.
 
     d. Selezionare il ruolo utente appropriato nell'elenco a discesa **Role** (Ruolo).
 

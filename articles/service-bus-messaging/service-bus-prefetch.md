@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: aschhab
 ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125849"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111954"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android
 
@@ -206,6 +206,6 @@ Per migliorare la velocità di download sono disponibili due diverse strategie:
     1.  Modalità controllata dal client: l'app lettore seleziona automaticamente il livello di qualità video e le tracce audio da scaricare oppure è l'utente stesso a farlo.
     2.  Modalità controllata dal servizio: è possibile usare la funzionalità di manifesto dinamico in Servizi multimediali di Azure per creare un filtro (globale) che limiti la playlist HLS o il file MPD (Media Presentation Description) DASH a un singolo livello di qualità video e a tracce audio selezionate. L'URL di download presentato agli utenti finali includerà pertanto questo filtro.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

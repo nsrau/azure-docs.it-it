@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
 ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101462"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 

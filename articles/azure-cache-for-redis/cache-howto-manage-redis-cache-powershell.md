@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097930"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812833"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da un testo utterance con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -46,7 +46,7 @@ I dati principali sono dati dal **nome della finalità** con il punteggio superi
 }
 ```
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
 |--|--|--|--|
 |Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -75,7 +75,7 @@ Se il chatbot o l'app chiamante LUIS prende una decisione in base a più di un p
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Score|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Value|Score|
 |--|--|--|--|:--|
 |Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Finalità|string|intents[0].intent|"None"|0,0168218873|
@@ -106,7 +106,7 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 }
 ```
 
-|Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
+|Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
 |--|--|--|--|--|
 |Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
@@ -168,7 +168,7 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 ]
 ```
 
-|Oggetto dati|Nome dell'entità|Valore|
+|Oggetto dati|Nome dell'entità|Value|
 |--|--|--|
 |Entità semplice|`Customer`|`bob jones`|
 
@@ -196,7 +196,7 @@ I dati restituiti dall'endpoint includono il nome dell'entità e il nome dell'el
 ]
 ```
 
-|Oggetto dati|Padre|Figlio|Valore|
+|Oggetto dati|Padre|Figlio|Value|
 |--|--|--|--|
 |Entità gerarchica|Località|ToLocation|"paris"|
 
@@ -255,7 +255,7 @@ Le entità composite vengono restituite in una matrice `compositeEntities` e tut
   ]
 ```    
 
-|Oggetto dati|Nome dell'entità|Valore|
+|Oggetto dati|Nome dell'entità|Value|
 |--|--|--|
 |Entità predefinita - numero|"builtin.number"|"2"|
 |Entità gerarchica - posizione|"Location::ToLocation"|"paris"|

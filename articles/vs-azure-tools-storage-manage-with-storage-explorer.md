@@ -2,24 +2,18 @@
 title: Introduzione a Storage Explorer | Microsoft Docs
 description: Gestire le risorse di Archiviazione di Azure con Storage Explorer
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459436"
+ms.locfileid: "62128280"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -115,7 +109,9 @@ Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazi
 
 Storage Explorer consente di lavorare con la risorsa di archiviazione locale usando un emulatore. Questo approccio consente di simulare l'uso di Archiviazione di Azure senza necessariamente avere un account di archiviazione distribuito in Azure.
 
-A partire dalla versione 1.1.0, l'emulatore di archiviazione locale è supportato in tutte le piattaforme. Storage Explorer può connettersi a qualsiasi servizio emulato in ascolto degli endpoint di archiviazione locali predefiniti.
+A partire dalla versione 1.1.0, Storage Explorer supporta l'utilizzo di un emulatore di archiviazione locale su tutte le piattaforme. Storage Explorer può connettersi a qualsiasi servizio emulato in ascolto degli endpoint di archiviazione locali predefiniti.
+
+Il [emulatore di archiviazione di Azure](storage/common/storage-use-emulator.md) attualmente viene eseguito solo in Windows. Per coloro che stanno valutando un emulatore di archiviazione per Linux, un'opzione è l'emulatore di archiviazione open source gestito dalla community [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Il supporto per funzionalità e servizi di archiviazione può variare notevolmente a seconda dell'emulatore che si sceglie. Assicurarsi che l'emulatore supporti i servizi e le funzionalità che si intende usare.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473060"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,15 +52,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Sybase** | Yes |
-| server | Nome del server Sybase. |Yes |
-| database | Nome del database Sybase. |Yes |
-| authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows**. |Yes |
-| username | Specificare il nome utente per la connessione al database Sybase. |Yes |
+| type | La proprietà type deve essere impostata su: **Sybase** | Sì |
+| server | Nome del server Sybase. |Sì |
+| database | Nome del database Sybase. |Sì |
+| authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows**. |Sì |
+| username | Specificare il nome utente per la connessione al database Sybase. |Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
 
@@ -87,15 +87,15 @@ Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Sybase.
 
 Per copiare dati da Sybase, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nel database Sybase. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -122,9 +122,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Sybase, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

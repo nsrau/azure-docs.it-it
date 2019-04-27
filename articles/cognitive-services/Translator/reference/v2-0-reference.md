@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
 ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467157"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
 
@@ -70,22 +70,22 @@ Se in precedenza è stato usato `AddTranslation` o `AddTranslationArray` per imm
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml 
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE    |Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE    |Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid  |(vuoto)    |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query|stringa|
-|text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
-|from|(vuoto)   |facoltativo. Stringa che rappresenta il codice lingua del testo della traduzione, ad esempio en per "Inglese".|query|stringa|
-|to|(vuoto) |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|stringa|
-|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono text/plain (impostazione predefinita) e text/html. Qualsiasi codice HTML deve essere un elemento completo ben formato.|query|stringa|
-|category|(vuoto)   |facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|stringa|
-|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
+|appid  |(vuoto)    |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query|string|
+|text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|string|
+|from|(vuoto)   |facoltativo. Stringa che rappresenta il codice lingua del testo della traduzione, ad esempio en per "Inglese".|query|string|
+|to|(vuoto) |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|string|
+|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono text/plain (impostazione predefinita) e text/html. Qualsiasi codice HTML deve essere un elemento completo ben formato.|query|string|
+|category|(vuoto)   |facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|string|
+|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|string|
 
 
 ### <a name="response-messages"></a>Messaggi di risposta
@@ -175,16 +175,16 @@ Il formato del corpo della risposta è quello indicato di seguito.
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Una risposta corretta include una matrice di `TranslateArrayResponse` nel formato descritto in precedenza.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|Authorization|(vuoto) |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
+|Authorization|(vuoto) |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -216,18 +216,18 @@ Il corpo della richiesta include una matrice di stringhe che rappresenta i codic
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i nomi delle lingue supportate dal servizio Translator, localizzati nella lingua richiesta.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|locale|(vuoto) |Richiesto. Stringa che rappresenta una combinazione di un codice ISO 639 di impostazioni cultura a due lettere minuscole associato a una lingua e un codice ISO 3166 di impostazioni cultura secondarie a due lettere maiuscole per localizzare i nomi delle lingue o semplicemente un codice ISO 639 di impostazioni cultura a lettere minuscole.|query|stringa|
-|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione `Authorization`.|intestazione|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|locale|(vuoto) |Richiesto. Stringa che rappresenta una combinazione di un codice ISO 639 di impostazioni cultura a due lettere minuscole associato a una lingua e un codice ISO 3166 di impostazioni cultura secondarie a due lettere maiuscole per localizzare i nomi delle lingue o semplicemente un codice ISO 639 di impostazioni cultura a lettere minuscole.|query|string|
+|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo appid o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -250,17 +250,17 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLan
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i codici delle lingue supportate dai servizi Translator.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -283,17 +283,17 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLan
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di stringhe contenente i codici delle lingue supportate per la sintesi vocale dal servizio Translator.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
  
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -321,15 +321,15 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|text|(vuoto)   |Richiesto. Stringa contenente una o più frase della lingua specificata da pronunciare per il flusso audio. Le dimensioni del testo da pronunciare non devono superare 2000 caratteri.|query|stringa|
-|Linguaggio|(vuoto)   |Richiesto. Stringa che rappresenta il codice della lingua supportata in cui pronunciare il testo. Il codice deve essere presente nell'elenco dei codici restituiti dal metodo `GetLanguagesForSpeak`.|query|stringa|
-|format|(vuoto)|facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|stringa|
-|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` sono disponibili per specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` sono disponibili per specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale <code>\|</code> per includere più opzioni. Ad esempio: `MaxQuality|Male`.</li></li></ul> |query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vuoto)   |Richiesto. Stringa contenente una o più frase della lingua specificata da pronunciare per il flusso audio. Le dimensioni del testo da pronunciare non devono superare 2000 caratteri.|query|string|
+|Linguaggio|(vuoto)   |Richiesto. Stringa che rappresenta il codice della lingua supportata in cui pronunciare il testo. Il codice deve essere presente nell'elenco dei codici restituiti dal metodo `GetLanguagesForSpeak`.|query|string|
+|format|(vuoto)|facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|string|
+|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` sono disponibili per specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` sono disponibili per specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale <code>\|</code> per includere più opzioni. Ad esempio: `MaxQuality|Male`.</li></li></ul> |query|string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -351,18 +351,18 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/Detect
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)  |Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|text|(vuoto)|Richiesto. Stringa contenente il testo di cui identificare la lingua. Le dimensioni del testo non devono superare 10.000 caratteri.|query| stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|appid|(vuoto)  |Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vuoto)|Richiesto. Stringa contenente il testo di cui identificare la lingua. Le dimensioni del testo non devono superare 10.000 caratteri.|query| string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -406,17 +406,17 @@ Il formato del corpo della risposta è quello indicato di seguito.
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 DetectArray ha avuto esito positivo. Restituisce una matrice di stringhe contenente codici di lingua di due caratteri per ogni riga della matrice di input.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione Authorization.|intestazione|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione Authorization.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -440,26 +440,26 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/AddTra
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 
-stringa
+string
 
 Tipo di contenuto della risposta: application: xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati   |
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati   |
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|originalText|(vuoto)|Richiesto. Stringa contenente il testo da cui tradurre. La stringa può avere una lunghezza massima di 1000 caratteri.|query|stringa|
-|translatedText|(vuoto) |Richiesto. Stringa contenente il testo tradotto nella lingua di destinazione. La stringa può avere una lunghezza massima di 2000 caratteri.|query|stringa|
-|from|(vuoto)   |Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione, ad esempio en = inglese, de = tedesco e così via.|query|stringa|
-|to|(vuoto)|Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|originalText|(vuoto)|Richiesto. Stringa contenente il testo da cui tradurre. La stringa può avere una lunghezza massima di 1000 caratteri.|query|string|
+|translatedText|(vuoto) |Richiesto. Stringa contenente il testo tradotto nella lingua di destinazione. La stringa può avere una lunghezza massima di 2000 caratteri.|query|string|
+|from|(vuoto)   |Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione, ad esempio en = inglese, de = tedesco e così via.|query|string|
+|to|(vuoto)|Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|string|
 |rating|(vuoto) |facoltativo. Intero che rappresenta la classificazione di qualità per questa stringa. Il valore è compreso tra -10 e 10. Assume il valore predefinito 1.|query|numero intero|
-|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono "text/plain" e "text/html". Qualsiasi codice HTML deve essere un elemento completo ben formato.   |query|stringa|
-|category|(vuoto)|facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|stringa|
-|user|(vuoto)|Richiesto. Stringa usata per rilevare l'iniziatore dell'invio.|query|stringa|
-|Uri|(vuoto)|facoltativo. Stringa contenente il percorso del contenuto di questa traduzione.|query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.    |intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono "text/plain" e "text/html". Qualsiasi codice HTML deve essere un elemento completo ben formato.   |query|string|
+|category|(vuoto)|facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|string|
+|user|(vuoto)|Richiesto. Stringa usata per rilevare l'iniziatore dell'invio.|query|string|
+|Uri|(vuoto)|facoltativo. Stringa contenente il percorso del contenuto di questa traduzione.|query|string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.    |intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -517,16 +517,16 @@ Gli elementi all'interno dell'elemento AddtranslationsRequest sono:
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Il metodo AddTranslationArray ha avuto esito positivo. Dopo il 31 gennaio 2018, gli invii di frase non verranno accettati. Il servizio risponderà con un codice di errore 410.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -556,13 +556,13 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)  |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query| stringa|
-|text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da dividere in frasi. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
-|Linguaggio   |(vuoto)    |Richiesto. Stringa che rappresenta il codice lingua del testo di input.|query|stringa|
-|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".    |intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
+|appid|(vuoto)  |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query| string|
+|text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da dividere in frasi. Le dimensioni del testo non devono superare 10.000 caratteri.|query|string|
+|Linguaggio   |(vuoto)    |Richiesto. Stringa che rappresenta il codice lingua del testo di input.|query|string|
+|Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".    |intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -644,21 +644,21 @@ MatchedOriginalText: testo originale corrispondente per questo risultato. Restit
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Oggetto `GetTranslationsResponse` nel formato descritto in precedenza.
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
-|text|(vuoto)|Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
-|from|(vuoto)|Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,|query|stringa|
-|to |(vuoto)    |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|stringa|
+|appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vuoto)|Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|string|
+|from|(vuoto)|Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,|query|string|
+|to |(vuoto)    |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|string|
 |maxTranslations|(vuoto)|Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.|query|numero intero|
-|Authorization| (vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|stringa| intestazione|
-|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|Authorization| (vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|string| intestazione|
+|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
@@ -764,16 +764,16 @@ L'oggetto `TranslationMatch` è costituito dagli elementi seguenti:
 
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 
-stringa
+string
 
 Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Value|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|Authorization  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
-|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
+|Authorization  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|string|
+|Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 

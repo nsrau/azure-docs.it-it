@@ -1,8 +1,9 @@
 ---
 title: Schema di definizione di Servizi cloud di Azure (file con estensione cscfg) | Microsoft Docs
-services: cloud-services
 ms.custom: ''
-ms.date: 12/07/2016
+origin.date: 12/07/2016
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 424381e2c243420cc2a68dc776d249cb17574f98
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130314"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schema di configurazione di Servizi cloud di Azure (file con estensione cscfg)
 Il file di configurazione del servizio specifica il numero di istanze del ruolo da distribuire per ogni ruolo nel servizio, i valori delle impostazioni di configurazione e le identificazioni personali per i certificati associati a un ruolo. Se il servizio fa parte di una rete virtuale, le informazioni di configurazione della rete devono essere specificate nel file di configurazione del servizio e nel file di configurazione della rete virtuale. L'estensione predefinita per il file di configurazione del servizio è cscfg.

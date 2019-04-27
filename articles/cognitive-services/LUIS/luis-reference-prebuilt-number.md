@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
 ms.openlocfilehash: 83f7cc7c0da2682244fa9c4e0e2b153aff2e2380
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473213"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione. 

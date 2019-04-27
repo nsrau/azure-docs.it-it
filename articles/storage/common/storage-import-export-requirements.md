@@ -9,11 +9,11 @@ ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478590"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -24,14 +24,14 @@ Questo articolo descrive i requisiti essenziali per il servizio Importazione/Esp
 Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supportati i **sistemi operativi a 64 bit seguenti che supportano Crittografia unità BitLocker**.
 
 
-|Piattaforma |Versione |
+|Piattaforma |Version |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
 
-|Piattaforma |Versione |
+|Piattaforma |Version |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -50,7 +50,7 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica degli 
 Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> Il servizio Importazione/Esportazione di Azure non supporta gli account di archiviazione in cui la funzionalità degli [endpoint del servizio Rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)  è stata abilitata. 
+> Il servizio Importazione/Esportazione di Azure non supporta gli account di archiviazione in cui la funzionalità degli [endpoint servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)  è stata abilitata. 
 
 ## <a name="supported-storage-types"></a>Tipi di archiviazione supportati
 

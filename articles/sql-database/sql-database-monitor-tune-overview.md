@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097777"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -54,9 +54,9 @@ Dopo aver aggiunto queste metriche, è possibile continuare a visualizzarle nel 
 
 È inoltre possibile configurare gli avvisi sulle metriche delle prestazioni. Scegliere il pulsante **Aggiungi avviso** nella finestra **Metrica**. Seguire la procedura guidata per configurare l'avviso. È possibile scegliere di ricevere un avviso se la metrica supera una determinata soglia o scende al di sotto di una determinata soglia.
 
-Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possibile scegliere di configurare un avviso di posta elettronica ogni volta che il database raggiunge l'80% per una qualsiasi delle metriche delle prestazioni. È possibile usarlo come un preavviso per capire quando potrebbe essere necessario passare alla dimensione di calcolo superiore.
+Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possibile scegliere di configurare un avviso di posta elettronica ogni volta che il database raggiunge l'80% per una qualsiasi delle metriche delle prestazioni. È possibile usarlo come un preavviso per capire quando potrebbe essere necessario passare alle dimensioni di calcolo superiori.
 
-Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a una dimensione di calcolo inferiore. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a una dimensione di calcolo inferiore.
+Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a dimensioni di calcolo inferiori. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a dimensioni di calcolo inferiori.
 
 ## <a name="troubleshoot-performance-issues"></a>Risolvere i problemi di prestazioni
 
@@ -87,7 +87,7 @@ Se si determina che è presente un problema di prestazioni correlato all'esecuzi
 
 ### <a name="ParamSniffing"></a> Risolvere i problemi di query con problemi di piani di esecuzione di query sensibili ai parametri
 
-Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro. Per altre informazioni su analisi dei parametri e l'elaborazione delle query, vedere la [Guida sull'architettura di elaborazione Query](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
+Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro. Per altre informazioni su analisi dei parametri e l'elaborazione delle query, vedere la [Guida sull'architettura di elaborazione Query](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle quali comporta compromessi e svantaggi:
 
@@ -216,4 +216,4 @@ Se alla fine non esistono elementi eseguibili che possono migliorare le prestazi
 
 - Per abilitare l'ottimizzazione automatica nel database SQL di Azure e delegare la gestione completa del carico di lavoro alla funzionalità di ottimizzazione automatica, vedere [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
 - Per usare l'ottimizzazione manuale, è possibile esaminare le [raccomandazioni per l'ottimizzazione nel portale di Azure](sql-database-advisor-portal.md) e applicare manualmente quelle che consentono di migliorare le prestazioni delle query.
-- Modificare le risorse disponibili nel database modificando i [livelli di servizio Database SQL di Azure](sql-database-performance-guidance.md)
+- Modificare le risorse disponibili nel database modificando i [livelli di servizio del database SQL di Azure](sql-database-performance-guidance.md)

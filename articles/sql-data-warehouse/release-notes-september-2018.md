@@ -11,11 +11,11 @@ ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
 ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474973"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Novità di Azure SQL Data Warehouse Settembre 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di settembre 2018.

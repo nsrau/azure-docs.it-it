@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480809"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
@@ -136,7 +136,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
    
-   |Campo  |Valore  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias di input** | Usare il nome `datainput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -156,7 +156,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias di output** | Usare il nome `datamloutput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -179,7 +179,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
 
 3. Completare il pannello **Funzione di Azure Machine Learning** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |Value  |
    |---------|---------|
    | **Alias di funzione** | Usare il nome `sentiment` e selezionare l'opzione **Specificare le impostazioni della funzione di Azure Machine Learning manualmente** che consente di immettere l'URL e la chiave.      |
    | **URL**| Incollare l'URL del servizio Web.|

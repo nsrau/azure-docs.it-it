@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477416"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -123,14 +123,14 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensione disco |1 TB ciascuno |
 | Cache |Lettura |
 | Dimensioni allocazione |Dimensioni delle unità di allocazione NTFS = 64 KB |
-| Inizializzazione file immediata |Attivato |
-| Blocco di pagine in memoria |Attivato |
+| Inizializzazione file immediata |Enabled |
+| Blocco di pagine in memoria |Enabled |
 | Ripristino |Recupero con registrazione minima (nessuna resilienza) |
 | Numero di colonne |Numero di dischi dati<sup>1</sup> |
 | Percorso TempDB |Archiviato sui dischi dati<sup>2</sup> |

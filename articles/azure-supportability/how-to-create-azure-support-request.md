@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129060"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto in Azure
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
@@ -32,9 +32,9 @@ I clienti di Azure possono creare e gestire le richieste di supporto nel portale
 
 In base ai suggerimenti dei clienti, abbiamo aggiornato l'esperienza relativa alla richiesta di supporto per concentrarsi su tre obiettivi principali:
 
-* **Semplificazione**: meno operazioni e pannelli per semplificare il processo di invio di una richiesta di supporto.
-* **Integrazione**: quando si risolve un problema relativo a una risorsa Azure deve risultare semplice aprire una richiesta di supporto relativa alla risorsa senza cambiare contesto.
-* **Efficienza**: raccolta delle informazioni chiave necessarie per il tecnico di supporto per risolvere il problema in modo efficiente.
+* **Semplificata**: Riduzione operazioni e pannelli per semplificare il processo di invio di una richiesta di supporto.
+* **Integrata**: Quando si sta cercando di risolvere un problema relativo a una risorsa di Azure, deve essere semplice aprire una richiesta di supporto per la risorsa senza commutazione di contesto.
+* **Efficienza**: Raccogliere le informazioni chiave personale del supporto tecnico per risolvere in modo efficiente il problema.
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una richiesta di supporto dal menu di navigazione in alto o direttamente dal pannello di una risorsa.
@@ -54,7 +54,7 @@ Nella pagina Guida e supporto selezionare "Nuova richiesta di supporto"
 ## <a name="basics"></a>Nozioni di base
 Il primo passaggio del processo di richiesta di supporto consiste nella raccolta di informazioni di base sul problema e sul piano di supporto.
 
-Si prenda ad esempio il caso in cui si riscontrino problemi tecnici con la macchina virtuale e si sospetti un problema di connettività di rete.
+Esaminiamo un esempio: Si riscontrano problemi tecnici con la macchina virtuale e si sospetta un problema di connettività di rete.
 Selezionando come servizio "la macchina virtuale che esegue Windows" e come risorsa il nome della macchina virtuale, nel primo passaggio della procedura guidata viene avviato il processo di richiesta di supporto per il problema.
 
 ![Pannello Nozioni di base](./media/how-to-create-azure-support-request/Basics.png)

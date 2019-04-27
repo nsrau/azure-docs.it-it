@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106971"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chiamare una funzione da Microsoft Flow
 
@@ -132,7 +132,7 @@ Prima di tutto creare un flusso da zero, senza un modello, e aggiungere un *trig
 
     ![Aggiungere una condizione](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow aggiunge due rami al flusso: **If yes** (Se sì) e **If no** (Se no). Aggiungere passaggi a uno o a entrambi i rami dopo aver definito la condizione per cui si desidera trovare una corrispondenza.
+    Microsoft Flow aggiunge due rami al flusso: **In caso affermativo** e **se nessun**. Aggiungere passaggi a uno o a entrambi i rami dopo aver definito la condizione per cui si desidera trovare una corrispondenza.
 
     ![Rami della condizione](media/functions-flow-scenario/condition-branches.png)
 
@@ -224,12 +224,12 @@ Dopo aver completato il flusso, aggiungere una riga all'elenco di SharePoint e v
 
 2. Immettere i valori seguenti nella griglia di modifica.
 
-    | Colonna dell'elenco     | Valore           |
+    | Colonna dell'elenco     | Value           |
     |-----------------|---------------------|
     | **Titolo**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | Yes |
+    | **ServiceRequired** | Sì |
     | **EstimatedEffort** | 10 |
 
 3. Fare clic su **Done**.

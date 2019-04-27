@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829719"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare Named Entity Recognition in testo Analitica
 
@@ -42,7 +42,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | Type  | SubType | Esempio |
 |:-----------   |:------------- |:---------|
 | Person        | N/D\*         | "Jeff", "Bill Gates"     |
-| Location      | N/D\*         | "Redmond, Washington", "Parigi"  |
+| Località      | N/D\*         | "Redmond, Washington", "Parigi"  |
 | Organizzazione  | N/D\*         | "Microsoft"   |
 | Quantità      | Number        | "6", "sei"     | 
 | Quantità      | Percentuale    | "50%", "cinquanta percento"| 
@@ -52,14 +52,14 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | Quantità      | Valuta      | "$ 10,99"     | 
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     | 
 | Quantità      | Temperatura   | "32 gradi"    |
-| Datetime      | N/D\*         | "4 febbraio 2012 18:30"      | 
-| Datetime      | Data          | "2 maggio 2017", "02/05/2017"   | 
-| Datetime      | Tempo          | "8", "8:00"  | 
-| Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
-| Datetime      | TimeRange     | "dalle 18 alle 19"     | 
-| Datetime      | Duration      | "1 minuto e 45 secondi"   | 
-| Datetime      | Configurazione           | "ogni martedì"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/D\*         | "4 febbraio 2012 18:30"      | 
+| DateTime      | Data          | "2 maggio 2017", "02/05/2017"   | 
+| DateTime      | Tempo          | "8", "8:00"  | 
+| DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
+| DateTime      | TimeRange     | "dalle 18 alle 19"     | 
+| DateTime      | Duration      | "1 minuto e 45 secondi"   | 
+| DateTime      | Configurazione           | "ogni martedì"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -69,7 +69,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 
 ## <a name="preparation"></a>Operazioni preliminari
 
-È necessario disporre i documenti JSON nel formato seguente: ID, testo, linguaggio
+È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua
 
 Per le lingue attualmente supportate, vedere [questo elenco](../text-analytics-supported-languages.md).
 
@@ -274,12 +274,12 @@ Un esempio dell'output del collegamento delle entità è il seguente:
 ```
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 
 + L'[API entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) è disponibile per le lingue selezionate.
-+ I documenti JSON nel corpo della richiesta includono un codice ID, text e linguaggio.
++ I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
 + La richiesta POST è a un endpoint `/entities`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
 + L'output di risposta, che consiste di entità collegate (inclusi punteggi di attendibilità, offset e collegamenti Web per ogni ID di documento) può essere usato in qualsiasi applicazione
 

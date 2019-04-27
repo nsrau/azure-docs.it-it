@@ -2,20 +2,21 @@
 title: Tabelle temporanee in SQL Data Warehouse | Documentazione Microsoft
 description: Linee guida fondamentali per l'uso delle tabelle temporanee e analisi dei principi delle tabelle temporanee a livello di sessione.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/01/2019
-ms.author: rortloff
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474896"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelle temporanee in SQL Data Warehouse
 Questo articolo contiene le linee guida fondamentali per l'uso delle tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione. Usando le informazioni in questo articolo è possibile modularizzare il codice, aumentando le possibilità di riutilizzo e la facilità di manutenzione del codice.

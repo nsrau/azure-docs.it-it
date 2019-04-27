@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376075"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
@@ -24,7 +24,8 @@ L’aggiunta di una chit chat al proprio bot lo rende più colloquiale e coinvol
 
 Questo set di dati ha circa 100 scenari di chit chat nella voce dei tre utenti tipo - Il Professionista, L'amico, Lo spiritoso. Scegliere l'utente tipo che rispecchia maggiormente il vocale del bot. Data una query dell'utente, QnA Maker cerca di farla corrispondere alla nota chit chat QnA più vicina. 
 
-Alcuni esempi di personalità diverse: <!-- added quotes so acrolinx doesn't score these sentences -->
+Alcuni esempi di personalità diverse:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Utente query|Il Professionista|L'amico|Lo spiritoso|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

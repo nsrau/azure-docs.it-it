@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475763"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 
@@ -92,17 +92,17 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Specifica la dimensione di calcolo per un'edizione Standard. Questo parametro viene impostato su S0. Valori dei parametri... /.. /.. /.. / S9/S12 sono accettati che provocano il Database SQL di Azure usare le dimensioni di calcolo corrispondente. Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Componenti e prezzi dei processi di database elastico</a>.</td>
+    <td>Specifica le dimensioni di calcolo per un'edizione Standard. Questo parametro viene impostato su S0. Valori dei parametri... /.. /.. /.. / S9/S12 sono accettati che provocano il Database SQL di Azure usare le dimensioni di calcolo corrispondente. Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Componenti e prezzi dei processi di database elastico</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorUserName</td>
-    <td>Fornisce il nome utente dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per la richiesta di credenziali.</td>
+    <td>Fornisce il nome utente dell'amministratore per il server di database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per la richiesta di credenziali.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorPassword</td>
-    <td>Fornisce la password dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per richiedere le credenziali.</td>
+    <td>Fornisce la password dell'amministratore per il server di database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per richiedere le credenziali.</td>
 </tr>
 </table>
 

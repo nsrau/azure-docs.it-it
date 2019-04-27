@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473740"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
 
@@ -50,7 +50,7 @@ La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo
 
 Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Editore | Offerta | SKU | Versione |
+| Alias | Editore | Offerta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |più recenti |
 | CoreOS |CoreOS |CoreOS |Stabile |più recenti |

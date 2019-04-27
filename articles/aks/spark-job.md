@@ -2,19 +2,20 @@
 title: Eseguire un processo Apache Spark con il servizio Azure Kubernetes
 description: Usare il servizio Azure Kubernetes per eseguire un processo Apache Spark
 services: container-service
-author: lenadroid
-manager: jeconnoc
+author: rockboyfor
+manager: digimobile
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: alehall
+origin.date: 03/15/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104951"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
@@ -25,7 +26,7 @@ ms.locfileid: "50414030"
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
 * Conoscenza di base di Kubernetes e [Apache Spark][spark-quickstart].
-* Un account [Docker Hub][docker-hub] o un [Registro contenitori di Azure][acr-create].
+* Un account [Docker Hub][docker-hub] o un [Registro Azure Container][acr-create].
 * Interfaccia della riga di comando di Azure [installata][azure-cli] nel sistema di sviluppo.
 * [JDK 8][java-install] installato nel sistema.
 * SBT ([strumento di compilazione Scala][sbt-install]) installato nel sistema.
@@ -40,7 +41,7 @@ Se è necessario un cluster servizio Azure Kubernetes che soddisfi questo requis
 Creare un gruppo di risorse per il cluster.
 
 ```azurecli
-az group create --name mySparkCluster --location eastus
+az group create --name mySparkCluster --location chinaeast2
 ```
 
 Creare il cluster servizio Azure Kubernetes con nodi di dimensioni `Standard_D3_v2`.
@@ -176,7 +177,7 @@ Creare un account di archiviazione di Azure e un contenitore per il file JAR.
 ```azurecli
 RESOURCE_GROUP=sparkdemo
 STORAGE_ACCT=sparkdemo$RANDOM
-az group create --name $RESOURCE_GROUP --location eastus
+az group create --name $RESOURCE_GROUP --location chinaeast2
 az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT --sku Standard_LRS
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
 ```
@@ -313,7 +314,7 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
 ```
 
 > [!WARNING]
-> La [documentazione][spark-docs] di Spark riporta che l'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
+> Da Spark [documentazione][spark-docs]: "L'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -325,16 +326,15 @@ Per altri dettagli, vedere la documentazione di Spark.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
+[java-install]: https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
-
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-aks]: /container-registry/container-registry-auth-aks
+[acr-create]: /container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: /aks/
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest?view=azure-cli-latest
+[storage-account]: /storage/common/storage-azure-cli

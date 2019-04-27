@@ -18,11 +18,11 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473910"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -128,7 +128,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Uso di Software RAID per ottenere valori I/Ops più elevati
 Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.
 
 Ecco alcuni collegamenti utili a risorse aggiuntive:

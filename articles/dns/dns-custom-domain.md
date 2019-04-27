@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096253"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
 
@@ -40,7 +40,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
-|Attività     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|NOME     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -65,7 +65,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
-|Attività     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | Una         | Usare un record A perché la risorsa è un indirizzo IP.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -92,7 +92,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
-|Attività     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias. Se la risorsa ha usato indirizzo IP, viene usato un record A.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -126,7 +126,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
-|Attività     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|NOME     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -154,7 +154,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
-|Attività     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|NOME     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |

@@ -11,11 +11,11 @@ ms.date: 12/08/2016
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112005"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Come usare l'archiviazione di accodamento da Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -150,7 +150,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)

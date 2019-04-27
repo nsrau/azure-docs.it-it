@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815418"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -63,7 +63,7 @@ Le impostazioni di configurazione nella sezione `CloudAI` forniscono le opzioni 
 
 | NOME | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
-| `Storage` | Oggetto | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
+| `Storage` | Object | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Impostazioni di uno scenario di archiviazione
 
@@ -136,7 +136,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Placeholder | Value | Formato o esempio |
 |-------------|-------|---|
 |{BILLING_KEY} | La chiave di endpoint della risorsa di servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Il valore dell'endpoint fatturazione inclusi area e il routing di visi.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|

@@ -13,18 +13,18 @@ ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
 ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487547"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
 Questo articolo offre una panoramica sui limiti delle risorse del database SQL di Azure per le istanze gestite e fornisce informazioni su come creare richieste per aumentare i limiti delle sottoscrizioni a livello di area predefinite.
 
 > [!NOTE]
-> Per informazioni su altri limiti delle istanze gestite, vedere [Modello di acquisto in base ai vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [Livelli di servizio di Istanza gestita](sql-database-managed-instance.md#managed-instance-service-tiers). Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md).
+> Per informazioni su altri limiti delle istanze gestite, vedere [Modello di acquisto basato su vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [Livelli di servizio di Istanza gestita](sql-database-managed-instance.md#managed-instance-service-tiers). Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Limiti delle risorse a livello di istanza
 
@@ -32,7 +32,7 @@ Istanza gestita ha caratteristiche e limiti delle risorse che dipendono dall'inf
 
 ### <a name="hardware-generation-characteristics"></a>Caratteristiche delle generazioni dell'hardware
 
-Istanza gestita di database SQL può essere distribuita in due generazioni hardware (Quarta generazione e Quinta generazione). Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
+Istanza gestita di database SQL di Azure può essere distribuita in due generazioni hardware (Quarta generazione e Quinta generazione). Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |

@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485215"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduzione a un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 

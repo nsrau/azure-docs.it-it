@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482871"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

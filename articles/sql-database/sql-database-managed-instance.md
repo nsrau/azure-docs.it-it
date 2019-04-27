@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098545"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usare la sicurezza dei dati avanzata di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -71,9 +71,9 @@ Nella tabella seguente sono elencate le principali funzionalità delle istanze g
 | Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
 |||
 
-## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+## <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
-Il [modello di acquisto in base ai vCore](sql-database-service-tiers-vcore.md) per le istanze gestite offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di cambiare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) per le istanze gestite offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di cambiare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 
@@ -138,7 +138,7 @@ Per altre informazioni dettagliate sull'integrazione della rete virtuale e sull'
 > [!IMPORTANT]
 > Inserire più istanze gestite nella stessa subnet, ogniqualvolta tale operazione è consentita dai requisiti di sicurezza, in quanto comporterà vantaggi aggiuntivi. La collocazione di istanze nella stessa subnet semplificherà notevolmente la manutenzione dell'infrastruttura di rete e ridurrà il tempo di provisioning dell'istanza, poiché una durata prolungata di provisioning è associata al costo della distribuzione della prima istanza gestita in una subnet.
 
-### <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Microsoft Azure
+### <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure
 
 Database SQL di Azure fornisce un set di funzionalità di sicurezza avanzato che può essere usato per proteggere i dati.
 
@@ -192,7 +192,7 @@ L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Az
 
 ### <a name="data-migration-service"></a>Servizio di migrazione dei dati
 
-Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti nel database SQL di Azure (database singoli, database in pool elastici e database di istanza in un'istanza gestita) e SQL Server nella macchina virtuale di Azure. Vedere [come eseguire la migrazione del database locale in un'istanza gestita tramite Servizio Migrazione del database](https://aka.ms/migratetoMIusingDMS).
+Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti nel database SQL di Azure (database singoli, database in pool di pool elastici e database dell'istanza in un'istanza gestita) e SQL Server nella macchina virtuale di Azure. Vedere [come eseguire la migrazione del database locale in un'istanza gestita tramite Servizio Migrazione del database](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Funzionalità di SQL supportate
 

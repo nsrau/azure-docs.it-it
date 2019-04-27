@@ -15,24 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481752"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
 
-2. Selezionare **Crea**.
+2. Selezionare **Create**.
 
     Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
 
@@ -52,7 +52,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Aggiungere una regola in ingresso](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. Selezionare **Avanzate**. 
+3. Selezionare **Advanced** (Avanzate). 
 
 4. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
 

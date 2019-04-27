@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733874"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -24,7 +24,7 @@ Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzional
 
 * Possibilità di usare snapshot acquisiti durante il processo di backup disponibili per il ripristino senza attendere il completamento del trasferimento dei dati all'insieme di credenziali. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino.
 * Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore di conservazione predefinito dello snapshot è configurabile per qualsiasi valore compreso tra 1 e 5 giorni.
-* Supporto di dischi con dimensioni fino a 4 TB. Backup di Azure non supporta dischi con striping. Il ridimensionamento del disco non è consigliato da Backup di Azure.
+* Supporto di dischi con dimensioni fino a 4 TB. Il ridimensionamento del disco non è consigliato da Backup di Azure.
 * Supporta i dischi SSD Standard insieme ai dischi Standard HDD e SSD Premium.
 *   Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
 
@@ -47,7 +47,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 * Gli snapshot vengono archiviati insieme ai dischi per ottimizzare la creazione del punto di ripristino e velocizzare le operazioni di ripristino. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo.
 * Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano snapshot BLOB a livello di archiviazione sottostante, per i dischi gestiti verranno addebitati i costi corrispondenti ai prezzi degli snapshot BLOB, che sono incrementali.
 * Per gli account di archiviazione premium, gli snapshot creati per il numero di punti di ripristino istantaneo ai fini del limite di 10 TB di spazio allocato.
-* Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Questa impostazione consente di risparmiare sul costo della conservazione degli snapshot, se non vengono eseguite operazioni di ripristino con frequenza.
+* Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Ciò consentirà di risparmiare sui costi per la conservazione degli snapshot, se non si eseguono ripristini di frequente.
 * Si tratta di un aggiornamento direzionale uno, una volta aggiornato per il ripristino immediato, è possibile tornare indietro.
 
 >[!NOTE]
@@ -55,7 +55,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 
 ## <a name="cost-impact"></a>Impatto sui costi
 
-Gli snapshot incrementali vengono archiviati nell'account di archiviazione della macchina virtuale e vengono usati per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
+Gli snapshot incrementali vengono archiviati nell'account di archiviazione di macchine virtuali, che viene usato per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > La conservazione degli snapshot è stato risolto per 5 giorni per i criteri ogni settimana.

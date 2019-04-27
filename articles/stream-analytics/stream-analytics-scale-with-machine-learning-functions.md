@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479152"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
 È semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).
