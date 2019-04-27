@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306b94fbe23e0ae92dcd59f7a87b7bb58ef7c3b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478811"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione di Azure
 Per ogni unità elaborata, il servizio Importazione/Esportazione di Azure crea un log degli errori nell'account di archiviazione associato. È anche possibile abilitare la registrazione dettagliata impostando la proprietà `LogLevel` su `Verbose` quando si chiamano le operazioni [Put Job](/rest/api/storageimportexport/jobs) o [Update Job Properties](/rest/api/storageimportexport/jobs).

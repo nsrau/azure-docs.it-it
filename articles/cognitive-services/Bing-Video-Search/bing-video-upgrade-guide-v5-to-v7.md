@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759895"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca video
 

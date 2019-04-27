@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829957"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -167,7 +167,7 @@ L'invio di contenitori testo Analitica fatturazione in Azure, usando un _servizi
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../text-analytics-resource-container-config.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Analisi del testo. In sintesi:
 

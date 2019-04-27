@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130620"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
 
@@ -55,7 +55,7 @@ La modifica della quantità o delle dimensioni è denominata operazione di ridim
 **Ruoli di lavoro**: i ruoli di lavoro sono la posizione in cui le app vengono effettivamente eseguite. Quando si passa a un piano di servizio app superiore, vengono usati i ruoli di lavoro del pool di lavoro associato.
 
 * Non è possibile aggiungere immediatamente ruoli di lavoro. Il provisioning può richiedere fino a un'ora.
-* Il ridimensionamento di una risorsa di calcolo di un qualsiasi pool richiederà meno di un'ora per ogni dominio di aggiornamento. Sono disponibili 20 domini di aggiornamento in un ambiente del servizio app. Il ridimensionamento del calcolo di un pool di lavoro con 10 istanze potrebbe richiedere fino a 10 ore.
+* Il ridimensionamento di una risorsa di calcolo di un qualsiasi pool richiederà meno di un'ora per ogni dominio di aggiornamento. Sono disponibili 20 domini di aggiornamento in un ambiente del servizio app. Il ridimensionamento in relazione alle dimensioni di calcolo di un pool di lavoro con 10 istanze potrebbe richiedere fino a 10 ore.
 * Se si modificano le dimensioni delle risorse di calcolo usate in un pool di lavoro, si verificheranno avvii a freddo delle app in esecuzione nel pool di lavoro.
 
 Il modo più rapido per modificare le dimensioni delle risorse di calcolo di un pool di lavoro che non esegue alcuna app consiste nel:

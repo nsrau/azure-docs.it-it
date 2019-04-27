@@ -13,11 +13,11 @@ ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482041"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -52,7 +52,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 Quando l'uso delle risorse di elaborazione del database (misurato in base a DTU ed eDTU o VCore) diventa elevato, la latenza delle query aumenta e può anche verificarsi un timeout. In queste condizioni le query possono essere messe in coda dal servizio e vengono rese disponibili alcune risorse per l'esecuzione.
 In caso di uso elevato di risorse di elaborazione, le opzioni di mitigazione includono:
 
-- Aumento della dimensione di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
+- Aumento delle dimensioni di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Archiviazione
@@ -67,11 +67,11 @@ In caso di uso elevato di spazio, le opzioni di mitigazione includono:
 
 ### <a name="sessions-and-workers-requests"></a>Sessioni e ruoli di lavoro (richieste)
 
-Il numero massimo di sessioni e ruoli di lavoro è determinato dal livello di servizio e dalla dimensione di calcolo (DTU ed eDTU). Le nuove richieste vengono rifiutate quando vengono raggiunti i limiti delle sessioni o dei ruoli di lavoro e i clienti ricevono un messaggio di errore. Mentre il numero di connessioni disponibili può essere controllato dall'applicazione, il numero di ruoli di lavoro simultanei è spesso più difficile da stimare e da controllare. Ciò vale soprattutto durante i picchi di periodi di carico quando vengono raggiunti i limiti di risorse del database e i ruoli di lavoro si accumulano per via di query a esecuzione prolungata.
+Il numero massimo di sessioni e ruoli di lavoro è determinato dal livello di servizio e dalle dimensioni di calcolo (DTU ed eDTU). Le nuove richieste vengono rifiutate quando vengono raggiunti i limiti delle sessioni o dei ruoli di lavoro e i clienti ricevono un messaggio di errore. Mentre il numero di connessioni disponibili può essere controllato dall'applicazione, il numero di ruoli di lavoro simultanei è spesso più difficile da stimare e da controllare. Ciò vale soprattutto durante i picchi di periodi di carico quando vengono raggiunti i limiti di risorse del database e i ruoli di lavoro si accumulano per via di query a esecuzione prolungata.
 
 In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione includono:
 
-- Aumento del livello di servizio o della dimensione di calcolo del database o del pool elastico. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
+- Aumento del livello di servizio o delle dimensioni di calcolo del database o del pool elastico. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query, se l'aumento dell'uso di ruoli di lavoro è dovuto a un conflitto delle risorse di elaborazione. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Governance delle velocità di Log delle transazioni 

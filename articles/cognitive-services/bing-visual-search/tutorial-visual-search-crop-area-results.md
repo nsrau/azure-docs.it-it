@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
 ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109980"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Esercitazione: Ritagliare un'immagine con l'SDK di Ricerca visiva Bing per C#
 
@@ -110,7 +110,7 @@ Ottenere l'URL dell'immagine effettiva richiede un cast che legge `ActionType` c
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Creare un'app web a pagina singola di ricerca visiva](tutorial-bing-visual-search-single-page-app.md)
+> [Creare un'app Web a pagina singola con Ricerca visiva](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>Vedere anche 
 > [Che cos'è l'API ricerca visiva Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

@@ -3,8 +3,8 @@ title: Velocità effettiva delle macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulla velocità effettiva di rete delle macchine virtuali di Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
-ms.author: jdial
-ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: kumud
+ms.openlocfilehash: 29c4926f56070874fe17622170e697986df0fbc3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27778956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743082"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -39,10 +39,10 @@ Le macchine virtuali di Azure devono avere almeno un'interfaccia collegata, ma p
 La velocità effettiva in uscita prevista e il numero di interfacce di rete supportati da ogni dimensione di VM sono descritti in dettaglio nelle informazioni sulle dimensioni delle VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure. Selezionare un tipo, ad esempio utilizzo generico, quindi selezionare una serie di dimensioni nella pagina risultante, ad esempio la serie Dv2. Ciascuna serie dispone di una tabella con specifiche di rete nell'ultima colonna, denominata **Schede di interfaccia di rete max/prestazioni rete previste (Mbps)**. 
 
 Il limite di velocità effettiva si applica alla macchina virtuale. La velocità effettiva è influenzata dai fattori seguenti:
-- **Numero di interfacce di rete**: il limite di larghezza di banda è cumulativo per tutto il traffico in uscita dalla macchina virtuale.
-- **Accelerazione di rete**: anche se la funzione può essere utile per ottenere il limite pubblicato, non modifica il limite.
-- **Destinazione del traffico**: tutte le destinazioni contano per il limite in uscita.
-- **Protocollo**: tutto il traffico in uscita su tutti i protocolli conta per il limite.
+- **Numero di interfacce di rete**: Il limite di larghezza di banda è cumulativo di tutto il traffico in uscita dalla macchina virtuale.
+- **Rete accelerata**: Anche se la funzionalità può essere utile per ottenere il limite pubblicato, il limite non viene modificato.
+- **Destinazione del traffico**: Tutte le destinazioni contano per il limite in uscita.
+- **Protocollo**: Tutto il traffico in uscita su tutti i protocolli conta per il limite.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

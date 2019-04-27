@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733968"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -168,7 +168,7 @@ Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Backup di macchine virtuali tramite volumi condivisi Cluster (CSV) o Scale-Out File Server non è consigliato. Writer CSV si verifichino errori durante il backup. Durante il ripristino, i dischi contenenti i volumi condivisi cluster potrebbero non tornare a questa pagina verticale.
 
 > [!NOTE]
-> Backup di Azure non supporta dischi con striping. Il ridimensionamento del disco non è consigliato da Backup di Azure.
+> Il ridimensionamento del disco non è consigliato da Backup di Azure.
 
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
@@ -187,7 +187,7 @@ Gestione traffico di Azure   | Supportato.<br/><br/>Se la macchina virtuale sott
 DNS di Azure | Supportato.
 DNS personalizzato |    Supportato.
 Connettività in uscita attraverso il proxy HTTP | Supportato.<br/><br/> Un proxy autenticato non è supportato.
-Endpoint del servizio Rete virtuale   | Supportato.<br/><br/> Firewall e impostazioni di account di archiviazione di rete virtuale devono consentire l'accesso da tutte le reti.
+Endpoint servizio di rete virtuale   | Supportato.<br/><br/> Firewall e impostazioni di account di archiviazione di rete virtuale devono consentire l'accesso da tutte le reti.
 
 
 

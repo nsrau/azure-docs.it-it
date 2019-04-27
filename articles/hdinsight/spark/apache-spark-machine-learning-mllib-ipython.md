@@ -2,7 +2,6 @@
 title: Esempio di Machine Learning con MLlib Spark in HDInsight di Azure
 description: Informazioni su come usare MLlib Spark per creare un'app di Machine Learning che analizza un set di dati usando una classificazione tramite la regressione logistica.
 keywords: machine learning in spark, esempio machine learning in spark
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097100"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372689"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare apprendimento attivo per migliorare la tua knowledge base
 
@@ -171,10 +171,10 @@ Content-Type: application/json
 
 |Proprietà della richiesta HTTP|NOME|Type|Scopo|
 |--|--|--|--|
-|Parametro di route di URL|ID Knowledge base|stringa|L'identificatore univoco globale della Knowledge Base.|
-|Host sottodominio|Nome della risorsa QnAMaker|stringa|Il nome host per il QnA Maker nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
-|Intestazione|Content-Type|stringa|tipo di supporto del corpo inviato all'API. Valore predefinito è: `application/json`|
-|Intestazione|Authorization|stringa|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
+|Host sottodominio|Nome della risorsa QnAMaker|string|Il nome host per il QnA Maker nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
+|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: `application/json`|
+|Intestazione|Authorization|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|I commenti e suggerimenti di training|
 
 Il corpo JSON presenta diverse impostazioni:
@@ -182,8 +182,8 @@ Il corpo JSON presenta diverse impostazioni:
 |Proprietà del corpo JSON|Type|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti e suggerimenti.|
-|`userId`|stringa|L'ID utente della persona accettando le domande suggerite. Il formato dell'ID utente è responsabilità dell'utente. Ad esempio, un indirizzo di posta elettronica può essere un ID utente valido nell'architettura. facoltativo.|
-|`userQuestion`|stringa|Testo esatto della domanda. Richiesto.|
+|`userId`|string|L'ID utente della persona accettando le domande suggerite. Il formato dell'ID utente è responsabilità dell'utente. Ad esempio, un indirizzo di posta elettronica può essere un ID utente valido nell'architettura. facoltativo.|
+|`userQuestion`|string|Testo esatto della domanda. Richiesto.|
 |`qnaID`|number|ID della domanda, disponibili nel [GenerateAnswer risposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio del corpo JSON sarà simile a:

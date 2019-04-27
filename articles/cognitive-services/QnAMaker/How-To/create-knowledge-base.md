@@ -12,11 +12,11 @@ ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61373529"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Guida introduttiva: Creare una knowledge base tramite il portale di servizi API QnA Maker
 

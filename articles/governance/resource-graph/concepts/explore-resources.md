@@ -3,17 +3,17 @@ title: Esplora le tue risorse di Azure
 description: Informazioni su come usare il linguaggio di query di Resource Graph per esplorare le risorse e comprendere come sono connesse.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/05/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3174e74dc3fb8c56279c0c9708a67d99ae19724a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 0b4a75558f5e82b707ae5d012acef4d2c5c4b7a0
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732982"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Esplorare le risorse di Azure con Resource Graph
 
@@ -29,7 +29,7 @@ Una risorsa comune in Azure è una macchina virtuale. Come tipo di risorsa, le m
 
 Iniziare con una semplice query per ottenere una singola macchina virtuale dall'ambiente ed esaminare le proprietà restituite.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | limit 1
 ```
@@ -50,56 +50,6 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 ```json
 [
   {
-    "aliases": {
-      "Microsoft.Compute/imageId": null,
-      "Microsoft.Compute/imageOffer": "WindowsServer",
-      "Microsoft.Compute/imagePublisher": "MicrosoftWindowsServer",
-      "Microsoft.Compute/imageSku": "2016-Datacenter",
-      "Microsoft.Compute/imageVersion": "latest",
-      "Microsoft.Compute/licenseType": null,
-      "Microsoft.Compute/virtualMachines/availabilitySet.id": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics.enabled": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics.storageUri": null,
-      "Microsoft.Compute/virtualMachines/imageOffer": "WindowsServer",
-      "Microsoft.Compute/virtualMachines/imagePublisher": "MicrosoftWindowsServer",
-      "Microsoft.Compute/virtualMachines/imageSku": "2016-Datacenter",
-      "Microsoft.Compute/virtualMachines/imageVersion": "latest",
-      "Microsoft.Compute/virtualMachines/networkInterfaces[*].id": [
-        "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Network/networkInterfaces/contosovm1535"
-      ],
-      "Microsoft.Compute/virtualMachines/osDisk.Uri": null,
-      "Microsoft.Compute/virtualMachines/osProfile.adminPassword": null,
-      "Microsoft.Compute/virtualMachines/osProfile.adminUsername": "localAdmin",
-      "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration": null,
-      "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.disablePasswordAuthentication": null,
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration": {
-        "enableAutomaticUpdates": true,
-        "provisionVMAgent": true
-      },
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.enableAutomaticUpdates": true,
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.provisionVMAgent": true,
-      "Microsoft.Compute/virtualMachines/sku.name": "Standard_B2s",
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].caching": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].createOption": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].diskSizeGB": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].image.uri": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].lun": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].managedDisk.id": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].managedDisk.storageAccountType": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].name": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].vhd.uri": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.caching": "ReadWrite",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.createOption": "FromImage",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.encryptionSettings": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.encryptionSettings.enabled": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.id": "/subscriptions/<subscriptionId>/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType": "Premium_LRS",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.name": "ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.osType": "Windows",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.vhd": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.vhd.uri": null
-    },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
     "kind": "",
     "location": "westus2",
@@ -160,15 +110,13 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 ]
 ```
 
-Il primo set delle proprietà sotto **alias** offre una serie di valori di proprietà correlate. Per ottenere altre informazioni sugli alias e scoprire quali alias sono disponibili, vedere [Struttura delle definizioni di Criteri di Azure - Alias](../../policy/concepts/definition-structure.md#aliases). Gli alias vengono usati principalmente dai Criteri di Azure per gestire la conformità alle regole dell'organizzazione e della governance.
-
-Le altre proprietà forniscono informazioni aggiuntive relative alla risorsa di macchina virtuale stessa, tutte le informazioni relative allo SKU, al sistema operativo, ai dischi, ai tag, e al gruppo di risorse e alla sottoscrizione di cui è membro.
+Le proprietà di segnalare informazioni aggiuntive relative alla risorsa di macchina virtuale stessa, tutto da SKU, del sistema operativo, i dischi, tag, ed è un membro del gruppo di risorse e la stessa sottoscrizione.
 
 ### <a name="virtual-machines-by-location"></a>Macchine virtuali per posizione
 
 Con le informazioni acquisite sulle risorse delle macchine virtuali, è possibile usare la proprietà **posizione** per il conteggio di tutte le macchine virtuali per posizione. Per aggiornare la query, verrà rimosso il limite e verrà riepilogato il conteggio dei valori di posizione.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | summarize count() by location
 ```
@@ -206,8 +154,8 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 
 Tornando alle proprietà originali delle macchine virtuali, è possibile tentare di trovare tutte le macchine virtuali che hanno una dimensione SKU di **Standard_B2s**. Esaminando il codice JSON restituito, si noterà che è archiviato in **properties.hardwareprofile.vmsize**. Verrà aggiornata la query per trovare tutte le macchine virtuali che corrispondono a queste dimensioni e verrà restituito solo il nome della macchina virtuale e l'area.
 
-```Query
-where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s
+```kusto
+where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | project name, resourceGroup"
 ```
 
@@ -223,7 +171,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and pro
 
 Se si desidera ottenere i dettagli dei Dischi gestiti Premium associati a queste macchine virtuali **Standard_B2s**, è possibile espandere la query per ottenere l'ID risorsa dei dischi gestiti.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | extend disk = properties.storageProfile.osDisk.managedDisk
 | where disk.storageAccountType == 'Premium_LRS'
@@ -231,7 +179,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 ```
 
 > [!NOTE]
-> Un altro modo per ottenere lo SKU può essere quello di usare la proprietà **alias** **Microsoft.Compute/virtualMachines/sku.name**.
+> Un altro modo per ottenere lo SKU può essere quello di usare la proprietà **alias** **Microsoft.Compute/virtualMachines/sku.name**. Vedere le [Mostra alias](../samples/starter.md#show-aliases) e [Mostra i valori distinti alias](../samples/starter.md#distinct-alias-values) esempi.
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -257,7 +205,7 @@ Output di esempio dalla query precedente, ad esempio:
 ]
 ```
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
@@ -280,14 +228,6 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 ```json
 [
   {
-    "aliases": {
-      "Microsoft.Compute/disks/sku.name": "Premium_LRS",
-      "Microsoft.Compute/imageId": null,
-      "Microsoft.Compute/imageOffer": null,
-      "Microsoft.Compute/imagePublisher": null,
-      "Microsoft.Compute/imageSku": null,
-      "Microsoft.Compute/imageVersion": null
-    },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
     "kind": "",
     "location": "westus2",

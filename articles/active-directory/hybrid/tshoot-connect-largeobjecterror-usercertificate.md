@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095490"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Servizio di sincronizzazione Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -90,7 +90,7 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 
 2. Configurare i filtri della ricerca con i valori seguenti:
 
-    | Attributo | Valore |
+    | Attributo | Value |
     | --- | --- |
     | Direzione |**Outbound** |
     | MV Object Type |**Person** |
@@ -105,7 +105,7 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 7. Nella schermata di modifica, selezionare la scheda **Scoping filter** (Filtro ambito).
 8. Annotare la configurazione del filtro ambito. Se si usa la regola di sincronizzazione predefinita, devono essere presenti esattamente **un gruppo di filtri ambito contenente due clausole**, tra cui:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True  |
@@ -115,7 +115,7 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
 1. Nell'editor per le regole di sincronizzazione, fare clic sul pulsante **Aggiungi nuova regola**.
 2. Nella **scheda Descrizione**, inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | --- | --- | --- |
     | NOME | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
     | DESCRIZIONE | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
@@ -129,7 +129,7 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
 4. Ignora la scheda **Join rules** (Regole di unione).
 5. Andare nella scheda **Trasformazioni** per aggiungere una nuova trasformazione tramite la configurazione seguente:
 
-    | Attributo | Valore |
+    | Attributo | Value |
     | --- | --- |
     | Flow Type |**Expression** |
     | Target Attribute |**userCertificate** |

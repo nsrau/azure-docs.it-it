@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110994"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

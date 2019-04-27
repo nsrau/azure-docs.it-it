@@ -1,28 +1,30 @@
 ---
-title: Configurare un server di elaborazione in Azure per il failback durante il ripristino di emergenza da macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback da Azure a locale durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
+title: Configurare un server di elaborazione scale-out durante il ripristino di emergenza di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come impostare il server di elaborazione scale-out durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101898"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Scalabilità per il failback con server di elaborazione aggiuntivi
+# <a name="scale-with-additional-process-servers"></a>Ridimensionare con server di elaborazione aggiuntivi
 
-Per impostazione predefinita, quando si esegue la replica di server fisici o macchine virtuali VMware in Azure con [Site Recovery](site-recovery-overview.md), nel server di configurazione viene installato un server di elaborazione che è usato per coordinare il trasferimento dei dati tra Site Recovery e l'infrastruttura locale. Per aumentare la capacità e la scalabilità orizzontale della distribuzione della replica, è possibile aggiungere server di elaborazione autonomi aggiuntivi. Questo articolo illustra come farlo.
+Per impostazione predefinita, quando si esegue la replica di server fisici o macchine virtuali VMware in Azure con [Site Recovery](site-recovery-overview.md), nel server di configurazione viene installato un server di elaborazione che è usato per coordinare il trasferimento dei dati tra Site Recovery e l'infrastruttura locale. Per aumentare la capacità e la scalabilità orizzontale della distribuzione della replica, è possibile aggiungere server di elaborazione autonomi aggiuntivi. Questo articolo descrive come configurare un server di elaborazione scale-out.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
 ### <a name="capacity-planning"></a>Pianificazione della capacità
 
 Assicurarsi di aver [pianificato la capacità](site-recovery-plan-capacity-vmware.md) per la replica VMware. Ciò consente di identificare come e quando è necessario distribuire i server di elaborazione aggiuntivi.
+
+Da versione 9.24, materiale sussidiario viene aggiunto durante la selezione dei server di elaborazione per nuove repliche. Server di elaborazione verranno contrassegnati integro, avviso e critici in base a determinati criteri. Per comprendere i diversi scenari che possono influenzare lo stato del server di elaborazione, visitare [elaborare istruzioni sulla selezione del server](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.
@@ -44,8 +46,6 @@ In cui ogni computer di origine protetto è configurato con tre dischi da 100 GB
 Nella tabella seguente sono riepilogati i prerequisiti per il server di elaborazione aggiuntivo.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Scaricare il file di installazione
 

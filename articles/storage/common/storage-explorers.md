@@ -9,11 +9,11 @@ ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.subservice: common
 ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483112"
 ---
 # <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
 Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.

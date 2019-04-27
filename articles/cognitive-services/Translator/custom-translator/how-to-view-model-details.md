@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456455"
 ---
 # <a name="view-model-details"></a>Visualizzare i dettagli del modello
 
@@ -24,7 +24,7 @@ Per ogni modello nel progetto, questi dettagli vengono visualizzati.
 
 1.  Nome del modello: indica il nome di un modello specificato.
 
-2.  stato: indica lo stato di un modello specificato. I nuovi elementi sottoposti a training avranno lo stato Submitted (Inviato) fino a quando non vengono accettati. Lo stato verrà modificato in Data processing (Elaborazione dati) durante la valutazione del contenuto dei documenti da parte del servizio. Al termine della valutazione dei documenti lo stato verrà modificato in Running (In esecuzione) e sarà possibile visualizzare il numero di frasi che fanno parte del training, tra cui i set di ottimizzazione e test creati automaticamente. Di seguito è riportato un elenco, con relativa descrizione, degli stati del modello.
+2.  Stato: indica lo stato di un modello specificato. I nuovi elementi sottoposti a training avranno lo stato Submitted (Inviato) fino a quando non vengono accettati. Lo stato verrà modificato in Data processing (Elaborazione dati) durante la valutazione del contenuto dei documenti da parte del servizio. Al termine della valutazione dei documenti lo stato verrà modificato in Running (In esecuzione) e sarà possibile visualizzare il numero di frasi che fanno parte del training, tra cui i set di ottimizzazione e test creati automaticamente. Di seguito è riportato un elenco, con relativa descrizione, degli stati del modello.
 
     -  Submitted (Inviato): specifica che il back-end sta elaborando i documenti per il modello.
 

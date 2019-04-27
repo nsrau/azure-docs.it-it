@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478879"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127396"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -350,7 +350,7 @@ Per altre toolchain di integrazione continua/recapito continuo è possibile otte
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando è consigliabile creare una nuova rete virtuale per l'ambiente DevTest Labs e quando usare invece una rete virtuale esistente?
 Se le macchine virtuali devono interagire con l'infrastruttura esistente, quindi è consigliabile usare una rete virtuale esistente all'interno dell'ambiente di DevTest Labs. Se si usa ExpressRoute, è possibile ridurre al minimo la quantità di reti virtuali / subnet in modo che non frammentare lo spazio degli indirizzi IP assegnato per l'uso nelle sottoscrizioni. 
 
-Provare a usare il modello di peering della rete virtuale qui ([modello Hub-Spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke)) troppo. Questo approccio consente la comunicazione di rete virtuale/subnet tra sottoscrizioni. In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale. 
+Provare a usare il modello di peering della rete virtuale qui ([modello Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) troppo. Questo approccio consente la comunicazione di rete virtuale/subnet tra sottoscrizioni. In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale. 
 
 Esistono [limiti](../azure-subscription-service-limits.md) sul numero di reti virtuali per ogni sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
 

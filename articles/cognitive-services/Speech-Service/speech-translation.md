@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460321"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -67,11 +67,11 @@ Se le applicazioni, strumenti o prodotti utilizza traduzione vocale Microsoft Tr
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Per il riconoscimento vocale](rest-speech-to-text.md)
+* [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 * [API REST: Sintesi vocale](rest-text-to-speech.md)
-* [API REST: Personalizzazione e la trascrizione di batch](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Trascrizione e personalizzazione batch](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una chiave di sottoscrizione di servizi di riconoscimento vocale gratuitamente](get-started.md)
+* [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
 * [Ottenere il SDK di riconoscimento vocale](speech-sdk.md)

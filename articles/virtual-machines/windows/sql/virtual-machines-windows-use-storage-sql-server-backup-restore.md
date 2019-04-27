@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477145"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
 ## <a name="overview"></a>Panoramica

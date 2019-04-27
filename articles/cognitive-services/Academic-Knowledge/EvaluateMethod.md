@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61339095"
 ---
 # <a name="evaluate-method"></a>Metodo Evaluate
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>Parametri della richiesta  
 
-NOME     | Valore | Obbligatorio?  | DESCRIZIONE
+NOME     | Value | Obbligatorio?  | DESCRIZIONE
 -----------|-----------|---------|--------
 **expr**       | Stringa di testo | Sì | Espressione di query che specifica le entità che devono essere restituite.
 **model**      | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        

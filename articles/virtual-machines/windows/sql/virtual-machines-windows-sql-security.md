@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477554"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -96,7 +96,7 @@ Quando SQL Server è in ascolto su una porta non predefinita, è necessario spec
 
 Oltre alle procedure descritte in questo argomento, è consigliabile rivedere e implementare le procedure di sicurezza locali tradizionali, ove applicabili. Per altre informazioni, vedere [Considerazioni sulla sicurezza per un'installazione di SQL Server](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 

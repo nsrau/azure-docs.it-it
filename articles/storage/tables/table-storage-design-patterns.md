@@ -2,18 +2,19 @@
 title: Modelli di progettazione tabella di Archiviazione di Azure | Microsoft Docs
 description: Usare i modelli per le soluzioni di servizio tabelle di Azure.
 services: storage
-author: tamram
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
-ms.author: tamram
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101442"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -348,7 +349,7 @@ Per tornare al valore di data e ora, usare il codice seguente:
 
 La query sulla tabella ha un aspetto simile al seguente:  
 
-`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  

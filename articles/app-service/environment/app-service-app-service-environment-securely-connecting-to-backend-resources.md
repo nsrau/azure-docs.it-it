@@ -16,11 +16,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130705"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
 ## <a name="overview"></a>Panoramica

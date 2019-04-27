@@ -1,7 +1,6 @@
 ---
 title: Soluzioni di Archiviazione di Azure per ML Services in HDInsight - Azure
 description: Informazioni sulle diverse opzioni di archiviazione disponibili per gli utenti con ML Services in HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cb0c350df3056636701b5ff5d3962e2a0e96f40d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124527"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di Archiviazione di Azure per ML Services in Azure HDInsight
 
