@@ -3,21 +3,22 @@ title: Copiare dati da SAP ECC usando Azure Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da SAP ECC in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.author: jingwang
+origin.date: 04/26/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128118"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
 
@@ -54,7 +55,7 @@ Per il servizio collegato di SAP ECC sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapEcc** | Sì |
-| URL | URL del servizio SAP ECC OData. | Sì |
+| url | URL del servizio SAP ECC OData. | Sì |
 | username | Nome utente usato per la connessione a SAP ECC. | No  |
 | password | Password di testo non crittografato usata per la connessione a SAP ECC. | No  |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |

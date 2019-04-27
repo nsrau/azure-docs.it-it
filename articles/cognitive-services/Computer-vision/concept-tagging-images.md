@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
-ms.author: pafarley
+origin.date: 02/08/2019
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.custom: seodec18
 ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759674"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicazione di tag di contenuto alle immagini
 
@@ -86,3 +87,4 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 ## <a name="next-steps"></a>Passaggi successivi
 
 Concetti relativi alla [classificazione delle immagini](concept-categorizing-images.md) e alla [descrizione delle immagini](concept-describing-images.md).
+

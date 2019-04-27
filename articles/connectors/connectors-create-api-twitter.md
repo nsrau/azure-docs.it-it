@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104987"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorare e gestire Twitter con App per la logica di Azure
 
@@ -70,15 +70,15 @@ Con App per la logica di Azure e il connettore Twitter, è possibile creare atti
 
 ## <a name="examples"></a>Esempi
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger di Twitter: quando viene pubblicato un nuovo tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger di Twitter: Quando viene visualizzato un nuovo tweet
 
 Questo trigger avvia un flusso di lavoro di un'app per la logica quando il trigger rileva un nuovo tweet, ad esempio con l'hashtag #Seattle. Così, ad esempio, quando questi tweet vengono rilevati, è possibile aggiungere un file con il contenuto dei tweet alla risorsa di archiviazione, ad esempio un account Dropbox utilizzando il connettore Dropbox. 
 
 Facoltativamente, è possibile includere una condizione secondo cui i tweet idonei devono provenire da utenti con almeno un numero specificato di follower.
 
-**Esempio Enterprise**: è possibile utilizzare questo trigger per monitorare i tweet della propria azienda e caricare il contenuto dei tweet in un database SQL.
+**Esempio riguardante un'organizzazione**: È possibile usare questo trigger per monitorare i TWEET sulla tua azienda e caricare il contenuto dei TWEET in un database SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Azione di Twitter: pubblicare un tweet
+### <a name="twitter-action-post-a-tweet"></a>Azione di Twitter: Pubblica un tweet
 
 Questa azione pubblica un tweet, ma è possibile impostare l'azione in modo che il tweet contenga il contenuto dei tweet trovati dal trigger precedentemente descritto. 
 

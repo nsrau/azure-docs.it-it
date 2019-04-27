@@ -1,24 +1,24 @@
 ---
-title: Ricerche salvate e avvisi nelle soluzioni di gestione | Microsoft Docs
-description: Le soluzioni di gestione includono in genere ricerche salvate in Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Resource Manager in modo da consentirne l'inclusione nelle soluzioni di gestione.
+title: Le ricerche salvate nelle soluzioni di gestione | Microsoft Docs
+description: Le soluzioni di gestione includono in genere ricerche salvate in Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire Log Analitica le ricerche salvate in un modello di Resource Manager in modo che possano essere incluse nelle soluzioni di gestione.
 services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104831"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -90,7 +90,6 @@ Gli [avvisi del log di Azure](../../azure-monitor/platform/alerts-unified-log.md
 
 > [!NOTE]
 > A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro Log Analytics verranno estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../azure-monitor/platform/alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
 - **Ricerca salvata.** Definisce la ricerca log che viene eseguita. Una singola ricerca salvata può essere condivisa da più regole di avviso.
@@ -120,29 +119,23 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | Enabled       | Sì | Specifica se l'avviso viene abilitato al momento della creazione. |
 | interval      | Sì | Frequenza, in minuti, con cui viene eseguita la query. |
 | queryTimeSpan | Sì | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
-
 > [!NOTE]
 > Il nome della pianificazione deve essere univoco per ogni area di lavoro specifica; due pianificazioni non possono avere lo stesso ID anche se sono associate a ricerche diverse. Il nome per tutte le ricerche salvate, per le pianificazioni e per le azioni create con l'API Log Analytics deve essere in minuscolo.
 
 ### <a name="actions"></a>Azioni
 Una pianificazione può avere più azioni. Un'azione può definire uno o più processi da eseguire, ad esempio l'invio di un messaggio di posta o l'avvio di un runbook o ancora può definire una soglia che determina quando i risultati di una ricerca corrispondono a certi criteri. Alcune azioni definiranno entrambi, in modo che i processi vengano eseguiti quando viene raggiunta la soglia.
-
 Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
-
 > [!NOTE]
 > A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../azure-monitor/platform/alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-
 La proprietà **Type** specifica due tipi di risorsa azione. Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso. Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri.
@@ -181,7 +174,7 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | Type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
 | NOME | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
@@ -192,10 +185,10 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
-| Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Valore | Sì | Valore per il confronto dei risultati. |
+| Operator | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Value | Sì | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione delle metriche.
@@ -203,17 +196,17 @@ Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione
 > [!NOTE]
 > Gli avvisi di misurazione delle metriche sono attualmente disponibili in anteprima pubblica.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | TriggerCondition | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Valore | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| Operator | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Value | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa. Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
@@ -222,7 +215,7 @@ Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito 
 
 Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | AzNsNotification | Sì | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
 | CustomEmailSubject | No  | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
@@ -238,16 +231,16 @@ Ogni pianificazione ha un'azione **Alert**. che definisce i dettagli dell'avviso
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa, includerla se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
-| Destinatari | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Oggetto | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
+| Recipients | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
 | Attachment | No  | Gli allegati non sono attualmente supportati. Se questo elemento è incluso, il valore dovrà essere **None**. |
 
 ##### <a name="remediation"></a>Correzione
-Questa sezione è facoltativa, includerla se si vuole avviare un runbook in risposta all'avviso. |
+Questa sezione è facoltativa, includerla se si vuole avviare un runbook in risposta all'avviso. 
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | RunbookName | Sì | Nome del runbook da avviare. |
 | WebhookUri | Sì | URI del webhook per il runbook. |
@@ -274,10 +267,9 @@ Se l'avviso chiamerà un webhook, sarà necessaria una risorsa azione di tipo **
         "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
       }
     }
-
 Le proprietà delle risorse azione webhook sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | DESCRIZIONE |
 |:--|:--|:--|
 | type | Sì | Tipo di azione. Per le azioni webhook, il tipo è **Webhook**. |
 | name | Sì | Nome visualizzato per l'azione. Non viene visualizzato nella console. |

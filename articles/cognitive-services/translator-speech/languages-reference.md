@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827902"
 ---
 # <a name="translator-speech-api-languages"></a>API Traduzione vocale: Languages
 
@@ -134,16 +134,16 @@ Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (ogg
 
 |Intestazione|DESCRIZIONE|Type|
 :--|:--|:--|
-X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|stringa|
+X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|string|
 
 ### <a name="parameters"></a>Parametri
 
 |Parametro|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|
-|api-version    |Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query|stringa|
-|scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|stringa|
-|X-ClientTraceId    |GUID generato dal client per tenere traccia di una richiesta. Per semplificare la risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.|intestazione|stringa|
-|Accept-Language    |Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui vengono restituiti i nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Selezionare un tag nell'elenco di identificatori di lingua restituito con l'ambito `text`. Per le lingue non supportate, i nomi vengono forniti in lingua inglese.<br/>Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.|intestazione|stringa|
+|api-version    |Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query|string|
+|scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|string|
+|X-ClientTraceId    |GUID generato dal client per tenere traccia di una richiesta. Per semplificare la risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.|intestazione|string|
+|Accept-Language    |Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui vengono restituiti i nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Selezionare un tag nell'elenco di identificatori di lingua restituito con l'ambito `text`. Per le lingue non supportate, i nomi vengono forniti in lingua inglese.<br/>Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 

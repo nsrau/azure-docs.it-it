@@ -1,7 +1,6 @@
 ---
 title: Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight - Azure
 description: Abilitare i dump dell'heap per i servizi Apache Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098355"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7efa5114a903ba88010ec44f2f1038331df62948
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097981"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderare le immagini con elenchi personalizzati nella console dell'API
 

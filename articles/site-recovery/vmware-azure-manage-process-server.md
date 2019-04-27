@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318577"
+ms.locfileid: "62732486"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -68,6 +68,19 @@ Tramite questa opzione, l'intero carico di lavoro protetto in un server di elabo
 2. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
 3. Dopo il completamento di questa operazione, sono necessari 15 minuti perché le modifiche siano visualizzate. In alternativa, per renderle immediatamente effettive, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## <a name="process-server-selection-guidance"></a>Per istruzioni sulla selezione di Server di elaborazione
+
+Azure Site Recovery identifica automaticamente se Server di elaborazione sta per raggiungere i limiti di utilizzo. Quando è possibile configurare una scalabilità orizzontale del server di elaborazione, viene fornito materiale sussidiario.
+
+|Stato integrità  |Spiegazione  | Disponibilità delle risorse  | Recommendation|
+|---------|---------|---------|---------|
+| Integro (verde)    |   Server di elaborazione sia connesso e che sia integro      |Utilizzo della CPU e memoria è sotto dell'80%; Disponibilità di spazio disponibile è superiore al 30%| Questo server di elaborazione è utilizzabile per proteggere i server aggiuntivi. Verificare che il carico di lavoro nuovi non superi i [definiti i limiti di processo server](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Avviso (arancione)    |   Server di elaborazione sia connesso, ma determinate risorse siano tentando di raggiungere i limiti massimi  |   Utilizzo della CPU e memoria è tra 80% - 95%; È la disponibilità di spazio disponibile tra il 25% - 30%       | Utilizzo del server di elaborazione è prossimo i valori di soglia. Aggiunta di nuovi server al server di elaborazione stesse porterà a oltrepassare i valori di soglia e può influire sulla elementi protetti esistenti. È consigliabile [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
+|Avviso (arancione)   |   Server di elaborazione sia connesso, ma i dati non è stati caricati in Azure in ultimi 30 minuti  |   Utilizzo delle risorse è entro i limiti di soglia       | Risoluzione dei problemi [errori di caricamento dei dati](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) prima di aggiungere nuovi carichi di lavoro **oppure** [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
+|Critico (rosso)    |     Server di elaborazione potrebbe non essere connesso  |  Utilizzo delle risorse è entro i limiti di soglia      | Risoluzione dei problemi [problemi di connettività di server di elaborare](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) oppure [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
+|Critico (rosso)    |     Utilizzo delle risorse ha superato i limiti della soglia |  Utilizzo della CPU e memoria è superiore al 95%; Disponibilità di spazio disponibile è inferiore al 25%.   | Aggiunta di nuovi carichi di lavoro nello stesso server di processo è disabilitato come soglia di risorse i limiti sono già stati soddisfatti. Pertanto [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
+Critico (rosso)    |     Dati non è stati caricati da Azure ad Azure in ultimi 45 minuti. |  Utilizzo delle risorse è entro i limiti di soglia      | Risoluzione dei problemi [errori di caricamento dei dati](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) prima di aggiungere nuovi carichi di lavoro stesso server di elaborazione o [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>Registrare di nuovo un server di elaborazione
 
 Se è necessario registrare di nuovo un server di elaborazione in esecuzione in locale o in Azure con il server di configurazione, eseguire le operazioni seguenti:
@@ -109,7 +122,6 @@ Se il server di elaborazione usa un proxy per la connessione a Site Recovery in 
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Rimuovere un server di elaborazione
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Se il software antivirus è attivo in un server di elaborazione autonomo o in un
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Directory di installazione del server di elaborazione, ad esempio: C:\Programmi (x86)\Microsoft Azure Site Recovery
-

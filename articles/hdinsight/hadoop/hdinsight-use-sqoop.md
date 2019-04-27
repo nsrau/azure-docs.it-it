@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129400"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,14 +45,14 @@ Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti
   
   | Campo | Tipo di dati |
   | --- | --- |
-  | clientid |stringa |
-  | querytime |stringa |
-  | market |stringa |
-  | deviceplatform |stringa |
-  | devicemake |stringa |
-  | devicemodel |stringa |
-  | state |stringa |
-  | country |stringa |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |Double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -76,7 +76,7 @@ Il cluster, database SQL e altri oggetti vengono creati tramite il portale di Az
 
 2. Immettere le seguenti proprietà:
 
-    |Campo |Valore |
+    |Campo |Value |
     |---|---|
     |Sottoscrizione |Selezionare la sottoscrizione di Azure nell'elenco a discesa.|
     |Gruppo di risorse |Selezionare il gruppo di risorse nell'elenco a discesa o crearne uno nuovo|

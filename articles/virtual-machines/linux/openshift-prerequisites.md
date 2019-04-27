@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473886"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 

@@ -1,19 +1,18 @@
 ---
 title: Abilitare la creazione automatica di argomenti in Apache Kafka - Azure HDInsight
 description: Informazioni su come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti. È possibile configurare Kafka impostando auto.create.topics.enable su true tramite Ambari o in fase di creazione di cluster tramite i modelli di Resource Manager o PowerShell.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: af26bcee08ded8eb66d640f954113be3e7672e1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097862"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti
 
@@ -77,7 +76,7 @@ Quando si crea un cluster Kafka usando un modello di Azure Resource Manager, è 
 }
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 In questo documento è stato appreso come abilitare la creazione automatica di argomenti per Apache Kafka in HDInsight. Per altre informazioni sull'utilizzo di Kafka, vedere i collegamenti seguenti:
 

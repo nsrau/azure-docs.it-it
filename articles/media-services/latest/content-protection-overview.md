@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103717"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protezione del contenuto con la crittografia dinamica
 
@@ -206,6 +206,9 @@ Se viene visualizzato il `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore,
 
 Se si verificano errori che terminano con `_NOT_SPECIFIED_IN_URL`, assicurarsi di specificare il formato di crittografia nell'URL. Ad esempio: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Visualizzare [protocolli e tipi di crittografia di Streaming](#streaming-protocols-and-encryption-types).
 
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

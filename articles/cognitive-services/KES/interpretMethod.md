@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814143"
 ---
 # <a name="interpret-method"></a>Metodo interpret
 
@@ -25,7 +25,7 @@ Il metodo *interpret* accetta una stringa di query in linguaggio naturale e rest
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOME|Valore| DESCRIZIONE
+NOME|Value| DESCRIZIONE
 ----|----|----
 query    | Stringa di testo | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
 complete | 0 (valore predefinito) o 1 | 1 indica che i suggerimenti di completamento automatico vengono generati in base alla grammatica e ai dati di indice.         

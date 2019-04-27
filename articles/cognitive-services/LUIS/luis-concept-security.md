@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
 ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813604"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accesso utente endpoint e in creazione
 L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica. 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475797"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
 
@@ -34,7 +34,7 @@ La versione aggiornata dei processi di database elastico include un nuovo set di
 
 Se non si ha già una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Installare il **Az.Sql** modulo 1.1.1 per ottenere i cmdlet di processo elastico più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
+Installare il modulo **Az.Sql** 1.1.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on

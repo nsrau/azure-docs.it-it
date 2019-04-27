@@ -1,25 +1,21 @@
 ---
-title: Eseguire il debug locale del codice di Azure Data Lake Analytics | Microsoft Docs
+title: Eseguire il debug locale del codice di Azure Data Lake Analytics
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio per eseguire il debug di processi U-SQL sulla workstation locale.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: jhubbard
-editor: cgronlun
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: 55c53afad6925d7390f34b1938e14d84a59b3216
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: HT
+ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472992"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Eseguire il debug locale del codice di Azure Data Lake Analytics
 
@@ -27,7 +23,7 @@ ms.locfileid: "39626829"
 
 Informazioni sulla [modalità di esecuzione dello script U-SQL sul computer locale](data-lake-analytics-data-lake-tools-local-run.md).
 
-## <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e degli assembly C# in locale
+## <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e delle assembly C# in locale
 
 È possibile eseguire il debug degli assembly C# senza inviarli e registrarli nel servizio Azure Data Lake Analytics. È possibile impostare i punti di interruzione sia nel file code-behind sia in un progetto C# a cui viene fatto riferimento.
 

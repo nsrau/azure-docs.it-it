@@ -1,7 +1,6 @@
 ---
 title: Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 description: Informazioni sulle procedure consigliate per l'infrastruttura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129315"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -171,13 +170,13 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Panoramica di Rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md)
 - [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Connettersi in modo sicuro ai servizi di Azure con gli endpoint del servizio Rete virtuale di Azure
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Connettersi in modo sicuro ai servizi di Azure con gli endpoint servizio di rete virtuale di Azure
 
 HDInsight supporta [endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md), che consentono di connettere in modo sicuro i database di archiviazione Blob di Azure, Azure Data Lake Storage Gen2, Cosmos DB e SQL. Abilitando un endpoint del servizio per Azure HDInsight, il traffico attraversa una route protetta all'interno del data center di Azure. Con questo livello avanzato di sicurezza a livello di rete, è possibile bloccare gli account di archiviazione di Big Data nelle reti virtuali specificate e continuare a usare i cluster HDInsight per accedere ai dati ed elaborarli.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Endpoint del servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Endpoint servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Ottimizzare la sicurezza di HDInsight con gli endpoint del servizio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Connettere HDInsight alla rete locale

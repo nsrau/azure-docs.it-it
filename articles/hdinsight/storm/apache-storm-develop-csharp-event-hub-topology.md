@@ -1,7 +1,6 @@
 ---
 title: Elaborare eventi da Hub eventi con Storm - Azure HDInsight
 description: Informazioni su come elaborare i dati degli Hub eventi di Azure con una topologia Storm C# creata in Visual Studio tramite HDInsight Tools per Visual Studio.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125205"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -153,7 +152,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 3. Nel progetto **EventHubWriter** aprire il file **App.config**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | Valore |
+   | Chiave | Value |
    | --- | --- |
    | EventHubPolicyName |writer (se è stato usato un altro nome per il criterio con l'autorizzazione *Send*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio writer. |
@@ -169,7 +168,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 2. Aprire il file **App.config** per **EventHubReader**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | Valore |
+   | Chiave | Value |
    | --- | --- |
    | EventHubPolicyName |reader (se è stato usato un altro nome per il criterio con l'autorizzazione *listen*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio reader. |

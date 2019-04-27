@@ -1,19 +1,22 @@
 ---
 title: Salvare report nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come salvare i report nelle raccolte di aree di lavoro di Power BI. Per il corretto funzionamento sono necessarie le autorizzazioni appropriate.
-services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+services: power-bi-embedded
 author: markingmyname
-ms.author: maghan
+ROBOTS: NOINDEX
+ms.assetid: ''
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-ms.date: 09/20/2017
-ms.openlocfilehash: bc3c9f71900abcbba440db259d92df53a4c7a586
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+origin.date: 09/26/2018
+ms.date: 03/05/2019
+ms.author: v-junlch
+ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103883"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Salvare report nelle raccolte di aree di lavoro di Power BI
 
@@ -26,15 +29,15 @@ Con le raccolte di aree di lavoro di Power BI è possibile modificare report esi
 
 Per salvare un report, è prima di tutto necessario creare un token per il report specifico con gli ambiti corretti:
 
-* Per abilitare il salvataggio, è necessario l'ambito Report.ReadWrite
-* Per abilitare il salvataggio con nome, sono necessari gli ambiti Report.Read e Workspace.Report.Copy
-* Per abilitare entrambi, sono necessari Report.ReadWrite e Workspace.Report.Copy
+- Per abilitare il salvataggio, è necessario l'ambito Report.ReadWrite
+- Per abilitare il salvataggio con nome, sono necessari gli ambiti Report.Read e Workspace.Report.Copy
+- Per abilitare entrambi, sono necessari Report.ReadWrite e Workspace.Report.Copy
 
 Per abilitare i pulsanti Salva/Salva con nome corretti nel menu File, è necessario specificare l'autorizzazione appropriata nella configurazione di incorporamento quando si incorpora il report, rispettivamente:
 
-* models.Permissions.ReadWrite
-* models.Permissions.Copy
-* models.Permissions.All
+- models.Permissions.ReadWrite
+- models.Permissions.Copy
+- models.Permissions.All
 
 > [!NOTE]
 > Anche il token di accesso necessita degli ambiti appropriati. Per altre informazioni, vedere [Scopes](app-token-flow.md#scopes) (Ambiti).
@@ -59,7 +62,7 @@ In JavaScript, ad esempio:
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -74,7 +77,7 @@ In JavaScript, ad esempio:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>
+    </script>    
 ```
 
 Un report viene così incorporato nell'app in modalità di modifica.
@@ -112,10 +115,10 @@ Dopo il *salvataggio con nome* sarà quindi necessario caricare il nuovo report.
 
 ```html
 <div id="reportContainer"></div>
-<script>
+<script>  
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -124,7 +127,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>
+</script>    
 ```
 
 ## <a name="see-also"></a>Vedere anche 
@@ -138,3 +141,5 @@ var embedConfiguration = {
 
 Altre domande? [Contattare la community di Power BI](https://community.powerbi.com/)
 
+
+<!-- Update_Description: update metedata properties -->

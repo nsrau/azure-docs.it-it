@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
 ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828699"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 
