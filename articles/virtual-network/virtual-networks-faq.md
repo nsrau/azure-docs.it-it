@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Risposte alle domande più frequenti sulla rete virtuale di Microsoft Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713609"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -194,7 +195,7 @@ Sì. Per informazioni dettagliate, vedere [Integrazione della rete virtuale per 
 
 ### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>A quali risorse PaaS di Azure è possibile limitare l'accesso da una rete virtuale?
 
-Per le risorse distribuite tramite alcuni servizi PaaS di Azure (come Archiviazione di Azure e il database SQL di Azure), è possibile limitare l'accesso alla rete solo alle risorse in una rete virtuale tramite l'uso di endpoint del servizio Rete virtuale. Per informazioni dettagliate, vedere [Panoramica degli endpoint del servizio Rete virtuale](virtual-network-service-endpoints-overview.md).
+Per le risorse distribuite tramite alcuni servizi PaaS di Azure (come Archiviazione di Azure e il database SQL di Azure), è possibile limitare l'accesso alla rete solo alle risorse in una rete virtuale tramite l'uso di endpoint servizio di rete virtuale. Per informazioni dettagliate, vedere [Panoramica degli endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
 No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Per spostare una risorsa in un'altra rete virtuale, è necessario eliminarla e ridistribuirla.
@@ -224,7 +225,7 @@ Sì. Altre informazioni:
 - Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/az.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - Uso dell'interfaccia della riga di comando di Azure per distribuire e gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/cli/azure/network/vnet) e [classica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
-## <a name="vnet-peering"></a>Peering reti virtuali
+## <a name="vnet-peering"></a>Peering di rete virtuale
 
 ### <a name="what-is-vnet-peering"></a>Che cos'è il peering di reti virtuali?
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
@@ -247,7 +248,7 @@ Le seguenti risorse usano base i bilanciamenti del carico che significa che non 
 - App per la logica
 - HD Insight
 -   Azure Batch
-- servizio Azure Container
+- Servizio Azure Kubernetes
 - Ambiente del servizio app
 
 È possibile connettersi a queste risorse tramite ExpressRoute o della rete virtuale a rete virtuale tramite gateway di rete virtuale.
@@ -304,7 +305,7 @@ Rete virtuale scelta è disponibile in anteprima. Durante l'anteprima, non esist
 
 Sarà possibile aggiungere una configurazione TAP a un'interfaccia di rete collegata a una macchina virtuale con networking accelerato abilitato. Ma le prestazioni e la latenza sulla macchina virtuale saranno influenzate dall'aggiunta della configurazione TAP, dato che l'offload per il mirroring del traffico non è attualmente supportato dal networking accelerato di Azure.
 
-## <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
+## <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Qual è la sequenza corretta di operazioni per la configurazione di endpoint di servizio in un servizio di Azure?
 Ci sono due passaggi per la protezione di una risorsa di un servizio di Azure tramite gli endpoint di servizio:
@@ -367,7 +368,7 @@ L'eliminazione delle reti virtuali e quella delle subnet sono operazioni indipen
 L'eliminazione dell'account del servizio di Azure è un'operazione indipendente ed è supportata anche quando l'endpoint del servizio è abilitato sul lato rete e gli elenchi di controllo di accesso di rete virtuale sono configurati sul lato servizio di Azure. 
 
 ### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>Cosa accade all'indirizzo IP di origine di una risorsa, come una macchina virtuale in una subnet, in cui viene abilitato un endpoint di servizio di rete virtuale?
-Quando gli endpoint di servizio di rete virtuale vengono abilitati, gli indirizzi IP di origine delle risorse nella subnet della rete virtuale passano dall'usare indirizzi IPV4 pubblici a indirizzi privati della rete virtuale di Azure per il traffico verso il servizio di Azure. Ciò può causare errori nei firewall IP impostati in precedenza sull'indirizzo IPV4 pubblico nei servizi di Azure. 
+Quando gli endpoint servizio di rete virtuale vengono abilitati, gli indirizzi IP di origine delle risorse nella subnet della rete virtuale passano dall'usare indirizzi IPV4 pubblici a indirizzi privati della rete virtuale di Azure per il traffico verso il servizio di Azure. Ciò può causare errori nei firewall IP impostati in precedenza sull'indirizzo IPV4 pubblico nei servizi di Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>La route degli endpoint di servizio ha sempre la precedenza?
 Gli endpoint di servizio aggiungono una route di sistema che ha la precedenza sulle route BGP, consentendo un routing ottimale per il traffico degli endpoint di servizio. Gli endpoint di servizio instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Per altre informazioni su come Azure seleziona una route, vedere [il routing del traffico di rete virtuale di Azure](virtual-networks-udr-overview.md).
@@ -390,7 +391,7 @@ Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale
 |---|---|
 |Servizio di Azure| Limiti per le regole della rete virtuale|
 |Archiviazione di Azure| 100|
-|SQL di Azure| 128|
+|Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|

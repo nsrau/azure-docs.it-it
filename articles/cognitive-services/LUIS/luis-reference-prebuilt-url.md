@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709713"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entità predefinita URL per un'app LUIS
 L'entità URL consente di estrarre gli URL con nomi di dominio o indirizzi IP. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti URL per le finalità dell'applicazione. L'entità URL è supportata solo nelle impostazioni cultura `en-us`. 

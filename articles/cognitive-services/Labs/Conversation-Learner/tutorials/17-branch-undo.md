@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640179"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Come usare le operazioni di creazione di un ramo e annullamento
 In questa esercitazione verranno presentate le operazioni di annullamento e diramazione.
 
 
 ## <a name="details"></a>Dettagli
-### <a name="undo"></a>Annullamento
+### <a name="undo"></a>Annulla
 Consente allo sviluppatore di "annullare" l'ultimo input dell'utente o l'ultima scelta di un'azione. Dietro le quinte, l'operazione di annullamento crea in effetti un nuovo dialogo e lo riproduce fino al passaggio precedente.  Questi significa che verranno chiamati di nuovo il callback di rilevamento delle entità e le chiamate API nel dialogo.
 
 ### <a name="branch"></a>Ramo
@@ -38,7 +38,7 @@ Per questa esercitazione è necessario che il bot per l'ordinazione di pizza sia
 
 Se è già stata usata l'esercitazione per ordinare la pizza, aprire semplicemente il modello specifico nell'elenco nell'interfaccia utente Web. In caso contrario è necessario fare clic su "Import Tutorials" (Importa esercitazioni) e selezionare il modello denominato "Demo-PizzaOrder".
 
-## <a name="undo"></a>Annullamento
+## <a name="undo"></a>Annulla
 
 Ecco un esempio della funzione `Undo`:
 

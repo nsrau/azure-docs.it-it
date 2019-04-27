@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541510"
 ---
 # <a name="try-speech-services-for-free"></a>Provare gratuitamente i servizi di riconoscimento vocale
 
@@ -26,7 +26,7 @@ Se è necessario più tempo, effettuare l'iscrizione per un account di Microsoft
 
 Infine, il servizio di riconoscimento vocale offre un livello gratuito di basso volume adatto allo sviluppo di applicazioni. È possibile mantenere questa sottoscrizione gratuita anche dopo la scadenza del credito di servizio.
 
-## <a name="free-trial"></a>Versione di prova gratuita
+## <a name="free-trial"></a>Versione di valutazione gratuita
 
 La versione di prova gratuita di 30 giorni consente di accedere al piano tariffario standard per un periodo di tempo limitato.
 
@@ -73,7 +73,7 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
 1. Selezionare **Crea una risorsa** in alto a sinistra sul portale.
 
-    ![Creare una risorsa](media/index/try-speech-api-create-speech1.png)
+    ![Crea una risorsa](media/index/try-speech-api-create-speech1.png)
 
 1. Nella finestra **Nuova**, cercare **Voce**.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599433"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
@@ -26,15 +26,15 @@ L'ambiente di runtime del contenitore **Language Understanding** (LUIS) viene co
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatorio|Impostazione|Scopo|
+|Obbligatoria|Impostazione|Scopo|
 |--|--|--|
 |Sì|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
-|No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
+|N.|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
 |Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
-|No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|N.|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
+|N.|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
+|N.|[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |Sì|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
@@ -67,9 +67,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 Ricordare di includere il `luis/v2.0` routing nell'URL come illustrato nella tabella seguente:
 
 
-|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -99,10 +99,10 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 La tabella seguente descrive le impostazioni supportate.
 
-|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Sì| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|No | `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Sì| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
+|N.| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
@@ -116,7 +116,7 @@ Ricordare di includere il `luis/v2.0` routing nell'URL come illustrato nella tab
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | La chiave di endpoint dell'applicazione LUIS di cui si esegue il training. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT} | Il valore dell'endpoint fatturazione è disponibile in Azure `Cognitive Services` pagina Panoramica. |https://westus.api.cognitive.microsoft.com/luis/v2.0|

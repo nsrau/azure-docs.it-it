@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598815"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, è necessario quanto segue: 
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -53,7 +53,7 @@ API di creazione per le App in pacchetto:
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Contenitore| Minima | Consigliato | TPS<br>(Minimum, Maximum)|
+|Contenitore| Minima | Consigliati | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20,40|
 
@@ -109,7 +109,7 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Con training|Get, Post|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Staging|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
+|Gestione temporanea|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
 |Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
 |{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
@@ -218,7 +218,7 @@ In caso di esito positivo, la risposta è un file di pacchetto LUIS. Salvare il 
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{BILLING_ENDPOINT} | Il valore dell'endpoint fatturazione è disponibile nel portale di Azure `Cognitive Services` pagina Panoramica. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -269,10 +269,10 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|Type|Scopo|
+|Parametro di query|Type|Scopo|
 |--|--|--|
-|`q`|stringa|Espressione dell'utente.|
-|`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
+|`q`|string|Espressione dell'utente.|
+|`timezoneOffset`|numero|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|
@@ -351,7 +351,7 @@ Configurazioni dell'app non supportate|Dettagli|
 |Analisi del sentiment|Le dipendenze esterne non sono supportate nel contenitore.|
 |Controllo ortografico Bing|Le dipendenze esterne non sono supportate nel contenitore.|
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 

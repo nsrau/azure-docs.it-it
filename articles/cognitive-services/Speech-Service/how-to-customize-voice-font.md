@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654003"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
@@ -33,13 +33,13 @@ Per creare un carattere voce, effettuare una registrazione in studio e caricare 
 
 2. Passare a **Sottoscrizioni** nel nome dell'account in alto a destra.
 
-    ![Sottoscrizioni](media/custom-voice/subscriptions.png)
+    ![Abbonamenti](media/custom-voice/subscriptions.png)
 
 3. Nella pagina Sottoscrizioni scegliere **Connettersi a una sottoscrizione esistente**. Si noti che Servizi Voce è supportata in diverse aree. Controllare l'area in cui è stata creata la chiave di sottoscrizione e assicurarsi che la propria chiave sia collegata al sub portale corretto.  
 
 4. Incollare la chiave di sottoscrizione nella tabella, come illustrato nell'esempio di seguito. Ogni sottoscrizione dispone di due chiavi ed è possibile usarne indistintamente una delle due.
 
-     ![Aggiungere la sottoscrizione](media/custom-voice/add-subscription.png)
+     ![Aggiungi sottoscrizione](media/custom-voice/add-subscription.png)
 
 Ora si è pronti per iniziare.
 
@@ -76,7 +76,7 @@ I file audio devono essere preparati come segue. Gli altri formati non sono supp
 
 Il file di trascrizione è un file di testo normale (ANSI, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE). Ogni riga del file di trascrizione deve contenere il nome di un file audio, seguito da un carattere di tabulazione (punto di codice 9) e infine la trascrizione. Non sono consentite righe vuote.
 
-Ad esempio: 
+Ad esempio:
 
 ```
 0000000001  This is the waistline, and it's falling.
@@ -221,14 +221,14 @@ Selezionare **Riproduci** per ascoltare il testo pronunciato con il carattere vo
 
 Dal punto di vista funzionale, l'endpoint personalizzato è identico all'endpoint standard usato per le richieste di sintesi vocale. Per altre informazioni, vedere [API REST](rest-apis.md).
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto per la lingua
 
 La personalizzazione della voce è disponibile nelle lingue seguenti:
 
-| Linguaggio | Impostazioni locali |
+| Lingua | Impostazioni locali |
 |----------|--------|
 | Cinese (Terraferma) | zh-CN |
-| Inglese (Stati Uniti) | en-US |
+| Inglese (Stati Uniti) | it-IT |
 | Francese | fr-FR |
 | Tedesco | de-DE |
 | Italiano | it-IT |

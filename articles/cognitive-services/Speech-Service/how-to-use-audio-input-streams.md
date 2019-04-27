@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: fmegen
 ms.openlocfilehash: f34504dddaa21cc162476d1fdb462e7be5c48629
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60697914"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informazioni sull'API del flusso di input audio di Speech SDK
 
@@ -59,7 +59,7 @@ Quando si usano flussi di input audio, sono necessari i passaggi riportati di se
    };
   ```
 
-- Creare una configurazione audio in base al formato audio e al flusso di input. Quando si crea il sistema di riconoscimento, passare sia la configurazione del riconoscimento vocale normale che la configurazione dell'input audio. Ad esempio: 
+- Creare una configurazione audio in base al formato audio e al flusso di input. Quando si crea il sistema di riconoscimento, passare sia la configurazione del riconoscimento vocale normale che la configurazione dell'input audio. Ad esempio:
 
   ```
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

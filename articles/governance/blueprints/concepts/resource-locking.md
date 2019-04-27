@@ -9,11 +9,11 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683007"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -26,7 +26,7 @@ Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blu
 
 Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|Modalità|Tipo di risorsa artefatto|Stato|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|

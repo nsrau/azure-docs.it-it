@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607287"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Le verifiche di moderazione dei contenuti, i flussi di lavoro e processi
 
 Content Moderator combina moderazione assistita da computer con funzionalità human-in-the-loop per creare un processo di moderazione ottimale per scenari reali. Ciò avviene tramite basato su cloud [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). In questa guida si apprenderà i concetti di base dello strumento di revisione: processi, i flussi di lavoro e le revisioni.
 
-## <a name="reviews"></a>Revisioni
+## <a name="reviews"></a>Recensioni
 
 In una revisione, il contenuto viene caricato per lo strumento di revisione e viene visualizzato sotto il **esaminare** scheda. A questo punto, gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati come appropriato. Quando un utente invia una recensione, i risultati vengono inviati a un endpoint di callback specificati e il contenuto viene rimosso dal sito.
 

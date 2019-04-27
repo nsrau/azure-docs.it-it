@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: nitinme
 ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608966"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -48,7 +48,7 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 |[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Analisi del testo")|Analisi del testo fornisce l'elaborazione del linguaggio naturale su testo non elaborato per l'analisi del sentiment, l'estrazione delle frasi chiave e il rilevamento della lingua.|
 |[Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/ "Traduzione testuale")|Traduzione testuale fornisce la traduzione automatica del testo quasi in tempo reale.|
 
-## <a name="search-apis"></a>API di ricerca
+## <a name="search-apis"></a>Cerca API
 
 |Nome servizio|Descrizione del servizio|
 |:-----------|:------------------|
@@ -72,7 +72,7 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 
 Per eseguire la [procedura di registrazione che permette di ottenere le versioni di prova gratuite](https://azure.microsoft.com/try/cognitive-services/ "Guida per la registrazione"), basta immettere l'indirizzo di posta elettronica e completare alcuni semplici passaggi. È necessario un account Microsoft. Si riceverà una coppia di chiavi univoca per ogni API richiesta. La seconda è semplicemente di riserva. Non condividere le chiavi private con nessuno. Le versioni di valutazione hanno sia un limite di frequenza, ovvero transazioni al secondo o al minuto, sia un limite di utilizzo mensile. Una transazione è semplicemente una chiamata API. È possibile eseguire l'aggiornamento ai livelli a pagamento per sbloccare le restrizioni.
 
-## <a name="subscription-management"></a>Gestione sottoscrizioni
+## <a name="subscription-management"></a>Gestione della sottoscrizione
 
 Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a [Sottoscrizioni personali](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Sottoscrizioni personali") per visualizzare i prodotti usati e la quota rimanente, nonché aggiungere altri prodotti alla sottoscrizione.
 
@@ -80,7 +80,7 @@ Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a
 
 Tutte le API prevedono una versione di prova gratuita.  Non appena le offerte a pagamento saranno disponibili per ogni API, si verrà reindirizzati al portale di Azure per completare l'acquisto.  È possibile trovare i collegamenti *Acquista* nella pagina Sottoscrizioni se le si sta già usando oppure è possibile ignorare le versioni di valutazione e procedere all'acquisto con i collegamenti disponibili in [Prezzi](https://www.microsoft.com/cognitive-services/en-us/pricing "Prezzi").  Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Le API nei Servizi cognitivi sono ospitate in una rete in espansione di centri dati gestiti da Microsoft. È possibile trovare la disponibilità a livello di area per ogni API nell'[elenco delle aree di Azure](https://azure.microsoft.com/regions).
 
