@@ -1,7 +1,6 @@
 ---
 title: Eseguire processi Apache Pig con .NET SDK per Hadoop - Azure HDInsight
 description: Informazioni su come usare .NET SDK per Hadoop per inviare processi Pig a Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110957"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Pig con .NET SDK per Apache Hadoop in HDInsight
 
@@ -43,7 +42,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 2. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    | ------ | ------ |
    | Categoria | Templates/Visual C#/Windows |
    | Modello | Applicazione console |
@@ -123,6 +122,6 @@ Per informazioni su Pig in HDInsight, vedere [Usare Apache Pig con Apache Hadoop
 Per altre informazioni sull'uso di Hadoop con HDInsight, vedere i documenti seguenti:
 
 * [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
-* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

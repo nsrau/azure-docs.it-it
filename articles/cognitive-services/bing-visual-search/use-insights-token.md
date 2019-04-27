@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831929"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di insights per ottenere informazioni dettagliate per un'immagine
 
@@ -475,7 +475,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un'app web a pagina singola di ricerca visiva](tutorial-bing-visual-search-single-page-app.md)  
+[Creare un'app Web a pagina singola con Ricerca visiva](tutorial-bing-visual-search-single-page-app.md)  
 [Che cos'è l'API ricerca visiva Bing?](overview.md)  
 [Prova servizi cognitivi](https://aka.ms/bingvisualsearchtryforfree)  
 [Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

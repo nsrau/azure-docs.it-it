@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105581"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Scambiare messaggi nel cloud con il bus di servizio di Azure e App per la logica di Azure
 
@@ -74,7 +74,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Per aggiungere un *trigger* a un'app per la logica vuota, nella casella di ricerca immettere "Bus di servizio di Azure" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato. 
 
-   Ad esempio, per attivare l'app per la logica quando viene inviato un nuovo elemento a una coda del bus di servizio, selezionare il trigger **Quando un messaggio viene ricevuto in una coda (completamento automatico)**.
+   Ad esempio, per attivare app per la logica quando viene inviato un nuovo elemento a una coda del Bus di servizio, selezionare questo trigger: **Quando viene ricevuto un messaggio in una coda (completamento automatico)**
 
    ![Selezionare un trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -118,14 +118,14 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Specificare i dettagli necessari per il trigger o l'azione. Per questo esempio, eseguire i passaggi pertinenti per il trigger o l'azione: 
 
-   * **Per il trigger di esempio**: impostare l'intervallo di polling e la frequenza per la verifica della coda.
+   * **Per il trigger di esempio**: Impostare l'intervallo di polling e frequenza per la verifica della coda.
 
      ![Impostare l'intervallo di polling](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Al termine dell'operazione, proseguire con la creazione del flusso di lavoro dell'app per la logica aggiungendo le azioni desiderate. È ad esempio possibile aggiungere un'azione che invia un messaggio di posta elettronica quando arriva un nuovo messaggio.
      Quando il trigger controlla la coda e trova un nuovo messaggio, l'app per la logica esegue le azioni selezionate per il messaggio trovato.
 
-   * **Per l'azione di esempio**: immettere il contenuto del messaggio ed eventuali altri dettagli. 
+   * **Per l'azione di esempio**: Immettere il contenuto del messaggio ed eventuali altri dettagli. 
 
      ![Specificare il contenuto del messaggio e i dettagli](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
