@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605110"
 ---
-# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
 
 Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
 
@@ -33,14 +33,14 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Parametro di query</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>ambito</td>
     <td>*Parametro facoltativo*.<br/>Elenco di nomi delimitato da virgole che definisce il gruppo di lingue da restituire. I nomi di gruppi consentiti sono: `translation`, `transliteration` e `dictionary`. Se non viene specificato un ambito, vengono restituiti tutti i gruppi come se venisse passato `scope=translation,transliteration,dictionary`. Per determinare il set di lingue supportate appropriato per uno scenario specifico, vedere la descrizione dell'[oggetto risposta](#response-body).</td>
   </tr>
 </table> 
@@ -48,8 +48,8 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta sono le seguenti:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Intestazioni</th>
+  <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata fornendo un tag di lingua BCP 47 in formato corretto. Ad esempio, usare il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
@@ -229,7 +229,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>DESCRIZIONE</th>
   <tr>
     <td>ETag</td>
@@ -248,10 +248,10 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Riuscite.</td>
   </tr>
   <tr>
     <td>304</td>

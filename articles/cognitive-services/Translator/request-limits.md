@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605225"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
@@ -49,7 +49,7 @@ L'API traduzione testuale ha una latenza massima di 15 secondi usando i modelli 
 
 Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), lunghezza delle frasi è limitata a 275 caratteri. Sono previste eccezioni per queste lingue:
 
-| Linguaggio | Codice | Limite di caratteri |
+| Lingua | Codice | Limite di caratteri |
 |----------|------|-----------------|
 | Cinese | zh | 132 |
 | Tedesco | de | 290 |
@@ -58,7 +58,7 @@ Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cogni
 | Portoghese | pt | 290 |
 | Spagnolo | es | 280 |
 | Italiano | it | 280 |
-| Thai | th | 258 |
+| Thai | ° | 258 |
 
 > [!NOTE]
 > Questo limite non si applica alle traduzioni.

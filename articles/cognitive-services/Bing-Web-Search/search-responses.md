@@ -12,11 +12,11 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642821"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -290,7 +290,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 
 |Simbolo|DESCRIZIONE|
 |------------|-----------------|
-|+|Addizione|
+|+|Aggiunta|
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
@@ -302,7 +302,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 
 Un'espressione matematica può contenere le costanti seguenti:
 
-|Simbolo|DESCRIZIONE|
+|Simbolo|Descrizione|
 |------------|-----------------|
 |Pi|3,14159...|
 |Gradi|Gradi|
@@ -312,7 +312,7 @@ Un'espressione matematica può contenere le costanti seguenti:
 
 Un'espressione matematica può contenere le funzioni seguenti:
 
-|Simbolo|DESCRIZIONE|
+|Simbolo|Descrizione|
 |------------|-----------------|
 |Ordina|Radice quadrata|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funzioni trigonometriche con argomenti in radianti|

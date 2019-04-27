@@ -12,11 +12,11 @@ ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: a332d263526bb6507e7394c205caa1c4d1f9e3e6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613281"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Scelta della capacità per la distribuzione di QnA Maker
 
@@ -42,8 +42,8 @@ La tabella seguente indica alcune linee guida generali.
 |                        | Gestione di QnA Maker | Servizio app | Ricerca di Azure | Limitazioni                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Sperimentazione        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
-| Ambiente di sviluppo/test   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
-| Ambiente di produzione | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
+| Ambiente di sviluppo/test   | SKU Standard         | Condiviso      | Di base        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
+| Ambiente di produzione | SKU Standard         | Di base       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
 
 Per l'aggiornamento dello stack di QnA Maker, vedere [Aggiornare il servizio QnA Maker](../How-To/upgrade-qnamaker-service.md).
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597409"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -40,7 +40,7 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 > * Creare un file di test in batch 
 > * Eseguire un test in batch
 > * Esaminare i risultati del test
-> * Correggere gli errori 
+> * Correggi errori 
 > * Eseguire nuovamente il test in batch
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -83,7 +83,7 @@ Seguire questa procedura:
 
 5. Assegnare un nome al set di dati `intents only` e selezionare **Done** (Fatto).
 
-    ![Selezionare il file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+    ![Seleziona file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Selezionare il pulsante **Run** (Esegui). 
 

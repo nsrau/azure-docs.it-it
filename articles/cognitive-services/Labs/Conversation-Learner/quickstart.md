@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708363"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creare un modello dello Strumento di apprendimento di conversazioni usando Node.js
 
@@ -47,7 +47,7 @@ Il Progetto Strumento di apprendimento di conversazioni è costituito da un SDK 
 
 - VSCode. Installare da [https://code.visualstudio.com/](https://code.visualstudio.com/). Nota: questo procedimento non è obbligatorio ma è consigliato.
 
-## <a name="quick-start"></a>Avvio rapido 
+## <a name="quick-start"></a>Guida introduttiva 
 
 1. Installare e compilare:
 

@@ -3,8 +3,8 @@ title: Autorizzazioni necessarie per usare le funzionalità di Network Watcher d
 description: Informazioni su quali autorizzazioni di controllo degli accessi in base al ruolo di Azure sono necessarie per lavorare con le funzionalità di Network Watcher.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652895"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorizzazioni di controllo degli accessi in base al ruolo necessarie per lavorare con le funzionalità di Network Watcher
 
@@ -33,14 +33,14 @@ Il controllo degli accessi in base al ruolo (RBAC) di Azure consente di assegnar
 | Microsoft.Network/networkWatchers/write                             | Creare o aggiornare un'istanza di Network Watcher                             |
 | Microsoft.Network/networkWatchers/delete                            | Eliminare un'istanza di Network Watcher                                       |
 
-## <a name="nsg-flow-logs"></a>Log del flusso del gruppo di sicurezza di rete
+## <a name="nsg-flow-logs"></a>Log del flusso del NSG
 
 | Azione                                                              | NOME                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configurare un log del flusso                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Effettuare una query dello stato per un log del flusso                                    |
 
-## <a name="connection-troubleshoot"></a>Risoluzione dei problemi relativi alle connessioni
+## <a name="connection-troubleshoot"></a>Risoluzione dei problemi di connessione
 
 | Azione                                                              | NOME                                                           |
 | ---------                                                           | -------------                                                  |

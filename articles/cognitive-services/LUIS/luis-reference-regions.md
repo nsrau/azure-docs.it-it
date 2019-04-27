@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 20ea2eb632a6d685351178691cc3d0f58a567902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599273"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -112,7 +112,7 @@ La tabella seguente illustra i parametri indicati con parentesi graffe `{}` nell
 
 |Parametro|Scopo|
 |--|--|
-|region|Area di Azure - per la creazione e la pubblicazione sono disponibili aree diverse|
+|Area|Area di Azure - per la creazione e la pubblicazione sono disponibili aree diverse|
 |appID|ID dell'app LUIS usato nella route dell'URL e disponibile nel dashboard dell'app|
 |q|testo dell'espressione inviato dall'applicazione client, ad esempio chatbot|
 

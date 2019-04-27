@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605152"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossario dei termini del Servizio visione artificiale personalizzato
 
@@ -36,7 +36,7 @@ Quando si crea un progetto, si seleziona un "dominio" per il progetto. Il domini
 
 I modelli generati da **domini compatti** possono essere esportati con la funzionalità di esportazione iterazione. I modelli sono ottimizzati per i vincoli di classificazione in tempo reale su dispositivi mobili. I classificatori creati con un dominio compatto possono essere leggermente meno precisi rispetto a un dominio standard con la stessa quantità di dati di training. Il compromesso è che sono sufficientemente piccoli da poter essere eseguiti localmente in near real time. 
 
-## <a name="evaluation"></a>Versione di valutazione
+## <a name="evaluation"></a>Valutazione
 
 Dopo avere esercitato il classificatore, è possibile inviare qualsiasi immagine per la valutazione usando l'endpoint HTTPS generato automaticamente. Il classificatore restituisce un set di tag previsti, in ordine di attendibilità.
 
@@ -65,7 +65,7 @@ Sono disponibili due tipi di impostazioni: quelle a livello di progetto e quelle
   Le impostazioni a livello di progetto si applicano a un progetto o un classificatore. tra cui:
 
    - Dominio del progetto
-   - Nome del progetto
+   - Nome progetto
    - Descrizione del progetto
    - Utilizzo:
       - Numero di immagini di esercitazione

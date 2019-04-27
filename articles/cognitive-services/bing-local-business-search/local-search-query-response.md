@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582457"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
 
@@ -22,7 +22,7 @@ ms.locfileid: "57779794"
 
 ## <a name="creating-a-request"></a>Creazione di una richiesta
 
-Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Ad esempio: 
+Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Ad esempio:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -54,14 +54,14 @@ Le risposte JSON dell'API di ricerca di attività locali Bing contengono un ogge
 I risultati JSON restituiti dall'API includono gli attributi seguenti:
 
 * _type
-* Address
+* indirizzo
 * entityPresentationInfo
 * area geografica
-* id
+* ID
 * name
 * routeablePoint
 * telephone
-* URL
+* url
 
 Per informazioni generali su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API di ricerca locale Bing v7](local-search-reference.md).
 

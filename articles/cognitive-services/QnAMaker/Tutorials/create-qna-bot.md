@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599088"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Esercitazione: Crea un Bot per domande e risposte con Azure v4 servizio Bot
 
@@ -47,7 +47,7 @@ Creazione di un bot come un'applicazione client per la knowledge base.
 
 1.  Immettere le impostazioni per creare bot:
 
-    |Impostazione|Valore|Scopo|
+    |Impostazione|Value|Scopo|
     |--|--|--|
     |Nome bot|`my-tutorial-kb-bot`|Si tratta del nome di risorsa di Azure per il bot.|
     |Sottoscrizione|Utilizzo generico, vedere.|Come è stato usato per creare le risorse di QnA Maker, selezionare la stessa sottoscrizione.|
