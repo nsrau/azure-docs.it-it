@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587164"
 ---
 # <a name="azure-network-architecture"></a>Architettura di rete di Azure
 L'architettura di rete di Azure segue una versione modificata del modello Core/Distribution/Access (core/di distribuzione/accesso) standard del settore, con livelli hardware distinti. I livelli includono:
@@ -101,7 +101,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](azure-infrastructure-availability.md)
 - [Azure information system components and boundaries](azure-infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Rete di produzione di Azure](azure-production-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)

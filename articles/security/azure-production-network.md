@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611353"
 ---
 # <a name="the-azure-production-network"></a>La rete di produzione di Azure
 Gli utenti della rete di produzione di Azure includono i clienti esterni che accedono alle proprie applicazioni di Microsoft Azure, nonché il personale di supporto interno di Azure che gestisce la rete di produzione. In questo articolo vengono descritti i metodi di accesso di sicurezza e i meccanismi di protezione per stabilire connessioni alla rete di produzione di Azure.
@@ -84,7 +84,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](azure-infrastructure-availability.md)
 - [Azure information system components and boundaries](azure-infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](azure-infrastructure-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)

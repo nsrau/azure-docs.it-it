@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589085"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
 L'accesso ai dati dei clienti da parte del personale di supporto e delle operazioni Microsoft è negato per impostazione predefinita. Quando viene concesso l'accesso ai dati dei clienti, è necessaria l'approvazione della leadership prima di poter gestire e registrare l'accesso in modo accurato. I requisiti di controllo di accesso vengono definiti dai criteri di sicurezza di Azure seguenti:
@@ -80,7 +80,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Azure information system components and boundaries](azure-infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](azure-infrastructure-network.md)
 - [Rete di produzione di Azure](azure-production-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)

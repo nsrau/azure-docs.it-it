@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567232"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push dei dati in un indice di Ricerca di Azure con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,20 +56,20 @@ Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON 
 
 La tabella seguente include le descrizioni degli elementi JSON specifici del servizio collegato Ricerca di Azure.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su: **AzureSearch**. | Yes |
-| URL | URL del servizio Ricerca di Azure. | Yes |
-| key | Chiave amministratore del servizio Ricerca di Azure. | Yes |
+| type | La proprietà type deve essere impostata su: **AzureSearch**. | Sì |
+| url | URL del servizio Ricerca di Azure. | Sì |
+| key | Chiave amministratore del servizio Ricerca di Azure. | Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md) . Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati. La sezione **typeProperties** è diversa per ogni tipo di set di dati. Le proprietà della sezione typeProperties per un set di dati di tipo **AzureSearchIndex** sono le seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Yes |
-| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
+| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Sì |
+| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
 
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
@@ -77,7 +77,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per l'attività di copia, quando il sink è del tipo **AzureSearchIndexSink**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Caricamento| No  |
 | WriteBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property). | Da 1 a 1000. Il valore predefinito è 1000. | No  |
@@ -104,7 +104,7 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 | Int32 | S |
 | Int64 | S |
 | Double | S |
-| boolean | S |
+| Boolean | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |

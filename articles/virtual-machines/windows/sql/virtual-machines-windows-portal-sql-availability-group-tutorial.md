@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593608"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -114,7 +114,7 @@ Aggiungere l'altra istanza di SQL Server al cluster.
 
 1. Fare clic su **Avanti**.
 
-1. Fare clic su **Fine**.
+1. Fare clic su **Finish**.
 
    A questo punto, Gestione cluster di failover visualizza il cluster con un nuovo nodo elencato nel contenitore **Nodi**.
 
@@ -177,7 +177,7 @@ Impostare ora il quorum del cluster.
 
 1. Verificare le impostazioni in **Conferma**. Fare clic su **Avanti**.
 
-1. Fare clic su **Fine**.
+1. Fare clic su **Finish**.
 
 Le risorse principali del cluster vengono configurate con un controllo di condivisione file.
 
@@ -426,7 +426,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Attivato |
+   | **IP mobile (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
@@ -467,7 +467,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Attivato |
+   | **IP mobile (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.

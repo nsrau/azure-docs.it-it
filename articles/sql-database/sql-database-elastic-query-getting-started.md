@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556279"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 
@@ -48,7 +48,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
 ## <a name="create-an-elastic-query-database"></a>Creare un database di query elastico
 1. Aprire il [portale di Azure](https://portal.azure.com) ed eseguire l'accesso.
-2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery".
+2. Creare un nuovo database SQL di Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery".
 
     ![Portale di Azure e il livello di prezzo][3]
 

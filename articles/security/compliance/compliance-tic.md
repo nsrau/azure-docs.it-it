@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608095"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
 
@@ -125,7 +125,7 @@ I servizi PaaS di Azure, come Archiviazione di Azure, sono accessibili tramite U
 Quando i servizi PaaS di Azure sono integrati in una rete virtuale, il servizio è accessibile privatamente da tale rete. È possibile applicare il routing personalizzato per 0.0.0.0/0 tramite route definite dall'utente o il protocollo BGP. Il routing personalizzato assicura che tutto il traffico associato a Internet venga inoltrato in locale in modo da attraversare il TIC. Integrare i servizi di Azure nelle reti virtuali usando i modelli seguenti:
 
 - **Distribuire un'istanza dedicata di un servizio**: un numero crescente di servizi PaaS possono essere distribuiti come istanze dedicate con endpoint collegati a una rete virtuale. È possibile distribuire un ambiente del Servizio app per PowerApps in modalità "Isolato" per consentire che l'endpoint di rete sia vincolato a una rete virtuale. L'ambiente del servizio App può quindi ospitare molti servizi PaaS di Azure, ad esempio App Web di Azure, Gestione API di Azure e Funzioni di Azure.
-- **Usare endpoint del servizio di rete virtuale**: un numero crescente di servizi PaaS offre la possibilità di spostare l'endpoint a un indirizzo IP privato della rete virtuale anziché a uno pubblico.
+- **Usare endpoint servizio di rete virtuale**: un numero crescente di servizi PaaS offre la possibilità di spostare l'endpoint a un indirizzo IP privato della rete virtuale anziché a uno pubblico.
 
 Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanze dedicate in una rete virtuale o l'uso di endpoint di servizio, a partire dal mese di maggio 2018.
 
@@ -184,9 +184,9 @@ Con l'integrazione della rete virtuale, i clienti possono distribuire in modo se
 
 ![Panoramica relativa all'integrazione di una rete virtuale](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opzione B: usare gli endpoint di servizio della rete virtuale (tunnel di servizio)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opzione B: usare gli endpoint servizio di rete virtuale (tunnel di servizio)
 
-Un numero crescente di servizi multi-tenant di Azure offrono "endpoint di servizio" che costituiscono un metodo alternativo per l'integrazione di reti virtuali di Azure. Gli endpoint di servizio della rete virtuale estendono al servizio lo spazio di indirizzi IP e l'identità della rete virtuale tramite una connessione diretta. Il traffico che transita dalla rete virtuale al servizio di Azure rimane sempre nella rete backbone di Azure. 
+Un numero crescente di servizi multi-tenant di Azure offrono "endpoint di servizio" che costituiscono un metodo alternativo per l'integrazione di reti virtuali di Azure. Gli endpoint servizio di rete virtuale estendono al servizio lo spazio di indirizzi IP e l'identità della rete virtuale tramite una connessione diretta. Il traffico che transita dalla rete virtuale al servizio di Azure rimane sempre nella rete backbone di Azure. 
 
 Dopo aver abilitato un endpoint per un servizio, usare i criteri esposti dal servizio per limitare le connessioni per il servizio alla specifica rete virtuale. Il servizio di Azure applica controlli di accesso alla piattaforma. L'accesso a una risorsa bloccata viene concesso solo se la richiesta ha origine dalla rete virtuale o dalla subnet consentita o dai due indirizzi IP usati per identificare il traffico in locale se si usa ExpressRoute. Usare questo metodo per impedire con efficacia che il traffico in entrata/uscita abbandoni direttamente il servizio PaaS.
 

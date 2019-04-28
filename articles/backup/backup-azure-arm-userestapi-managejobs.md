@@ -1,5 +1,5 @@
 ---
-title: "Backup di Azure: gestire i processi di backup con l'API REST"
+title: "Backup di Azure: Gestire i processi di Backup usando l'API REST"
 description: Gestire i processi di backup e ripristino di Backup di Azure con l'API REST
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646623"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
@@ -23,7 +23,7 @@ Il servizio Backup di Azure attiva i processi che vengono eseguiti in background
 
 ## <a name="fetch-job-information-from-operations"></a>Recuperare informazioni sui processi dalle operazioni
 
-Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esempio, la risposta finale di un'[operazione dell'API REST per attivare il backup](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) è la seguente:
+Un'operazione come l'attivazione del backup restituirà sempre un jobID. Per esempio: La risposta finale di un [attivare backup operazione API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) è come segue:
 
 ```http
 {
@@ -51,7 +51,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>Risposta
 
-|NOME  |type  |DESCRIZIONE  |
+|NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

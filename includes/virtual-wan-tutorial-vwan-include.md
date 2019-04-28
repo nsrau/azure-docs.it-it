@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58616475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457895"
 ---
 1. Passare alla pagina WAN virtuale. Un modo per passare alla pagina consiste nel visitare **Tutti i servizi** e quindi cercare la rete WAN virtuale.
 1. Fare clic su **+Aggiungi** per aprire la pagina **Crea rete WAN**.

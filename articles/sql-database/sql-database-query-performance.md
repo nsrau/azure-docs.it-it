@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585381"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 
@@ -275,7 +275,7 @@ Applicando queste impostazioni, Query Store raccoglierà i dati di telemetria pe
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Informazioni dettagliate prestazioni query semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'uso delle risorse del database. Questa funzionalità permette di identificare le query che usano più risorse nel database e le query da ottimizzare prima che diventino un problema.
 

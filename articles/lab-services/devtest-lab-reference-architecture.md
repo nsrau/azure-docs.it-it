@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561532"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs: architettura di riferimento per un'azienda
 Questo articolo fornisce un'architettura di riferimento per la distribuzione di una soluzione basata su Azure DevTest Labs in un'organizzazione. Include la connettività locale tramite Expressroute, gateway desktop remoto alla firma in modalità remota alle macchine virtuali, la connettività con un repository di elementi per gli elementi privati e altri servizi PaaS usate in un lab.

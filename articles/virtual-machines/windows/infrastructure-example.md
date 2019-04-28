@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540403"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -73,7 +73,7 @@ Poiché la rete virtuale non necessita di connettività costante alla rete local
 Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
 
 * Nome: AZOS-USE-VN01
-* Sede: Stati Uniti orientali 2
+* Percorso: Stati Uniti orientali 2
 * Spazio degli indirizzi della rete virtuale: 10.0.0.0/8
 * Prima subnet:
   * Nome: FrontEnd

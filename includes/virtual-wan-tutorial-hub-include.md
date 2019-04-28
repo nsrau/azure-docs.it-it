@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457894"
 ---
 Un hub contiene il gateway. Dopo aver creato l'hub, verranno addebitati i relativi costi, anche se si non collega alcun sito. La creazione dell'hub e del gateway richiede 30 minuti.
 

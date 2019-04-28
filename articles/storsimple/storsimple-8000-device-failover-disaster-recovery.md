@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576373"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e ripristino di emergenza per dispositivi StorSimple serie 8000
 
@@ -50,8 +50,8 @@ In una serie StorSimple 8000, i criteri di backup sono associati ai backup. Se s
 
 Si supponga che siano disponibili due criteri di backup, *defaultPol* e *customPol*:
 
-* *defaultPol*: un solo volume, *vol1*, con esecuzione giornaliera a partire dalle 22:30.
-* *customPol*: quattro volumi, *vol1*, *vol2*, *vol3* e *vol4*, con esecuzione giornaliera a partire dalle 22:00.
+* *defaultPol*: Un solo volume, *vol1*, esecuzione giornaliera a partire 10:30 PM.
+* *customPol*: Quattro volumi, *vol1*, *vol2*, *vol3*, *vol4*, esecuzione giornaliera a partire dalle 22:00.
 
 In questo caso StorSimple darà priorità alla coerenza per arresto anomalo del sistema e userà *customPol* perché include più volumi. Per il ripristino dei dati viene usato il backup più recente per questo criterio. Per altre informazioni su come creare e gestire i criteri di backup, passare a [Use the StorSimple Device Manager service to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (usare il servizio di gestione dispositivi StorSimple per gestire i criteri di backup).
 

@@ -7,17 +7,18 @@ ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: MladjoA
-ms.author: mlandzic
+author: WenJason
+ms.author: v-jay
 ms.reviewer: sstein
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
 ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585432"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Eseguire query in database cloud con schemi diversi (anteprima)
 
@@ -61,8 +62,8 @@ Sintassi:
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
                (TYPE = RDBMS,
-                LOCATION = ’<fully_qualified_server_name>’,
-                DATABASE_NAME = ‘<remote_database_name>’,  
+                LOCATION = '<fully_qualified_server_name>',
+                DATABASE_NAME = '<remote_database_name>',  
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
@@ -78,7 +79,7 @@ Nell'esempio seguente viene illustrato l'utilizzo dell'istruzione CREATE per ori
     WITH 
     ( 
         TYPE=RDBMS, 
-        LOCATION='myserver.database.windows.net', 
+        LOCATION='myserver.database.chinacloudapi.cn', 
         DATABASE_NAME='ReferenceData', 
         CREDENTIAL= SqlUser 
     ); 

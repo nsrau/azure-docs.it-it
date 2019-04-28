@@ -2,7 +2,7 @@
 title: Evento di avvio eliminazione pool di Azure Batch | Microsoft Docs
 description: Riferimento per l’evento di avvio eliminazione del pool di batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/14/2018
+ms.author: v-junlch
 ms.openlocfilehash: 2352971af3844b56f93c16ebaf6cb23bd5fd8a5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60774540"
 ---
 # <a name="pool-delete-start-event"></a>Evento di avvio eliminazione pool
 
@@ -34,3 +35,5 @@ ms.locfileid: "55474293"
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
 |id|string|ID del pool.|
+
+<!-- Update_Description: update metedata properties -->

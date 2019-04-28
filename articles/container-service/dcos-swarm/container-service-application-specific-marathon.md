@@ -10,11 +10,11 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557537"
 ---
 # <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(DEPRECATO) Creare un servizio Marathon specifico per un'applicazione o un'utente
 
@@ -27,7 +27,7 @@ Questo articolo illustra come aggiungere un servizio Marathon specifico per un'a
 Dato che il servizio apparterrà a un singolo utente o team, sarà possibile configurarlo in base alle esigenze specifiche dell'utente o del team. Il servizio Azure Container assicurerà la continuazione dell'esecuzione del servizio. In caso di errore, il servizio verrà riavviato dal servizio Azure Container. Nella maggior parte dei casi il tempo di inattività non verrà percepito dall'utente.
 
 ## <a name="prerequisites"></a>Prerequisiti
-[Distribuire un'istanza del servizio contenitore di Azure](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](../container-service-connect.md). Seguire anche questa procedura.
+[Distribuire un'istanza del servizio Azure Container](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](../container-service-connect.md). Seguire anche questa procedura.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

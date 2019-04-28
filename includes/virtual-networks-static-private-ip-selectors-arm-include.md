@@ -1,15 +1,16 @@
 ---
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: genli
+origin.date: 11/09/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
 ms.openlocfilehash: 3c852192fe6631759cd54a3b693b25bc655fcdf9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516459"
 ---
 > [!div class="op_single_selector"]
 > * [Portale di Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)

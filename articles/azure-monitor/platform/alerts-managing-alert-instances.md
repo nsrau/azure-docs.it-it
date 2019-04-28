@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551872"
 ---
 # <a name="manage-alert-instances"></a>Gestire le istanze di avviso
 Con l'[esperienza degli avvisi unificati](https://aka.ms/azure-alerts-overview) in Monitoraggio di Azure è ora possibile visualizzare tutti i diversi tipi di avvisi in Azure, estesi su più sottoscrizioni, in un'unica posizione centralizzata. Questo articolo illustra come visualizzare le istanze di avviso e come effettuare ricerche dettagliate nel portale per trovare istanze di avviso specifiche per la risoluzione dei problemi.

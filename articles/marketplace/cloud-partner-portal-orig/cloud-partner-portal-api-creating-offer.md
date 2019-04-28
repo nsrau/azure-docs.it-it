@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624990"
 ---
 <a name="create-or-modify-an-offer"></a>Create o modificare un'offerta
 =========================
@@ -34,7 +34,7 @@ Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'inte
 
 |  **Nome**         |  **Descrizione**                      |  **Tipo di dati**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Ad esempio, l'identificatore del server di pubblicazione `contoso` |   string |
+| publisherId       |  Identificatore dell'editore, per esempio `contoso` |   string |
 | offerId           |  Identificatore dell'offerta                     |   string        |
 | api-version       |  Versione più recente dell'API            |   Data           |
 |  |  |  |
@@ -255,7 +255,7 @@ Il seguente esempio crea un'offerta con l'offerID di `contosovirtualmachine`.
 | --------  |  ---------------                                                                            |
 |  200      | `OK`. La richiesta è stata elaborata con successo e l'offerta è stata modificata correttamente.           |
 |  201      | `Created`. La richiesta è stata elaborata con successo e l'offerta è stata creata correttamente.   |
-|  400      | `Bad/Malformed request`. Il corpo della risposta di errore può fornire altre informazioni.            |
+|  400      | `Bad/Malformed request`. Il corpo della risposta di errore può specificare altre informazioni.            |
 |  403      | `Forbidden`. Il client non ha accesso allo spazio dei nomi richiesto.                     |
 |  404      | `Not found`. L'entità a cui rimanda il client non esiste.                           |
 |  412      | Il server non soddisfa uno dei presupposti che il richiedente ha specificato nella richiesta. Il client deve controllare il valore ETag inviato con la richiesta. |

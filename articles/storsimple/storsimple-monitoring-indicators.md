@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24030358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630609"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
 
@@ -53,7 +53,7 @@ La differenza principale tra i LED del pannello anteriore del dispositivo e quel
 ## <a name="front-panel-led-status"></a>Stato dei LED sul pannello anteriore
 Utilizzare la seguente tabella per identificare lo stato indicato dai LED sul pannello anteriore per il dispositivo o lo chassis EBOD.  
 
-| Alimentazione del sistema | Errore del modulo | Errore logico | Allarme | Status |
+| Alimentazione del sistema | Errore del modulo | Errore logico | Allarme | Stato |
 | --- | --- | --- | --- | --- |
 | Rosso-ambra |DISATTIVA |DISATTIVA |N/D |Alimentazione CA persa, funzionamento con alimentazione di backup oppure alimentazione CA ATTIVA con i moduli di controllo rimossi. |
 | Verde |ATTIVA |ATTIVA |N/D |Stato del test di alimentazione del pannello delle operazioni acceso (5 sec) |
@@ -86,7 +86,7 @@ Legenda dei LED:
 Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del dispositivo dispone di sei LED. Quattro di tali LED visualizzano lo stato dell’alimentatore e della ventola. Idue LED restanti indicano lo stato del modulo della batteria di backup nel PCM. È possibile utilizzare le tabelle riportate di seguito per determinare lo stato del PCM.  
 
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Indicatori LED del PCM per l'alimentatore e la ventola
-| Status | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
+| Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
 | Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
 | Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
@@ -98,7 +98,7 @@ Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del d
 | Download firmware PCM |DISATTIVA |Intermittente |Intermittente |Intermittente |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Indicatori LED del PCM per la batteria di backup
-| Status | Batteria integra (verde) | Errore batteria (ambra) |
+| Stato | Batteria integra (verde) | Errore batteria (ambra) |
 | --- | --- | --- |
 | Batteria assente |DISATTIVA |DISATTIVA |
 | Batteria presente e carica |ATTIVA |DISATTIVA |
@@ -114,7 +114,7 @@ Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannell
 
 È possibile utilizzare la tabella riportata di seguito per determinare lo stato del PCM.  
 
-| Status | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
+| Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
 | Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
 | Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
@@ -158,7 +158,7 @@ Ogni controller EBOD SAS 6 Gb/s dispone di LED che indicano lo stato, come illus
 Utilizzare la tabella seguente per determinare se il modulo controller EBOD funziona normalmente.  
 
 ### <a name="ebod-controller-module-indicator-leds"></a>Indicatori LED del modulo controller EBOD
-| Status | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
+| Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 | --- | --- | --- | --- |
 | Modulo controller OK |ATTIVA |DISATTIVA |- |
 | Errore del modulo controller |DISATTIVA |ATTIVA |- |
@@ -177,7 +177,7 @@ Per le unità disco, lo stato dell’unità è indicato da un LED verde e un LED
 Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che, a sua volta, influisce sullo stato generale del LED del pannello anteriore.  
 
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicatori LED dell’unità disco per lo chassis EBOD
-| Status | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
+| Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 | --- | --- | --- | --- |
 | Nessuna unità installata |DISATTIVA |DISATTIVA |Nessuna |
 | Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |Nessuna |
@@ -203,7 +203,7 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | Stato di allarme | Azione | Azione con il pulsante di disattivazione audio premuto |
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
-| S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
+| S1 |Modalità errore: 1 secondo sul/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
 | S2 |Modalità promemoria: segnale acustico intermittente |Nessuna |
 | S3 |Modalità disattivato: invisibile all'utente |Nessuna |
 | S4 |Modalità errore critico: allarme continuo |Non disponibile: disattivazione non attiva |
@@ -219,7 +219,7 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 Nella tabella seguente vengono descritte le varie condizioni di allarme.
 
 ### <a name="alarm-conditions"></a>Condizioni di allarme
-| Status | Gravità | Allarme | LED pannello delle operazioni |
+| Stato | Gravità | Allarme | LED pannello delle operazioni |
 | --- | --- | --- | --- |
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza assente |S1 |Errore del modulo |
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |

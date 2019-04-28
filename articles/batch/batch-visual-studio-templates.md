@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550079"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
 
@@ -164,7 +164,7 @@ public IEnumerable<CloudTask> Split()
 L'implementazione di Split() ha accesso a:
 
 * Parametri del processo, tramite il campo `_parameters` .
-* Oggetto CloudJob che rappresenta il processo, tramite il campo `_job`.
+* Oggetto CloudJob che rappresenta il processo, tramite il campo `_job` .
 * Oggetto CloudTask che rappresenta l'attività del gestore di processi, tramite il campo `_jobManagerTask` .
 
 L'implementazione di `Split()` non richiede di aggiungere le attività direttamente al processo. Il codice deve invece restituire una sequenza di oggetti CloudTask che verranno aggiunti automaticamente al processo dalle classi del framework che richiamano il componente di suddivisione dei processi. Di solito si usa la funzionalità dell'iteratore di C# (`yield return`) per implementare i componenti di suddivisione dei processi per poter iniziare a eseguire le attività il prima possibile invece di attendere che tutte le attività vengano calcolate.
@@ -191,7 +191,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività del gestore di processi implementata con il modello Job Manager (Gestore di processi) può restituire tre possibili codici di uscita:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 | --- | --- |
 | 0 |Il gestore di processi è stato completato. Il codice del componente di suddivisione dei processi è stato eseguito fino al completamento e tutte le attività sono state aggiunte al processo. |
 | 1 |L'attività del gestore di processi non è riuscita con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in JobManagerException con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
@@ -202,7 +202,7 @@ In caso di errore dell'attività del gestore di processi, alcune attività potre
 Tutte le informazioni restituite dalle eccezioni vengono scritte nei file stdout.txt e stderr.txt. Per altre informazioni, vedere [Gestione degli errori](batch-api-basics.md#error-handling).
 
 ### <a name="client-considerations"></a>Considerazioni sul client
-Questa sezione illustra alcuni requisiti dell'implementazione client quando si richiama un gestore di processi basato su questo modello. Per informazioni dettagliate sul passaggio dei parametri e delle impostazioni di ambiente, vedere [Passare i parametri e le variabili di ambiente dal codice client](#pass-environment-settings).
+Questa sezione illustra alcuni requisiti dell'implementazione client quando si richiama un gestore di processi basato su questo modello. Per informazioni dettagliate sul passaggio dei parametri e delle impostazioni di ambiente, vedere [Passare i parametri e le variabili di ambiente dal codice client](#pass-environment-settings) .
 
 **Credenziali obbligatorie**
 
@@ -369,7 +369,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività dell'elaboratore di attività implementata con il modello Task Processor (Elaboratore di attività) può restituire tre possibili codici di uscita:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
 | 1 |L'elaboratore di attività non è riuscito con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in `TaskProcessorException` con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
@@ -394,7 +394,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-L'account di archiviazione è quindi disponibile nella classe TaskProcessor tramite la proprietà `_configuration.StorageAccount`.
+L'account di archiviazione è quindi disponibile nella classe TaskProcessor tramite la proprietà `_configuration.StorageAccount` .
 
 Se si preferisce usare l'URL di un contenitore con la firma di accesso condiviso, è anche possibile passarlo tramite un'impostazione di ambiente comune del processo, ma il modello di elaboratore di attività attualmente non include il supporto predefinito a questo scopo.
 

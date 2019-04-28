@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560053"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output a Video Indexer prodotto dall'API
 
@@ -32,7 +32,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -92,7 +92,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
@@ -197,7 +197,7 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 
 #### <a name="transcript"></a>transcript
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
@@ -235,7 +235,7 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
@@ -270,7 +270,7 @@ Esempio:
 
 #### <a name="keywords"></a>keywords
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
@@ -301,7 +301,7 @@ Esempio:
 
 #### <a name="faces"></a>faces
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -346,7 +346,7 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
@@ -405,7 +405,7 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della scena.|
 |instances|Un elenco degli intervalli di tempo di questa scena (una scena può avere solo 1 istanza).|
@@ -438,7 +438,7 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco di fotogrammi chiave all'interno della ripresa (ognuno con un ID e un elenco degli intervalli di tempo istanze). Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'anteprima del fotogramma chiave ID.|
@@ -488,7 +488,7 @@ Esempio:
 
 Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscimento vocale e/o nell'OCR del video. Non include il riconoscimento visivo dei marchi o il rilevamento dei logo.
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
@@ -547,7 +547,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="statistics"></a>statistics
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -557,7 +557,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
@@ -586,7 +586,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -625,7 +625,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
@@ -661,7 +661,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della moderazione dei contenuti di testo.|
 |bannedWordsCount |Numero di parole escluse.|
@@ -671,7 +671,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozione identificata potrebbe essere gioia, tristezza, rabbia o paura.
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento emotivo identificato in base ai segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.|
@@ -761,7 +761,7 @@ Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozion
 
 Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello. 
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio: "Prodotti farmaceutici".|

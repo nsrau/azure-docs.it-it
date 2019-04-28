@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558400"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Come autorizzare gli account per sviluppatore usando Azure Active Directory B2C in Gestione API di Azure
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
    ![ID applicazione 1][api-management-howto-aad-b2c-app-id]
 
 9. Tornare al pannello **Aggiungi provider di identità** di Gestione API e incollare l'ID nella casella di testo **ID client**.
-
-   ![ID applicazione 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Tornare alla registrazione dell'app B2C, fare clic sul pulsante **Chiavi** e quindi su **Genera chiave**. Fare clic su **Salva** per salvare la configurazione e visualizzare la **chiave dell'app**. Copiare la chiave negli Appunti.
 
     ![Chiave dell'app 1][api-management-howto-aad-b2c-app-key]
 
 11. Tornare al pannello **Aggiungi provider di identità** di Gestione API e incollare la chiave nella casella di testo **Segreto client**.
+    
+12. Specificare il nome di dominio del tenant in Azure Active Directory B2C **Signin tenant**.
 
-    ![Chiave dell'app 2][api-management-howto-aad-b2c-client-secret]
+13. Il **autorità** campo consenta di controllare l'URL di accesso di Azure AD B2C da usare. Impostare il valore su **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Specificare il nome di dominio del tenant di Azure Active Directory B2C nel campo **Tenant consentito**.
+14. Come criteri del tenant B2C specificare **Criteri di iscrizione** e **Criteri di accesso**. Facoltativamente è possibile specificare anche **Criteri di modifica del profilo** e **Criteri di reimpostazione password**.
 
-    ![Tenant consentito][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Come criteri del tenant B2C specificare **Criteri di iscrizione** e **Criteri di accesso**. Facoltativamente è possibile specificare anche **Criteri di modifica del profilo** e **Criteri di reimpostazione password**.
-
-    ![Criteri][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Per altre informazioni sui criteri, vedere [Azure Active Directory B2C: framework di criteri estendibile].
-
-14. Dopo avere specificato la configurazione desiderata, fare clic su **Salva**.
+15. Dopo avere specificato la configurazione desiderata, fare clic su **Salva**.
 
     Dopo il salvataggio delle modifiche, gli sviluppatori potranno creare nuovi account e accedere al portale per sviluppatori con Azure Active Directory B2C.
 

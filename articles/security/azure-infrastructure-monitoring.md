@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 88bc76116392140c533f67402642c68d714227c0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591648"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitoraggio dell'infrastruttura di Azure   
 
@@ -56,7 +56,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Azure information system components and boundaries](azure-infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](azure-infrastructure-network.md)
 - [Rete di produzione di Azure](azure-production-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](azure-protection-of-customer-data.md)

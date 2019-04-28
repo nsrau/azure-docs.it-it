@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540973"
 ---
 * Se si usa il database SQL di Azure, seguire la procedura descritta in [Connettersi al database SQL di Azure](#connect-azure-sql-db). 
 
@@ -45,7 +45,7 @@ ms.locfileid: "37138066"
    <br>
    Gli asterischi (*) indicano valori obbligatori.
 
-   | Proprietà | Valore | Dettagli | 
+   | Proprietà | Value | Dettagli | 
    |----------|-------|---------| 
    | Connection Name (Nome connessione) | <*my-sql-connection*> | Nome per la connessione | 
    | Nome server SQL | <*my-sql-server*> | Nome del server SQL |
@@ -96,15 +96,15 @@ Prima di poter selezionare il gateway, assicurarsi di avere già [configurato il
    <br>
    Gli asterischi (*) indicano valori obbligatori.
 
-   | Proprietà | Valore | Dettagli | 
+   | Proprietà | Value | Dettagli | 
    |----------|-------|---------| 
    | Connetti tramite gateway dati locale | Selezionare prima di tutto questa opzione per le impostazioni di SQL Server. | | 
-   | Nome connessione | <*my-sql-connection*> | Nome per la connessione | 
+   | Connection Name (Nome connessione) | <*my-sql-connection*> | Nome per la connessione | 
    | Nome server SQL | <*my-sql-server*> | Nome del server SQL |
    | Nome del database SQL | <*my-sql-database*>  | Nome del database SQL |
    | Username | <*my-sql-username*> | Nome utente per l'accesso al database |
    | Password | <*my-sql-password*> | Password per l'accesso al database | 
-   | Tipo di autenticazione | Windows o Di base | Facoltativo: Il tipo di autenticazione usato dal server SQL | 
+   | Tipo di autenticazione | Windows o Di base | Facoltativo: Il tipo di autenticazione utilizzato da SQL server | 
    | Gateway | <*my-data-gateway*> | Nome del gateway dati locale | 
    |||| 
 

@@ -1,5 +1,5 @@
 ---
-title: Specifiche tecniche StorSimple | Microsoft Docs
+title: Specifiche tecniche StorSimple | Documentazione Microsoft
 description: Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per i componenti hardware di StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631890"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -37,14 +37,14 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
 | --- | --- | --- |
 | Potenza massima in uscita |580 W |764 |
 | Frequenza |50/60 Hz |50/60 Hz |
-| Selezione intervallo di voltaggio |Intervallo automatico: 90 – 264 V CA, 47/63 Hz |Intervallo automatico: 90 - 264 V CA, 47/63 Hz |
+| Selezione intervallo di voltaggio |Intervallo automatico: 90 – 264 V AC, 47/63 Hz |Intervallo automatico: 90- 264 V AC, 47/63 Hz |
 | Afflusso di corrente massimo |20 A |20 A |
 | Correzione del fattore di potenza |Voltaggio di ingresso nominale > 95% |Voltaggio di ingresso nominale > 95% |
 | Armoniche |Conforme allo standard N61000-3-2 |Conforme allo standard N61000-3-2 |
 | Output |Tensione di standby 5V \@ 2.0 A |Tensione di standby 5V \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Collegabile "hot" |sì |sì |
+| Collegabile "hot" |Sì |Sì |
 | LED e commutatori |Commutatore CA ACCESO/SPENTO e quattro indicatori LED di stato |Commutatore CA ACCESO/SPENTO e sei indicatori LED di stato |
 | Raffreddamento chassis |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |
 
@@ -149,7 +149,7 @@ Il dispositivo Microsoft Azure StorSimple è conforme ai seguenti standard inter
 
 Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni di sicurezza:
 
-* Approvazione del tipo di prodotto di sistema: UL, cUL, CE
+* Approvazione del tipo di sistema del prodotto: UL, cUL, CE
 * Conformità di sicurezza: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformità EMC
@@ -160,8 +160,8 @@ Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni E
 
 Il dispositivo è conforme alle classificazioni EMC per i livelli di emissioni effettuate e irradiate.
 
-* Livelli dei limiti delle emissioni effettuate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
-* Livelli dei limiti delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* Livelli limite delle emissioni di condotta: CFR 47 parte 15B classe A EN55022 Classe A CISPR classe A
+* Livelli limite delle emissioni di Radiate: CFR 47 parte 15B classe A EN55022 Classe A CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Armoniche e sfarfallio
 

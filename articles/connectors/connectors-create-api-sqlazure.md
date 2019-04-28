@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540977"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Connettersi a SQL Server o al database SQL di Azure - App per la logica di Azure
 
@@ -24,9 +24,9 @@ Questo articolo illustra come accedere ai dati del database SQL da un'app per la
 
 È possibile creare app per la logica che vengono eseguite in seguito all'attivazione da eventi che si verificano nel database SQL o in altri sistemi, ad esempio Dynamics CRM Online. Le app per la logica possono anche recuperare, inserire ed eliminare dati, oltre a eseguire query SQL e stored procedure. È possibile, ad esempio, creare un'app per la logica che verifichi automaticamente la presenza di nuovi record in Dynamics CRM Online, che aggiunga elementi al database SQL per ogni nuovo record e che invii avvisi tramite posta elettronica.
 
-Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/sql/" target="blank">informazioni di riferimento sul connettore SQL Server</a>.
+Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/sql/" target="blank">informazioni di riferimento sul connettore SQL Server</a>.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * L'app per la logica da cui accedere al database SQL. Per avviare l'app per la logica con un trigger SQL, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 2. Nella casella di ricerca immettere "sql server" come filtro. Nell'elenco dei trigger selezionare il trigger SQL desiderato. 
 
-   Per questo esempio, selezionare il trigger: **SQL Server - When an item is created** (SQL Server - Quando viene creato un elemento)
+   In questo esempio selezionare questo trigger: **SQL Server - quando viene creato un elemento**
 
    ![Selezionare il trigger "SQL Server - When an item is created" (SQL Server - Quando viene creato un elemento)](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 2. Nella casella di ricerca immettere "sql server" come filtro. Nell'elenco delle azioni scegliere l'azione SQL desiderata. 
 
-   Per questo esempio, selezionare questa azione in modo da ottenere un singolo record: **SQL Server - Get row** (SQL Server - Ottieni riga)
+   Per questo esempio, selezionare questa azione, che ottiene un singolo record: **SQL Server - Ottieni riga**
 
    ![Immettere "sql server", selezionare "SQL Server - Get row" (SQL Server - Ottieni riga)](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584392"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Failover nell'appliance cloud StorSimple
 
@@ -31,7 +31,7 @@ Per altre informazioni sul failover del dispositivo e su come usarlo per il ripr
 
 Per effettuare il failover di un dispositivo fisico StorSimple su un altro dispositivo fisico, vedere [Fail over to a StorSimple physical device](storsimple-8000-device-failover-physical-device.md) (Failover su un dispositivo fisico StorSimple). Per eseguire il failover di un dispositivo su se stesso, passare a [Eseguire il failover sullo stesso dispositivo fisico StorSimple](storsimple-8000-device-failover-same-device.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di aver esaminato le considerazioni relative al failover dei dispositivi. Per altre informazioni, vedere [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Considerazioni comuni per il failover dei dispositivi).
 
@@ -64,7 +64,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un'appliance clo
 8. Nel pannello **Failover** attenersi alla procedura seguente:
    
     1. Fare clic su **Origine**. Selezionare i contenitori dei volumi per il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
-        ![Select source](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png) (Seleziona origine)
+        ![Seleziona origine](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
     2. Fare clic su **Destinazione**. Nell'elenco a discesa dei dispositivi disponibili selezionare l'appliance cloud di destinazione. **Nell'elenco vengono visualizzati solo i dispositivi che hanno una capacità sufficiente a contenere i contenitori dei volumi di origine.**
 
         ![Selezionare la destinazione](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)

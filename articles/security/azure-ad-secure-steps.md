@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
 ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587878"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -184,7 +184,7 @@ Azure AD offre la possibilità di gestire l'accesso alle risorse con gruppi di s
 
 Con le [verifiche di accesso di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview) è possibile gestire le appartenenze ai gruppi, l'accesso ad applicazioni aziendali e le assegnazioni di ruoli con privilegi per verificare di mantenere uno standard di sicurezza che non conceda agli utenti l'accesso per periodi prolungati, se non necessario.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Sono molti gli aspetti che ruotano attorno a un'infrastruttura di identità sicura, ma questo elenco di controllo di cinque passaggi consente di crearne una più sicura e protetta:
 

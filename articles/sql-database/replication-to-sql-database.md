@@ -13,11 +13,11 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646797"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
@@ -65,7 +65,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 1. Creare una pubblicazione di replica transazionale in un database di SQL Server locale.  
 2. Nell'istanza di SQL Server locale usare la **Creazione guidata nuova sottoscrizione** o istruzioni Transact-SQL per creare una sottoscrizione al database SQL di Azure.  
-3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con un database in istanza gestita, si può anche usare un backup di database per inizializzare il database sottoscrittore.
+3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con un database dell'istanza gestita, si può anche usare un backup di database per inizializzare il database sottoscrittore.
 
 ### <a name="data-migration-scenario"></a>Scenario di migrazione dei dati  
 

@@ -9,14 +9,15 @@ editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
-ms.date: 03/28/2019
+ms.author: v-biyu
+origin.date: 03/28/2019
+ms.date: 05/06/2019
 ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559926"
 ---
 # <a name="azure-notification-hubs-samples"></a>Esempi di hub di notifica di Azure
 Questo articolo vengono forniti collegamenti a esempi che dimostrano le funzionalità principali di hub di notifica di Azure.

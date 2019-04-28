@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619825"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
 Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione.
@@ -66,17 +66,17 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 | NOME | Valore/Esempio | Tipo di dati
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | stringa |
-| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | stringa |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Impostazioni
 
 | NOME | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
-| protocol | `http` oppure `tcp` | stringa |
+| protocol | `http` oppure `tcp` | string |
 | port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | int |
-| requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | stringa |
+| requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
 Esistono diversi modi per distribuire l'estensione Integrità applicazione nei set di scalabilità, come descritto in dettaglio negli esempi seguenti.

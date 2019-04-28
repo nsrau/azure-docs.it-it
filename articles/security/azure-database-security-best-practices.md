@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587538"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
@@ -55,7 +55,7 @@ Nell'ambito del processo di connessione le connessioni da macchine virtuali di A
 Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](../sql-database/sql-database-firewall-configure.md).
 
 > [!Note]
-> Oltre alle regole IP, il firewall gestisce anche le regole della rete virtuale. Le regole della rete virtuale si basano sugli endpoint di servizio di Rete virtuale. In alcuni casi le regole della rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale e regole per il database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+> Oltre alle regole IP, il firewall gestisce anche le regole di rete virtuale. Le regole di rete virtuale si basano sugli endpoint servizio di rete virtuale. In alcuni casi le regole di rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint servizio di rete virtuale e regole per il database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Abilitare l'autenticazione del database
 Il database SQL supporta due tipi di autenticazione: l'autenticazione di SQL Server e l'autenticazione di Azure AD.
@@ -77,7 +77,7 @@ Se si usa l'autenticazione di SQL Server, è necessario:
 
 - Gestire autonomamente le credenziali sicure.
 - Proteggere le credenziali nella stringa di connessione.
-- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per altre informazioni, vedere [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
+- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per ulteriori informazioni, consultare [Come Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticazione di Azure Active Directory (AD)*
 L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Azure e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite l'uso di identità in Azure AD. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.

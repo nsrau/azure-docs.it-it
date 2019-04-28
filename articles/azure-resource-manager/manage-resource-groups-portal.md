@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551281"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
 
@@ -123,7 +123,7 @@ Per esportare un modello sono disponibili due modi:
 Questo metodo consente di esportare i modelli per alcune distribuzioni. Se è stata modificata le risorse dal portale o risorse aggiunte/rimosse in distribuzioni multiple, vedere [esportare modelli da gruppi di risorse](#export-templates-from-resource-groups).
 
 1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **distribuzioni**, o selezionare il collegamento sotto **distribuzioni**.  Nella schermata seguente viene illustrato **Succeeded 4** perché si sono verificati quattro distribuzioni separate con quattro i nomi di distribuzione diversi. Si noterà **1 riuscito**.
+2. Nel riquadro sinistro selezionare **Distribuzioni** o selezionare il collegamento sotto **Distribuzioni**.  Nella schermata seguente viene illustrato **Succeeded 4** perché si sono verificati quattro distribuzioni separate con quattro i nomi di distribuzione diversi. Si noterà **1 riuscito**.
 
     ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
 

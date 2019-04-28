@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729342"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
@@ -559,7 +559,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si è appreso come creare una richiesta da inviare all'API REST del servizio di archiviazione BLOB per recuperare un elenco di contenitori o un elenco di BLOB all'interno di un contenitore. Si è inoltre appreso come creare la firma di autorizzazione per la chiamata all'API REST, come usarla nella richiesta REST e come esaminare la risposta.
 

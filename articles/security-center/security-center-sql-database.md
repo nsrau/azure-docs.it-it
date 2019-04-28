@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704555"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -104,7 +104,7 @@ Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza](se
 ## <a name="next-steps"></a>Passaggi successivi
 * [Domande frequenti sul Centro sicurezza](security-center-faq.md): leggere le domande frequenti sull'uso del servizio.
 * [Guida alla pianificazione e alla gestione del Centro sicurezza](security-center-planning-and-operations-guide.md): eseguire una serie di passaggi e attività per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione.
-* [Sicurezza dei dati nel Centro sicurezza](security-center-data-security.md): apprendere come il Centro sicurezza raccoglie ed elabora i dati sulle risorse di Azure, tra cui informazioni di configurazione, metadati, registri eventi, file di dump di arresto anomalo del sistema e altro.
+* [Sicurezza dei dati nel Centro sicurezza](security-center-data-security.md): apprendere come il Centro sicurezza raccoglie ed elabora i dati sulle risorse di Azure, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro.
 * [Gestione degli eventi imprevisti della sicurezza](security-center-incident.md): imparare a usare la funzionalità degli avvisi del Centro sicurezza per gestire gli eventi imprevisti della sicurezza.
 
 <!--Image references-->

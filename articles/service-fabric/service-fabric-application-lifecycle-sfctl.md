@@ -2,18 +2,19 @@
 title: Gestire le applicazioni di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 description: Informazioni su come distribuire e rimuovere le applicazioni da un cluster Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric.
 services: service-fabric
-author: Christina-Kang
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/31/2018
-ms.author: bikang
+origin.date: 07/31/2018
+ms.date: 09/10/2018
+ms.author: v-yeche
 ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621378"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
@@ -170,3 +171,5 @@ Infine, se un aggiornamento è in corso e deve essere annullato, è possibile us
 * [Azure Service Fabric command line](service-fabric-cli.md) (Riga di comando di Service Fabric)
 * [Introduzione a Service Fabric in Linux](service-fabric-get-started-linux.md)
 * [Service Fabric application upgrade](service-fabric-application-upgrade.md) (Aggiornamento di un'applicazione Service Fabric)
+
+<!--Update_Description: update meta properties -->

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
-ms.openlocfilehash: c92789c12f4454f5d76590e5323b78223b49c97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617392"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
@@ -374,7 +374,7 @@ A questo punto sono state completate tutte le operazioni necessarie per chiamare
     - **filters**: i filtri consentono di limitare il budget a un set specifico di risorse all'interno dell'ambito selezionato. Un filtro può ad esempio essere costituito da una raccolta di gruppi di risorse per un budget definito a livello di sottoscrizione.
     - **notifications**: determina i dettagli e le soglie di notifica. È possibile impostare più soglie e specificare un indirizzo di posta elettronica o un gruppo di azioni per ricevere una notifica.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questa esercitazione si è appreso come:
 - Creare un runbook di Automazione di Azure per arrestare le macchine virtuali.
