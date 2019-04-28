@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 10/04/2018
-ms.author: glenga
+origin.date: 10/04/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 6a1819e0bbfb8a6ab277721e84dc08cd325c8460
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306819"
 ---
 Nella tabella seguente viene descritto come aggiungere un supporto per questa associazione in ogni ambiente di sviluppo.
 
@@ -25,3 +26,4 @@ Nella tabella seguente viene descritto come aggiungere un supporto per questa as
 |Sviluppo con il portale| [Registrare l'estensione](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
 
 Per informazioni su come aggiornare le estensioni delle associazioni esistenti nel portale, senza dover ripubblicare il progetto dell'app per le funzioni, vedere [Aggiornare le estensioni](../articles/azure-functions/install-update-binding-extensions-manual.md).
+

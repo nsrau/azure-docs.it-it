@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: b515a0b226723989b1cc73356f1377da421dc9aa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485650"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
 Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../../billing/billing-understand-your-bill.md).

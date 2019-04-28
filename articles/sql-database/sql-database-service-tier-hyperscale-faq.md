@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111833"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -48,7 +48,7 @@ I livelli di servizio basati su vCore si differenziano principalmente in base a 
 |:---|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|  La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | Applicazioni dati con i requisiti di capacità di dati di grandi dimensioni e possibilità di ridimensionamento automatico delle risorse di archiviazione e facile ridimensionamento delle risorse di calcolo. | Applicazioni OLTP con frequenza di transazioni elevata e livelli minimi di latenza di I/O. Offre massima resilienza agli errori tramite diverse repliche isolate.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
-| **Dimensione di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
+| **Dimensioni di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
 | **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni archiviazione** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
@@ -132,7 +132,7 @@ Se si eseguono analisi dei dati su vasta scala con query complesse e si usano Pa
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>È possibile effettuare il provisioning di risorse di calcolo con RAM aggiuntiva per un carico di lavoro a elevato utilizzo di memoria
 
- No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a una dimensione di calcolo superiore. L'hardware di quarta generazione offre una maggiore quantità di RAM rispetto a quello di quinta generazione. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+ No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a dimensioni di calcolo superiori. L'hardware di quarta generazione offre una maggiore quantità di RAM rispetto a quello di quinta generazione. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>È possibile effettuare il provisioning di più nodi di calcolo di dimensioni diverse
 
@@ -208,7 +208,7 @@ Sì. Le pagine di dati associate a una determinata tabella possono venire distri
 
 ### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>È possibile spostare i database SQL di Azure esistenti al livello di servizio Hyperscale
 
-Sì. È possibile spostare i database SQL di Azure esistenti al livello Hyperscale. In anteprima pubblica questo spostamento è una migrazione unidirezionale. Non è possibile spostare i database dal livello di servizio con iperscalabilità in un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio con iperscalabilità per il modello di verifica.
+Sì. È possibile spostare i database SQL di Azure esistenti al livello Hyperscale. In anteprima pubblica questo spostamento è una migrazione unidirezionale. Non è possibile spostare i database da Hyperscale a un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio Hyperscale per il modello di verifica.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>È possibile spostare i database Hyperscale ad altre edizioni
 

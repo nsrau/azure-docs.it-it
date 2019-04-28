@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456878"
 ---
 È possibile [ridimensionare automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/azure-monitor/platform/autoscale-overview.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
 

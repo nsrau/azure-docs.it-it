@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337945"
 ---
 **Ultimo aggiornamento del documento**: 14 agosto 2018 10 12:00 AM PST.
 

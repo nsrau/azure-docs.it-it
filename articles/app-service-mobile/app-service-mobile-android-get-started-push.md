@@ -14,22 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104616"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Aggiungere notifiche push all'app Android
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Panoramica
+
 In questa esercitazione vengono aggiunte notifiche push al progetto [avvio rapido di Android], in modo che una notifica push venga inviata al dispositivo a ogni inserimento di record.
 
 Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
+
 Sono necessari gli elementi seguenti:
 
 * Un IDE, in base al back-end del progetto:
@@ -40,21 +43,27 @@ Sono necessari gli elementi seguenti:
 * Completare l'[avvio rapido di Android].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Creare un progetto che supporta Google Cloud Messaging
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-a-notification-hub"></a>Configurare un hub di notifica
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>Configurare Azure per l'invio di notifiche push
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## <a name="enable-push-notifications-for-the-server-project"></a>Abilitare le notifiche push per il progetto server
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Aggiungere notifiche push all'app
+
 In questa sezione l'app del client Android viene aggiornata in modo da gestire le notifiche push.
 
 ### <a name="verify-android-sdk-version"></a>Verificare la versione di Android SDK
+
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Firebase Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e i test. È necessario che la proprietà **minSdkVersion** nel manifesto sia conforme a tali requisiti.
@@ -62,15 +71,19 @@ Il passaggio successivo comporta l'installazione di Google Play Services. Fireba
 In caso di test con un dispositivo meno recente, vedere [Aggiungere Firebase al progetto Android] (Aggiungere Firebase a un progetto Android) per determinare il livello minimo su cui è possibile impostare tale valore e applicare l'impostazione corretta.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Aggiungere Firebase Cloud Messaging al progetto
+
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Aggiungere codice
+
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Eseguire il test dell'app sul servizio mobile pubblicato
+
 È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB oppure usando un dispositivo virtuale nell'emulatore.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver completato questa esercitazione, continuare con una delle esercitazioni seguenti:
 
 * [Aggiungere l'autenticazione all'app Android](app-service-mobile-android-get-started-users.md).

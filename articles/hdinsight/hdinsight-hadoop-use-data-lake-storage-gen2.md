@@ -1,19 +1,18 @@
 ---
 title: Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 description: Informazioni su come usare Azure Data Lake Storage Gen2 con i cluster HDInsight di Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004959"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766934"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -69,7 +68,7 @@ Assegnare l'identità gestita per il **proprietario dei dati Blob di archiviazio
         ![Impostazioni di identità per l'uso di Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> È possibile aggiungere uno o più account Data Lake Storage Gen2 come risorsa di archiviazione secondaria nello stesso cluster. Ripetere i passaggi precedenti in ogni account Data Lake Storage Gen2 che si desidera aggiungere usando la stessa identità gestita.
+> Per aggiungere un account Data Lake Storage Gen2 secondario, a livello di account di archiviazione, è sufficiente assegnare l'identità gestita creata in precedenza per il nuovo account di archiviazione Gen2 di archivio Data Lake che si desidera aggiungere. Si noti che l'aggiunta di un account Data Lake Storage Gen2 secondario usando il pannello "altri account di archiviazione" in HDInsight non è supportato. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Creare un cluster con Data Lake Storage Gen2 tramite la CLI di Azure
 

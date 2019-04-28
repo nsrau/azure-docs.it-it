@@ -2,18 +2,19 @@
 title: File di inclusione
 description: File di inclusione
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/27/2018
-ms.author: cherylmc
+origin.date: 07/27/2018
+ms.date: 01/21/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320108"
 ---
 1. Aprire un prompt dei comandi con privilegi elevati facendo clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionando **Esegui come amministratore**.
 2. Eseguire questi comandi nel prompt dei comandi:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419903"
 ---
 1. Accedere al [portale di Azure][Azure portal].
 2. Nel menu a sinistra selezionare **+ Crea una risorsa**. Quindi, selezionare **Integrazione** > **Inoltro**. Se **Inoltro** non è visibile nell'elenco, selezionare **Visualizza tutto** nell'angolo superiore destro. 

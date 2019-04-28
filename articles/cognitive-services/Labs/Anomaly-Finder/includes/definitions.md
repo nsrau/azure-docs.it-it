@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309509"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definizioni
@@ -50,7 +50,7 @@ ms.locfileid: "55228901"
 |**LowerMargin**  <br>*facoltativo*|La differenza tra ExpectedValue e LowerMargin determina il limite inferiore entro il quale il punto dati viene ancora considerato normale. Se i punti dati di input sono ordinati per timestamp crescente, si può usare l'indice della matrice per eseguire il mapping del valore previsto al valore originale.|Matrice < numero (double) >|
 |**Periodo**  <br>*facoltativo*|Periodo usato dall'API per rilevare i punti di anomalie.|numero (float)|
 |**UpperMargin**  <br>*facoltativo*|La somma di ExpectedValue e UpperMargin determina il limite superiore entro il quale il punto dati viene ancora considerato normale. Se i punti dati di input sono ordinati per timestamp crescente, si può usare l'indice della matrice per eseguire il mapping del valore previsto al valore originale.|Matrice < numero (double) >|
-|**WarningText**  <br>*facoltativo*|Se i punti dati di input forniti non seguono la regola richiesta dall'API e i dati possono essere comunque rilevati dall'API, i dati verranno analizzati e il messaggio di avviso verrà aggiunto in questo campo.|stringa|
+|**WarningText**  <br>*facoltativo*|Se i punti dati di input forniti non seguono la regola richiesta dall'API e i dati possono essere comunque rilevati dall'API, i dati verranno analizzati e il messaggio di avviso verrà aggiunto in questo campo.|string|
 
 
 

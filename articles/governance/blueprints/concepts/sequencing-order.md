@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266189"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766349"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -41,6 +41,9 @@ In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine d
 - Figlio di gruppo di risorse **assegnazione di ruolo** degli elementi ordinati per nome dell'artefatto
 - Figlio di gruppo di risorse **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
 - Figlio di gruppo di risorse **modello di Azure Resource Manager** degli elementi ordinati per nome dell'artefatto
+
+> [!NOTE]
+> Sfrutta [artifacts()](../reference/blueprint-functions.md#artifacts) crea una dipendenza implicita l'elemento a cui si fa riferimento.
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizzazione dell'ordine di sequenziazione
 

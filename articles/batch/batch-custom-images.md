@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752127"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764270"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali 
 
@@ -48,9 +48,9 @@ L'uso di un'immagine personalizzata configurata per uno scenario specifico può 
 
 In Azure è possibile preparare un'immagine gestita dagli snapshot del sistema operativo e dei dischi dati di una macchina virtuale di Azure, da una VM di Azure generalizzata con dischi gestiti o da un disco rigido virtuale locale generalizzato da caricare. Per ridimensionare i pool di Batch in modo affidabile con un'immagine personalizzata, si consiglia di creare un'immagine gestita usando *solo* il primo modo, ovvero usando gli snapshot dei dischi della macchina virtuale. Vedere i passaggi seguenti per preparare una macchina virtuale, acquisire uno snapshot e creare un'immagine dallo snapshot. 
 
-### <a name="prepare-a-vm"></a>Preparare una VM 
+### <a name="prepare-a-vm"></a>Preparare una VM
 
-Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine di Azure Marketplace supportata da Batch come immagine di base per l'immagine gestita e quindi personalizzarla.  Per ottenere un elenco di riferimenti a immagini di Azure Marketplace supportate da Azure Batch, vedere l'operazione [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus). 
+Se si sta creando una nuova macchina virtuale per l'immagine, usare un'immagine di Azure Marketplace di terze parti prima supportata come immagine di base per l'immagine gestita da Batch. Immagini proprietarie possono essere utilizzate solo come un'immagine di base. Per ottenere un elenco completo dei riferimenti a immagini di Marketplace di Azure supportati da Azure Batch, vedere la [gli SKU agente nodo elenco](/rest/api/batchservice/account/listnodeagentskus) operazione.
 
 > [!NOTE]
 > È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ Dopo avere salvato l'immagine personalizzata e conoscendone l'ID risorsa o il no
 > [!NOTE]
 > Se si sta creando il pool usando una delle API di Batch, assicurarsi che l'identità usata per l'autenticazione AAD disponga delle autorizzazioni per la risorsa immagine. Vedere [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
 >
+> La risorsa per l'immagine gestita deve esistere per la durata del pool. Se la risorsa sottostante viene eliminata, non può essere ridimensionato il pool. 
 
 1. Passare all'account Batch nel portale di Azure. Questo account deve trovarsi nella stessa area e nella stessa sottoscrizione del gruppo di risorse contenente l'immagine personalizzata. 
 2. Nella finestra **Impostazioni** a sinistra scegliere la voce di menu **Pool**.
@@ -109,6 +110,16 @@ Si noti inoltre quanto segue:
 - **Timeout ridimensionamento**: se il pool contiene un numero fisso di nodi (senza scalabilità automatica), aumentare il valore della proprietà resizeTimeout del pool a un valore come 20-30 minuti. Se il pool non raggiunge la dimensione di destinazione entro il periodo di timeout, eseguire un'altra [operazione di ridimensionamento](/rest/api/batchservice/pool/resize).
 
   Se si prevede di creare un pool con oltre 300 nodi di calcolo, può essere necessario ridimensionare il pool più volte per raggiungere le dimensioni di destinazione.
+
+## <a name="considerations-for-using-packer"></a>Considerazioni sull'uso di Packer
+
+Creazione di una risorsa immagine gestita direttamente con Packer può essere eseguita solo con gli account Batch in modalità di sottoscrizione utente. Per gli account in modalità servizio Batch, è necessario creare prima un disco rigido virtuale, quindi importare il disco rigido virtuale a una risorsa immagine gestita. I passaggi per creare una risorsa immagine gestita variano a seconda della modalità di allocazione pool (sottoscrizione utente o il servizio Batch).
+
+Assicurarsi che la risorsa usata per creare l'immagine gestita esiste per la durata di qualsiasi pool facendo riferimento all'immagine personalizzata. In caso contrario, può comportare errori di allocazione pool e/o ridimensionare gli errori. 
+
+Se l'immagine o la risorsa sottostante viene rimosso, si potrebbe verificarsi un errore simile a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. In questo caso, assicurarsi che la risorsa sottostante non è stata rimossa.
+
+Per altre informazioni sull'uso di Packer per creare una macchina virtuale, vedere [creare un'immagine Linux con Packer](../virtual-machines/linux/build-image-with-packer.md) oppure [compilare un'immagine di Windows con Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

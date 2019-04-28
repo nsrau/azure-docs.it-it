@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128101"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 
@@ -44,7 +44,7 @@ Node.js SDK per App per dispositivi mobili supporta la versione LTS corrente di 
 
 Node.js SDK per App per dispositivi mobili supporta due driver di database: 
 
-* Il driver node-mssql supporta il databse SQL Azure e le istanze locali di SQL Server.  
+* Il driver node-mssql supporta il database SQL di Azure e le istanze locali di SQL Server.  
 * Il driver sqlite3 supporta i database SQLite solo su un'unica istanza.
 
 ### <a name="howto-cmdline-basicapp"></a>Creare un back-end Node.js di base usando la riga di comando
@@ -372,7 +372,7 @@ Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app eq
 
 | Impostazione app | Impostazione in azureMobile.js | DESCRIZIONE | Valori validi |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nome dell'app |stringa |
+| **MS_MobileAppName** |name |Nome dell'app |string |
 | **MS_MobileLoggingLevel** |logging.level |Livello log minimo di messaggi da registrare |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Abilita o disabilita la modalità debug |true, false |
 | **MS_TableSchema** |data.schema |Nome dello schema predefinito per le tabelle SQL |string (valore predefinito: dbo) |

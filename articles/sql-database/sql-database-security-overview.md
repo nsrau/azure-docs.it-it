@@ -1,6 +1,6 @@
 ---
 title: Panoramica della sicurezza del database SQL di Azure | Microsoft Docs
-description: In questo argomento vengono fornite informazioni sulla sicurezza del database SQL Azure e di SQL Server, incluse le differenze tra il cloud e SQL Server locale.
+description: In questo argomento vengono fornite informazioni sulla sicurezza del database SQL di Azure e di SQL Server, incluse le differenze tra il cloud e SQL Server locale.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001083"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766913"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -31,13 +31,13 @@ Il database SQL di Microsoft Azure assicura un servizio di database relazionale 
 
 ### <a name="ip-firewall-rules"></a>Regole del firewall IP
 
-Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL e SQL Data Warehouse](sql-database-firewall-configure.md).
+Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL di Azure e SQL Data Warehouse](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
-Gli [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) estendono la connettività della rete virtuale sul backbone di Azure e consentono al database SQL di Azure di identificare la subnet della rete virtuale da cui ha origine il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../virtual-network/security-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
+Gli [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) estendono la connettività della rete virtuale sul backbone di Azure e consentono al database SQL di Azure di identificare la subnet della rete virtuale da cui ha origine il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../virtual-network/security-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
 
-Le [regole della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
+Le [regole di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
 
 > [!NOTE]
 > Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Per altre informazioni sulla configurazione di rete necessaria, vedere l'articolo sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
@@ -66,19 +66,17 @@ L'autenticazione è il processo atto a dimostrare che l'utente sia effettivament
 > [!IMPORTANT]
 > La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md). Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per altre informazioni sulla configurazione di rete necessaria.
 
-L'autorizzazione fa riferimento alle autorizzazioni assegnate a un utente all'interno di un database SQL di Azure e determina le operazioni che l'utente è autorizzato a eseguire. Le autorizzazioni sono controllate mediante l'aggiunta degli account utente ai [ruoli del database](/sql/relational-databases/security/authentication-access/database-level-roles) che definiscono le autorizzazioni a livello di database o che consentono all'utente determinate [autorizzazioni a livello di oggetto](/sql/relational-databases/security/permissions-database-engine). Per altre informazioni, vedere [Accessi e utenti](sql-database-manage-logins.md)
+## <a name="authorization"></a>Authorization
 
-Come procedura consigliata, aggiungere utenti al ruolo con i privilegi minimi necessari per svolgere le proprie funzioni. L'account amministratore del server è un membro del ruolo db_owner, che dispone delle autorizzazioni complete e deve essere concesso agli utenti con cautela. Quando si usano le applicazioni con il database SQL di Azure, usare i [Ruoli applicazione](/sql/relational-databases/security/authentication-access/application-roles) con autorizzazioni limitate. Ciò assicura che l'applicazione che si connette al database disponga dei privilegi minimi necessari per l'applicazione.
+L'autorizzazione fa riferimento alle autorizzazioni assegnate a un utente all'interno di un database SQL di Azure e determina le operazioni che l'utente è autorizzato a eseguire. Le autorizzazioni vengono controllate mediante l'aggiunta degli account utente in [ruoli del database](/sql/relational-databases/security/authentication-access/database-level-roles) e assegnare le autorizzazioni a livello di database a tali ruoli o concedendo all'utente determinata [autorizzazioni a livello di oggetto](/sql/relational-databases/security/permissions-database-engine). Per altre informazioni, vedere [Accessi e utenti](sql-database-manage-logins.md)
+
+Come procedura consigliata, creare ruoli personalizzati quando necessario. Aggiungere utenti al ruolo con i privilegi minimi necessari per eseguire operazioni sulla relativa funzione del processo. Non assegnare le autorizzazioni direttamente agli utenti. L'account amministratore del server è un membro del ruolo predefinito del database db_owner, che dispone delle autorizzazioni complete e deve essere concesso solo ad alcuni utenti con le attività amministrative. Per le applicazioni di Database SQL di Azure, usare il [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) per specificare il contesto di esecuzione del modulo chiamato o usare [i ruoli applicazione](/sql/relational-databases/security/authentication-access/application-roles) con autorizzazioni limitate. In questo modo si garantisce che l'applicazione che si connette al database disponga dei privilegi minimi necessari per l'applicazione. Seguire queste procedure consigliate anche promuove la separazione dei compiti.
 
 ### <a name="row-level-security"></a>Sicurezza a livello di riga
 
-La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione. Per altre informazioni, vedere [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
+La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione. Sicurezza a livello di riga è anche utilizzabile per implementare i concetti di sicurezza basato su etichetta personalizzata. Per altre informazioni, vedere [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Questo metodo di autenticazione usa nome utente e password. 
-
-Per una panoramica di autorizzazioni nel database SQL di Azure, vedere [Accessi e utenti](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>Protezione dalle minacce
 

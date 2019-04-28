@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109328"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
@@ -125,7 +125,7 @@ Database SQL di Azure in questo progetto
 
 L'istanza di database SQL di Azure usa le misure di sicurezza del database seguenti:
 
-- [Regole del firewall a livello di server e a livello di database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) o tramite [endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regole della rete virtuale](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
+- [Regole del firewall a livello di server e a livello di database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) o tramite [endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regole di rete virtuale](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
 - La funzionalità [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) consente di proteggere il database SQL di Azure e Azure Data Warehouse dalla minaccia di attività dannose. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione.
 - Con l'[autenticazione di Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) è possibile gestire centralmente le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.
 - Usare Azure Active Directory per l'amministrazione del database
@@ -149,7 +149,7 @@ Questo modello usa i componenti di Archiviazione di Azure seguenti:
 
 Con la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), tutti i dati scritti in Archiviazione di Azure vengono crittografati con la crittografia AES a 256 bit, una delle crittografie a blocchi più sicure tra quelle disponibili. È possibile usare le chiavi di crittografia gestite da Microsoft con SSE oppure le [proprie chiavi di crittografia](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
-Gli account di archiviazione possono essere protetti tramite [endpoint del servizio rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regole della rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Gli account di archiviazione possono essere protetti tramite [endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) usando [regole di rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 Informazioni dettagliate sulla protezione di Archiviazione di Azure sono disponibili nella [guida alla sicurezza](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
 

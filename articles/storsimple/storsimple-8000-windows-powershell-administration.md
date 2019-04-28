@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128584"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -159,7 +159,7 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 
 In Windows PowerShell per StorSimple è disponibile la guida per i cmdlet. È inoltre disponibile una versione aggiornata in linea di questa guida, che è possibile utilizzare per aggiornare la guida del sistema.
 
-La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare utili per Windows PowerShell online nella libreria TechNet: [Scripting con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare online della Guida per Windows PowerShell: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfaccia di Windows PowerShell, tra cui come aggiornare la guida.
 

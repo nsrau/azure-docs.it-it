@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386362"
 ---
 È possibile collegare un numero di dischi dati a una macchina virtuale di Azure. Basato sugli obiettivi di scalabilità e prestazioni per i dischi dati della macchina virtuale, è possibile determinare il numero e tipo di disco che è necessario soddisfare i requisiti di capacità e prestazioni.
 

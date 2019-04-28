@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187674"
+ms.locfileid: "60418652"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-Debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 

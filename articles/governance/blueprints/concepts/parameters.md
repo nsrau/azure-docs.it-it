@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279976"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767043"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -169,7 +169,7 @@ La creazione di **parametri statici** su un artefatto è simile, ma accetta un v
 
 ### <a name="dynamic-parameters"></a>Parametri dinamici
 
-L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro non viene definito nel progetto, bensì durante ogni assegnazione del progetto. Nell'esempio del gruppo di risorse, l'uso di un **parametro dinamico** ha senso per il nome del gruppo di risorse. Questo fornisce un nome diverso per ogni assegnazione del progetto.
+L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro non viene definito nel progetto, bensì durante ogni assegnazione del progetto. Nell'esempio del gruppo di risorse, l'uso di un **parametro dinamico** ha senso per il nome del gruppo di risorse. Questo fornisce un nome diverso per ogni assegnazione del progetto. Per un elenco di funzioni di progetto, vedere la [blueprint funzioni](../reference/blueprint-functions.md) riferimento.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Impostazione dei parametri dinamici nel portale
 
@@ -185,9 +185,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 
-L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore.
-Invece di usare una funzione, ad esempio `parameters()`, il valore fornito è una stringa appropriata.
-Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per ogni artefatto incluso sono definiti in **parameters** con una coppia di chiavi **\<name\>** e **value**. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
+L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore. Invece di usare una funzione, ad esempio [parameters()](../reference/blueprint-functions.md#parameters), il valore fornito è una stringa appropriata. Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per ogni artefatto incluso sono definiti in **parameters** con una coppia di chiavi **\<name\>** e **value**. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
 
 - URI DELL'API REST
 
@@ -240,6 +238,7 @@ Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Visualizzare l'elenco delle [blueprint funzioni](../reference/blueprint-functions.md).
 - Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
 - Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).

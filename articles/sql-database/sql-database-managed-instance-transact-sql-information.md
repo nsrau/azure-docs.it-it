@@ -13,11 +13,11 @@ manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 5f476aa571ba2827cbe6f4e4f258545b5e9d3ba1
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106366"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -50,7 +50,7 @@ La [disponibilità elevata](sql-database-high-availability.md) è incorporata in
 
 Le istanze gestite hanno backup automatici e consentono agli utenti di creare backup `COPY_ONLY` di database completi. I backup differenziali, di log e dello snapshot dei file non sono supportati.
 
-- Con un'istanza gestita è possibile eseguire il backup di un database di istanza solo in un account di Archiviazione BLOB di Azure:
+- Con un'istanza gestita è possibile eseguire il backup di un database dell'istanza solo in un account di Archiviazione BLOB di Azure:
   - È supportato solo `BACKUP TO URL`
   - I dispositivi di backup, `FILE` e `TAPE` non sono supportati  
 - La maggior parte delle opzioni `WITH` generali è supportata
@@ -61,7 +61,7 @@ Le istanze gestite hanno backup automatici e consentono agli utenti di creare ba
 
  Limitazioni:  
 
-- Con un'istanza gestita è possibile eseguire il backup di un database di istanza in un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
+- Con un'istanza gestita è possibile eseguire il backup di un database dell'istanza in un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
 - Dimensioni di striping backup max usando il `BACKUP` comando in un'istanza gestita corrisponde a 195 GB (dimensione massima dei blob). Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
 
     > [!TIP]

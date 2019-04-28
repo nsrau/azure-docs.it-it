@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842141"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766554"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -53,11 +53,11 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 4. Selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
    Se non è presente il riquadro dei contratti, aggiungerlo. 
 
-   ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. In **Contratti** scegliere **Aggiungi**.
 
-   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. In **Aggiungi**, digitare un **nome** per il contratto. 
    Come tipo di contratto selezionare **X12**. 
@@ -122,7 +122,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| Versione |Selezionare la versione X12 |
+| Version |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Sender Application (GS02) (Applicazione mittente (GS02)) |Selezionare l'applicazione del mittente |
 | SCHEMA |Selezionare il file di schema che si vuole usare. Gli schemi vengono aggiunti all'account di integrazione. |
@@ -216,7 +216,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| Versione |Selezionare la versione X12 |
+| Version |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Schema |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Se si seleziona prima lo schema, viene automaticamente configurata la versione e il tipo di transizione  |
 
