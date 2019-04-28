@@ -2,17 +2,17 @@
 title: Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima) - Archiviazione di Azure
 description: File di Azure supporta l'autenticazione basata su identità tramite SMB (Server Message Block) (anteprima) con Azure Active Directory (Azure AD) Domain Services. Le macchine virtuali di Windows aggiunte a dominio possono così accedere a condivisioni file di Azure tramite credenziali di Azure AD.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
-ms.author: tamram
-ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.author: rogarana
+ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427638"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766493"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -87,7 +87,7 @@ L'autenticazione di Azure AD tramite SMB supporta il mantenimento degli ACL di d
 ## <a name="pricing"></a>Prezzi
 Non sono previsti ulteriori addebiti per abilitare l'autenticazione di Azure AD tramite SMB nell'account di archiviazione. Per altre informazioni sui prezzi, consultare le pagine [Prezzi di File di Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [Prezzi di Azure AD Domain Services](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per altre informazioni su File di Azure e sull'autenticazione di Azure AD tramite SMB, vedere queste risorse:
 
 - [Introduzione a File di Azure](storage-files-introduction.md)

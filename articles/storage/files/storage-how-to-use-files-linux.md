@@ -2,18 +2,18 @@
 title: Usare File di Azure con Linux | Microsoft Docs
 description: Informazioni su come montare una condivisione file di Azure tramite SMB in Linux.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c79c405c81d6e89314a765ea45d83cc46eb804cd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 75987c7838846aacb099b725e2a222967b32fe64
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834954"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763824"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 

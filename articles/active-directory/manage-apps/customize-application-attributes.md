@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291656"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759767"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
-Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se si abilita il provisioning utenti per un'applicazione SaaS di terze parti, il portale di Azure controlla i relativi valori di attributo tramite i mapping degli attributi.
+Microsoft Azure AD offre supporto per il provisioning utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, G Suite e ad altri utenti. Se si abilita il provisioning utenti per un'applicazione SaaS di terze parti, il portale di Azure controlla i relativi valori di attributo tramite i mapping degli attributi.
 
 È presente un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di ogni app SaaS e gli oggetti utente di Azure AD. Alcune App gestiscono altri tipi di oggetti insieme a utenti, ad esempio i gruppi.
 
@@ -84,7 +84,7 @@ Insieme a questa proprietà, i mapping degli attributi supportano anche gli attr
 
 ## <a name="editing-group-attribute-mappings"></a>Modifica dei mapping degli attributi gruppo
 
-Un numero selezionato di applicazioni, ad esempio ServiceNow, Box e Google Apps, supporta la possibilità di effettuare il provisioning di oggetti di gruppo e gli oggetti utente. Gli oggetti gruppo possono contenere proprietà di gruppo, ad esempio i nomi visualizzati e gli alias, insieme ai membri del gruppo di posta elettronica.
+Un numero selezionato di applicazioni, ad esempio ServiceNow, Box e G Suite, supporta la possibilità di effettuare il provisioning di oggetti di gruppo e gli oggetti utente. Gli oggetti gruppo possono contenere proprietà di gruppo, ad esempio i nomi visualizzati e gli alias, insieme ai membri del gruppo di posta elettronica.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

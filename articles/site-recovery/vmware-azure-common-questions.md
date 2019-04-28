@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125560"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -245,11 +245,15 @@ Sì, ma tenere presente che tale computer fisico può essere eseguito solo il fa
 
 Nell'insieme di credenziali di servizi di ripristino, fare clic su **server di configurazione** nelle **infrastruttura di Site Recovery** > **Gestisci**. Quindi nella **i server**, selezionare **Scarica chiave di registrazione** per scaricare il file delle credenziali dell'insieme di credenziali.
 
+## <a name="process-server"></a>Server di elaborazione
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Non è possibile selezionare server di elaborazione durante l'abilitazione della replica
 
+Da versione 9.24, miglioramenti hanno scopo di fornire [linee guida del prodotto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sui casi in cui configurare un server di elaborazione scale-out. Si tratta di evitare la limitazione delle richieste di processo server ed evitare l'utilizzo del server di elaborazione non integro.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Cosa devo fare per ottenere lo stato di integrità accurata del server di elaborazione?
 
-
+Aggiornare i componenti di Site Recovery per la [versioni più recenti](service-updates-how-to.md#links-to-currently-supported-update-rollups) (almeno 9.24 o versione successiva).
 
 ## <a name="failover-and-failback"></a>Failover e failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>È possibile usare il server di elaborazione in locale per il failback?

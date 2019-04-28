@@ -1,7 +1,6 @@
 ---
 title: Note sulla versione di Azure HDInsight
 description: Note sulla versione più recente di Azure HDInsight. Ottenere suggerimenti e dettagli sullo sviluppo per Hadoop, Spark, R Server, Hive e altro.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,19 +8,19 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9ca3635e93c8d66d23c74c3774ccee2c563d85b4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618227"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760390"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Note sulla versione di Azure HDInsight
 
 > [!IMPORTANT]  
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'[articolo sul controllo delle versioni di HDInsight](hdinsight-component-versioning.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure.
 
@@ -39,7 +38,7 @@ Le funzionalità e i nuovi aggiornamenti rientrano nelle seguenti categorie:
 
 *  ***Supporto per l'archiviazione di Azure Data Lake Gen2***: HDInsight supporterà la versione di anteprima dell'archiviazione di Azure Data Lake Gen2. Nelle aree disponibili i clienti potranno scegliere un account di ADLS Gen2 come archivio Primario o Secondario per i cluster HDInsight.
 
-*  ***Aggiornamenti di HDInsight Enterprise Security Package (anteprima)***: supporto degli [endpoint del servizio Rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) per l'Archiviazione BLOB di Azure, ADLS Gen1, Cosmos DB e database di Azure.
+*  ***Aggiornamenti di HDInsight Enterprise Security Package (anteprima)***: supporto degli [endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) per l'Archiviazione BLOB di Azure, ADLS Gen1, Cosmos DB e database di Azure.
 
 ## <a name="component-versions"></a>Versioni dei componenti
 

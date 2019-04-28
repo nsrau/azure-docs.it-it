@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449428"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766820"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -112,7 +112,7 @@ Codici di stato:
 |0     | Replica in corso        |
 |1     |  La riattivazione       |
 |2     |   Completi       |
-|3     |   Operazione non riuscita      |
+|3     |   Failed      |
 |4     |    Finalizzazione     |
 |||
 
@@ -128,6 +128,8 @@ Per eseguire la sincronizzazione, usare [sincronizzazione AzAnalysisServicesInst
 Per impostare il numero di repliche di query, utilizzare [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
 Per separare il server di elaborazione dal pool di query, usare [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare l'opzione facoltativa `-DefaultConnectionMode` parametro per l'utilizzo `Readonly`.
+
+Per altre informazioni, vedere [usando un'entità servizio con il modulo Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
 ## <a name="connections"></a>connessioni
 

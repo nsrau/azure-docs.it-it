@@ -11,18 +11,82 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481565"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764081"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
 
-Dopo la distribuzione iniziale del Log Analitica Windows o Linux l'agente in Monitoraggio di Azure, si potrebbe essere necessario riconfigurare l'agente o rimuoverlo dal computer se ha raggiunto la fase di ritiro nel ciclo di vita. È possibile gestire facilmente queste attività di manutenzione di routine manualmente o tramite l'automazione, che riduce sia gli errori operativi che le spese.
+Dopo la distribuzione iniziale del Log Analitica Windows o Linux l'agente in Monitoraggio di Azure, si potrebbe essere necessario riconfigurare l'agente, aggiornarlo o rimuoverlo dal computer se ha raggiunto la fase di ritiro nel ciclo di vita. È possibile gestire facilmente queste attività di manutenzione di routine manualmente o tramite l'automazione, che riduce sia gli errori operativi che le spese.
+
+## <a name="upgrading-agent"></a>L'aggiornamento dell'agente
+
+L'agente di Log Analitica per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base allo scenario di distribuzione e la macchina virtuale è in esecuzione nell'ambiente. I metodi seguenti sono utilizzabile per aggiornare l'agente.
+
+| Environment | Metodo di installazione | Metodo di aggiornamento |
+|--------|----------|-------------|
+| Macchina virtuale di Azure | Registrare l'estensione macchina virtuale agente Analitica per Windows/Linux | L'agente viene aggiornato automaticamente per impostazione predefinita, a meno che non è stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente impostando la proprietà *autoUpgradeMinorVersion* al **false**. |
+| Immagini personalizzate di macchina virtuale di Azure | Installazione manuale dell'agente di Log Analitica per Windows/Linux | L'aggiornamento di macchine virtuali per la versione più recente dell'agente deve essere eseguita dalla riga di comando che esegue il pacchetto di installazione di Windows o Linux bundle script della shell autoestraente e installabile.|
+| Macchine virtuali non di Azure | Installazione manuale dell'agente di Log Analitica per Windows/Linux | L'aggiornamento di macchine virtuali per la versione più recente dell'agente deve essere eseguita dalla riga di comando che esegue il pacchetto di installazione di Windows o Linux bundle script della shell autoestraente e installabile. |
+
+### <a name="upgrade-windows-agent"></a>Eseguire l'aggiornamento dell'agente di Windows 
+
+Per aggiornare l'agente in una macchina virtuale Windows per la versione più recente non è installata utilizzando l'estensione macchina virtuale di Log Analitica, è eseguire dal Prompt dei comandi, script o altre soluzioni di automazione oppure usando MMASetup -\<piattaforma\>il programma di installazione con estensione msi mago.  
+
+È possibile scaricare la versione più recente dell'agente di Windows dall'area di lavoro di Log Analitica, attenendosi alla procedura seguente.
+
+1. Accedere al portale di Azure.
+
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
+
+3. Nell'elenco delle aree di lavoro di Log Analitica, selezionare l'area di lavoro.
+
+4. Nell'area di lavoro di Log Analitica, selezionare **impostazioni avanzate**, quindi selezionare **origini connesse**e infine **Windows Server**.
+
+5. Dal **Windows Server** pagina, selezionare un valore appropriato **Scarica agente Windows** versione da scaricare in base all'architettura del processore del sistema operativo Windows.
+
+>[!NOTE]
+>Durante l'aggiornamento dell'agente di Log Analitica per Windows, non supporta la configurazione o la riconfigurazione di un'area di lavoro da includere. Per configurare l'agente, è necessario attenersi a uno dei metodi supportati elencati sotto [aggiunta o rimozione di un'area di lavoro](#adding-or-removing-a-workspace).
+>
+
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Per eseguire l'aggiornamento utilizzando l'installazione guidata
+
+1. Accedere al computer con un account con diritti amministrativi.
+
+2. Eseguire **MMASetup -\<platform\>.exe** per avviare l'installazione guidata.
+
+3. Nella prima pagina dell'installazione guidata, fare clic su **successivo**.
+
+4. Nel **installazione di Microsoft Monitoring Agent** finestra di dialogo, fare clic su **dichiaro di accettare** per accettare il contratto di licenza.
+
+5. Nel **installazione di Microsoft Monitoring Agent** finestra di dialogo, fare clic su **aggiornare**. La pagina di stato Visualizza lo stato di avanzamento dell'aggiornamento.
+
+6. Quando il **configurazione di Microsoft Monitoring Agent completata.** verrà visualizzata la pagina, fare clic su **fine**.
+
+#### <a name="to-upgrade-from-the-command-line"></a>Per eseguire l'aggiornamento dalla riga di comando
+
+1. Accedere al computer con un account con diritti amministrativi.
+
+2. Per estrarre i file di installazione dell'agente, da un prompt dei comandi con privilegi elevati eseguire `MMASetup-<platform>.exe /c` e verrà chiesto il percorso in cui estrarre i file. In alternativa, è possibile specificare il percorso passando gli argomenti `MMASetup-<platform>.exe /c /t:<Full Path>`.
+
+3. Eseguire il comando seguente, dove D:\ è il percorso del file di log di aggiornamento.
+
+    ```dos
+    setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
+    ```
+
+### <a name="upgrade-linux-agent"></a>Eseguire l'aggiornamento dell'agente Linux 
+
+Eseguire l'aggiornamento da versioni precedenti (> 1.0.0-47) è supportato. L'esecuzione dell'installazione con il comando `--upgrade` comporta l'aggiornamento di tutti i componenti dell'agente alla versione più recente.
+
+Eseguire il comando seguente per aggiornare l'agente.
+
+`sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
 ## <a name="adding-or-removing-a-workspace"></a>Aggiunta o rimozione di un'area di lavoro
 
@@ -31,10 +95,15 @@ Dopo la distribuzione iniziale del Log Analitica Windows o Linux l'agente in Mon
 #### <a name="update-settings-from-control-panel"></a>Aggiornare le impostazioni dal Pannello di controllo
 
 1. Accedere al computer con un account con diritti amministrativi.
+
 2. Aprire il **Pannello di controllo**.
+
 3. Selezionare **Microsoft Monitoring Agent** e quindi fare clic sulla scheda **Azure Log Analytics**.
+
 4. Per rimuovere un'area di lavoro, selezionarla e quindi fare clic su **Rimuovi**. Ripetere questo passaggio per ogni altra area di lavoro per cui si vuole che l'agente interrompa l'invio di report.
+
 5. Per aggiungere un'area di lavoro, fare clic su **Aggiungi** e, nella finestra di dialogo **Add a Log Analytics Workspace** (Aggiungere un'area di lavoro Log Analytics), incollare l'ID dell'area di lavoro e la chiave dell'area di lavoro (chiave primaria). Se il computer deve inviare report a un'area di lavoro Log Analytics nel cloud Azure per enti pubblici, selezionare Azure per enti pubblici degli Stati Uniti nell'elenco a discesa Cloud di Azure.
+
 6. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Rimuovere un'area di lavoro usando PowerShell
@@ -109,8 +178,11 @@ Per configurare l'agente per comunicare con il servizio tramite un server proxy 
 #### <a name="update-settings-using-control-panel"></a>Aggiornare le impostazioni usando il Pannello di controllo
 
 1. Accedere al computer con un account con diritti amministrativi.
+
 2. Aprire il **Pannello di controllo**.
+
 3. Selezionare **Microsoft Monitoring Agent** e quindi fare clic sulla scheda **Impostazioni proxy**.
+
 4. Fare clic su **Usa un server proxy** e specificare URL e numero di porta del server proxy o del gateway. Se il server proxy o il gateway Log Analytics richiede l'autenticazione, digitare il nome utente e la password per l'autenticazione e quindi fare clic su **OK**.
 
 #### <a name="update-settings-using-powershell"></a>Aggiornare le impostazioni usando PowerShell
@@ -165,7 +237,9 @@ Usare una delle procedure seguenti per disinstallare l'agente Windows o Linux tr
 
 #### <a name="uninstall-from-control-panel"></a>Eseguire la disinstallazione dal Pannello di controllo
 1. Accedere al computer con un account con diritti amministrativi.
+
 2. Nel **Pannello di controllo** fare clic su **Programmi e funzionalità**.
+
 3. In **Programmi e funzionalità** fare clic su **Microsoft Monitoring Agent**, quindi su **Disinstalla** e infine su **Sì**.
 
 >[!NOTE]
@@ -175,7 +249,9 @@ Usare una delle procedure seguenti per disinstallare l'agente Windows o Linux tr
 Il file scaricato per l'agente è un pacchetto di installazione autonomo creato con IExpress. Il programma di installazione per l'agente e i file di supporto sono contenuti nel pacchetto e devono essere estratti per eseguire correttamente la disinstallazione tramite la riga di comando mostrata nell'esempio seguente.
 
 1. Accedere al computer con un account con diritti amministrativi.
+
 2. Per estrarre i file di installazione dell'agente, da un prompt dei comandi con privilegi elevati eseguire `extract MMASetup-<platform>.exe` e verrà chiesto il percorso in cui estrarre i file. In alternativa, è possibile specificare il percorso passando gli argomenti `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Per altre informazioni sulle opzioni della riga di comando supportate da IExpress, vedere [Opzioni della riga di comando per i pacchetti di aggiornamento software IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) e aggiornare l'esempio in base alle esigenze.
+
 3. Al prompt digitare `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Agente Linux
@@ -191,14 +267,23 @@ Seguire questa procedura per configurare l'agente di Log Analytics per Windows p
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. Accedere al computer con un account con diritti amministrativi.
+
 2. Aprire il **Pannello di controllo**.
+
 3. Aprire **Microsoft Monitoring Agent** e quindi fare clic sulla scheda **Operations Manager**.
+
 4. Se i server di Operations Manager sono configurati per l'integrazione con Active Directory, fare clic su **Aggiorna automaticamente assegnazioni gruppi di gestione da Servizi di dominio Active Directory**.
+
 5. Fare clic su **Aggiungi** per aprire la finestra di dialogo **Aggiungi gruppo di gestione**.
+
 6. Nel campo **Nome gruppo di gestione** digitare il nome del gruppo di gestione.
+
 7. Nel campo **Server di gestione primario** digitare il nome computer del server di gestione primario.
+
 8. Nel campo **Porta server di gestione** digitare il numero di porta TCP.
+
 9. In **Account azione agente**scegliere l'account di sistema locale o un account di dominio locale.
+
 10. Fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi gruppo di gestione** e quindi fare clic su **OK** per chiudere la finestra di dialogo **Proprietà di Microsoft Monitoring Agent**.
 
 ### <a name="linux-agent"></a>Agente Linux
@@ -207,7 +292,9 @@ Seguire questa procedura per configurare l'agente di Log Analytics per Linux per
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. Modificare il file `/etc/opt/omi/conf/omiserver.conf`
+
 2. Assicurarsi che la riga che inizia con `httpsport=` definisca la porta 1270. Ad esempio: `httpsport=1270`
+
 3. Riavviare il server OMI: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Passaggi successivi

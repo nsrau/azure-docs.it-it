@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558523"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759555"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
 Questo articolo illustra i due tipi di criteri di accesso all'anteprima di Azure Time Series Insights.
 
-## <a name="grant-data-access"></a>Concedere l'accesso ai dati
-
-Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazioni.
+## <a name="sign-in-to-tsi"></a>Accedere a Time Series Insights
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Individuare l'ambiente Time Series Insights. Immettere `Time Series` nella casella **Cerca**. Selezionare **ambiente Time Series** nei risultati della ricerca.
 1. Selezionare l'ambiente Time Series Insights nell'elenco.
+
+## <a name="grant-data-access"></a>Concedere l'accesso ai dati
+
+Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazioni.
+
 1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Aggiungi**.
 
     ![Accesso ai dati - uno][1]
@@ -55,15 +58,12 @@ Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazion
 
     ![Accesso ai dati - cinque][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Concedere l'accesso guest a un utente da un altro tenant di Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornire l'accesso guest da un altro tenant AAD
 
 `Guest` non è un ruolo di gestione, ma un termine usato per un account che viene invitato da un tenant a un altro. Dopo che l'account guest viene invitato nella directory del tenant, può disporre dello stesso controllo di accesso applicato alla directory come qualsiasi altro account. È possibile concedere l'accesso per la gestione a un ambiente Time Series Insights tramite il pannello di gestione delle identità e degli accessi. In alternativa, è possibile concedere l'accesso ai dati nell'ambiente tramite il pannello dei criteri di accesso ai dati. Per altre informazioni sull'accesso guest al tenant di Azure Active Directory (Azure AD), leggere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AAD di un altro tenant, eseguire queste operazioni.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Individuare l'ambiente Time Series Insights. Immettere **Time Series** nella casella **Cerca**. Selezionare **ambiente Time Series** nei risultati della ricerca.
-1. Selezionare l'ambiente Time Series Insights nell'elenco.
 1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Invita**.
 
     ![Accesso ai dati - sei][6]
@@ -112,12 +112,14 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
     ![Accesso ai dati - quindici][15]
 
-Dopo che l'utente guest ha selezionato il tenant, viene visualizzato l'ambiente Time Series Insights per cui è stato concesso l'accesso. A questo punto l'utente dispone di tutte le funzionalità associate al ruolo concesso nel passaggio 8.
+Dopo che l'utente guest ha selezionato il tenant, viene visualizzato l'ambiente Time Series Insights per cui è stato concesso l'accesso. Ora dispongono di tutte le funzionalità associate al ruolo che ha è fornito con nella **passaggio 5**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su [come aggiungere un'origine evento di Hub eventi di Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) all'ambiente Time Series Insights.
+
 * Inviare [eventi all'origine evento](./time-series-insights-send-events.md).
+
 * Visualizzare [l'ambiente nell'anteprima di Time Series Insights Explorer](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

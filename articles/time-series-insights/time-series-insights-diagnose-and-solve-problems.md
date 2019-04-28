@@ -11,55 +11,54 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36ea2b8d3649fbda5a5cd6cc5f2cd05cdc095902
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555813"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759719"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
 Questo articolo descrive alcuni problemi che si possono riscontrare nell'ambiente Azure Time Series Insights. L'articolo descrive le possibili cause e le relative soluzioni.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-Questo video illustra le problematiche e le correzioni più comuni affrontate dai clienti di Time Series Insights.</br>
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Questo video illustra le problematiche e le correzioni più comuni affrontate dai clienti di Time Series Insights.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-1-no-data-is-shown"></a>Problema 1: non vengono visualizzati dati
+## <a name="problem-one-no-data-is-shown"></a>Problema di uno: viene visualizzato alcun dato
 
 Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [strumento di esplorazione di Azure Time Series Insights](https://insights.timeseries.azure.com):
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: i dati dell'origine evento non sono in formato JSON
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Dati dell'origine evento causa r: non sono in formato JSON
 
 Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: alla chiave dell'origine manca un'autorizzazione obbligatoria
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>B: la chiave dell'origine evento causa manca un'autorizzazione obbligatoria
 
 * Per un hub IoT in Hub IoT di Azure è necessario indicare la chiave con le autorizzazioni di **connessione al servizio**. Entrambi i criteri **iothubowner** o **service** funzioneranno perché entrambi dispongono delle autorizzazioni di **connessione al servizio**.
 
    ![Autorizzazioni di connessione al servizio Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-
 * Per un hub eventi in Hub eventi di Azure è necessario indicare la chiave che dispone delle autorizzazioni di **ascolto**. Entrambi i criteri **read** o **manage** funzioneranno in quanto entrambi dispongono delle autorizzazioni di **ascolto**.
 
    ![Autorizzazioni di ascolto dell'hub eventi](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Causa C: il gruppo di consumer specificato non è esclusivo di Time Series Insights
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>C: causa il gruppo di consumer fornito non è esclusivo di Time Series Insights
 
 Quando si registra un hub IoT o un hub eventi, è importante impostare il gruppo di consumer che si desidera usare per leggere i dati. Questo gruppo *non può essere condiviso*. Se viene condiviso, l'hub IoT o l'hub eventi sottostante disconnette automaticamente in modo casuale uno dei lettori. Specificare un gruppo di consumer univoco per la lettura dei dati da parte di Time Series Insights.
 
-## <a name="problem-2-some-data-is-shown-but-data-is-missing"></a>Problema 2: vengono visualizzati solo alcuni dati
+## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>Problema 2: alcuni dati vengono visualizzati, ma mancano i dati
 
 Quando i dati vengono visualizzati solo parzialmente e sembrano essere in ritardo, è necessario considerare diverse possibilità.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Causa A: l'ambiente è limitato nelle richieste
+### <a name="cause-a-your-environment-is-being-throttled"></a>Viene limitata a causa dell'ambiente r:
 
-La limitazione delle richieste è un problema comune quando gli ambienti vengono sottoposti a provisioning dopo che è stata creata un'origine evento che contiene dati. Hub IoT di Azure e Hub eventi di Azure archiviano i dati per un massimo di sette giorni. Time Series Insights inizia sempre con l'evento meno recente nell'origine evento (First-In, First-Out o *FIFO*). 
+La limitazione delle richieste è un problema comune quando gli ambienti vengono sottoposti a provisioning dopo che è stata creata un'origine evento che contiene dati. Hub IoT di Azure e Hub eventi di Azure archiviano i dati per un massimo di sette giorni. Time Series Insights inizia sempre con l'evento meno recente nell'origine evento (First-In, First-Out o *FIFO*).
 
-Se ad esempio nell'origine evento sono presenti 5 milioni di eventi quando ci si connette a un S1, un ambiente Time Series Insights a unità singola, Time Series Insights legge circa 1 milione di eventi al giorno. Potrebbe sembrare che Time Series Insights riscontri cinque giorni di latenza. Quello che accade in effetti è che l'ambiente viene limitato nelle richieste. 
+Se ad esempio nell'origine evento sono presenti 5 milioni di eventi quando ci si connette a un S1, un ambiente Time Series Insights a unità singola, Time Series Insights legge circa 1 milione di eventi al giorno. Potrebbe sembrare che Time Series Insights riscontri cinque giorni di latenza. Quello che accade in effetti è che l'ambiente viene limitato nelle richieste.
 
 In presenza di eventi meno recenti nell'origine eventi, è possibile scegliere tra due approcci:
 
@@ -84,7 +83,7 @@ Per una descrizione generale di come funziona la logica di appiattimento, vedere
 
 Per correggere il ritardo, aumentare la capacità SKU dell'ambiente. Per altre informazioni, vedere [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) (Scalare l'ambiente Time Series Insights).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa B: l'inserimento iniziale dei dati cronologici rallenta in ingresso
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa b: inserimento iniziale dei dati cronologici rallenta in ingresso
 
 Se ci si connette a un'origine evento esistente, è probabile che l'hub IoT o l'hub eventi contenga già dati. L'ambiente inizia a eseguire il pull dei dati dall'inizio del periodo di conservazione dei messaggi dell'origine evento. Questa è l'elaborazione predefinita e non può essere sottoposta a override. È possibile coinvolgere la limitazione delle richieste. La limitazione delle richieste può richiedere tempo per recuperare mentre si inseriscono i dati cronologici.
 
@@ -96,23 +95,25 @@ Per correggere il ritardo:
 
 2. Dopo avere recuperato il ritardo, diminuire nuovamente la capacità SKU alla velocità di ingresso normale.
 
-## <a name="problem-3-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema 3: l'impostazione del nome della proprietà Timestamp dell'origine evento non funziona
+## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema 3: impostazione del nome proprietà timestamp dell'origine evento non funziona
 
 Verificare che il nome e il valore della proprietà timestamp siano conformi alle regole seguenti:
+
 * Il nome della proprietà timestamp fa distinzione fra maiuscole e minuscole.
 * Il valore della proprietà timestamp, che proveniente dall'origine evento come stringa JSON, deve avere il formato _aaaa-MM-ggTHH:mm:ss.FFFFFFFK_. Un esempio è **2008-04-12T12:53Z**.
 
 Il modo più semplice per garantire l'acquisizione e il corretto funzionamento del nome della proprietà timestamp consiste nell'usare lo strumento di esplorazione di Azure Time Series Insights. All'interno dello strumento di esplorazione di Azure Time Series Insights, usando il grafico, selezionare un periodo di tempo dopo aver specificato il nome della proprietà timestamp. Fare clic con il pulsante destro del mouse sulla selezione e selezionare l'opzione **Esplora eventi**. 
 
-L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto alla parola **Timestamp** è visualizzato **($ts)**. 
+L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto alla parola **Timestamp** è visualizzato **($ts)**.
 
 Non dovrebbero essere presenti i valori seguenti:
+
 - *(abc)*: indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
 - *Icona calendario*: indica che Time Series Insights sta leggendo i valori dei dati come *datetime*.
 - *#*: indica che Time Series Insights sta leggendo i valori dei dati come valori Integer.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- Per assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
 - Per le opzioni di supporto assistito, usare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744338"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763650"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 
@@ -94,7 +94,7 @@ Per modificare una tabella esistente per renderla transazionale, usare la stessa
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > Non è possibile tornare indietro, ovvero trasformare una tabella transazionale in non transazionale.
 
 ### <a name="salted-tables"></a>Tabelle con salting

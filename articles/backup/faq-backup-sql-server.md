@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733549"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sul database di SQL Server che eseguono un backup delle macchine Virtuali di Azure
 
 Questo articolo risponde alle domande frequenti sul backup di database di SQL Server in esecuzione su macchine virtuali di Azure (VM) e che utilizzano le [Backup di Azure](backup-overview.md) servizio.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>È possibile usare backup di Azure per VM IaaS, nonché SQL Server nello stesso computer?
+Sì, è possibile avere sia backup delle macchine Virtuali e backup di SQL nella stessa VM. In questo caso, è attiva internamente la copia solo backup completo sulla VM per troncare il log.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>La soluzione ripetere o correzione i backup?
 
@@ -45,7 +49,8 @@ Sì. È possibile imitare la velocità di esecuzione del criterio di backup per 
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Salvare le modifiche e chiudere il file.
-4. Nell'istanza di SQL Server, aprire **Task Manager**. Riavviare il servizio **AzureWLBackupCoordinatorSvc**.
+4. Nell'istanza di SQL Server, aprire **Task Manager**. Riavviare il servizio **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+ Sebbene questo metodo è utile se l'applicazione di backup viene utilizza una quantità elevata di risorse, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) è un modo più generico per specificare i limiti sulla quantità di CPU, i/o fisico e memoria che può essere richieste in ingresso dell'applicazione usare.
 
 > [!NOTE]
 > Nell'esperienza utente è comunque possibile proseguire e pianificare le copie di backup in qualsiasi momento, tuttavia verranno elaborati in una finestra temporale scorrevole, 5, come nell'esempio precedente.

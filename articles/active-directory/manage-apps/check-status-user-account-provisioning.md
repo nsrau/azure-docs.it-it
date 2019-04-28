@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442001"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759753"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: Creazione di report sul provisioning automatico degli account utente
 
@@ -43,7 +43,7 @@ Questo articolo usa i termini seguenti, qui definiti:
 
 * **Sistema di origine**: il repository degli utenti da cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Azure Active Directory è il sistema di origine per la maggior parte dei connettori di provisioning preintegrati. Esistono tuttavia alcune eccezioni, ad esempio Workday Inbound Synchronization.
 
-* **Sistema di destinazione**: il repository di utenti con cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Si tratta in genere di un'applicazione SaaS (ad esempio, Salesforce, ServiceNow, Google Apps, Dropbox for Business), ma in alcuni casi può essere un sistema locale come Active Directory (ad esempio, Workday Inbound Synchronization per Active Directory).
+* **Sistema di destinazione**: il repository di utenti con cui il servizio di provisioning di Azure AD esegue la sincronizzazione. Si tratta in genere di un'applicazione SaaS (ad esempio, Salesforce, ServiceNow, G Suite, Dropbox for Business), ma in alcuni casi può essere un sistema locale come Active Directory (esempio: Workday Inbound Synchronization per Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Ottenere i report sul provisioning dal portale di gestione di Azure

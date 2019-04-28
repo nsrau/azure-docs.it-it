@@ -1,19 +1,28 @@
 ---
 title: Usare gli archivi di metadati esterni - Azure HDInsight
 description: Usare gli archivi di metadati esterni con i cluster HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
-ms.author: hrasheed
+services: hdinsight
+documentationcenter: ''
+author: jasonwhowell
+manager: cgronlun
+tags: azure-portal
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 09/14/2018
+ms.author: v-yiso
+ms.date: 04/01/2019
+ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486415"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763867"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -39,7 +48,7 @@ Questo metastore predefinito viene usato in genere per carichi di lavoro relativ
 ## <a name="custom-metastore"></a>Metastore personalizzato
 
 HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per i cluster di produzione:
-- Specificare il database di SQL Azure come metastore.
+- Specificare il database SQL di Azure come metastore.
 - Il ciclo di vita del metastore non è associato a un ciclo di vita dei cluster, pertanto è possibile creare ed eliminare i cluster senza perdere i metadati. I metadati come ad esempio gli schemi di Hive verranno mantenuti anche dopo aver eliminato e ricreato il cluster di HDInsight.
 - Un metastore personalizzato consente di collegare più cluster e tipi di cluster al metastore. Ad esempio, un singolo metastore può essere condiviso tra i cluster Interactive Query, Hive e Spark in HDInsight.
 - Si paga il costo di un metastore (database SQL di Azure) in base al livello di prestazioni scelto.
@@ -50,7 +59,7 @@ HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selezionare un metastore personalizzato durante la creazione del cluster
 
-È possibile indirizzare il cluster a un database di SQL Azure creato in precedenza durante la creazione del cluster, oppure è possibile configurare il database di SQL dopo la creazione del cluster. Questa opzione viene specificata selezionando Archiviazione > Impostazioni metastore durante la creazione di un nuovo cluster Hadoop, Spark o Hive interattivo dal portale di Azure.
+È possibile indirizzare il cluster a un database SQL di Azure creato in precedenza durante la creazione del cluster, oppure è possibile configurare il database di SQL dopo la creazione del cluster. Questa opzione viene specificata selezionando Archiviazione > Impostazioni metastore durante la creazione di un nuovo cluster Hadoop, Spark o Hive interattivo dal portale di Azure.
 
 ![Portale dell'archivio dei metadati Hive di HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 

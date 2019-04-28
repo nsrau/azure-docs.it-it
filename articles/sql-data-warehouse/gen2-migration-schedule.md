@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361137"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764263"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -33,7 +33,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
 | Australia orientale |Disponibile |1 giugno 2019 |
-| Australia sud-orientale |Dal 15 aprile 2019 |1 maggio 2019 |
+| Australia sud-orientale |26 aprile 2019 |1 maggio 2019 |
 | Brasile meridionale |15 maggio 2019 |1 giugno 2019 |
 | Canada centrale |Disponibile |1 giugno 2019 |
 | Canada orientale |\* |\* |
@@ -49,16 +49,16 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Germania centrale |\* |\* |
 | Germania centro-occidentale |1 settembre 2019|2 gennaio 2020 |
 | India centrale |Disponibile |1 giugno 2019 |
-| India meridionale |Dal 15 aprile 2019 |1 giugno 2019 |
+| India meridionale |26 aprile 2019 |1 giugno 2019 |
 | Giappone orientale |Disponibile |1 giugno 2019 |
 | Giappone occidentale |Disponibile |1 maggio 2019 |
-| Corea del Sud centrale |Dal 15 aprile 2019 |1 giugno 2019 |
-| Corea del Sud meridionale |Dal 15 aprile 2019 |1 maggio 2019 |
-| Stati Uniti centro-settentrionali |Dal 15 aprile 2019 |1 maggio 2019 |
+| Corea del Sud centrale |26 aprile 2019 |1 giugno 2019 |
+| Corea del Sud meridionale |26 aprile 2019 |1 maggio 2019 |
+| Stati Uniti centro-settentrionali |26 aprile 2019 |1 maggio 2019 |
 | Europa settentrionale |Disponibile |1 giugno 2019 |
 | Stati Uniti centro-meridionali |Disponibile |1 giugno 2019 |
 | Asia sudorientale |Disponibile |1 giugno 2019 |
-| Regno Unito meridionale |Dal 15 aprile 2019 |1 giugno 2019 |
+| Regno Unito meridionale |26 aprile 2019 |1 giugno 2019 |
 | Regno Unito occidentale |\*|\* |
 | Stati Uniti centro-occidentali |2 settembre 2019 |2 gennaio 2020|
 | Europa occidentale |Disponibile |1 giugno 2019 |

@@ -1,5 +1,5 @@
 ---
-title: Ottenere le modifiche alle risorse
+title: Ottenere le modifiche delle risorse
 description: Informazioni su come individuare quando è stata modificata una risorsa e ottenere un elenco delle proprietà che è stato modificato.
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014097"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760803"
 ---
-# <a name="get-resource-changes"></a>Ottenere le modifiche alle risorse
+# <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
 Ottengano trasformare le risorse tramite il corso di utilizzo giornaliero, riconfigurazione e persino la ridistribuzione.
 Modifica può provenire da un utente o da un processo automatizzato. La maggior parte delle modifiche è per impostazione predefinita, ma in alcuni casi non lo è. Con gli ultimi 14 giorni della cronologia delle modifiche, Graph risorse di Azure consente di:
 
-- Trovare le modifiche sono state rilevate su una proprietà di Azure Resource Manager.
-- Vedere quali le proprietà modificate come parte di tale evento di modifica.
+- Scoprire quando sono state rilevate modifiche a una proprietà di Azure Resource Manager.
+- Visualizzare le proprietà modificate come parte di tale evento di modifica.
 
 Rilevamento delle modifiche e dettagli sono utili per gli scenari di esempio seguenti:
 
@@ -39,7 +39,7 @@ Questo articolo illustra come raccogliere tali informazioni tramite SDK di risor
 
 ## <a name="find-when-changes-were-detected"></a>Individuare quando sono state rilevate modifiche
 
-Il primo passaggio per visualizzare le modifiche apportate in una risorsa è per trovare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Questo passaggio viene eseguito tramite il [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) endpoint REST.
+Il primo passaggio per visualizzare le modifiche apportate in una risorsa è per trovare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Questo passaggio viene eseguito tramite il **resourceChanges** endpoint REST.
 
 Il **resourceChanges** endpoint richiede due parametri nel corpo della richiesta:
 
@@ -95,7 +95,7 @@ Si è verificato l'evento di modifica a un certo punto in questa finestra di tem
 
 ## <a name="see-what-properties-changed"></a>Vedere le novità delle proprietà
 
-Con il **changeId** dalle **resourceChanges** endpoint, il [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) endpoint REST viene quindi usato per ottenere informazioni specifiche dell'evento di modifica.
+Con il **changeId** dalle **resourceChanges** endpoint, il **resourceChangeDetails** endpoint REST viene quindi usato per ottenere informazioni specifiche dell'evento di modifica.
 
 Il **resourceChangeDetails** endpoint richiede due parametri nel corpo della richiesta:
 
@@ -108,7 +108,6 @@ Corpo della richiesta di esempio:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699407"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764348"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -47,13 +47,37 @@ L'ID app e la password o il certificato dell'entità servizio possono essere usa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Quando si usa un'entità servizio per le operazioni di gestione risorse con il [Az.AnalysisServices](/powershell/module/az.analysisservices) modulo, usare `Connect-AzAccount` cmdlet. Quando si usa un'entità servizio per le operazioni del server con il modulo [SQLServer](https://www.powershellgallery.com/packages/SqlServer), usare il cmdlet `Add-AzAnalysisServicesAccount`. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using Az.AnalysisServices module
+
+Quando si usa un'entità servizio per le operazioni di gestione risorse con il [Az.AnalysisServices](/powershell/module/az.analysisservices) modulo, usare `Connect-AzAccount` cmdlet. 
+
+Nell'esempio seguente, appID e password usati per eseguire operazioni del piano di controllo per la sincronizzazione delle repliche di sola lettura e scalabilità verticale/orizzontale:
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>Usando il modulo SQLServer
 
 Nell'esempio seguente vengono usati l'ID app e una password per eseguire un'operazione di aggiornamento del database modello:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId

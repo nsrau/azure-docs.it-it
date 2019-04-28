@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495106"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759446"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione di Database SQL
 
@@ -45,6 +45,22 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 |Analitica SQL|Per informazioni, vedere [Analitica SQL di Azure](../azure-monitor/insights/azure-sql.md)|
 | Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>Aprile 2019
+
+### <a name="service-improvements"></a>Miglioramenti al servizio
+
+| Miglioramenti al servizio | Dettagli |
+| --- | --- |
+| Endpoint pubblici per l'istanza gestita | Per altre informazioni, vedere [istanza in modo sicuro con endpoint pubblici gestita di Database SQL di Azure usando](sql-database-managed-instance-public-endpoint-securely.md)
+| Supporto del fuso orario per l'istanza gestita | Per altre informazioni, vedere [fuso orario in SQL Database istanza gestita di Azure (anteprima)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
+
+| Miglioramenti alla documentazione | Dettagli |
+| --- | --- |
+| Endpoint pubblici per l'istanza gestita | Per altre informazioni, vedere [istanza in modo sicuro con endpoint pubblici gestita di Database SQL di Azure usando](sql-database-managed-instance-public-endpoint-securely.md)
+| Supporto del fuso orario per l'istanza gestita | Per altre informazioni, vedere [fuso orario in SQL Database istanza gestita di Azure (anteprima)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Marzo 2019
 

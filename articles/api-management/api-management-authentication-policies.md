@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994945"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764354"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -49,13 +49,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Name|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatorio|  
 |----------|-----------------|--------------|  
 |authentication-basic|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |username|Specifica il nome utente della credenziale di base.|Sì|N/D|  
 |password|Specifica la password della credenziale di base.|Sì|N/D|  
@@ -73,26 +73,32 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 ### <a name="policy-statement"></a>Istruzione del criterio  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Esempio  
+### <a name="examples"></a>Esempi  
   
+In questo client di esempio certificato è identificato dalla relativa identificazione personale.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+In questo esempio il certificato client è identificato dal nome di risorsa.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Elementi  
   
-|Name|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatorio|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Identificazione personale del certificato client.|Sì|N/D|  
+|thumbprint|Identificazione personale del certificato client.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
+|certificate-id|Nome della risorsa certificato.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -118,13 +124,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Name|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatorio|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Name|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |resource|Stringa. L'URI ID App dell'API (risorsa protetta) web destinazione in Azure Active Directory.|Sì|N/D|  
 |output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore token come un tipo di oggetto `string`.|No |N/D|  

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336797"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760597"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -42,11 +42,11 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le [lingue supportate](./v3-0-languages.md) con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
+    <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con [Custom Translator](../customization.md). Aggiungere l'ID categoria dal progetto di traduttore personalizzato a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dal progetto di traduttore personalizzato a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere trattato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>NoAction</code> (impostazione predefinita), <code>Marked</code> o <code>Deleted</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere [Gestione del contenuto volgare](#handle-profanity).</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere trattato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>NoAction</code> (impostazione predefinita), <code>Marked</code> o <code>Deleted</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere <a href="#handle-profanity">Gestione del contenuto volgare</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere contrassegnato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>Asterisk</code> (impostazione predefinita) o <code>Tag</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere [Gestione del contenuto volgare](#handle-profanity).</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere contrassegnato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>Asterisk</code> (impostazione predefinita) o <code>Tag</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere <a href="#handle-profanity">Gestione del contenuto volgare</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

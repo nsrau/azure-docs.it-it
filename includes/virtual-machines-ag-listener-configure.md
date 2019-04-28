@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 04/01/2019
+ms.author: v-yeche
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326114"
 ---
 Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul quale è in ascolto il gruppo di disponibilità di SQL Server. Per creare il listener del gruppo di disponibilità, seguire questa procedura:
 
@@ -23,7 +24,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
    ![Nome rete di cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Aggiungere il punto di accesso client.  
+2. <a name="addcap"></a>Aggiungere il punto di accesso client.  
     Il punto di accesso client è il nome della rete che le applicazioni useranno per connettersi ai database nel gruppo di disponibilità. Creare il punto di accesso client in Gestione cluster di failover.
 
     a. Espandere il nome di cluster, quindi fare clic su **Ruoli**.
@@ -37,9 +38,9 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
     d. Per completare la creazione del listener, fare clic su **Avanti** due volte e quindi su **Fine**. Non portare il listener o la risorsa in linea a questo punto.
 
-1. Portare offline il ruolo del cluster del gruppo di disponibilità. In **Gestione cluster di failover** in **Ruoli** fare clic con il pulsante destro del mouse sul ruolo e scegliere **Arresta ruolo**.
+3. Portare offline il ruolo del cluster del gruppo di disponibilità. In **Gestione cluster di failover** in **Ruoli** fare clic con il pulsante destro del mouse sul ruolo e scegliere **Arresta ruolo**.
 
-1. <a name="congroup"></a>Configurare la risorsa IP per il gruppo di disponibilità.
+4. <a name="congroup"></a>Configurare la risorsa IP per il gruppo di disponibilità.
 
     a. Scegliere la scheda **Risorse** e quindi espandere il punto di accesso client creato.  
     Il punto di accesso client è offline.
@@ -56,7 +57,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client.
+5. <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client.
 
     a. In Gestione cluster di failover fare clic su **Ruoli** e quindi sul gruppo di disponibilità.
 
@@ -68,7 +69,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
     d. Fare clic su **OK**.
 
-1. <a name="listname"></a>Rendere la risorsa del punto di accesso client dipendente dall'indirizzo IP.
+6. <a name="listname"></a>Rendere la risorsa del punto di accesso client dipendente dall'indirizzo IP.
 
     a. In Gestione cluster di failover fare clic su **Ruoli** e quindi sul gruppo di disponibilità. 
 
@@ -83,21 +84,20 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
     >[!TIP]
     >È possibile confermare che le dipendenze sono state configurate correttamente. In Gestione cluster di failover passare a Ruoli, fare clic con il pulsante destro del mouse sul gruppo di disponibilità, scegliere **Altre azioni** e infine fare clic su **Visualizza rapporto dipendenze**. Quando le dipendenze sono configurate correttamente, il gruppo di disponibilità dipende dal nome della rete e il nome della rete dipende dall'indirizzo IP. 
 
-
-1. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.
+7. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.
 
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
    - `$ListenerILBIP` è l'indirizzo IP creato nel bilanciamento del carico di Azure per il listener del gruppo di disponibilità.
-    
+
    - `$ListenerProbePort` è la porta configurata nel bilanciamento del carico di Azure per il listener del gruppo di disponibilità.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<IPResourceName>" # the IP Address resource name
    $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ListenerProbePort = <nnnnn>
-  
+
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
@@ -108,32 +108,32 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
    > [!NOTE]
    > Se le istanze di SQL Server sono in aree separate, è necessario eseguire lo script di PowerShell due volte. La prima volta usare i parametri `$ListenerILBIP` e `$ListenerProbePort` della prima area. La seconda volta usare i parametri `$ListenerILBIP` e `$ListenerProbePort` della seconda area. Il nome della rete e il nome della risorsa IP del cluster sono inoltre diversi per ciascuna regione.
 
-1. Portare online il ruolo del cluster del gruppo di disponibilità. In **Gestione cluster di failover** in **Ruoli** fare clic con il pulsante destro del mouse sul ruolo e scegliere **Avvia ruolo**.
+8. Portare online il ruolo del cluster del gruppo di disponibilità. In **Gestione cluster di failover** in **Ruoli** fare clic con il pulsante destro del mouse sul ruolo e scegliere **Avvia ruolo**.
 
 Se necessario, ripetere i passaggi precedenti per impostare i parametri del cluster per l'indirizzo IP del cluster WSFC.
 
 1. Ottenere il nome dell'indirizzo IP del cluster WSFC. In **Gestione cluster di failover** in **Risorse principali del cluster** individuare **Nome server**.
 
-1. Fare clic con il pulsante destro del mouse su **Indirizzo IP** e scegliere **Proprietà**.
+2. Fare clic con il pulsante destro del mouse su **Indirizzo IP** e scegliere **Proprietà**.
 
-1. Copiare il **nome** dell'indirizzo IP. Potrebbe essere `Cluster IP Address`. 
+3. Copiare il **nome** dell'indirizzo IP. Potrebbe essere `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.
-  
+4. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.
+
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
    - `$ClusterCoreIP` è l'indirizzo IP creato nel bilanciamento del carico di Azure per la risorsa cluster principale WSFC. È differente dall'indirizzo IP per il listener del gruppo di disponibilità.
 
    - `$ClusterProbePort` è la porta configurata nel bilanciamento del carico di Azure per il probe di integrità WSFC. È differente dall'indirizzo IP per il probe del gruppo di disponibilità.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
    $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
-  
+
    Import-Module FailoverClusters
-  
+
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
@@ -141,3 +141,5 @@ Se necessario, ripetere i passaggi precedenti per impostare i parametri del clus
 
 >[!WARNING]
 >La porta del probe di integrità del listener del gruppo di disponibilità deve essere diversa dalla porta del probe di integrità dell'indirizzo IP principale del cluster. In questi esempi, la porta del listener è 59999 e l'indirizzo IP principale del cluster è 58888. Entrambe le porte richiedono una regola di assenso del traffico in ingresso del firewall.
+
+<!-- Update_Description: update meta propreties, wording update -->

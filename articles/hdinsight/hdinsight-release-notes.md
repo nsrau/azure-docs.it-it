@@ -1,7 +1,6 @@
 ---
 title: Note sulla versione di Azure HDInsight
 description: Note sulla versione più recente di Azure HDInsight. Ottenere suggerimenti per lo sviluppo e i dettagli per Hadoop, Spark, R Server, Hive e altro ancora.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5769f90ef69a82497194ff6de01b378acc84deec
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 0beac64ceb0bbf729d2f6d0f6a0ca8d5af499f42
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678387"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760121"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Note sulla versione di Azure HDInsight
 
@@ -23,7 +22,7 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 > [!IMPORTANT]  
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'[articolo sul controllo delle versioni di HDInsight](hdinsight-component-versioning.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure.
 

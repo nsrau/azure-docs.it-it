@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732418"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -320,7 +320,7 @@ Questo documento è complementare alla documentazione relativa all'installazione
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Cloud computing è un termine ampiamente diffuso che sta assumendo un'importanza sempre più rilevante nel settore IT, dalle piccole imprese fino alle grandi aziende e alle multinazionali.
 
 Microsoft Azure è la piattaforma di servizi cloud di Microsoft che offre un'ampia gamma di nuove possibilità. I clienti possono infatti effettuare rapidamente il provisioning e il deprovisioning di applicazioni come servizi sul cloud, senza essere soggetti a eventuali limiti tecnici o di budget. Anziché investire tempo e denaro nell'infrastruttura hardware, le aziende possono concentrarsi sull'applicazione, sui processi aziendali e sui vantaggi per clienti e utenti.
@@ -451,7 +451,11 @@ Per altre informazioni sulla connessione della rete locale a Microsoft Azure, ve
 >
 > Il motivo alla base di queste limitazioni è costituito dal requisito relativo a una rete con latenza bassa e prestazioni elevate in un sistema SAP, in particolare tra le istanze dell'applicazione e il livello DBMS di un sistema SAP.
 >
->
+> Una pianificazione speciale dei sistemi e delle aree deve verificarsi quando si usano più sistemi SAP che sono altamente integrati. Assicurarsi di distribuire questi sistemi più vicino possibile tra loro per ridurre al minimo la latenza di rete. Esempi di sistemi SAP altamente integrati sono:
+> * La lettura dei dati da sistemi OLTP di SAP, come ERP o CRM o SRM; SAP BW o
+> * SLT SAP usato per replicare dati tra più sistemi di applicazione a singola pagina o anche tra SAP e i sistemi SAP non; o
+> * Connesso a un sistema SAP ERP, SAP S/4 and so on.
+
 
 ### <a name="supported-os-and-database-releases"></a>Sistemi operativi e versioni di database supportati
 * Il software server Microsoft supportato per i servizi Macchine virtuali di Azure è elencato in questo articolo: <https://support.microsoft.com/kb/2721672>.
@@ -2054,7 +2058,7 @@ Dalla metà del 2014, le estensioni ai vari componenti di Hyper-V, System Center
 
 Per una descrizione dettagliata di come distribuire questa soluzione, vedere il blog seguente: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i seguenti:
 

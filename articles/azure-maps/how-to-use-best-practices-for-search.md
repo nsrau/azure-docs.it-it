@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358162"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763899"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Le procedure consigliate per usare il servizio di ricerca mappe di Azure
 
@@ -132,9 +132,9 @@ Il `language` parametro consente di impostare in cui la ricerca del linguaggio d
 
 ### <a name="predictive-mode-auto-suggest"></a>Modalità predittiva (suggerimenti automatici)
 
-Per trovare più corrispondenze per le query parziale, `typeHead` parametro deve essere impostato su 'true'. La query verrà interpretata come un input parziale e la ricerca passerà alla modalità predittiva. In caso contrario, il servizio presuppone che tutte le informazioni pertinenti sono state passate.
+Per trovare più corrispondenze per le query parziale, `typeahead` parametro deve essere impostato su 'true'. La query verrà interpretata come un input parziale e la ricerca passerà alla modalità predittiva. In caso contrario, il servizio presuppone che tutte le informazioni pertinenti sono state passate.
 
-Nell'esempio di query seguente è possibile vedere che il servizio di indirizzo di ricerca viene eseguita una query per "Microso" con il `typehead` parametro è impostato su **true**. Se si osserva la risposta, si noterà che il servizio di ricerca interpretata la query come query parziale e risposta contiene i risultati di query suggerite automaticamente.
+Nell'esempio di query seguente è possibile vedere che il servizio di indirizzo di ricerca viene eseguita una query per "Microso" con il `typeahead` parametro è impostato su **true**. Se si osserva la risposta, si noterà che il servizio di ricerca interpretata la query come query parziale e risposta contiene i risultati di query suggerite automaticamente.
 
 **Query di esempio:**
 

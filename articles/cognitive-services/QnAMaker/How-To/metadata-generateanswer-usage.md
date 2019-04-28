@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683593"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765657"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta della Knowledge base con l'API di GenerateAnswer e metadati
 
@@ -69,10 +69,10 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 |Proprietà della richiesta HTTP|NOME|Type|Scopo|
 |--|--|--|--|
-|Parametro di route di URL|ID Knowledge base|stringa|L'identificatore univoco globale della Knowledge Base.|
-|Parametro di route di URL|Host endpoint QnAMaker|stringa|nome host dell'endpoint distribuito nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
-|Intestazione|Content-Type|stringa|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
-|Intestazione|Authorization|stringa|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
+|Parametro di route di URL|Host endpoint QnAMaker|string|nome host dell'endpoint distribuito nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
+|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
+|Intestazione|Authorization|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|La domanda con le impostazioni|
 
 
@@ -80,11 +80,12 @@ Il corpo JSON presenta diverse impostazioni:
 
 |Proprietà del corpo JSON|Obbligatorio|Type|Scopo|
 |--|--|--|--|
-|`question`|Obbligatoria|stringa|Una domanda utente da inviare alla knowledge base.|
+|`question`|Obbligatoria|string|Una domanda utente da inviare alla knowledge base.|
 |`top`|Facoltativo|numero intero|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
-|`userId`|Facoltativo|stringa|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
+|`userId`|Facoltativo|string|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
+|`scoreThreshold`|Facoltativo|numero intero|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
 |`isTest`|Facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
-|`strictFilters`|Facoltativo|stringa|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
+|`strictFilters`|Facoltativo|string|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
 
 Un esempio del corpo JSON sarà simile a:
 
@@ -93,6 +94,7 @@ Un esempio del corpo JSON sarà simile a:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",
