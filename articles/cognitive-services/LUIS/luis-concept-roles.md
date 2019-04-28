@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813836"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Ruoli di entità per i sottotipi contestuali
 
-I ruoli consentono alle entità a ha assegnato un nome sottotipi. Un ruolo può essere usato con qualsiasi tipo di entità predefiniti o personalizzati e usato in espressioni di esempio e i modelli. 
+I ruoli consentono alle entità a ha assegnato un nome sottotipi. Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
@@ -48,7 +48,7 @@ Nel utterance "Pianificare la riunione da 8 a 9", entrambi i numeri indicano un 
 Schedule the meeting from 8 to 9
 ```
 
-|Tipo di entità|Nome del ruolo|Valore|
+|Tipo di entità|Nome del ruolo|Value|
 |--|--|--|
 |DatetimeV2 predefinito|StartTime|8|
 |DatetimeV2 predefinito|EndTime|9|

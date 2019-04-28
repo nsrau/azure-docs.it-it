@@ -78,11 +78,11 @@
   items:
     - name: Linux
       href: redeploy-to-new-node-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: redeploy-to-new-node-windows.md
 - name: Reimpostare la password della VM
   items:
-    - name: ' Windows'
+    - name: Windows
       href: reset-local-password-without-agent.md
     - name: Linux
       href: reset-password.md
@@ -120,19 +120,19 @@
   items:
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deployment-new-vm-windows.md
 - name: Risolvere i problemi delle distribuzioni
   items:
     - name: Linux
       href: troubleshoot-deploy-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deploy-vm-windows.md
 - name: Modifiche ai nomi dei dispositivi
   href: troubleshoot-device-names-problems.md
 - name: Accesso di ripristino di macchine virtuali
   items:
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: PowerShell
           href: troubleshoot-recovery-disks-windows.md

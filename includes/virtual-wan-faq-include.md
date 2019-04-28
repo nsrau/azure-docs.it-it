@@ -9,11 +9,11 @@ ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459581"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (Gateway VPN) e un gateway di rete virtualedella WAN virtuale di Azure?
 
@@ -29,7 +29,7 @@ Per i passaggi di automazione dei partner, vedere [Virtual WAN partner automatio
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>È necessario usare il dispositivo di un partner preferito?
 
- No. È possibile usare qualsiasi dispositivo che supporti la VPN e soddisfi i requisiti di Azure per il supporto di IKEv2/IKEv1 IPsec.
+No. È possibile usare qualsiasi dispositivo che supporti la VPN e soddisfi i requisiti di Azure per il supporto di IKEv2/IKEv1 IPsec.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>In che modo i partner di WAN virtuale automatizzano la connettività con la WAN virtuale di Azure?
 
@@ -53,7 +53,7 @@ Sì. Il flusso del traffico quando inizia proviene dal dispositivo locale verso 
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>È supportato il peering di reti virtuali globale con la WAN virtuale di Azure? 
 
-  No.
+ No.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Le reti virtuali spoke connesse a un hub virtuale possono comunicare tra loro?
 
@@ -65,7 +65,7 @@ Sì, è possibile connettere la rete virtuale dell'appliance virtuale di rete pr
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>Una rete virtuale di appliance virtuali di rete può avere un gateway di rete virtuale?
 
- No. La rete virtuale di appliance virtuali di rete non può avere un gateway di rete virtuale se è connessa all'hub virtuale. 
+No. La rete virtuale di appliance virtuali di rete non può avere un gateway di rete virtuale se è connessa all'hub virtuale. 
 
 ### <a name="is-there-support-for-bgp"></a>È disponibile il supporto per BGP?
 

@@ -61,7 +61,7 @@ ms.locfileid: "61227138"
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Modifiche ai nomi dei dispositivi](troubleshoot-device-names-problems.md)
 - Accesso di ripristino di macchine virtuali
-    -  Windows
+    - Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)
         - [Portale di Azure](troubleshoot-recovery-disks-portal-windows.md)
     - Linux
