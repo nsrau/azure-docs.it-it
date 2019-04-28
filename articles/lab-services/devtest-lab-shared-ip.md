@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c62f8808565022371484b936f5a2bdaba1f8900e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: e7080901118dde33ed07c8a80f254b9b0d2e221c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623011"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Comprendere gli indirizzi IP condivisi in Azure DevTest Labs
 
@@ -30,25 +30,25 @@ Quando viene creato, un lab si trova nella subnet di una rete virtuale.  Per imp
 
 ![Nuova subnet del lab](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Per i lab esistenti, è possibile abilitare questa opzione selezionando **Criteri e configurazione > Reti virtuali**. Quindi, selezionare una rete virtuale dall'elenco e scegliere **ABILITA IP PUBBLICO CONDIVISO** per una subnet selezionata. È anche possibile disabilitare questa opzione in qualsiasi lab se non si desidera condividere un indirizzo IP con le macchine virtuali del lab.
+Per i lab esistenti, è possibile abilitare questa opzione selezionando **Criteri e configurazione > Reti virtuali**. Quindi, selezionare una rete virtuale dall'elenco e scegliere **ABILITA IP PUBBLICO CONDIVISO** per una subnet selezionata. È anche possibile disabilitare questa opzione in qualsiasi lab se non si desidera condividere un indirizzo IP pubblico in macchine virtuali del lab.
 
 Tutte le macchine virtuali create in questo lab usano per impostazione predefinita un indirizzo IP condiviso.  Quando si crea la macchina virtuale, questa impostazione è visibile nel pannello **Impostazioni avanzate** in **Configurazione indirizzi IP**.
 
 ![Nuova macchina virtuale](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Condiviso:** tutte le macchine virtuali create come **Condivise** vengono inserite in un gruppo di risorse (RG). Un singolo indirizzo IP viene assegnato al relativo gruppo di risorse e tutte le macchine virtuali nel gruppo di risorse utilizzeranno l'indirizzo IP.
-- **Pubblico:** ciascuna macchina virtuale creata dispone del proprio indirizzo IP e viene creata nel proprio gruppo di risorse.
-- **Privato:** ogni macchina virtuale creata usa un indirizzo IP privato. Non sarà possibile connettersi a questa macchina virtuale direttamente da Internet con Desktop remoto.
+- **condiviso:** Tutte le macchine virtuali create come **condiviso** vengono inseriti in un gruppo di risorse (RG). Un singolo indirizzo IP viene assegnato al relativo gruppo di risorse e tutte le macchine virtuali nel gruppo di risorse utilizzeranno l'indirizzo IP.
+- **Pubblico**: Ogni macchina virtuale creata ha il proprio indirizzo IP e viene creato nel proprio gruppo di risorse.
+- **Privato:** Ogni macchina virtuale creata Usa un indirizzo IP privato. Non sarà possibile connettersi a questa macchina virtuale direttamente da Internet con Desktop remoto.
 
-Ogni volta che una macchina virtuale con indirizzo IP condiviso abilitato viene aggiunta alla subnet, DevTest Labs aggiunge automaticamente la macchina virtuale a un sistema di bilanciamento del carico e assegna un numero di porta TCP all'indirizzo IP pubblico, che inoltra alla porta RDP nella macchina virtuale.  
+Ogni volta che una macchina virtuale con indirizzo IP condiviso abilitato viene aggiunta alla subnet, DevTest Labs automaticamente aggiunge la macchina virtuale a un servizio di bilanciamento del carico e assegna un numero di porta TCP all'indirizzo IP pubblico, l'inoltro alla porta RDP nella macchina virtuale.  
 
 ## <a name="using-the-shared-ip"></a>Uso dell'indirizzo IP condiviso
 
-- **Utenti Linux:** il collegamento di SSH alla macchina virtuale avviene tramite l'indirizzo IP o un nome di dominio completo, seguito da due punti e dalla porta. Nell'immagine seguente, ad esempio, l'indirizzo RDP per connettersi alla macchina virtuale è `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
+- **Utenti Linux:** Stabilire una connessione SSH alla macchina virtuale usando l'indirizzo IP o nome di dominio completo, seguito da due punti poi dalla porta. Nell'immagine seguente, ad esempio, l'indirizzo RDP per connettersi alla macchina virtuale è `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
 
   ![Esempio di macchina virtuale](media/devtest-lab-shared-ip/vm-info.png)
 
-- **Utenti Windows:** selezionare il pulsante **Connetti** dal portale Azure per scaricare un file RDP preconfigurato e accedere alla macchina virtuale.
+- **Utenti di Windows:** Selezionare il **Connect** pulsante nel portale di Azure per scaricare un file RDP preconfigurato e accedere alla macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

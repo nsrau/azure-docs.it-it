@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eaf490979167ea5cbfe5846e62444526310452f8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: HT
+ms.openlocfilehash: 82cbffb257d85197848b8bca14231e5363d6d45c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729844"
 ---
 Alcuni carichi di lavoro di database, ad esempio SQL Server o Oracle, richiedono un utilizzo elevato di memoria, spazio di archiviazione e larghezza di banda di I/O, ma non un numero elevato di core. Molti carichi di lavoro di database non sono a elevato utilizzo di CPU. Azure offre alcune dimensioni di macchina virtuale in cui è possibile limitare il numero di vCPU per ridurre i costi relativi alle licenze software, mantenendo la stessa memoria, archiviazione e larghezza di banda di I/O.
 

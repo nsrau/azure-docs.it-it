@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614645"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Esercitazione: Esaminare i case con Sentinel anteprima di Azure
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questa esercitazione consente di rilevare le minacce con Sentinel di Azure.

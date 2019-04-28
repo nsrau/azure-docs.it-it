@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786374"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,13 +59,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Db2** | Yes |
-| server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |Yes |
-| database |Nome del database DB2. |Yes |
-| authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Basic**. |Yes |
-| username |Specificare il nome utente per la connessione al database DB2. |Yes |
+| type | La proprietà type deve essere impostata su: **Db2** | Sì |
+| server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |Sì |
+| database |Nome del database DB2. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Basic**. |Sì |
+| username |Specificare il nome utente per la connessione al database DB2. |Sì |
 | password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -94,15 +94,15 @@ Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati DB2.
 
 Per copiare dati da DB2, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nel database DB2. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -130,9 +130,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -178,7 +178,7 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | BLOB |Byte[] |
 | Char |string |
 | Clob |string |
-| Data |DateTime |
+| Data |Datetime |
 | DB2DynArray |string |
 | DbClob |string |
 | Decimal |Decimal |
@@ -193,12 +193,12 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Tempo |Intervallo di tempo |
-| Timestamp |Datetime |
+| Tempo |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |string |
 | VarGraphic |string |
-| xml |Byte[] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

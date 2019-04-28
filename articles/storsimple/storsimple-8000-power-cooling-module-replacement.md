@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632462"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

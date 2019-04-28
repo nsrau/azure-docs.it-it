@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736642"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Supporto del protocollo per le intestazioni HTTP nel servizio di ingresso principale di Azure
 Questo articolo illustra il protocollo supportati dal servizio di ingresso principale con le parti del percorso di chiamate (vedere la figura). Le sezioni seguenti forniscono altre informazioni sulle intestazioni HTTP supportati dal servizio di ingresso principale.

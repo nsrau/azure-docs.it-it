@@ -2,7 +2,7 @@
 title: Evento di avvio attività di Azure Batch | Microsoft Docs
 description: Riferimento per l'evento di avvio dell'attività batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549870"
 ---
 # <a name="task-start-event"></a>Evento di avvio attività
 
@@ -70,7 +71,7 @@ ms.locfileid: "55474429"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|numberOfInstances|int|Numero di nodi di calcolo richiesti dall'attività.|
+|numberOfInstances|Int|Numero di nodi di calcolo richiesti dall'attività.|
 
 ###  <a name="constraints"></a> constraints
 
@@ -83,3 +84,5 @@ ms.locfileid: "55474429"
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|
+
+<!-- Update_Description: update metedata properties -->

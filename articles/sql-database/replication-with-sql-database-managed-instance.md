@@ -1,6 +1,6 @@
 ---
-title: Configurare la replica in un database di Istanza gestita di database SQL di Azure| Microsoft Docs
-description: Informazioni sulla configurazione della replica transazionale in un database di Istanza gestita di database SQL di Azure
+title: Configurare la replica in un database dell'istanza gestita di database SQL di Azure| Microsoft Docs
+description: Informazioni sulla configurazione della replica transazionale in un database dell'istanza gestita di database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,15 +13,15 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646765"
 ---
-# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database di Istanza gestita di database SQL di Azure
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
-La replica transazionale consente di replicare i dati in un database di Istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database di istanza. È possibile usare la replica transazionale anche per eseguire il push delle modifiche apportate in un database di istanza di Istanza gestita di database SQL di Azure in un database di SQL Server, in un database singolo del database SQL di Azure o in un database in pool di un pool elastico del database SQL di Azure. La replica è disponibile in anteprima pubblica in [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, distribuzione e sottoscrittore. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations).
+La replica transazionale consente di replicare i dati in un database dell'istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database dell'istanza. È possibile usare la replica transazionale anche per eseguire il push delle modifiche apportate in un database dell'istanza di Istanza gestita di database SQL di Azure in un database di SQL Server, in un database singolo del database SQL di Azure o in un database in pool di un pool elastico del database SQL di Azure. La replica è disponibile in anteprima pubblica in [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, distribuzione e sottoscrittore. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -60,9 +60,9 @@ In un'istanza gestita del database SQL di Azure non sono supportate le funzional
 
    Assicurarsi di copiare le chiavi di archiviazione. Vedere [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Creare un database di istanza per il server di pubblicazione.
+3. Creare un database dell'istanza per il server di pubblicazione.
 
-   Negli script di esempio seguenti sostituire `<Publishing_DB>` con il nome del database di istanza.
+   Negli script di esempio seguenti sostituire `<Publishing_DB>` con il nome del database dell'istanza.
 
 4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Usare una password di protezione.
 

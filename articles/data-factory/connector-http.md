@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653773"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
@@ -59,7 +59,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **HttpServer**. | Sì |
-| URL | URL di base del server Web. | Sì |
+| url | URL di base del server Web. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No <br /> (il valore predefinito è **true**) |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No  |

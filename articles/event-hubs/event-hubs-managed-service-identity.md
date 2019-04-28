@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746898"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identità gestite per le risorse di Azure con Hub eventi
 

@@ -14,11 +14,11 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605196"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,23 +64,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Sybase.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesSybase** |Yes |
-| server |Nome del server Sybase. |Yes |
-| database |Nome del database Sybase. |Yes |
+| type |La proprietà type deve essere impostata su: **OnPremisesSybase** |Sì |
+| server |Nome del server Sybase. |Sì |
+| database |Nome del database Sybase. |Sì |
 | schema |Nome dello schema nel database. |No  |
-| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
+| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
 | username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No  |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Yes |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che include il set di dati Sybase) presenta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -91,7 +91,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che include Sybase), nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
 

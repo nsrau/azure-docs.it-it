@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630881"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
 ## <a name="overview"></a>Panoramica
@@ -168,7 +168,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8600-device"></a>Cablare il dispositivo StorSimple 8600
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8600 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * L'enclosure principale e l'enclosure EBOD, completamente disimballate
@@ -260,7 +260,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-Out:** Quando il dispositivo è installato in un Data Center remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

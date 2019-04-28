@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617997"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
 Le estensioni macchina virtuale (VM) di Azure sono piccole applicazioni che consentono di eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. È possibile usare le immagini esistenti e quindi personalizzarle durante le distribuzioni, evitando così di dover compilare immagini personalizzate.

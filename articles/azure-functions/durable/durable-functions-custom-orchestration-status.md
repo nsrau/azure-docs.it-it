@@ -2,20 +2,21 @@
 title: Stato dell'orchestrazione personalizzato in Funzioni permanenti - Azure
 description: Informazioni su come configurare e usare lo stato dell'orchestrazione personalizzato per Funzioni permanenti.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710001"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 
@@ -346,3 +347,7 @@ I client visualizzano la risposta seguente:
 
 > [!div class="nextstepaction"]
 > [Informazioni sulle API HTTP in Funzioni permanenti](durable-functions-http-api.md)
+
+
+
+<!-- Update_Description: wording update -->

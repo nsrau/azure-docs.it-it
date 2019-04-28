@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
-ms.translationtype: HT
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615891"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure 
 
@@ -163,7 +163,7 @@ Ecco alcuni degli scenari resi possibili dalle API per il consumo:
 -   **Spesa di Azure durante il mese**: qual è la spesa mensile corrente fino a oggi? Sono necessarie rettifiche alla spesa e/o all'utilizzo di Azure? Qual è il periodo del mese in cui l'utilizzo di Azure è maggiore?
 -   **Impostazione di avvisi**: se si vogliono impostare avvisi relativi al consumo basato sulle risorse o basati sull'importo monetario, in base a un budget.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - Per informazioni sull'uso delle API di fatturazione di Azure ottenere informazioni dettagliate a livello di codice sull'utilizzo di Azure, vedere [Panoramica dell'API di fatturazione di Azure](billing-usage-rate-card-overview.md).
 

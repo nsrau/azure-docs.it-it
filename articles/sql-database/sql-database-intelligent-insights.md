@@ -13,15 +13,15 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 15154844c954e53ca1add5d3fbaa3e9d02152ad2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703212"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
-Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database di Istanza gestita.
+Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database dell'istanza gestita.
 
 Intelligent Insights usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni. Dopo aver rilevato questo tipo di eventi, viene eseguita un'analisi dettagliata che genera un log di diagnostica con una valutazione intelligente del problema. Questa valutazione è costituita da un'analisi della causa radice del problema di prestazioni del database e, dove possibile, da raccomandazioni per il miglioramento delle prestazioni.
 
@@ -65,7 +65,7 @@ Per una panoramica pratica sull'uso di Intelligent Insights con Analisi SQL di A
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL e istanza gestita, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL e dell'istanza gestita, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 ## <a name="configure-intelligent-insights"></a>Configurare Intelligent Insights
 

@@ -9,17 +9,17 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534127"
 ---
 `objectIdType` (o **tipo di identificatore di oggetto**) si riferisce al tipo di identità a cui viene assegnato un ruolo. Ad eccezione dei tipi `DeviceId` e `UserDefinedFunctionId`, i tipi di identificatore di oggetto corrispondono alle proprietà di oggetti di Azure Active Directory.
 
 La tabella seguente elenca i tipi di identificatore di oggetto supportati in Gemelli digitali di Azure:
 
-| type | DESCRIZIONE |
+| Type | DESCRIZIONE |
 | --- | --- |
 | UserId | Assegna un ruolo a un utente. |
 | deviceId | Assegna un ruolo a un dispositivo. |

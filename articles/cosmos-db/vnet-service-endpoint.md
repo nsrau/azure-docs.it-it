@@ -1,5 +1,5 @@
 ---
-title: Proteggere l'accesso a un account Azure Cosmos DB usando l'endpoint di servizio di Rete virtuale di Azure
+title: Proteggere l'accesso a un account Azure Cosmos DB usando l'endpoint servizio di rete virtuale di Azure
 description: Questo documento descrive il controllo dell'accesso alla rete virtuale e alla subnet per un account Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -8,11 +8,11 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765517"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accedere ad Azure Cosmos DB dalle reti virtuali (VNet)
 
@@ -24,9 +24,9 @@ Per impostazione predefinita, un account di Azure Cosmos è accessibile da quals
 
 Ecco alcune domande frequenti sulla configurazione dell'accesso da reti virtuali:
 
-### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>È possibile specificare l'endpoint del servizio di rete virtuale e i criteri di controllo di accesso IP per un account Azure Cosmos? 
+### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>È possibile specificare l'endpoint servizio di rete virtuale e i criteri di controllo di accesso IP per un account Azure Cosmos? 
 
-È possibile abilitare l'endpoint del servizio di rete virtuale e i criteri di controllo di accesso IP (ossia firewall) per un account Azure Cosmos. Queste due funzionalità sono complementari e garantiscono collettivamente isolamento e sicurezza dell'account di Azure Cosmos. L'utilizzo del firewall IP garantisce che gli indirizzi IP statici possano accedere all'account. 
+È possibile abilitare l'endpoint servizio di rete virtuale e i criteri di controllo di accesso IP (ossia firewall) per un account Azure Cosmos. Queste due funzionalità sono complementari e garantiscono collettivamente isolamento e sicurezza dell'account di Azure Cosmos. L'utilizzo del firewall IP garantisce che gli indirizzi IP statici possano accedere all'account. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Come è possibile limitare l'accesso alla subnet all'interno di una rete virtuale? 
 

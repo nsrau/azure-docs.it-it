@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771652"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
@@ -54,6 +54,6 @@ Se la frequenza di eventi in ingresso è bassa, è possibile creare facilmente i
 
 Un altro scenario di questo tipo si verifica durante la scrittura in un indice columnstore non cluster (NCCI), in cui gli inserimenti bulk più piccoli possono creare troppi segmenti, che possono arrestarsi in modo anomalo l'indice. In questo caso, la raccomandazione è in alternativa, usare un indice Columnstore cluster.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In riepilogo, con la funzionalità di output partizionato in Analisi di flusso di Azure per l'output SQL, l'allineamento del processo di parallelizzazione con una tabella partizionata in SQL Azure dovrebbe fornire miglioramenti significativi della velocità effettiva. Sfruttando Azure Data Factory per orchestrare lo spostamento dei dati da una tabella in memoria in tabelle basate su disco, è possibile ottenere guadagni di velocità effettiva in ordine di grandezza. Se fattibile, il miglioramento della densità dei messaggi può essere un fattore determinante per migliorare la velocità effettiva complessiva.

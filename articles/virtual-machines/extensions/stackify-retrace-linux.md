@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620601"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Estensione dell'agente Linux dello Stackify Retrace
 
@@ -44,7 +44,7 @@ Questa estensione fornisce un percorso di installazione per l'agente Linux per R
 
 L'agente di Retrace può essere eseguito in queste distribuzioni di Linux
 
-| Distribuzione | Versione |
+| Distribuzione | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 e 17.04 |
 | Debian | 7.9+, 8.2+ e 9 |

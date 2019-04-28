@@ -1,5 +1,5 @@
 ---
-title: Usa integrazione continua/recapito Continuo con spazi di sviluppo di Azure
+title: Uso di CI/CD con Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,11 +11,11 @@ manager: yuvalm
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687311"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 

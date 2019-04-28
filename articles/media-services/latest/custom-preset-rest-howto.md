@@ -13,11 +13,11 @@ ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a9de15530981e14e664df605cb3274c9e754ef0d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733029"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata - REST
 

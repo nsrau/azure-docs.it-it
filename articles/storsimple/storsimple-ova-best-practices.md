@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630139"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -75,9 +75,9 @@ Prima di tutto, per ogni volume o condivisione a livelli la prenotazione locale 
 * Prenotazione locale di 120 GB (per un volume o una condivisione a livelli di 1 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB delle dimensioni con provisioning)
 
-Lo spazio totale richiesto a livello locale fino a questo punto è: 240 GB + 120 GB + 330 GB = 690 GB.
+Lo spazio totale richiesto a livello locale fino a questo momento è: 240 GB + 120 GB + 330 GB = 690 GB.
 
-È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio la prenotazione locale più grande è di 330 GB (inclusa la prenotazione per il file system), quindi sarà necessario aggiungere questo spazio ai 690 GB: 690 GB + 330 GB = 1020 GB.
+È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio, la prenotazione locale più grande è di 330 GB (inclusa la prenotazione per il file system), quindi sarà necessario aggiungere che questo spazio ai 690 GB: 690 GB + 330 GB = 1020 GB.
 Se sono stati eseguiti altri ripristini successivi, è sempre possibile liberare spazio dall'operazione di ripristino precedente.
 
 Fino a questo punto è quindi necessario il 15% dello spazio locale totale per archiviare gli snapshot locali, perciò è disponibile solo l'85%. In questo esempio saranno circa 1020 GB = 0,85&ast;TB del disco dati con provisioning. Di conseguenza, il disco dati con provisioning sarà pari a (1020&ast;(1/0,85)) = 1200 GB = 1,20 TB ~ 1,25 TB (con arrotondamento al quartile più vicino)
@@ -99,7 +99,7 @@ In base al 12% della prenotazione di spazio locale per i volumi o le condivision
 * Prenotazione locale di 240 GB (per un volume o una condivisione a livelli di 2 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB dello spazio con provisioning)
 
-Lo spazio totale richiesto a livello locale è: 240 GB + 330 GB + 570 GB
+Lo spazio totale richiesto a livello locale è: 240 GB + 330 GB = 570 GB
 
 Lo spazio locale minimo necessario per il ripristino è 330 GB.
 

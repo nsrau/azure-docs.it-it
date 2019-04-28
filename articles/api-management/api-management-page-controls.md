@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656926"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  

@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620805"
 ---
 # <a name="service-health"></a>Integrità del servizio
 L’Integrità del servizio offre un dashboard personalizzabile che registra l'integrità dei servizi di Azure nelle regioni in cui si usano. In questo dashboard è possibile rilevare gli eventi attivi, come i problemi del servizio in corso, le manutenzioni pianificate o gli avvisi di integrità pertinenti. Quando gli eventi diventano inattivi, vengono posizionati nella cronologia di integrità fino a 90 giorni. Infine, è possibile utilizzare il dashboard di integrità dei servizi per creare e gestire gli avvisi di integrità che notificano in modo proattivo quando i problemi del servizio ne compromettono le prestazioni.
@@ -60,5 +60,5 @@ Filtrare Integrità dei servizi in modo da visualizzare le sottoscrizioni, le ar
 ## <a name="configure-service-health-alerts"></a>Configurare gli avvisi di integrità del servizio
 L’Integrità del servizio si integra con il Monitoraggio di Azure per l'invio di avvisi via posta elettronica, messaggi di testo e notifiche webhook nel caso in cui siano coinvolte risorse aziendali cruciali. Impostare un avviso di attività di log per l'evento di Integrità dei servizi appropriato. Indirizzare tale avviso alle persone appropriate nell'organizzazione usando i gruppi di azioni. Per altre informazioni, vedere [Configurare gli avvisi per Integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>Passaggi successivi
+# <a name="next-steps"></a>Fasi successive
 Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per Integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

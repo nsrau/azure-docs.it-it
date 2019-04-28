@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6350d5bde737c46cf14a9aef75a7ec57260a6afa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744601"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurare WinRM dopo la creazione della macchina virtuale
 

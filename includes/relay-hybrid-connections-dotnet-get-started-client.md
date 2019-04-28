@@ -1,15 +1,10 @@
 ---
-author: clemensv
-ms.service: service-bus-relay
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749708"
 ---
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
@@ -141,7 +136,7 @@ In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
                 // Initiate the connection.
                 var relayConnection = await client.CreateConnectionAsync();
    
-                // Run two concurrent loops on the connection. One 
+                // Run two conucrrent loops on the connection. One 
                 // reads input from the console and then writes it to the connection 
                 // with a stream writer. The other reads lines of input from the 
                 // connection with a stream reader and then writes them to the console. 

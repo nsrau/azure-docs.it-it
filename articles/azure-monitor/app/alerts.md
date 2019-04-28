@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60693382"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 

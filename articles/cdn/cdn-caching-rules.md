@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679213"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 

@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589435"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
 Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748986"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -84,7 +84,7 @@ Più NIC | Sì | Sì
 IP riservato | Sì | Sì
 IPv4 | Sì | Sì
 Conservazione indirizzo IP di origine | Sì | Sì
-Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
+Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
 Rete accelerata | No  | No 
 
 
@@ -159,7 +159,7 @@ Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo dei prerequisiti ha 
 Schede di rete | Sono supportate più schede |
 VHD condiviso | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Disco FC | Non supportate | Il controllo dei prerequisiti ha esito negativo se non supportato.
-Formato disco rigido | VHD  <br/><br/>  VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
+Formato disco rigido | VHD  <br/><br/> VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
 BitLocker | Non supportate | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
 Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
 Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|

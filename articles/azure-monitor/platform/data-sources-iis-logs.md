@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614493"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).

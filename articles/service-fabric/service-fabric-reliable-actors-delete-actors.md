@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
 ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726605"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminare Reliable Actors e il relativo stato
 L'operazione di Garbage Collection degli attori disattivati pulisce solo l'oggetto attore, ma non rimuove i dati archiviati in State Manager dell'attore. Quando un attore viene riattivato, i suoi dati vengono nuovamente resi disponibili tramite il gestore di stato. Nei casi in cui gli attori archiviano dati nel gestore di stato e vengono disattivati ma mai riattivati, può essere necessario pulire i relativi dati.

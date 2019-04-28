@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844251"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Pubblicare un'offerta di macchina virtuale
 
@@ -27,12 +27,13 @@ ms.locfileid: "49639098"
 
 ![Procedura di pubblicazione di un'offerta di macchina virtuale](./media/publishvm_013.png)
 
-La tabella seguente descrive questi passaggi e specifica una stima del tempo massimo necessario per il completamento: <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+La tabella seguente descrive questi passaggi e indica una stima del tempo massimo necessario per il completamento:
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Passaggio per la pubblicazione**           | **Ora**    | **Descrizione**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Convalida dei prerequisiti         | 15 minuti   | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
+| Convalida dei prerequisiti         | 15 min   | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
 | Convalida del test drive (facoltativa) | 2 ore | Se si è scelto di abilitare i test drive, Microsoft ne convalida la configurazione, la distribuzione e la replica nelle aree selezionate. |
 | Certificazione                  | 3 giorni | L'offerta viene analizzata dal team delle certificazioni di Azure. Questo passaggio esegue le analisi di virus, malware, conformità con le normative sulla sicurezza e problemi di sicurezza. Se viene rilevato un problema, viene fornito un feedback. |
 | Provisioning                   | 4 giorni   | L'offerta di macchina virtuale viene replicata nei sistemi di produzione del marketplace.               |

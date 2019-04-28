@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667457"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Passare a una migrazione completa in Azure
 
@@ -35,7 +35,7 @@ Questo articolo fa parte di una serie di articoli che descrivono come la societ�
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant. | Disponibile    
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket Linux in un'app Web di Azure su più siti. L'app Web è integrata con GitHub per il recapito continuo. Esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile
 [Articolo 11: Eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database di app SQL di Azure. | Disponibile    
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database di app con Database SQL di Azure. | Disponibile    
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui il servizio app di Azure, servizio Azure Kubernetes, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile 
 Articolo 14: Passare a una migrazione completa in Azure | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Questo articolo
 
@@ -293,6 +293,7 @@ Contoso deve determinare come distribuire questi componenti, in base a considera
 **Server di elaborazione** | Contoso distribuirà un server di elaborazione dedicato autonomo in grado di replicare 100-200 macchine virtuali:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Il server di elaborazione sarà sottoposto a un carico elevato, di conseguenza deve essere posizionato su un host ESXi capace di gestire l'I/O del disco, il traffico di rete e la CPU necessari per la replica. Contoso valuterà l'uso di un host dedicato per questo scopo. 
 **Rete** | Contoso ha esaminato l'infrastruttura VPN da sito a sito corrente e ha deciso di implementare Azure ExpressRoute. L'implementazione è fondamentale perché comporterà una minore latenza e migliorerà la larghezza di banda per l'area di Azure primaria di Contoso, Stati Uniti orientali 2.<br/><br/> **Monitoraggio**: Contoso dovrà monitorare attentamente i dati trasmessi dal server di elaborazione. Se i dati dovessero sovraccaricare la larghezza di banda della rete, Contoso prenderà in considerazione la [limitazione della larghezza di banda del server di elaborazione](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Archiviazione di Azure** | Per la migrazione, Contoso deve identificare il tipo e il numero corretti di account di archiviazione di Azure di destinazione.  Site Recovery replica i dati delle macchine virtuali nell'archiviazione di Azure.<br/><br/> Site Recovery può eseguire la replica in account di archiviazione Standard o Premium (SSD).<br/><br/> Per prendere una decisione in merito all'archiviazione, Contoso deve esaminare i [limiti di archiviazione](../virtual-machines/windows/disks-types.md) e tenere conto della crescita prevista e dell'aumento dell'uso nel corso del tempo. Data la velocità e la priorità delle migrazioni, Contoso ha deciso di usare SSD Premium<br/><br/>
+
 Contoso ha deciso di usare Managed Disks per tutte le macchine virtuali distribuite in Azure.  Il numero di operazioni di I/O al secondo richieste determina se i dischi devono essere HHD Standard, SSD Standard o Premium (SSD).<br/><br/>
 
 #### <a name="data-migration-service"></a>Servizio di migrazione dei dati
@@ -379,7 +380,7 @@ Contoso si affiderà al Centro sicurezza di Azure per una gestione unificata del
 
 ### <a name="monitoring"></a>Monitoraggio
 
-Contoso deve visibilità sull'integrità e le prestazioni delle app migrate, dell'infrastruttura e dei dati che ora sono in esecuzione in Azure. Contoso trarrà vantaggio dagli strumenti integrati di Azure per il monitoraggio cloud, come Monitoraggio di Azure, Log Analytics e Application Insights.
+Contoso deve visibilità sull'integrità e le prestazioni delle app migrate, dell'infrastruttura e dei dati che ora sono in esecuzione in Azure. Contoso è possibile usare strumenti quali monitoraggio di Azure, dell'area di lavoro di Log Analitica e Application Insights di monitoraggio incorporate cloud di Azure.
  
 - Tramite questi strumenti Contoso può raccogliere con facilità i dati da diverse origini e ottenere informazioni dettagliate. È ad esempio possibile misurare l'uso del disco e della memoria per le macchine virtuali, visualizzare le applicazioni e le dipendenze di rete in più macchine virtuali e tenere traccia delle prestazioni delle applicazioni.
 - Contoso userà questi strumenti di monitoraggio cloud per intraprendere le azioni necessarie ed eseguire l'integrazione con le soluzioni per i servizi.

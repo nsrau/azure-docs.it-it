@@ -1,17 +1,18 @@
 ---
 title: Concetti relativi alla disponibilità elevata in Database di Azure per PostgreSQL
 description: Questo articolo offre informazioni relative alla disponibilità elevata quando si usa Database di Azure per PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+origin.date: 02/01/2019
+ms.date: 02/18/2019
 ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623817"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Concetti relativi alla disponibilità elevata in Database di Azure per PostgreSQL
 Il servizio Database di Azure per PostgreSQL offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.

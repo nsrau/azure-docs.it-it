@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733182"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Esempi di interfaccia della riga di comando di Azure per Servizi multimediali di Azure
 
@@ -47,4 +47,4 @@ La tabella seguente include collegamenti a esempi dell'interfaccia della riga di
 ## <a name="see-also"></a>Vedere anche 
 
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Guida introduttiva: File video di Stream - CLI](stream-files-cli-quickstart.md)
+- [Guida introduttiva: Eseguire lo streaming di file video - Interfaccia della riga di comando](stream-files-cli-quickstart.md)

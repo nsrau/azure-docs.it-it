@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591329"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
 Questo articolo descrive come usare i modelli di avvio rapido di Azure per automatizzare parzialmente la distribuzione di una configurazione di gruppo di disponibilità Always On per macchine virtuali di SQL Server in Azure. In questo processo vengono usati due modelli di avvio rapido di Azure. 
@@ -56,7 +56,7 @@ Dopo aver registrato le macchine virtuali di SQL Server per il nuovo provider di
 
     La tabella seguente mostra i valori necessari per il modello: 
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trovano le VM di SQL Server. |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server. | 
@@ -95,7 +95,7 @@ Always On listener gruppo di disponibilità (AG) richiede un interno Azure (bila
 4. Nel pannello **Servizio di bilanciamento del carico** fare clic su**Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Valore |
+   | Impostazione | Value |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -133,7 +133,7 @@ Per configurare l'ILB e creare il listener AG, eseguire le operazioni seguenti:
 
     La tabella seguente mostra i valori necessari per il modello: 
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server e il gruppo di disponibilità. | 
    |**Existing Failover Cluster Name** (Nome cluster di failover esistente) | Nome del cluster a cui sono aggiunte le VM di SQL Server. |

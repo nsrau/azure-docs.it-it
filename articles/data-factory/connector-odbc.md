@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58163855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711459"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

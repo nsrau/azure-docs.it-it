@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648636"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Eseguire la migrazione di una rete virtuale (classica) da un gruppo di affinità in un'area
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti.
 
 I gruppi di affinità assicurano che le risorse create all'interno di uno stesso gruppo di affinità vengano ospitate fisicamente da server vicini l'uno all'altro, in modo che le risorse possano comunicare più rapidamente. In passato, i gruppi di affinità erano un requisito per la creazione di reti virtuali (classiche). In quel periodo, il servizio di gestione di rete che gestiva le reti virtuali poteva operare solo all'interno di un set di server fisici, denominato unità di scala. I miglioramenti apportati all'architettura hanno esteso l'ambito di gestione delle reti a un’area.
 
@@ -52,7 +52,7 @@ L'uso dei gruppi di affinità non è consigliabile in generale. Oltre che come r
    
     **Valore precedente:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Nuovo valore:**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **Nuovo valore:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. Salvare le modifiche e [importare](virtual-networks-using-network-configuration-file.md#import) la configurazione di rete in Azure.
 
 > [!NOTE]

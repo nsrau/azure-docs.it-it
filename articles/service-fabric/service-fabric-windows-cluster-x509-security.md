@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628150"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  

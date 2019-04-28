@@ -17,11 +17,11 @@ ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 4bba8a14096e420a539974ebf520cebda3b13c91
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711629"
 ---
 # <a name="shared-image-gallery-overview"></a>Panoramica sulla raccolta di immagini condivise
 

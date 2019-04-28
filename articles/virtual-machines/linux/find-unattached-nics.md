@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 9d8345aacb603a6411fdc693ac9f808778d27333
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d3fd807dcd920a951dcc5083022d4d264b5bdab7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649401"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Come trovare ed eliminare le schede di interfaccia di rete scollegate per le macchine virtuali di Azure
 Quando si elimina una macchina virtuale in Azure, le schede di interfaccia di rete non vengono eliminate per impostazione predefinita. Se si creano ed eliminano più macchine virtuali, le schede di interfaccia di rete inutilizzate continuano a usare i lease dell'indirizzo IP interno. Le altre schede di interfaccia di rete create nella macchina virtuale potrebbero non essere in grado di ottenere un lease IP nello spazio di indirizzi della subnet. Questo articolo illustra come trovare ed eliminare tutte le schede di interfaccia di rete scollegate.

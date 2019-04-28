@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653366"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.

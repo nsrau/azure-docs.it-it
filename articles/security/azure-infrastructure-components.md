@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587206"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componenti e limiti del sistema informativo di Azure
 Questo articolo offre una descrizione generale dell'architettura e della gestione di Azure. L'ambiente di sistema di Azure è costituito dalle reti seguenti:
@@ -124,7 +124,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](azure-infrastructure-availability.md)
 - [Architettura di rete di Azure](azure-infrastructure-network.md)
 - [Rete di produzione di Azure](azure-production-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)

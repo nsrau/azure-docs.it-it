@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635545"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
 

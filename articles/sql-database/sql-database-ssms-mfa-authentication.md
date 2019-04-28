@@ -1,6 +1,6 @@
 ---
 title: Usa l'autenticazione a più fattori AAD con Database SQL di Azure e Azure SQL Data Warehouse | Microsoft Docs
-description: Il database SQL e Azure SQL Data Warehouse supportano le connessioni da SQL Server Management Studio (SSMS) tramite l'autenticazione universale di Active Directory.
+description: Il database SQL di Azure e Azure SQL Data Warehouse supportano le connessioni da SQL Server Management Studio (SSMS) tramite l'autenticazione universale di Active Directory.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,14 +13,14 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614170"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Usa l'autenticazione a più fattori AAD con Database SQL di Azure e Azure SQL Data Warehouse (supporto SSMS per MFA)
-Il database SQL e Azure SQL Data Warehouse supportano le connessioni da SQL Server Management Studio (SSMS) tramite l'*autenticazione universale di Active Directory*. Questo articolo illustra le differenze tra le varie opzioni di autenticazione, nonché le limitazioni associate usando l'autenticazione universale. 
+Il database SQL di Azure e Azure SQL Data Warehouse supportano le connessioni da SQL Server Management Studio (SSMS) tramite l'*autenticazione universale di Active Directory*. Questo articolo illustra le differenze tra le varie opzioni di autenticazione, nonché le limitazioni associate usando l'autenticazione universale. 
 
 **Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
@@ -70,7 +70,7 @@ Gli utenti di Azure AD supportati come guest per gli scenari di Azure AD B2B (ve
 
 - Per la procedura di configurazione, vedere [Configurare Multi-Factor Authentication con database SQL di Azure per SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Concedere ad altri utenti l'accesso al database: [Autenticazione e autorizzazione per il database SQL: Concessione dell'accesso](sql-database-manage-logins.md)  
-- Verificare che altri utenti possano connettersi attraverso il firewall: [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)  
+- Verificare che altri utenti possano connettersi attraverso il firewall: [Configurare una regola firewall a livello di server di database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)  
 - [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596598"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.

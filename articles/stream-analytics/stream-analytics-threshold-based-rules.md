@@ -2,19 +2,20 @@
 title: Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 description: Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che disponga di regole basate su soglie configurabili in Analisi di flusso di Azure.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: rockboyfor
+ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+origin.date: 04/30/2018
+ms.date: 08/20/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761727"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.
@@ -46,7 +47,6 @@ I dati di riferimento in questo esempio mostrano in che modo può essere rappres
 - Si noti che la regola ha un campo **operator**, che viene interpretato successivamente in modo dinamico nella sintassi della query in base a `AVGGREATEROREQUAL`. 
 - La regola filtra i dati in base a una determinata chiave della dimensione `2` con valore `C1`. Gli altri campi sono stringhe vuote, che indicano di non filtrare il flusso di input in base a tali campi evento. È possibile configurare altre regole per la CPU in modo da filtrare altri campi corrispondenti in base alle esigenze.
 - Non tutte le colonne devono essere incluse nell'evento di avviso dell'output. In questo caso, il numero della chiave `2` di `includedDim` è attivato su `TRUE` in modo da rappresentare che il numero del campo 2 dei dati dell'evento nel flusso verrà incluso negli eventi dell'output idonei. Gli altri campi non sono inclusi nell'output dell'avviso, ma l'elenco dei campi può essere modificato.
-
 
 ```json
 {
@@ -292,3 +292,4 @@ I dati JSON dell'output di esempio mostrano che è stato generato un singolo eve
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

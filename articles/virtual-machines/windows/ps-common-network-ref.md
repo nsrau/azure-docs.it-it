@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 31a0d486f2540ea75a57b29b8f1da21839783468
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 020f2a4171a5bd656e53c91e59edb16931b20d0d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597667"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandi di rete di PowerShell comuni per le reti virtuali di Azure
 
@@ -73,7 +73,7 @@ Alcune di queste variabili potrebbero essere utili se si esegue più di uno tra 
 | Eliminare un servizio di bilanciamento del carico |[Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer) -Name "BilanciamentoDelCaricoUtente" -ResourceGroupName $myResourceGroup<BR><BR>Rimuove il servizio di bilanciamento del carico specificato dal gruppo di risorse. |
 | Eliminare un indirizzo IP pubblico |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "IndirizzoIPUtente" -ResourceGroupName $myResourceGroup<BR><BR>Rimuove l'indirizzo IP pubblico specificato dal gruppo di risorse. |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Usare l'interfaccia di rete appena creata quando si [crea una VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Vedere le informazioni su come [creare una VM con più interfacce di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
+* Informazioni su come [creare una VM con più interfacce di rete](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
 

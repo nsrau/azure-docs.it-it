@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657920"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -165,7 +165,7 @@ Ogni cartella può contenere uno o più file e in alcuni casi una o più cartell
 | --- | --- |
 | json |Informazioni di configurazione dell'entità corrispondente |
 | html |Descrizioni delle entità, spesso visualizzate nel portale per sviluppatori |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Fogli di stile per la personalizzazione del portale per sviluppatori |
 
 Questi file possono essere creati, eliminati, modificati e gestiti nel file system locale e le modifiche possono essere ridistribuite nell'istanza del servizio Gestione API.

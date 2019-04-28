@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556975"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
@@ -97,7 +97,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 
 3. Nel [portale di Azure](https://portal.azure.com) esaminare e aprire il gruppo di risorse in cui è stata distribuita l'app.
 
-   Osservare le risorse e l'area in cui vengono distribuiti i componenti del servizio app e i server del database SQL.
+   Osservare le risorse e l'area in cui vengono distribuiti i componenti del servizio app e i server di database SQL.
 
 ## <a name="sync-the-tenant-configuration-into-the-catalog"></a>Sincronizzazione della configurazione del tenant nel catalogo
 

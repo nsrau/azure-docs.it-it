@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711159"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controllo di accesso basato sui ruoli per i client di Service Fabric
 Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.  
@@ -52,9 +52,9 @@ Il tipo di controllo di accesso dell’amministratore ha accesso completo a tutt
 * **RecoverSystemPartitions**: ripristino di partizioni del servizio di sistema                             
 
 ### <a name="cluster-operations"></a>Operazioni del cluster
-* **ProvisionFabric**: provisioning del manifesto del cluster e/o del file con estensione msi                             
+* **ProvisionFabric**: Identità del servizio gestito e/o cluster di provisioning del manifesto                             
 * **UpgradeFabric**: avvio degli aggiornamenti del cluster                             
-* **UnprovisionFabric**: annullamento del provisioning del manifesto del cluster e/o del file con estensione msi                         
+* **UnprovisionFabric**: Manifesto MSI e/o cluster di annullamento del provisioning                         
 * **MoveNextFabricUpgradeDomain**: ripresa degli aggiornamenti del cluster con un dominio di aggiornamento esplicito                             
 * **ReportFabricUpgradeHealth**: ripresa degli aggiornamenti del cluster con lo stato di avanzamento corrente                             
 * **StartInfrastructureTask**: avvio delle attività di infrastruttura                             

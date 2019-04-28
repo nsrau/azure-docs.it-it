@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658045"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati. 
@@ -27,16 +27,16 @@ Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di 
 
 | Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
-| `Display name` |stringa |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
-| `Value` |stringa |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
-| `Secret` |boolean|Determina se il valore è un segreto e se deve essere crittografato.|
-| `Tags` |matrice di valori string |Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
+| Nome visualizzato |string |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
+| Value |string |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
+|Segreto|boolean|Determina se il valore è un segreto e se deve essere crittografato.|
+| Tag |matrice di valori string |Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
 I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
 
-| NOME | Valore | Segreto | Tag |
+| NOME | Value | Segreto | Tag |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |

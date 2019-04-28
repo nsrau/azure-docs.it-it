@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
 ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60670242"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migrazione di Contoso: eseguire il rehosting di un'app Linux in locale in macchine virtuali di Azure e Azure MySQL
 
@@ -228,7 +228,7 @@ In Contoso gli amministratori eseguono il provisioning di un'istanza del databas
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-3.png)
 
-5. Dopo avere aggiunto la subnet, si crea una regola della rete virtuale che consente l'accesso dalla subnet del database nella rete di produzione.
+5. Dopo avere aggiunto la subnet, si crea una regola di rete virtuale che consente l'accesso dalla subnet del database nella rete di produzione.
 
     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-4.png)
 

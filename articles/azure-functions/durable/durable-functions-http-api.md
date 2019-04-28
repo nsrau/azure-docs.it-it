@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730708"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
 
@@ -156,12 +156,12 @@ Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON
 
 | Campo                 | Tipo di dati | DESCRIZIONE |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | stringa    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
+| **`runtimeStatus`**   | string    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
 | **`input`**           | JSON      | Dati JSON usati per inizializzare l'istanza. Questo campo è `null` quando il parametro della stringa di query `showInput` è impostato su `false`.|
 | **`customStatus`**    | JSON      | I dati JSON usati per lo stato dell'orchestrazione personalizzato. Se non impostato, il campo è `null`. |
 | **`output`**          | JSON      | Output JSON dell'istanza. Questo campo è `null` se l'istanza non è in stato completato. |
-| **`createdTime`**     | stringa    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
-| **`lastUpdatedTime`** | stringa    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
+| **`createdTime`**     | string    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
+| **`lastUpdatedTime`** | string    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
 | **`historyEvents`**   | JSON      | Matrice JSON contenente la cronologia di esecuzione dell'orchestrazione. Questo campo è `null` a meno che il parametro della stringa di query `showHistory` non sia impostato su `true`. |
 
 Ecco un payload di risposta di esempio che include la cronologia di esecuzione dell'orchestrazione e gli output delle attività (formattato per migliorarne la leggibilità):

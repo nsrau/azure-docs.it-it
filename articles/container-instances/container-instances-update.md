@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: danlep
 ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686892"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
@@ -76,7 +76,7 @@ Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "rid
 
 In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni contenitore di Istanze di Azure Container viene distribuito in un gruppo di contenitori, che può contenere più contenitori.
 
-[Gruppi di contenitori in Istanze di contenitore di Azure](container-instances-container-groups.md)
+[Gruppi di contenitori in Istanze di Azure Container](container-instances-container-groups.md)
 
 [Distribuire gruppi multi-contenitore](container-instances-multi-container-group.md)
 

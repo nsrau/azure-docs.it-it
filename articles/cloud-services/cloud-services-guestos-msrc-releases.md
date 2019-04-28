@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 3/26/2019
 ms.author: raiye
 ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623069"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.

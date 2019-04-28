@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585634"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossario sugli strumenti di database elastici
 
@@ -82,7 +82,7 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 **Divisione**: L'azione di spostare più shardlet da una partizione a un'altra (in genere una nuova partizione). Come punto di divisione viene usata una chiave di partizionamento orizzontale fornita dall'utente.
 
-**Scalabilità verticale**: L'azione di aumentare o ridurre la dimensione di calcolo di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
+**Scalabilità verticale**: L'azione di aumentare o ridurre le dimensioni di calcolo di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709319"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
@@ -29,7 +29,7 @@ Il Database SQL di Azure si basa sull'architettura del motore di database di SQL
 - Business critical/Premium
 - Hyperscale
 
-Il modello di servizio Premium/Business critical è basato su un cluster di processi del motore di database. Questo modello di architettura si basa sul fatto che c’è sempre un quorum di nodi di motore di database disponibili e ha un impatto minimo sulle prestazioni sul carico di lavoro anche durante le attività di manutenzione.
+Il modello di livello di servizio Premium/Business critical è basato su un cluster di processi del motore di database. Questo modello di architettura si basa sul fatto che c’è sempre un quorum di nodi di motore di database disponibili e ha un impatto minimo sulle prestazioni sul carico di lavoro anche durante le attività di manutenzione.
 
 Azure aggiorna e applica le patch al sistema operativo, ai driver e al motore di database di SQL Server in modo trasparente con tempi di inattività minimi per gli utenti finali. 
 

@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777815"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività 
 
@@ -65,5 +65,4 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 - Altre informazioni sulla [creazione e modifica degli avvisi del log attività](../../azure-monitor/platform/alerts-activity-log.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md).
 - Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).
-
 

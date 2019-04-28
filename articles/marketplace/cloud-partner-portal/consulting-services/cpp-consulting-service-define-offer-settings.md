@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749650"
 ---
 # <a name="offer-settings-tab"></a>Scheda Impostazioni dell'offerta
 
@@ -27,7 +27,7 @@ Nella schermata **Nuova offerta**, il primo passaggio consiste nel creare l'iden
 
 ![Creare una nuova offerta di servizi di consulenza - scheda Impostazioni dell'offerta](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>ID offerta
+### <a name="offer-id"></a>Offer ID (ID offerta)
 
 Questo identificatore è un nome univoco che viene creato quando si invia l'offerta per la prima volta. Deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. L'**ID offerta** è visibile nell'URL e ha effetto sui risultati dei motori di ricerca. Ad esempio, *nomeazienda_servizioesempio*.
 
@@ -36,11 +36,11 @@ Come mostrato nell'esempio, l'**ID offerta** viene accodato all'ID editore per c
 >[!Note]
 >Dopo che un'offerta è diventata attiva, il relativo identificatore non può essere aggiornato.
 
-### <a name="publisher-id"></a>ID editore
+### <a name="publisher-id"></a>Publisher ID (ID editore)
 
 Questo identificatore è correlato all'account. Dopo che si è eseguito l'accesso con l'account dell'organizzazione, l'**ID editore** viene visualizzato nel menu a discesa.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>NOME
 
 Questa stringa è il testo che viene visualizzato come nome dell'offerta in AppSource o in Azure Marketplace. La casella **Nome** prevede un limite di 50 caratteri. Il revisore potrebbe avere la necessità di modificare il titolo per aggiungere informazioni sulla durata e sul tipo di offerta.
 

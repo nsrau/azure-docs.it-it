@@ -1,6 +1,6 @@
 ---
 title: Gestire i database SQL di Azure tramite Automazione di Azure | Microsoft Docs
-description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire database SQL su vasta scala.
+description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire database SQL di Azure su vasta scala.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -13,15 +13,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702096"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL tramite Automazione di Azure
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL di Azure tramite Automazione di Azure
 
-Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione dei database SQL.
+Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione dei database SQL di Azure.
 
 ## <a name="what-is-azure-automation"></a>Informazioni su Automazione di Azure
 
@@ -31,7 +31,7 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 
 Il servizio permette di ridurre i costi operativi e di liberare risorse dello staff IT/DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
-## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Come può Automazione di Azure aiutare nella gestione dei database SQL?
+## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Come può Automazione di Azure aiutare nella gestione dei database SQL di Azure?
 
 Il database SQL di Azure può essere gestito in Automazione di Azure usando i [cmdlet di PowerShell del database SQL di Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) disponibili negli [strumenti di Azure PowerShell](/powershell/azure/overview). I cmdlet di PowerShell per database SQL di Azure sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione dei database SQL dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
@@ -40,7 +40,7 @@ Automazione di Azure è in grado di comunicare direttamente con i server SQL tra
 La [raccolta di runbook di Automazione di Azure](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contiene diversi runbook del team di prodotto e della community per iniziare ad automatizzare la gestione dei database SQL di Azure, altri servizi di Azure e sistemi di terze parti. I Runbook della raccolta includono i seguenti:
 
 - [Eseguire query SQL su un database SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-- [Scalabilità verticale (verso l’alto o il basso) di un database di SQL Azure in una pianificazione](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Scalabilità verticale (verso l'alto o il basso) di un database SQL di Azure in una pianificazione](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
 - [Troncare una tabella SQL se il database si avvicina alla dimensione massima](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
 - [Tabelle dell’indice in un database SQL di Azure se sono molto frammentati](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 

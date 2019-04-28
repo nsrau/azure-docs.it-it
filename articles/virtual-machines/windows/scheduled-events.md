@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711000"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 

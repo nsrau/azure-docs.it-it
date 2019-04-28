@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
 ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691194"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti

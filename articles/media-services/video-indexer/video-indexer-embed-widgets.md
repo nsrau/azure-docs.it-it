@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560424"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -28,7 +28,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
 
-|Name|Definizione|DESCRIZIONE|
+|NOME|Definizione|DESCRIZIONE|
 |---|---|---|
 |widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL widget non è supportato nella versione 2. |
 
@@ -36,7 +36,7 @@ Un widget **Cognitive Insights** include tutte le informazioni dettagliate visiv
 
 Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
 
-|Name|Definizione|DESCRIZIONE|
+|NOME|Definizione|DESCRIZIONE|
 |---|---|---|
 |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
 |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|

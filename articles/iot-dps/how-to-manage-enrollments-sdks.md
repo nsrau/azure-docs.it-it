@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674753"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627270"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.

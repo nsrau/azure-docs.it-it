@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
 ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621514"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

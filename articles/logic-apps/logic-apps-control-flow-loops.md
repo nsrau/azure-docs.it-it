@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683962"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -177,7 +177,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Configurare la pianificazione della ricorrenza](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    | -------- | ----- |
    | **Interval** | 1 | 
    | **Frequenza** | Giorno |

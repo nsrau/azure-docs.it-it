@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 749cc5a5e5b8417abe602b7e37c103a26cc4dc03
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597018"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Come creare una rete virtuale classica con l’Interfaccia della riga di comando di Azure
 È possibile utilizzare l'interfaccia della riga di comando (CLI) di Azure per gestire le risorse di Azure dal prompt dei comandi da qualsiasi computer con Windows, Linux o OSX.

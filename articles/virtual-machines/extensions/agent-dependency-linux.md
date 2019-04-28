@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800226"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Estensione di macchina virtuale di Azure dipendenza del monitoraggio per Linux
 

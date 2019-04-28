@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641229"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti dell'agente di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -79,7 +79,7 @@ Per modificare il percorso della cache, usare l'elenco seguente.
 2. Non spostare i file. Copiare invece la cartella dello spazio della cache in un'altra unità con spazio sufficiente. Lo spazio della cache originale può essere rimosso dopo avere verificato che i backup usino il nuovo spazio della cache.
 3. Aggiornare le voci del Registro di sistema seguenti con il percorso della nuova cartella dello spazio della cache.<br/>
 
-    | Percorso del Registro | Chiave del Registro | Valore |
+    | Percorso del Registro | Chiave del Registro | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |

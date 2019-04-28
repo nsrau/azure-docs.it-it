@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736225"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
@@ -26,7 +26,7 @@ Esistono quattro concetti principali in relazione al routing del traffico in Fro
 
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. Sostanzialmente, le richieste utente vengono inviate al set di back-end "più vicino" rispetto alla latenza della rete.
 * **[Priorità](#priority):** è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili.
-* **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti di peso.
+* **[Ponderato](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti di peso.
 * **Affinità di sessione:** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
 
 Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità back-end e il failover globale immediato automatizzato. Per altre informazioni, vedere [Front Door Backend Monitoring](front-door-health-probes.md) (Monitoraggio del back-end Frontdoor). Frontdoor può essere configurato per operare in base a un singolo metodo di routing. A seconda delle esigenze dell'applicazione, è comunque possibile usare diversi o tutti questi metodi di routing in combinazione per creare una topologia di routing ottimale.

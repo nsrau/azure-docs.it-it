@@ -15,11 +15,11 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60766268"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
@@ -33,8 +33,8 @@ Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appn
 
 Sono disponibili due opzioni di configurazione dei certificati con l'Ambiente del servizio app con bilanciamento del carico interno.  È possibile impostare un certificato predefinito con caratteri jolly per l'Ambiente del servizio app con bilanciamento del carico interno o impostare i certificati per le singole app Web nell'Ambiente del servizio app.  Indipendentemente dalla scelta, è necessario configurare correttamente gli attributi del certificato seguenti:
 
-- **Soggetto:** questo attributo deve essere impostato su *.[nome-dominio-radice] per un certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [nomeapp].[nome-dominio-radice]
-- **Nome alternativo del soggetto:** questo attributo deve includere *.[nome-dominio-radice] e *.scm.[nome-dominio-radice] per il certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [nomeapp].[nome-dominio-radice] e [nomeapp].scm.[nome-dominio-radice].
+- **Soggetto:** questo attributo deve essere impostato su *.[nome-dominio-radice] per un certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here]
+- **Nome alternativo del soggetto:** questo attributo deve includere *.[nome-dominio-radice] e *.scm.[nome-dominio-radice] per il certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here] e [appname].scm.[your-root-domain-here].
 
 Come terza variante, è possibile creare un certificato Ambiente del servizio app con bilanciamento del carico interno che include tutti i nomi delle singole app nella rete SAN del certificato anziché un riferimento con caratteri jolly. Il problema con questo metodo è che è necessario conoscere in anticipo i nomi delle app che vengono inserite nell'Ambiente del servizio app o è necessario mantenere l'aggiornamento del certificato di Ambiente del servizio app con bilanciamento del carico interno.
 

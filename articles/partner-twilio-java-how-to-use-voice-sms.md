@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623953"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Come usare Twilio per le funzionalità voce ed SMS in Java
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -48,7 +48,7 @@ Di seguito è riportato un elenco dei verbi Twilio.
 * **&lt;Play&gt;**: riproduce un file audio.
 * **&lt;Queue&gt;**: aggiunge l'elemento a una coda di chiamanti.
 * **&lt;Pause&gt;**: attende in modo silenzioso per un numero di secondi specificato.
-* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL del file contenente la registrazione.
+* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL di un file contenente la registrazione.
 * **&lt;Redirect&gt;**: trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
 * **&lt;Reject&gt;**: rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
 * **&lt;Say&gt;**: effettua la sintesi vocale del testo durante una chiamata.
@@ -204,7 +204,7 @@ Un'altra possibilità per rispondere con TwiML consiste nell'usare la classe **V
 
 Per altre informazioni sull'uso di Twilio in Azure con Java, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure][howto_phonecall_java].
 
-## <a id="AdditionalServices"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
+## <a id="AdditionalServices"></a>Procedura: Usare servizi Twilio aggiuntivi
 Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Passaggi successivi

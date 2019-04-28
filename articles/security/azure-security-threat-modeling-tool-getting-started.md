@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610804"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
@@ -141,6 +141,6 @@ Se si intende eseguire la modellazione delle minacce per una casa, si può inizi
 
 L'approccio alla modellazione delle minacce che è stato presentato è sostanzialmente più semplice rispetto a ciò che Microsoft ha fatto in passato. È stato rilevato che l'approccio di progettazione del software funziona bene per molti team. Ci auguriamo che sia così anche per il lettore.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/threatmodelingtool)** Threat Modeling Tool per iniziare.

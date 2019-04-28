@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610733"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Spostare i dati da Teradata utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,7 +83,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che comprende Teradata), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |Sì |
 
@@ -323,7 +323,7 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 | Period(Time With Time Zone) |string |
 | Period(Timestamp) |string |
 | Period(Timestamp With Time Zone) |string |
-| xml |string |
+| Xml |string |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

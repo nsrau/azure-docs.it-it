@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: HT
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800178"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -75,20 +75,20 @@ Crittografia dischi di Azure per Linux richiede una connessione Internet per acc
 | NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryptionForLinux | stringa |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | stringa |
-| AADClientCertificate | thumbprint | stringa |
+| AADClientSecret | password | string |
+| AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
-| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
-| KeyEncryptionKeyURL | URL | stringa |
-| KeyVaultURL | URL | stringa |
-| Passphrase | password | stringa | 
-| SequenceVersion | uniqueidentifier | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| Passphrase | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 

@@ -2,23 +2,19 @@
 title: Introduzione ai certificati di Key Vault
 description: Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641042"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.

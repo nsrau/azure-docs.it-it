@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625517"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 
 L'articolo include informazioni sulla registrazione come editore del Marketplace cloud. In base all'opzione di pubblicazione selezionata e all'attuale appartenenza a Microsoft Partner Network, è possibile che alcuni dei passaggi seguenti non siano necessari. Eseguita la registrazione, l'utente potrà creare offerte del marketplace per Azure Marketplace o AppSource.
 
 
-|  | Passaggio di registrazione | Durata | Dettagli |  
+|  | Passaggio di registrazione | Duration | Dettagli |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Eseguire la registrazione a Microsoft Partner Network | 15 min | [Eseguire la registrazione a Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Creare un account Microsoft <ul>(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre)</ul> | 15 min | [Creare un ID Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  

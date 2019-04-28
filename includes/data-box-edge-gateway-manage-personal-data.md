@@ -4,27 +4,26 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: fa8340ec6f555258f159e14133305b847e2e3cc3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754301"
 ---
-- **Dettagli dell'ordine** - Dopo aver creato l'ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto degli utenti vengono archiviate nel portale di Azure. Le informazioni salvate includono:
+- **Dettagli sugli ordini**. Quando viene creato un ordine, l'indirizzo di spedizione, indirizzo di posta elettronica e le informazioni di contatto dell'utente viene archiviato nel portale di Azure. Le informazioni salvate includono:
   - Nome del contatto
   - Numero di telefono
-  - Email
+  - Indirizzo di posta elettronica
   - Indirizzo
   - city
-  - CAP
+  - ZIP Code/postal code
   - Stato
   - Paese/provincia/area geografica
   - Numero di tracciabilità della spedizione
 
-    I dettagli dell'ordine vengono crittografati e archiviati nel servizio. Il servizio mantiene le informazioni fino a quando non si elimina la risorsa o l'ordine in modo esplicito. Inoltre, l'eliminazione delle risorse e l'ordine corrispondente viene bloccato dal momento in cui che il dispositivo viene spedito fino a quando il dispositivo torna a Microsoft.
+    I dettagli dell'ordine vengono crittografati e archiviati nel servizio. Il servizio mantiene le informazioni fino a quando non si elimina esplicitamente la risorsa o l'ordine. L'eliminazione della risorsa e l'ordine corrispondente viene bloccato dal momento in cui che il dispositivo viene spedito fino a quando il dispositivo torna a Microsoft.
 
-- **Indirizzo di spedizione** – dopo l'ordine viene effettuato, servizio Data Box offre l'indirizzo di spedizione ai vettori di terze parti, ad esempio gruppi di continuità.
+- **Indirizzo di spedizione**. Dopo che è stato effettuato un ordine, il servizio Data Box fornisce l'indirizzo di spedizione a vettori di terze parti come gruppo di continuità.
 
-- **Gli utenti di condividere** -gli utenti nel dispositivo possono anche accedere ai dati presenti nelle condivisioni. Viene mostrato e può essere visualizzato un elenco di utenti che possono accedere ai dati della condivisione. Questo elenco viene eliminato anche quando le condivisioni vengono eliminate.
-
+- **Gli utenti di condividere**. Gli utenti nel dispositivo possono accedere anche dati presenti nelle condivisioni. Un elenco di utenti che possono accedere ai dati di condivisione può essere visualizzato. Quando le condivisioni vengono eliminate, viene eliminato anche questo elenco.

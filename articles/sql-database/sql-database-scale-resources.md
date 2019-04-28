@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709207"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
@@ -25,7 +25,7 @@ Database SQL di Azure consente di aggiungere dinamicamente altre risorse al data
 
 ## <a name="overview"></a>Panoramica
 
-Quando la domanda per la tua app cresce da qualche dispositivo e qualche cliente al milione di richieste, il database Azure SQL viene ridimensionato immediatamente, con tempi di inattività minimi. La scalabilità è una delle caratteristiche più importanti del modello PaaS che consente di aggiungere in modo dinamico altre risorse al servizio quando necessario. Database SQL di Azure consente di modificare facilmente le risorse allocate per i database (potenza della CPU, memoria, velocità effettiva IO e storage).
+Quando la domanda per la tua app cresce da qualche dispositivo e qualche cliente al milione di richieste, il database SQL di Azure viene ridimensionato immediatamente, con tempi di inattività minimi. La scalabilità è una delle caratteristiche più importanti del modello PaaS che consente di aggiungere in modo dinamico altre risorse al servizio quando necessario. Database SQL di Azure consente di modificare facilmente le risorse allocate per i database (potenza della CPU, memoria, velocità effettiva IO e storage).
 
 È possibile limitare i problemi di prestazione, causati da un maggiore utilizzo dell'applicazione, che non possono essere risolti utilizzando l'indicizzazione o con i metodi di query. L'aggiunta di altre risorse consente di una reazione rapida quando il database raggiunge i limiti delle risorse correnti e richiede più energia per gestire il carico di lavoro in ingresso. Database SQL di Azure consente inoltre di ridurre le risorse non necessarie all'abbassamento dei costi.
 
@@ -36,12 +36,12 @@ Non è necessario acquistare un hardware o modificare o l'infrastruttura di base
 Per il database SQL di Azure è disponibile il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse IO in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Utilizzo generico, Business critical e Iperscalabilità (anteprima).
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Utilizzo generico, Business critical e Hyperscale (anteprima).
 
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio Basic, Standard o Utilizzo generico e quindi modificare il livello di servizio manualmente o tramite codice in qualsiasi momento passando al livello di servizio Premium o Business Critical in base alle esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 > [!IMPORTANT]
-> Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato ad alcune aree di Azure. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
+> Il livello di servizio Hyperscale è attualmente in anteprima pubblica ed è limitato ad alcune aree di Azure. Non è possibile aggiornare un database Hyperscale ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio Hyperscale.
 > [!NOTE]
 > La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività.
 
@@ -70,4 +70,4 @@ Le risorse di ridimensionamento sono il modo più semplice ed efficace per migli
 - Per informazioni su come migliorare le prestazioni del database tramite la modifica del codice del database, vedere [Trovare e applicare raccomandazioni per le prestazioni](sql-database-advisor-portal.md).
 - Per informazioni su come consentire alle intelligence integrate nel database di ottimizzare il database, vedere [Ottimizzazione automatica](sql-database-automatic-tuning.md).
 - Per informazioni sulla Scalabilità in lettura nel servizio Database SQL di Azure, vedere come [Usare le repliche di sola lettura per bilanciare i carichi di lavoro di query di sola lettura](sql-database-read-scale-out.md).
-- Per informazioni sul Partizionamento del database, vedere [Ridimensionamento con Azure SQL Database](sql-database-elastic-scale-introduction.md).
+- Per informazioni sul Partizionamento del database, vedere [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md).

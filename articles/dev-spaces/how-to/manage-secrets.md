@@ -10,11 +10,11 @@ ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686443"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Come gestire i segreti quando si lavora in uno spazio Azure Dev Spaces
 

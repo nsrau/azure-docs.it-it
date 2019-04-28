@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
 ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743446"
 ---
 # <a name="linux-distributions-endorsed-on-azure"></a>Distribuzioni di Linux approvate in Azure
 In Azure Marketplace sono disponibili immagini Linux fornite da partner. Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni approvate. Nel frattempo, per le distribuzioni non disponibili in Marketplace, è possibile portare il proprio sistema Linux attenendosi alle linee guida in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -33,7 +33,7 @@ I driver di Linux Integration Services (LIS) per Hyper-V e Azure sono moduli ker
 L'agente Linux di Azure è già preinstallato nelle immagini di Azure Marketplace ed è in genere disponibile dal repository del pacchetto della distribuzione. Il codice sorgente è disponibile su [GitHub](https://github.com/azure/walinuxagent).
 
   
-| Distribuzione | Versione | Driver | Agente |
+| Distribuzione | Version | Driver | Agente |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [download LIS](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4+: Nel kernel |Pacchetto: nel [repository](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) in "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |Nel kernel |Codice sorgente: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |

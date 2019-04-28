@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658684"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 

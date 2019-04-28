@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
 ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60650898"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Ripristinare i dati da un server di Backup di Azure
 È possibile usare il server di Backup di Azure per recuperare i dati di un backup in un insieme di credenziali di Servizi di ripristino. Il processo per eseguire l'operazione è integrato nella console di gestione del server di Backup di Azure, quindi è simile al flusso di lavoro di ripristino per gli altri componenti di Backup di Azure.

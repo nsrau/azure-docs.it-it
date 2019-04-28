@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588294"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
 

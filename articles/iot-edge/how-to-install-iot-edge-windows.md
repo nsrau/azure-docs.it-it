@@ -11,11 +11,11 @@ ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
 ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595114"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -182,9 +182,9 @@ Per installare IoT Edge con una configurazione esistente, il comando di installa
 
 | Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
-| **Manuale** | None | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
-| **Dps** | None | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
-| **ExistingConfig** | None | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che nel dispositivo esiste già un file config.yaml con le informazioni di provisioning. |
+| **Manuale** | Nessuna | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
+| **Dps** | Nessuna | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
+| **ExistingConfig** | Nessuna | **Parametro opzionale**. Ogni installazione deve essere dichiarata manuale, DPS o existingconfig.<br><br>Dichiara che nel dispositivo esiste già un file config.yaml con le informazioni di provisioning. |
 | **DeviceConnectionString** | Una stringa di connessione da un dispositivo IoT Edge registrato in un hub IoT, tra virgolette singole | **Obbligatorio** per l'installazione manuale. Se non si specifica una stringa di connessione nei parametri di script, ne verrà richiesta una durante l'installazione. |
 | **ScopeId** | Un ID ambito da un'istanza del servizio Device Provisioning associata all'hub IoT. | **Obbligatorio** per l'installazione di DPS. Se non si specifica un ID ambito nei parametri di script, ne verrà richiesto uno durante l'installazione. |
 | **RegistrationId** | Un ID registrazione generato dal dispositivo | **Obbligatorio** per l'installazione di DPS. Se non si specifica un ID registrazione nei parametri di script, ne verrà richiesto uno durante l'installazione. |
@@ -195,7 +195,7 @@ Per installare IoT Edge con una configurazione esistente, il comando di installa
 | **AgentImage** | URI dell'immagine dell'agente IoT Edge | Per impostazione predefinita, una nuova installazione di IoT Edge usa il tag di versioni più recente per l'immagine dell'agente IoT Edge. Usare questo parametro per impostare un tag specifico per la versione dell'immagine o per fornire la propria immagine dell'agente. Per altre informazioni, vedere [Informazioni sui tag di IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags). |
 | **Nome utente** | Nome utente del registro contenitori | Usare questo parametro solo se si imposta il parametro -AgentImage su un contenitore in un registro privato. Specificare un nome utente con accesso al registro. |
 | **Password** | Stringa della password di protezione | Usare questo parametro solo se si imposta il parametro -AgentImage su un contenitore in un registro privato. Specificare la password per accedere al registro. | 
-| **SkipMobyCli** | None | Applicabile solo se -ContainerOS è impostato su Windows. Non installare l'interfaccia della riga di comando di Moby (docker.exe) su $MobyInstallDirectory. |
+| **SkipMobyCli** | Nessuna | Applicabile solo se -ContainerOS è impostato su Windows. Non installare l'interfaccia della riga di comando di Moby (docker.exe) su $MobyInstallDirectory. |
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

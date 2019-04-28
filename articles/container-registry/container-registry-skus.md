@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582822"
 ---
 # <a name="azure-container-registry-skus"></a>SKU di Registro Azure Container
 
@@ -32,7 +32,7 @@ Il Basic, Standard e Premium SKU (collettivamente chiamati *registri gestiti*) o
 
 ## <a name="sku-feature-matrix"></a>Matrice di funzionalità SKU
 
-La tabella seguente illustra le funzionalità e i limiti dei livelli di servizio Base, Standard e Premium.
+La tabella seguente illustra le funzionalità e i limiti dei livelli di servizio Basic, Standard e Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure | Microsoft Docs
+title: Crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure | Microsoft Docs
 description: In questo documento viene illustrato come implementare le raccomandazioni del Centro sicurezza di Azure **Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure**.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703929"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure
-Il Centro sicurezza di Azure consiglia all'utente di abilitare la crittografia del servizio di archiviazione di Azure per i dati inattivi.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure
 
-La Crittografia del servizio di archiviazione (SSE) applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero.  SSE è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta.  Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Dopo avere attivato la crittografia, vengono crittografati solo i nuovi dati. Qualsiasi BLOB esistente nell'account di archiviazione non viene crittografato. Per crittografare un BLOB esistente, vedere [Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-La crittografia del servizio di archiviazione è supportata solo negli account di archiviazione di Gestione risorse. Gli account di archiviazione classici non sono attualmente supportati. Per informazioni sui modelli di distribuzione classico e di Gestione risorse, vedere i [modelli di distribuzione di Azure](../azure-classic-rm.md).
-
-> [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
->
->
-
-## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. Nel pannello **Raccomandazioni** selezionare **Enable encryption for Azure Storage Account** (Abilita la crittografia per l'account di archiviazione di Azure).
-   ![Enable encryption for storage account][1] (Abilita la crittografia per l'account di archiviazione)
-2. Viene visualizzato il pannello **Enable storage encryption** (Abilita la crittografia di archiviazione). In questo pannello sono elencati gli account di archiviazione di Azure in cui la crittografia di archiviazione è disabilitata. In questo esempio selezioniamo **storageacct1**.
-   ![Abilita la crittografia di archiviazione][2]
-3. Si apre il pannello **Crittografia** per **storageacct1**. Selezionare **Enabled**.
-   ![Pannello di crittografia][3]
-4. Selezionare **Salva**.
-
-A questo punto è stata abilitata la crittografia di archiviazione per **storageacct1**.
-
-
-## <a name="see-also"></a>Vedere anche 
-In questo documento viene illustrato come implementare la raccomandazione del Centro sicurezza di Azure "Abilitare la crittografia per l'account di archiviazione di Azure". Per ulteriori informazioni sulla crittografia del servizio di archiviazione di Azure, vedere le risorse seguenti:
-
-* [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
+Crittografia di archiviazione di Azure per dati inattivi è abilitata per impostazione predefinita per tutti gli account di archiviazione di Azure. Archiviazione di Azure crittografa i dati durante la scrittura in archiviazione di Azure e li decrittografa prima del recupero. Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

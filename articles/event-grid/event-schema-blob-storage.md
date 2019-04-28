@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614897"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
 
@@ -88,30 +88,30 @@ Lo schema di un evento eliminato da una BLOB è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| api | stringa | L'operazione che ha attivato l'evento. |
-| clientRequestId | stringa | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel log analisi. |
-| requestId | stringa | Identificatore univoco per la richiesta. Usarlo per la risoluzione dei problemi della richiesta. |
-| eTag | stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
-| contentType | stringa | Il tipo di contenuto specificato per il BLOB. |
+| api | string | L'operazione che ha attivato l'evento. |
+| clientRequestId | string | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel log analisi. |
+| requestId | string | Identificatore univoco per la richiesta. Usarlo per la risoluzione dei problemi della richiesta. |
+| eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
+| contentType | string | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | numero intero | La dimensione del BLOB in byte. |
-| blobType | stringa | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| URL | stringa | Percorso del BLOB. |
-| sequencer | stringa | Un valore controllato dall'utente che è possibile usare per tenere traccia delle richieste. |
+| blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
+| url | string | Percorso del BLOB. |
+| sequencer | string | Un valore controllato dall'utente che è possibile usare per tenere traccia delle richieste. |
 | storageDiagnostics | object | Informazioni sulla diagnostica dell'archiviazione. |
  
 ## <a name="next-steps"></a>Passaggi successivi

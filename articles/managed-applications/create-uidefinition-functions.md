@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587921"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
 Questa sezione contiene le firme per tutte le funzioni supportate di CreateUiDefinition.
@@ -526,7 +526,7 @@ L'esempio seguente restituisce `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>stringa
+### <a name="string"></a>string
 Converte il parametro in una stringa. Questa funzione supporta parametri di tutti i tipi di dati JSON.
 
 L'esempio seguente restituisce `"1"`:

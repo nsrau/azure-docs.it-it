@@ -11,11 +11,11 @@ ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
 ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819771"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Eseguire esperimenti e inferenze in modo sicuro in una rete virtuale di Azure
 
@@ -162,7 +162,7 @@ Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtual
 
     * __Tag del servizio di origine__: selezionare __AzureMachineLearning__.
 
-    * __Intervalli di porte di origine__: Selezionare *__.
+    * __Intervalli di porte di origine__: Selezionare __*__.
 
     * __Destinazione__: selezionare __Tutte__.
 

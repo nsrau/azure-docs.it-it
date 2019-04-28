@@ -3,21 +3,22 @@ title: Copiare dati da Google BigQuery usando Azure Data Factory | Microsoft Doc
 description: Informazioni su come copiare dati da Google BigQuery in archivi dati di sink supportati usando un'attività di copia in una pipeline di data factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808882"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiare dati da Google BigQuery usando Azure Data Factory
 
@@ -44,17 +45,17 @@ Per il servizio collegato Google BigQuery sono supportate le proprietà seguenti
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **GoogleBigQuery**. | Yes |
-| project | ID di progetto del progetto BigQuery su cui eseguire query.  | Yes |
+| type | La proprietà type deve essere impostata su **GoogleBigQuery**. | Sì |
+| project | ID di progetto del progetto BigQuery su cui eseguire query.  | Sì |
 | additionalProjects | A elenco delimitato da virgole di ID di progetto dei progetti BigQuery a cui accedere.  | No  |
 | requestGoogleDriveScope | Indica se richiedere l'accesso a Google Drive. L'abilitazione dell'accesso a Google Drive consente di abilitare il supporto per le tabelle federate che combinano dati di BigQuery con dati da Google Drive. Il valore predefinito è **false**.  | No  |
-| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo sul runtime di integrazione self-hosted. <br/>I valori consentiti sono **UserAuthentication** e **ServiceAuthentication**. Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Yes |
+| authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo sul runtime di integrazione self-hosted. <br/>I valori consentiti sono **UserAuthentication** e **ServiceAuthentication**. Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 
 ### <a name="using-user-authentication"></a>Uso dell'autenticazione utente
 
 Impostare la proprietà "authenticationType" su **UserAuthentication** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | clientId | ID dell'applicazione usata per generare il token di aggiornamento. | No  |
 | clientSecret | Segreto dell'applicazione usata per generare il token di aggiornamento. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
@@ -90,7 +91,7 @@ Impostare la proprietà "authenticationType" su **UserAuthentication** e specifi
 
 Impostare la proprietà "authenticationType" su **ServiceAuthentication** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione. È possibile usare questo tipo di autenticazione solo sul runtime di integrazione self-hosted.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo sul runtime di integrazione self-hosted.  | No  |
 | keyFilePath | Percorso completo per il file di chiave con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. | No  |
@@ -127,7 +128,7 @@ Per copiare dati da Google BigQuery, impostare la proprietà type del set di dat
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **GoogleBigQueryObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **GoogleBigQueryObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -156,7 +157,7 @@ Per copiare dati da Google BigQuery, impostare il tipo di origine nell'attività
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **GoogleBigQuerySource**. | Yes |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **GoogleBigQuerySource**. | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

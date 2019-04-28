@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745946"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Eseguire la migrazione del database MariaDB a Database di Azure per MariaDB tramite dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MariaDB

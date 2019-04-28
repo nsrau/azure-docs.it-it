@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748961"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 

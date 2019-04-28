@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613837"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Numero di domini di errore per area
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 361d7683790128aafb11d6581c6e672b68ad893f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609247"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-pci-dss"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web IaaS per PCI DSS
 
@@ -31,7 +31,7 @@ Questa soluzione distribuisce un'architettura di riferimento per un'applicazione
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per PCI DSS](images/pcidss-iaaswa-architecture.png "Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per PCI DSS")
 
-Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
 
 - SET DI DISPONIBILITÀ
     - (1) Controller di dominio Active Directory

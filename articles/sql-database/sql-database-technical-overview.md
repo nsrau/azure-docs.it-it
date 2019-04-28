@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580686"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Che cos'è servizio di Database SQL di Azure
 
@@ -62,7 +62,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 
 La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. Un singolo database supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Esistono comunque script utili per automatizzare la scalabilità per un database singolo. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un database singolo SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelli di acquisto, livelli di servizio, dimensioni di calcolo e quantità di archiviazione
+### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelli di acquisto, livelli di servizio, dimensioni di calcolo e spazi di archiviazione
 
 Il database SQL offre due modelli di acquisto:
 
@@ -70,7 +70,7 @@ Il database SQL offre due modelli di acquisto:
 - Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
+  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database Hyperscale ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -78,14 +78,14 @@ Per molte aziende e applicazioni, la possibilità di creare singoli database e a
 
    ![pool elastici](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Con i pool elastici non è necessario concentrarsi sul ridimensionamento delle prestazioni del database in base alla fluttuazione della richiesta delle risorse. I database nel pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database nel pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile, indipendentemente dall'utilizzo dei singoli database. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare. È anche possibile controllare le risorse minime e massime disponibili per i database del pool per assicurarsi che nessun database del pool usi tutte le risorse del pool e che a ogni database nel pool sia garantita una quantità minima di risorse. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Con i pool elastici non è necessario concentrarsi sul ridimensionamento delle prestazioni del database in base alla fluttuazione della richiesta delle risorse. I database in pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database in pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile, indipendentemente dall'utilizzo dei singoli database. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare. È anche possibile controllare le risorse minime e massime disponibili per i database del pool per assicurarsi che nessun database del pool usi tutte le risorse del pool e che a ogni database in pool sia garantita una quantità minima di risorse. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 Gli script possono essere utili per il monitoraggio e il ridimensionamento dei pool elastici. Per un esempio, vedere [Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 
 > [!IMPORTANT]
 > Un'istanza gestita non supporta i pool elastici. Un'istanza gestita è invece una raccolta di database dell'istanza che condividono le risorse dell'istanza gestita.
 
-### <a name="blend-single-databases-with-pooled-databases"></a>Unire database singoli e database nel pool
+### <a name="blend-single-databases-with-pooled-databases"></a>Unire database singoli e database in pool
 
 È possibile usare database singoli insieme a pool elastici e cambiare i livelli di servizio dei database singoli e dei pool elastici in modo semplice e rapido per adattarli alle proprie esigenze. Con la potenza e la portata di Azure, è possibile combinare e integrare altri servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione delle app, promuovere l'efficienza in termini di costi e di risorse, nonché sfruttare nuove opportunità commerciali.
 
@@ -215,7 +215,7 @@ La versione corrente del database SQL è V12. La versione V11 è stata ritirata.
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>È possibile controllare quando si verificano i tempi di inattività per l'applicazione di patch
 
- No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Per altre informazioni sulle attività preliminari per gli eventi di manutenzione pianificata nel database SQL di Azure, vedere [Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure](sql-database-planned-maintenance.md).
+No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Per altre informazioni sulle attività preliminari per gli eventi di manutenzione pianificata nel database SQL di Azure, vedere [Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure](sql-database-planned-maintenance.md).
 
 ### <a name="azure-hybrid-benefit-questions"></a>Domande relative a Vantaggio Azure Hybrid
 

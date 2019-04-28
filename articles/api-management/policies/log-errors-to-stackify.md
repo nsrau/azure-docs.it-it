@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 07cc83830fe2d467c611622bb66dfbb8c9429c2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860539"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Inviare errori a Stackify per la registrazione
 
 Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione. Per impostare o modificare il codice dei criteri, seguire la procedura descritta in [Impostare o modificare un criterio](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Incollare il codice nel blocco **on-error**.
 

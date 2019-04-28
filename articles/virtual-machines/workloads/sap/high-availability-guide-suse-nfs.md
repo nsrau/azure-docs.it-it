@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a91bc1cbb72427205cc558a4b5e655f4aa8083b0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710715"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -179,6 +179,9 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          * Ripetere i passaggi precedenti per la porta 2049 e TCP per NW2
       1. UDP 2049 per NW2
          * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
+
+> [!IMPORTANT]
+> Non abilitare TCP timestamp sulle macchine virtuali di Azure posizionato dietro bilanciamento del carico di Azure. Abilitazione di TCP timestamp causerà i probe di integrità errore. Impostare il parametro **net.ipv4.tcp_timestamps** al **0**. Per informazioni dettagliate, vedere [probe di integrità di Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 

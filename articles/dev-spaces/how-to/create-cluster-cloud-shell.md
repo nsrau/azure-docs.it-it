@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: conceptual
 description: Informazioni su come creare in modo rapido un cluster Kubernetes abilitato per Azure Dev Spaces direttamente dal browser senza installare alcun componente.
-keywords: Docker, Kubernetes, Azure, servizio contenitore di AZURE, Azure Kubernetes Service, contenitori, Helm, rete mesh di servizi, routing mesh del servizio, kubectl, k8s
+keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.openlocfilehash: bfde055c99a1109a8f71c838b44ed1742e3f06aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911635"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Creare un cluster Kubernetes usando Azure Cloud Shell
 

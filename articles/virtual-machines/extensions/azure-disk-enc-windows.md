@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800053"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -80,20 +80,20 @@ Crittografia dischi di Azure richiede una connessione Internet per accedere a Ac
 | NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryptionForWindows| stringa |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | LE VERSIONI 1.0, 1.1, 2.2 (VMSS) | int |
 | (facoltativo) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (facoltativo) AADClientSecret | password | stringa |
-| (facoltativo) AADClientCertificate | thumbprint | stringa |
-| EncryptionOperation | EnableEncryption | stringa | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | stringa |
-| KeyEncryptionKeyURL | URL | stringa |
-| KeyVaultResourceId | uri di risorsa | stringa |
-| KekVaultResourceId | uri di risorsa | stringa |
-| KeyVaultURL | URL | stringa |
-| SequenceVersion | uniqueidentifier | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| (facoltativo) AADClientSecret | password | string |
+| (facoltativo) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | uri di risorsa | string |
+| KekVaultResourceId | uri di risorsa | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Per un esempio di distribuzione del modello, vedere [ Creare una nuova macchina virtuale Windows crittografata dall'immagine della raccolta](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

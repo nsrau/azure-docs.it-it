@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649184"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 

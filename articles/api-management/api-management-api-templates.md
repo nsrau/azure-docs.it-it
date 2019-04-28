@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657829"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
 
@@ -345,12 +345,12 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 |Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|`apiId`|stringa|ID dell'API corrente.|  
-|`apiName`|stringa|Nome dell'API.|  
-|`apiDescription`|stringa|Descrizione dell'API.|  
+|`apiId`|string|ID dell'API corrente.|  
+|`apiName`|string|Nome dell'API.|  
+|`apiDescription`|string|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
 |`operation`|[operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
-|`sampleUrl`|stringa|L'URL per l'operazione corrente.|  
+|`sampleUrl`|string|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
 |`samples`|Raccolta di entità [Esempio di codice](api-management-template-data-model-reference.md#Sample).|Gli esempi di codice per l'operazione corrente.|  

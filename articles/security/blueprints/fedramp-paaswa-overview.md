@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
 ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585982"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web PaaS per FedRAMP
 
@@ -30,7 +30,7 @@ Questa soluzione fornisce un'architettura di riferimento per un'applicazione Web
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP")
 
-Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
 
 - Azure Active Directory
 - Azure Key Vault

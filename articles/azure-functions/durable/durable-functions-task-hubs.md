@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.author: azfuncdf
+origin.date: 12/07/2017
+ms.date: 02/21/2019
+ms.author: v-junlch
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730269"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -29,11 +30,11 @@ Se molteplici app per le funzioni condividono un account di archiviazione, ogni 
 
 Un hub di attività è costituito dalle risorse di archiviazione seguenti:
 
-* Una o più code di controllo.
-* Una coda di elementi di lavoro.
-* Una tabella di cronologia.
-* Una tabella di istanze.
-* Un contenitore di archiviazione che contiene uno o più BLOB del lease.
+- Una o più code di controllo.
+- Una coda di elementi di lavoro.
+- Una tabella di cronologia.
+- Una tabella di istanze.
+- Un contenitore di archiviazione che contiene uno o più BLOB del lease.
 
 Tutte le risorse vengono create automaticamente nell'account di Archiviazione di Azure predefinito quando vengono eseguite o sono pianificate per l'esecuzione funzioni attività o di orchestrazione. Nell'articolo [Prestazioni e scalabilità](durable-functions-perf-and-scale.md) viene descritto l'uso di queste risorse.
 
@@ -140,3 +141,5 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 
 > [!div class="nextstepaction"]
 > [Informazioni su come gestire il controllo delle versioni](durable-functions-versioning.md)
+
+<!-- Update_Description: wording update -->

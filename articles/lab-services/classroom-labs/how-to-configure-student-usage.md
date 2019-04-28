@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703780"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -47,15 +47,15 @@ Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclu
 Azure Lab Services consente ai docenti di inviti lab a tutti di posta elettronica o selezionati studenti senza dover usare un altro client di posta elettronica. Gli insegnanti possono passare il mouse sul singolo studente nell'elenco per visualizzare l'icona di messaggio di posta elettronica per ogni studente o studenti selezionare uno o più e utilizzare **Invia invito** sulla barra degli strumenti. Questa funzionalità Invia un messaggio di posta elettronica con un collegamento di registrazione e un messaggio (se presente) aggiunto dall'insegnante. Dopo che viene inviato l'invito, lo stato di invito diventa **invito inviato** in modo che insegnanti possono tenere traccia di quali gli studenti hanno già ricevuto il collegamento di registrazione e la data di invio.
 
 1. Passare alla vista **Utenti** se non si è già nella pagina. 
-2. Selezionare utenti specifici o tutti gli utenti nell'elenco. Per selezionare utenti specifici, selezionare le caselle di controllo nella prima colonna dell'elenco. Per selezionare tutti gli utenti, selezionare la casella di controllo accanto al titolo della prima colonna (**Nome**) oppure tutte le caselle di controllo per tutti gli utenti nell'elenco. È possibile visualizzare lo stato del **lo stato di invito** in questo elenco.  Nell'immagine seguente, lo stato di invito per tutti gli studenti viene impostato su **invito non inviato**. 
+2. Selezionare utenti specifici o tutti gli utenti nell'elenco. Per selezionare utenti specifici, selezionare le caselle di controllo nella prima colonna dell'elenco. Per selezionare tutti gli utenti, selezionare la casella di controllo accanto al titolo della prima colonna (**Nome**) oppure tutte le caselle di controllo per tutti gli utenti nell'elenco. È possibile visualizzare lo **stato dell'invito** in questo elenco.  Nella figura seguente lo stato dell'invito per tutti gli studenti è impostato su **Invito non inviato**. 
 
     ![Selezionare gli studenti](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Selezionare il **icona di messaggio di posta elettronica (busta)** in uno delle righe (o) select **Invia invito** sulla barra degli strumenti. È anche possibile posizionare il mouse su un nome di uno studente nell'elenco per visualizzare l'icona di messaggio di posta elettronica. 
+1. Selezionare l'**icona del messaggio di posta elettronica (busta)** in una delle righe oppure selezionare **Invia invito** sulla barra degli strumenti. È anche possibile passare il puntatore del mouse sul nome di uno studente nell'elenco e quindi selezionare l'icona del messaggio di posta elettronica. 
 
     ![Inviare un collegamento per la registrazione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) seguire questa procedura: 
     1. Digitare un **messaggio facoltativo** da inviare agli studenti. Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. 
-    2. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) selezionare **Invia**. Viene visualizzato lo stato dell'invito modifica in **invio dell'invito** e quindi a **invito inviato**. 
+    2. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) selezionare **Invia**. Lo stato dell'invito cambia in **Invio dell'invito** e quindi in **Invito inviato**. 
         
         ![Inviti inviati](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 

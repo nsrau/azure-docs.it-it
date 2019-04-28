@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623508"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Ridimensionare i limiti e le quote in DevTest Labs
 Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predefiniti per determinate le risorse di Azure, che possono influenzare il servizio DevTest Labs. Questi limiti sono definiti **quote**.

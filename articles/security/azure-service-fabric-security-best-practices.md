@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611528"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.

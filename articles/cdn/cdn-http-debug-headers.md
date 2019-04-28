@@ -3,8 +3,8 @@ title: Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 description: L' intestazione della richiesta di debug della cache, X-EC-Debug, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche di Verizon.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: v-deasim
-ms.openlocfilehash: 3a99e322d81748c54585e7dd0eb06959bfeb9569
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.author: magattus
+ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736973"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche dei prodotti **Azure CDN Premium di Verizon**.
@@ -33,7 +33,7 @@ La risposta inviata dai server POP a un utente include l'intestazione `X-EC-Debu
 ## <a name="requesting-debug-cache-information"></a>Richiesta di informazioni di debug per la cache
 Usare le direttive seguenti nella richiesta specificata per definire le informazioni di debug per la cache che verranno incluse nella risposta:
 
-Intestazione della richiesta | Descrizione |
+Intestazione della richiesta | DESCRIZIONE |
 ---------------|-------------|
 X-EC-Debug: x-ec-cache | [Codice di stato della cache](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remote | [Codice di stato della cache](#cache-status-code-information)
@@ -54,7 +54,7 @@ Le intestazioni di risposta di debug per la cache possono essere richieste inclu
 ## <a name="cache-status-code-information"></a>Informazioni sul codice di stato della cache
 L'intestazione della risposta X-EC-Debug può identificare un server e il modo in cui ha gestito la risposta tramite le direttive seguenti:
 
-Intestazione | Descrizione
+Intestazione | DESCRIZIONE
 -------|------------
 X-EC-Debug: x-ec-cache | Questa intestazione viene segnalata ogni volta che viene eseguito il routing di contenuto attraverso la rete CDN. Identifica il server POP che ha soddisfatto la richiesta.
 X-EC-Debug: x-ec-cache-remote | Questa intestazione viene visualizzata solo quando il contenuto richiesto è stato memorizzato nella cache in un server shield di origine o in un server gateway ADN.
@@ -68,11 +68,11 @@ L'intestazione X-EC-Debug visualizza le informazioni sul codice di stato della c
 - `X-EC-Debug: x-ec-cache-remote: <StatusCode from Platform (POP/ID)>`
 
 I termini usati nella sintassi dell'intestazione della risposta riportata sopra sono definiti nel modo seguente:
-- StatusCode: indica il modo in cui è stato gestito il contenuto richiesto dalla rete CDN, rappresentato tramite un codice di stato della cache.
+- StatusCode: Indica come il contenuto richiesto è stato gestito dalla rete CDN, rappresentato tramite un codice di stato della cache.
     
     Il codice di stato TCP_DENIED può essere visualizzato al posto di NONE quando una richiesta non autorizzata viene rifiutata a causa dell'autenticazione basata su token. Tuttavia, il codice di stato NONE continuerà a essere usato nella visualizzazione dei report di stato della cache o nei dati di log non elaborati.
 
-- Platform: indica la piattaforma su cui è stato richiesto il contenuto. I codici seguenti sono validi per questo campo:
+- Piattaforma: Indica la piattaforma su cui è stato richiesto il contenuto. I codici seguenti sono validi per questo campo:
 
     Codice  | Piattaforma
     ------| --------
@@ -80,7 +80,7 @@ I termini usati nella sintassi dell'intestazione della risposta riportata sopra 
     ECS   | HTTP Small
     ECD   | Application Delivery Network (ADN)
 
-- POP: indica il server [POP](cdn-pop-abbreviations.md) che ha gestito la richiesta. 
+- POP: Indica la [POP](cdn-pop-abbreviations.md) che ha gestito la richiesta. 
 
 ### <a name="sample-response-headers"></a>Intestazioni di risposta di esempio
 
@@ -103,10 +103,10 @@ L'intestazione di risposta `X-EC-Debug` che segnala se la richiesta fosse idonea
 
 Il termine usato nella sintassi dell'intestazione della risposta riportata sopra è definito nel modo seguente:
 
-Valore  | Descrizione
+Value  | DESCRIZIONE
 -------| --------
-YES    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
-NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> - Configurazione specifica del cliente: una configurazione specifica del proprio account può impedire ai server POP di memorizzare un asset nella cache. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> - Intestazioni di risposta della cache: le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire ai server POP di memorizzarla nella cache.
+SÌ    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
+NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> Configurazione specifici del cliente: Una configurazione specifica dell'account può impedire ai server pop di memorizzazione nella cache un asset. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> -Memorizza nella cache le intestazioni di risposta: Le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire i server POP di memorizzarla nella cache.
 UNKNOWN | Indica che i server non sono stati in grado di valutare se l'asset richiesto fosse inseribile nella cache. Questo stato si verifica in genere quando la richiesta viene rifiutata a causa dell'autenticazione basata su token.
 
 ### <a name="sample-response-header"></a>Esempio di intestazione di risposta
@@ -147,23 +147,23 @@ L'intestazione di risposta `X-EC-Debug` visualizza le informazioni sullo stato d
 
 I termini usati nella sintassi dell'intestazione della risposta riportata sopra sono definiti nel modo seguente:
 
-- MASeconds: indica la durata massima (in secondi) definita dalle intestazioni Cache-Control del contenuto richiesto.
+- MASeconds: Indica la durata massima (in secondi) come definito dalle intestazioni Cache-Control del contenuto richiesto.
 
-- MATimePeriod: converte il valore della durata massima (ossia MASeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni). 
+- MATimePeriod: Converte il valore di max-age (ossia MASeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni). 
 
-- UnixTime: indica il timestamp della cache del contenuto richiesto nel formato data/ora Unix (detto anche formato data/ora POSIX o periodo Unix). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
+- UnixTime: Indica il timestamp della cache del contenuto richiesto in orario Unix (noto anche come formato data/ora POSIX o periodo Unix). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
 
-    Se il server di origine non usa un server di memorizzazione nella cache HTTP di terze parti o se tale server non restituisce l'intestazione di risposta Age, il timestamp della cache corrisponderà sempre alla data/ora in cui l'asset è stato recuperato o riconvalidato. In caso contrario, i server POP useranno il campo Age per calcolare il TTL dell'asset nel modo seguente: Retrieval/RevalidateDateTime - Age.
+    Se il server di origine non usa un server di memorizzazione nella cache HTTP di terze parti o se tale server non restituisce l'intestazione di risposta Age, il timestamp della cache corrisponderà sempre alla data/ora in cui l'asset è stato recuperato o riconvalidato. In caso contrario, i server POP verranno utilizzato il campo Age per calcolare il TTL dell'asset nel modo seguente: Retrieval/RevalidateDateTime - Age.
 
-- ddd, dd MMM yyyy HH:mm:ss GMT: indica il timestamp della cache del contenuto richiesto. Per altre informazioni, vedere il termine UnixTime più indietro.
+- ddd, dd MMM yyyy hh: mm: GMT: Indica il timestamp della cache del contenuto richiesto. Per altre informazioni, vedere il termine UnixTime più indietro.
 
-- CASeconds: indica il numero di secondi trascorsi dal timestamp della cache.
+- CASeconds: Indica il numero di secondi trascorsi il timestamp della cache.
 
-- RTSeconds: indica il numero di secondi rimanenti durante i quali il contenuto memorizzato nella cache sarà ancora considerato aggiornato. Questo valore viene calcolato nel modo seguente: RTSeconds = max-age - cache age.
+- RTSeconds: Indica il numero di secondi rimanenti per il quale il contenuto memorizzato nella cache sarà considerato aggiornato. Questo valore viene calcolato come segue: RTSeconds = max-age - cache age.
 
-- RTTimePeriod: converte il valore TTL rimanente (ossia RTSeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni).
+- RTTimePeriod: Converte il valore TTL rimanente (ossia RTSeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni).
 
-- ExpiresSeconds: indica il numero di secondi rimanenti prima della data/ora specificata nell'intestazione di risposta `Expires`. Se l'intestazione di risposta `Expires` non era inclusa nella risposta, il valore di questo termine è *none*.
+- ExpiresSeconds: Indica il numero di secondi rimanenti prima della data e ora specificata nel `Expires` intestazione della risposta. Se l'intestazione di risposta `Expires` non era inclusa nella risposta, il valore di questo termine è *none*.
 
 ### <a name="sample-response-header"></a>Esempio di intestazione di risposta
 

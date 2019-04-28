@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695995"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 

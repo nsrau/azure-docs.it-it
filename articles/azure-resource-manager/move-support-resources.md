@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 03/22/2019
 ms.author: tomfitz
 ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729291"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Anche se un tipo di risorsa supporta l'operazione di spostamento, potrebbero esservi condizioni che impediscano alla risorsa di essere spostata. Per informazioni dettagliate sulle condizioni che influiscono sulle operazioni di spostamento, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).

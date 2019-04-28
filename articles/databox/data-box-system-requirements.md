@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746931"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -36,7 +36,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per l'operazio
 | **Sistema operativo** | **Versioni** | 
 | --- | --- | 
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-|  Windows |7, 8, 10 | 
+| Windows |7, 8, 10 | 
 |Linux    |         |
 
 ### <a name="supported-file-systems-for-linux-clients"></a>File system supportati per client Linux

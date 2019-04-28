@@ -2,18 +2,19 @@
 title: File di inclusione
 description: File di inclusione
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680004"
 ---
 Quando si installa un certificato client, è necessaria la password che è stata creata durante l'esportazione del certificato client.
 

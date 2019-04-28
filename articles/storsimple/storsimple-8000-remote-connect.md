@@ -16,11 +16,11 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631780"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
 
@@ -197,7 +197,7 @@ Ognuna di queste procedure è descritta di seguito.
 3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
+4. Fare clic su **Finish**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
    
     ![Impostazione guidata del certificato 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
@@ -237,7 +237,7 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Per il parametro -ComputerName nel cmdlet, specificare il <*numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
-5. Digitare:
+5. Digitare: 
    
      `Enter-PSSession $session`
 6. Sarà necessario attendere alcuni minuti, quindi verrà effettuata la connessione al dispositivo tramite HTTPS su SSL. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.

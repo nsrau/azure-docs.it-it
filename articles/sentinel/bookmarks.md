@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596951"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Tenere traccia dei dati durante la ricerca
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Ricerca delle minacce richiede in genere esaminato montagne di dati di log alla ricerca di prove di comportamenti dannosi. Durante questo processo, addetti trovare gli eventi che si desiderano tenere presente, visitare di nuovo e analizzare come parte della convalida le ipotesi potenziali e comprendere la storia completa di una compromissione.

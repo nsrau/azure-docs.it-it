@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 3db5068943b88921d90697dd94be18c448e19d50
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609175"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-ffiec-financial-services"></a>Progetto di sicurezza e conformità di Azure: Data Warehouse per servizi finanziari FFIEC
 

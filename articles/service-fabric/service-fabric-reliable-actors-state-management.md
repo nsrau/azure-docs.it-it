@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725738"
 ---
 # <a name="reliable-actors-state-management"></a>Gestione dello stato di Reliable Actors
 I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.

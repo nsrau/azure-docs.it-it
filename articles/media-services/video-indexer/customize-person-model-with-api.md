@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553709"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizzare un modello Persona con l'API Video Indexer
 
@@ -56,10 +56,10 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|stringa|Sì|Identificatore univoco globale per l'account|
-|name|stringa|Sì|Nome per il modello Persona|
-|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|string|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|string|Sì|Identificatore univoco globale per l'account|
+|name|string|Sì|Nome per il modello Persona|
+|accessToken|string|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -101,10 +101,10 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|stringa|Sì|Identificatore univoco globale per l'account|
-|id|stringa|Sì|L'id del modello Persona (generato quando viene creato il modello Persona)|
-|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|string|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|string|Sì|Identificatore univoco globale per l'account|
+|id|string|Sì|L'id del modello Persona (generato quando viene creato il modello Persona)|
+|accessToken|string|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -138,9 +138,9 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|stringa|Sì|Identificatore univoco globale per l'account|
-|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|location|string|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|string|Sì|Identificatore univoco globale per l'account|
+|accessToken|string|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -193,12 +193,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Nome**|**Tipo**|**Obbligatorio**|**Descrizione**|
 |---|---|---|---|
-|location|stringa|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
-|accountId|stringa|Sì|Identificatore univoco globale per l'account|
-|videoId|stringa|Sì|ID del video in cui viene visualizzato il viso che si desidera aggiornare. Viene creato quando il video viene caricato e indicizzato.|
+|location|string|Sì|L'area di Azure a cui deve essere instradata la chiamata. Per altre informazioni, vedere [Aree di Azure e Video Indexer](regions.md).|
+|accountId|string|Sì|Identificatore univoco globale per l'account|
+|videoId|string|Sì|ID del video in cui viene visualizzato il viso che si desidera aggiornare. Viene creato quando il video viene caricato e indicizzato.|
 |faceId|numero intero|Sì|ID del viso che verrà aggiornato. È possibile ottenerlo dall'indice del video|
-|accessToken|stringa|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
-|name|stringa|Sì|Nuovo nome con cui aggiornare il viso.|
+|accessToken|string|Sì|Token di accesso (deve essere di ambito [Token di accesso all'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) per l'autenticazione con la chiamata. I token di accesso scadono entro 1 ora.|
+|name|string|Sì|Nuovo nome con cui aggiornare il viso.|
 
 I nomi sono univoci per i modelli Persona. Se pertanto si attribuisce lo stesso valore del parametro **name** a due visi nello stesso modello Persona, Video Indexer visualizza i visi come la stessa persona e li converge quando si reindicizza il video. 
 

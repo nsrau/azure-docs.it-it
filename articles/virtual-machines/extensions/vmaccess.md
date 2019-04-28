@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
 ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800071"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
 ## <a name="overview"></a>Panoramica
@@ -36,7 +36,7 @@ Questo articolo illustra come usare l'estensione VMAccess di Azure per controlla
 
 L'estensione di accesso alle VM può essere eseguita in queste distribuzioni di Linux:
 
-| Distribuzione | Versione |
+| Distribuzione | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720213"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.

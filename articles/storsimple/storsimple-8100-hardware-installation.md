@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631170"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 ## <a name="overview"></a>Panoramica
@@ -157,7 +157,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8100-device"></a>Cablare il dispositivo StorSimple 8100
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8100 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * Il dispositivo di archiviazione, interamente disimballato e montato in rack.
@@ -236,11 +236,11 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
-5. Configurare la connessione seriale come segue: 115,200 baud, 8 bit di dati, 1 bit di stop, nessuna parità, set di controllo impostato su nessuno.
+5. Configurare la connessione seriale come segue: 115.200 baud, 8 bit di dati, 1 bit di stop, nessuna parità e flusso di controllo è impostata su None.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-Out**: Quando il dispositivo è installato in un Data Center remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

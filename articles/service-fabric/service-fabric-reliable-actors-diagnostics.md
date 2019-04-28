@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726571"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
 Il runtime di Reliable Actors rende disponibili eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.

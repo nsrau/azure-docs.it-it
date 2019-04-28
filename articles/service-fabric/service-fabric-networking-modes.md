@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718156"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -200,7 +200,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
  
 3. Solo per i cluster Windows, configurare una regola del gruppo di sicurezza di rete che consenta di aprire la porta UDP/53 per la rete virtuale con i valori seguenti:
 
-   |Impostazione |Valore | |
+   |Impostazione |Value | |
    | --- | --- | --- |
    |Priorità |2000 | |
    |NOME |Custom_Dns  | |

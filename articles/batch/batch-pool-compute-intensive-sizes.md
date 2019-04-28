@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776525"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -107,7 +107,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411.82*.
 1. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione della macchina virtuale con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare i driver NVIDIA GPU automaticamente usando un'attività di avvio:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ---- | ----- | 
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
 | **Autore** | MicrosoftWindowsServer |
@@ -128,7 +128,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, si devono install
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -147,7 +147,7 @@ Per eseguire le applicazioni Windows MPI in un pool di nodi di macchine virtuali
 1. Seguire la procedura per creare uno [snapshot e un'immagine di macchina virtuale Windows personalizzata](batch-custom-images.md) per Batch.
 1. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -162,7 +162,7 @@ Per eseguire le applicazioni MPI in un pool di nodi Linux della serie H, è poss
 
 Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine, con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ---- | ---- |
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
 | **Autore** | OpenLogic |

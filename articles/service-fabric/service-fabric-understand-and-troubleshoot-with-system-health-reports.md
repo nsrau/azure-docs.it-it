@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716269"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.

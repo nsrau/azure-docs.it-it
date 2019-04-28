@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596302"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -65,7 +65,7 @@ Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, 
 
 - **Peering di rete virtuale**: quando si crea un peering di rete virtuale tra due reti virtuali, viene aggiunta una route per ogni intervallo di indirizzi nello spazio degli indirizzi di ogni rete virtuale per la quale viene creato un peering. Vedere altre informazioni sul [peering di rete virtuale](virtual-network-peering-overview.md).  
 - **Gateway di rete virtuale**: vengono aggiunte una o più route con *Gateway di rete virtuale* elencato come tipo di hop successivo quando si aggiunge un gateway di rete virtuale a una rete virtuale. Anche l'origine è *Gateway di rete virtuale*, perché il gateway aggiunge le route alla subnet. Se il gateway di rete locale scambia route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol [(BGP)](#border-gateway-protocol), viene aggiunta una route per ogni route propagata dal gateway di rete locale. È consigliabile sintetizzare le route locali negli intervalli di indirizzi più ampi possibile, in modo che venga propagato il minor numero possibile di route a un gateway di rete virtuale di Azure. Il numero di route che possono essere propagate a un gateway di rete virtuale di Azure è limitato. Per informazioni dettagliate, vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
-- **VirtualNetworkServiceEndpoint**: Azure aggiunge gli indirizzi IP pubblici per alcuni servizi alla tabella di route quando si abilita un endpoint di servizio per il servizio. Gli endpoint di servizio vengono abilitati per singole subnet all'interno di una rete virtuale, quindi la route viene aggiunta solo alla tabella di route di una subnet per la quale è abilitato un endpoint di servizio. Gli indirizzi IP pubblici dei servizi di Azure cambiano periodicamente. Azure gestisce automaticamente gli indirizzi nella tabella di route quando gli indirizzi cambiano. Vedere altre informazioni sugli [endpoint del servizio di rete virtuale](virtual-network-service-endpoints-overview.md) e sui servizi per i quali è possibile creare endpoint di servizio. 
+- **VirtualNetworkServiceEndpoint**: Azure aggiunge gli indirizzi IP pubblici per alcuni servizi alla tabella di route quando si abilita un endpoint di servizio per il servizio. Gli endpoint di servizio vengono abilitati per singole subnet all'interno di una rete virtuale, quindi la route viene aggiunta solo alla tabella di route di una subnet per la quale è abilitato un endpoint di servizio. Gli indirizzi IP pubblici dei servizi di Azure cambiano periodicamente. Azure gestisce automaticamente gli indirizzi nella tabella di route quando gli indirizzi cambiano. Vedere altre informazioni sugli [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md) e sui servizi per i quali è possibile creare endpoint di servizio. 
 
 > [!NOTE]
 > I tipi di hop successivi **Peering di rete virtuale** e **VirtualNetworkServiceEndpoint** vengono aggiunti solo alle tabelle di route delle subnet che si trovano nelle reti virtuali create tramite il modello di distribuzione Azure Resource Manager. I tipi di hop successivi non vengono aggiunti alle tabelle di route associate a subnet di reti virtuali create tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
@@ -110,7 +110,7 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 |Appliance virtuale               |VirtualAppliance                                |VirtualAppliance|
 |Nessuna                            |Nessuna                                            |Null (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
 |Peering di rete virtuale         |Peering reti virtuali                                    |Non applicabile|
-|Endpoint del servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
+|Endpoint servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
@@ -134,7 +134,7 @@ Se più route contengono lo stesso prefisso degli indirizzi, Azure seleziona il 
 3. Route di sistema
 
 > [!NOTE]
-> Le route di sistema per il traffico correlato alla rete virtuale, ai peering di rete virtuale o agli endpoint del servizio rete virtuale sono le route preferite anche se le route BGP sono più specifiche.
+> Le route di sistema per il traffico correlato alla rete virtuale, ai peering di rete virtuale o agli endpoint servizio di rete virtuale sono le route preferite anche se le route BGP sono più specifiche.
 
 Una tabella di route contiene ad esempio le route seguenti:
 

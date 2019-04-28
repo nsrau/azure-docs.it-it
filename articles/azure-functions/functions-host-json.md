@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331218"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737195"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -171,7 +171,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
-|enabled|true|Indica se la funzionalità è abilitata. | 
+|Enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 

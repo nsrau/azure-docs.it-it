@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4282c9e9b660476992ba6f948bc5e408e9b064a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736450"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Supporto HTTP/2 nel servizio Frontdoor di Azure
 HTTP/2 è una revisione principale del protocollo HTTP/1.1. Fornisce prestazioni Web più veloci, riduce il tempo di risposta e offre un'esperienza utente migliore pur mantenendo invariati i metodi, i codici di stato e la semantica di HTTP. Anche se HTTP/2 è progettato per funzionare con HTTP e HTTPS, molti browser Web client supportano solo HTTP/2 su TLS.
@@ -54,7 +54,7 @@ Tutti i browser principali hanno implementato il supporto HTTP/2 le versioni cor
 
 Il supporto HTTP/2 è attualmente attivo per tutte le configurazioni di Frontdoor. Non è necessaria alcuna azione da parte dei clienti.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per altre informazioni su HTTP/2, vedere le risorse seguenti:
 

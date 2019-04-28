@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 0d47137e3149563903d4adcaaf34e72ddad043f7
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60755034"
 ---
 Eseguire i passaggio seguenti nel portale di Azure per visualizzare un evento del dispositivo.
 

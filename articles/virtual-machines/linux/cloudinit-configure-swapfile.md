@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729818"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usare cloud-init per configurare un file di scambio in una macchina virtuale Linux
 Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.io) per configurare il file di scambio in diverse distribuzioni Linux. Il file di scambio viene tradizionalmente configurato dall'agente Linux (WALA) in base alle distribuzioni in cui è necessario.  Questo documento descrive il processo di creazione del file di scambio su richiesta durante la fase di provisioning usando cloud-init.  Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)

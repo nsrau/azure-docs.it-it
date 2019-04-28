@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 03/19/2019
+ms.author: v-junlch
 ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730770"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -146,7 +147,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -208,7 +209,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -267,7 +268,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -327,7 +328,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -383,7 +384,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -425,9 +426,91 @@ Il [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-
 
 Di seguito è riportato un esempio di funzione trigger HTTP che illustra come usare questa API:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+```C#
+// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace VSSample
+{
+    public static class HttpSyncStart
+    {
+        private const string Timeout = "timeout";
+        private const string RetryInterval = "retryInterval";
+
+        [FunctionName("HttpSyncStart")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
+            HttpRequestMessage req,
+            [OrchestrationClient] DurableOrchestrationClientBase starter,
+            string functionName,
+            ILogger log)
+        {
+            // Function input comes from the request content.
+            dynamic eventData = await req.Content.ReadAsAsync<object>();
+            string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+            TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(30);
+            TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(1);
+            
+            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
+                req,
+                instanceId,
+                timeout,
+                retryInterval);
+        }
+
+        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
+        {
+            string queryParameterStringValue = request.RequestUri.ParseQueryString()[queryParameterName];
+            if (string.IsNullOrEmpty(queryParameterStringValue))
+            {
+                return null;
+            }
+
+            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
+        }
+    }
+}
+```
+
+```Javascript
+const df = require("durable-functions");
+
+const timeout = "timeout";
+const retryInterval = "retryInterval";
+
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+    const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+
+    const timeoutInMilliseconds = getTimeInSeconds(req, timeout) || 30000;
+    const retryIntervalInMilliseconds = getTimeInSeconds(req, retryInterval) || 1000;
+
+    return client.waitForCompletionOrCreateCheckStatusResponse(
+        context.bindingData.req,
+        instanceId,
+        timeoutInMilliseconds,
+        retryIntervalInMilliseconds);
+};
+
+function getTimeInSeconds (req, queryParameterName) {
+    const queryValue = req.query[queryParameterName];
+    return queryValue
+        ? queryValue // expected to be in seconds
+        * 1000 : undefined;
+}
+```
 
 Chiamare la funzione con la riga seguente. Utilizzare 2 secondi per il timeout e 0,5 secondi per l'intervallo tra tentativi:
 
@@ -513,7 +596,7 @@ public static void SendInstanceInfo(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -558,7 +641,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -657,3 +740,5 @@ func durable delete-task-hub --task-hub-name UserTest
 
 > [!div class="nextstepaction"]
 > [Informazioni su come usare le API HTTP per la gestione delle istanze](durable-functions-http-api.md)
+
+<!-- Update_Description: wording update -->

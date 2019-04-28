@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
 ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696345"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
 In Azure Lab Services, un account del lab è un contenitore per i tipi di lab gestiti, ad esempio labs in aula. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -38,7 +38,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Per la **rete virtuale Peer**, selezionare una rete virtuale (VNet) di peer per la rete lab. Lab creato in questo account connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
+    5. Per **Rete virtuale peer** selezionare una rete virtuale peer per la rete lab. I lab creati in questo account sono connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
     7. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab.      
     8. Selezionare **Create**. 
 

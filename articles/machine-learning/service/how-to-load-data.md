@@ -13,11 +13,11 @@ ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819233"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Caricare e leggere dati con Azure Machine Learning
 
