@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/8/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460254"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creare un criterio di Web Application firewall per l'ingresso principale di Azure usando il portale di Azure
 
@@ -35,7 +35,7 @@ In primo luogo, creare un criterio di Web Application firewall basic con gestito
 1. Nella parte superiore sinistra della schermata, selezionare **crea una risorsa**> cercare **WAF**> selezionare **Web application firewall (anteprima)** > selezionare  **Creare**.
 2. Nel **nozioni di base** scheda della finestra di **creare un criterio di WAF** pagina immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le altre impostazioni e quindi selezionare **revisione + Crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
     | Sottoscrizione            |Selezionare il nome della sottoscrizione porta principale.|
     | Gruppo di risorse          |Selezionare il nome di gruppo di risorse di ingresso principale.|
@@ -45,7 +45,7 @@ In primo luogo, creare un criterio di Web Application firewall basic con gestito
 
 3. Nel **Association** scheda della finestra di **creare un criterio di Web Application firewall** pagina, selezionare **Aggiungi host front-end**, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
     | Porta principale              | Selezionare il nome del profilo di porta principale.|
     | Host front-end           | Selezionare il nome dell'host di ingresso principale, quindi selezionare **Add**.|

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364000"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -50,17 +50,17 @@ Quando si usa il SDK di hub eventi o le integrazioni dei prodotti che non sono c
 
 Nel portale, il campo dell'endpoint compatibile con Hub eventi contiene una stringa di connessione hub eventi completa che è simile a: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se il SDK in uso richiede altri valori, quindi sarebbero:
 
-| Nome | Valore |
+| NOME | Value |
 | ---- | ----- |
 | Endpoint | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome host | abcd1234namespace.servicebus.windows.net |
-| Namespace | abcd1234namespace |
+| Spazio dei nomi | abcd1234namespace |
 
 È quindi possibile usare qualsiasi criterio di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
 
 il SDK da che usare per connettersi all'endpoint predefinito compatibile con Hub eventi esposti dall'IoT Hub includono:
 
-| Linguaggio | SDK | Esempio | Notes |
+| Linguaggio | SDK | Esempio | Note |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Guida introduttiva](quickstart-send-telemetry-dotnet.md) | Usa informazioni compatibile con hub eventi |
  Java | https://github.com/Azure/azure-event-hubs-java | [Guida introduttiva](quickstart-send-telemetry-java.md) | Usa informazioni compatibile con hub eventi |

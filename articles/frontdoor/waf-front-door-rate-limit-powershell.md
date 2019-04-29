@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459318"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una web application frequenza limite regola del firewall usando Azure PowerShell
 La regola limite velocità firewall (WAF) delle applicazioni web di Azure per l'ingresso principale di Azure controlla il numero di richieste consentite da un indirizzo IP singolo client durante una durata di un minuto.

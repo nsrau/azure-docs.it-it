@@ -3,17 +3,18 @@ title: Pacchetto Edge per l'importazione della soluzione di monitoraggio remoto 
 description: Questo articolo descrive come importare un pacchetto IoT Edge nell'acceleratore della soluzione di monitoraggio remoto
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/10/2018
+origin.date: 10/10/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442940"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importare un pacchetto IoT Edge nell'acceleratore della soluzione di monitoraggio remoto
 
@@ -29,11 +30,11 @@ Uno sviluppatore crea e testa un manifesto di distribuzione in un ambiente di sv
 
 Usare il portale di Azure per esportare il manifesto di distribuzione dall'ambiente di sviluppo:
 
-1. Nel portale di Azure passare all'hub IoT che si sta usando per sviluppare e testare i dispositivi IoT Edge. Fare clic su **IoT Edge** e quindi su **Distribuzioni di IoT Edge**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
+1. Nel portale di Azure passare all'hub IoT che si sta usando per sviluppare e testare i dispositivi IoT Edge. Fare clic su **IoT Edge** e quindi **distribuzioni IoT Edge**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
 
-1. Fare clic sulla distribuzione contenente la configurazione di distribuzione da usare. Nella pagina **Dettagli della distribuzione** viene visualizzato: ![IoT Edge deployment details](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png) (Dettagli della distribuzione di IoT Edge)
+1. Fare clic sulla distribuzione contenente la configurazione di distribuzione da usare. Il **dettagli di distribuzione** pagina consente di visualizzare: ![Informazioni dettagliate sulla distribuzione di IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Fare clic su **Scarica il manifesto di IoT Edge**: ![Scarica manifesto di distribuzione](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Fare clic su **manifesto di IoT Edge scaricare**:  ![Scaricare il manifesto di distribuzione](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. Salvare il file JSON come un file locale denominato **deploymentmanifest.json**.
 
@@ -43,11 +44,11 @@ Si dispone ora di un file contenente il manifesto di distribuzione. Nella sezion
 
 Seguire la procedura seguente per importare un manifesto della distribuzione di Edge come pacchetto nella soluzione:
 
-1. Nell'interfaccia utente Web di monitoraggio remoto passare alla pagina **Pacchetti**: ![pagina Pacchetti](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
+1. Nell'interfaccia utente Web di monitoraggio remoto passare alla pagina **Pacchetti**:  ![Pagina Pacchetti](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
 
-1. Fare clic su **+ Nuovo pacchetto**, scegliere **Edge Manifest** (Manifesto Edge) come tipo di pacchetto e fare clic su **Sfoglia** per selezionare il file **deploymentmanifest.json** salvato nella sezione precedente: ![Seleziona manifesto](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+1. Fare clic su **+ nuovo pacchetto**, scegliere **Edge manifesto** come tipo di pacchetto, fare clic su **Sfoglia** per selezionare il **deploymentmanifest.json** file è stato salvato nella sezione precedente:  ![Seleziona manifesto](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
 
-1. Fare clic su **Carica** per aggiungere il pacchetto alla soluzione di monitoraggio remoto: ![Pacchetti caricati](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
+1. Fare clic su **Carica** per aggiungere il pacchetto alla soluzione di monitoraggio remoto:  ![Pacchetto caricato](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
 
 È stato ora caricato un manifesto di distribuzione di IoT Edge come pacchetto. Nella pagina **Distribuzioni** è possibile distribuire questo pacchetto ai dispositivi IoT Edge connessi.
 

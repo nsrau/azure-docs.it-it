@@ -11,11 +11,11 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262237"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -57,7 +57,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) in un database SQL di Azure. Impostare **AzureSSISLocation** sulla stessa posizione del server del database SQL che ospita SSISDB affinché il runtime di integrazione lavori nel modo più efficiente possibile.
+**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) in un database SQL di Azure. Impostare **AzureSSISLocation** sulla stessa posizione del server di database SQL che ospita SSISDB affinché il runtime di integrazione lavori nel modo più efficiente possibile.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni seguenti:

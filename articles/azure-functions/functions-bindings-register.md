@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437855"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni delle associazioni di funzioni di Azure
 
@@ -37,7 +38,7 @@ I tipi di associazione HTTP e timer sono eccezioni che non richiedono la registr
 
 ## <a name="azure-portal-development"></a>Sviluppo con il portale di Azure
 
-Quando si crea una funzione o si aggiunge un'associazione, compare un avviso quando è necessario registrare l'estensione dell'associazione o del trigger. Rispondere all'avviso facendo clic **Installa** per registrare l'estensione. L'installazione può richiedere fino a 10 minuti in un piano a consumo.
+Quando si crea una funzione o si aggiunge un'associazione, compare un avviso quando è necessario registrare l'estensione dell'associazione o del trigger. Rispondere all'avviso facendo clic **Installa** per registrare l'estensione. L'installazione può richiedere fino a 10 minuti in un piano a consumo. 
 
 È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. Per le associazioni supportate non disponibili nel portale o per aggiornare un'estensione installata, è anche possibile [installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Sostituire `<target_version>` nell'esempio con una specifica versione del pacche
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Esempio di trigger e associazione di funzione Azure](./functions-bindings-example.md)
+
 

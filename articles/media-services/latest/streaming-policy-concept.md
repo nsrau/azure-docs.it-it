@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: juliako
 ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230897"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
@@ -65,7 +65,7 @@ Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
-Consultare [Filtering, ordering, paging of Media Services entities](entities-overview.md) (Filtrare, ordinare ed eseguire il paging delle entità di Servizi multimediali).
+Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

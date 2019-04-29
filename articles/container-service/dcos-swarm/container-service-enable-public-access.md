@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457326"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DEPRECATO) Abilitare l'accesso pubblico a un'applicazione del servizio Azure Container
 
@@ -74,7 +74,7 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
    | --- | --- |
    | NOME |Nome descrittivo della regola del firewall. |
    | Priorità |Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
-   | Sorgente |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
+   | Source (Sorgente) |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
    | Protocollo |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
    | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024-1500**. |

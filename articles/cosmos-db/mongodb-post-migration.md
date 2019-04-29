@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331205"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di post-migrazione ottimizzazione quando si usa l'API di Azure Cosmos DB per MongoDB 
 
-Dopo la migrazione i dati archiviati nel database di MongoDB all'API di Azure Cosmos DB per MongoDB, è possibile connettersi ad Azure Cosmos DB e gestire i dati. Questa guida illustra la procedura che è necessario considerare dopo la migrazione. Vedere le [eseguire la migrazione di MongoDB all'API di Azure Cosmos DB per MongoDB esercitazione](../dms/tutorial-mongodb-cosmos-db.md) per i passaggi della migrazione.
+Dopo aver eseguito la migrazione dei dati archiviati nel database MongoDB nell'API per MongoDB di Azure Cosmos DB, è possibile connettersi ad Azure Cosmos DB e gestire i dati. Questa guida illustra la procedura che è necessario considerare dopo la migrazione. Vedere le [eseguire la migrazione di MongoDB all'API di Azure Cosmos DB per MongoDB esercitazione](../dms/tutorial-mongodb-cosmos-db.md) per i passaggi della migrazione.
 
 In questa guida si apprenderà come:
 - [Connettere l'applicazione](#connect-account)

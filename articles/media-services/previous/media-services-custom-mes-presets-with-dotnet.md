@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247244"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizzazione dei set di impostazioni di Media Encoder Standard  
 
@@ -267,7 +267,7 @@ namespace CustomizeMESPresests
 ## <a name="see-also"></a>Vedere anche 
 
 - [Come codificare con una trasformazione personalizzata utilizzando CLI](../latest/custom-preset-cli-howto.md)
-- [Codifica con Media Services v3](../latest/encoding-concept.md)
+- [Codifica con Servizi multimediali v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

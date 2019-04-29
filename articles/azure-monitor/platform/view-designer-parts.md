@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341878"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento sulle parti della visualizzazione Progettazione viste in Monitoraggio di Azure
 Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -89,7 +89,7 @@ L'intestazione presenta un singolo numero che visualizza il numero di record res
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -120,7 +120,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -161,7 +161,7 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -193,7 +193,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -254,7 +254,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -290,7 +290,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Value |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 

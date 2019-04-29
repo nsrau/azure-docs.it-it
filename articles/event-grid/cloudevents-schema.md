@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436597"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usare lo schema CloudEvents con Griglia di eventi
 
@@ -73,7 +73,7 @@ In CloudEvents v0.1 sono disponibili le proprietà seguenti:
 | schemaURL          | URI      | "https:\//myschema.com"           | Collegamento allo schema rispettato dall'attributo dati (facoltativo) | *non usato*
 | contentType        | string   | "application/json"               | Descrive il formato di codifica dei dati (facoltativo)                       | *non usato*
 | Estensioni         | Mappa      | { "extA": "vA", "extB", "vB" }  | Metadati aggiuntivi (facoltativi)                                 | *non usato*
-| data               | Oggetto   | { "objA": "vA", "objB", "vB" }  | Payload dell'evento (facoltativo)                                       | data
+| data               | Object   | { "objA": "vA", "objB", "vB" }  | Payload dell'evento (facoltativo)                                       | data
 
 Per altre informazioni, vedere la [specifica di CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
