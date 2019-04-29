@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001428"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 
@@ -56,7 +56,7 @@ Nella visualizzazione affiancata predefinita ogni riquadro che appare nei risult
 
  ![Evidenziazione dei risultati e corrispondenze di ricerca nel portale catalogo dati di Azure.](./media/data-catalog-how-to-discover/search-matches.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Poiché la registrazione di un'origine dati con Data Catalog copia i metadati strutturali e descrittivi dall'origine dati al servizio catalogo, diventa più facile trovare e comprendere l'origine dati. Dopo avere registrato un'origine dati, è possibile trovarla usando i filtri e la ricerca dal portale di Data Catalog.
 

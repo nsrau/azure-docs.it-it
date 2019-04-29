@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60937028"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -207,7 +207,7 @@ Per il sistema di test, l'output dell'istruzione SQL corrisponde quasi esattamen
 
 La console di backup HANA Studio consente di limitare la dimensione massima dei file di backup di HANA. Nell'ambiente di esempio tale funzionalità consente di ottenere più file di backup più piccoli invece di un file di backup di 230 GB. Le dimensioni ridotte del file hanno un impatto significativo sulle prestazioni (vedere l'articolo correlato [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md)).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In base ai risultati dei test, le tabelle seguenti mostrano i vantaggi e gli svantaggi delle soluzioni per eseguire il backup di un database SAP HANA in esecuzione su macchine virtuali di Azure.
 

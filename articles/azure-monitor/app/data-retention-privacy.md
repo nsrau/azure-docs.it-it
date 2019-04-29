@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899234"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione di dati in Application Insights
 
@@ -28,7 +28,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 * È improbabile che i moduli di telemetria standard che seguono un comportamento predefinito possano inviare dati sensibili al servizio. I dati di telemetria riguardano metriche di carico, prestazioni e utilizzo, report di eccezioni e altri dati di diagnostica. I principali dati utente visibili nei report di diagnostica sono URL, ma l'app non deve in ogni caso inserire dati sensibili in testo normale in un URL.
 * È possibile scrivere codice che invia dati di telemetria personalizzati aggiuntivi per agevolare la diagnostica e il monitoraggio dell'utilizzo. Questa flessibilità è un'eccellente funzionalità di Application Insights. Sarebbe possibile, per errore, scrivere il codice in modo che includa dati personali e altri dati sensibili. Se quindi l'applicazione usa questo tipo di dati, è consigliabile applicare un processo di revisione completo a tutto il codice creato.
 * Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser. 
-* I dati vengono archiviati nei server di [Microsoft Azure](https://azure.com) negli Stati Uniti o in Europa. L'app può essere eseguita ovunque. Azure offre [processi di sicurezza efficaci e soddisfa una vasta gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. I dati sono crittografati durante il transito, anche se non lo sono nel server.
+* I dati vengono archiviati nei server di [Microsoft Azure](https://azure.com) negli Stati Uniti o in Europa. L'app può essere eseguita ovunque. Azure offre [processi di sicurezza efficaci e soddisfa una vasta gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. Viene crittografato in transito e inattivi.
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
 
@@ -127,12 +127,9 @@ Sì, viene usato HTTPS per l'invio dei dati al portale da quasi tutti gli SDK, i
 
 Sì, alcuni canali di dati di telemetria manterranno i dati in locale se non è possibile raggiungere un endpoint. Per i framework e i canali di dati di telemetria interessati, vedere sotto.
 
-
 I canali di dati di telemetria che usano l'archiviazione locale creano file temporanei nella directory TEMP o APPDATA che sono limitate all'account specifico che esegue l'applicazione. Ciò può verificarsi quando un endpoint è stato temporaneamente non disponibile o si raggiunge il limite della limitazione delle richieste. Una volta risolto il problema, il canale di telemetria riprenderà l'invio di tutti i dati nuovi e persistenti.
 
-
-I dati persistenti **non sono crittografati** ed è consigliabile rivedere i criteri di raccolta dati in modo da disabilitare la raccolta di dati privati. (Vedere [Come esportare ed eliminare dati privati](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) per altre informazioni.)
-
+I dati persistenti non vengono crittografati in locale. Se si tratta di un problema, esaminare i dati e limitare la raccolta di dati privati. (Vedere [Come esportare ed eliminare dati privati](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) per altre informazioni.)
 
 Se un cliente deve configurare la directory con requisiti di sicurezza specifici, è possibile configurarla per framework. Assicurarsi che il processo che esegue l'applicazione abbia accesso in scrittura a questa directory, ma assicurarsi anche che la directory sia protetta per evitare la lettura da parte di utenti malintenzionati dei dati di telemetria.
 

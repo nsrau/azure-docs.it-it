@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;juliako
 ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466596"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM 
 
@@ -126,7 +126,7 @@ Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Strea
 * URL di origine: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH e smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In sintesi, i componenti DRM di Servizi multimediali di Azure sono flessibili ed è possibile usarli in uno scenario ibrido configurando correttamente la chiave simmetrica e i criteri di distribuzione della licenza, come descritto in questo articolo.
 

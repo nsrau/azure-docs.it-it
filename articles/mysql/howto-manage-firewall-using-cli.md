@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61458468"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 Le regole del firewall a livello di server sono utilizzabile per gestire l'accesso a un Database di Azure per il MySQL Server da uno specifico indirizzo IP o un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica del Database di Azure per MySQL firewall, vedere [Database di Azure per le regole firewall di MySQL server](./concepts-firewall-rules.md).

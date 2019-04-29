@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900057"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 Ricerca è una funzionalità di [Application Insights](../../azure-monitor/app/app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
@@ -112,7 +112,7 @@ Trovare tutti gli elementi con lo stesso valore della proprietà:
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| stringa | *non* si trova con | ma si trova con |
+| string | *non* si trova con | ma si trova con |
 | --- | --- | --- |
 | ControllerHome.Info |home<br/>controller<br/>fo | controllerhome<br/>about<br/>"homecontroller.info"|
 |Stati Uniti|Uni<br/>ti|uniti<br/>stati<br/>uniti AND stati<br/>"stati uniti"

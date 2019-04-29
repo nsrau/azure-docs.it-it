@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962112"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299669"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
  Il rilevamento intelligente segnala automaticamente i potenziali problemi di prestazioni nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.

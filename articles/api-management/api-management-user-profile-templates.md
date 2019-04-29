@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074855"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -106,15 +106,15 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 |Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|`firstName`|stringa|Nome dell'utente corrente.|  
-|`lastName`|stringa|Cognome dell'utente corrente.|  
-|`companyName`|stringa|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`firstName`|string|Nome dell'utente corrente.|  
+|`lastName`|string|Cognome dell'utente corrente.|  
+|`companyName`|string|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   
@@ -327,15 +327,15 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 |Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|`firstName`|stringa|Nome dell'utente corrente.|  
-|`lastName`|stringa|Cognome dell'utente corrente.|  
-|`companyName`|stringa|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`firstName`|string|Nome dell'utente corrente.|  
+|`lastName`|string|Cognome dell'utente corrente.|  
+|`companyName`|string|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   
@@ -490,15 +490,15 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 |Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|`firstName`|stringa|Nome dell'utente corrente.|  
-|`lastName`|stringa|Cognome dell'utente corrente.|  
-|`companyName`|stringa|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`firstName`|string|Nome dell'utente corrente.|  
+|`lastName`|string|Cognome dell'utente corrente.|  
+|`companyName`|string|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
 ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798595"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 
@@ -541,7 +541,7 @@ Questo esempio illustra come usare il [convalida JWT](api-management-access-rest
 | require-scheme                  | Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.                                                                                                                                                                                                                                                                                    | No                                                                                | N/D                                                                               |
 | require-signed-tokens           | Booleano. Specifica se è necessario firmare un token.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                                | true                                                                              |
 | separator                       | Stringa. Specifica un separatore (ad esempio ",") da usare per l'estrazione di un set di valori da un'attestazione multivalore.                                                                                                                                                                                                                                                                                                                                          | No                                                                                | N/D                                                                               |
-| URL                             | URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`. | Sì                                                                              | N/D                                                                               |
+| url                             | URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`. | Sì                                                                              | N/D                                                                               |
 output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore del token come oggetto di tipo [ `Jwt` ](api-management-policy-expressions.md) al termine della convalida token|No |N/D
 
 ### <a name="usage"></a>Utilizzo

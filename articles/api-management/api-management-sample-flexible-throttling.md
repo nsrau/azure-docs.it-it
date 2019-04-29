@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61087131"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitazione avanzata delle richieste con Gestione API di Azure
 La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamentali di Gestione API di Azure. Tramite il controllo della frequenza delle richieste o del totale delle richieste o dei dati trasferiti, Gestione API consente ai provider di API di proteggere le API da abusi e di aggiungere valore a diversi livelli di prodotto API.
@@ -71,7 +71,7 @@ Quando la chiave per la limitazione viene definita mediante un' [espressione di 
 
 In questo modo l'applicazione client dello sviluppatore è in grado di scegliere la modalità di creazione della chiave di limitazione della frequenza. Gli sviluppatori di client possono creare i propri livelli di frequenza allocando set di chiavi agli utenti e ruotando l'utilizzo delle chiavi.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Gestione API di Azure offre funzionalità di limitazione della frequenza e della quota per proteggere e aggiungere valore al proprio servizio API. I nuovi criteri di limitazione con regole personalizzate di definizione dell'ambito consentono di controllare con granularità maggiore tali criteri per consentire ai clienti di creare applicazioni migliori. Gli esempi in questo articolo illustrano l'uso di questi nuovi criteri tramite la produzione di chiavi per la limitazione della frequenza con gli indirizzi IP del client, l'identità dell'utente e valori generati dal client. È tuttavia possibile usare molte altre parti del messaggio, ad esempio l'agente utente, frammenti del percorso dell'URL e la dimensione del messaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi

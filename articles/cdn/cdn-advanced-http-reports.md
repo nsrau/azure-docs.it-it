@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216152"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -81,7 +81,7 @@ Il report Riepilogo giornaliero consente di visualizzare il numero totale di ris
 
 Immediatamente dopo la generazione di questo tipo di report, un grafico a barre offrirà un'indicazione visiva della quantità di domanda specifica della piattaforma generata ogni giorno durante il periodo di tempo coperto dal report. A questo scopo, nel report verrà visualizzata una barra per ogni giorno. Ad esempio, selezionando il periodo di tempo "Ultima settimana", verrà generato un grafico con sette barre. Ogni barra indicherà il numero totale di riscontri rilevati nel giorno corrispondente.
 
-Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nella data specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data (formato: AAAA-MM-GG) per ogni giorno incluso nel report.
+Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nella data specificata. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data (formato: YYYY-MM-DD) per ogni giorno incluso nel report.
 
 > [!TIP]
 > Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati in tale data verrà visualizzato come descrizione comando.
@@ -95,7 +95,7 @@ Il report Per ora consente di visualizzare il numero totale di riscontri e i dat
 
 Immediatamente dopo la generazione di questo tipo di report, un grafico a barre offrirà un'indicazione visiva della quantità di domanda specifica della piattaforma generata ogni ora durante il periodo di tempo coperto dal report. A questo scopo, nel report verrà visualizzata una barra per ogni ora considerata dal report. Se, ad esempio, si seleziona un periodo di tempo di 24 ore, verrà generato un grafico con ventiquattro barre. Ogni barra indicherà il numero totale di riscontri rilevati durante l'ora corrispondente.
 
-Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'ora specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data/ora (formato: AAAA-MM-GG hh:mm) per ogni ora inclusa nel report. L'ora viene indicata con il formato di 24 ore e specificata con il fuso orario UTC/GMT.
+Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'ora specificata. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data/ora (formato: YYYY-MM-DD HH: mm) per ogni ora inclusa nel report. L'ora viene indicata con il formato di 24 ore e specificata con il fuso orario UTC/GMT.
 
 > [!TIP]
 > Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati durante tale ora verrà visualizzato come descrizione comando.
@@ -119,7 +119,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 ## <a name="by-file-detail"></a>Per dettaglio file
 Il report Per dettaglio file consente di visualizzare la quantità di domanda e il traffico generato su una determinata piattaforma per un asset specifico. All'inizio di questo report si trova l'opzione Dettagli file per. Questa opzione fornisce un elenco degli asset più richiesti sulla piattaforma selezionata. Per generare un report Per dettaglio file, sarà necessario selezionare l'asset desiderato dall'opzione Dettagli file per. Un grafico a barre indicherà quindi la quantità di domanda giornaliera generata nel periodo di tempo specificato.
 
-Il lato sinistro del grafico (asse y) indica il numero totale di richieste per un asset in un giorno specifico. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data (formato: AAAA-MM-GG) per cui è stata inserita nel report la domanda della rete CDN per l'asset.
+Il lato sinistro del grafico (asse y) indica il numero totale di richieste per un asset in un giorno specifico. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data (formato: YYYY-MM-DD) per la rete CDN di cui è stato segnalato richiesta per l'asset.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri e la quantità di dati trasferiti (in gigabyte) per ogni giorno considerato dal report.
 

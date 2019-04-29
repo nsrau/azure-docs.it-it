@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61316898"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintassi di query semplice in Ricerca di Azure
 Ricerca di Azure implementa due linguaggi di query basate su Lucene: il [parser di query semplice](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Ricerca di Azure la sintassi di query semplice esclude le opzioni fuzzy/inclinazione.  

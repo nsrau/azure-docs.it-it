@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001627"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

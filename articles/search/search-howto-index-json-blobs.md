@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871609"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
 Questo articolo illustra come configurare un blob di ricerca di Azure [indicizzatore](search-indexer-overview.md) per estrarre contenuto strutturato dai documenti JSON in archiviazione Blob di Azure e rendere disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 

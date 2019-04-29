@@ -13,11 +13,11 @@ ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783723"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -64,11 +64,11 @@ Questo riquadro comprimibile mostra i dettagli di qualsiasi elemento selezionato
 
 ![Dettagli dell'eccezione](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Risultati della ricerca
+## <a name="search-results"></a>Search Results
 
 Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del filtro. Fare clic su qualsiasi risultato per aggiornare i rispettivi dettagli delle 3 sezioni elencate in precedenza. Tentiamo di trovare gli esempi con le maggiori possibilità di ottenere dettagli disponibili da tutti i componenti, anche se il campionamento è attivo in ognuno di essi. Questi vengono visualizzati come esempi "consigliati".
 
-![Risultati della ricerca](media/transaction-diagnostics/searchResults.png)
+![Search Results](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e Snapshot Debugger
 

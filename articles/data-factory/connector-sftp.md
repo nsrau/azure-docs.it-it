@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 9540a82933337dab112119cc791fa12d98b30aff
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61042935"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiare dati da un server SFTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

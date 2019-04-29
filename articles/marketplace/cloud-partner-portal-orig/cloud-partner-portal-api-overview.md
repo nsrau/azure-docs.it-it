@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094397"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Riferimento all'API del portale Cloud Partner
 ==================================

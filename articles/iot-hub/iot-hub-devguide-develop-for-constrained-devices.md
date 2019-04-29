@@ -1,18 +1,26 @@
 ---
 title: Hub IoT di Azure - Sviluppare per dispositivi vincolati tramite IoT Hub C SDK | Microsoft Docs
 description: 'Guida per sviluppatori: materiale sussidiario sulle modalità di sviluppo tramite Azure IoT SDK per i dispositivi vincolati.'
-author: yzhong94
-ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: yizhon
+documentationcenter: c
+author: yzhong94
+manager: timlt
+editor: ''
+ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 05/24/2018
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320934"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
 
@@ -44,7 +52,6 @@ cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ### <a name="remove-sdk-logging-capability"></a>Rimuovere la funzionalità di registrazione dall'SDK
 
 L'SDK C assicura una registrazione completa per supportare il debug. È possibile rimuovere la funzionalità di registrazione per i dispositivi di produzione usando il comando cmake seguente:
-
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
@@ -80,7 +87,15 @@ L'SDK C supporta due modelli di programmazione. Un set dispone di API con un inf
 Un altro set di API senza l'indice _LL_ viene definito livello dedicato, in cui un thread di lavoro viene avviato automaticamente. Ad esempio, le API del livello dedicato per il client del dispositivo sono disponibili in questo [file di intestazione del client del dispositivo IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Per i dispositivi vincolati in cui ogni thread aggiuntivo può richiedere una percentuale notevole delle risorse di sistema, prendere in considerazione l'uso delle API _LL_.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Per altre informazioni sull'architettura dell'SDK C per l'hub IoT di Azure:
--   [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c/)
--   [Introduzione ad Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
+- [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c/)
+- [Introduzione ad Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
+
+------
+[lnk-cmake]: https://cmake.org/
+[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
+[lnk-choosing-protocol]: iot-hub-devguide-protocols.md
+[lnk-hub-file-upload]: iot-hub-devguide-file-upload.md
+[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
+[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
+[lnk-parson]: https://github.com/kgabis/parson

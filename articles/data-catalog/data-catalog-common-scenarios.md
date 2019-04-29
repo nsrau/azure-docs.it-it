@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003957"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scenari comuni del Catalogo dati di Azure
 In questo articolo vengono presentati scenari comuni in cui Azure Data Catalog può aiutare l'organizzazione a incrementare il valore delle origini dati esistenti.

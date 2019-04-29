@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868349"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Esempio 2 Creare una rete perimetrale per proteggere le applicazioni con un firewall e Nsg
 [Tornare alla pagina di sicurezza di rete e servizi cloud Microsoft][HOME]
 
-In questo esempio viene illustrato come creare una rete perimetrale (detta anche *rete Perimetrale* e *sottorete*) con un firewall, quattro i computer Windows Server, e gruppi di sicurezza di rete (Nsg). Include informazioni dettagliate su ogni comando rilevante per fornire una conoscenza più approfondita di ogni passaggio. La sezione "Scenari di traffico" fornisce una spiegazione dettagliata del modo in cui il traffico procede attraverso i livelli di difesa della rete perimetrale. Infine, la sezione "Riferimenti" fornisce il codice completo e le istruzioni su come creare l'ambiente per testare e sperimentare vari scenari.
+In questo esempio viene illustrato come creare una rete perimetrale (detta anche *rete Perimetrale*, *DMZ*, e *sottorete*) con un firewall, quattro i computer Windows Server, e gruppi di sicurezza di rete (Nsg). Include informazioni dettagliate su ogni comando rilevante per fornire una conoscenza più approfondita di ogni passaggio. La sezione "Scenari di traffico" fornisce una spiegazione dettagliata del modo in cui il traffico procede attraverso i livelli di difesa della rete perimetrale. Infine, la sezione "Riferimenti" fornisce il codice completo e le istruzioni su come creare l'ambiente per testare e sperimentare vari scenari.
 
 ![Rete perimetrale con Appliance virtuale di rete e gli Nsg in ingresso][1]
 

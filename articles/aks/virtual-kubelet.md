@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023739"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con il servizio Azure Kubernetes
 
@@ -85,11 +85,11 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 Per il comando `aks install-connector` sono disponibili questi argomenti.
 
-| Argomento: | DESCRIZIONE | Obbligatoria |
+| Argomento: | DESCRIZIONE | Obbligatorio |
 |---|---|:---:|
-| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Yes |
-| `--name` `-n` | Nome del cluster gestito. | Yes |
-| `--resource-group` `-g` | Nome del gruppo di risorse. | Yes |
+| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Sì |
+| `--name` `-n` | Nome del cluster gestito. | Sì |
+| `--resource-group` `-g` | Nome del gruppo di risorse. | Sì |
 | `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No  |
 | `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |

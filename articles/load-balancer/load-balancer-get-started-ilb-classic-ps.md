@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848547"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075498"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 
@@ -37,14 +37,14 @@ La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'appli
 
 ### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
 
-Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server del database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
+Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server di database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
 
 La sequenza è la seguente:
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
 
    * Il numero di porta identificato in modo dinamico è compreso tra 11000 a 11999.
-2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
+2. ADO.NET quindi si connette direttamente al server di database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
 Verificare che la porta di 11000-11999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il Database SQL.

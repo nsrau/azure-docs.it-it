@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230254"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
 
-## <a name="overview"></a>Informazioni generali
+## <a name="overview"></a>Panoramica
 
 Questo argomento descrive come personalizzare i set d impostazioni di Media Encoder Standard. L'argomento [Codifica avanzata con Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md) mostra come usare .NET per creare un'attività di codifica e un processo per l'esecuzione di tale attività. Dopo aver personalizzato un set di impostazioni, fornire tali impostazioni all'attività di codifica. 
 
@@ -1034,7 +1034,7 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

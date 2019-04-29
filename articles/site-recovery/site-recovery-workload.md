@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61276138"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -103,9 +103,9 @@ Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop I
 
 | **SERVIZI DESKTOP REMOTO** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Desktop virtuale in pool (non gestito)** |No |Yes |No  |Yes |No  |Yes |No  |
-| **Desktop virtuale in pool (gestito e senza UPD)** |No |Yes |No  |Yes |No  |Yes |No  |
-| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Sì |Sì |Sì |Sì |Sì |Yes |
+| **Desktop virtuale in pool (non gestito)** |No |Sì |No  |Sì |No  |Sì |No  |
+| **Desktop virtuale in pool (gestito e senza UPD)** |No |Sì |No  |Sì |No  |Sì |No  |
+| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Sì|Sì |Sì |Sì |Sì |Sì |Sì |
 
 [Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

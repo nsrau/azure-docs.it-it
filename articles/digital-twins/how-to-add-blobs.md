@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926510"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
 
@@ -51,10 +51,10 @@ I metadati dei BLOB JSON sono conformi al modello seguente:
   }
 ```
 
-| Attributo | Tipo | DESCRIZIONE |
+| Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **name** |string | Nome descrittivo per il BLOB |
+| **nome** |string | Nome descrittivo per il BLOB |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
 | **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
@@ -108,10 +108,10 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 }
 ```
 
-| Attributo | Tipo | DESCRIZIONE |
+| Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **id** | string | Identificatore univoco per il BLOB |
-| **name** |string | Nome descrittivo per il BLOB |
+| **nome** |string | Nome descrittivo per il BLOB |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOKEN | Il proprio token OAuth 2.0 valido |
 | YOUR_SPACE_ID | L'ID dello spazio a cui associare il BLOB |
@@ -221,7 +221,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 | Parametro | Sostituire con |
 | --- | --- |
-| *YOUR_BLOB_ID* | L'ID del BLOB desiderato |
+| *YOUR_BLOB_ID* | ID del BLOB desiderato |
 
 Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto in precedenza](#blobModel).
 
@@ -239,7 +239,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 | Parametro | Sostituire con |
 | --- | --- |
-| *YOUR_BLOB_ID* | L'ID del BLOB desiderato |
+| *YOUR_BLOB_ID* | ID del BLOB desiderato |
 
 Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto in precedenza](#blobModel).
 

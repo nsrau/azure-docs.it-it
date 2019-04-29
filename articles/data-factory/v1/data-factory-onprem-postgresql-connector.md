@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462004"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -306,7 +306,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 
 | Tipo di database PostgreSQL | Alias PostgresSQL | Tipo di .NET Framework |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
@@ -319,7 +319,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | cid | |string |
 | cidr | |string |
 | circle | |Byte[], String |
-| date | |DateTime |
+| date | |Datetime |
 | daterange | |string |
 | double precision |float8 |Double |
 | inet | |Byte[], String |

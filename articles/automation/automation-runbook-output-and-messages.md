@@ -10,11 +10,11 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226964"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso che si prevede di usare con un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare ogni flusso quando si crea un runbook.

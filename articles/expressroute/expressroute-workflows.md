@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883184"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
@@ -43,7 +43,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 Ogni circuito ExpressRoute prevede due stati:
 
 * Stato di provisioning del provider di servizi
-* Status
+* Stato
 
 Status rappresenta lo stato di provisioning di Microsoft. Questa proprietà è impostata su Enabled quando si crea un circuito Expressroute
 

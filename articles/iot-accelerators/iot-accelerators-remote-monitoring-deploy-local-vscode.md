@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446181"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio Code
 

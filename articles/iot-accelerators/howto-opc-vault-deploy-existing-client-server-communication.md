@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450665"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Secure OPC UA OPC UA server applicazioni e del client 
-OPC dell'insieme di credenziali è un microservizio che è possibile configurare, registrare e gestire ciclo di vita del certificato server OPC UA e nelle applicazioni client nel cloud. Questo articolo illustra come proteggere un client OPC UA e un OPC UA applicazione server con una nuova coppia di chiavi e un certificato usando OPC dell'insieme di credenziali.
+OPC Vault è un microservizio che consente di configurare, registrare e gestire il ciclo di vita dei certificati per le applicazioni server e client OPC UA nel cloud. Questo articolo illustra come proteggere un client OPC UA e un OPC UA applicazione server con una nuova coppia di chiavi e un certificato usando OPC dell'insieme di credenziali.
 
 Nel programma di installazione seguente, il client OPC sta testando la connettività di PLC OPC. Per impostazione predefinita, la connettività non è possibile perché entrambi i componenti non ancora sottoposti a provisioning con i certificati a destra. In questo flusso di lavoro, Microsoft non usa i certificati autofirmati i componenti OPC UA e firmarli tramite OPC dell'insieme di credenziali. Vedere la precedente [banco di prova](howto-opc-vault-deploy-existing-client-plc-communication.md). Al contrario, questo banco di prova. effettua il provisioning di componenti con un nuovo certificato, oltre che con una nuova chiave privata che vengono generati dall'insieme di credenziali di OPC. Alcune informazioni generali sulla sicurezza OPC UA sono reperibile in questo [white paper](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Le informazioni complete sono reperibile nella specifica OPC UA.
 

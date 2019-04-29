@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262117"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Deviazione dello schema dei flussi di dati di mapping
 

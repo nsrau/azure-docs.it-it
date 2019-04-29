@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911446"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Abilitare i gruppi di sicurezza di rete nel Centro sicurezza di Azure
 Se non è già disponibile, il Centro sicurezza di Azure consiglia l'abilitazione di un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)

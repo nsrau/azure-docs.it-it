@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
 ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216123"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Risoluzione dei problemi dell'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -48,7 +48,7 @@ Questo articolo descrive come risolvere gli errori che potrebbero essere visuali
 
 | Dettagli errore | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-|**Error (Errore) (Error (Errore)e)** <br /><ol>*L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft*     | <li> La cartella Scratch si trova in un volume che dispone di spazio insufficiente. <li> La cartella Scratch viene spostata in modo errato in un'altra posizione. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella Scratch o la posizione della cache in un volume con spazio libero uguale al 5-10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere le procedure in [Domande sull'agente di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito della cartella Scratch o della posizione della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Error (Errore) (Error (Errore)e)** <br /><ol>*L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft*     | <li> La cartella Scratch si trova in un volume che dispone di spazio insufficiente. <li> La cartella Scratch viene spostata in modo errato in un'altra posizione. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella Scratch o la posizione della cache in un volume con spazio libero uguale al 5-10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere le procedure in [Domande sull'agente di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito della cartella Scratch o della posizione della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La passphrase di crittografia non è configurata correttamente
 
@@ -109,7 +109,7 @@ Backup di Azure potrebbe non montare il volume di ripristino in modo corretto, a
 
 Se il ripristino ha ancora esito negativo, riavviare il server o il client. Se non si intende eseguire il riavvio o se il ripristino non riesce anche dopo il riavvio del server, ripetere il ripristino da un altro computer. Seguire i passaggi descritti in [questo articolo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## <a name="next-steps"></a>Passaggi successivi

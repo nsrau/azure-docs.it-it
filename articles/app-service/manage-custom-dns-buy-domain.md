@@ -16,11 +16,11 @@ ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61272518"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -41,7 +41,7 @@ Per completare questa esercitazione:
 
 Per usare domini personalizzati in Servizio app di Azure, è necessario che il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) sia un livello a pagamento (**Condiviso**, **Basic**, **Standard** o **Premium**). In questo passaggio, verificare che l'app sia supportata dal piano tariffario adeguato.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -82,7 +82,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 ### <a name="pricing-information"></a>Informazioni sui prezzi
 Per informazioni sui prezzi nei domini del servizio app di Azure, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere fino a Dominio del servizio app.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
 
 ### <a name="launch-buy-domains"></a>Avvio di Acquistare un dominio

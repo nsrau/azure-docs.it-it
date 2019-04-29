@@ -10,11 +10,11 @@ ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922884"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
@@ -104,7 +104,7 @@ Per altre informazioni sul test interattivo delle richieste protette tramite OAu
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Sostituire con | Esempio |
+    | NOME  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | L'URL della documentazione API REST di gestione disponibili nel portale di  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 

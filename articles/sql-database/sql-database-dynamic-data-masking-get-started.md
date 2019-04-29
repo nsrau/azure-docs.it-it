@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
 ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075549"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maschera dati dinamica del database SQL
 

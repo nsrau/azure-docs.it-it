@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: ce567dc631c3a147b795eb2355a4961faa8881d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462562"
 ---
 # <a name="connect-to-github"></a>Connettersi a GitHub
 
@@ -28,7 +28,7 @@ Per iniziare a usare il connettore GitHub, [creare per prima cosa un'app per la 
 
 Per usare il connettore GitHub in un'app per la logica è necessario creare innanzitutto una *connessione* e quindi specificare i dettagli per queste proprietà: 
 
-| Proprietà | Obbligatoria | DESCRIZIONE | 
+| Proprietà | Obbligatorio | DESCRIZIONE | 
 | -------- | -------- | ----------- | 
 | token | Sì | Fornisce le credenziali di GitHub. |
 

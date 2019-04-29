@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878715"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.

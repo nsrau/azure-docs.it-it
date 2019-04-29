@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800275"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
 
@@ -71,8 +71,8 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 | NOME | Valore/Esempio | Tipo di dati
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | stringa |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | stringa |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Impostazioni
@@ -80,14 +80,14 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 | NOME | Valore/Esempio | Tipo di dati | Obbligatorio?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | stringa | S |
-| settings/runlist | `recipe[mycookbook::default]` | stringa | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
 | NOME | Esempio | Tipo di dati | Obbligatorio?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | stringa | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings

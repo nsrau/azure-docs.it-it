@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9d222097f9fb99a24f6213584a3419ed777f4a22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408439"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per eseguire la risoluzione dei problemi relativi all'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica

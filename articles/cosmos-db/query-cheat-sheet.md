@@ -1,17 +1,17 @@
 ---
 title: Fogli informativi in PDF sulle query per Azure Cosmos DB
 description: Fogli informativi stampabili in PDF che consentono di usare le API SQL, MongoDB, Graph e di tabella di Azure Cosmos DB per eseguire una query dei dati
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/20/2018
-ms.author: sngun
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928201"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Fogli informativi sulle query per Azure Cosmos DB
 

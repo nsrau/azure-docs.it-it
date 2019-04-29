@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: monhaber
 ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910465"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: jingwang
 ms.openlocfilehash: aba469081bf1f1aa265a55ffbd683ba19bc41b6e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782094"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -62,7 +62,7 @@ Per usare l'autenticazione basata sulla chiave dell'account di archiviazione, so
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
+| url | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
 | accountKey | Chiave dell'account per il servizio Data Lake Storage Gen2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -114,7 +114,7 @@ Queste proprietà sono supportate nel servizio collegato:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
+| url | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
@@ -168,7 +168,7 @@ Queste proprietà sono supportate nel servizio collegato:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
+| url | Endpoint per Data Lake Storage Gen2 con il modello `https://<accountname>.dfs.core.windows.net`. | Sì | 
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 **Esempio:**

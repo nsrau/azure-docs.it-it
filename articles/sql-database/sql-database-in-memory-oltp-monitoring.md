@@ -13,17 +13,17 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035734"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorare l'archiviazione OLTP in memoria
 
 Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle ottimizzate per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium e Business Critical ha dimensioni massime di archiviazione OLTP in memoria. Vedere [Limiti delle risorse basate su DTU - database singolo](sql-database-dtu-resource-limits-single-databases.md), [Limiti delle risorse basate su DTU - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md),[Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con un errore 41823 per i database singoli e con un errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di servizio o la dimensione di calcolo del database.
+Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con un errore 41823 per i database singoli e con un errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di servizio o le dimensioni di calcolo del database.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinare se i dati rientrano nel limite di archiviazione OLTP in memoria
 
@@ -34,7 +34,7 @@ La stima dei requisiti di memoria per una tabella ottimizzata per la memoria in 
 Le righe di tabella, le righe di variabile di tabella e gli indici vengono inclusi nel calcolo delle dimensioni massime dei dati utente. ALTER TABLE, inoltre, necessita di spazio sufficiente per creare una nuova versione dell'intera tabella e dei relativi indici.
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
-È possibile monitorare l'uso dell'archiviazione in memoria sotto forma di percentuale del limite di archiviazione per la dimensione di calcolo nel [portale di Azure](https://portal.azure.com/): 
+È possibile monitorare l'uso dell'archiviazione in memoria sotto forma di percentuale del limite di archiviazione per le dimensioni di calcolo nel [portale di Azure](https://portal.azure.com/): 
 
 1. Nel pannello Database individuare la casella Utilizzo risorse e fare clic su Modifica.
 2. Selezionare la metrica `In-Memory OLTP Storage percentage`.

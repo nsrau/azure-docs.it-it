@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870558"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 

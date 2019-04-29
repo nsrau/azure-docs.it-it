@@ -11,11 +11,11 @@ ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, automazione di azure
 ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073747"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
 
@@ -238,7 +238,7 @@ Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nu
 Get-AzureRmStorageAccount
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 L'operazione è terminata. Sarà ora possibile usare Automazione di Azure, Archiviazione di Azure e modelli di Resource Manager per distribuire tutte le risorse di Azure.
 

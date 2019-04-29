@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61419155"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -173,10 +173,10 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Fare clic su **Fine**.
+33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Fare clic su **Finish**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Fine**.
+34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Finish**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. Con la macchina virtuale selezionata nel riquadro a destra, passare alla scheda **Summary** . Rivedere le impostazioni per la macchina virtuale.

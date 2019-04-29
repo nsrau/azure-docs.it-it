@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60779373"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 

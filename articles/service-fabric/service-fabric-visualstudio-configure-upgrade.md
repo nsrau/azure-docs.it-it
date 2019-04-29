@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082842"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
 Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono tre scenari in cui è consigliabile eseguire l'aggiornamento dell'applicazione a una versione più recente anziché sostituirla durante il test e il debug:
@@ -31,7 +31,7 @@ Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto p
 ## <a name="parameters-needed-to-upgrade"></a>Parametri necessari per l'aggiornamento
 È possibile scegliere tra due tipi di distribuzione: normale o aggiornata. Una distribuzione regolare cancella qualsiasi informazione di distribuzioni precedenti e i dati nel cluster, mentre una distribuzione di un aggiornamento li conserva. Quando si aggiorna un'applicazione di Infrastruttura di servizi in Visual Studio, è necessario fornire parametri di aggiornamento dell’applicazione e criteri per il controllo dell’integrità. I parametri di aggiornamento dell'applicazione consentono di controllare l'aggiornamento, mentre i criteri di controllo dell'integrità determinano se l'aggiornamento è avvenuto correttamente. Vedere l'articolo relativo all' [aggiornamento di un'applicazione di Service Fabric e i parametri di aggiornamento](service-fabric-application-upgrade-parameters.md) per ulteriori dettagli.
 
-Sono disponibili tre modalità di aggiornamento: *Monitored*, *UnmonitoredAuto* e *UnmonitoredManual*.
+Esistono tre modalità di aggiornamento: *Monitorati*, *UnmonitoredAuto*, e *UnmonitoredManual*.
 
 * Un aggiornamento Monitored consente di automatizzare l'aggiornamento e il controllo dell'integrità dell'applicazione.
 * Un aggiornamento UnmonitoredAuto consente di automatizzare l'aggiornamento, ma ignorando il controllo dell'integrità dell'applicazione.

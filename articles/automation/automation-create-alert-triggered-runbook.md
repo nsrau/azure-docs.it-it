@@ -10,11 +10,11 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073865"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 

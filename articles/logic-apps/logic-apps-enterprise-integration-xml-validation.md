@@ -1,27 +1,23 @@
 ---
-title: Convalida XML - App per la logica di Azure | Microsoft Docs
-description: Convalida XML con gli schemi per le app per la logica di Azure e negli scenari B2B usando Enterprise Integration Pack
+title: Convalidare XML per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+description: Convalidare XML con gli schemi per soluzioni B2B in App per la logica di Azure tramite Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 901f0e576d28ab163fe2c46dff0594a338fbaf73
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996354"
 ---
-# <a name="validate-xml-for-enterprise-integration"></a>Enterprise Integration con convalida XML
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalidare XML per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
 Spesso negli scenari B2B i partner di un contratto devono accertarsi che i messaggi scambiati siano validi prima di avviare l'elaborazione dei dati. In Enterprise Integration Pack, è possibile usare il connettore di convalida XML per convalidare i documenti in base a uno schema predefinito.
 

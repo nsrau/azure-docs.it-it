@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258437"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,16 +58,16 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SAP HANA.
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | stringa | Yes
-authenticationType | Tipo di autenticazione. | string. "Basic" o "Windows" | Yes 
-username | Nome dell'utente che ha accesso al server SAP | stringa | Yes
-password | Password per l'utente. | stringa | Yes
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | stringa | Yes
-encryptedCredential | Stringa di credenziali crittografata. | stringa | No 
+server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
+authenticationType | Tipo di autenticazione. | string. "Basic" o "Windows" | Sì 
+username | Nome dell'utente che ha accesso al server SAP | string | Sì
+password | Password per l'utente. | string | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
+encryptedCredential | Stringa di credenziali crittografata. | string | No 
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. Il set di dati SAP HANA di tipo **RelationalTable** non supporta alcuna proprietà specifica del tipo. 
@@ -80,9 +80,9 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che include SAP HANA), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Query SQL. | Yes |
+| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Query SQL. | Sì |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Esempio di JSON: Copiare dati da SAP HANA a BLOB di Azure
 L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline tramite il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questo esempio illustra come copiare dati da un database SAP HANA locale a un archivio BLOB di Azure. I dati possono tuttavia essere copiati **direttamente** in qualsiasi sink elencato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
@@ -297,10 +297,10 @@ NVARCHAR | string
 CLOB | Byte[]
 ALPHANUM | string
 BLOB | Byte[]
-DATE | Datetime
-TIME | Intervallo di tempo
-TIMESTAMP | Datetime
-SECONDDATE | Datetime
+DATE | DateTime
+TIME | TimeSpan
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitazioni note
 Quando si copiano dati da SAP HANA, è necessario tenere conto di alcune limitazioni:

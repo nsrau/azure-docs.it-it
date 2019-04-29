@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999813"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Risolvere i problemi e diagnosticare gli errori del flusso di lavoro nelle App per la logica di Azure
 
@@ -38,7 +38,7 @@ Ogni app per la logica si avvia con un trigger. Se il trigger non viene attivato
 
    Di seguito sono riportati i possibili stati per un tentativo di trigger:
 
-   | Status | DESCRIZIONE | 
+   | Stato | DESCRIZIONE | 
    | ------ | ----------- | 
    | **Completato** | Il trigger ha controllato l'endpoint e ha trovato dati disponibili. In genere compare anche lo stato "Attivato" accanto a questo stato. In caso contrario, la definizione del trigger potrebbe essere una condizione o comando `SplitOn` che non è soddisfatto. <p>Questo stato può essere associato a un trigger manuale, un trigger di ricorrenza o un trigger di poll. Un trigger può essere eseguito correttamente, ma l'esecuzione stessa potrebbe comunque non riuscire quando le azioni generano errori non gestiti. | 
    | **Ignorato** | Il trigger ha controllato l'endpoint ma non ha trovato dati. | 
@@ -79,7 +79,7 @@ Ogni trigger attivato avvia un'esecuzione del flusso di lavoro. È possibile esa
 
    Di seguito sono riportati i possibili stati per un'esecuzione:
 
-   | Status | DESCRIZIONE | 
+   | Stato | DESCRIZIONE | 
    | ------ | ----------- | 
    | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>Se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. | 
    | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per la gestione dell'errore. | 

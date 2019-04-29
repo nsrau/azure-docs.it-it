@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909279"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.

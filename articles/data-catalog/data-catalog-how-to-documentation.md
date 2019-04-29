@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001550"
 ---
 # <a name="document-data-sources"></a>Documentare le origini dati
 ## <a name="introduction"></a>Introduzione
@@ -43,5 +43,5 @@ Il livello di documentazione va dalla descrizione delle caratteristiche e del va
 * Documentare solo le tabelle: Il contenuto è specifico dell'oggetto, ma gli utenti hanno più posizioni per i documenti.
 * Documentare contenitori e tabelle: L'approccio più completo, ma potrebbe richiedere una maggiore manutenzione dei documenti.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La documentazione delle origini dati con **Azure Data Catalog** permette di creare un resoconto sugli asset di dati con un livello di dettaglio basato sulle esigenze.  È possibile creare collegamenti a contenuti archiviati in un repository esistente che riunisce i documenti e gli asset di dati esistenti. Dopo aver trovato gli asset di dati appropriati, gli utenti hanno a disposizione un set di documentazione completo.

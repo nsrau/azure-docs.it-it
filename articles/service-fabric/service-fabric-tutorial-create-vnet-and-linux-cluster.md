@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60863785"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -34,7 +34,7 @@ Prima di iniziare:
 * Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 * Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 * Per informazioni sui concetti chiave dei cluster, vedere [Panoramica dei cluster di Azure](service-fabric-azure-clusters-overview.md)
-* [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) per una distribuzione di cluster di produzione.
+* [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
 Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calcolare i costi sostenuti per l'esecuzione di un cluster di Service Fabric in Azure, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -90,7 +90,7 @@ Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati m
 |clusterName|mysfcluster123| Nome del cluster. |
 |location|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
-|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, Ad esempio, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, ad esempio "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

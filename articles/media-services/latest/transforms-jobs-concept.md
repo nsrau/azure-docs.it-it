@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466749"
 ---
 # <a name="transforms-and-jobs"></a>Trasformazioni e processi
 

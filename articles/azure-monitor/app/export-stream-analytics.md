@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
 ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901381"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.

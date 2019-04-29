@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928083"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

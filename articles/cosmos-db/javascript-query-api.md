@@ -1,18 +1,19 @@
 ---
 title: Utilizzo dell'API di Language Integrated Query JavaScript in Azure Cosmos DB
 description: Questo articolo illustra i concetti per l'API di Language Integrated Query JavaScript per la creazione di stored procedure e trigger in Azure Cosmos DB.
-author: markjbrown
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/08/2018
-ms.author: mjbrown
+origin.date: 12/08/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043236"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API di query JavaScript in Azure Cosmos DB
 
@@ -69,3 +70,5 @@ Altre informazioni su come scrivere e usare stored procedure, trigger e funzioni
 - [Come usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Riferimento API di lato server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
+
+<!-- Update_Description: update meta properties -->

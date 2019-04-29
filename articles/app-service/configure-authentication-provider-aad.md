@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851376"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurare l'app del servizio app per l'uso dell'accesso di Azure Active Directory
 

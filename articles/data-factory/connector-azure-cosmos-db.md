@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: eca5e4cc96996c35e7c2181746cdb3de2e5a602c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61259518"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB (API SQL) usando Azure Data Factory
 
@@ -58,7 +58,7 @@ Per il servizio collegato di Azure Cosmos DB (API SQL) sono supportate le propri
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **CosmosDb**. | Sì |
-| connectionString |Specificare le informazioni richieste per connettersi al database di Azure Cosmos DB.<br />**Nota**: è necessario specificare le informazioni sul database nella stringa di connessione come illustrato negli esempi seguenti. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la chiave dell'account in Azure Key Vault ed eseguire il pull della configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
+| connectionString |Specificare le informazioni richieste per connettersi al database di Azure Cosmos DB.<br />**Nota**: è necessario specificare le informazioni sul database nella stringa di connessione come illustrato negli esempi seguenti. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la chiave dell'account in Azure Key Vault e rimuovere la configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, come valore predefinito viene usato Azure Integration Runtime. |No |
 
 **Esempio**

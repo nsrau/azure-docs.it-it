@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61021504"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
@@ -29,21 +29,21 @@ In questa esercitazione si apprenderà come:
 > * Verificare l'azione per assicurarsi che la macchina virtuale sia stata ridimensionata correttamente
 
 ## <a name="prerequisites"></a>Prerequisiti
-Sono disponibili per un'ampia gamma di ambiti e tipi di account di Azure, tra cui raccomandazioni [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) ai clienti. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
+Sono disponibili per un'ampia gamma di ambiti e tipi di account di Azure, tra cui raccomandazioni [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) ai clienti. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Sottoscrizione
 - Gruppo di risorse
 
 È necessario disporre di macchine virtuali attive con almeno 14 giorni di attività.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualizzare gli elementi consigliati per l'ottimizzazione dei costi
 
 Per visualizzare le raccomandazioni di ottimizzazione dei costi per una sottoscrizione, aprire l'ambito desiderato nel portale di Azure e seleziona **consigli di Advisor**.
 
-Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e seleziona **analisi dei costi** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **consigli di Advisor** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
+Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e seleziona **analisi dei costi** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **consigli di Advisor** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Consigli di Advisor di Gestione costi visualizzati nel portale di Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

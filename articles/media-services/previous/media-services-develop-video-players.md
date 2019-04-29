@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465644"
 ---
 # <a name="develop-video-player-applications"></a>Sviluppo di applicazioni di lettore video
 ## <a name="overview"></a>Panoramica

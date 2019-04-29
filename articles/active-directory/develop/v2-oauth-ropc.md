@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112290"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma delle identità Microsoft e le credenziali di password proprietario risorsa OAuth 2.0
 
@@ -89,7 +89,7 @@ Nell'esempio seguente mostra una risposta token con esito positivo:
 
 | Parametro | Format | DESCRIZIONE |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre impostato su `Bearer`. |
+| `token_type` | string | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |

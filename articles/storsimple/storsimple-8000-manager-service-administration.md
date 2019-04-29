@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723307"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple
 
@@ -69,7 +69,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 | Aggiungere un contenitore di volumi</br>Modificare un contenitore di volumi</br>Eliminare un contenitore di volumi |[Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md) |
 | Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare a volume |[Gestire i volumi](storsimple-8000-manage-volumes-u2.md) |
 | Modificare le impostazioni del dispositivo</br>Modificare le impostazioni di tempo</br>Modificare le impostazioni DNS.md</br>Configurare le interfacce di rete |[Modificare la configurazione per il dispositivo StorSimple](storsimple-8000-modify-device-config.md) |
-| Visualizzare le impostazioni del proxy web |[Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md) |
+|  Visualizzare le impostazioni del proxy web |[Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md) |
 | Modificare la password amministratore del dispositivo</br>Modificare la password di Gestione snapshot StorSimple |[Modificare le password di StorSimple](storsimple-8000-change-passwords.md) |
 | Configurare la gestione remota |[Connettersi in remoto al dispositivo StorSimple](storsimple-8000-remote-connect.md) |
 | Configurare le impostazioni degli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |

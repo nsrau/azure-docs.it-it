@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436172"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -80,7 +80,7 @@ La sintassi JSON per l'uso di filtri avanzati è la seguente:
 }
 ```
 
-### <a name="operator"></a>Operatore
+### <a name="operator"></a>Operator
 
 Gli operatori disponibili per i numeri sono:
 
@@ -109,7 +109,7 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 
 * ID
 * Argomento
-* Oggetto
+* Subject
 * EventType
 * DataVersion
 * Dati dell'evento (ad esempio, Data.key1)
@@ -129,7 +129,7 @@ Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esem
 I valori possibili sono:
 
 * number
-* stringa
+* string
 * boolean
 * array
 

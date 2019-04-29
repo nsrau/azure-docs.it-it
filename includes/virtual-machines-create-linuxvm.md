@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126721"
 ---
 1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando classica di Azure](/cli/azure/authenticate-azure-cli).
 

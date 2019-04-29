@@ -8,11 +8,11 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: e81dec7d7556819e60a65a44106426c226c6223d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043285"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 
@@ -31,7 +31,7 @@ La tabella seguente mostra il numero di UR necessarie per eseguire transazioni d
 |Dimensioni dell'elemento|1 Lettura|1 Scrittura|
 |-------------|------|-------|
 |1 KB|1 UR|5 UR|
-|100 KB|10 UR|50 UR|
+|100 kB|10 UR|50 UR|
 
 ## <a name="cost-of-reads-and-writes"></a>Costo di letture e scritture
 

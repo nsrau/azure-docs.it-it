@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2018
-ms.author: victorh
+origin.date: 04/23/2018
+ms.date: 04/17/2019
+ms.author: v-junlch
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361951"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL nel gateway applicazione di Azure
 
@@ -100,3 +101,5 @@ Frammento della regola PathBasedRouting:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver acquisito familiarità con il routing di contenuti basato su URL, passare a [Create a Path-based rule for an application gateway by using the portal](tutorial-url-route-powershell.md) (Creare una regola basata sul percorso per un gateway applicazione usando il portale) per la creazione di un gateway applicazione con regole di routing basate su URL.
+
+<!-- Update_Description: update metedata properties -->

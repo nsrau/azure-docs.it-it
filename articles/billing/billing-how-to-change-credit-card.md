@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918732"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Aggiungere, aggiornare o rimuovere una carta di credito o di debito per Azure
 
@@ -40,7 +40,7 @@ Nel portale di Azure, è possibile aggiungere una nuova carta di credito, aggior
     ![Screenshot che mostra Cerca](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selezionare la sottoscrizione che si desidera aggiungere la carta di credito o di debito per.
-1. Selezionare **metodi di pagamento**.
+1. Selezionare **Metodi di pagamento**.
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -64,7 +64,7 @@ Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare 
 
     ![Screenshot che mostra Cerca](./media/billing-how-to-change-credit-card/search.png)
 
-1. Selezionare **metodi di pagamento**.
+1. Selezionare **Metodi di pagamento**.
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -85,7 +85,7 @@ Se più di una delle sottoscrizioni hanno lo stesso metodo di pagamento attivo, 
     ![Screenshot che mostra Cerca](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selezionare la sottoscrizione che si desidera aggiungere la carta di credito o di debito per.
-1. Selezionare **metodi di pagamento**.
+1. Selezionare **Metodi di pagamento**.
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

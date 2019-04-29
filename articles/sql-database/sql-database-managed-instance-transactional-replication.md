@@ -1,6 +1,6 @@
 ---
 title: Replica transazionale con database SQL di Azure | Microsoft Docs
-description: Informazioni sull'uso della replica transazionale di SQL Server con database singoli, in pool e di istanza nel database SQL di Azure.
+description: Informazioni sull'uso della replica transazionale di SQL Server con database singoli, in pool e dell'istanza nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,13 +13,13 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61313672"
 ---
-# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e di istanza nel database SQL di Azure
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e dell'istanza nel database SQL di Azure
 
 La replica transazionale è una funzionalità del database SQL di Azure e di SQL Server che consente di replicare i dati da una tabella nel database SQL di Azure o in un SQL Server verso tabelle inserite in database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi.
 
@@ -48,9 +48,9 @@ Il **server di pubblicazione** è un'istanza o un server che pubblica le modific
 
 Il **database di distribuzione** è un'istanza o un server che raccoglie le modifiche negli articoli da un server di pubblicazione e li distribuisce ai sottoscrittori. Il database di distribuzione può essere un'istanza gestita di database SQL di Azure o SQL Server (qualsiasi versione purché uguale o superiore alla versione del server di pubblicazione). 
 
-Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportate nel server di pubblicazione. I sottoscrittori possono essere database singoli, in pool e di istanza del database SQL di Azure o di database SQL Server. Un sottoscrittore in un database singolo o in pool deve essere configurato come sottoscrittore push. 
+Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportate nel server di pubblicazione. I sottoscrittori possono essere database singoli, in pool e dell'istanza del database SQL di Azure o di database SQL Server. Un sottoscrittore in un database singolo o in pool deve essere configurato come sottoscrittore push. 
 
-| Ruolo | Database singoli e in pool | Database in istanza |
+| Ruolo | Database singoli e in pool | Database dell'istanza |
 | :----| :------------- | :--------------- |
 | **Autore** | No  | Sì | 
 | **Database di distribuzione** | No  | Sì|
@@ -106,7 +106,7 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 | | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database SQL singolo o in pool di Microsoft Azure<br/>- Alti costi di manutenzione |
+| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
 | | | |
 
 ## <a name="common-configurations"></a>Configurazioni comuni
@@ -131,18 +131,18 @@ Il server di pubblicazione e il database di pubblicazione sono configurati in du
 - Le due istanze gestite sono nella stessa posizione.
 - Le istanze gestite che ospitano server di pubblicazione e database di distribuzione non possono eseguire la [replica geografica usando i gruppi di failover automatico](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Server di pubblicazione e database di distribuzione locali con sottoscrittore in un database singolo, in pool e di istanza 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Server di pubblicazione e database di distribuzione locali con sottoscrittore in un database singolo, in pool e dell'istanza 
 
 ![Database SQL di Azure come sottoscrittore](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-In questa configurazione, un database SQL di Azure (database singolo, in pool e di istanza) è un sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Se un sottoscrittore si trova in un database in pool o singolo, deve essere in modalità push.  
+In questa configurazione, un database SQL di Azure (database singolo, in pool e dell'istanza) è un sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Se un sottoscrittore si trova in un database in pool o singolo, deve essere in modalità push.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 1. [Configurare la replica transazionale per un'istanza gestita](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server del database SQL di Azure come sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net`) e il nome del database SQL di Azure come database di destinazione (ad esempio **AdventureWorks**). )
+1. [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net`) e il nome del database SQL di Azure come database di destinazione (ad esempio **AdventureWorks**). )
 
 
 

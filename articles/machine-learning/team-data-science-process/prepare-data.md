@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044601"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Attività per preparare i dati per operazioni avanzate con Machine Learning
 La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte del Processo di analisi scientifica dei dati per i team (TDSP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su TDSP, vedere i passaggi descritti nell'articolo relativo al [Processo di analisi scientifica dei dati per i team](overview.md).

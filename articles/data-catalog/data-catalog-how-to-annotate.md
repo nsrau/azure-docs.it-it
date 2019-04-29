@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001937"
 ---
 # <a name="how-to-annotate-data-sources"></a>Come annotare le origini dati
 ## <a name="introduction"></a>Introduzione
@@ -57,7 +57,7 @@ Quando si selezionano più tabelle e viste, nel portale di Data Catalog verranno
 ## <a name="annotations-and-discovery"></a>Individuazione e annotazioni
 Così come i metadati estratti dall'origine dati durante la registrazione vengono aggiunti all'indice di ricerca di Data Catalog, anche i metadati forniti dagli utenti vengono indicizzati. Ciò significa che le annotazioni non facilitano soltanto la comprensione dei dati individuati dagli utenti ma che esse rendono anche più semplice individuare gli asset di dati con annotazioni tramite ricerche effettuate utilizzando termini conosciuti dagli utenti stessi.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati in Data Catalog rende individuabili tali dati copiando i metadati strutturali e descrittivi dall'origine dati al servizio Catalog. Dopo la registrazione di un'origine dati, gli utenti possono specificare annotazioni per facilitare l'individuazione e la comprensione dal portale di Data Catalog.
 
 ## <a name="see-also"></a>Vedere anche 

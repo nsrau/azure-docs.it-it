@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904149"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -58,7 +58,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -72,7 +72,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | countrySet | Stati Uniti |
   
@@ -84,7 +84,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -108,7 +108,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -125,7 +125,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -149,7 +149,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -161,7 +161,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -207,7 +207,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |

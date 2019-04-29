@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61078305"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 ## <a name="overview"></a>Panoramica
@@ -130,7 +130,7 @@ Per ripetere l'analisi dei volumi connessi a StorSimple Snapshot Manager, seguir
 ## <a name="configure-and-back-up-a-basic-volume"></a>Configurare ed eseguire il backup di un volume di base
 Utilizzare la procedura seguente per configurare il backup di un volume di base e avviare immediatamente un backup o creare un criterio per i backup programmati.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare:
 
 * Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
@@ -155,17 +155,17 @@ Prima di iniziare:
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configurare ed eseguire il backup di un volume con mirroring dinamico
 Per configurare il backup di un volume con mirroring dinamico, seguire questa procedura:
 
-* Passaggio 1: Usare Gestione disco per creare un volume con mirroring dinamico. 
-* Passaggio 2: Usare StorSimple Snapshot Manager per configurare il backup.
+* Passaggio 1: Utilizzare Gestione disco per creare un volume con mirroring dinamico. 
+* Passaggio 2: Usare Gestione Snapshot StorSimple per configurare il backup.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare:
 
 * Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 * Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configurare due volumi sul dispositivo StorSimple. Negli esempi i volumi disponibili sono **Disco 1** e **Disco 2**. 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Passaggio 1: Utilizzare Gestione Disco per creare un volume con mirroring dinamico
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Passaggio 1: Utilizzare Gestione disco per creare un volume con mirroring dinamico
 Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i volumi o partizioni in essi contenuti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Per creare un volume con mirroring dinamico
@@ -190,7 +190,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
     
     ![Dischi dinamici con mirroring di Gestione disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Passaggio 2: Utilizzare StorSimple Snapshot Manager per configurare il backup
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Passaggio 2: Usare Gestione Snapshot StorSimple per configurare il backup
 Utilizzare la procedura seguente per configurare un volume con mirroring dinamico, avviare immediatamente un backup o creare un criterio per i backup pianificati.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Per configurare il backup di un volume con mirroring dinamico

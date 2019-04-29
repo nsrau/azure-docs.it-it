@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870894"
 ---
 # <a name="service-state"></a>Stato del servizio
 **Stato del servizio** si riferisce ai dati in memoria o su disco di cui un servizio necessita per funzionare. Si tratta ad esempio delle strutture di dati e delle variabili membro che vengono lette e scritte dal servizio per il funzionamento. A seconda di come è progettato il servizio, può anche includere file o altre risorse archiviati su disco. I file ad esempio che un database userebbe per archiviare log delle transazioni e dati.

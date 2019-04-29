@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871420"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurare la connettività SSL nel Database di Azure per PostgreSQL
 Il Database di Azure per PostgreSQL preferisce connettere le applicazioni client al servizio di PostgreSQL usando la connettività SSL (Secure Sockets Layer). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.

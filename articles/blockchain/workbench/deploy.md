@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869646"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -127,7 +127,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
 10. Esaminare il riepilogo per verificare che i parametri siano corretti.
 
-    ![Summary](media/deploy/blockchain-workbench-summary.png)
+    ![Riepilogo](media/deploy/blockchain-workbench-summary.png)
 
 11. Selezionare **Crea** per accettare le condizioni e distribuire Azure Blockchain Workbench.
 

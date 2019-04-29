@@ -17,11 +17,11 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465593"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -1047,7 +1047,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| Value |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabella 3:** Modificare il primo parametro TCP/IP_
@@ -1058,7 +1058,7 @@ Aggiungere quindi le voci del Registro di sistema Windows in entrambi i nodi del
 | --- | --- |
 | Nome variabile |`KeepAliveInterval` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| Value |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabella 4:** Modificare il secondo parametro TCP/IP_

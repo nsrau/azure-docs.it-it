@@ -15,11 +15,11 @@ ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226807"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -205,7 +205,7 @@ Per creare le stesse route manualmente, seguire questa procedura:
 
 ## <a name="service-endpoints"></a>Endpoint servizio ##
 
-Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint del servizio Rete virtuale][serviceendpoints] della documentazione. 
+Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints] della documentazione. 
 
 Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono create con una priorità maggiore rispetto a tutte le altre route. Se si usano gli endpoint servizio con un ambiente del servizio app con tunneling forzato, il tunneling del traffico di gestione di SQL di Azure e Archiviazione di Azure non viene forzato. 
 

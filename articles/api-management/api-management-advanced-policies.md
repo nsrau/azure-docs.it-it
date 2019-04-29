@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795888"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
@@ -583,8 +583,8 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 | Elemento                    | DESCRIZIONE                                                                                                 | Obbligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento radice.                                                                                               | Sì                             |
-| URL                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
-| statico                     | Metodo HTTP usato nella richiesta.                                                                            | No if mode=copy; otherwise yes. |
+| url                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
+| method                     | Metodo HTTP usato nella richiesta.                                                                            | No if mode=copy; otherwise yes. |
 | intestazione                     | Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.                                  | No                               |
 | Corpo                       | Corpo della richiesta.                                                                                           | No                               |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                               |
@@ -667,8 +667,8 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 | Elemento                    | DESCRIZIONE                                                                                                 | Obbligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento radice.                                                                                               | Sì                             |
-| URL                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
-| statico                     | Metodo HTTP usato nella richiesta.                                                                            | No if mode=copy; otherwise yes. |
+| url                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
+| method                     | Metodo HTTP usato nella richiesta.                                                                            | No if mode=copy; otherwise yes. |
 | intestazione                     | Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.                                  | No                               |
 | Corpo                       | Corpo della richiesta.                                                                                           | No                               |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                               |

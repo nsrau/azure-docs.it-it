@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004008"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
 Questo articolo fornisce informazioni sui dati inclusi in Gestione costi di Azure. Viene inoltre illustrata la frequenza di elaborazione, raccolta, visualizzazione e chiusura dei dati. L'uso di Azure viene addebitato su base mensile. Tuttavia, il tipo di sottoscrizione di Azure determina quando termina il mese di fatturazione. La frequenza con cui Gestione costi riceve i dati sull'utilizzo varia a seconda di diversi fattori. Tali fattori includono il tempo necessario per l'elaborazione dei dati e la frequenza con cui i servizi di Azure generano i dati sull'utilizzo per il sistema di fatturazione.
+
+Gestione dei costi include tutti gli utilizzi e gli acquisti, incluse le prenotazioni e le offerte di terze parti per gli account di Enterprise Agreement (EA). Gli account di Microsoft dal cliente contratto MCA () e le sottoscrizioni con pagamento a consumo includono solo l'utilizzo da servizi di Azure e Marketplace. Non sono inclusi supporto e altri costi. Stima i costi fino a quando non viene generata una fattura e non vengono suddivisi fra i crediti.
 
 ## <a name="supported-microsoft-offers"></a>Offerte Microsoft supportate
 
@@ -86,6 +88,7 @@ Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi. Tutti i 
 |   | Crediti - Per altre informazioni, vedere [Spiegazioni delle condizioni di fatturazione](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> L'utilizzo del servizio di Azure è basato sulla prenotazione e sui prezzi negoziati.
+
 <sup>2</sup> marketplace offerta utilizzo non è disponibile per il pagamento a consumo, MSDN, e Visual Studio sono disponibili in questo momento.
 
 **Metadata**
@@ -113,7 +116,7 @@ Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione ter
 
 ### <a name="rerated-data"></a>Dati rivalutati
 
-Quando si usano le [API di gestione dei costi](https://aka.ms/costmgmt/docs), PowerBI o il portale di Azure per recuperare i dati, prevedere una rivalutazione, e quindi una modifica, degli addebiti del periodo di fatturazione corrente, fino alla chiusura della fattura.
+Se si utilizza il [API di gestione dei costi](https://aka.ms/costmgmt/docs), Power BI o il portale di Azure per recuperare i dati, prevede addebiti del periodo di fatturazione corrente ottenere nuovamente valutati e modificare di conseguenza, fino alla chiusura della fattura.
 
 ## <a name="usage-data-update-frequency-varies"></a>Variazione della frequenza di aggiornamento dei dati sull'utilizzo
 

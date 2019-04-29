@@ -3,18 +3,18 @@ title: Dichiarare moduli e route con i manifesti della distribuzione - Azure IoT
 description: Informazioni su come un manifesto della distribuzione dichiara quali moduli distribuire, come distribuirli e come creare tra di loro route di messaggi.
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/28/2019
+ms.author: v-yiso
+origin.date: 03/28/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363201"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
@@ -276,3 +276,9 @@ L'esempio seguente mostra come viene visualizzato un documento del manifesto di 
 * Per un elenco completo delle proprietà che possono o devono essere inclusi in $edgeAgent e $edgeHub, vedere [delle proprietà dell'agente di IoT Edge e hub di IoT Edge](module-edgeagent-edgehub.md).
 
 * Dopo aver appreso come usare i moduli IoT Edge, passare alla pagina [Informazioni sui requisiti e gli strumenti per sviluppare moduli di IoT Edge](module-development.md).
+
+[lnk-deploy]: module-deployment-monitoring.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
+[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
+[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-module-dev]: module-development.md

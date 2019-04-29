@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447455"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usare il sito azureiotsolutions.com per distribuire acceleratori di soluzioni
 

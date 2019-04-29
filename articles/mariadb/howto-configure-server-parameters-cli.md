@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 4e0bf45f1c67a5e07d6ed632f6560d094b673c0a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61040054"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un'istanza di Database di Azure per il server MariaDB usando la utilità dell'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato.

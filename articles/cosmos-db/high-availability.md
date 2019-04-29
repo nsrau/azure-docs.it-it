@@ -8,11 +8,11 @@ ms.date: 3/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 1e866560ceab342f08a98ba3db05980a2b0947d2
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888520"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garantis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Successivamente è possibile leggere gli articoli seguenti:
+Successivamente si possono leggere gli articoli seguenti:
 
 * [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)

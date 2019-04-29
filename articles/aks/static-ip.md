@@ -2,17 +2,18 @@
 title: Usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes
 description: Informazioni su come creare e usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.author: iainfou
+origin.date: 03/04/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031648"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico con il bilanciamento del carico del servizio Azure Kubernetes
 
@@ -34,17 +35,17 @@ Quando si crea un indirizzo IP pubblico statico per l'uso con servizio Azure Kub
 
 Innanzitutto, ottenere il nome di gruppo di risorse di nodo con il [show di az aks] [ az-aks-show] comando e aggiungere il `--query nodeResourceGroup` parametro di query. L'esempio seguente ottiene il gruppo di risorse del nodo per il nome del cluster servizio Azure Kubernetes *myservizio Azure KubernetesCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
-MC_myResourceGroup_myAKSCluster_eastus
+MC_myResourceGroup_myAKSCluster_chinaeast
 ```
 
 Quindi usare il comando [az network public-ip create][az-network-public-ip-create] per creare un indirizzo IP pubblico statico. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa indirizzo IP, ad esempio *myAKSPublicIP*:
 
-```azurecli-interactive
+```azurecli
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
     --name myAKSPublicIP \
     --allocation-method static
 ```
@@ -56,7 +57,7 @@ Viene visualizzato l'indirizzo IP, come illustrato nell'output di esempio sintet
   "publicIp": {
     "dnsSettings": null,
     "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
+    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
     [...]
@@ -66,8 +67,8 @@ Viene visualizzato l'indirizzo IP, come illustrato nell'output di esempio sintet
 
 È possibile ottenere l'indirizzo IP pubblico in un secondo momento usando il comando [az network public-ip list][az-network-public-ip-list]. Specificare il nome del gruppo di risorse del nodo e l'indirizzo IP creato e quindi eseguire una query per *ipAddress* come illustrato nell'esempio seguente:
 
-```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+```azurecli
+$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
@@ -100,7 +101,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Con Kubernetes 1.10 o versione successiva è possibile usare un indirizzo IP statico che viene creato all'esterno del gruppo di risorse del nodo. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere autorizzazioni delegate per l'accesso all'altro gruppo di risorse, come illustrato nell'esempio seguente:
 
-```azurecli-interactive
+```azurecli
 az role assignment create\
     --assignee <SP Client ID> \
     --role "Network Contributor" \
@@ -166,12 +167,12 @@ Per un ulteriore controllo sul traffico di rete nelle applicazioni è possibile 
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
+[az-network-public-ip-list]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845784"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Creare schemi per il rilevamento di messaggi AS2 e notifiche sulla ricezione del messaggio negli account di integrazione per App per la logica di Azure
 

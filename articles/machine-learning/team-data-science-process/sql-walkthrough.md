@@ -12,11 +12,11 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045787"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
@@ -575,7 +575,7 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 1. Inserire i dati in Azure Machine Learning tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa dati).
    
     ![Dati di importazione di Azure Machine Learning][17]
-2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
+2. Selezione di **Database SQL di Azure** come **Origine dati** nel pannello **Proprietà**.
 3. Immissione del nome DNS del database nel campo **Nome server database** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Immissione del **Nome database** nel campo corrispondente.
 5. Immettere il **nome utente SQL** in **Server user account name** (Nome account utente server) e la **password** in **Server user account password** (Password account utente server).

@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451600"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Distribuzione di dipendenze per lo sviluppo locale
 
@@ -32,7 +32,7 @@ Questo articolo illustra come distribuire solo la necessità di servizi della pi
    deploy -type local
    ```
 
-2. Seguire le istruzioni per assegnare un nome al gruppo di risorse per la distribuzione.  Lo script distribuisce solo le dipendenze per gruppo di risorse nella sottoscrizione di Azure, ma non i microservizi.  Lo script registra inoltre un'applicazione in Azure Active Directory.  Questa operazione è necessaria per supportare l'autenticazione basata su OAUTH.  Distribuzione può richiedere alcuni minuti.
+2. Seguire le istruzioni per assegnare un nome al gruppo di risorse per la distribuzione.  Lo script distribuisce solo le dipendenze per gruppo di risorse nella sottoscrizione di Azure, ma non i microservizi.  Lo script registra inoltre un'applicazione in Azure Active Directory.  Questa operazione è necessaria per supportare l'autenticazione basata su OAUTH.  Questa operazione può richiedere alcuni minuti.
 
 3. Una volta completato lo script, è possibile selezionare per salvare il file con estensione env.  Il file con estensione env dell'ambiente è il file di configurazione di tutti i servizi e strumenti da eseguire nel computer di sviluppo.  
 

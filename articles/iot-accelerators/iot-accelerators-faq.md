@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447957"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 

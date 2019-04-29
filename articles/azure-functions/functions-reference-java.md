@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
 ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020385"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 

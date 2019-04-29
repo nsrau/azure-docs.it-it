@@ -2,17 +2,18 @@
 title: Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 description: Informazioni su come fornire l'accesso alle immagini nel registro del contenitore privato da Istanze di Azure Container usando un'entità del servizio Azure Active Directory.
 services: container-registry
-author: dlepow
+author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: danlep
+origin.date: 04/23/2018
+ms.date: 03/25/2019
+ms.author: v-yeche
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333574"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 
@@ -34,12 +35,12 @@ Le entità servizio dovrebbero essere usate anche quando l'[utente amministrator
 
 Per avviare un contenitore in Istanze di Azure Container usando un'entità servizio, specificare l'ID per `--registry-username` e la password per `--registry-password`.
 
-```azurecli-interactive
+```azurecli
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.io/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.io \
+    --image mycontainerregistry.azurecr.cn/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.cn \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

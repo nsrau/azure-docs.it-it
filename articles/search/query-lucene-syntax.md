@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61317584"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
 È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 

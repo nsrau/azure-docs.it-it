@@ -14,19 +14,19 @@ ms.tgt_pltfrm: may be required
 ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
-ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: ae89f8e4c501e62ce70f9dddc00e45f4d9fdaae1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215967"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titolo (al massimo 120 caratteri, usare la parola chiave primaria)
 *Usare 2-3 parole chiave secondarie nella descrizione.*
 
 *Selezionare una delle dichiarazioni seguenti, in base allo scenario specifico. Se l'articolo è indipendente dal modello di distribuzione, ignorare questa sezione.*
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -61,7 +61,7 @@ ms.locfileid: "26730553"
 * *Aggiungere screenshot se possibile.*
 * *Se esistono più soluzioni, indicarle in ordine di complessità e specificare istruzioni su come scegliere quella ottimale.*
 
-| <em>Versione 1: l'articolo è indipendente dal modello di distribuzione.</em> | <em>Versione 2: le procedure per la distribuzione Resource Manager e classica sono sostanzialmente uguali.</em> | <em>Versione 3: le procedure per la distribuzione Resource Manager e classica sono diverse. <br />In questo caso, usare la <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">tecnica basata su selettori semplici in GitHub</a>. <br />Nota: gli articoli relativi alle VM per Azure Resource Manager sono eccezioni e non devono usare il selettore per la distribuzione Azure Resource Manager/classica.</em> |
+| <em>Versione 1: L'articolo è indipendente dal modello di distribuzione</em> | <em>Versione 2: Procedure per Resource Manager e classica sono sostanzialmente uguali</em> | <em>Versione 3: Procedure per Resource Manager e classica sono diverse. <br />In questo caso, usare la <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">tecnica basata su selettori semplici in GitHub</a>. <br />Note: Articoli della macchina virtuale per le eccezioni di ARM e non devono usare il selettore classica/ARM.</em> |
 |:--- |:--- |:--- |
 | <p><h3>Soluzione 1</h3><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><p><h3>Soluzione 2</h3><em>(la meno semplice o efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /> |<p><h3>Soluzione 1</h3><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>Se si usa il modello di distribuzione classica, [seguire questa procedura].<br />Se si usa il modello di distribuzione Resource Manager, [seguire questa procedura].</li><li>[Passaggio 3]</li></ol><p><h3>Soluzione 2</h3><em>(la meno semplice o efficace)</em></p><ol><li>[Passaggio 1]</li><li>Se si usa il modello di distribuzione classica, [seguire questa procedura].<br />Se si usa il modello di distribuzione Resource Manager, [seguire questa procedura].</li><li>[Passaggio 3]</li></ol> |<img src="media/markdown-template-for-support-articles-symptom-cause-resolution/rm-classic.png" alt="ARM-Classic"><p><h3>Soluzione 1</h3><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><p><h3>Soluzione 2</h3><em>(la meno semplice o efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><br /><br /><br /><br /> |
 

@@ -1,5 +1,5 @@
 ---
-title: Criteri degli endpoint di servizio di rete virtuale di Azure | Microsoft Docs
+title: Criteri degli endpoint servizio di rete virtuale di Azure | Microsoft Docs
 description: Informazioni su come filtrare il traffico di rete virtuale per le risorse dei servizi di Azure usando criteri degli endpoint di servizio
 services: virtual-network
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033901"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
+# <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint servizio di rete virtuale (anteprima)
 
 I criteri degli endpoint di servizio di rete virtuale permettono di filtrare il traffico di rete virtuale per i servizi di Azure, consentendo l'accesso solo a risorse specifiche dei servizi di Azure sugli endpoint di servizio. I criteri degli endpoint forniscono il controllo granulare dell'accesso per il traffico di rete virtuale per i servizi di Azure.
 
@@ -29,11 +29,11 @@ __Archiviazione di Azure__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentral
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 > [!NOTE]  
-> Durante l'anteprima, i criteri degli endpoint di servizio di rete virtuale potrebbero non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Durante l'anteprima, i criteri degli endpoint servizio di rete virtuale potrebbero non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
-I criteri degli endpoint di servizio di rete virtuale offrono i vantaggi seguenti:
+I criteri degli endpoint servizio di rete virtuale offrono i vantaggi seguenti:
 
 - __Maggiore sicurezza per il traffico di rete virtuale per i servizi di Azure__
 
@@ -190,6 +190,6 @@ Per i criteri degli endpoint di servizio vengono applicati i limiti seguenti:
 
 ## <a name="next-steps"></a>Fasi successive
 
-- Leggere [come configurare i criteri degli endpoint di servizio di rete virtuale](virtual-network-service-endpoint-policies-portal.md)
-- Leggere altre informazioni sugli [endpoint di servizio di rete virtuale](virtual-network-service-endpoints-overview.md)
+- Leggere [come configurare i criteri degli endpoint servizio di rete virtuale](virtual-network-service-endpoint-policies-portal.md)
+- Leggere altre informazioni sugli [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md)
 

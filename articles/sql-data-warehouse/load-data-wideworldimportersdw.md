@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61081480"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client. 
 
 > [!NOTE]
-> SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
+> SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 >
 
 1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **SampleDW** nella pagina **Database SQL**. Verrà visualizzata la pagina di panoramica del database, che mostra il nome completo del server, ad esempio **sample-svr.database.windows.net**, e offre altre opzioni per la configurazione. 
@@ -114,7 +114,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
     ![impostazioni del server](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server del database SQL. 
+5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server di database SQL. 
 
     ![Regola del firewall del server](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 

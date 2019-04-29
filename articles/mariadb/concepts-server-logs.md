@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61041259"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>Log del server in Database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -42,5 +42,5 @@ Altri parametri che è possibile modificare includono:
 
 Vedere [documentazione riguardante il log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/) di MariaDB per una descrizione completa dei parametri del log delle query lente.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Come configurare e accedere ai log del server usando il portale di Azure](howto-configure-server-logs-portal.md).

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60781132"
 ---
 # <a name="scaling-in-service-fabric"></a>Scalabilità in Service Fabric
 Azure Service Fabric semplifica la creazione di applicazioni scalabili gestendo i servizi, le partizioni e le repliche nei nodi di un cluster. L'esecuzione di molti carichi di lavoro sullo stesso hardware determina il massimo utilizzo delle risorse, ma offre anche la flessibilità in termini di scelta di come scalare i carichi di lavoro. Questo video di Channel 9 descrive come compilare applicazioni di microservizi scalabili:

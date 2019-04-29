@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305021"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -35,7 +35,7 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 | NOME |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
 | Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
-| Attivato |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene disabilitato, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
+| Enabled |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene disabilitato, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
 ### <a name="parameters"></a>Parametri
 

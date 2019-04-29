@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449505"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -178,6 +178,6 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
     ![Esplorare i dati di streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per eseguire analisi di Big Data sui set di dati di Data Lake Store è possibile usare Azure Data Lake Analytics. Per altre informazioni, vedere la [documentazione di Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

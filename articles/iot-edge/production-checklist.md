@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998456"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 

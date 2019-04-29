@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075881"
 ---
 # <a name="download-the-template-for-a-vm"></a>Scaricare il modello per una VM
 Quando si crea una macchina virtuale in Azure con il portale o con PowerShell, viene creato automaticamente un modello di Resource Manager. È possibile usare questo modello per duplicare rapidamente una distribuzione. Il modello contiene informazioni su tutte le risorse in un gruppo di risorse. Per una macchina virtuale, questo significa che il modello contiene tutto ciò che viene creato in supporto della macchina virtuale all'interno del gruppo di risorse, comprese le risorse di rete.
