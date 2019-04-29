@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459709"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regole personalizzate per web application firewall con l'ingresso principale di Azure
 Firewall (WAF) di applicazione web di Azure con il servizio di ingresso principale consente di controllare l'accesso alle applicazioni web in base alle condizioni definite. Una regola personalizzata di Web Application firewall è costituito da un numero di priorità, un tipo di regola, le condizioni di corrispondenza e un'azione. Esistono due tipi di regole personalizzate: corrispondono alle regole e regole dei limiti di frequenza. Una regola di corrispondenza controlla l'accesso in base alle condizioni di corrispondenza, mentre una regola di limite di frequenza controlla l'accesso in base alle condizioni e la frequenza delle richieste in ingresso corrispondenti. È possibile disabilitare una regola personalizzata per evitare che venga valutata, ma continuare a mantenere la configurazione. Questo articolo illustra le regole di corrispondenza basati su parametri http.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882198"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Riconfigurazione con Azure Service Fabric
 Una *configurazione* è definita come le repliche e i relativi ruoli per una partizione di un servizio con stato.
@@ -32,28 +32,28 @@ Failover Manager avvia le riconfigurazioni in risposta a eventi diversi nel sist
 Le riconfigurazioni possono essere classificate in due tipi:
 
 - Riconfigurazioni in cui il primario è in fase di modifica:
-    - **Failover**: i failover sono riconfigurazioni in risposta all'errore di un primario in esecuzione.
-    - **SwapPrimary**: gli swap sono riconfigurazioni in cui Service Fabric deve spostare un primario in esecuzione da un nodo a un altro, in genere in risposta al bilanciamento del carico o a un aggiornamento.
+    - **Failover**: I failover sono riconfigurazioni in risposta all'errore di un primario in esecuzione.
+    - **SwapPrimary**: Gli swap sono riconfigurazioni in cui Service Fabric deve spostare un primario in esecuzione da un nodo a un altro, in genere in risposta al bilanciamento del carico o un aggiornamento.
 
 - Riconfigurazioni in cui il primario non è in fase di modifica.
 
 ## <a name="reconfiguration-phases"></a>Fasi di riconfigurazione
 Una riconfigurazione passa per diverse fasi:
 
-- **Fase 0**: questa fase viene eseguita in riconfigurazioni di scambio del primario in cui il primario corrente trasferisce lo stato al nuovo primario e passa al secondario attivo.
+- **Phase0**: Questa fase viene eseguita in riconfigurazioni di scambio del primario in cui il primario corrente trasferisce lo stato al nuovo database primario e passa al secondario attivo.
 
-- **Fase 1**: questa fase viene eseguita durante le riconfigurazioni in cui il primario è in fase di modifica. Durante questa fase, Service Fabric identifica il primario corretto tra le repliche correnti. Questa fase non è necessaria durante le riconfigurazioni di scambio del primario perché il nuovo primario è già stato selezionato. 
+- **Phase1**: Questa fase viene eseguita durante le riconfigurazioni in cui il database primario in fase di modifica. Durante questa fase, Service Fabric identifica il primario corretto tra le repliche correnti. Questa fase non è necessaria durante le riconfigurazioni di scambio del primario perché il nuovo primario è già stato selezionato. 
 
-- **Fase 2**: durante questa fase, Service Fabric verifica che tutti i dati siano disponibili nella maggior parte delle repliche della configurazione corrente.
+- **Phase2**: Durante questa fase, Service Fabric assicura che tutti i dati sono disponibili nella maggior parte delle repliche della configurazione corrente.
 
 Esistono altre fasi che sono solo per uso interno.
 
 ## <a name="stuck-reconfigurations"></a>Riconfigurazioni bloccate
 Le riconfigurazioni possono *bloccarsi* per svariati motivi. Alcuni dei motivi più comuni includono:
 
-- **Repliche non attive**: alcune fasi di riconfigurazione richiedono che la maggior parte delle repliche nella configurazione siano attive.
-- **Problemi di rete o di comunicazione**: le riconfigurazioni richiedono la connettività di rete tra nodi diversi.
-- **Errori API**: il protocollo di riconfigurazione richiede che le implementazioni del servizio terminino determinate API. Ad esempio, se non viene rispettato il token di annullamento in un servizio Reliable Services, le riconfigurazioni SwapPrimary si bloccano.
+- **Repliche non attive**: Alcune fasi di riconfigurazione richiedono che la maggioranza delle repliche nella configurazione siano attive.
+- **Problemi di rete o di comunicazione**: Le riconfigurazioni richiedono la connettività di rete tra nodi diversi.
+- **Errori API**: Il protocollo di riconfigurazione richiede che le implementazioni del servizio terminino determinate API. Ad esempio, se non viene rispettato il token di annullamento in un servizio Reliable Services, le riconfigurazioni SwapPrimary si bloccano.
 
 Usare i report sull'integrità dei componenti di sistema, ad esempio System.FM, System.RA e System.RAP, per diagnosticare dove si è bloccata una riconfigurazione. La [pagina Report sull'integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) descrive questi report sull'integrità.
 

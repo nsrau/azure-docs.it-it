@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824015"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="db2-linked-service-properties"></a>Proprietà del servizio collegato DB2
 La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio collegato DB2.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
 | **server** |Il nome del server DB2. |Sì |
@@ -95,7 +95,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable**, che comprende il set di dati DB2, presenta la proprietà seguente:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **tableName** |Il nome della tabella nell'istanza del database DB2 a cui il servizio collegato fa riferimento. Questa proprietà fa distinzione tra maiuscole e minuscole. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -104,7 +104,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per le attività di copia con origine di tipo **RelationalSource** (che comprende DB2), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from "MySchema"."MyTable""` |No (se è specificata la proprietà **tableName** di un set di dati) |
 
@@ -320,7 +320,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | Data |DateTime |
 | Tempo |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |string |
 | VarChar |string |
 | LongVarChar |string |
@@ -346,7 +346,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | Data |DateTime |
 | Tempo |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |string |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822792"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
@@ -33,26 +33,26 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
  
 ## <a name="event-subscription-properties"></a>Proprietà delle sottoscrizioni eventi
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | destination | object | Oggetto che definisce l'endpoint. |
 | filter | object | Campo facoltativo per il filtro dei tipi di eventi. |
 
 ### <a name="destination-object"></a>oggetto destination
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| endpointType | stringa | Tipo di endpoint per la sottoscrizione (webhook/HTTP, hub eventi o coda). | 
-| endpointUrl | stringa | URL di destinazione per gli eventi della sottoscrizione di eventi. | 
+| endpointType | string | Tipo di endpoint per la sottoscrizione (webhook/HTTP, hub eventi o coda). | 
+| endpointUrl | string | URL di destinazione per gli eventi della sottoscrizione di eventi. | 
 
 ### <a name="filter-object"></a>oggetto filter
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Corrisponde se il tipo di evento nel messaggio di evento è una corrispondenza esatta a uno di questi nomi di tipo di evento. Genera un errore se il nome dell'evento non corrisponde ad alcuno dei nomi di tipo di evento registrati per l'origine evento. Il valore predefinito corrisponde a tutti i tipi di evento. |
-| subjectBeginsWith | stringa | Filtro di corrispondenza del prefisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. | 
-| subjectEndsWith | stringa | Filtro di corrispondenza del suffisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. |
-| isSubjectCaseSensitive | stringa | Controlla la corrispondenza tra maiuscole e minuscole per i filtri. |
+| subjectBeginsWith | string | Filtro di corrispondenza del prefisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. | 
+| subjectEndsWith | string | Filtro di corrispondenza del suffisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. |
+| isSubjectCaseSensitive | string | Controlla la corrispondenza tra maiuscole e minuscole per i filtri. |
 
 
 ## <a name="example-subscription-schema"></a>Schema di sottoscrizione di esempio

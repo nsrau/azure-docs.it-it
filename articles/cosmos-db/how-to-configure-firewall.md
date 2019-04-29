@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61060875"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
 
@@ -157,7 +157,7 @@ Le richieste provenienti da una subnet nella rete virtuale che dispone di un end
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare l'endpoint del servizio di una rete virtuale per l'account Azure Cosmos DB, vedere gli articoli seguenti:
+Per configurare un endpoint servizio di rete virtuale per l'account Azure Cosmos DB, vedere gli articoli seguenti:
 
 * [Controllo di accesso di rete virtuale e subnet per l'account Azure Cosmos DB](vnet-service-endpoint.md)
 * [Configurare l'accesso basato su rete virtuale e subnet per l'account di Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)

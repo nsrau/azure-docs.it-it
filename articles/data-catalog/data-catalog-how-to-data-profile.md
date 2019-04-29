@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001701"
 ---
 # <a name="data-profile-data-sources"></a>Eseguire il profiling dati delle origini dati
 ## <a name="introduction"></a>Introduzione
@@ -80,7 +80,7 @@ Un profilo dati in **Azure Data Catalog** include informazioni sul profilo a liv
 * Numero di righe con valori NULL
 * Deviazione minima, massima, media e standard per i valori di colonna
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il profiling dati fornisce statistiche e informazioni sugli asset di dati registrati per consentire di determinare l'idoneità dei dati per la risoluzione di problemi aziendali. Oltre che annotare e documentare le origini dati, i profili dati permettono agli utenti di comprendere meglio i dati.
 
 ## <a name="see-also"></a>Vedere anche

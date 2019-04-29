@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
 ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893910"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Segnalare ai pazienti le modifiche delle cartelle cliniche HL7 FHIR utilizzando le App per la logica e Azure Cosmos DB
 
@@ -215,7 +215,7 @@ L'immagine seguente mostra tutti i servizi di Azure per questa soluzione in esec
 ![Il portale di Azure con tutti i servizi usati in questa esercitazione HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 - Si è appreso che Azure Cosmos DB dispone di supporto nativo per le notifiche per documenti nuovi o modificati, con notevole facilità d'uso. 
 - Sfruttando le App per la logica è possibile creare flussi di lavoro senza scrivere codice.

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424755"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Eseguire operazioni con un runbook di automazione dai risultati della ricerca log di Log Analytics
 
@@ -30,7 +30,7 @@ Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezion
 
 ## <a name="components-and-features-used"></a>Componenti e le funzionalità usati
 * [Account di automazione di Azure](../../automation/automation-quickstart-create-account.md)
-* [Area di lavoro di Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [area di lavoro Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Per avviare il runbook dalla ricerca log
 

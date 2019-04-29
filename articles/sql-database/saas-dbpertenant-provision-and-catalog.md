@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61388343"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
@@ -69,7 +69,7 @@ L'app di database per tenant Wingtip Tickets effettua il provisioning di nuovi t
 Gli script di provisioning copiano il database _basetenantdb_ per creare un nuovo database tenant in un pool elastico Il database tenant viene creato nel server tenant mappato all'alias DNS _newtenant_. Questo alias mantiene un riferimento al server usato per il provisioning di nuovi tenant e viene aggiornato per puntare a un server tenant di ripristino nelle esercitazioni sul ripristino di emergenza ([ripristino di emergenza tramite ripristino geografico](saas-dbpertenant-dr-geo-restore.md), [ripristino di emergenza tramite replica geografica](saas-dbpertenant-dr-geo-replication.md)). e quindi inizializzano il database con informazioni specifiche del tenant e lo registrano nella mappa partizioni del catalogo. I nomi dei database tenant vengono assegnati in base al nome del tenant. Questo schema di denominazione non è una parte essenziale del modello. Poiché il catalogo associa la chiave del tenant al nome del database, è possibile usare qualsiasi convenzione di denominazione. 
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione SaaS di database per tenant Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
 Gli script e il codice sorgente dell'applicazione SaaS Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 

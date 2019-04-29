@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852526"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
@@ -64,7 +64,7 @@ Copiare l'URL webhook. Per aggiungere un webhook per l'hub Docker, vedere <a hre
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione al Servizio app di Azure in Linux](./app-service-linux-intro.md)
-* [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/)
+* [Registro Azure Container](https://azure.microsoft.com/services/container-registry/)
 * [Creare un'app Web .NET nel Servizio app in Linux](quickstart-dotnetcore.md)
 * [Creare un'app Web Ruby nel servizio app in Linux](quickstart-ruby.md)
 * [Distribuire un'app Web Docker/Go in app Web per contenitori](quickstart-docker-go.md)

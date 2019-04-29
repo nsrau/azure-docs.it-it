@@ -11,11 +11,11 @@ ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126960"
 ---
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
@@ -30,12 +30,12 @@ La stessa regola vale per gli aggiornamenti all'SDK. Azure Search SDK segue le r
 ## <a name="snapshot-of-current-versions"></a>Panoramica delle versioni correnti
 Di seguito è illustrata una panoramica delle versioni correnti di tutte le interfacce di programmazione di Ricerca di Azure.
 
-| Interfacce | Versione principale più recente | Status |
+| Interfacce | Versione principale più recente | Stato |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |Disponibile a livello generale, rilasciata ad aprile 2018 |
 | [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Anteprima, rilasciata a maggio 2017 |
 | [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Disponibile a livello generale |
-| [API REST del servizio 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Preview |
+| [API REST del servizio 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Anteprima |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Disponibile a livello generale |
 | [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibile a livello generale |
 

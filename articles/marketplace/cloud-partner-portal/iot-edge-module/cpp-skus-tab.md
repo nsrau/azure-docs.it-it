@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910932"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Scheda SKU di moduli per IoT Edge
 
@@ -41,7 +41,7 @@ La scheda **SKU** viene aggiornata e visualizza i campi modificati per configura
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU ID** (ID SKU)       | Identificatore dello SKU. Questo nome non può superare i 50 caratteri, costituiti da caratteri alfanumerici minuscoli o trattini (-), ma non può terminare con un trattino. **Nota:** dopo aver pubblicato l'offerta, non sarà possibile modificare questo nome. Il nome è visibile pubblicamente negli URL di prodotto. |
+| **SKU ID** (ID SKU)       | Identificatore dello SKU. Questo nome non può superare i 50 caratteri, costituiti da caratteri alfanumerici minuscoli o trattini (-), ma non può terminare con un trattino. **Nota:** Dopo aver pubblicato l'offerta di, è possibile modificare questo nome. Il nome è visibile pubblicamente negli URL di prodotto. |
 
 ## <a name="sku-details"></a>Dettagli dello SKU
 
@@ -109,7 +109,7 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 | **ID sottoscrizione**        | ID sottoscrizione di Azure di Registro Azure Container.|
 | **Nome del gruppo di risorse**      | Nome del gruppo di risorse di Registro Azure Container.|
 | **Nome registro**  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
-| **Nome repository**  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
+| **Nome repository**  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** Dopo aver impostato il nome, non può essere modificato in un secondo momento. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
 | **Nome utente** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
 | **Password** | Password associata al Registro Azure Container. |
 |  ***Versione immagine***   |  |

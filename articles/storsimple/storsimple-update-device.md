@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409988"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Aggiornare il dispositivo StorSimple 8000 serie
 > [!NOTE]
-> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per domande relative al passaggio, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md).
+> Il portale classico per StorSimple è deprecato. Le istanze di Gestione dispositivi StorSimple passeranno automaticamente al nuovo portale di Azure in base alla pianificazione per la funzionalità deprecata. Si riceveranno un messaggio di posta elettronica e una notifica del portale relativi a questo passaggio. Anche questo documento verrà ritirato a breve. Per eventuali domande relative al passaggio, vedere [domande frequenti: Passare al portale di Azure](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Panoramica
 La funzionalità di aggiornamento StorSimple consentono di tenere aggiornato il dispositivo StorSimple. A seconda del tipo di aggiornamento, è possibile applicare gli aggiornamenti al dispositivo tramite il portale di Azure classico o tramite l'interfaccia Windows PowerShell. In questa esercitazione vengono descritti i tipi di aggiornamento e come installarli.
@@ -49,7 +49,7 @@ Gli aggiornamenti regolari sono aggiornamenti senza interruzioni che possono ess
 * È anche possibile installare aggiornamenti regolari tramite Windows PowerShell per StorSimple. Per dettagli, vedere [Installare aggiornamenti regolari tramite Windows PowerShell per StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple)
 
 ### <a name="maintenance-mode-updates"></a>Aggiornamenti in modalità manutenzione
-Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici, come gli aggiornamenti del firmware del disco. Questi aggiornamenti richiedono che il dispositivo sia in modalità manutenzione. Per altri dettagli, vedere [Passaggio 2: Attivare la modalità di manutenzione](#step2). Per installare gli aggiornamenti in modalità manutenzione, non è possibile usare il portale di Azure classico. Pertanto è necessario utilizzare Windows PowerShell per StorSimple. 
+Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici, come gli aggiornamenti del firmware del disco. Questi aggiornamenti richiedono che il dispositivo sia in modalità manutenzione. Per informazioni dettagliate, vedere [passaggio 2: Attivare la modalità manutenzione](#step2). Per installare gli aggiornamenti in modalità manutenzione, non è possibile usare il portale di Azure classico. Pertanto è necessario utilizzare Windows PowerShell per StorSimple. 
 
 Per informazioni dettagliate su come installare gli aggiornamenti in modalità manutenzione, vedere [Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -76,7 +76,7 @@ In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per ap
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple
 Utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti in modalità manutenzione al dispositivo StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o esce dalla modalità. Quando si esce da questa modalità, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
 
-Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di Azure classico riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](#step4).
+Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di Azure classico riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [passaggio 4: Esci dalla modalità di manutenzione](#step4).
 
 > [!IMPORTANT]
 > * Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri controllando lo **Stato Hardware** sulla pagina **Manutenzione** nel portale di Azure classico. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per altre informazioni, contattare il supporto tecnico Microsoft. 
@@ -89,7 +89,7 @@ In primo luogo, utilizzare un'applicazione come PuTTY per accedere alla console 
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Passaggio 2: Attivare la modalità di manutenzione <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Passaggio 2: Attivare la modalità manutenzione <a name="step2">
 Dopo la connessione alla console, determinare se sono presenti aggiornamenti da installare e attivare la modalità manutenzione per installarli.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
@@ -99,7 +99,7 @@ Successivamente, installare gli aggiornamenti.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Passaggio 4: Uscire dalla modalità di manutenzione <a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Passaggio 4: Esci dalla modalità di manutenzione <a name="step4">
 Per terminare, uscire dalla modalità manutenzione.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

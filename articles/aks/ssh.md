@@ -2,17 +2,18 @@
 title: Accesso SSH in nodi del cluster del servizio Azure Kubernetes
 description: Di seguito viene spiegato come creare una connessione SSH con i nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
-ms.author: iainfou
+origin.date: 03/05/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031659"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
@@ -34,14 +35,14 @@ Per aggiungere la chiave SSH a un nodo servizio Azure Kubernetes, attenersi alla
 
 1. Ottenere il nome del gruppo di risorse per le risorse del cluster servizio Azure Kubernetes utilizzando [az servizio Azure Kubernetes show][az-aks-show]. Fornire il proprio gruppo di risorse di base e il nome del cluster servizio Azure Kubernetes:
 
-    ```azurecli-interactive
+    ```azurecli
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. Elencare le macchine virtuali nel gruppo di risorse del cluster servizio Azure Kubernetes utilizzando il comando [az vm list][az-vm-list]. Queste macchine virtuali sono i nodi servizio Azure Kubernetes:
 
-    ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    ```azurecli
+    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast -o table
     ```
 
     Il seguente output di esempio mostra i nodi servizio Azure Kubernetes:
@@ -49,14 +50,14 @@ Per aggiungere la chiave SSH a un nodo servizio Azure Kubernetes, attenersi alla
     ```
     Name                      ResourceGroup                                  Location
     ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
+    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast  chinaeast
     ```
 
 1. Per aggiungere le chiavi SSH al nodo, utilizzare il comando [az vm user update][az-vm-user-update]. Fornire il nome del gruppo di risorse e quindi uno dei nodi servizio Azure Kubernetes ottenuti nel passaggio precedente. Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*. Fornire la posizione della propria chiave pubblica SSH, ad esempio *~/.ssh/id_rsa.pub*, oppure incollare il contenuto della chiave pubblica SSH:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -68,8 +69,8 @@ I nodi servizio Azure Kubernetes non sono pubblicamente esposti in Internet. Per
 
 Visualizzare l'indirizzo IP privato di un nodo del cluster servizio Azure Kubernetes utilizzando il comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fornire il nome del gruppo di risorse del cluster servizio Azure Kubernetes ottenuto in un passaggio [az-servizio Azure Kubernetes-show][az-aks-show] precedente:
 
-```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+```azurecli
+az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast -o table
 ```
 
 Il seguente output di esempio mostra gli indirizzi IP privati dei nodi servizio Azure Kubernetes:
@@ -100,7 +101,7 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
 
     ```
     $ kubectl get pods
-    
+
     NAME                       READY     STATUS    RESTARTS   AGE
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
@@ -123,22 +124,22 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 
@@ -154,12 +155,12 @@ Se sono necessari ulteriori dati per la risoluzione dei problemi, è possibile [
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-vm-list]: /cli/azure/vm#az-vm-list
-[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
-[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
+[az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
+[az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

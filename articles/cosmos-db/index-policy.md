@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
 ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61046319"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -105,5 +105,5 @@ Quando si lavora con i criteri di indicizzazione, è possibile riscontrare gli a
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
-- [Cenni preliminari sull'indicizzazione](index-overview.md)
+- [Panoramica dell'indicizzazione](index-overview.md)
 - [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)

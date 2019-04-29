@@ -8,11 +8,11 @@ ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60894479"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
@@ -46,7 +46,7 @@ Quando un'operazione in blocco per importare o aggiornare i documenti viene atti
 
 La libreria dell'Executor Bulk garantisce di usare drasticamente la velocità effettiva allocata a una raccolta. Usa un  [meccanismo di controllo della congestione in stile AIMD](https://tools.ietf.org/html/rfc5681) per ogni intervallo di chiavi di partizione di Azure Cosmos DB per gestire in modo efficiente la limitazione della frequenza delle richieste e i timeout. 
 
-## <a name="next-steps"></a>Passaggi successivi 
+## <a name="next-steps"></a>Fasi successive 
   
 * Per altre informazioni, provare le applicazioni di esempio che usano la libreria dell'Executor in bloco in [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
 * Consultare le note sulla versione e le informazioni dell'SDK dell'executor bulk in [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).

@@ -17,11 +17,11 @@ ms.date: 02/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91d5bbe66c7eb74dbd3f9a441ffffdc9a0153f0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>Esercitazione: Integrazione di Azure Active Directory con Zwayam
 
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
     > [!NOTE] 
-    > Poiché il valore dell'URL di accesso non è reale, Il valore dell'**ID di entità SAML** verrà illustrato in una fase successiva di questa esercitazione.
+    > Poiché il valore di URL accesso non è reale, Il valore dell'**ID di entità SAML** verrà illustrato in una fase successiva di questa esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 

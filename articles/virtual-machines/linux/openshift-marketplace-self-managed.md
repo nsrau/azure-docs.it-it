@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
 ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773559"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
@@ -70,7 +70,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 | SSH chiave pubblica per l'utente amministratore | Usato per accedere a una macchina virtuale: la chiave pubblica SSH non deve avere una passphrase |
 | Sottoscrizione | Sottoscrizione di Azure per distribuire un cluster |
 | Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse del cluster |
-| Location | Area di Azure per distribuire un cluster |
+| Località | Area di Azure per distribuire un cluster |
 
    ![Pannello nozioni di base dell'offerta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

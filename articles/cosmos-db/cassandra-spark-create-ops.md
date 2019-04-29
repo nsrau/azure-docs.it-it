@@ -1,22 +1,24 @@
 ---
 title: Creare/inserire dati nell'API Cassandra di Azure Cosmos DB da Spark
 description: Questo articolo illustra in dettaglio come inserire dati di esempio nelle tabelle dell'API Cassandra di Azure Cosmos DB
-author: kanshiG
-ms.author: govindk
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
+origin.date: 09/24/2018
+ms.date: 03/18/2019
 ms.openlocfilehash: aea646e7a390d5b53f0d4b388cfecd0c80fb19da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60894046"
 ---
+<!--Verify sucessfully-->
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Creare/inserire dati nell'API Cassandra di Azure Cosmos DB da Spark
- 
+
 Questo articolo descrive come inserire dati di esempio in una tabella nell'API Cassandra di Azure Cosmos DB da Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configurazione dell'API Cassandra
@@ -31,7 +33,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -137,10 +139,13 @@ select * from books;
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver inserito i dati nella tabella dell'API Cassandra di Azure Cosmos DB, passare agli articoli seguenti per eseguire altre operazioni sui dati archiviati nell'API Cassandra di Azure Cosmos DB:
- 
+
 * [Operazioni di lettura](cassandra-spark-read-ops.md)
 * [Operazioni di upsert](cassandra-spark-upsert-ops.md)
 * [Operazioni di eliminazione](cassandra-spark-delete-ops.md)
 * [Operazioni di aggregazione](cassandra-spark-aggregation-ops.md)
 * [Operazioni di copia di tabelle](cassandra-spark-table-copy-ops.md)
 
+<!--Verify sucessfully-->
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

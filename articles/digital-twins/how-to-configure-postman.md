@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
 ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926145"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -68,7 +68,7 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
 
 1. Selezionare la scheda **Authorization** (Autorizzazione), **OAuth 2.0** e quindi **Get New Access Token** (Ottieni nuovo token di accesso).
 
-    | Campo  | Valore |
+    | Campo  | Value |
     |---------|---------|
     | Grant Type (Tipo di concessione) | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |

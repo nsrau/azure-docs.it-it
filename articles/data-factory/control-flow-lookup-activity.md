@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768653"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -53,14 +53,15 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 ```
 
 ## <a name="type-properties"></a>Proprietà del tipo
-NOME | DESCRIZIONE | type | Obbligatorio?
+
+NOME | DESCRIZIONE | Type | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean |  No. Il valore predefinito è `true`.
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean |  No. Il valore predefinito è `true`.
 
 > [!NOTE]
-
+> 
 > * Le colonne Source con tipo **ByteArray** non sono supportate.
 > * **Structure** non è supportato nella definizione del set di dati. Per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
 > * Se l'origine della ricerca è un file JSON, l'impostazione `jsonPathDefinition` per la modifica della forma dell'oggetto JSON non è supportata. Vengono recuperati gli interi oggetti.
@@ -248,7 +249,7 @@ Questo account di archiviazione contiene il file JSON con i nomi delle tabelle S
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
+### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL di Azure
 L'istanza del database SQL di Azure contiene i dati da copiare in Archiviazione BLOB. 
 
 ```json

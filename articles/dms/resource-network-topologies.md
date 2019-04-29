@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61097820"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure
 Questo articolo illustra diverse topologie di rete usate dal Servizio Migrazione del database di Azure per garantire un'esperienza di migrazione completa dai server SQL locali a Istanza gestita di database SQL di Azure.
@@ -45,7 +45,7 @@ Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari s
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migrazioni da cloud a cloud: rete virtuale condivisa
 
-Usare questa topologia se l'SQL Server di origine è ospitato in una macchina virtuale di Azure e condivide la stessa rete virtuale con Istanza gestita di database SQL e il Servizio Migrazione del database di Azure.
+Usare questa topologia se l'SQL Server di origine è ospitato in una macchina virtuale di Azure e condivide la stessa rete virtuale con Istanza gestita di database SQL di Azure e il Servizio Migrazione del database di Azure.
 
 ![Topologia di rete per migrazioni da cloud a cloud con una rete virtuale condivisa](media/resource-network-topologies/cloud-to-cloud.png)
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 9bf4f604386b47e4ca36df69fb140124b097f548
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60912568"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
 Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
@@ -63,7 +63,7 @@ Aprire il dashboard **Centro sicurezza** e seguire questa procedura per creare u
 
 3.  Viene visualizzata la pagina Crea una regola di avviso personalizzata con le regole seguenti:
 
-    ![Crea](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
+    ![Create](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.  Digitare il nome per la regola personalizzata nel campo **Nome**.
 5.  Immettere una breve descrizione che rispecchia la finalità della regola nel campo **Descrizione**.
@@ -96,7 +96,7 @@ Dopo la creazione, la nuova regola di avviso verrà visualizzata nell'elenco di 
 
 Si noti che i parametri (query di ricerca, soglia e così via) stabiliti durante la creazione della regola sono disponibili nell'avviso per questa regola personalizzata.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come creare una regola di avviso personalizzata nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

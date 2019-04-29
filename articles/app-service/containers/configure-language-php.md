@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853304"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurare un'app PHP di Linux per servizio App di Azure
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio App, è possibile [impostare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) di fuori di codice dell'app. Quindi è possibile accedervi usando lo standard [getenv ()](https://secure.php.net/manual/function.getenv.php) pattern. Ad esempio, per accedere a un'impostazione dell'app denominata `DB_HOST`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando lo standard [getenv ()](https://secure.php.net/manual/function.getenv.php) pattern. Ad esempio, per accedere a un'impostazione dell'app denominata `DB_HOST`, usare il codice seguente:
 
 ```php
 getenv("DB_HOST")
@@ -255,4 +255,4 @@ Si può vedere il messaggio seguente nei log del contenitore:
 > [Esercitazione: App PHP con MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Servizio app di Linux, domande frequenti](app-service-linux-faq.md)
+> [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

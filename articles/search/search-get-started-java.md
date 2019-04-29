@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289802"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 2. In **Select root directory**, passare alla cartella contenente i file di esempio. Selezionare la cartella che contiene la cartella .project. Il progetto verrà visualizzato nell’elenco **Projects** come elemento selezionato.
    
     ![][12]
-3. Fare clic su **Fine**.
+3. Fare clic su **Finish**.
 4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Finestra** > **Mostra visualizzazione** > **Esplora progetti** oppure usare il collegamento per aprirlo.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Configurare l'URL del servizio e la chiave API
@@ -102,7 +102,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
    
     ![][7]
 6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\Programmi\Microsoft Files\Apache Software Foundation\Tomcat *versione*.
-7. Fare clic su **Fine**.
+7. Fare clic su **Finish**.
 8. Selezionare **Finestra** > **Preferenze** > **Java** > **Installed JREs (JRE installati)** > **Aggiungi**.
 9. In **Add JRE** (Aggiungi JRE) selezionare **Standard VM (VM standard)**.
 10. Fare clic su **Avanti**.

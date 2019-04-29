@@ -10,11 +10,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073950"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Inoltrare configurazione dello stato di automazione di Azure i dati dei report per i log di monitoraggio di Azure
 
@@ -136,8 +136,8 @@ La diagnostica di automazione di Azure crea due categorie di record nel log di m
 | ConfigurationMode | Indica la modalità di applicazione della configurazione al nodo. I valori possibili sono __"ApplyOnly"__,__"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC applica la configurazione e non esegue altre operazioni, a meno che non venga eseguito il push di una nuova configurazione nel nodo di destinazione o in caso di pull di una nuova configurazione da un server. Dopo l'applicazione iniziale di una nuova configurazione, DSC non verifica la deviazione da uno stato configurato in precedenza. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyOnly__. </li><li> __ApplyAndMonitor__: Si tratta del valore predefinito. Gestione configurazione locale applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyAndMonitor__.</li><li>__ApplyAndAutoCorrect__: DSC applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log e quindi applica di nuovo la configurazione corrente.</li></ul> |
 | HostName_s | Nome del nodo gestito. |
 | IPAddress | Indirizzo IPv4 del nodo gestito. |
-| Category | DscNodeStatus |
-| Resource | Nome dell'account di Automazione di Azure. |
+| Categoria | DscNodeStatus |
+| Risorsa | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |
@@ -162,8 +162,8 @@ La diagnostica di automazione di Azure crea due categorie di record nel log di m
 | OperationName |DscResourceStatusData|
 | ResultType |Indica se la risorsa è conforme. |
 | NodeName_s |Nome del nodo gestito. |
-| Category | DscNodeStatus |
-| Resource | Nome dell'account di Automazione di Azure. |
+| Categoria | DscNodeStatus |
+| Risorsa | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |

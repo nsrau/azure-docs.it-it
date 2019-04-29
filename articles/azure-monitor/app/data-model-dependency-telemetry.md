@@ -13,11 +13,11 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901026"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria di dipendenza: Modello di dati di Application Insights
 
@@ -35,7 +35,7 @@ Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la corre
 
 Comando avviato con questa chiamata delle dipendenze. Esempi sono l'istruzione SQL e l'URL HTTP con tutti i parametri di query.
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 
 Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento logico delle dipendenze e l'interpretazione di altri campi come commandName e resultCode. Esempi sono SQL, tabelle di Azure e HTTP.
 

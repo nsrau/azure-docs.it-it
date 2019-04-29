@@ -9,15 +9,15 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450330"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Distribuire OPC Vault da zero
 
-OPC dell'insieme di credenziali è un microservizio che è possibile configurare, registrare e gestire ciclo di vita del certificato server OPC UA e nelle applicazioni client nel cloud. Questo articolo illustra come distribuire OPC dell'insieme di credenziali da zero.
+OPC Vault è un microservizio che consente di configurare, registrare e gestire il ciclo di vita dei certificati per le applicazioni server e client OPC UA nel cloud. Questo articolo illustra come distribuire OPC dell'insieme di credenziali da zero.
 
 ## <a name="configuration-and-environment-variables"></a>Configurazione e variabili di ambiente
 
