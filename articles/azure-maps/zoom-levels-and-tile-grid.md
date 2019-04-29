@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795055"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 Mappe di Azure usano il sistema di coordinate sferiche Mercatore (EPSG: 3857).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735799"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  

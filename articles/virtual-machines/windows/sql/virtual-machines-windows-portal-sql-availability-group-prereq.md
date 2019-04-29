@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60592167"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
@@ -81,7 +81,7 @@ Per creare la rete virtuale:
 
     La tabella seguente descrive le impostazioni per la rete virtuale:
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Spazio degli indirizzi** |10.33.0.0/24 |
@@ -121,7 +121,7 @@ La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
@@ -174,7 +174,7 @@ Ripetere i passaggi precedenti per creare due macchine virtuali. Assegnare un no
 
 La tabella seguente descrive le impostazioni per queste due macchine:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |Primo controller di dominio: *ad-primary-dc*.</br>Secondo controller di dominio: *ad-secondary-dc*. |
 | **Tipo di disco VM** |SSD |
@@ -190,7 +190,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Indirizzo IP pubblico** |*Lo stesso nome della VM* |
 | **Gruppo di sicurezza di rete** |*Lo stesso nome della VM* |
 | **Set di disponibilità** |adavailabilityset </br>**Domini di errore**:2 </br>**Domini di aggiornamento**:2|
-| **Diagnostica** |Attivato |
+| **Diagnostica** |Enabled |
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]

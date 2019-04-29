@@ -17,11 +17,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822310"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -83,7 +83,7 @@ archiveStep | ArchiveFlushWriter
 startTime | Ora di inizio di un errore.
 errori | Numero di volte in cui si è verificato un errore.
 durationInSeconds | Durata dell'errore.
-Message | Messaggio di errore.
+message | Messaggio di errore.
 category | ArchiveLogs
 
 Il codice seguente è un esempio di stringa JSON di log di archiviazione:

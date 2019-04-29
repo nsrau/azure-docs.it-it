@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120180"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -62,7 +62,7 @@ Per seguire gli esempi in questo articolo, sono necessari questi elementi:
 
 * L'app per la logica in cui è necessaria l'operazione per l'utilizzo dei dati 
 
-  Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica 
 
@@ -82,7 +82,7 @@ e crea questo output:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Per provare un esempio, seguire questa procedura usando Progettazione app per la logica. Oppure, se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Componi** e **Inizializza variabile** da questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Componi](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Per provare un esempio, seguire questa procedura usando Progettazione app per la logica. Oppure, se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **Componi** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante del flusso di lavoro definizione di: [Esempi di codice dell'operazione data - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -100,7 +100,7 @@ Per provare un esempio, seguire questa procedura usando Progettazione app per la
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca digitare "componi" come filtro. Nell'elenco di azioni selezionare l'azione **Componi**
+3. Nella casella di ricerca digitare "componi" come filtro. Nell'elenco di azioni selezionare questa azione: **Componi**
 
    ![Selezionare l'azione "Componi"](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -142,7 +142,7 @@ Per verificare se l'azione **Componi** crea i risultati previsti, inviare a se s
 
 Per creare una tabella di valori delimitati da virgole (CSV) contenente proprietà e valori dagli oggetti JSON (JavaScript Object Notation) in una matrice, usare l'azione **Operazioni dati - Crea tabella CSV**. È quindi possibile usare la tabella risultante nelle azioni successive all'azione **Crea tabella CSV**. 
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Crea tabella CSV** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Crea tabella CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **Crea tabella CSV** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante del flusso di lavoro definizione di: [Esempi di codice di operazione dati - Crea tabella CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -161,7 +161,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "crea tabella csv" come filtro. Nell'elenco di azioni selezionare l'azione **Crea tabella CSV**
+3. Nella casella di ricerca immettere "crea tabella csv" come filtro. Nell'elenco di azioni selezionare questa azione: **Crea tabella CSV**
 
    ![Selezionare l'azione "Crea tabella CSV"](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -211,7 +211,7 @@ Per verificare se l'azione **Crea tabella CSV** crea i risultati previsti, invia
 
 Per creare una tabella HTML contenente proprietà e valori dagli oggetti JSON (JavaScript Object Notation) in una matrice, usare l'azione **Operazioni dati - Crea tabella HTML**. È quindi possibile usare la tabella risultante nelle azioni successive all'azione **Crea tabella HTML**.
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Crea tabella HTML** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Crea tabella HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **Crea tabella HTML** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante del flusso di lavoro definizione di: [Esempi di codice di operazione dati - Crea tabella HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -230,7 +230,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "crea tabella html" come filtro. Nell'elenco di azioni selezionare l'azione **Crea tabella HTML**
+3. Nella casella di ricerca immettere "crea tabella html" come filtro. Nell'elenco di azioni selezionare questa azione: **Crea tabella HTML**
 
    ![Selezionare l'azione "Crea tabella HTML"](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -288,7 +288,7 @@ Per creare una matrice più piccola con elementi che soddisfano criteri specific
 > 
 > Affinché le azioni possano usare l'output della matrice dall'azione **Filtra matrice**, tali azioni devono accettare le matrici come input oppure potrebbe essere necessario trasformare la matrice di output in un altro formato compatibile. 
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Filtra matrice** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Filtra matrice](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **Filtra matrice** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante del flusso di lavoro definizione di: [Esempi di codice di operazione dati - Filtra matrice](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -309,7 +309,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "filtra matrice" come filtro. Nell'elenco di azioni selezionare l'azione **Filtra matrice**
+3. Nella casella di ricerca immettere "filtra matrice" come filtro. Nell'elenco di azioni selezionare questa azione: **Filtra matrice**
 
    ![Selezionare l'azione "Filtra matrice"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -357,7 +357,7 @@ Per verificare se l'azione **Filtra matrice** crea i risultati previsti, inviare
 
 Per creare una stringa che contiene tutti gli elementi da una matrice e separare gli elementi con un carattere di delimitazione specifico, usare l'azione **Operazioni dati - Aggiungi**. È quindi possibile usare la stringa nelle azioni che seguono l'azione **Aggiungi**.
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Aggiungi** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Aggiungi](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **partecipare** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante della definizione del flusso di lavoro: [Esempi di codice dell'operazione data - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -376,7 +376,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "aggiungi" come filtro. Nell'elenco di azioni selezionare l'azione **Aggiungi**
+3. Nella casella di ricerca immettere "aggiungi" come filtro. Nell'elenco di azioni selezionare questa azione: **Join**
 
    ![Selezionare l'azione "Operazioni dati - Aggiungi"](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -421,7 +421,7 @@ Per verificare se l'azione **Aggiungi** crea i risultati previsti, inviare a se 
 Per fare riferimento a proprietà in contenuto JSON (JavaScript Object Notation) o accedervi, è possibile creare campi o token descrittivi per queste proprietà usando l'azione **Operazioni dati - Analizza JSON**.
 In questo modo, è possibile selezionare queste proprietà dall'elenco di contenuto dinamico quando si specificano gli input per l'app per la logica. Per questa azione, è possibile specificare uno schema JSON o generare uno schema JSON dal contenuto o dal payload JSON di esempio.
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Analizza JSON** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Analizza JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **analizza JSON** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante della definizione del flusso di lavoro : [Esempi di codice di operazione dati - analizza JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -440,7 +440,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca digitare "analizza json" come filtro. Nell'elenco di azioni selezionare l'azione **Analizza JSON**
+3. Nella casella di ricerca digitare "analizza json" come filtro. Nell'elenco di azioni selezionare questa azione: **Analizza JSON**
 
    ![Selezionare l'azione "Analizza JSON"](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -499,7 +499,7 @@ Per creare una matrice con oggetti JSON creati dai valori in una matrice esisten
 > [!NOTE]
 > Affinché le azioni possano usare l'output della matrice dall'azione **Seleziona**, tali azioni devono accettare le matrici come input oppure potrebbe essere necessario trasformare la matrice di output in un altro formato compatibile. 
 
-Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Seleziona** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Seleziona](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare l'esempio **selezionate** e **Inizializza variabile** definizioni delle azioni in questo articolo nella propria app per la logica sottostante della definizione del flusso di lavoro: [Esempi di codice di operazione dati - seleziona](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). 
 
@@ -518,7 +518,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
    * Per aggiungere un'azione tra due passaggi posizionare il puntatore del mouse sulla freccia di connessione in modo che appaia il segno più (+). 
    Fare clic sul segno più e quindi selezionare **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "seleziona" come filtro. Nell'elenco di azioni selezionare l'azione **Seleziona**
+3. Nella casella di ricerca immettere "seleziona" come filtro. Nell'elenco di azioni selezionare questa azione: **Select**
 
    ![Selezionare l'azione "Seleziona"](./media/logic-apps-perform-data-operations/select-select-action.png)
 

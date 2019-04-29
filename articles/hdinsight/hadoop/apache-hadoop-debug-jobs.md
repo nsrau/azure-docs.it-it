@@ -1,7 +1,6 @@
 ---
 title: 'Eseguire il debug di Apache Hadoop: visualizzare i log e interpretare i messaggi di errore - Azure HDInsight'
 description: Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi.
-services: hdinsight
 ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 31a20f8faa712aef94b69c605ec57985bc334009
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122082"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analizzare i log di Apache Hadoop
 

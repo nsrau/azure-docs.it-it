@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120739"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -48,9 +48,9 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 | Proprietà | Valori/tipi | Commenti |
 | --- | --- | --- |
-| `type` |stringa |Tipo di associazione. Ad esempio, `queueTrigger`. |
+| `type` |string |Tipo di associazione. Ad esempio, `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
-| `name` |stringa |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
+| `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
 ## <a name="function-app"></a>App per le funzioni
 L'app per le funzioni offre un contesto di esecuzione per le funzioni. Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite, distribuite e ridimensionate insieme. Tutte le funzioni in un'app per le funzioni condividono lo stesso piano tariffario, la stessa distribuzione continua e la stessa versione runtime. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. 

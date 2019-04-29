@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58804531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121827"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -157,7 +157,7 @@ Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'arc
 
 Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre delle versioni corrette degli strumenti o degli SDK:
 
-| Strumento  | Versione  |
+| Strumento  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o versione successiva |
 | [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |

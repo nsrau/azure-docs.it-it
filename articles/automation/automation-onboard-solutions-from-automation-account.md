@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739231"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -32,7 +32,7 @@ Scegliere l'area di lavoro di Log Analitica e account di automazione e fare clic
 
 ![Eseguire l'onboarding della soluzione Inventario](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Quando si abilitano soluzioni, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
+Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
 
 La tabella seguente mostra i mapping supportati:
 

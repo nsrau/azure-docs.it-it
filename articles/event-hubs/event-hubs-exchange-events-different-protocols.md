@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821776"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Scambiare eventi tra consumer e producer che usano protocolli diversi: AMQP, Kafka e HTTPS
 Hub eventi di Azure supporta tre protocolli per consumer e producer: AMQP, Kafka e HTTPS. Ognuno di questi protocolli rappresenta un messaggio in modo univoco, pertanto sorge la domanda seguente: se un'applicazione invia eventi a un hub eventi con un protocollo e li usa con un protocollo diverso, in che modo le varie parti e i valori dell'evento verranno visualizzati dal consumer? Questo articolo illustra le procedure consigliate per producer e consumer per garantire che i valori all'interno di un evento vengano interpretati correttamente dall'applicazione consumer.
@@ -344,5 +344,5 @@ In questo articolo è stato illustrato come eseguire lo streaming in un'istanza 
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Leggere le informazioni su Hub eventi per Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Esplorare altri esempi di Hub eventi per Kafka in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Uso [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) a [streaming di eventi da Kafka in locale a Kafka abilitato hub eventi nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per lo [streaming di eventi dall'istanza di Kafka locale all'istanza di Hub eventi abilitata per Kafka nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Leggere le informazioni su come eseguire lo streaming nel servizio Hub eventi abilitato per Kafka usando le [applicazioni native Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808759"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.

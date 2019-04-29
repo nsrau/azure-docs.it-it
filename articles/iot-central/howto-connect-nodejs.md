@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888942"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -101,7 +101,7 @@ Aggiungere il seguente comando sul **comandi** pagina:
 
 Aggiungere il campo di input seguente al comando conto alla rovescia:
 
-| Nome visualizzato    | Nome campo     | Tipo di dati | Valore |
+| Nome visualizzato    | Nome campo     | Tipo di dati | Value |
 | --------------- | -------------- | --------- | ----- |
 | Il conteggio da      | countFrom      | number    | 10    |
 

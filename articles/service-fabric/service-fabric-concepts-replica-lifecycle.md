@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882421"
 ---
 # <a name="replicas-and-instances"></a>Repliche e istanze 
 Questo articolo offre una panoramica del ciclo di vita delle repliche dei servizi con stato e delle istanze dei servizi senza stato.
@@ -63,11 +63,11 @@ Una replica InBuild è una replica creata o preparata per l'unione con il set di
 
 Se l'host dell'applicazione o il nodo per una replica InBuild si arresta in modo anomalo, passa allo stato Down.
 
-   - **Repliche Primary InBuild**: le repliche Primary InBuild sono le prime repliche di una partizione. Questa replica in genere viene eseguita in fase di creazione della partizione. Le repliche Primary InBuild (InBuild primaria) vengono create anche quando tutte le repliche di una partizione vengono riavviate o eliminate.
+   - **Repliche InBuild primarie**: Le repliche Primary InBuild (InBuild primaria) sono le prime repliche di una partizione. Questa replica in genere viene eseguita in fase di creazione della partizione. Le repliche Primary InBuild (InBuild primaria) vengono create anche quando tutte le repliche di una partizione vengono riavviate o eliminate.
 
-   - **Repliche IdleSecondary InBuild**: si tratta di nuove repliche create da Cluster Resource Manager o di repliche esistenti che sono divenute inaccessibili e devono essere nuovamente aggiunte al set. Queste repliche vengono generate o create dalla primaria prima che possano unirsi al set di repliche come secondarie attive e partecipare al riconoscimento del quorum delle operazioni.
+   - **Repliche IdleSecondary InBuild**: Queste sono le nuove repliche create da Cluster Resource Manager o repliche esistenti arrestate che è e devono essere aggiunti nuovamente nel set. Queste repliche vengono generate o create dalla primaria prima che possano unirsi al set di repliche come secondarie attive e partecipare al riconoscimento del quorum delle operazioni.
 
-   - **Repliche ActiveSecondary InBuild**: questo stato si osserva in alcune query. Si tratta di un'ottimizzazione in cui il set di repliche rimane invariato, ma è necessario creare una replica. La replica stessa segue le transizioni di stato normale del computer (come descritto nella sezione sui ruoli delle repliche).
+   - **Repliche ActiveSecondary InBuild**: Questo stato si osserva in alcune query. Si tratta di un'ottimizzazione in cui il set di repliche rimane invariato, ma è necessario creare una replica. La replica stessa segue le transizioni di stato normale del computer (come descritto nella sezione sui ruoli delle repliche).
 
 ### <a name="ready-rd"></a>Ready (RD) (Pronto (RD))
 Una replica Ready è una replica che partecipa al processo di replica e al riconoscimento del quorum delle operazioni. Lo stato Ready (Pronto) è applicabile alle repliche primarie e secondarie attive.
@@ -77,9 +77,9 @@ Se l'host dell'applicazione o il nodo per una replica Ready si arresta in modo a
 ### <a name="closing-cl"></a>Closing (CL) (Chiusura (CL))
 Una replica passa allo stato Closing (Chiusura) negli scenari seguenti:
 
-- **Arresto del codice per la replica**: Service Fabric potrebbe dover arrestare il codice in esecuzione per una replica. Questo arresto può essere dovuto a diversi motivi. Ad esempio, può verificarsi a causa dell'aggiornamento di un'applicazione o di un'infrastruttura oppure a causa di un errore segnalato dalla replica. Al termine della chiusura, la replica passa allo stato Down. Lo stato persistente associato a questa replica archiviata su disco non viene eliminato.
+- **Il codice per la replica in corso l'arresto**: Service Fabric potrebbe dover arrestare l'esecuzione del codice per una replica. Questo arresto può essere dovuto a diversi motivi. Ad esempio, può verificarsi a causa dell'aggiornamento di un'applicazione o di un'infrastruttura oppure a causa di un errore segnalato dalla replica. Al termine della chiusura, la replica passa allo stato Down. Lo stato persistente associato a questa replica archiviata su disco non viene eliminato.
 
-- **Rimozione della replica dal cluster**: Service Fabric potrebbe dover rimuovere lo stato permanente e arrestare il codice in esecuzione per una replica. Questo arresto può essere dovuto a diversi motivi, ad esempio il bilanciamento del carico.
+- **Rimozione della replica dal cluster**: Service Fabric potrebbe dover rimuovere lo stato permanente e arrestare l'esecuzione del codice per una replica. Questo arresto può essere dovuto a diversi motivi, ad esempio il bilanciamento del carico.
 
 ### <a name="dropped-dd"></a>Dropped (DD) (Eliminato (DD))
 Nello stato Dropped l'istanza non è più in esecuzione nel nodo. Nel nodo non è presente alcuno stato. In questa fase Service Fabric gestisce i metadati relativi a questa istanza, che viene comunque eliminata.
@@ -116,26 +116,26 @@ Il ruolo della replica non è pertinente nello stato StandBy.
 ## <a name="replica-role"></a>Ruolo della replica 
 Il ruolo della replica ne determina la funzione nel set di repliche:
 
-- **Primary (P)**: nel set di repliche è presente una replica primaria responsabile dell'esecuzione di operazioni di lettura e scrittura. 
-- **ActiveSecondary (S)**: si tratta di repliche che ricevono aggiornamenti di stato dalla replica primaria, li applicano e reinviano riconoscimenti. Sono presenti più repliche secondarie attive nel set di repliche. Il numero di queste repliche secondarie attive determina il numero di errori che il servizio può gestire.
-- **IdleSecondary (I)**: queste repliche vengono compilate dalla replica primaria. Ricevono lo stato dalla replica primaria prima di poter essere alzate al livello di repliche secondarie attive. 
-- **None (N)**: queste repliche non hanno responsabilità nel set di repliche.
-- **Unknown (U)**: questo è il ruolo iniziale di una replica prima che riceva una chiamata API **ChangeRole** da Service Fabric.
+- **Primary (P)**: È presente un database primario nel set di repliche che è responsabile dell'esecuzione di operazioni lettura e scrittura. 
+- **ActiveSecondary (S)**: Si tratta di repliche che ricevono aggiornamenti di stato dalla replica primaria, li applicano e reinviano riconoscimenti. Sono presenti più repliche secondarie attive nel set di repliche. Il numero di queste repliche secondarie attive determina il numero di errori che il servizio può gestire.
+- **IdleSecondary (I)**: Queste repliche vengono compilate dalla replica primaria. Ricevono lo stato dalla replica primaria prima di poter essere alzate al livello di repliche secondarie attive. 
+- **None (N)**: Queste repliche non hanno responsabilità nel set di repliche.
+- **Unknown (U)**: Questo è il ruolo iniziale di una replica prima che riceva **ChangeRole** chiamata all'API di Service Fabric.
 
 Il diagramma seguente illustra le transizioni dei ruoli di replica e alcuni scenari di esempio in cui possono verificarsi:
 
 ![Ruolo della replica](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: creazione di una nuova replica primaria.
-- U -> I: creazione di una nuova replica inattiva.
-- U -> N: eliminazione di una replica standby.
-- I -> S: innalzamento di livello della replica secondaria inattiva a replica secondaria attiva, in modo che i riconoscimenti contribuiscano al quorum.
-- I -> P: innalzamento di livello della replica secondaria inattiva a replica primaria. Ciò può verificarsi in presenza di riconfigurazioni speciali, quando la replica secondaria inattiva è il candidato ideale per diventare primaria.
-- I -> N: eliminazione della replica secondaria inattiva.
-- S -> P: innalzamento di livello della replica secondaria attiva a replica primaria. Ciò può essere dovuto a un failover della replica primaria o a uno spostamento della replica primaria avviato da Cluster Resource Manager, ad esempio in risposta a un aggiornamento di un'applicazione o al bilanciamento del carico.
-- S -> N: eliminazione della replica secondaria attiva.
-- P -> S: abbassamento di livello della replica primaria. Ciò può essere causato da uno spostamento della replica primaria avviato da Cluster Resource Manager, ad esempio in risposta a un aggiornamento di un'applicazione o al bilanciamento del carico.
-- P -> N: eliminazione della replica primaria.
+- U -> P: Creazione di una nuova replica primaria.
+- U -> I: Creazione di una nuova replica inattiva.
+- U -> N: Eliminazione di una replica standby.
+- I -> S: Innalzamento di livello l'inattività database secondario al database secondario attivo in modo che i riconoscimenti contribuiscano al quorum.
+- I -> P: Innalzamento di livello del database secondario alla replica primaria inattivo. Ciò può verificarsi in presenza di riconfigurazioni speciali, quando la replica secondaria inattiva è il candidato ideale per diventare primaria.
+- I -> N: Eliminazione della replica secondaria inattiva.
+- S -> P: Promozione di un database secondario attivo alla replica primaria. Ciò può essere dovuto a un failover della replica primaria o a uno spostamento della replica primaria avviato da Cluster Resource Manager, ad esempio in risposta a un aggiornamento di un'applicazione o al bilanciamento del carico.
+- S -> N: Eliminazione della replica secondaria attiva.
+- P -> S: Abbassamento di livello della replica primaria. Ciò può essere causato da uno spostamento della replica primaria avviato da Cluster Resource Manager, ad esempio in risposta a un aggiornamento di un'applicazione o al bilanciamento del carico.
+- P -> N: Eliminazione della replica primaria.
 
 > [!NOTE]
 > Modelli di programmazione di livello superiore, ad esempio [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md), nascondono il concetto di ruolo di replica allo sviluppatore. In Actors la nozione di ruolo non è necessaria. In Services è ampiamente semplificata per la maggior parte degli scenari.

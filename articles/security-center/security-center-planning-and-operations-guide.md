@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/11/2019
 ms.author: monhaber
 ms.openlocfilehash: 3aae2d6adfd520f103ca1e1bd5e67eeb4b542a3d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906734"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.

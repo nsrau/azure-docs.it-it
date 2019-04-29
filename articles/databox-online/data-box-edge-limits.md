@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60758025"
 ---
 # <a name="azure-data-box-edge-limits"></a>Limiti di bordo casella dei dati di Azure
 
@@ -27,7 +27,7 @@ Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Edge, tene
 
 La tabella seguente illustra i limiti del dispositivo Data Box Edge.
 
-| DESCRIZIONE | Valore |
+| DESCRIZIONE | Value |
 |---|---|
 | No. di file per dispositivo |100 milioni |
 | No. di condivisioni per dispositivo |24 |

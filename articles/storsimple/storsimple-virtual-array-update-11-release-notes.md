@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
-ms.openlocfilehash: d73f45ec5ff1ffbe207fc45a1f87dcbe4f8ff021
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789638"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Note sulla versione dell'aggiornamento 1.1 per l'array virtuale StorSimple
 
@@ -48,7 +48,7 @@ Questo aggiornamento contiene i miglioramenti e le correzioni di bug seguenti:
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| No. | Funzionalità | Problema |
+|  No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Backup| Questa versione contiene modifiche che hanno attenuato gli errori di backup, aumentando la resilienza agli errori del cloud e al consumo elevato della CPU.|
 | 2 |Registrazione| Questa versione contiene modifiche alla registrazione se il dispositivo si trova in una sessione di supporto in modalità dettagliata.|
@@ -58,7 +58,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti.
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare gli array virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi array virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un array virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |
@@ -76,7 +76,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **14.** |File server |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
 | **15.** |File server |I collegamenti simbolici non sono supportati. | |
 | **16.** |File server |I file protetti da Windows Encrypting File System (EFS), quando vengono copiati o archiviati in un file server StorSimple Virtual Array, restituiscono una configurazione non supportata.  | |
-| **17.** |Aggiornamenti |Se viene visualizzato il codice di errore: 2359302 (hex 0x240006) quando si tenta di installare un aggiornamento rapido tramite l'interfaccia utente locale, vuol dire che l'aggiornamento rapido è già installato nel dispositivo.   | |
+| **17.** |Aggiornamenti |Se viene visualizzato errore codice: 2359302 (hex 0x240006) quando si tenta di installare un hotfix tramite l'interfaccia utente locale, quindi questo implica che l'hotfix è già installato nel dispositivo.   | |
 | **18.** |Aggiornamenti |Se si usa l'interfaccia utente Web locale per installare l'aggiornamento 1 nell'array virtuale, verificare che si stia eseguendo l'aggiornamento 0.6. Se si esegue una versione precedente all'aggiornamento 0.6, installare prima l'aggiornamento 0.6 e quindi applicare l'aggiornamento 1. Se si installa direttamente l'aggiornamento 1.0 da una versione precedente all'aggiornamento 0.6, alcuni aggiornamenti non verranno eseguiti e i grafici di monitoraggio non funzioneranno.   | |
 
 

@@ -1,18 +1,19 @@
 ---
 title: Usare chiavi univoche in Azure Cosmos DB
 description: Informazioni su come usare chiavi univoche nel database di Azure Cosmos
-author: rimman
-ms.author: rimman
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799117"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115724"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Vincoli di chiave univoca in Azure Cosmos DB
 
@@ -26,14 +27,14 @@ Per creare elementi con lo stesso indirizzo di posta elettronica, ma non con la 
 
 Il contenitore può ad esempio contenere elementi con i valori seguenti, in cui ogni elemento rispetta il vincolo di chiave univoca.
 
-|CompanyID|Nome|Cognome|Indirizzo di posta elettronica|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
-|Fabrikam|   |Duperre|gaby@fabraikam.com|
-|Fabrikam|   |   |gaby@fabraikam.com|
+| CompanyID | Nome | Cognome |   Indirizzo di posta elettronica    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrikam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrikam  |            |           | gaby@fabraikam.com |
 
 Se si cerca di inserire un altro elemento con le combinazioni elencate nella tabella riportata sopra, viene visualizzato un messaggio di errore che indica che il vincolo di chiave univoca non è stato rispettato. Viene visualizzato uno `Resource with specified ID or name already exists` o `Resource with specified ID, name, or unique index already exists` come messaggio restituito. 
 
@@ -56,3 +57,5 @@ Se si cerca di inserire un altro elemento con le combinazioni elencate nella tab
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
+
+<!-- Update_Description: update meta propreties, wording update -->

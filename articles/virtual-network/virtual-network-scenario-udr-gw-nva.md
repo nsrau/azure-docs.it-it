@@ -3,7 +3,7 @@ title: Connessione ibrida con applicazione a 2 livelli | Documentazione Microsof
 description: Informazioni su come distribuire appliance virtuali e route definite dall'utente per creare un ambiente di applicazioni multilivello in Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034162"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:
@@ -134,19 +134,19 @@ Come descritto in precedenza, l'inoltro IP assicura solo che i pacchetti vengano
 ### <a name="opfw"></a>OPFW
 OPFW rappresenta un dispositivo locale contenente le regole seguenti:
 
-* **Route**: tutto il traffico verso 10.0.0.0/16 (**azurevnet**) deve essere inviato attraverso il tunnel **ONPREMAZURE**.
-* **Criteri**: consentire tutto il traffico bidirezionale tra **port2** e **ONPREMAZURE**.
+* **route**: Tutto il traffico verso 10.0.0.0/16 (**azurevnet**) devono essere inviate tramite tunnel **ONPREMAZURE**.
+* **Criteri**: Consentire tutto il traffico bidirezionale tra **port2** e **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 AZF1 rappresenta un'appliance virtuale di Azure contenente le regole seguenti:
 
-* **Criteri**: consentire tutto il traffico bidirezionale tra **port1** e **port2**.
+* **Criteri**: Consentire tutto il traffico bidirezionale tra **port1** e **port2**.
 
 ### <a name="azf2"></a>AZF2
 AZF2 rappresenta un'appliance virtuale di Azure contenente le regole seguenti:
 
-* **Route**: tutto il traffico verso 10.0.0.0/16 (**onpremvnet**) deve essere inviato all'indirizzo IP del gateway di Azure (ovvero 10.0.0.1) attraverso **port1**.
-* **Criteri**: consentire tutto il traffico bidirezionale tra **port1** e **port2**.
+* **route**: Tutto il traffico verso 10.0.0.0/16 (**onpremvnet**) deve essere inviato al gateway di Azure indirizzo IP (ovvero 10.0.0.1) attraverso **port1**.
+* **Criteri**: Consentire tutto il traffico bidirezionale tra **port1** e **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Gruppi di sicurezza di rete (NGS)
 In questo scenario i gruppi di sicurezza di rete non vengono usati. È tuttavia possibile applicare i gruppi di sicurezza di rete a ogni subnet per limitare il traffico in ingresso e in uscita. È ad esempio possibile applicare le seguenti regole per gruppi di sicurezza di rete alla subnet del firewall esterno.

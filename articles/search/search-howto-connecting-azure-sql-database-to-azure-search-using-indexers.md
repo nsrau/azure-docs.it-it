@@ -11,17 +11,17 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817158"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
 Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
 
-In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL, ad esempio, il rilevamento delle modifiche integrato. 
+In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL di Azure, ad esempio, il rilevamento delle modifiche integrato. 
 
 Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
@@ -305,7 +305,7 @@ L'indicizzatore SQL espone diverse impostazioni di configurazione:
 
 | Impostazione | Tipo di dati | Scopo | Valore predefinito |
 | --- | --- | --- | --- |
-| queryTimeout |stringa |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
+| queryTimeout |string |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Fa in modo che la query SQL usata dai criteri di limite massimo ometta la clausola ORDER BY. Vedere [Criteri di limite massimo](#HighWaterMarkPolicy) |false |
 
 Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella definizione dell'indicizzatore. Ad esempio, per impostare il timeout della query su 10 minuti, creare o aggiornare l'indicizzatore con la seguente configurazione:

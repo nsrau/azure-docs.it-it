@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: e203877b2bc939c1d7fb9390df39f3e2451d12d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852313"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare una Linux app ASP.NET Core per servizio App di Azure
 
@@ -50,7 +50,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio App, è possibile [impostare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) di fuori di codice dell'app. Quindi è possibile accedervi usando il modello ASP.NET standard:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello ASP.NET standard:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
@@ -141,7 +141,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App ASP.NET Core con Database SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Esercitazione: App ASP.NET Core con database SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Servizio app di Linux, domande frequenti](app-service-linux-faq.md)
+> [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

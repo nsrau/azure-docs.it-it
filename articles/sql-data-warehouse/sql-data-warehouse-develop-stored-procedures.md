@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 8a53a63b7425935e117d7af951717999bc9340b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439708"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso di stored procedure in SQL Data Warehouse
 Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.

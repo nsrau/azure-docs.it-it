@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809019"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Lo sviluppo di funzioni di Azure e configurazione con il servizio Azure SignalR
 
@@ -25,7 +25,7 @@ Azure SignalR Service può essere configurato in modalità diverse. Se usato con
 
 Nel portale di Azure, individuare il *impostazioni* pagina della risorsa SignalR Service. Impostare il *Service mode* al *Serverless*.
 
-![Modalità di servizio SignalR](media/signalr-concept-azure-functions/signalr-service-mode.png)
+![Modalità del servizio SignalR](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 ## <a name="azure-functions-development"></a>Sviluppo di funzioni di Azure
 

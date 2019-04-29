@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
 ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731244"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con BitBucket, Dropbox, GitHub e Azure DevOps. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).

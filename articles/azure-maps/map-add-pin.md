@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771669"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Aggiungere un livello simbolo a una mappa
 
@@ -79,7 +79,7 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere un popup](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Usare le espressioni di stile basato sui dati](data-driven-style-expressions-web-sdk.md)
+> [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere una forma](map-add-shape.md)

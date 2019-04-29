@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-ms.date: 08/03/2017
-ms.author: amsriva
+origin.date: 08/03/2017
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122235"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Panoramica dei criteri SSL per il gateway applicazione
 
@@ -64,9 +65,9 @@ Se è necessario configurare un criterio SSL predefinito per i propri requisiti,
  
 ### <a name="ssl-protocol-versions"></a>Versioni del protocollo SSL
 
-* Per impostazione predefinita, i protocolli SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
-* Criteri SSL personalizzati offre la possibilità di selezionare uno qualsiasi dei tre protocolli seguenti come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
-* Se non sono definiti criteri SSL, sono abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
+- Per impostazione predefinita, i protocolli SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
+- Criteri SSL personalizzati offre la possibilità di selezionare uno qualsiasi dei tre protocolli seguenti come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+- Se non sono definiti criteri SSL, sono abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
 
 ### <a name="cipher-suites"></a>Pacchetti di crittografia
 
@@ -105,3 +106,5 @@ Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i qua
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come configurare criteri SSL, vedere [Configurare criteri SSL nel gateway applicazione](application-gateway-configure-ssl-policy-powershell.md).
+
+<!-- Update_Description: wording update -->

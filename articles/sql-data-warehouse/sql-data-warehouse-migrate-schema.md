@@ -2,20 +2,21 @@
 title: Eseguire la migrazione dello schema in SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per la migrazione dello schema in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 4139ea776f6947eeacf4620c3676606d6535dd2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748153"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Eseguire la migrazione degli schemi a SQL Data Warehouse
 Indicazioni per la migrazione degli schemi SQL a SQL Data Warehouse. 
@@ -40,13 +41,6 @@ Per prestazioni ottimali, ridurre al minimo la lunghezza delle righe delle tabel
 
 Per la larghezza della riga della tabella, PolyBase ha un limite pari a 1 MB.  Se si prevede di caricare dati in SQL Data Warehouse con PolyBase, aggiornare le tabelle in modo che le righe abbiano una larghezza massima inferiore a 1 MB. 
 
-<!--
-- For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
-
-- This table uses variable length data and the defined row width is less than one MB. When loading rows, PolyBase allocates the full length of the variable-length data. The full length of this row is greater than one MB.  PolyBase will not load data into this table.  
-
--->
-
 ## <a name="specify-the-distribution-option"></a>Specificare l'opzione di distribuzione
 SQL Data Warehouse è un sistema di database distribuito. Ogni tabella è distribuita o replicata nei nodi di calcolo. Un'opzione della tabella consente di specificare la modalità di distribuzione dei dati. Le scelte disponibili sono round robin, replica o distribuzione hash. Ognuna presenta vantaggi e svantaggi. Se non si specifica l'opzione di distribuzione, SQL Data Warehouse usa round robin come impostazione predefinita.
 
@@ -55,7 +49,6 @@ SQL Data Warehouse è un sistema di database distribuito. Ogni tabella è distri
 - La distribuzione hash distribuisce le righe su tutti i nodi tramite una funzione hash. Le tabelle con distribuzione hash sono il nucleo di SQL Data Warehouse e sono progettate per garantire alte prestazioni per le query su tabelle di grandi dimensioni. Questa opzione richiede un certo grado di pianificazione nella scelta della colonna ottimale per la distribuzione dei dati. Se tuttavia al primo tentativo non si sceglie la colonna migliore, è possibile ridistribuire facilmente i dati in base a un'altra colonna. 
 
 Per scegliere la migliore opzione di distribuzione per ogni tabella, vedere [Tabelle con distribuzione](sql-data-warehouse-tables-distribute.md).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno degli articoli seguenti:
@@ -78,5 +71,6 @@ Per altre informazioni, vedere l'articolo con le [procedure consigliate][best pr
 
 <!--MSDN references-->
 
-
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, add new content about Migrate schemas to SQL Data Warehouse -->

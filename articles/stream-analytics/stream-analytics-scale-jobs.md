@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816802"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).

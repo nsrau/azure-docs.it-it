@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998473"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
@@ -169,7 +169,7 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 
 | Tipo di dati di Ricerca di Azure | Supportato nel sink di Ricerca di Azure |
 | ---------------------- | ------------------------------ |
-| String | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

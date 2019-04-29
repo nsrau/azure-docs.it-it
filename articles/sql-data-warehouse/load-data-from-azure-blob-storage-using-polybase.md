@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: mlee3gsd
 ms.reviewer: igorstan
 ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61079001"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:   
 
-   | Impostazione | Valore suggerito | Descrizione | 
+   | Impostazione | Valore consigliato | Descrizione | 
    | ------- | --------------- | ----------- | 
    | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
@@ -67,7 +67,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore suggerito | Description | 
+    | Impostazione | Valore consigliato | Descrizione | 
     | ------- | --------------- | ----------- |
     | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -100,7 +100,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client. 
 
 > [!NOTE]
-> SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
+> SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 >
 
 1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **Database SQL**. Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione. 
@@ -113,7 +113,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
     ![Impostazioni del server](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server del database SQL. 
+5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server di database SQL. 
 
     ![Regola del firewall del server](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
@@ -146,12 +146,12 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-    | Impostazione      | Valore suggerito | DESCRIZIONE | 
+    | Impostazione      | Valore consigliato | DESCRIZIONE | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
-    | Nome del server | Nome completo del server | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
-    | Autenticazione | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Accedi | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
+    | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
+    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)

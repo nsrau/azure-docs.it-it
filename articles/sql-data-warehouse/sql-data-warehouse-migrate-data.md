@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748187"
 ---
 # <a name="migrate-your-data"></a>Eseguire la migrazione dei dati
 È possibile spostare dati da differenti origini a SQL Data Warehouse con diversi strumenti,  ad esempio usando ADF Copy, SSIS e bcp. Tuttavia, con l'aumento della quantità di dati, prendere in considerazione la possibilità di suddividere il processo di migrazione in passaggi. Ciò consente di ottimizzare ogni passaggio sia per le prestazioni che per la resilienza in modo da garantire una migrazione uniforme dei dati.

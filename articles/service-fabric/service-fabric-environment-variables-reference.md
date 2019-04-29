@@ -13,17 +13,17 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946723"
 ---
 # <a name="service-fabric-environment-variables"></a>Variabili di ambiente di Service Fabric
 
 Service Fabric dispone di variabili di ambiente predefinite, impostate per ciascuna istanza di servizio. La tabella seguente include l'elenco completo delle variabili di ambiente:
 
-| Variabile di ambiente                         | Descrizione                                                            | Esempio                                                              |
+| Variabile di ambiente                         | DESCRIZIONE                                                            | Esempio                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nome URI dell'applicazione nell'infrastruttura                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nome del pacchetto di codice a cui appartiene il processo              | Codice                                                                 |

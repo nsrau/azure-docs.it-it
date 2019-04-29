@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61362077"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementare CI/CD per Analisi di flusso in IoT Edge usando le API
 
@@ -35,7 +35,7 @@ curl -u { <username:password> }  -H "Content-Type: application/json" -X { <metho
 wget -q -O- --{ <method> }-data="<request body>”--header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Per Windows usare Powershell: 
 

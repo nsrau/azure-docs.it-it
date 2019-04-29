@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123400"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure
 Questa esercitazione descrive come creare una semplice applicazione host di inoltro di Azure che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.

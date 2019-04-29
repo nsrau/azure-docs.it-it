@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291220"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759797"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -143,7 +143,7 @@ Quando viene avviato il servizio di provisioning, la prima sincronizzazione mai 
 6. Se i mapping degli attributi contengono attributi di "riferimento", il servizio esegue altri aggiornamenti del sistema di destinazione per creare e collegare gli oggetti di riferimento. È ad esempio possibile che nel sistema di destinazione un utente abbia un attributo "Manager" collegato a un altro utente creato nel sistema di destinazione.
 7. Salvare in modo permanente una filigrana alla fine della sincronizzazione iniziale, che fornisce il punto di partenza per le sincronizzazioni incrementali in un secondo momento.
 
-Alcune applicazioni come ServiceNow, Google Apps e Box supportano non solo il provisioning degli utenti ma anche quello dei gruppi e dei relativi membri. In questi casi, se il provisioning di gruppi è abilitato nel [mapping](customize-application-attributes.md), il servizio di provisioning Sincronizza gli utenti e i gruppi e quindi la sincronizzazione in un secondo momento le appartenenze a gruppi. 
+Alcune applicazioni, ad esempio ServiceNow, G Suite e Box supportano non solo il provisioning degli utenti, ma anche il provisioning di gruppi e i relativi membri. In questi casi, se il provisioning di gruppi è abilitato nel [mapping](customize-application-attributes.md), il servizio di provisioning Sincronizza gli utenti e i gruppi e quindi la sincronizzazione in un secondo momento le appartenenze a gruppi. 
 
 ### <a name="incremental-syncs"></a>Sincronizzazioni incrementali
 
@@ -196,7 +196,7 @@ Per la **iniziale viene sincronizzata**, ora del processo dipende da molti fatto
 
 Per le **sincronizzazioni incrementali**, il tempo necessario dipende dal numero di modifiche rilevate in un ciclo di sincronizzazione specifico. Se sono presenti meno di 5.000 modifiche agli utenti o alle appartenenze a gruppi, è possibile completare il processo in un unico ciclo di sincronizzazione incrementale. 
 
-La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di provisioning più comuni. In questi scenari, il sistema di origine è Azure AD e il sistema di destinazione è un'applicazione SaaS. I tempi di sincronizzazione sono elaborati tramite un'analisi statistica dei processi di sincronizzazione per le applicazioni SaaS ServiceNow, Workplace, Salesforce e Google Apps.
+La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di provisioning più comuni. In questi scenari, il sistema di origine è Azure AD e il sistema di destinazione è un'applicazione SaaS. I tempi di sincronizzazione sono derivati da un'analisi statistica dei processi di sincronizzazione per le applicazioni SaaS ServiceNow, all'area di lavoro, Salesforce e G Suite.
 
 
 | Configurazione dell'ambito | Utenti, gruppi e membri nell'ambito | Ora della sincronizzazione iniziale | Ora della sincronizzazione incrementale |

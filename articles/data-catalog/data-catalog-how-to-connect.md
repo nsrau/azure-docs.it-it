@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001832"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione
@@ -58,7 +58,7 @@ Per rendere il tutto più semplice per gli utenti che individuano un'origine dat
 
  ![Informazioni sulla connessione con istruzioni fornite per la richiesta di accesso](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati con il **Azure Data Catalog** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta che un'origine dati è stata registrata e individuata, gli utenti possono connettersi all'origine dati dal menu "Apri in..." del portale **Azure Data Catalog** o usando gli strumenti dati preferiti.
 
 ## <a name="see-also"></a>Vedere anche 

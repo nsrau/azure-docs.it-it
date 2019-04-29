@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772901"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.

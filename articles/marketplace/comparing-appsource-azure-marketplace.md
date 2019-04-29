@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121161"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Confronto tra AppSource e Azure Marketplace
 Le vetrine di [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) soddisfano esigenze specifiche dei clienti e consentono di rivolgersi ai clienti in base al ruolo. Permettono infatti di offrire la soluzione o il servizio più adatto in base al tipo di cliente.

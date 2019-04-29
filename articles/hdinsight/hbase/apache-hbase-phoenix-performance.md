@@ -2,19 +2,27 @@
 title: Prestazioni di Phoenix in Azure HDInsight
 description: Procedure consigliate per ottimizzare le prestazioni di Phoenix.
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
 author: ashishthaps
-ms.reviewer: jasonh
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/22/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114308"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Apache Phoenix
 

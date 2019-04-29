@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulla scalabilità elastica in Azure SQL | Microsoft Docs
+title: Domande frequenti sulla scalabilità elastica in Azure SQL | Documentazione Microsoft
 description: Domande frequenti sulla scalabilità elastica del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584948"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Domande frequenti sugli strumenti di database elastici
 
@@ -55,6 +55,6 @@ Sì, una partizione è un database a sé, per cui è possibile che una partizion
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Lo strumento di divisione e unione esegue il provisioning di un database o lo elimina durante un'operazione di divisione o unione?
 
-No. Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni.  Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
+ No. Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni.  Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

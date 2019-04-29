@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883577"
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: raynew
 ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565412"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -155,7 +155,7 @@ Più NIC | Sì
 Indirizzo IP riservato | Sì
 IPv4 | Sì
 Conservazione indirizzo IP di origine | Sì
-Endpoint del servizio Rete virtuale di Azure<br/> | Sì
+Endpoint servizio di rete virtuale di Azure<br/> | Sì
 Rete accelerata | No 
 
 ## <a name="storage"></a>Archiviazione

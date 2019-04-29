@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60891952"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall IP in Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Per riepilogare, è sempre necessario un token di autorizzazione per accedere a 
 
 * [Come configurare il firewall IP per l'account Azure Cosmos](how-to-configure-firewall.md)
 * [Accedere alle risorse di Azure Cosmos DB dalle reti virtuali](vnet-service-endpoint.md)
-* [Per configurare l'endpoint del servizio della rete virtuale per l'account Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
+* [Per configurare l'endpoint servizio di rete virtuale per l'account Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
 
 
 

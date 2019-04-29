@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023554"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limiti di risorse e oggetti di Azure Analysis Services
 
@@ -58,7 +58,7 @@ Questo livello è ottimale per applicazioni di produzione cruciali, che necessit
 
 Questi limiti sono teorici. Le prestazioni risulteranno inferiori con numeri più bassi.
 
-|Oggetto|Dimensioni/numeri massimi|  
+|Object|Dimensioni/numeri massimi|  
 |------------|----------------------------|  
 |Database in un'istanza|16.000|  
 |Numero combinato di tabelle e colonne in un database|16.000|  

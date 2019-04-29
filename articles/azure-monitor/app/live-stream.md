@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115348"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -50,10 +50,13 @@ Le metriche in tempo reale sono attualmente supportate per le app ASP.NET, ASP.N
 
 4. [Proteggere il canale di controllo](#secure-the-control-channel) se è possibile usare i dati sensibili, ad esempio i nomi dei clienti, nei filtri.
 
+### <a name="nodejs"></a>Node.js
+
+Per usare le metriche in tempo reale con Node. js è necessario aggiornare alla versione 1.30 o successiva del SDK. Per impostazione predefinita le metriche in tempo reale è disabilitata in Node. js SDK. Per abilitare le metriche in tempo reale, aggiungere `setSendLiveMetrics(true)` per il [metodi di configurazione](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) viene inizializzato il SDK.
+
 ### <a name="no-data-check-your-server-firewall"></a>Dati non visualizzati Controllare il firewall del server
 
 Controllare che [le porte in uscita di Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) siano aperte nel firewall del server. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Differenze tra Live Metrics Stream ed Esplora metriche e Analisi
 
@@ -65,7 +68,6 @@ Controllare che [le porte in uscita di Live Metrics Stream](../../azure-monitor/
 |Gratuito|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](../../azure-monitor/app/pricing.md)
 |campionamento|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. TelemetryProcessors non viene applicato.|Eventi potrebbero essere usati come [esempi](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canale di controllo|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale al portale|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Selezionare e filtrare le metriche
 

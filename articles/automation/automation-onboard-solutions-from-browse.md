@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739046"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -59,7 +59,7 @@ Se l'area di lavoro selezionata non è collegata a un account di Automazione, ve
 
 ![Nessuna area di lavoro](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Quando si abilitano soluzioni, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
+Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
 
 La tabella seguente mostra i mapping supportati:
 

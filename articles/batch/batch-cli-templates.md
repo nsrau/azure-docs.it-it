@@ -12,12 +12,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 80d2e995a18a2d6dafbb8d92fdd5996b10eab17c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783739"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 
@@ -285,7 +285,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Ad esempio, nel modello di processo specificato in precedenza, il filegroup *ffmpeg-input* viene specificato per la factory delle attività come il percorso dei file video di origine copiati nel nodo per la transcodifica. Il filegroup *ffmpeg-output* è la posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori e utenti IT che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 

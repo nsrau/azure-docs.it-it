@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120127"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 

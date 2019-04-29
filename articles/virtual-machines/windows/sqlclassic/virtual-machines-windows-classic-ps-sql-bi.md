@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609347"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
@@ -126,7 +126,7 @@ Analysis Services, Reporting Services e il motore di Database SQL Server e origi
 
 ### <a name="mixed-azure--data-on-azure-sql-database"></a>Dati misti di Azure nel database SQL di Azure
 * Analysis Services, Reporting Services e il motore di Database SQL Server in una singola macchina virtuale. Questa distribuzione include i database del server di report.
-* Origine dati è il database di SQL Azure.
+* Origine dati è il database SQL di Azure.
 
 ![macchina virtuale scenari BI iaas e AzureSQL come origine dati](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 

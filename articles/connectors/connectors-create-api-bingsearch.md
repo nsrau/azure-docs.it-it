@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60952604"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Trovare notizie con Ricerca Bing e App per la logica di Azure
 
@@ -57,8 +57,8 @@ Se la connessione è già presente, fornire le informazioni necessarie per il tr
    |----------|----------|-------|-------------|
    | Search Query | Sì | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Safe Search | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Count | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
    | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
@@ -108,8 +108,8 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    |----------|----------|-------|-------------|
    | Search Query | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Safe Search | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Count | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
    | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 

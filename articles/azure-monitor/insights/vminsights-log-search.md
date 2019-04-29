@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122592"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali consente prestazioni e metriche relative alla connessione, computer e i dati di inventario di processo e le informazioni sullo stato di integrità e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure.  Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
@@ -52,13 +52,13 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Machine |FQDN del computer |
 |Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
-|Protocol |Protocollo usato per la connessione.  Il valore è *tcp*. |
+|Protocollo |Protocollo usato per la connessione.  Il valore è *tcp*. |
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
@@ -77,7 +77,7 @@ Oltre alle metriche relative al numero di connessioni, nelle proprietà del reco
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
-|Responses |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
+|Risposte |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
 |ResponseTimeMax |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeMin |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeSum |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
@@ -112,10 +112,10 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Descrizione della minaccia osservata. |
+|DESCRIZIONE |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
-|Confidence |I valori sono *0 - 100*. |
-|Severity |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
+|Attendibilità |I valori sono *0 - 100*. |
+|Gravità |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
 |FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
 |LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
 |IsActive |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
@@ -137,9 +137,9 @@ Ogni record presente nel VMBoundPort è identificato dai campi seguenti:
 | Proprietà | DESCRIZIONE |
 |:--|:--|
 |Process | Identità del processo (o gruppi di processi) a cui è associata con la porta.|
-|Ip | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
-|Port |Il numero di porta |
-|Protocol | Il protocollo.  Esempio *tcp* oppure *udp* (solo *tcp* è attualmente supportata).|
+|IP | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
+|Porta |Il numero di porta |
+|Protocollo | Il protocollo.  Esempio *tcp* oppure *udp* (solo *tcp* è attualmente supportata).|
  
 L'identità una porta è derivata da cinque campi sopra elencati e viene archiviata nella proprietà ID porta. Questa proprietà è utilizzabile per trovare rapidamente i record per una porta specifica nel tempo. 
 

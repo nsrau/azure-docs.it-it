@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782991"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -75,7 +75,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True  |
@@ -128,7 +128,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True  |
 | falseString | Bool | False |
@@ -186,11 +186,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | yesOutput | string | Sì |
 | noOutput | string | no |
-| objectOutput | Oggetto | { "test": "value1" } |
+| objectOutput | Object | { "test": "value1" } |
 
 Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) viene illustrato come utilizzare questa funzione con le espressioni in modo condizionale solo validi.
 
@@ -284,7 +284,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True  |
@@ -308,7 +308,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True  |
 
@@ -358,7 +358,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True  |

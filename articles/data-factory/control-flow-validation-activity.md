@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58523027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764323"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Attività di convalida in Azure Data Factory
 È possibile utilizzare una convalida in una pipeline per assicurarsi che la pipeline continui l'esecuzione solo dopo aver convalidato l'oggetto associato è presente il riferimento di set di dati, che sia conforme ai criteri specificati o viene raggiunto timeout.

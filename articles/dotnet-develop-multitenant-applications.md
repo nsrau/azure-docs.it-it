@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119148"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
 Un'applicazione multi-tenant è una risorsa condivisa che consente a utenti separati, o "tenant", di visualizzare l'applicazione come se fosse la propria. Uno degli scenari tipici di un'applicazione multi-tenant è quando tutti gli utenti dell'applicazione desiderano personalizzare l'esperienza utente, ma dispongono tutti degli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
@@ -28,16 +28,16 @@ Dal punto di vista del fornitore di applicazioni, i vantaggi della multi-tenancy
 
 Di seguito è riportato un elenco degli obiettivi e dei requisiti più significativi dal punto di vista di un fornitore.
 
-* **Provisioning**: è necessario essere in grado di eseguire il provisioning di nuovi tenant per l'applicazione.  Per le applicazioni multi-tenant che contano un ingente numero di tenant, di solito è necessario automatizzare il processo abilitando il provisioning self-service.
-* **Manutenibilità**: è necessario essere in grado di aggiornare l'applicazione ed eseguire altre attività di manutenzione quando è usata da più tenant.
-* **Monitoraggio**: è necessario essere in grado di monitorare l'applicazione in ogni momento allo scopo di identificare eventuali problemi e risolverli. Ciò include il monitoraggio della modalità di uso dell'applicazione da parte di ogni tenant.
+* **Provisioning**: È necessario essere in grado di effettuare il provisioning di nuovi tenant per l'applicazione.  Per le applicazioni multi-tenant che contano un ingente numero di tenant, di solito è necessario automatizzare il processo abilitando il provisioning self-service.
+* **Manutenibilità**: È necessario essere in grado di aggiornare l'applicazione ed eseguire altre attività di manutenzione, mentre si utilizzano più tenant.
+* **Monitoraggio**: È necessario essere in grado di monitorare l'applicazione in qualsiasi momento per individuare eventuali problemi e risolverli. Ciò include il monitoraggio della modalità di uso dell'applicazione da parte di ogni tenant.
 
 Un'applicazione multi-tenant correttamente implementata offre agli utenti i vantaggi seguenti.
 
-* **Isolamento**: le attività dei singoli tenant non incidono sull'uso dell'applicazione da parte degli altri tenant. I tenant non possono accedere ai dati reciproci. Ogni tenant avrà apparentemente l'uso esclusivo dell'applicazione.
-* **Disponibilità**: i singoli tenant vogliono che l'applicazione sia sempre disponibile, meglio se con garanzie definite in un contratto di servizio (SLA, Service Level Agreement). Come già accennato, le attività dei singoli tenant non dovrebbero incidere sulla disponibilità dell'applicazione.
-* **Scalabilità**: è possibile scalare l'applicazione in modo da soddisfare la domanda di singoli tenant. La presenza e le azioni degli altri tenant non dovrebbero incidere sulle prestazioni dell'applicazione.
-* **Costi**: i costi sono inferiori rispetto all'esecuzione di un'applicazione single-tenant dedicata, in quanto la multi-tenancy consente la condivisione delle risorse.
+* **Isolamento**: Le attività dei singoli tenant non influiscono sull'uso dell'applicazione da altri tenant. I tenant non possono accedere ai dati reciproci. Ogni tenant avrà apparentemente l'uso esclusivo dell'applicazione.
+* **Disponibilità**: Singoli tenant vogliono che l'applicazione sia sempre disponibile, probabilmente con garanzie definite in un contratto di servizio. Come già accennato, le attività dei singoli tenant non dovrebbero incidere sulla disponibilità dell'applicazione.
+* **Scalabilità**: L'applicazione scalabile fino a soddisfare la domanda di singoli tenant. La presenza e le azioni degli altri tenant non dovrebbero incidere sulle prestazioni dell'applicazione.
+* **Costi**: I costi sono inferiori rispetto all'esecuzione di un'applicazione a tenant singolo e dedicata perché multi-tenancy consente la condivisione delle risorse.
 * **Personalizzabilità**. la possibilità di personalizzare l'applicazione per un singolo tenant in vari modi, ad esempio con l'aggiunta o la rimozione di funzionalità, la modifica di colori e loghi o persino l'aggiunta di un proprio codice o script.
 
 In breve, benché sia necessario prendere in considerazione vari aspetti al fine di fornire un servizio altamente scalabile, vi è anche una serie di obiettivi e requisiti comuni a molte applicazioni multi-tenant. Alcuni potrebbero non essere pertinenti in scenari specifici e l'importanza dei singoli obiettivi e requisiti varierà in ogni scenario. Anche il fornitore di un'applicazione multi-tenant avrà obiettivi e requisiti, ad esempio soddisfare gli obiettivi e i requisiti dei tenant, redditività, fatturazione, vari livelli di servizio, provisioning, monitoraggio della manutenibilità e automazione.

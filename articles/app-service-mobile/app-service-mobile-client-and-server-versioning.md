@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859074"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
@@ -70,7 +70,7 @@ Gli SDK del client nella tabella seguente sono compatibili con **Servizi mobili*
 Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazione per `ZUMO-API-VERSION`. Se il servizio riceve questo valore di intestazione o di stringa di query, verrà restituito un errore, a meno che non lo si abbia rifiutato in modo esplicito come descritto sopra.
 
 ### <a name="MobileServicesClients"></a> SDK del client di *Servizi* mobili
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Piattaforma client | Version | Valore dell'intestazione della versione |
 | --- | --- | --- |
 | Client gestito (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |n/d |
@@ -78,7 +78,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 | HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/d |
 
 ### <a name="mobile-services-server-sdks"></a>SDK del server di *Servizi* mobili
-| Piattaforma server | Versione | Intestazione della versione accettata |
+| Piattaforma server | Version | Intestazione della versione accettata |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione** |
 | Node.js |(Presto disponibile) |**Nessuna intestazione di versione** |
@@ -96,7 +96,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 ### <a name="MobileAppsClients"></a> SDK del client di *App* per dispositivi mobili
 Il controllo della versione è stata introdotta a partire dalle seguenti versioni dell’SDK del client per **App per dispositivi mobili di Azure**:
 
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Piattaforma client | Version | Valore dell'intestazione della versione |
 | --- | --- | --- |
 | Client gestito (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

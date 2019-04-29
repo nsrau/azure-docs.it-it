@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683133"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -32,7 +32,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 * Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
 
-  1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**.
+  1. Quando si aggiunge l'azione per inviare posta elettronica, trovare e selezionare invece questa azione: **Inviare un'email di approvazione**
 
      ![Selezionare "Send an approval email" (Invia un messaggio di posta elettronica di approvazione)](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
    Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** (**+**) visualizzato, quindi **Aggiungi un'azione**.
 
-1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controllo**
+1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Opzione - controllo**
 
    ![Aggiunta di switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 

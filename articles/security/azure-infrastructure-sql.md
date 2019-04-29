@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza del database SQL di Microsoft Azure
+title: Funzionalità di sicurezza del database SQL di Azure
 description: Questo articolo offre una descrizione generale di come il database SQL di Azure protegge i dati dei clienti in Azure.
 services: security
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121657"
 ---
-# <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Microsoft Azure    
+# <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure    
 Il database SQL di Azure fornisce un servizio di database relazionale in Azure. Per proteggere i dati dei clienti e fornire le funzionalità avanzate di sicurezza che i clienti richiedono da un servizio di database relazionale, il database SQL include set specifici di funzionalità di sicurezza. Queste funzionalità si basano sui controlli ereditati da Azure.
 
 ## <a name="security-capabilities"></a>Funzionalità di sicurezza
@@ -30,7 +30,7 @@ Il database SQL di Azure fornisce un servizio di database relazionale in Azure. 
 Il database SQL di Azure supporta solo il protocollo TDS, in base al quale il database deve essere accessibile solo tramite la porta TCP/1433 predefinita.
 
 ### <a name="azure-sql-database-firewall"></a>Firewall del database SQL di Azure
-Per proteggere i dati dei clienti, il database SQL di Azure include una funzionalità firewall che, per impostazione predefinita, impedisce qualsiasi accesso al server del database SQL, come illustrato di seguito.
+Per proteggere i dati dei clienti, il database SQL di Azure include una funzionalità firewall che, per impostazione predefinita, impedisce qualsiasi accesso al server di database SQL, come illustrato di seguito.
 
 ![Firewall del database SQL di Azure][1]
 

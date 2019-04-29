@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122924"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -144,11 +144,11 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione **MaxDeq
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{Nome processo Web}*.Functions.*{Nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{nome processo Web}*. Funzioni. *{Nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
-* ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
+* Valore ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
 Nell'esempio di codice seguente la funzione **CopyBlob** contiene codice che ne determina l'esito negativo ogni volta che viene chiamata. Dopo che l'SDK chiama la funzione per il numero massimo di tentativi, nella coda di BLOB non elaborabili viene creato un messaggio elaborato dalla funzione **LogPoisonBlob** .
 
@@ -193,7 +193,7 @@ WebJobs SDK verifica che nessuna funzione **BlobTrigger** venga chiamata più vo
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione chiamata per il BLOB ("*{Nome processo Web}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
+* La funzione che è stata chiamata per il blob ("*{nome processo Web}*. Funzioni. *{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB

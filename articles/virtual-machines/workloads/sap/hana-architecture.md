@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7af578cf282c1bb8d8d7d00fee57bafed32b9a0e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44031015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795944"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architettura di SAP HANA (istanze Large) in Azure
 
@@ -34,24 +34,24 @@ L'architettura complessiva di SAP HANA in Azure (istanze Large) offre una config
 
 L'architettura illustrata è suddivisa in tre sezioni.
 
-- **Sezione destra**: mostra un'infrastruttura locale che esegue diverse applicazioni nei data center in modo che gli utenti finali possano accedere ad applicazioni line-of-business, come SAP. In teoria, questa infrastruttura locale viene connessa ad Azure con [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **a destra**: Mostra un'infrastruttura locale che esegue diverse applicazioni nei data center in modo che gli utenti finali possono accedere ai dati LOB applicazioni, ad esempio SAP. In teoria, questa infrastruttura locale viene connessa ad Azure con [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-- **Sezione centrale**: mostra l'infrastruttura IaaS di Azure e, in questo scenario, l'uso di VM per l'hosting di SAP o di altre applicazioni che usano SAP HANA come sistema DBMS. Le istanze di HANA più piccole che funzionano con la memoria delle VM vengono distribuite nelle VM con il relativo livello applicazione. Per altre informazioni sulle macchine virtuali, vedere [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/).
+- **Center**: Mostra ambiente IaaS di Azure e, in questo caso, usare delle macchine virtuali per ospitare SAP o altre applicazioni che usano SAP HANA come sistema DBMS. Le istanze di HANA più piccole che funzionano con la memoria delle VM vengono distribuite nelle VM con il relativo livello applicazione. Per altre informazioni sulle macchine virtuali, vedere [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/).
 
    I servizi di rete di Azure vengono usati per raggruppare i sistemi SAP insieme ad altre applicazioni in reti virtuali che si connettono ai sistemi locali e a SAP HANA in Azure (istanze Large).
 
-   Per le applicazioni e i database SAP NetWeaver che supportano l'esecuzione in Azure, vedere [SAP Support Note #1928533 - SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) (Nota di supporto SAP 1928533 - Applicazioni SAP in Azure: prodotti supportati e tipi di VM di Azure). Per informazioni su come distribuire soluzioni SAP in Azure, vedere:
+   Per applicazioni SAP NetWeaver e i database che sono supportati per l'esecuzione in Azure, vedere [supporto nota SAP #1928533-applicazioni SAP in Azure: Prodotti e tipi di macchine Virtuali di Azure supportati](https://launchpad.support.sap.com/#/notes/1928533). Per informazioni su come distribuire soluzioni SAP in Azure, vedere:
 
   -  [Usare SAP nelle macchine virtuali Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. Le unità di istanze Large di HANA sono connesse alle reti virtuali della sottoscrizione con la stessa tecnologia usata per la connettività dall'ambiente locale ad Azure.
+- **a sinistra**: Mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large di Azure. Le unità di istanze Large di HANA sono connesse alle reti virtuali della sottoscrizione con la stessa tecnologia usata per la connettività dall'ambiente locale ad Azure.
 
 Il modulo per istanze di grandi dimensioni di Azure include i componenti seguenti:
 
-- **Calcolo**: server basati su processori Intel Xeon E7-8890v3 o Intel Xeon E7-8890v4 che garantiscono la capacità di calcolo necessaria e sono certificati per SAP HANA.
-- **Rete**: un'infrastruttura di rete unificata ad alta velocità che collega i componenti di calcolo, archiviazione e LAN.
-- **Archiviazione**: un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
+- **Computing**: Server che si basano su processori Intel Xeon E7-8890v3 o Intel Xeon E7-8890v4 che forniscono la capacità di elaborazione necessaria e sono certificati per SAP HANA.
+- **Network** (Rete): Un'infrastruttura di rete unificata ad alta velocità che collega l'elaborazione, archiviazione e componenti della rete LAN.
+- **Archiviazione**: Un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
 
 Nell'infrastruttura multi-tenant del modulo per istanze di grandi dimensioni i clienti vengono distribuiti come tenant isolati. Al momento della distribuzione del tenant si specifica una sottoscrizione di Azure nell'ambito della propria iscrizione ad Azure. Questa è la sottoscrizione a cui vengono fatturati i costi delle istanze Large di HANA. Questi tenant hanno una relazione 1:1 con la sottoscrizione di Azure. Per una rete, è possibile accedere a un'unità di istanze Large di HANA distribuita in un singolo tenant all'interno di un'area di Azure da diverse reti virtuali appartenenti a diverse sottoscrizioni di Azure. Tali sottoscrizioni devono appartenere alla stessa iscrizione ad Azure. 
 

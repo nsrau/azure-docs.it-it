@@ -3,21 +3,22 @@ title: Copiare dati da Greenplum usando Azure Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da Greenplum in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: jingwang
+origin.date: 02/01/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: cdd1810ec1120e9918974e0978880aa894ff62e0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60927591"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiare dati da Greenplum usando Azure Data Factory
 

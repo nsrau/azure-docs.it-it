@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 18780deba1910b3ea77f7313bfb6d204dacabd82
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112022"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architetture senza server basata su eventi con Azure Cosmos DB e funzioni di Azure
 
-Funzioni di Azure fornisce il modo più semplice per la connessione per il [feed di modifiche](). È possibile creare piccole reattivo funzioni di Azure che verrà attivato automaticamente per ogni nuovo evento nel feed di modifiche del contenitore di Azure Cosmos.
+Funzioni di Azure fornisce il modo più semplice per la connessione per il [feed di modifiche](change-feed.md). È possibile creare piccole reattivo funzioni di Azure che verrà attivato automaticamente per ogni nuovo evento nel feed di modifiche del contenitore di Azure Cosmos.
 
 ![Funzioni senza server basata su eventi funziona con il Trigger di Azure Cosmos DB](./media/change-feed-functions/functions.png)
 

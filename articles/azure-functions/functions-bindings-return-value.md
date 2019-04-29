@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
-ms.author: cshoe
+origin.date: 01/14/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437719"
 ---
 # <a name="using-the-azure-function-return-value"></a>Usando il valore restituito di funzione di Azure
 
@@ -23,8 +24,8 @@ Questo articolo illustra come restituire valori lavoro all'interno di una funzio
 
 Nei linguaggi che hanno un valore restituito, è possibile associare una funzione [associazione di output](./functions-triggers-bindings.md#binding-direction) al valore restituito:
 
-* In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
-* In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.
+- In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
+- In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.
 
 Se sono presenti più associazioni di output, usare il valore restituito per una sola di tali associazioni.
 
@@ -32,11 +33,11 @@ Negli script C# e C# è in alternativa possibile inviare dati alle associazioni 
 
 Vedere l'esempio specifico del linguaggio che mostra l'utilizzo del valore restituito:
 
-* [C#](#c-example)
-* [Script C# (file con estensione csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+- [C#](#c-example)
+- [Script C# (file con estensione csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ## <a name="c-example"></a>Esempio in C#
 
@@ -169,3 +170,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Gestire gli errori di associazione di funzioni di Azure](./functions-bindings-errors.md)
+

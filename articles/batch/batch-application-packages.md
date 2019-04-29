@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722118"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -29,14 +29,11 @@ I pacchetti dell'applicazione sono una funzionalità di Azure Batch che consente
 In questo articolo viene illustrato come caricare e gestire pacchetti dell'applicazione nel portale di Azure. Viene quindi illustrato come installarli nei nodi di calcolo di un pool usando la libreria [Batch .NET][api_net].
 
 > [!NOTE]
-> 
 > I pacchetti dell'applicazione sono supportati in tutti i pool di Batch creati dopo il 5 luglio 2017. Sono supportati nei pool di Batch creati tra il 10 marzo 2016 e il 5 luglio 2017 solo se il pool è stato creato usando una configurazione del servizio cloud. I pool di batch creati prima del 10 marzo 2016 non supportano i pacchetti dell'applicazione.
 >
 > Le API per la creazione e la gestione dei pacchetti dell'applicazione fanno parte della libreria [Management di Batch per .NET][api_net_mgmt]. Le API per l'installazione dei pacchetti dell'applicazione in un nodo di calcolo sono parte della raccolta [Batch .NET][api_net]. Funzionalità simili si trovano nelle API Batch disponibili per altri linguaggi. 
 >
 > La funzionalità dei pacchetti dell’applicazione descritta di seguito sostituisce la funzionalità App Batch disponibile nelle versioni precedenti del servizio.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Requisiti dei pacchetti dell'applicazione
 Per usare i pacchetti dell'applicazione, è necessario [collegare un account di archiviazione di Azure](#link-a-storage-account) all'account Batch.
@@ -116,6 +113,14 @@ La finestra visualizza l'ID di ogni applicazione nell'account e le proprietà se
 * **Pacchetti**: il numero delle versioni associate a questa applicazione.
 * **Versione predefinita**: la versione dell'applicazione che verrà installata se non si indica una versione quando si specifica l'applicazione per un pool. Questa impostazione è facoltativa.
 * **Consenti aggiornamenti**: il valore che specifica se sono consentiti aggiornamenti, eliminazioni e aggiunte per il pacchetto. Se l'opzione è impostata su **No**, gli aggiornamenti del pacchetto e le eliminazioni sono disabilitate per l'applicazione. È possibile aggiungere solo nuove versioni del pacchetto dell'applicazione. Il valore predefinito è **Sì**.
+
+Se si desidera visualizzare la struttura di file del pacchetto dell'applicazione nel nodo di calcolo, passare all'account Batch nel portale. Dall'account Batch, passare a **pool**. Selezionare il pool che contiene i nodi di calcolo che si è interessati.
+
+![Nodi nel pool][13]
+
+Dopo aver selezionato il pool, passare al nodo di calcolo del pacchetto dell'applicazione in cui è installato. Da qui, i dettagli del pacchetto dell'applicazione si trovano nel **applicazioni** cartella. Cartelle aggiuntive nel nodo di calcolo contengono altri file, ad esempio le attività di avvio, i file di output, l'output degli errori, e così via.
+
+![File nel nodo][14]
 
 ### <a name="view-application-details"></a>Visualizzare i dettagli dell'applicazione
 Per visualizzare i dettagli dell'applicazione, selezionare l'applicazione nella finestra **Applicazioni**.
@@ -374,3 +379,5 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 [10]: ./media/batch-application-packages/app_pkg_10.png "Selezionare il pannello Account di archiviazione nel portale di Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Pannello Aggiorna pacchetto nel portale di Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Calcolare le informazioni sul nodo nel portale di Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "File nel nodo di calcolo visualizzata nel portale di Azure"

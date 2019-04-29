@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731601"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurare DPDK in una macchina virtuale Linux
 
@@ -216,7 +216,7 @@ I seguenti comandi stampano periodicamente i pacchetti per statistiche al second
 
 Quando si eseguono i comandi precedenti in una macchina virtuale, modificare *IP_SRC_ADDR* e *IP_DST_ADDR* in `app/test-pmd/txonly.c` per la corrispondenza all'indirizzo IP effettivo delle macchine virtuali prima della compilazione. In caso contrario, i pacchetti vengono eliminati prima di raggiungere il destinatario.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avanzate: Server d'inoltro singolo mittente/single
+### <a name="advanced-single-sendersingle-forwarder"></a>Funzionalità avanzate: Server d'inoltro singolo mittente/single
 I seguenti comandi stampano periodicamente i pacchetti per statistiche al secondo:
 
 1. Sul lato TX, eseguire il comando seguente:

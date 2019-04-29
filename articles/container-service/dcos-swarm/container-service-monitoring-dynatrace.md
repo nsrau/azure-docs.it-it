@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119855"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio Azure Container con Dynatrace SaaS/Gestito
 
@@ -30,7 +30,7 @@ La figura seguente mostra l'interfaccia utente di Dynatrace:
 ![Interfaccia utente di Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Prerequisiti 
-[Distribuire](container-service-deployment.md) ed [eseguire la connessione](./../container-service-connect.md) a un cluster configurato dal servizio contenitore di Azure. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) per configurare un account Dynatrace SaaS.  
+[Distribuire](container-service-deployment.md) ed [eseguire la connessione](./../container-service-connect.md) a un cluster configurato dal servizio Azure Container. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) per configurare un account Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurare una distribuzione Dynatrace con Marathon
 Questi passaggi illustrano come configurare e distribuire le applicazioni Dynatrace nel cluster con Marathon.

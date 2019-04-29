@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
 ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845827"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Panoramica scenari per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 

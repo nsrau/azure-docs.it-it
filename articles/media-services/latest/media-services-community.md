@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: ff5d6aef48542ee18f6de91ddc418c0fcab70ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322425"
+ms.locfileid: "62117009"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -54,11 +54,9 @@ La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari p
 
 | Funzionalità | Email |
 | --- | --- |
-| Analisi Servizi multimediali di Azure |amsanalytics@microsoft.com |
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Progettazione flussi di lavoro |mepd@microsoft.com |
-| Streaming dei file e creazione di pacchetti |amsstreaming@microsoft.com |
 | Streaming live e creazione di pacchetti |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>Passaggi successivi

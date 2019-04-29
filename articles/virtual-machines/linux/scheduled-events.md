@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799261"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -74,7 +74,7 @@ Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
 Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2017-11-01`.
 
-| Versione | Tipo di versione | Regioni | Note sulla versione | 
+| Version | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - | 
 | 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per l'eliminazione di macchine Virtuali con priorità bassa EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 

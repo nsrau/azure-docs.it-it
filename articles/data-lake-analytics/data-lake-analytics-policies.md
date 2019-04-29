@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813419"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gestire Azure Data Lake Analytics con criteri
 
@@ -68,8 +68,8 @@ Con i criteri a livello di processo è possibile controllare il numero massimo d
 
 In Data Lake Analytics è possibile impostare due criteri a livello di processo:
 
-* **AU limit per job** (Limite AU per processo): gli utenti possono inviare solo processi che hanno al massimo il numero di AU specificato. Per impostazione predefinita, questo limite corrisponde a quello definito per l'account.
-* **Priorità**: gli utenti possono inviare solo processi che hanno una priorità inferiore o uguale a questo valore. Un numero più alto indica una priorità più bassa. Per impostazione predefinita, questo limite è impostato su 1, che corrisponde alla massima priorità possibile.
+* **Limite massimo di AU per processo**: Gli utenti possono inviare solo processi che avere fino a questo numero di unità di analisi. Per impostazione predefinita, questo limite corrisponde a quello definito per l'account.
+* **Priorità**: Gli utenti possono inviare solo processi che hanno una priorità inferiore o uguale a questo valore. Un numero più alto indica una priorità più bassa. Per impostazione predefinita, questo limite è impostato su 1, che corrisponde alla massima priorità possibile.
 
 Per ogni account è impostato un criterio predefinito che si applica a tutti gli utenti dell'account. È possibile impostare altri criteri per utenti e gruppi specifici. 
 
@@ -82,10 +82,10 @@ Per ogni account è impostato un criterio predefinito che si applica a tutti gli
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Limiti di invio del processo** fare clic sul pulsante **Aggiungi criterio**. Selezionare o immettere le impostazioni seguenti:
-    1. **Nome criteri di calcolo**: immettere un nome di criterio in modo da identificarne la finalità.
-    2. **Selezionare l'utente o il gruppo**: selezionare l'utente o il gruppo a cui si applica questo criterio.
-    3. **Impostare il limite AU del processo**: impostare il limite di AU che si applica all'utente o al gruppo selezionato.
-    4. **Impostare il limite di priorità del processo**: impostare il limite di priorità che si applica all'utente o al gruppo selezionato.
+    1. **Nome criteri di calcolo**: Immettere un nome di criterio, per ricordare lo scopo dei criteri.
+    2. **Seleziona utente o gruppo**: Selezionare l'utente o gruppo a che questo criterio viene applicata.
+    3. **Impostare il limite AU del processo**: Impostare il limite di AU che si applica all'utente selezionato o al gruppo.
+    4. **Impostare il limite di priorità**: Impostare il limite di priorità che si applica all'utente selezionato o al gruppo.
 
 4. Fare clic su **OK**.
 

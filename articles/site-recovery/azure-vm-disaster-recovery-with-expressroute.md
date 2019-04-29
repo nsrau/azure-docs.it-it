@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772425"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -106,10 +106,10 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da spoke a hub | Consenti traffico inoltrato | Attivato
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
+Da spoke a hub | Consenti traffico inoltrato | Enabled
 Da spoke a hub | Consenti transito gateway | Disabled
-Da spoke a hub | Usa gateway remoti | Attivato
+Da spoke a hub | Usa gateway remoti | Enabled
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Da spoke a hub | Usa gateway remoti | Attivato
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da hub a spoke | Consenti traffico inoltrato | Attivato
-Da hub a spoke | Consenti transito gateway | Attivato
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
+Da hub a spoke | Consenti traffico inoltrato | Enabled
+Da hub a spoke | Consenti transito gateway | Enabled
 Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865426"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Pubblicare l'offerta di un servizio di consulenza
 

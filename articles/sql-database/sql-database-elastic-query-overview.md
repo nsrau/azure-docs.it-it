@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585683"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 
@@ -104,7 +104,7 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 > [!NOTE]
 > Il database per query elastiche (nodo head) può essere un database separato o lo stesso database che ospita la mappa partizioni.
-> Indipendentemente dalla configurazione scelta, assicurarsi che il livello di servizio e la dimensione di calcolo del database siano sufficientemente elevati per gestire il volume previsto di richieste di accesso o di query.
+> Indipendentemente dalla configurazione scelta, assicurarsi che il livello di servizio e le dimensioni di calcolo del database siano sufficientemente elevati per gestire il volume previsto di richieste di accesso o di query.
 
 I passaggi seguenti configurano le query su database elastiche per scenari di partizionamento orizzontale che richiedono l'accesso a un set di tabelle situate, in genere, in alcuni database SQL remoti:
 

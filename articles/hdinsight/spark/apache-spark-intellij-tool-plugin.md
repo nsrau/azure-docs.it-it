@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ: creazione di applicazioni Spark per cluster HDInsight '
 description: Usare il Toolkit di Azure per IntelliJ per sviluppare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 682b2266442f3aba6696385862844e1b4b93aa3d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124255"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -29,7 +28,7 @@ Usare il plug-in Azure Toolkit for IntelliJ per sviluppare applicazioni [Apache 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * [Kit di sviluppo di Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Questa esercitazione usa Java versione 8.0.202.
 * IntelliJ IDEA. Questo articolo usa [IntelliJ IDEA Community versione  2018.3.4](https://www.jetbrains.com/idea/download/).
-* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit per IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 * WINUTILS.EXE.  Vedere [Problemi durante l'esecuzione di Hadoop in Windows](https://wiki.apache.org/hadoop/WindowsProblems).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installare il plug-in Scala per IntelliJ IDEA
@@ -37,7 +36,7 @@ Per installare il plug-in di Scala, procedere come segue:
 
 1. Aprire IntelliJ IDEA.
 
-2. Nella schermata iniziale, passare a **Configura** > **Plug-in** per aprire la finestra **Plug-in**.
+2. Nella schermata iniziale, passare a **Configure** (Configura) > **Plugin** per aprire la finestra **Plugin**.
    
     ![Abilitare i plug-in Scala](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin.png)
 
@@ -70,8 +69,8 @@ Per installare il plug-in di Scala, procedere come segue:
     | ----- | ----- |  
     |Project name (Nome progetto)| Immettere un nome.  Questa esercitazione usa `myApp`.|  
     |Project&nbsp;location (Percorso progetto)| Immettere il percorso desiderato in cui salvare il progetto.|
-    |Project SDK (SDK progetto)| Potrebbe essere vuoto al primo uso di IDEA.  Selezionare **New...** (Nuovo) e passare al proprio JDK.|
-    |Versione Spark|La procedura guidata di creazione integra la versione corretta dell'SDK di Spark e Scala. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione **Spark 2.3.0 (Scala 2.11.8)**.|
+    |Project SDK (SDK progetto)| Potrebbe essere vuoto al primo uso di IDEA.  Selezionare **New** (Nuovo) e passare al proprio JDK.|
+    |Versione Spark|La creazione guidata integra la versione corretta dell'SDK di Spark e Scala. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione **Spark 2.3.0 (Scala 2.11.8)**.|
 
     ![Selezione di Spark SDK](./media/apache-spark-intellij-tool-plugin/hdi-new-project.png)
 
@@ -161,7 +160,7 @@ Per iniziare è possibile [accedere alla sottoscrizione di Azure](#sign-in-to-yo
 
     * **Cluster HDInsight**  
   
-        |Proprietà |Valore |
+        |Proprietà |Value |
         |----|----|
         |Tipo di risorsa di collegamento|Selezionare **HDInsight Cluster** nell'elenco a discesa.|
         |Nome/URL del cluster| Immettere il nome del cluster.|
@@ -173,7 +172,7 @@ Per iniziare è possibile [accedere alla sottoscrizione di Azure](#sign-in-to-yo
 
     * **Livy Service**  
   
-        |Proprietà |Valore |
+        |Proprietà |Value |
         |----|----|
         |Tipo di risorsa di collegamento|Selezionare **Livy Service** nell'elenco a discesa.|
         |Livy Endpoint| Inserire Livy Endpoint|
@@ -204,7 +203,7 @@ Dopo aver creato un'applicazione Scala, è possibile inviarla al cluster.
 
 3. Nella finestra **Modifica configurazione** specificare i valori seguenti e quindi selezionare **OK**:
 
-    |Proprietà |Valore |
+    |Proprietà |Value |
     |----|----|
     |Cluster Spark (solo Linux)|Selezionare il cluster HDInsight Spark in cui eseguire l'applicazione.|
     |Selezionare un artefatto da inviare|Lasciare l'impostazione predefinita.|
@@ -284,7 +283,7 @@ Assicurarsi di aver soddisfatto il prerequisito WINUTILS.EXE.
 
 4. Fornire i valori seguenti e quindi selezionare **OK**:
 
-    |Proprietà |Valore |
+    |Proprietà |Value |
     |----|----|
     |Classe principale di processo|il valore predefinito è la classe principale del file selezionato. È possibile modificare la classe selezionando i puntini di sospensione (**...**) e scegliendo un'altra classe.|
     |Variabili di ambiente|Verificare che il valore per HADOOP_HOME sia corretto.|
@@ -318,7 +317,7 @@ Assicurarsi di aver soddisfatto il prerequisito WINUTILS.EXE.
 
 4. Fornire i valori seguenti e quindi selezionare **OK**:
 
-    |Proprietà |Valore |
+    |Proprietà |Value |
     |----|----|
     |Cluster Spark (solo Linux)|Selezionare il cluster HDInsight Spark in cui eseguire l'applicazione.|
     |Nome classe principale|il valore predefinito è la classe principale del file selezionato. È possibile modificare la classe selezionando i puntini di sospensione (**...**) e scegliendo un'altra classe.|

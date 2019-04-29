@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825421"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -41,7 +41,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 > [!NOTE]
 >  Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure SQL Data Warehouse, vedere [Spostare dati da e verso Azure SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> È anche possibile creare pipeline usando il portale di Azure, Visual Studio, PowerShell e così via. Per istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per una procedura con istruzioni dettagliate sull'uso dell'attività di copia in Azure Data Factory.  
+> È anche possibile creare pipeline usando il portale di Azure, Visual Studio, PowerShell e così via. Per istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL di Azure usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per una procedura con istruzioni dettagliate sull'uso dell'attività di copia in Azure Data Factory.  
 >
 >
 

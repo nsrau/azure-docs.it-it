@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847085"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
 

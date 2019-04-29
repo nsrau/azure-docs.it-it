@@ -2,18 +2,18 @@
 title: Copiare o spostare dati in Archiviazione di Microsoft Azure con AzCopy in Windows | Microsoft Docs
 description: Usare l'utilità AzCopy in Windows per spostare o copiare dati da o verso BLOB, tabelle e contenuto di file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728985"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Trasferire dati con AzCopy in Windows
 AzCopy è un'utilità della riga di comando progettata la copia dei dati in/dall'archiviazione di oggetti BLOB, file e tabelle di Microsoft Azure usando semplici comandi progettati per garantire prestazioni ottimali. È possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione.  

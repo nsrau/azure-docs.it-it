@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121025"
 ---
-# <a name="marketing-best-practices"></a>Procedure consigliate per il marketing
+# <a name="marketing-best-practices"></a>Procedure consigliate di marketing
 
 La pubblicazione di un'offerta nel marketplace è solo il primo passaggio. Oltre a questo, è necessario stabilire come ottimizzare l'inserzione per aumentarne l'impatto. L'aspetto positivo è che la pubblicazione di un'inserzione nel marketplace rappresenta l'inizio di una serie di significative attività congiunte Go-To-Market (GTM) con Microsoft.  Per sfruttare appieno il nuovo programma GTM e far crescere veramente l'azienda, si vuole includere la nuova inserzione tra le attività di vendita e marketing esistenti.
 

@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887265"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -208,12 +208,12 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Stati 
-| Name          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
+| NOME          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
 
 #### <a name="events"></a>Eventi 
-| Name             | Nome visualizzato      | 
+| NOME             | Nome visualizzato      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Pulsante B premuto  | 
 

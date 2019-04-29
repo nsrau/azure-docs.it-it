@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125798"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i volumi sull'array virtuale StorSimple
 
@@ -33,7 +33,7 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 
 I volumi di StorSimple possono essere:
 
-* **Aggiunto in locale**: i dati in questi volumi rimangono sempre nell'array e non vengono distribuiti nel cloud.
+* **Aggiunto in locale**: I dati in questi volumi rimangono sempre nell'array e non vengono distribuiti nel cloud.
 * **A livelli**: i dati in questi volumi possono essere distribuiti nel cloud. Quando si crea un volume a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una volume a livelli (perché il 10% necessario a livello locale non è disponibile).
 
 ### <a name="provisioned-capacity"></a>Capacità con provisioning

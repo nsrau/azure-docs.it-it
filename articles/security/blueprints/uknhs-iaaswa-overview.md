@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 5f7f9641e8fc7cd4c0e8dd153b350b9dd876b004
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115432"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web IaaS per il servizio sanitario nazionale (NHS) Regno Unito
 
@@ -35,7 +35,7 @@ Un bastion host di gestione fornisce una connessione sicura agli amministratori 
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per il servizio sanitario nazionale (NHS) Regno Unito](images/uknhs-iaaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per il servizio sanitario nazionale (NHS) Regno Unito")
 
-Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
 
 - Macchine virtuali di Azure
     - (1) Gestione/bastion (Windows Server 2016 Datacenter)

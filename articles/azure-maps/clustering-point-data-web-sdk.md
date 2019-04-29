@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795940"
 ---
 # <a name="clustering-point-data"></a>Clustering dei punti dati
 
@@ -84,11 +84,11 @@ Vedere la penna <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster ponde
 
 Quando si verificano gli eventi del mouse su un livello che contengono punti dati in cluster, il punto dati del cluster verrà restituito all'evento come un oggetto funzione di punto GeoJSON. Questa funzionalità punto sarà disponibili le proprietà seguenti:
 
-| Nome della proprietà | Tipo | DESCRIZIONE |
+| Nome proprietà | Type | DESCRIZIONE |
 |---------------|------|-------------|
 | cluster | boolean | Indica se funzionalità rappresenta un cluster. |
 | cluster_id | string | Un ID univoco per il cluster che può essere usato con l'origine dati `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` metodi. |
-| point_count | numero | Il numero di punti contenuti nel cluster. |
+| point_count | number | Il numero di punti contenuti nel cluster. |
 | point_count_abbreviated | string | Stringa che abbrevia il valore point_count se è long. (ad esempio, 4.000 diventa 4K) |
 
 L'esempio seguente accetta un livello bolle che esegue il rendering dei punti di cluster e aggiunge un evento click che quando viene attivato, calcolare, e lo zoom sulla mappa per il livello di zoom avanti in corrispondenza del quale il cluster verrà interrotta distanti tra loro usando il `getClusterExpansionZoom` metodo del `DataSource` classe e il `cluster_id` proprietà dell'oggetto selezionato in cluster punto dati. 

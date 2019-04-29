@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771720"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
 
@@ -38,7 +38,7 @@ Per installare Oracle Data Guard, è necessario creare due macchine virtuali di 
 
 L'immagine di Marketplace usata per creare le VM è Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure 
+### <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index) e seguire le istruzioni visualizzate.
 

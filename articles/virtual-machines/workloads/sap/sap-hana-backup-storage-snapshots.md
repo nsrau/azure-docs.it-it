@@ -1,5 +1,5 @@
 ---
-title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Microsoft Docs
+title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Documentazione Microsoft
 description: Esistono due possibilità principali per il backup di SAP HANA su macchine virtuali di Azure e questo articolo descrive il backup di SAP HANA basato su snapshot di archiviazione
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60936611"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup di SAP HANA basato su snapshot di archiviazione
 

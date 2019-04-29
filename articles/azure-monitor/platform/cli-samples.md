@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
-ms.subservice: ''
+ms.component: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740884"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
@@ -208,4 +208,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

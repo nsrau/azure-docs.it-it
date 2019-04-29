@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844551"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Come creare una condivisione di file di Azure premium
 
@@ -79,7 +79,7 @@ Se si desidera pulire le risorse create in questo articolo, è sufficiente elimi
 
 Installare innanzitutto la versione più recente del modulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
 
-Quindi, aggiornare il modulo di powershell, accedere alla sottoscrizione di Azure, creare un gruppo di risorse e quindi creare un account di archiviazione.
+Quindi, aggiornare il modulo di PowerShell, accedere alla sottoscrizione di Azure, creare un gruppo di risorse e quindi creare un account di archiviazione.
 
 ### <a name="upgrade-your-powershell-module"></a>Aggiornare il modulo di Powershell
 
@@ -93,7 +93,7 @@ Installare il modulo Az.Storage:
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Accedi alla sottoscrizione di Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
 Usare il comando `Login-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
 

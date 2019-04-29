@@ -1,20 +1,22 @@
 ---
 title: Partizionamento dei dati nell'API Gremlin di Azure Cosmos DB
 description: Informazioni su come usare un grafo partizionato in Azure Cosmos DB. Questo articolo descrive anche i requisiti e le procedure consigliate per un grafo partizionato.
-author: luisbosquez
-ms.author: lbosq
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888412"
 ---
+<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso di un grafo partizionato in Azure Cosmos DB
 
 Una delle funzionalità chiave dell'API Gremlin di Azure Cosmos DB è la possibilità di gestire grafi su vasta scala tramite la scalabilità orizzontale. La scalabilità orizzontale viene implementata tramite le [funzionalità di partizionamento in Azure Cosmos DB](partition-data.md). I contenitori possono essere ridimensionati in modo indipendente sia a livello di archiviazione che di velocità effettiva. È possibile creare contenitori in Azure Cosmos DB che possono essere ridimensionati automaticamente per archiviare i dati di un grafo. I dati vengono bilanciati automaticamente in base alla **chiave di partizione** specificata.
@@ -37,27 +39,26 @@ Le informazioni seguenti includono i dettagli che occorre conoscere per la creaz
 
     - `/id` e `/label` non sono supportate come chiavi di partizione per un contenitore nell'API Gremlin.
 
-
     - Selezione di un vertice in base all'ID, quindi **uso del passaggio `.has()` per specificare la proprietà chiave di partizione**: 
-    
+
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
+
     - Selezione di un vertice **specificando una tupla che include il valore della chiave di partizione e l'ID**: 
-    
+
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Specifica di una **matrice di tuple di valori di chiave di partizione e ID**:
-    
+
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
+
     - Selezione di un set di vertici e **specifica di un elenco di valori di chiave di partizione**: 
-    
+
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -81,3 +82,6 @@ Successivamente si può procedere alla lettura degli articoli seguenti:
 * Leggere le informazioni su [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
 * Leggere le informazioni sul [supporto di Gremlin nell'API Gremlin](gremlin-support.md).
 * Vedere l'[introduzione all'API Gremlin](graph-introduction.md).
+
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

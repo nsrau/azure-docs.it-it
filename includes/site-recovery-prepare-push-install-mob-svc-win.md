@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "58114020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122795"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparare un'installazione push in un computer Windows
 
@@ -18,7 +13,7 @@ ms.locfileid: "58114020"
 
    > [!NOTE]
    > Se non si usa un account di dominio, disabilitare il controllo Accesso utente remoto nel computer locale. Per disabilitare il controllo di accesso utente remoto, nella chiave HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System del Registro di sistema, aggiungere un nuovo valore DWORD: **LocalAccountTokenFilterPolicy**. Impostare il valore su **1**. Per eseguire questa operazione da un prompt dei comandi, usare il comando seguente:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
 1. Nell'istanza di Windows Firewall del computer da proteggere selezionare **Consenti app o funzionalità attraverso Windows Firewall**. Abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows (WMI)**. Per i computer appartenenti a un dominio, è possibile configurare le impostazioni del firewall con un oggetto Criteri di gruppo.
@@ -36,3 +31,5 @@ ms.locfileid: "58114020"
     d. Aggiungere l'account che è stato creato.
 
     e. Immettere le credenziali usate quando si abilita la replica per un computer.
+<!--Update_Description: wording update-->
+<!--ms.date: 09/17/2018-->

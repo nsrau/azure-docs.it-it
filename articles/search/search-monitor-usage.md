@@ -12,11 +12,11 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564742"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -112,11 +112,11 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 | NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
-| operationName |stringa |"Query.Search" |Nome dell'operazione |
-| operationVersion |stringa |"2017-11-11" |api-version usata |
-| category |stringa |"OperationLogs" |costante |
-| resultType |stringa |"Esito positivo" |Valori possibili: Esito positivo o negativo |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| operationName |string |"Query.Search" |Nome dell'operazione |
+| operationVersion |string |"2017-11-11" |api-version usata |
+| category |string |"OperationLogs" |costante |
+| resultType |string |"Esito positivo" |Valori possibili: Esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
 | durationMS |int |50 |Durata dell'operazione in millisecondi |
 | properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
@@ -125,10 +125,10 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 
 | NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| DESCRIZIONE |stringa |"GET /indexes('content')/docs" |Endpoint dell'operazione |
-| Query |stringa |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parametri della query |
+| DESCRIZIONE |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parametri della query |
 | Documenti |int |42 |Numero di documenti elaborati |
-| IndexName |stringa |"testindex" |Nome dell'indice associato all'operazione |
+| IndexName |string |"testindex" |Nome dell'indice associato all'operazione |
 
 ## <a name="metrics-schema"></a>Schema delle metriche
 
@@ -136,15 +136,15 @@ Vengono acquisite metriche per le richieste di query.
 
 | NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
-| metricName |stringa |"Latenza" |Nome della metrica |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
+| metricName |string |"Latenza" |Nome della metrica |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | average |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |
 | minimum |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | maximum |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | total |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
 | count |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
-| timegrain |stringa |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
+| timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
 
 Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto.
 

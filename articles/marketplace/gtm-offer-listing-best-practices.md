@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120991"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -35,7 +35,7 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
 | Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta e viene indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta e viene indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Categories | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta e viene indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Prodotti con cui l'app è compatibile (massimo 3): solo app AppSource | Elencare altri prodotti e tecnologie usati o estesi dalla soluzione offerta. Ad esempio, l'hub IoT di Azure o Azure Machine Learning. |
 | Parole chiave di ricerca (massimo 3) | Le parole chiave di ricerca consentono agli utenti aziendali di trovare l'offerta durante la ricerca <ul> <li> in Azure Marketplace </li> <li> in AppSource </li> <li> con i motori di ricerca </li> </ul> Per fare in modo che l'inserzione venga visualizzata in queste ricerche, è necessario: <ul> <li> Identificare le tre principali parole chiave di ricerca per l'offerta. </li> <li> Incorporare le parole chiave di ricerca nel riepilogo e nella descrizione dell'offerta. </li> <li> Elencare le parole chiave di ricerca qui. </li> </ul> |
 

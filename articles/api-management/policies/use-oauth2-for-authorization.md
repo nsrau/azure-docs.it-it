@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 519233cb9e77bf48f67d869a54af771c17c7827e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859091"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Usare OAuth2 per l'autorizzazione tra gateway e back-end
 
@@ -28,7 +28,7 @@ Per impostare o modificare il codice dei criteri, seguire la procedura descritta
 
 Lo script seguente usa le proprietà incluse in {{property}}. Per informazioni sulle proprietà e su come usarle nei criteri di Gestione API, vedere [questo](../api-management-howto-properties.md) argomento.
  
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Incollare il codice nel blocco **inbound**.
 

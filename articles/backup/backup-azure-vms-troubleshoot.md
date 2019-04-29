@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550023"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente:
@@ -40,7 +40,7 @@ L'operazione di backup non è riuscita perché la macchina virtuale è in stato 
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con file system
 
 Codice errore: UserErrorFsFreezeFailed <br/>
-Messaggio di errore: Non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con file system.
+Messaggio di errore: Impossibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system.
 
 * Controllare lo stato del sistema di file di tutti i dispositivi montati tramite il **tune2fs** comando, ad esempio **tune2fs -l/DEV/sdb1 \\** .\| grep **Filesystem state**.
 * Smontare i dispositivi per cui lo stato del sistema di file non è stato eliminato, utilizzando il **umount** comando.
@@ -82,7 +82,7 @@ Riavviare i writer VSS in uno stato non valido. Da un prompt dei comandi con pri
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - errore nell'analisi del file di configurazione per l'estensione di backup
 
 Codice errore: ExtensionConfigParsingFailure<br/>
-Messaggio di errore: Si è verificato un errore durante l'analisi della configurazione per l'estensione del backup.
+Messaggio di errore: Errore durante l'analisi della configurazione per l'estensione di backup.
 
 Questo errore si verifica a causa della modifica delle autorizzazioni nella directory **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Eseguire il comando seguente e verificare che le autorizzazioni per il **MachineKeys** directory sono quelli predefiniti:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

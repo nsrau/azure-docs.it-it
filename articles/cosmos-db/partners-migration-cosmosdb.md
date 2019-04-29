@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931544"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Migrazione di Cosmos DB NoSQL e partner di sviluppo delle applicazioni
 

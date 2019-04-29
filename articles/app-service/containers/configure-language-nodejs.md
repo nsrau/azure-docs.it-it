@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850240"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app Node. js di Linux per servizio App di Azure
 
@@ -137,7 +137,7 @@ Una volta terminato il debug, arrestare il debugger selezionando **Disconnect**.
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio App, è possibile [impostare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) di fuori di codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
 
 ```javascript
 process.env.NODE_ENV
@@ -258,7 +258,7 @@ Quando un'app Node. js funzionante nel servizio App, si comporta in modo diverso
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App Node. js con MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Esercitazione: App Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Servizio app di Linux, domande frequenti](app-service-linux-faq.md)
+> [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)
