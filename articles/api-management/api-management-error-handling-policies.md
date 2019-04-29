@@ -79,13 +79,13 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
   
 | NOME     | Type   | DESCRIZIONE                                                                                               | Obbligatorio |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source (Sorgente)   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
-| Motivo   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
-| Message  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| Scope    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
-| Sezione  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
-| path     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
-| PolicyId | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
+| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
+| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
+| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
+| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
+| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
+| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.  
@@ -96,7 +96,7 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 ## <a name="predefined-errors-for-built-in-steps"></a>Errori predefiniti per i passaggi predefiniti  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei passaggi di elaborazione predefiniti.  
   
-| Source (Sorgente)        | Condizione                                 | Motivo                  | Message                                                                                                                |
+| `Source`        | Condizione                                 | `Reason`                  | `Message`                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
 | authorization | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
@@ -105,7 +105,7 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 ## <a name="predefined-errors-for-policies"></a>Errori predefiniti per i criteri  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei criteri.  
   
-| Source (Sorgente)       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
+| `Source`       | Condizione                                                       | `Reason`                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
 | quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
