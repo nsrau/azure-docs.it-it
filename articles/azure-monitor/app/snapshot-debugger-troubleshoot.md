@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783956"
 ---
 # <a id="troubleshooting"></a> Risolvere i problemi di abilitazione di Application Insights Snapshot Debugger o visualizzazione di snapshot
 Se è abilitato il Debugger di Snapshot di Application Insights per l'applicazione, ma non vengono visualizzati gli snapshot per le eccezioni, è possibile usare queste istruzioni per risolvere i problemi. Può essere presente molte ragioni diverse per cui non vengono generati gli snapshot. È possibile eseguire il controllo di integrità dello snapshot per identificare alcune delle possibili cause più comuni.

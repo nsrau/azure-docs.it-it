@@ -4,17 +4,17 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: d8570c0be6b64d4e289575ce3f3f1721c4a65074
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 8a6ceee0f7db4b7b368dce1a28c8edc0b2b11180
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754282"
 ---
 Per i dati inattivi:
 
-- Per i dati inattivi, viene utilizzata la crittografia BitLocker XTS AES-256 per proteggere i dati locali.
-- Per i dati che risiede nelle condivisioni, l'accesso alle condivisioni è limitato.
+- Crittografia di BitLocker XTS-AES a 256 bit viene usata per proteggere i dati locali.
+- Accesso ai dati archiviati nelle condivisioni è limitato.
 
-    - Per i client SMB che accedono ai dati di condivisione, necessarie le credenziali utente associate alla condivisione. Queste credenziali vengono definite al momento della creazione della condivisione.
-    - Per i client NFS che accedono a condivisioni, gli indirizzi IP dei client devono essere aggiunti al momento della creazione della condivisione.
+    - I client SMB che accedono ai dati di condivisione necessitino le credenziali utente associate alla condivisione. Queste credenziali vengono definite quando viene creata la condivisione.
+    - Gli indirizzi IP dei client NFS che accedono a una condivisione devono essere aggiunti quando viene creata la condivisione.

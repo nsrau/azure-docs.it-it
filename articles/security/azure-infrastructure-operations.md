@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591466"
 ---
 # <a name="azure-production-operations-and-management"></a>Gestione e funzionamento dell'ambiente di produzione di Azure    
 La gestione e il funzionamento della rete di produzione di Azure sono il risultato di una collaborazione coordinata tra i team operativi di Azure e del database SQL di Azure. Nell'ambiente, i team usano vari strumenti di monitoraggio delle prestazioni delle applicazioni e del sistema. E usano strumenti appropriati per il monitoraggio della rete dei dispositivi, dei server e dei processi delle applicazioni.
@@ -36,7 +36,7 @@ Per garantire l'esecuzione protetta di servizi in esecuzione nell'ambiente Azure
    - Sistemi di monitoraggio, avviso e debug in tempo reale tra i nodi di un sistema distribuito.
    - Raccolta centralizzata di dati operativi e metriche per l'analisi della causa radice distribuita e l'analisi approfondita del servizio
    - Strumenti operativi per la distribuzione, la gestione delle modifiche e il monitoraggio
-   - La piattaforma Windows Fabric del database SQL d Microsoft Azure e gli script di watchdog sono continuamente in esecuzione e monitorano in tempo reale.
+   - La piattaforma Windows Fabric del database SQL di Azure e gli script di watchdog sono continuamente in esecuzione e monitorano in tempo reale.
 
 Se si verifica un'anomalia, viene attivato il processo di risposta agli eventi imprevisti che viene seguito dal team di valutazione degli eventi imprevisti di Azure. Il personale di supporto di Azure appropriato riceve una notifica che chiede di rispondere all'evento imprevisto. Il rilevamento e la risoluzione del problema vengono documentati e gestiti in un sistema di creazione di ticket centralizzato. Le metriche relative ai tempi di attività del sistema sono disponibili in base all'accordo di riservatezza e su richiesta.
 
@@ -53,7 +53,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Azure information system components and boundaries](azure-infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](azure-infrastructure-network.md)
 - [Rete di produzione di Azure](azure-production-network.md)
-- [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](azure-infrastructure-sql.md)
 - [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](azure-protection-of-customer-data.md)

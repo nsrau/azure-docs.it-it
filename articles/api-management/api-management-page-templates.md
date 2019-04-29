@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656792"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -226,13 +226,13 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|type|DESCRIZIONE|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|referenceCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|errorCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|emailBody|stringa|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|requestedUrl|stringa|URL richiesto quando la pagina non è stata trovata.|  
-|referrerUrl|stringa|URL del referrer all'URL richiesto.|  
+|referenceCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|emailBody|string|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|requestedUrl|string|URL richiesto quando la pagina non è stata trovata.|  
+|referrerUrl|string|URL del referrer all'URL richiesto.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

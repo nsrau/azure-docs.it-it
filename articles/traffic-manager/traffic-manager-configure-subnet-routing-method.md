@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
 ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716331"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
@@ -34,7 +34,7 @@ Per visualizzare Gestione traffico in azione, è necessario implementare quanto 
 
 Le macchine virtuali per il test vengono usate per illustrare come Gestione traffico indirizza il traffico utente al sito Web interno o al sito Web di produzione, a seconda della subnet da cui ha origine la query dell'utente.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -73,7 +73,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|Value|
     |---|---|
     |Gruppo di risorse | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
     |Località|Europa occidentale|
@@ -158,7 +158,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 7. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|Value|
     |---|---|
     |Nome macchina virtuale | *myVMWEurope*|
     |Gruppo di risorse | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
@@ -192,7 +192,7 @@ Aggiungere le due macchine virtuali in esecuzione sui server IIS, *myIISVMEastUS
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
     | NOME           | myTestWebSiteEndpoint                                        |

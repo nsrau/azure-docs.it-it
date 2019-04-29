@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821667"
 ---
 # <a name="use-firewall-rules"></a>Usare le regole del firewall
 
@@ -149,7 +149,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso ad Hub eventi dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint del servizio Rete virtuale con Hub eventi di Azure][lnk-vnet]
+- [Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure][lnk-vnet]
 
 <!-- Links -->
 

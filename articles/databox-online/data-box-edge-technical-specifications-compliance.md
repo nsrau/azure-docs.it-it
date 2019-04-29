@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60755135"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure specifiche tecniche bordo casella dei dati
 
@@ -38,7 +38,7 @@ The following table lists the typical power consumption data (actual values may 
 
 I dispositivi Edge finestra dati dispongono di 10 X 2.5" SSD NVMe, ognuno con una capacità di 1,6 TB. Di queste unità SSD, 2 sono dischi del sistema operativo e di altri 8 sono dischi dati. La capacità totale usabile per il dispositivo è all'incirca 12,5 TB. La tabella seguente include i dettagli per la capacità di archiviazione del dispositivo.
 
-|     Specifiche                          |     Valore             |
+|     Specifiche                          |     Value             |
 |--------------------------------------------|-----------------------|
 |    Numero di unità SSD     |    8                  |
 |    Capacità della singola unità SSD                     |    1,6 TB             |

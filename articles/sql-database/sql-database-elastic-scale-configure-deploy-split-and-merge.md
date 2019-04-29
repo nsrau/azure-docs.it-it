@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585509"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 
@@ -204,7 +204,7 @@ I file di script inclusi sono i seguenti:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Usare PowerShell per la verifica della distribuzione
 1. Aprire una nuova finestra di PowerShell e passare alla directory in cui si è scaricato il pacchetto di divisione e unione, quindi passare alla directory "powershell".
-2. Creare un server di database SQL di Microsoft Azure (o sceglierne uno esistente) che conterrà il gestore delle mappe partizioni e le partizioni stesse.
+2. Creare un server di database SQL di Azure (o sceglierne uno esistente) che conterrà il gestore delle mappe partizioni e le partizioni stesse.
    
    > [!NOTE]
    > Lo script SetupSampleSplitMergeEnvironment.ps1 crea tutti questi database sullo stesso server per impostazione predefinita, a scopo di semplificazione. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.

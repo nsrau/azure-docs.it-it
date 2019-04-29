@@ -13,11 +13,11 @@ ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733046"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -37,7 +37,7 @@ Per ottenere la chiave, usare **GetPolicyPropertiesWithSecretsAsync**, come illu
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, restituzione di più pagine
+## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
 Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 

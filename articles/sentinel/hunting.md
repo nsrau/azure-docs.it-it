@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714822"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Risposta per le minacce con nell'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se sei un responsabile dell'indagine che vogliono essere proattivi alla ricerca di minacce alla sicurezza, Azure Sentinel strumenti ricerca e query di ricerca potente cercare minacce per la sicurezza tra le origini dati dell'organizzazione. Ma i sistemi e dispositivi di sicurezza generano montagne di dati che possono essere difficili da analizzare e filtrare in eventi significativi. Sicurezza per gli analisti cercare in modo proattivo nuove anomalie che non venivano rilevate dall'App per la sicurezza, Azure Sentinel' le query di ricerca incorporate consentono a porre le domande corrette per individuare problemi nei dati è già nella rete. 

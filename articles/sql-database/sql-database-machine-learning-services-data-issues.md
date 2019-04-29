@@ -14,11 +14,11 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702521"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Usare i dati di R e SQL in Azure SQL Database servizi Machine Learning (anteprima)
 
@@ -37,9 +37,9 @@ Problemi comuni che possono verificarsi includono:
 
 - Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Per eseguire l'esempio di codice in questi esercizi, è necessario disporre prima di tutto un database SQL di Azure con servizi di Machine Learning (con R) abilitato. Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente. Seguire la procedura descritta in [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
+- Per eseguire il codice di esempio in questi esercizi, è necessario disporre di un database SQL di Azure con Machine Learning Services (con R) abilitato. Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente. Seguire la procedura descritta in [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
 
-- Assicurarsi di aver installato la versione più recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite la gestione di altri database o gli strumenti di query, ma in questa Guida introduttiva si userà SQL Server Management Studio.
+- Assicurarsi di avere installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite altri strumenti di gestione di database o di query, ma in questo Avvio rapido si userà SQL Server Management Studio.
 
 ## <a name="working-with-a-data-frame"></a>Utilizzo di un frame di dati
 
@@ -291,7 +291,7 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - La colonna datetime è stata elaborata usando il tipo di dati R **POSIXct**.
 - La colonna di testo "ProductSeries" è stata identificata come una **factor**, vale a dire una variabile di categoria. Per impostazione predefinita, i valori stringa vengono gestiti come fattori. Se si passa una stringa a R, viene convertito in un numero intero per uso interno e quindi rimappata alla stringa nell'output.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Anche questi esempi brevi, si noterà la necessità di verificare gli effetti della conversione dei dati durante il passaggio SQL esegue una query come input. Perché alcuni tipi di dati SQL non sono supportati da R, prendere in considerazione questi modi per evitare errori:
 

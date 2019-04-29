@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60769686"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
 
@@ -76,4 +76,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere un livello per i simboli](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Usare le espressioni di stile basato sui dati](data-driven-style-expressions-web-sdk.md)
+> [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733776"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -253,7 +253,7 @@ L'elenco seguente spiega lo schema degli eventi del ciclo di vita:
 * **`id`**: Identificatore univoco per l'evento di griglia di eventi.
 * **`subject`**: percorso dell'oggetto dell'evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` saranno `Running`, `Completed`, `Failed` e `Terminated`.  
 * **`data`**: parametri specifici di Durable Functions.
-  * **`hubName`**: nome TaskHub](durable-functions-task-hubs.md).
+  * **`hubName`**: nome [TaskHub](durable-functions-task-hubs.md).
   * **`functionName`**: Nome della funzione dell'agente di orchestrazione.
   * **`instanceId`**: ID istanza di Durable Functions.
   * **`reason`**: dati aggiuntivi associati all'evento di rilevamento. Per altre informazioni, vedere [Diagnostica in Funzioni durevoli (Funzioni di Azure)](durable-functions-diagnostics.md)

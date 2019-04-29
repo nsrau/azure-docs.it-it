@@ -10,11 +10,11 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683705"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
 
@@ -63,7 +63,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **In base al numero di messaggi**: il batch viene rilasciato in base al numero di messaggi raccolti. <br>- **In base alle dimensioni**: il batch viene rilasciato in base alla dimensione totale in byte per tutti i messaggi raccolti. <br>- **Pianificazione**: il batch viene rilasciato in base a una pianificazione della ricorrenza, che specifica un intervallo e la frequenza. Nelle opzioni avanzate è anche possibile selezionare un fuso orario e specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: vengono usati tutti i criteri specificati. | 
    | **Numero di messaggi** | Il numero di messaggi da raccogliere nel batch, ad esempio 10 messaggi. Per un batch è previsto un limite di 8000 messaggi. | 
    | **Dimensioni del batch** | Dimensione totale in byte per i messaggi raccolti nel batch, ad esempio 10 MB. Per un batch è prevista una dimensione massima di 80 MB. | 
-   | **Pianificazione** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
+   | **Pianificare** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
    ||| 
 
    > [!NOTE]

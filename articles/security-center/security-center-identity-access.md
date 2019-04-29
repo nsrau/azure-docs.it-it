@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704929"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -119,7 +119,7 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 |Sottoscrizione|5|Rimuovere gli account deprecati dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
 |Sottoscrizione|5|Designare più di un proprietario per la sottoscrizione|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
 |Sottoscrizione|5|Designare fino a 3 proprietari per la sottoscrizione|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
-|Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Sottoscrizione|15|Rimuovere gli account esterni con autorizzazioni di lettura dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.|
 |Sottoscrizione|1|Specificare dettagli del contatto per la sicurezza|Specificare le informazioni di contatto per la sicurezza per ogni sottoscrizione. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono. Le informazioni vengono usate per contattare l'utente se il team della sicurezza rileva risorse compromesse|
 

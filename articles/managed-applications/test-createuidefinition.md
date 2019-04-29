@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
-ms.translationtype: HT
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746316"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testare l'interfaccia del portale di Azure per l'applicazione gestita
 Dopo la [Creazione del file createuidefinition.json](create-uidefinition-overview.md) per l'applicazione gestita di Azure, è necessario testare l'esperienza dell'utente. Per semplificare il test, usare uno script che consente di caricare il file nel portale. Non è necessario distribuire l'applicazione gestita.

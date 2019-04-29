@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585463"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
 È possibile aumentare facilmente il numero di istante dei database SQL di Azure con gli strumenti dei **database elastici** . Questi strumenti e funzionalità consentono di usare le risorse di database di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzionalità dei database elastici sono costituite dai seguenti elementi:
@@ -57,7 +57,7 @@ Nella figura seguente vengono illustrate le dimensioni orizzontali e verticali d
 
 Per scalabilità orizzontale (o "scaling out") si intende l'aggiunta o la rimozione di database per regolare le prestazioni complessive o la capacità. Il partizionamento orizzontale, in cui i dati vengono partizionati in una raccolta di database strutturati in modo identico, è un approccio comune per implementare la scalabilità orizzontale .  
 
-Per scalabilità verticale (o "scaling up") si intende l'aumento o la riduzione della dimensione di calcolo di un singolo database.
+Per scalabilità verticale (o "scaling up") si intende l'aumento o la riduzione delle dimensioni di calcolo di un singolo database.
 
 La maggior parte delle applicazioni di database su scala cloud usano una combinazione di questi due strategie. Un'applicazione di software come servizio può, ad esempio, utilizzare la scalabilità orizzontale per eseguire il provisioning di nuovi clienti finali e la scalabilità verticale per consentire l’espansione o la riduzione delle risorse del database di ogni cliente finale in base alle esigenze del carico di lavoro.
 

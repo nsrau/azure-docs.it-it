@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646965"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
@@ -44,10 +44,10 @@ Il numero totale di "punti di conservazione" specificati in questi criteri è pa
 ## <a name="example--putting-both-together"></a>Esempio: Uso di entrambi i metodi
 ![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Criteri di mantenimento giornaliero**: i backup eseguiti quotidianamente vengono archiviati per sette giorni.
-2. **Criteri di conservazione settimanale**: i backup eseguiti ogni giorno a mezzanotte e ogni sabato alle 18.00 verranno conservati per quattro settimane
-3. **Criteri di mantenimento mensile**: i backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato del mese verranno conservati per 12 mesi
-4. **Criteri di mantenimento annuale**: i backup eseguiti a mezzanotte dell'ultimo sabato del mese di marzo verranno conservati per 10 anni
+1. **Criteri di conservazione giornaliera**: I backup eseguiti quotidianamente vengono archiviati per sette giorni.
+2. **Criteri di conservazione settimanale**: I backup eseguiti ogni giorno a mezzanotte e sabato alle 18.00 verranno conservati per quattro settimane
+3. **Criteri di conservazione mensile**: I backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato del mese vengono conservati per 12 mesi
+4. **Criteri di conservazione annuale**: I backup eseguiti a mezzanotte dell'ultimo sabato del mese di marzo verranno conservati per 10 anni
 
 Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripristinare i dati) riportati nel diagramma precedente viene calcolato nel modo seguente:
 
@@ -68,7 +68,7 @@ Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di
 
 ![Modifica](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per ulteriori informazioni sul Backup di Azure vedere:
 
 * [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)

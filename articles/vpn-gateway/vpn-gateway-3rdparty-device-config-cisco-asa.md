@@ -2,17 +2,18 @@
 title: Esempio di configurazione per la connessione di dispositivi Cisco ASA a gateway VPN di Azure | Microsoft Docs
 description: Questo articolo contiene un esempio di configurazione per la connessione di dispositivi Cisco ASA ai gateway VPN di Azure.
 services: vpn-gateway
-author: yushwang
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: yushwang
+origin.date: 10/19/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648742"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configurazione di esempio: dispositivo Cisco ASA (IKEv2/senza BGP)
 Questo articolo fornisce configurazioni di esempio per la connessione di dispositivi Cisco ASA (Adaptive Security Appliance) a gateway VPN di Azure. L'esempio si applica a dispositivi Cisco ASA che eseguono IKEv2 senza il protocollo BGP (Border Gateway Protocol). 
@@ -302,3 +303,4 @@ Usare i comandi ASA seguenti a scopo di debug:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per configurare connessioni cross-premise e da rete virtuale a rete virtuale di tipo attivo/attivo, vedere [Configurare gateway VPN di tipo attivi/attivo](vpn-gateway-activeactive-rm-powershell.md).
+<!--Update_Description: wording update -->

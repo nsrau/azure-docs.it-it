@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60672966"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -389,7 +389,7 @@ Dopo la migrazione, Contoso deve eseguire le operazioni di pulizia seguenti:
 
 - Rimuovere le VM locali dall'inventario vCenter.
 - Rimuovere le VM dai processi di backup locali.
-- Aggiornare la documentazione interna per visualizzare i nuovi percorsi per l'app SmartHotel360. Mostrare il database come in esecuzione in SQL di Azure e il front-end in esecuzione nelle due app Web.
+- Aggiornare la documentazione interna per visualizzare i nuovi percorsi per l'app SmartHotel360. Mostrare il database come in esecuzione nel database SQL di Azure e il front-end in esecuzione nelle due app Web.
 - Esaminare le risorse che interagiscono con le VM di cui sono state rimosse le autorizzazioni e aggiornare eventuali impostazioni o documenti pertinenti in base alla nuova configurazione.
 
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831731"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Creare certificati per back-end nell'elenco elementi consentiti con il Gateway applicazione di Azure
 

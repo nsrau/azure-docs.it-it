@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629323"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Aggiunta di un utente nel portale di Azure
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048334"
 Concedere "R-X" o "RWX", in base alle esigenze, alle cartelle che contengono dati di input e output.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>Facoltativamente aggiungere il ruolo **Lettore** di Azure Data Lake Store all'utente.
-1.  Individuare l'account di Azure Data Lake Store.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Facoltativamente, aggiungere il ruolo **Lettore** di Azure Data Lake Storage Gen1 all'utente.
+1.  Individuare l'account Azure Data Lake Storage Gen1.
 2.  Fare clic su **Utenti**.
 3. Fare clic su **Aggiungi**.
 4.  Selezionare un ruolo Controllo degli accessi in base al ruolo di Azure per assegnare questo gruppo.
-5.  Assegnare il ruolo Lettore. Questo ruolo dispone del set minimo di autorizzazioni necessarie per esplorare o gestire i dati archiviati in Azure Data Lake Store. Assegnare questo ruolo se il gruppo non deve gestire i servizi di Azure.
+5.  Assegnare il ruolo Lettore. Questo ruolo dispone del set minimo di autorizzazioni necessarie per esplorare o gestire i dati archiviati in Azure Data Lake Storage Gen1. Assegnare questo ruolo se il gruppo non deve gestire i servizi di Azure.
 6.  Digitare il nome del gruppo.
 7.  Fare clic su **OK**.
 

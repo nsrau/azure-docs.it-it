@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626480"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Sicurezza di Internet delle cose (IoT) sin dall'inizio
 
@@ -103,14 +103,14 @@ Solution Accelerator include misure di sicurezza per impostazione predefinita e 
 
 Ciascun Solution Accelerator crea istanze dei servizi di Azure, ad esempio:
 
-* [**Hub IoT di Azure**](https://azure.microsoft.com/services/iot-hub/): il gateway che connette i dispositivi al cloud. È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Il gateway che connette il cloud ai dispositivi. È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi che effettua il provisioning, ad esempio attributi, configurazione e le proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
 
-* [**Analisi di flusso di Azure**](https://azure.microsoft.com/services/stream-analytics/): elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
+* [**Azure Stream Analitica**](https://azure.microsoft.com/services/stream-analytics/): Elaborazione nel cloud che consente di sviluppare e distribuire una soluzione analitica basso costo per ottenere informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni rapidamente flussi in tempo reale. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
 
-* [**Servizi app di Azure**](https://azure.microsoft.com/services/app-service/): il servizio app è una piattaforma cloud per la creazione di potenti app Web e per dispositivi mobili che si connettono ai dati ovunque si trovino, nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
+* [**Servizi App di Azure**](https://azure.microsoft.com/services/app-service/): Una piattaforma cloud per creare potenti App web e per dispositivi mobili che si connettono ai dati in qualsiasi punto. nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
 
-* [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
+* [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): La funzionalità App per la logica del servizio App di Azure consente di integrare la soluzione IoT i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
 
-* [**Archiviazione BLOB di Azure**](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
+* [**Archiviazione Blob di Azure**](https://azure.microsoft.com/services/storage/): Archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878852"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni del file System in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
 2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 3. In **Nuovo progetto**digitare o selezionare i valori seguenti:
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modello |Applicazione console |

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809160"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Come ridimensionare SignalR Service con più istanze?
 il SDK più recente del servizio SignalR supporta più endpoint per le istanze di SignalR Service. È possibile usare questa funzionalità per ridimensionare le connessioni simultanee, o usarlo per la messaggistica tra diverse aree.

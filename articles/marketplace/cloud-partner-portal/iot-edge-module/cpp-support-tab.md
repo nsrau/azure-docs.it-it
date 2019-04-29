@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909861"
 ---
 # <a name="iot-edge-module-support-tab"></a>Scheda Support (Supporto) del modulo IoT Edge
 
-La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Nel modulo Support (Supporto) sono presenti le aree di input seguenti: **Engineering Contact** (Contatto tecnico), **Customer Support** (Assistenza clienti) e **Support Urls** (URL del supporto). Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
+La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Le aree di input seguenti sono disponibili nel form di supporto: **Engineering Contact**, **supporto tecnico**, e **supporta URL**. Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
 ![Scheda Support (Supporto) nel modulo Nuova offerta per moduli IoT Edge](./media/iot-edge-module-support-tab.png)
 

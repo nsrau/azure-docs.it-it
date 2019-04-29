@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770790"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Esercitazione: Eseguire una query un contenitore Linux Docker di SQL Server in una rete virtuale da un notebook di Azure Databricks
 
@@ -195,11 +195,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, l'area di lavoro Azure Databricks e tutte le risorse correlate. L'eliminazione del processo consente di evitare la fatturazione non necessaria. Se si prevede di usare l'area di lavoro Azure Databricks in futuro, è possibile arrestare il cluster e riavviarla in un secondo momento. Se non si intende continuare a usare l'area di lavoro Azure Databricks, eliminare tutte le risorse create in questa esercitazione con i passaggi seguenti:
+Quando non sono più necessari, eliminare il gruppo di risorse, l'area di lavoro di Azure Databricks e tutte le risorse correlate. L'eliminazione del processo consente di evitare la fatturazione non necessaria. Se si prevede di usare l'area di lavoro di Azure Databricks in futuro, è possibile arrestare il cluster e riavviarlo in un secondo momento. Se non si intende continuare a usare quest'area di lavoro di Azure Databricks, eliminare tutte le risorse create in questa esercitazione seguendo questa procedura:
 
-1. Nel menu a sinistra nel portale di Azure, fare clic su **gruppi di risorse** e quindi fare clic sul nome del gruppo di risorse creato.
+1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome del gruppo di risorse creato.
 
-2. Nella pagina del gruppo di risorse, selezionare **eliminare**, digitare il nome della risorsa da eliminare nella casella di testo e quindi selezionare **eliminare** nuovamente.
+2. Nella pagina del gruppo di risorse selezionare **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi selezionare di nuovo **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

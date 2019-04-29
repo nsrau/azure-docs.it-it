@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596664"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
 
@@ -32,7 +32,7 @@ Il database SQL di Azure e SQL Data Warehouse forniscono un servizio di database
 - Transparent data encryption (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usare un repository delle identità centralizzato
-È possibile configurare i database SQL affinché usino uno tra due tipi di autenticazione:
+È possibile configurare i database SQL di Azure affinché usino uno tra due tipi di autenticazione:
 
 - **Autenticazione SQL** usa nome utente e password. Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Usando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database.
 

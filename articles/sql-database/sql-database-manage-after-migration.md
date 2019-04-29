@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703315"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -111,7 +111,7 @@ Esistono diverse tecniche a disposizione che è possibile usare per conseguire u
 
 Un firewall impedisce l'accesso al server da un'entità esterna, consentendo solo a entità specifiche l'accesso al server di database SQL. Per impostazione predefinita, vengono rifiutate tutte le connessioni e i database all'interno del server di database SQL, a eccezione delle connessioni in entrata da altri servizi di Azure. Con una regola firewall è possibile aprire l'accesso al server solo alle entità (ad esempio, un computer per sviluppatori) approvate, consentendo all'indirizzo IP del computer di attraversare il firewall. Consente anche di specificare un intervallo di indirizzi IP a cui si intende consentire l'accesso al server di database SQL. È ad esempio possibile aggiungere in una sola volta gli indirizzi IP del computer per sviluppatori specificando un intervallo nella pagina Impostazioni del firewall.
 
-È possibile creare regole firewall a livello di server o database. Le regole firewall IP a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules) (Creare regole firewall nel database SQL).
+È possibile creare regole firewall a livello di server o database. Le regole del firewall IP a livello di server possono essere create usando il portale di Azure oppure con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Creare regole del firewall IP nel database SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Endpoint di servizio
 
@@ -273,13 +273,13 @@ L'approccio alla risoluzione dei problemi delle prestazioni può offrire vantagg
 
 Con la risoluzione dei problemi delle prestazioni è importante stabilire se a incidere sulle prestazioni è solo l'applicazione o il database che la supporta. Spesso il problema delle prestazioni risiede a livello dell'applicazione. Potrebbe trattarsi dell'architettura o dei criteri di accesso ai dati. Si consideri ad esempio di avere un'applicazione "frammentata" sensibile alla latenza di rete. In questo caso, l'applicazione risente del traffico eccessivo di brevi richieste in entrata e in uscita ("frammentazione") tra l'applicazione e il server e, in una rete congestionata, questo traffico si accumula rapidamente. Per migliorare le prestazioni, è possibile usare gli [invii di query in batch](sql-database-performance-guidance.md#batch-queries). L'uso dei batch risulta particolarmente utile, in quanto ora le richieste vengono elaborate in un batch, consentendo di ridurre la latenza di andata e ritorno e migliorare le prestazioni dell'applicazione.
 
-Se poi si riscontra una riduzione generale delle prestazioni del database, è possibile monitorare le viste a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per individuare il consumo di memoria, CPU e I/O. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare la quantità di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro.
+Se poi si riscontra una riduzione generale delle prestazioni del database, è possibile monitorare le viste a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per individuare il consumo di memoria, CPU e I/O. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare le dimensioni di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro.
 
 Per un set completo di elementi consigliati per la risoluzione dei problemi relativi alle prestazioni, vedere: [Ottimizzare il database](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Come verificare di usare il livello di servizio e la quantità di calcolo appropriati
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Come verificare di usare il livello di servizio e le dimensioni di calcolo appropriati
 
-Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio si ottengono prestazioni prevedibili garantite a esso associate. A seconda del carico di lavoro, potrebbero verificarsi picchi di attività in cui l'uso delle risorse potrebbe raggiungere il limite massimo della quantità di calcolo corrente in cui si trova l'utente. In questi casi è utile valutare per prima cosa se eseguire o meno un'ottimizzazione (ad esempio, aggiungendo o modificando un indice e così via). Se i problemi di limite persistono, valutare la possibilità di passare a un livello di servizio o a una quantità di calcolo superiori.
+Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio si ottengono prestazioni prevedibili garantite a esso associate. A seconda del carico di lavoro, potrebbero verificarsi picchi di attività in cui l'uso delle risorse potrebbe raggiungere il limite massimo delle dimensioni di calcolo correnti in cui si trova l'utente. In questi casi è utile valutare per prima cosa se eseguire o meno un'ottimizzazione (ad esempio, aggiungendo o modificando un indice e così via). Se i problemi di limite persistono, valutare la possibilità di passare a un livello di servizio o dimensioni di calcolo superiori.
 
 |**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
 |---|---|
@@ -288,7 +288,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 |**Premium**|Applicazioni con numerosi utenti simultanei ed elevate richieste di CPU/memoria e I/O. Le app sensibili alla latenza con concorrenza e velocità effettiva elevate possono sfruttare il livello Premium. |
 |||
 
-Per accertarsi di essere nella quantità di calcolo ideale, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?". Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a una quantità di calcolo superiore. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dalla quantità di calcolo corrente.
+Per accertarsi di usare le dimensioni di calcolo ideali, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?". Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a dimensioni di calcolo superiori. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dalle dimensioni di calcolo correnti.
 
 In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con un pool elastico, vedere: [Gestire pool e database](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 

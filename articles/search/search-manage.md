@@ -11,11 +11,11 @@ ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565454"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 > [!div class="checklist"]
 > * Gestire l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
 > * Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
-> * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
+> * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello di servizio.
 
 Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 

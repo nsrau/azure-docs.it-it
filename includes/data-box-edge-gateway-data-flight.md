@@ -4,18 +4,18 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: bea14544949f90290bf3878295b49f1e08be9eea
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: acf1195616d45b155445604ef0204528e5f7ca03
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754289"
 ---
-Per i dati in volo:
+Per i dati in fase di trasferimento:
 
-- Per i dati destinati tra il dispositivo e Azure, viene usato TLS 1.2 standard. Non vi è Nessun fallback a TLS 1.1 e versioni precedenti. La comunicazione dell'agente verrà bloccata se TLS 1.2 non è supportato. È necessario per le operazioni di gestione SDK e portale anche TLS 1.2.
-- Quando i client di accedere al dispositivo tramite l'interfaccia utente web locale in un browser, viene usato TLS 1.2 standard come il protocollo di protezione predefinito.
+- Viene usato TLS 1.2 standard per i dati scambiati tra il dispositivo e Azure. Non vi è Nessun fallback a TLS 1.1 e versioni precedenti. La comunicazione dell'agente verrà bloccata se TLS 1.2 non è supportato. È necessario per il portale e gestione SDK anche TLS 1.2.
+- Quando i client di accedono al dispositivo tramite l'interfaccia utente di un browser web locale, come il protocollo di protezione predefinito viene usato standard TLS 1.2.
 
     - La procedura consigliata consiste nel configurare il browser per usare TLS 1.2.
     - Se il browser non supporta TLS 1.2, è possibile usare TLS 1.1 o TLS 1.0.
-- Per proteggere i dati quando lo si copia dal server di dati, è consigliabile usare SMB 3.0 con crittografia.
+- È consigliabile usare SMB 3.0 con crittografia per proteggere i dati quando lo si copia dal server di dati.

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777012"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
@@ -56,7 +56,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 |:--- |:--- |:--- |
 | [Agenti di Windows](agent-windows.md) | No  |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No  |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
-| [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Yes |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
+| [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sì |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
@@ -89,7 +89,7 @@ La soluzione non importa avvisi da Operations Manager e crea un record corrispon
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| type |*Avviso* |
+| Type |*Avviso* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Dettagli dell'elemento di dati che ha causato la generazione dell'avviso nel formato XML. |
 | AlertDescription |Descrizione dettagliata dell'avviso. |

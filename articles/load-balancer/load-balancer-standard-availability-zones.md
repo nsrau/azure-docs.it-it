@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
 ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734457"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -172,7 +172,7 @@ A sua volta, se la macchina virtuale è associata a un'istanza di Load Balancer 
 
 La preallocazione della porta SNAT e l'algoritmo sono gli stessi con o senza zone.
 
-### <a name="health-probes"></a>Probe integrità
+### <a name="health-probes"></a>Probe di integrità
 
 Le definizioni di probe di integrità esistenti rimangono immutate senza zone di disponibilità.  Ma il modello di integrità è stato esteso a livello di infrastruttura. 
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745366"
 ---
 # <a name="azure-application-marketplace-tab"></a>Scheda Marketplace per applicazioni di Azure
 
@@ -36,7 +36,7 @@ La tabella seguente descrive le impostazioni da usare per la creazione di una ve
 |    **Campo**       |  **Descrizione**  |
 |  ---------------   |  ---------------  |
 |        Title            |        Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace. La lunghezza massima consentita è di 50 caratteri.           |
-|         Summary           |        Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri.           |
+|         Riepilogo           |        Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri.           |
 |         Long Summary (Riepilogo esteso)           |        Riepilogo più lungo dell'offerta (sebbene possa coincidere con il riepilogo). La lunghezza massima consentita è di 256 caratteri.           |
 |       DESCRIZIONE            |         Descrizione dell'offerta. La lunghezza massima consentita è di 3000 caratteri. È consentito codice HTML semplice, inclusi i tag &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e header.           |
 |        Marketing Identifier (Identificatore di marketing)            |         URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri. Scegliere un identificatore di marketing breve e descrittivo per il servizio. Questo verrà usato negli URL di marketplace per l'offerta. Ad esempio, se l'ID editore è "contoso" e l'identificatore di marketing è "sampleApp", l'URL per l'offerta in Azure Marketplace sarà https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp          |

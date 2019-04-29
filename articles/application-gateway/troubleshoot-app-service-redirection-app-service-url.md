@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
 ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715198"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service"></a>Risolvere i problemi di Gateway applicazione con il servizio App
 

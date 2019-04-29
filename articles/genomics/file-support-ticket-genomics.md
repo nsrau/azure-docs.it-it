@@ -1,23 +1,21 @@
 ---
-title: 'Genomica di Microsoft: come inoltrare una richiesta di supporto | Microsoft Docs'
+title: 'Microsoft Genomics: Come inviare una richiesta di supporto | Microsoft Docs'
 titleSuffix: Azure
-description: Altre informazioni su come inoltrare un ticket di supporto
+description: Questa panoramica descrive come inoltrare una richiesta di supporto per contattare Genomica di Microsoft. Può essere utile se non si riesce a risolvere il problema usando la guida alla risoluzione dei problemi o le domande frequenti.
 keywords: risoluzione dei problemi, errore, debug, supporto
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 05/23/2018
-ms.openlocfilehash: b50de691c9ac6085a416405ece600afcb5575e92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: ed37d42d8ec1692cc5edb62b68536803f47205f5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721242"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Come contattare il supporto di Genomica di Microsoft
 Questa panoramica descrive come inoltrare una richiesta di supporto per contattare Genomica di Microsoft. Può essere utile se non si riesce a risolvere il problema usando la [guida alla risoluzione dei problemi](troubleshooting-guide-genomics.md) o le [domande frequenti](frequently-asked-questions-genomics.md). 

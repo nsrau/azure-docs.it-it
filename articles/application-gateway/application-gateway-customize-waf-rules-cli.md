@@ -4,14 +4,15 @@ description: Questo articolo descrive come personalizzare le regole del web appl
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832898"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Personalizzare le regole del web application firewall con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +26,7 @@ Gli esempi di codice seguenti illustrano come visualizzare le regole e i gruppi 
 
 L'esempio seguente mostra come visualizzare i gruppi di regole:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ Di seguito è riportata una parte di risposta dell'esempio precedente:
 
 L'esempio seguente mostra come visualizzare le regole in un gruppo di regole specificato:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ Di seguito è riportata una parte di risposta dell'esempio precedente:
 
 L'esempio seguente disabilita le regole `910018` e `910017` in un gateway applicazione:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 Nell'elenco seguente contiene le condizioni che causano il firewall WAF bloccare la richiesta in modalità di prevenzione (in modalità di rilevamento vengono registrati come eccezioni). Questi non può essere configurati o disabilitati:
 
-* Impossibile analizzare il corpo della richiesta comporta la richiesta viene bloccata, a meno che non ispezione del corpo è disattivata (XML, JSON, i dati del modulo)
-* Lunghezza dei dati del corpo (con nessun file) della richiesta è supera al limite configurato
-* Request body (inclusi i file) è superiore al limite
-* Si è verificato un errore interno nel motore di Web Application firewall
+- Impossibile analizzare il corpo della richiesta comporta la richiesta viene bloccata, a meno che non ispezione del corpo è disattivata (XML, JSON, i dati del modulo)
+- Lunghezza dei dati del corpo (con nessun file) della richiesta è supera al limite configurato
+- Request body (inclusi i file) è superiore al limite
+- Si è verificato un errore interno nel motore di Web Application firewall
 
 CRS 3.x specifico:
 
-* Connessioni in entrata soglia superata punteggio delle anomalie
+- Connessioni in entrata soglia superata punteggio delle anomalie
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -142,3 +143,5 @@ Dopo aver configurato le regole disattivate, viene descritto come visualizzare i
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

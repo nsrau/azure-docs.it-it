@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657493"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,7 +54,7 @@ Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Fl
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatoria|
+|NOME|DESCRIZIONE|Obbligatorio|
 |----------|-----------------|--------------|
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|
 
@@ -123,20 +123,20 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
 |----------|-----------------|--------------|-------------|
 |CORS|Elemento radice.|Sì|N/D|
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
 |origin|Il valore può essere `*` per consentire tutte le origini oppure un URI che specifichi una singola origine. L'URI deve includere uno schema, un host e una porta.|Sì|Se la porta viene omessa in un URI, vengono utilizzate la porta 80 per HTTP e la porta 443 per HTTPS.|
 |allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati.|No |Se questa sezione non è presente, sono supportati i metodi GET e POST.|
-|statico|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|
+|method|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|
 |allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No |N/D|
 |expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No |N/D|
 |intestazione|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|L'intestazione `Access-Control-Allow-Credentials` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No |false|
 |preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No |0|
@@ -168,13 +168,13 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatoria|
+|NOME|DESCRIZIONE|Obbligatorio|
 |----------|-----------------|--------------|
 |jsonp|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
+|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55293962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641920"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Aggiornare il pacchetto di contenuto per reporting centrale di Backup di Azure 
 
@@ -34,9 +34,9 @@ Il pacchetto di contenuto Backup di Azure viene aggiornato per supportare più c
 
 I report preconfigurati offerti con il pacchetto di contenuto Backup di Azure sono soggetti a variazioni. Le modifiche apportate rendono i report più significati nei carichi di lavoro. Un'anteprima del futuro set di report è disponibile qui.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
    
-![Summary](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
+![Riepilogo](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>Fatturazione
 

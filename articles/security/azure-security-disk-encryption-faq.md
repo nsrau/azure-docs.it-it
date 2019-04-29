@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611308"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -43,7 +43,7 @@ Crittografia dischi di Azure è supportata in un subset del [distribuzioni Linux
 
 Distribuzioni di server Linux non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e le distribuzioni seguenti supportano crittografia dischi di Azure:
 
-| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
+| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |

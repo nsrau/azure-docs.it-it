@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742036"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
 
@@ -34,13 +34,13 @@ Per eseguire i passaggi in questa esercitazione, è necessaria una sottoscrizion
 
 Di seguito sono riportate alcune delle proprietà che possono essere impostate per un hub IoT:
 
-**Piano tariffario e scalabilità**: è possibile usare questa proprietà per eseguire la migrazione a un piano diverso o impostare il numero di unità dell'hub IoT. 
+**Prezzi e scalabilità**: È possibile usare questa proprietà per eseguire la migrazione a un livello diverso o impostare il numero dell'IoT Hub di unità. 
 
-**Monitoraggio operazioni**: attivare o disattivare le diverse categorie di monitoraggio, ad esempio la registrazione per gli eventi correlati ai messaggi da dispositivo a cloud o ai messaggi da cloud a dispositivo.
+**Monitoraggio delle operazioni**: Attivare o disattivare, le diverse categorie di monitoraggio, ad esempio la registrazione per gli eventi correlati ai messaggi da dispositivo a cloud o i messaggi da cloud a dispositivo.
 
-**Filtro IP**: specificare un intervallo di indirizzi IP che verranno accettati o rifiutati dall'hub IoT.
+**Filtro IP**: Specificare un intervallo di indirizzi IP che verrà accettati o rifiutati dall'hub IoT.
 
-**Proprietà**: fornisce l'elenco delle proprietà che è possibile copiare e usare in altre posizioni, ad esempio l'ID risorsa, il gruppo di risorse, la posizione e così via.
+**Proprietà**: Fornisce l'elenco delle proprietà che è possibile copiare e usare in altre posizioni, ad esempio l'ID di risorsa, gruppo di risorse, posizione e così via.
 
 ### <a name="shared-access-policies"></a>Criteri di accesso condivisi
 

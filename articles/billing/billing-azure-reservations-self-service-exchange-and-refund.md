@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615961"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Gli scambi di self-servizi e rimborsi per le prenotazioni di Azure
 
-Le prenotazioni di Azure offrono flessibilità per soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un altro prenotazione dello stesso tipo. È possibile rimborsare una prenotazione, fino a 50.000 USD all'anno, anche se è non è più necessario.
+Le prenotazioni di Azure offrono flessibilità per soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un'altra dello stesso tipo. È anche possibile rimborsare una prenotazione, fino a 50.000 USD all'anno, se questa non è più necessaria.
 
-Funzionalità di exchange e Annulla self-service non è disponibile per i clienti US Government contratto Enterprise Agreement. Sono supportati altri tipi di sottoscrizione di US Government inclusi con pagamento a consumo e CSP.
+La funzionalità di scambio e annullamento self-service non è disponibile per i clienti US Government con Contratto Enterprise. Sono supportati altri tipi di sottoscrizione di US Government inclusi con pagamento a consumo e CSP.
 
 È necessario disporre degli accessi dei proprietari dell'ordine di prenotazione per lo scambio o restituzione di una prenotazione esistente.
 

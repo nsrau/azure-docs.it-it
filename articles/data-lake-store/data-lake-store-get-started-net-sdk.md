@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877444"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake S
 2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 3. In **Nuovo progetto**digitare o selezionare i valori seguenti:
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modello |Applicazione console |
