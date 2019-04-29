@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118112"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per la scalabilità dei nodi di calcolo in un pool Batch
 
@@ -73,7 +73,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 
 Con questa formula di scalabilità automatica il pool viene inizialmente creato con una singola macchina virtuale. La metrica `$PendingTasks` definisce il numero di attività in esecuzione o in coda. La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta la variabile `$TargetDedicatedNodes` di conseguenza. La formula garantisce che il numero di nodi dedicati di destinazione non superi mai 25 macchine virtuali. Man mano che vengono inviate nuove attività, il pool si espande automaticamente. Al termine delle attività le macchine virtuali diventano libere una ad una e la formula di scalabilità automatica riduce il pool.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 Nelle formule di scalabilità automatica è possibile usare sia **variabili definite dal servizio** sia **variabili definite dall'utente**. Le variabili definite dal servizio sono incorporate nel servizio Batch. Alcune sono in lettura/scrittura e altre di sola lettura. Le variabili definite dall'utente vengono configurate dall'utente. Nella formula di esempio della sezione precedente `$TargetDedicatedNodes` e `$PendingTasks` sono variabili definite dal servizio. Le variabili `startingNumberOfVMs` e `maxNumberofVMs` sono definite dall'utente.
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Questi sono i tipi supportati in una formula:
 * Double
 * doubleVec
 * doubleVecList
-* stringa
+* string
 * timestamp, è una struttura composta che contiene i membri seguenti:
 
   * year

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122473"
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -312,7 +312,7 @@ Nel servizio app di Azure la registrazione diagnostica è generalmente disabilit
 4. Selezionare **Log di diagnostica** nel menu FUNZIONALITÀ.
 5. Fare clic su **Abilita** per i log seguenti: **Registrazione applicazioni (file system)**, **Messaggi di errore dettagliati** e **Traccia delle richieste non riuscite**.
 6. Fare clic su **File System** per la registrazione del server Web.
-7. Fare clic su **Save**
+7. Fare clic su **Save** (Salva).
 
 Per visualizzare i log:
 

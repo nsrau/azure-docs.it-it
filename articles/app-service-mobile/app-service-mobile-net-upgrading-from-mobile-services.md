@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122439"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile .NET di Azure esistente al servizio app
 I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili].
@@ -160,7 +160,7 @@ Se un'app client viene aggiornata da Servizi mobili alle app per dispositivi mob
 
 In iOS, è necessario modificare lo schema dei dati di base per le entità di dati in modo che corrispondano a quanto segue. Si noti che le proprietà `createdAt`, `updatedAt` e `version` non hanno più un prefisso `ms_`:
 
-| Attributo | type | Note |
+| Attributo | Type | Note |
 | --- | --- | --- |
 | id |Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
 | createdAt |Data |(facoltativo) viene mappato alla proprietà di sistema createdAt |
