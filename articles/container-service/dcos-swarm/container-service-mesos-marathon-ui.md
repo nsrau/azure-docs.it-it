@@ -55,7 +55,7 @@ Per distribuire un nuovo contenitore con Marathon, fare clic sul pulsante **Crea
 | Image |nginx |
 | Network |Bridged |
 | Host Port |80 |
-| Protocollo |TCP |
+| Protocol |TCP |
 
 ![Interfaccia utente New Application--General](./media/container-service-mesos-marathon-ui/dcos4.png)
 

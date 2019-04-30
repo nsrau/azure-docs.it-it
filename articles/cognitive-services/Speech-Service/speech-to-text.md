@@ -13,7 +13,7 @@ ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61461256"

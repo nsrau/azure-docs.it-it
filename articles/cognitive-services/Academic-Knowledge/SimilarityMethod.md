@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-Parametro        |Tipo di dati      |Obbligatorio | DESCRIZIONE
+Parametro        |Tipo di dati      |Obbligatoria | DESCRIZIONE
 ----------|----------|----------|------------
 **s1**        |string   |Sì  |Stringa* da confrontare
 **s2**        |string   |Sì  |Stringa* da confrontare
@@ -47,7 +47,7 @@ NOME | DESCRIZIONE
 
 ## <a name="successerror-conditions"></a>Condizioni di riuscita/errore
 
-Stato HTTP | Motivo | Risposta
+Stato HTTP | `Reason` | Risposta
 -----------|----------|--------
 **200**         |Success | Numero a virgola mobile
 **400**         | Richiesta non valida | Messaggio di errore      

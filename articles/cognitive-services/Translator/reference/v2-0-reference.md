@@ -90,7 +90,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -188,7 +188,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP   |Motivo|
+|Codice di stato HTTP   |`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata. Di seguito sono riportati gli errori più comuni. <ul><li>L'elemento della matrice non può essere vuoto</li><li>Categoria non valida</li><li>La lingua di origine non è valida</li><li>La lingua di destinazione non è valida</li><li>La richiesta contiene troppi elementi</li><li>La lingua di origine non è supportata</li><li>La lingua di destinazione non è supportata</li><li>La richiesta di traduzione contiene troppi dati</li><li>Il formato HTML non è corretto</li><li>È stato passato un numero eccessivo di stringhe nella richiesta di traduzione</li></ul>|
 |401    |Credenziali non valide.|
@@ -231,7 +231,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -264,7 +264,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -297,7 +297,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401|Credenziali non valide.|
@@ -333,7 +333,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -366,7 +366,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -420,7 +420,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -463,7 +463,7 @@ Tipo di contenuto della risposta: application: xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -530,7 +530,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -566,7 +566,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401|Credenziali non valide.|
@@ -662,7 +662,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -777,7 +777,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|

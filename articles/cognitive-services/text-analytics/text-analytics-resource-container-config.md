@@ -51,7 +51,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 È necessario aggiungere il `text/analytics/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI.
 
-|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 

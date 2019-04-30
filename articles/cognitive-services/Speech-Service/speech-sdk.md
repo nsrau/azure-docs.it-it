@@ -57,7 +57,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2
 
 * C++: scaricare l'SDK come [pacchetto con estensione tar](https://aka.ms/csspeech/linuxbinary) e decomprimere i file nella directory desiderata. La tabella seguente illustra la struttura di cartelle dell'SDK:
 
-  |path|DESCRIZIONE|
+  |`Path`|DESCRIZIONE|
   |-|-|
   |`license.md`|Licenza|
   |`ThirdPartyNotices.md`|Comunicazioni di terze parti|

@@ -51,7 +51,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il _viso_ il routing per l'URI dell'endpoint, come illustrato nell'esempio. 
 
-|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 

@@ -33,7 +33,7 @@ L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microso
 
 L'estensione DSC supporta i seguenti sistemi operativi
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Client Windows 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 

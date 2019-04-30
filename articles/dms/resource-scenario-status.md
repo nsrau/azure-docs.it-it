@@ -39,7 +39,7 @@ Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si us
 ### <a name="offline-one-time-migration-support"></a>Supporto della migrazione offline (unica)
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
-| Destinazione  | Source (Sorgente) | Supporto | Stato |
+| Destinazione  | `Source` | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
@@ -58,7 +58,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 ### <a name="online-continuous-sync-migration-support"></a>Supporto della migrazione online (sincronizzazione continua)
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
-| Destinazione  | Source (Sorgente) | Supporto | Stato |
+| Destinazione  | `Source` | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |

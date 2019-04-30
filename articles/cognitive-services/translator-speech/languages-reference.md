@@ -147,7 +147,7 @@ X-RequestId|Valore generato dal server per identificare la richiesta e usato per
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input per verificare che siano validi. L'oggetto della risposta include una descrizione più dettagliata dell'errore.|
 |429|Numero eccessivo di richieste.|

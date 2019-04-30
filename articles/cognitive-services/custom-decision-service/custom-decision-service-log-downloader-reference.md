@@ -44,8 +44,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
-| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatorio |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatorio |
+| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatoria |
 | `-s START_DATE`, `--start_date START_DATE` | La data di inizio del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | La data di fine del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | La modalità di sovrascrittura da usare. | |

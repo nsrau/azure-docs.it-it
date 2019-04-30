@@ -53,7 +53,7 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 ||||  
 |-|-|-|  
 |**Attributo**|**Dischi di Azure**|**File di Azure**|  
-|Scope|Esclusivo per una singola macchina virtuale|Accesso condiviso tra più macchine virtuali|  
+|`Scope`|Esclusivo per una singola macchina virtuale|Accesso condiviso tra più macchine virtuali|  
 |Snapshot e Copia|Sì|Sì|  
 |Configurazione|Connesso all'avvio della macchina virtuale|Connesso dopo l'avvio della macchina virtuale|  
 |Authentication|Predefinito|Impostato con comando net use|  

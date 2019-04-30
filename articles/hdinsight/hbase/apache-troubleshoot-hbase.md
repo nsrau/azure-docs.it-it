@@ -1,19 +1,18 @@
 ---
 title: Risolvere i problemi di HBase con Azure HDInsight
 description: Risposte alle domande comuni sull'uso di HBase e Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120643"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache HBase tramite Azure HDInsight
 

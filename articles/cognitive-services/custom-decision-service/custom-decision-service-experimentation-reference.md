@@ -80,7 +80,7 @@ Un log dei risultati viene accodato al file *mwt-ds/DataScience/experiments.csv*
 | Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostra il messaggio di aiuto ed esce. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatorio |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatoria |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Comando base di Vowpal Wabbit.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Numero di processi paralleli da usare. | Processori logici |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Spazi dei nomi delle funzioni condivise (ad esempio `abc` corrisponde agli spazi dei nomi `a`, `b` e `c`).  | Rilevamento automatico dal file di dati |  

@@ -141,7 +141,7 @@ Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, 
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file TSV strutturato che contiene informazioni sull'origine dei dati. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Source (Sorgente)| I metadati (1 tasto: 1 valore) |          
+| Domanda  | Risposta  | `Source`| I metadati (1 tasto: 1 valore) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |

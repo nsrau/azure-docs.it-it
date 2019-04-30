@@ -1,7 +1,6 @@
 ---
 title: Configurare la replica di cluster HBase nelle reti virtuali di Azure - Azure HDInsight
 description: Informazioni su come configurare la replica HBase da una versione di HDInsight a un'altra, per bilanciamento del carico, disponibilità elevata, aggiornamenti e migrazione senza tempo di inattività e ripristino di emergenza.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123083"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -67,7 +66,7 @@ Alcuni valori hardcoded nel modello:
 
 **Rete virtuale 1**
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Località | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
@@ -84,7 +83,7 @@ Alcuni valori hardcoded nel modello:
 
 **VNet 2**
 
-| Proprietà | Valore |
+| Proprietà | Value |
 |----------|-------|
 | Località | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
