@@ -1,15 +1,10 @@
 ---
-author: conceptdev
-ms.service: app-service-mobile
-ms.topic: include
-ms.date: 08/23/2018
-ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113529"
 ---
 Per impostazione predefinita, le API in un back-end dell'app per dispositivi mobili possono essere richiamate in modo anonimo. È necessario limitare l'accesso solo ai client autenticati.  
 
@@ -20,13 +15,17 @@ Per impostazione predefinita, le API in un back-end dell'app per dispositivi mob
 
     Nel progetto server passare a **Controller** > **TodoItemController.cs**. Aggiungere l'attributo `[Authorize]` alla classe **TodoItemController**, come indicato di seguito. Per limitare l'accesso solo a metodi specifici, è inoltre possibile applicare questo attributo solo a tali metodi anziché alla classe. Pubblicare di nuovo il progetto server.
 
-        [Authorize]
-        public class TodoItemController : TableController<TodoItem>
+    ```
+    [Authorize]
+    public class TodoItemController : TableController<TodoItem>
+    ```
 
 * **Back-end Node.js (tramite codice Node.js)** :  
 
     Per richiedere l'autenticazione per l'accesso alla tabella, aggiungere la riga seguente allo script del server Node.js:
 
-        table.access = 'authenticated';
+    ```
+    table.access = 'authenticated';
+    ```
 
-    Per altre informazioni, vedere [Procedura: Richiedere l'autenticazione per l'accesso alle tabelle](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Per informazioni su come scaricare il progetto di codice di avvio rapido dal sito, vedere [Procedura: Scaricare il progetto di codice di avvio rapido del back-end Node.js tramite Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    Per altre informazioni, vedere [come: Richiedere l'autenticazione per l'accesso alle tabelle](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Per informazioni su come scaricare il progetto di codice di avvio rapido dal sito, vedere [come: Scaricare il progetto di un codice di avvio rapido di un back-end di Node. js tramite Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

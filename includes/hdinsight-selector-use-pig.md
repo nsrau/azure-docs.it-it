@@ -1,15 +1,10 @@
 ---
-author: jasonwhowell
-ms.service: hdinsight
-ms.topic: include
-ms.date: 10/25/2018
-ms.author: jasonh
 ms.openlocfilehash: 5bb15a6a068c6324a4c2063796831f3c50356d3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124092"
 ---
 > [!div class="op_single_selector"]
 > * [Overview](../articles/hdinsight/hadoop/hdinsight-use-pig.md)
@@ -19,5 +14,4 @@ ms.locfileid: "50165655"
 > * [.NET](../articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 > * [Desktop remoto](../articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md)
 > 
-> 
-
+>
