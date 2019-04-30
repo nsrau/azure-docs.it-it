@@ -85,7 +85,7 @@ Dopo avere eseguito l'accesso ad Azure AD in Service Fabric Explorer, il browser
 
 ![Finestra di dialogo del certificato di SFX][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Motivo
+#### <a name="reason"></a>`Reason`
 All'utente non è assegnato un ruolo nell'applicazione cluster Azure AD. Di conseguenza, l'autenticazione di Azure AD non riesce nel cluster di Service Fabric. Service Fabric Explorer ritorna all'autenticazione del certificato.
 
 #### <a name="solution"></a>Soluzione
@@ -104,7 +104,7 @@ Quando si tenta di accedere ad Azure AD in Service Fabric Explorer, la pagina re
 
 ![Indirizzo di risposta di SFX non corrispondente][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Motivo
+#### <a name="reason"></a>`Reason`
 L'applicazione cluster (Web) che rappresenta Service Fabric Explorer prova a eseguire l'autenticazione per Azure AD e come parte della richiesta indica l'URL di reindirizzamento restituito. L'URL non è presente nell'elenco degli **URL DI RISPOSTA** dell'applicazione Azure AD.
 
 #### <a name="solution"></a>Soluzione

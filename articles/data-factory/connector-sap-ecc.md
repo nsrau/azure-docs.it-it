@@ -89,7 +89,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP ECC, impostare la proprietà type del set di dati su **SapEccResource**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | path | Percorso dell'entità SAP ECC OData. | Sì |
 

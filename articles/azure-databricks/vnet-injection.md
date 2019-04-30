@@ -121,7 +121,7 @@ Se si usa questo modello senza usare anche il modello di gruppi di sicurezza di 
 
 Se non si usa la [portale di Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) oppure [modelli di Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare gruppi di sicurezza di rete, è necessario consentire il traffico seguenti nelle subnet.
 
-|Direzione|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|
+|Direzione|Protocol|`Source`|Porta di origine|Destination|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|Indirizzi IP NAT piano di controllo|\*|\*|22|

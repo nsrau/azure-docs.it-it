@@ -16,7 +16,7 @@ ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62103717"
@@ -128,7 +128,7 @@ Il protocollo MPEG-DASH supporta i seguenti formati di contenitore e gli schemi 
 
 Il protocollo Smooth Streaming supporta i seguenti formati di contenitore e gli schemi di crittografia.
 
-|Protocollo|Formato del contenitore|Schema di crittografia|
+|Protocol|Formato del contenitore|Schema di crittografia|
 |---|---|---|
 |fMP4|AES||
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|

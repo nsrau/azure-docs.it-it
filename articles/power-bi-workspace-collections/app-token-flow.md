@@ -10,7 +10,7 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62110683"
@@ -92,7 +92,7 @@ Quando si usano token di incorporamento, può essere opportuno limitare l'uso de
 
 Di seguito sono riportati gli ambiti disponibili per le raccolte di aree di lavoro di Power BI.
 
-|Scope|DESCRIZIONE|
+|`Scope`|DESCRIZIONE|
 |---|---|
 |Dataset.Read|Concede l'autorizzazione per leggere il set di dati specificato.|
 |Dataset.Write|Concede l'autorizzazione per scrivere il set di dati specificato.|

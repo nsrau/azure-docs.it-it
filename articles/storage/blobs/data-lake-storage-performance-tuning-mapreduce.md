@@ -2,12 +2,13 @@
 title: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Storage Gen2
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: 1df7765f4f006d3d79f867fbf23929f6b9b0cf08
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT

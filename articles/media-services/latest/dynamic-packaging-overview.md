@@ -77,7 +77,7 @@ Il diagramma seguente illustra lo streaming live con flusso di lavoro di creazio
 
 ## <a name="delivery-protocols"></a>Protocolli di distribuzione
 
-|Protocollo|Esempio|
+|Protocol|Esempio|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
