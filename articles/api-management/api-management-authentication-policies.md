@@ -49,13 +49,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-basic|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |username|Specifica il nome utente della credenziale di base.|Sì|N/D|  
 |password|Specifica la password della credenziale di base.|Sì|N/D|  
@@ -89,13 +89,13 @@ In questo esempio il certificato client è identificato dal nome di risorsa.
 
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Identificazione personale del certificato client.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
 |certificate-id|Nome della risorsa certificato.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
@@ -124,13 +124,13 @@ In questo esempio il certificato client è identificato dal nome di risorsa.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |resource|Stringa. L'URI ID App dell'API (risorsa protetta) web destinazione in Azure Active Directory.|Sì|N/D|  
 |output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore token come un tipo di oggetto `string`.|No |N/D|  

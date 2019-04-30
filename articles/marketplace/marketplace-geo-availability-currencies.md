@@ -2,9 +2,7 @@
 title: Disponibilità a livello geografico e supporto per la valuta | Azure
 description: Disponibilità a livello geografico in Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
