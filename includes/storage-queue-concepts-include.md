@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108783"
 ---
 ## <a name="what-is-queue-storage"></a>Informazioni sull'archiviazione di accodamento
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
@@ -24,7 +24,7 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
-* **Formato dell'URL**: è possibile fare riferimento alle code usando il formato di URL seguente:   
+* **Formato URL:** è possibile fare riferimento alle code usando il formato URL seguente:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     L'URL seguente fa riferimento a una delle code nel diagramma:   
@@ -33,5 +33,5 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 * **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md) .
 * **Coda:** una coda contiene un set di messaggi. Tutti i messaggi devono essere inclusi in una coda. Si noti che il nome della coda deve essere in lettere minuscole. Per altre informazioni, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/azure/dd179349.aspx).
-* **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 KB. Il tempo massimo che un messaggio può rimanere nella coda è di 7 giorni.
+* **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 kB. Il tempo massimo che un messaggio può rimanere nella coda è di 7 giorni.
 

@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861897"
 ---
 Nella tabella seguente contiene informazioni sulle quote specifiche di messaggistica del Bus di servizio di Azure. Per informazioni sui prezzi e altre quote del Bus di servizio, vedere [sui prezzi del Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nome della quota | Scope | Note | Valore |
+| Nome della quota | `Scope` | Note | Value |
 | --- | --- | --- | --- |
 | Numero massimo di spazi dei nomi Basic o Standard per ogni sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Basic o Standard vengono rifiutate dal portale di Azure. |100|
 | Numero massimo di spazi dei nomi Premium per ogni sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |25 |

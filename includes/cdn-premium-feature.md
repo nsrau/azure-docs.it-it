@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 54be18f2b114f4bb3ac9dd71e4517ee8806339bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a0edb0a2017466ded4709dbf09dbb8ff940b8f20
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61069986"
 ---
 > [!IMPORTANT]
 > Questa è una funzionalità solo della **rete CDN Premium di Azure fornita da Verizon** e non è disponibile con prodotti della rete CDN Standard di Azure. Per un confronto delle funzionalità della rete CDN, vedere [Funzionalità del prodotto rete CDN di Azure](../articles/cdn/cdn-features.md). 

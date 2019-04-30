@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 0da7ad35f6efc031a52ef43caa514559c08c94fe
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58633012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61464780"
 ---
 È possibile creare più servizi all'interno di una sottoscrizione. Ognuno di essi può eseguire il provisioning a un livello specifico. Si è limitati solo dal numero di servizi consentiti a ogni livello. Ad esempio, è possibile creare fino a 12 servizi a livello Basic e altri 12 servizi a livello S1 nella stessa sottoscrizione. Per altre informazioni sui livelli, vedere [scegliere una SKU o un livello per ricerca di Azure](../articles/search/search-sku-tier.md).
 
