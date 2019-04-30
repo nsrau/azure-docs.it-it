@@ -279,7 +279,7 @@ I dispositivi IoT Edge standard non necessitano disponibile la connettività in 
 
 Per uno scenario di gateway a funzionare, almeno uno dei protocolli supportati dell'hub IoT Edge deve essere aperto per il traffico in ingresso dai dispositivi downstream. I protocolli supportati sono MQTT, AMQP e HTTPS.
 
-| Porta | Protocollo |
+| Porta | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
