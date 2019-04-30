@@ -35,7 +35,7 @@ Restituisce che un oggetto di proprietà popolata con tale elementi del progetto
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sì |string |Il nome di un elemento di progetto. |
 
@@ -124,7 +124,7 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | string1 |Sì |string |Il primo valore per la concatenazione. |
 | Argomenti aggiuntivi |No  |string |Altri valori in ordine sequenziale per la concatenazione |
@@ -149,7 +149,7 @@ Restituisce un valore di parametro di progetto. Il nome del parametro specificat
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -270,7 +270,7 @@ Restituisce un oggetto che rappresenta l'elemento di gruppo di risorse specifica
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sì |string |Il nome segnaposto dell'elemento di gruppo di risorse da restituire. |
 
