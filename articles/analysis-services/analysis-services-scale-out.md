@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766820"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939663"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -39,13 +39,13 @@ Mentre una sincronizzazione automatica viene eseguita solo quando è scalare ori
 
 Quando si esegue una successiva operazione di scalabilità orizzontale, ad esempio, l'aumento del numero di repliche nel pool di query da due a cinque, le nuove repliche sono idratate con i dati del secondo set di file nell'archivio blob. Non vi è alcuna sincronizzazione. Se si intende eseguire una sincronizzazione dopo la scalabilità orizzontale, le nuove repliche nel pool di query saranno idratati due volte: un'idratazione ridondanti. Quando si esegue una successiva operazione di scalabilità orizzontale, è importante da tenere presenti:
 
-* Eseguire una sincronizzazione *prima dell'operazione di scalabilità orizzontale* per evitare l'attivazione con ridondanza di repliche aggiunte.
+* Eseguire una sincronizzazione *prima dell'operazione di scalabilità orizzontale* per evitare l'attivazione con ridondanza di repliche aggiunte. Sincronizzazione simultanea e le operazioni di scalabilità orizzontale in esecuzione nello stesso momento non sono consentite.
 
 * Quando si automatizza entrambi elaborazione *e* operazioni di scalabilità orizzontale, è importante prima di elaborare i dati nel server primario, quindi eseguire una sincronizzazione e quindi eseguire l'operazione di scalabilità orizzontale. Questa sequenza assicura un impatto minimo sulle risorse di memoria e QPU.
 
 * Anche se non sono presenti repliche nel pool di query, è consentita la sincronizzazione. Se sono scalabilità orizzontale da zero a una o più repliche con i nuovi dati da un'operazione di elaborazione nel server primario, eseguire prima di tutto la sincronizzazione senza repliche nel pool di query e quindi scalabilità orizzontale. La sincronizzazione prima di scalabilità orizzontale consente di evitare un'attivazione ridondante delle repliche appena aggiunte.
 
-* Quando si elimina un database modello dal server primario, questo non ottenere eliminato automaticamente da repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione tramite il [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comandi di PowerShell che rimuove i file/sec per un database dalla posizione di archiviazione blob di condiviso della replica e quindi Elimina il modello database nelle repliche nel pool di query.
+* Quando si elimina un database modello dal server primario, questo non ottenere eliminato automaticamente da repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione tramite il [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comandi di PowerShell che rimuove i file/sec per un database dalla posizione di archiviazione blob di condiviso della replica e quindi Elimina il modello database nelle repliche nel pool di query. Per determinare se un database modello presente nelle repliche nel pool di query, ma non nel server primario, assicurarsi che il **separare il server di elaborazione dal pool di query** impostazione prevede **Yes**. Quindi utilizzare SSMS per connettersi al server primario usando la `:rw` qualificatore per vedere se il database esista. Quindi connettersi alle repliche nel pool di query tramite la connessione senza le `:rw` qualificatore per vedere se esiste anche nello stesso database. Se il database è presente nelle repliche nel pool di query ma non nel server primario, eseguire un'operazione di sincronizzazione.   
 
 * Quando si rinomina un database nel server primario, è un passaggio aggiuntivo necessario per assicurare che il database è sincronizzato correttamente a tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione tramite il [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando specificando il `-Database` parametro con il vecchio nome del database. Questa sincronizzazione rimuove il database e i file con il nome precedente da tutte le repliche. Eseguire quindi un'altra sincronizzazione specifica il `-Database` parametro con il nuovo nome del database. La sincronizzazione secondo il database copiato nel nuovo nome per il secondo set di file e generati idratano tutte le repliche. Impossibile eseguire il comando Sincronizza modello nel portale le sincronizzazioni.
 
@@ -58,6 +58,8 @@ Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle
 Per determinare se per il server è necessario un ridimensionamento orizzontale, monitorare il server nel portale di Azure tramite le metriche. Se le QPU si esauriscono regolarmente, significa che il numero di query verso i modelli supera il limite di QPU per il piano. La metrica relativa alla lunghezza della coda dei processi del pool di query aumenta anche quando il numero di query nella coda del pool di thread di query supera le QPU disponibili. 
 
 Un'altra buona metrica per il controllo è medio QPU da ServerResourceType. Questa metrica Confronta QPU medio per il server primario con quella del pool di query. 
+
+![Scalabilità orizzontale delle metriche delle query](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>Per configurare QPU da ServerResourceType
 1. In un grafico a linee le metriche, fare clic su **Aggiungi metrica**. 
@@ -146,6 +148,8 @@ Per SSMS ed SSDT, nonché per le stringhe di connessione in PowerShell, per le a
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 
 **Soluzione:** Quando si seleziona il **separare il server di elaborazione dal pool di query** opzione, le connessioni client usando la stringa di connessione predefinito (senza `:rw`) vengono reindirizzate a repliche di pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
+
+
 
 ## <a name="related-information"></a>Informazioni correlate
 

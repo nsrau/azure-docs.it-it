@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894394"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922994"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -24,14 +24,14 @@ ms.locfileid: "57894394"
 Backup di Azure Usa l'agente di MARS per eseguire il backup dei dati da computer locali e macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino backup in Azure. L'agente MARS è possibile:
 - Eseguire in macchine virtuali Windows locali in modo che è possibile eseguire il backup direttamente a un insieme di credenziali di servizi di ripristino backup in Azure.
 - Esecuzione in macchine virtuali Windows in modo che è possibile eseguire il backup direttamente in un insieme di credenziali.
-- Eseguito nel Server di Backup di Microsoft Azure (MABS) o un server di System Center Data Protection Manager (DPM). In questo scenario, computer e carichi di lavoro eseguire il backup per backup di Microsoft AZURE o nel server DPM. L'agente MARS quindi eseguito il backup in questo server a un insieme di credenziali in Azure. 
+- Eseguito nel Server di Backup di Microsoft Azure (MABS) o un server di System Center Data Protection Manager (DPM). In questo scenario, computer e carichi di lavoro eseguire il backup per backup di Microsoft AZURE o nel server DPM. L'agente MARS quindi eseguito il backup in questo server a un insieme di credenziali in Azure.
 
 Opzioni di backup dipendono in cui è installato l'agente. Per altre informazioni, vedere [architettura di Backup di Azure usando l'agente MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Per informazioni sull'architettura di backup di DPM e MABS, vedere [eseguire il backup in DPM e MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Vedere anche [requisiti](backup-support-matrix-mabs-dpm.md) per l'architettura del backup.
 
 **Installazione** | **Dettagli**
 --- | ---
 Scaricare l'agente MARS più recente | È possibile scaricare la versione più recente dell'agente dall'insieme di credenziali oppure [scaricarla direttamente](https://aka.ms/azurebackup_agent).
-Installa direttamente in un computer | È possibile installare l'agente MARS direttamente in un server di Windows in locale o in una VM Windows che esegue uno dei [sistemi operativi supportati](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installa direttamente in un computer | È possibile installare l'agente MARS direttamente in un server di Windows in locale o in una VM Windows che esegue uno dei [sistemi operativi supportati](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Installare in un server di backup | Quando si configura DPM o il server di Backup di Microsoft Azure per eseguire il backup in Azure, si scarica e installa nel server l'agente di Servizi di ripristino di Microsoft Azure. È possibile installarvi l'agente [sistemi operativi supportati](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) nella matrice di supporto di server di backup.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Quando si usa l'agente di MARS per eseguire il backup dei dati, l'agente crea un
 
 **Cache** | **Dettagli**
 --- | ---
-Dimensione |  Spazio disponibile nella cartella della cache deve essere almeno 5-10% delle dimensioni totali dei dati di backup. 
-Località | La cartella della cache deve essere archiviata in locale nel computer in cui viene eseguito il backup e deve essere online. La cartella della cache non deve essere in una condivisione di rete, un supporto rimovibile o in un volume offline. 
+Dimensione |  Spazio disponibile nella cartella della cache deve essere almeno 5-10% delle dimensioni totali dei dati di backup.
+Località | La cartella della cache deve essere archiviata in locale nel computer in cui viene eseguito il backup e deve essere online. La cartella della cache non deve essere in una condivisione di rete, un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache deve essere crittografata in un volume deduplicato o in una cartella che viene compresso, che è di tipo sparse o che contiene un reparse point.
 Modifiche alla posizione | È possibile modificare il percorso della cache, arrestare il motore di backup (`net stop bengine`) e copiando la cartella della cache in una nuova unità. (Assicurarsi che la nuova unità con spazio sufficiente). Aggiornare quindi due voci del Registro di sistema sotto **Backup di Azure HKLM\SOFTWARE\Microsoft\Windows** (**Config/ScratchLocation** e **CloudBackupProvider/Config/ScratchLocation**) per il nuovo percorso e riavviare il motore.
 
@@ -103,9 +103,9 @@ Windows 7   | 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
-**Tipo** | **Supporto** 
---- | --- 
-Crittografato   | Supportato. 
+**Tipo** | **Supporto**
+--- | ---
+Crittografato   | Supportato.
 Compresso | Supportato.
 Sparse | Supportato.
 Compresso e sparse | Supportato.
@@ -114,7 +114,7 @@ Reparse point   | Non supportati. Ignorato.
 Crittografato e sparse |  Non supportati. Ignorato.
 Flusso compresso   | Non supportati. Ignorato.
 Flusso di tipo sparse   | Non supportati. Ignorato.
-OneDrive (i file sincronizzati sono flussi di tipo sparse)  | Non supportati. 
+OneDrive (i file sincronizzati sono flussi di tipo sparse)  | Non supportati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Le unità supportate o i volumi per il backup
 

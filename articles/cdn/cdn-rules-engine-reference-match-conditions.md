@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323825"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869521"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -28,14 +28,14 @@ La seconda parte di una regola è la condizione di corrispondenza. Una condizion
 
 Ad esempio, è possibile usare una condizione di corrispondenza per:
 - Filtrare le richieste per il contenuto in base a una posizione specifica.
-- Filtrare le richieste generate da un indirizzo IP o da un paese specifico.
+- Filtrare le richieste generate da un particolare indirizzo IP o il paese/area geografica.
 - Filtrare le richieste in base alle informazioni dell'intestazione.
 
 ## <a name="always-match-condition"></a>Condizione di corrispondenza Sempre
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Sempre](#always) | Applica un set predefinito di funzionalità a tutte le richieste.
 
@@ -43,7 +43,7 @@ Name | Scopo
 
 La condizione di corrispondenza Dispositivo identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.  
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Dispositivo](#device) | Identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.
 
@@ -51,16 +51,16 @@ Name | Scopo
 
 Le condizioni di corrispondenza Posizione identificano le richieste in base alla posizione del richiedente.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Numero AS](#as-number) | Identifica le richieste che hanno origine da una determinata rete.
-[Paese](#country) | Identifica le richieste che hanno origine dai paesi specificati.
+[Paese](#country) | Identifica le richieste che provengono da paesi/aree geografiche specificati.
 
 ## <a name="origin-match-conditions"></a>Condizioni di corrispondenza Origine
 
 Le condizioni di corrispondenza Origine identificano le richieste che puntano all'archivio della rete CDN o a un server di origine del cliente.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Origine rete CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
 [Origine cliente](#customer-origin) | Identifica le richieste di contenuto in uno specifico server di origine del cliente.
@@ -69,7 +69,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza Richiesta identificano le richieste in base alle relative proprietà.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Indirizzo IP client](#client-ip-address) | Identifica le richieste che hanno origine da un determinato indirizzo IP.
 [Parametro cookie](#cookie-parameter) | Controlla il valore specificato nei cookie associati a ogni richiesta.
@@ -86,7 +86,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza URL identificano le richieste in base ai relativi URL.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [URL Path Directory](#url-path-directory) (Directory percorso URL) | Identifica le richieste in base al percorso relativo.
 [URL Path Extension](#url-path-extension) (Estensione percorso URL) | Identifica le richieste in base all'estensione del nome file.
@@ -235,7 +235,7 @@ Informazioni chiave:
 
 ---
 ### <a name="country"></a>Paese
-È possibile specificare un paese tramite il codice paese corrispondente. 
+È possibile specificare un paese/area geografica tramite il codice paese corrispondente. 
 
 L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
 - **Matches** (Corrisponde): specifica che la richiesta contenga i valori del codice di paese specificati. 
@@ -260,9 +260,9 @@ Questa condizione di corrispondenza permette di eseguire numerose personalizzazi
 - Corrispondenza URL Path Wildcard (Carattere jolly percorso URL): impostare la condizione di corrispondenza [URL Path Wildcard](#url-path-wildcard) (Carattere jolly percorso URL) sulla directory che verrà protetta. 
     Aggiungere un asterisco alla fine del percorso relativo per assicurarsi che l'accesso a tutti gli elementi figlio venga limitato da questa regola.
 
-- Corrispondenza Paese: impostare la condizione di corrispondenza Paese sul set desiderato di paesi.
-   - Consenti: impostare la condizione di corrispondenza Paese su **Does Not Match** (Non corrisponde) per consentire solo ai paesi specificati l'accesso al contenuto archiviato nella posizione definita dalla condizione di corrispondenza URL Path Wildcard (Carattere jolly percorso URL).
-   - Blocca: impostare la condizione di corrispondenza Paese su **Matches** (Corrisponde) per impedire ai paesi specificati l'accesso al contenuto archiviato nella posizione definita dalla condizione di corrispondenza URL Path Wildcard (Carattere jolly percorso URL).
+- Corrispondenza Paese: Impostare la condizione di corrispondenza paese sul set desiderato di paesi/aree geografiche.
+   - Consenti: Impostare la condizione di corrispondenza paese **non corrisponde a** per consentire solo l'accesso specificato paesi/aree geografiche al contenuto archiviato nella posizione definita dalla condizione di corrispondenza URL Path Wildcard.
+   - Blocca: Impostare la condizione di corrispondenza paese **corrispondenze** per bloccare i paesi specificati l'accesso al contenuto archiviato nella posizione definita dalla condizione di corrispondenza URL Path Wildcard.
 
 - Funzionalità Deny Access (403) (Nega accesso - 403): abilitare la funzionalità [Deny Access (403)](cdn-rules-engine-reference-features.md#deny-access-403) (Nega accesso - 403) per replicare la parte Consenti o Blocca della funzionalità del filtro dei paesi.
 
@@ -868,7 +868,7 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
-Name  | Value |  Risultato
+NOME  | Value |  Risultato
 ------|-------|--------
 Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
@@ -960,7 +960,7 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
- Name                 | DESCRIZIONE
+ NOME                 | DESCRIZIONE
  ---------------------|------------
 user=joe              | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 \*user=\* \*optout=\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.

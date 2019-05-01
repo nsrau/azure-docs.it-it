@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679298"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728017"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -238,7 +238,7 @@ Per proteggere l'appliance Agente di raccolta, eseguire queste operazioni.
 
 ## <a name="os-license-in-the-collector-vm"></a>Licenza del sistema operativo nella macchina virtuale di Agente di raccolta
 
-Agente di raccolta include una licenza di valutazione di Windows Server 2012 R2 valida per 180 giorni. Se il periodo di valutazione della macchina virtuale di Agente di raccolta sta per scadere, è consigliabile scaricare una nuovo file OVA e creare una nuova appliance.
+L'agente di raccolta include una licenza di valutazione di Windows Server 2016 questa operazione è valida per 180 giorni. Se il periodo di valutazione della macchina virtuale di Agente di raccolta sta per scadere, è consigliabile scaricare una nuovo file OVA e creare una nuova appliance.
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>Aggiornamento del sistema operativo della macchina virtuale di Agente di raccolta
 

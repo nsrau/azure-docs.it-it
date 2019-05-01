@@ -2,33 +2,48 @@
 title: File di inclusione
 description: File di inclusione
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733264"
 ---
-Quando si sviluppano funzioni in locale, è possibile installare le estensioni necessarie tramite Strumenti di base di Funzioni di Azure dal terminale o da un prompt dei comandi.
+Bundle di estensione per apportare tutte le associazioni pubblicate dal team di funzioni di Azure disponibile tramite un'impostazione nel *host. JSON* file. Per lo sviluppo locale, assicurarsi di aver la versione più recente di [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
-Dopo avere aggiornato il file *function.json* per includere tutte le associazioni necessarie per la funzione, eseguire il seguente comando nella cartella del progetto.
+Per usare pacchetti di estensione, aggiornare il *host. JSON* file da includere la voce seguente per `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-Il comando legge il file *function.json* per scoprire quali pacchetti sono necessari, li installa e ricompila il progetto di estensione. Consente di aggiungere eventuali nuove associazioni alla versione corrente, ma non aggiorna le associazioni esistenti. Usare l'opzione `--force` per aggiornare le associazioni esistenti alla versione più recente quando si installano quelle nuove.
+- Il `id` proprietà fa riferimento a spazio dei nomi per il bundle di estensione per funzioni di Microsoft Azure.
+- Il `version` fa riferimento alla versione del bundle.
 
-Se si vuole installare una versione specifica di un pacchetto o si vogliono installare i pacchetti prima di modificare il file *function.json*, usare il comando `func extensions install` con il nome del pacchetto, come illustrato nell'esempio seguente:
+Riunire incremento delle versioni in pacchetti le modifiche di bundle. Modifiche di versione principale si verificano quando i pacchetti del bundle spostare solo una versione principale. Il `version` utilizzata dalla proprietà di [notazione di intervallo per la specifica di intervalli di versione](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). Il runtime di funzioni sceglie sempre la versione massima consentita definita per l'intervallo e intervallo di versioni.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+Quando si fa riferimento i bundle di estensione nel progetto, quindi tutte le associazioni predefinite sono disponibili per le funzioni. Le associazioni disponibili nel [bundle estensione](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) sono:
 
-Sostituire `<target_version>` con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle pagine dei singoli pacchetti in [NuGet.org](https://nuget.org).
+|Pacchetto  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

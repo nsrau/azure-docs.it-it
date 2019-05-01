@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696784"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868621"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Supporto lingua e area geografica per i servizi di riconoscimento vocale
 
@@ -26,38 +26,38 @@ Le diverse funzioni dei servizi di riconoscimento vocale supportano lingue diver
 
 L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diversi di personalizzazione sono disponibili per ogni lingua.
 
-  Codice | Lingua | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
+  Codice | Linguaggio | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabo (Egitto), standard moderno | N. | Sì | N.
- ca-ES | Catalano | N. | N. | N.
- da-DK | Danese (Danimarca) | N. | N. | N.
- de-DE | Tedesco (Germania) | Sì | Sì | N.
- en-AU | Inglese (Australia) | N. | Sì | Sì
- en-CA | Inglese (Canada) | N. | Sì | Sì
- en-GB | Inglese (Regno Unito) | N. | Sì | Sì
+ ar-EG | Arabo (Egitto), standard moderno | No  | Sì | No 
+ ca-ES | Catalano | No  | No  | No 
+ da-DK | Danese (Danimarca) | No  | No  | No 
+ de-DE | Tedesco (Germania) | Sì | Sì | No 
+ en-AU | Inglese (Australia) | No  | Sì | Sì
+ en-CA | Inglese (Canada) | No  | Sì | Sì
+ en-GB | Inglese (Regno Unito) | No  | Sì | Sì
  en-IN | Inglese (India) | Sì | Sì | Sì
- en-NZ | Inglese (Nuova Zelanda) | N. | Sì | Sì  
- it-IT | Inglese (Stati Uniti) | Sì | Sì | Sì
- es-ES | Spagnolo (Spagna) | Sì | Sì | N.
- es-MX | Spagnolo (Messico) | N. | Sì | N.
- fi-FI | Finlandese (Finlandia) | N. | N. | N.
- fr-CA | Francese (Canada) | N. | Sì | N.
- fr-FR | Francese (Francia) | Sì | Sì | N.
- hi-IN | Hindi (India) | N. | Sì | N.
- it-IT | Italiano (Italia) | Sì | Sì | N.
- ja-JP | Giapponese (Giappone) | N. | Sì | N.
- ko-KR | Coreano (Corea del Sud) | N. | Sì | N.
- nb-NO | Norvegese (Bokmål) (Norvegia) | N. | N. | N.
- nl-NL | Olandese (Paesi Bassi) | N. | Sì | N.
- pl-PL | Polacco (Polonia) | N. | N. | N.
- pt-BR | Portoghese (Brasile) | Sì | Sì | N.
- pt-PT | Portoghese (Portogallo) | N. | Sì | N.
- ru-RU | Russo (Russia) | Sì | Sì | N.
- sv-SE | Svedese (Svezia) | N. | N. | N.
- zh-CN | Cinese (mandarino, semplificato) | Sì | Sì | N.
- zh-HK | Cinese (Cantonese, tradizionale) | N. | Sì | N.
- zh-TW | Cinese (mandarino taiwanese) | N. | Sì | N.
- th-TH | Thai (Tailandia) | N. | N. | N.
+ en-NZ | Inglese (Nuova Zelanda) | No  | Sì | Sì  
+ en-US | Inglese (Stati Uniti) | Sì | Sì | Sì
+ es-ES | Spagnolo (Spagna) | Sì | Sì | No 
+ es-MX | Spagnolo (Messico) | No  | Sì | No 
+ fi-FI | Finlandese (Finlandia) | No  | No  | No 
+ fr-CA | Francese (Canada) | No  | Sì | No 
+ fr-FR | Francese (Francia) | Sì | Sì | No 
+ hi-IN | Hindi (India) | No  | Sì | No 
+ it-IT | Italiano (Italia) | Sì | Sì | No 
+ ja-JP | Giapponese (Giappone) | No  | Sì | No 
+ ko-KR | Coreano (Corea) | No  | Sì | No 
+ nb-NO | Norvegese (Bokmål) (Norvegia) | No  | No  | No 
+ nl-NL | Olandese (Paesi Bassi) | No  | Sì | No 
+ pl-PL | Polacco (Polonia) | No  | No  | No 
+ pt-BR | Portoghese (Brasile) | Sì | Sì | No 
+ pt-PT | Portoghese (Portogallo) | No  | Sì | No 
+ ru-RU | Russo (Russia) | Sì | Sì | No 
+ sv-SE | Svedese (Svezia) | No  | No  | No 
+ zh-CN | Cinese (mandarino, semplificato) | Sì | Sì | No 
+ zh-HK | Cinese (Cantonese, tradizionale) | No  | Sì | No 
+ zh-TW | Cinese (mandarino taiwanese) | No  | Sì | No 
+ th-TH | Thailandese (Thailandia) | No  | No  | No 
 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
@@ -75,11 +75,11 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 
 Per un elenco completo delle voci neurali con informazioni sulla disponibilità a livello di area, vedere [aree](regions.md#neural-voices).
 
-| Impostazioni locali | Lingua | Sesso | Mapping nome del servizio|
+| Impostazioni locali | Linguaggio | Sesso | Mapping nome del servizio|
 |--------|----------|--------|---------------------|
 | de-DE | Tedesco (Germania) | Femmina | "Testo di riconoscimento vocale Microsoft Server alla voce, riconoscimento vocale (de-DE, KatjaNeural)" |
-| it-IT | Inglese (Stati Uniti) | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
-| it-IT | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| en-US | Inglese (Stati Uniti) | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
 | it-IT | Italiano (Italia) | Femmina | "Testo di riconoscimento vocale Microsoft Server alla voce, riconoscimento vocale (it-IT, ElsaNeural)" |
 | zh-CN | Cinese | Femmina | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
 
@@ -93,7 +93,7 @@ Per un elenco completo delle voci neurali con informazioni sulla disponibilità 
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-voices).
 
-Impostazioni locali | Lingua | Sesso | Mapping nome del servizio
+Impostazioni locali | Linguaggio | Sesso | Mapping nome del servizio
 -------|----------|---------|--------------------
 ar-EG\* | Arabo (Egitto) | Femmina | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
 ar-SA | Arabo (Arabia Saudita) | Maschio | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)"
@@ -196,8 +196,8 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
-| Bengali      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bengalese      | `bn`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cantonese (tradizionale)      | `yue`          |
 | Catalano      | `ca`          |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880958"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706840"
 ---
 # <a name="about-azure-vm-backup"></a>Informazioni sul backup di macchine virtuali di Azure
 
@@ -31,10 +31,14 @@ Ecco come Backup di Azure esegue un backup per macchine virtuali di Azure:
     - Per impostazione predefinita, Backup esegue backup VSS completi.
     - Se il Backup non è possibile richiedere uno snapshot coerente con l'app, viene eseguito uno snapshot coerenti con i file della risorsa di archiviazione sottostante (poiché mentre la VM viene arrestata, si verifica alcuna scrittura di applicazione).
 1. Per le macchine virtuali Linux, Backup esegue un backup coerenti con i file. Per gli snapshot coerenti con l'app, è necessario personalizzare manualmente gli script di pre/post.
-1. Dopo il Backup ha acquisito lo snapshot, di trasferire i dati nell'insieme di credenziali. 
+1. Dopo il Backup ha acquisito lo snapshot, di trasferire i dati nell'insieme di credenziali.
     - Il backup viene ottimizzato attraverso il backup di ogni disco della macchina virtuale in parallelo.
     - Per ogni disco che viene eseguito il backup, Backup di Azure legge i blocchi del disco e identifica e trasferisce solo i blocchi di dati modificati (delta) dal backup precedente.
     - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. Questa operazione potrebbe richiedere alcune ore nei momenti di picco. Tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+ 1. Le modifiche apportate a una VM di Windows dopo che è abilitato il Backup di Azure sono:
+    -   Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40660 viene installato nella macchina virtuale
+    -   Tipo di avvio del servizio Copia Shadow del Volume (VSS) modificato in automatico da manuale
+    -   Viene aggiunto per servizio IaaSVmProvider Windows
 
 1. Una volta completato il trasferimento dei dati, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
@@ -57,7 +61,7 @@ BEKs viene anche eseguito il backup. Pertanto, se il BEKs vengono perse, gli ute
 
 ## <a name="snapshot-creation"></a>Creazione di snapshot
 
-Backup di Azure esegue gli snapshot in base alla pianificazione del backup. 
+Backup di Azure esegue gli snapshot in base alla pianificazione del backup.
 
 - **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di Backup si coordina con VSS per creare un snapshot coerenti con l'app dei dischi delle macchine Virtuali.
 
@@ -82,7 +86,7 @@ La tabella seguente illustra i diversi tipi di coerenza snapshot:
 **Coerente con il file system** | Backup coerenti con file system per fornire coerenza creare uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con file system, la macchina virtuale viene avviato. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni VSS writer non sono riusciti <br/><br/> Linux: Predefinito (se gli script di pre/post non sono configurati o non riusciti)
 **Coerenza con l'arresto anomalo del sistema** | Snapshot coerenti con l'arresto anomalo del sistema in genere verificarsi se si arresta una macchina virtuale di Azure al momento del backup. Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup.<br/><br/> Un punto di ripristino coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o l'app. | Anche se non vi sono garanzie, la macchina virtuale viene in genere avviato, e quindi avvia una verifica del disco per risolvere errori di danneggiamento. Eventuali dati in memoria o le operazioni di scrittura che non sono state trasferite su disco prima dell'arresto anomalo vengono persi. Le app implementano una propria procedura di verifica dei dati. Ad esempio, un'app di database può usare relativo log delle transazioni per la verifica. Se il log delle transazioni contiene voci non presenti nel database, il software del database esegue il rollup transazioni indietro fino a quando i dati sono coerenti. | Macchina virtuale in stato di arresto
 
-## <a name="backup-and-restore-considerations"></a>Considerazioni sul backup e ripristino 
+## <a name="backup-and-restore-considerations"></a>Considerazioni sul backup e ripristino
 
 **Considerazioni** | **Dettagli**
 --- | ---
@@ -99,8 +103,8 @@ La tabella seguente illustra i diversi tipi di coerenza snapshot:
 Questi scenari comuni possono influenzare l'ora di backup totale:
 
 - **Aggiunta di un nuovo disco a una macchina virtuale di Azure protetta:** Se una macchina virtuale è in fase di backup incrementale e viene aggiunto un nuovo disco, si aumenterà il tempo di backup. Il tempo totale di backup potrà durare più di 24 ore a causa di replica iniziale del nuovo disco, con la replica differenziale dei dischi esistenti.
-- **Frammentato dischi:** Operazioni di backup sono più veloci quando le modifiche ai dischi siano contigue. Se invece le modifiche sono distribuite e frammentate su un disco, il backup sarà più lento. 
-- **Varianza del disco:** Se i dischi che sono in fase di backup incrementale è protetto hanno una varianza giornaliera di più di 200 GB, backup può richiedere molto tempo (più di otto ore) per il completamento. 
+- **Frammentato dischi:** Operazioni di backup sono più veloci quando le modifiche ai dischi siano contigue. Se invece le modifiche sono distribuite e frammentate su un disco, il backup sarà più lento.
+- **Varianza del disco:** Se i dischi che sono in fase di backup incrementale è protetto hanno una varianza giornaliera di più di 200 GB, backup può richiedere molto tempo (più di otto ore) per il completamento.
 - **Versioni del backup:** La versione più recente del Backup (noto come la versione di ripristino istantaneo) usa un processo più ottimizzato confronto checksum per l'identificazione delle modifiche. Ma se si usa il ripristino immediato e sia eliminato uno snapshot di backup, backup passa a confronto checksum. In questo caso, l'operazione di backup verrà superare le 24 ore (o avere esito negativo).
 
 ## <a name="best-practices"></a>Procedure consigliate

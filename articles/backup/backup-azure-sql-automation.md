@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6469e3b35357867b6b38b00c8b11637ba30b2960
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287560"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717898"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Eseguire il backup e ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -476,6 +476,18 @@ WorkloadName     Operation            Status               StartTime            
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
+
+### <a name="re-register-sql-vms"></a>Registrare nuovamente le macchine virtuali SQL
+
+> [!WARNING]
+> Assicurarsi di leggere ciò [documento](backup-sql-server-azure-troubleshoot.md#re-registration-failures) per comprendere i sintomi di errore e le cause prima di tentare di ri-registrazione
+
+Per attivare la ri-registrazione di VM di SQL, recuperare il contenitore di backup pertinente e passarla al cmdlet register.
+
+````powershell
+$SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
+Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
+````
 
 ### <a name="stop-protection"></a>Arresta protezione
 

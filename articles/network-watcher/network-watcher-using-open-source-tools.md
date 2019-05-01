@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680533"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936015"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
 
@@ -76,7 +76,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
 1. Mappa geografica
 
-    Questo riquadro consente di visualizzare una mappa del traffico di rete, con gradazioni di colore che indicano il volume di traffico da ogni paese. È possibile selezionare i paesi evidenziati per visualizzare altre statistiche sui flussi, ad esempio la proporzione di dati inviati e ricevuti dagli indirizzi IP in un determinato paese.
+    Questo riquadro consente di visualizzare una mappa del traffico di rete, con i colori di ridimensionamento per il volume di traffico da ogni paese/area geografica. È possibile selezionare i paesi evidenziati per visualizzare altre statistiche sui flussi, ad esempio la proporzione di dati inviati e ricevuti dagli indirizzi IP in tale paese/area geografica.
 
     ![Mappa geografica][8]
 

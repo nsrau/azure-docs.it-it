@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012502"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733732"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012502"
 | Numero massimo di socket di rete consentiti per sandbox<sup>1</sup> |1.000 |Si applica a solo sandbox di Azure.|
 | Tempo di esecuzione massimo consentito per ogni runbook<sup>1</sup> |3 ore |Si applica a solo sandbox di Azure.|
 | Numero massimo di account di automazione in una sottoscrizione |Nessun limite ||
+| Numero massimo di gruppi di lavoro ibridi per ogni Account di automazione|4.000||
 |Numero massimo di processi simultanei che possono essere eseguiti in Hybrid Runbook Workers singolo|50 ||
 | Dimensioni parametro processi runbook massimo   | 512 kilobit||
 | Parametri del runbook massimo   | 50|Se si raggiunge il limite di 50 parametri, è possibile passare una stringa JSON o XML per un parametro e analizzarlo con il runbook.|

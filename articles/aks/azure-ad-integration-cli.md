@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764116"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920174"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con Azure Kubernetes Service tramite la CLI di Azure
 
@@ -80,7 +80,6 @@ Azure AD necessita delle autorizzazioni per eseguire le azioni seguenti:
 
 * Leggi i dati della directory
 * Eseguire l'accesso e leggere il profilo utente
-* Leggi i dati della directory
 
 Assegnare queste autorizzazioni seguendo la [aggiungere l'autorizzazione dell'app ad az] [ az-ad-app-permission-add] comando:
 

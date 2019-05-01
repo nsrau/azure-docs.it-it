@@ -1,25 +1,18 @@
 ---
-title: Prezzi per le offerte di macchine virtuali | Microsoft Docs
+title: I prezzi per le offerte di macchine virtuali | Azure Marketplace
 description: Illustra i tre metodi disponibili per specificare i prezzi delle offerte delle macchine virtuali.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094459"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935746"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 ==================================

@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765750"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719396"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Attributi di sicurezza comuni per Azure Service Fabric
 
@@ -27,7 +27,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Sì | Il cliente è proprietario del cluster e la scalabilità di macchine virtuali impostato su cui viene creato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Crittografia nella rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì |  |
+| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì |  |
 | Gestione della crittografia chiave (CMK, modalità BYOK e così via)| Sì | Il cliente è proprietario del cluster e la scalabilità di macchine virtuali impostato su cui viene creato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
 | Crittografia a livello di colonna (Azure Data Services)| N/D |  |
 | Chiamate API crittografate| Sì | Le chiamate API di Service Fabric vengono eseguite tramite Azure Resource Manager. È necessario un token JSON Web (JWT) valido. |
@@ -37,7 +37,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto endpoint del servizio| Sì |  |
-| supportare l'inserimento di rete virtuale| Sì |  |
+| Supportare l'inserimento di rete virtuale| Sì |  |
 | Isolamento di rete e supporto firewall| Sì | Uso dei gruppi di sicurezza di rete. |
 | Supporto di tunneling forzato| Sì | Sulla rete di Azure è disponibile il tunneling forzato. |
 

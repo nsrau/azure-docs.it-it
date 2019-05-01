@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718156"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926123"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -30,7 +30,7 @@ Se nel manifesto del servizio è presente un servizio contenitore con un endpoin
 Quando un servizio contenitore viene riavviato o spostato in un altro nodo del cluster, l'indirizzo IP cambia. Per individuare i servizi contenitore, quindi, non è consigliabile usare l'indirizzo IP assegnato dinamicamente, ma solo Service Fabric Naming Service o il servizio DNS. 
 
 >[!WARNING]
->Azure consente a un totale di indirizzi IP 65,356 per ogni rete virtuale. La somma del numero di nodi e il numero di istanze del servizio contenitore (che utilizzano la modalità Open) non può superare 65,356 gli indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, le altre dipendenze, ad esempio servizio di bilanciamento del carico verranno sono presenti altri [limitazioni](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) da prendere in considerazione. Attualmente fino a 50 indirizzi IP per ogni nodo sono stati testati e collaudati stabile. 
+>Azure consente a un totale di indirizzi IP 65,356 per ogni rete virtuale. La somma del numero di nodi e il numero di istanze del servizio contenitore (che utilizzano la modalità Open) non può superare 65,356 gli indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, le altre dipendenze, ad esempio servizio di bilanciamento del carico verranno sono presenti altri [limitazioni](https://docs.microsoft.com/azure/azure-subscription-service-limits) da prendere in considerazione. Attualmente fino a 50 indirizzi IP per ogni nodo sono stati testati e collaudati stabile. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurare la modalità di rete Open
@@ -204,7 +204,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    | --- | --- | --- |
    |Priorità |2000 | |
    |NOME |Custom_Dns  | |
-   |Source (Sorgente) |VirtualNetwork | |
+   |`Source` |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
    |Azione | CONSENTI  | |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728835"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica
 
@@ -34,10 +34,10 @@ Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto c
 
 Attualmente, i seguenti servizi multimediali [gli endpoint di Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) metriche vengono generate da Azure:
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
-|Requests|Fornisce i dettagli per n. totale di richieste elaborate dall'endpoint di streaming.|
-|Egress|Numero totale di byte in uscita. Ad esempio, i byte trasmessi dall'endpoint di streaming.|
+|Requests|Fornisce i dettagli per n. totale di richieste elaborate dall'Endpoint di Streaming.|
+|Egress|Numero totale di byte in uscita. Ad esempio, i byte trasmessi dall'Endpoint di Streaming.|
 |Latenza end to end esito positivo| Fornisce informazioni sulla latenza end-to-end di richieste eseguite correttamente.|
 
 Ad esempio, per ottenere le metriche "dei servizi esterni" con CLI, eseguire questo `az monitor metrics` riga di comando:
@@ -54,7 +54,7 @@ Per informazioni su come creare avvisi delle metriche, vedere [crea, visualizzar
 
 Attualmente, è possibile ottenere i log di diagnostica seguenti:
 
-|Name|DESCRIZIONE|
+|NOME|DESCRIZIONE|
 |---|---|
 |Richiesta di servizio di distribuzione delle chiavi|Log che mostrano le informazioni sulla richiesta di servizio di distribuzione delle chiavi. Per altre informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 

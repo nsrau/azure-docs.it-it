@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537701"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922253"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -32,7 +32,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="limits"></a>Limiti
 
-* In grado di leggere o scrivere i file che sono azioni SFTP-SSH *1 GB o ridurre le dimensioni* gestendo i dati come *50 MB pezzi*, non 1 GB parti.
+* In grado di leggere o scrivere i file che sono azioni SFTP-SSH *1 GB o inferiore* gestendo i dati come *15 MB parti*, non 1 parti GB.
 
 * Per i file *superano 1 GB*, le azioni possono utilizzare [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
@@ -44,7 +44,7 @@ Per altre differenze, esaminare [confrontare SFTP-SSH e SFTP](#comparison) più 
 
 Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
 
-* Usa la libreria <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, una libreria SSH open source con supporto per .NET.
+* Usa il [libreria SSH.NET](https://github.com/sshnet/SSH.NET), che è una libreria di Secure Shell (SSH) open source che supporta .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impronta digitale**: MD5
 
-* Le azioni possano leggere o scrivere i file *fino a 1 GB* confrontato con il connettore SFTP, ma gestisce dati in parti di 50 MB, 1 GB non parti. Per i file di dimensioni superiori a 1 GB, le azioni possono usare anche la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* Le azioni possano leggere o scrivere i file *fino a 1 GB* confrontato con il connettore SFTP, ma gestisce dati in parti di 15 MB, 1 GB non parti. Per i file di dimensioni superiori a 1 GB, le azioni possono usare anche la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -136,7 +136,7 @@ I trigger SFTP-SSH eseguono il polling del sistema di file SFTP e ricercano tutt
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger. 
 
-Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
+La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
 
 * Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
 
@@ -152,7 +152,7 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 
 **Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
-Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
+La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
 
 * Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
 
@@ -164,7 +164,7 @@ Per le richieste del contenuto del file, i trigger non recuperano file di dimens
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto. 
 
-Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
+La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
 
 * Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
 

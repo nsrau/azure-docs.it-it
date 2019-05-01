@@ -3,8 +3,8 @@ title: Visualizzare la topologia di una rete virtuale di Azure | Microsoft Docs
 description: Informazioni su come visualizzare le risorse in una rete virtuale e le relazioni tra di esse.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: jdial
-ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786830"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682045"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualizzare la topologia di una rete virtuale di Azure
 

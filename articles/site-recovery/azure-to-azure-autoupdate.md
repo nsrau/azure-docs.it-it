@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792929"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925705"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica di Azure ad Azure
 
@@ -31,9 +31,10 @@ Quando si usa Site Recovery per gestire gli aggiornamenti, distribuisce un runbo
 La pianificazione di runbook predefinita si ripete ogni giorno alle 12:00 AM nel fuso orario dell'area geografica della macchina virtuale replicata. È anche possibile modificare la pianificazione del runbook tramite l'account di automazione.
 
 > [!NOTE]
+> A partire da 35 Rollup aggiornamento, è possibile scegliere un account di automazione esistente da utilizzare per gli aggiornamenti. Prima dell'aggiornamento, Site Recovery creato questo account per impostazione predefinita. Questa opzione è disponibile quando si abilita la replica per una macchina virtuale. Se si modifica l'impostazione, verrà applicata per tutte le macchine virtuali di Azure protette nel medesimo insieme di credenziali.
+ 
 > Attivazione degli aggiornamenti automatici non richiedono il riavvio delle VM di Azure o influire sulla replica in corso.
 
-> [!NOTE]
 > Processo di fatturazione nell'account di automazione è basato sul numero di minuti di esecuzione processo usato in un mese. Per impostazione predefinita, 500 minuti di esecuzione sono inclusi come unità gratuite per un account di automazione. L'esecuzione del processo richiede alcuni secondi a circa un minuto, ogni giorno e viene illustrata come unità gratuite.
 
 | Unità gratuite incluse (ogni mese) | Prezzo |
@@ -63,7 +64,7 @@ Quando si abilita la replica per una macchina virtuale di avvio [dalla visualizz
 
 
 > [!Note]
-> Entrambe le opzioni di notifica dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, viene creato un nuovo account di automazione. Tutte le repliche enable successivi nel medesimo insieme di credenziali usano quello creato in precedenza.
+> Entrambe le opzioni di notifica dell'account di automazione usato per la gestione degli aggiornamenti. Se si usa questa funzionalità in un insieme di credenziali per la prima volta, per impostazione predefinita viene creato un nuovo account di automazione. In alternativa, è possibile personalizzare l'impostazione e scegliere un account di automazione esistente. Tutte le repliche enable successivi nel medesimo insieme di credenziali usano quello creato in precedenza.
 
 Per un account di automazione personalizzata, usare lo script seguente:
 

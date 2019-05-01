@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446585"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925648"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione di MongoDB per gestire i dati archiviati nell'API di Azure Cosmos DB per MongoDB 
 
@@ -45,7 +45,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-| customAction   |  stringa  |   Nome del comando personalizzato, deve essere "CreateDatabase".      |
+| customAction   |  string  |   Nome del comando personalizzato, deve essere "CreateDatabase".      |
 | offerThroughput | int  | Velocità effettiva con provisioning impostato sul database. Questo parametro è facoltativo e, |
 
 ### <a name="output"></a>Output
@@ -87,7 +87,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-| customAction    |    stringa     |   Nome del comando personalizzato. Deve essere "UpdateDatabase".      |
+| customAction    |    string     |   Nome del comando personalizzato. Deve essere "UpdateDatabase".      |
 |  offerThroughput   |  int       |     Nuova velocità effettiva con provisioning che si desidera impostare nel database.    |
 
 ### <a name="output"></a>Output
@@ -120,7 +120,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-|  customAction   |   stringa      |   Nome del comando personalizzato. Deve essere "GetDatabase"|
+|  customAction   |   string      |   Nome del comando personalizzato. Deve essere "GetDatabase"|
         
 ### <a name="output"></a>Output
 
@@ -162,10 +162,10 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-| customAction    | stringa | Nome del comando personalizzato. Deve essere "CreateDatabase"     |
-| collection      | stringa | Nome della raccolta                                   |
+| customAction    | string | Nome del comando personalizzato. Deve essere "CreateCollection"     |
+| collection      | string | Nome della raccolta                                   |
 | offerThroughput | int    | Velocità effettiva con provisioning per impostare il database. È un parametro facoltativo |
-| shardKey        | stringa | Percorso di chiave di partizione per creare una raccolta partizionata. È un parametro facoltativo |
+| shardKey        | string | Percorso di chiave di partizione per creare una raccolta partizionata. È un parametro facoltativo |
 
 ### <a name="output"></a>Output
 
@@ -207,8 +207,8 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-|  customAction   |   stringa      |   Nome del comando personalizzato. Deve essere "UpdateCollection".      |
-|  collection   |   stringa      |   Nome della raccolta.       |
+|  customAction   |   string      |   Nome del comando personalizzato. Deve essere "UpdateCollection".      |
+|  collection   |   string      |   Nome della raccolta.       |
 | offerThroughput   |int|   Velocità effettiva con provisioning per impostare la raccolta.|
 
 ## <a name="output"></a>Output
@@ -242,8 +242,8 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
-| customAction    |   stringa      |   Nome del comando personalizzato. Deve essere "GetCollection".      |
-| collection    |    stringa     |    Nome della raccolta.     |
+| customAction    |   string      |   Nome del comando personalizzato. Deve essere "GetCollection".      |
+| collection    |    string     |    Nome della raccolta.     |
 
 ### <a name="output"></a>Output
 

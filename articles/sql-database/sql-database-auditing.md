@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418402"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924749"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -90,7 +90,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log a un account di archiviazione di Azure, a un'area di lavoro di Log Analitica per l'utilizzo per i log di monitoraggio di Azure o hub eventi per l'utilizzo con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
 
    > [!WARNING]
-   > L'abilitazione del controllo al Log Analitica comporteranno un costo in base alla frequenza di inserimento. Tenere presente il costo associato all'utilizzo di questo [opzione](https://azure.microsoft.com/en-us/pricing/details/monitor/), o prendere in considerazione l'archiviazione di controllo Registra in un account di archiviazione di Azure.
+   > L'abilitazione del controllo al Log Analitica comporteranno un costo in base alla frequenza di inserimento. Tenere presente il costo associato all'utilizzo di questo [opzione](https://azure.microsoft.com/pricing/details/monitor/), o prendere in considerazione l'archiviazione di controllo Registra in un account di archiviazione di Azure.
 
     ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

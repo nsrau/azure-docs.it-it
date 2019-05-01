@@ -1,10 +1,10 @@
 ---
 title: Informazioni sui modelli di set di scalabilità di macchine virtuali | Microsoft Docs
-description: Informazioni su come creare un modello di set di scalabilità a validità minima per set di scalabilità di macchine virtuali di Azure
+description: Informazioni su come creare un modello di set di scalabilità di base per il set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805573"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868916"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
-I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità a validità minima e come modificarlo per adattarsi a vari scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss). 
+I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e su come modificare questo modello per adattarsi a vari scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
 
 Questo modello è progettato per essere semplice. Per esempi più completi di modelli di set di scalabilità, vedere [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) (Archivio GitHub Modelli di avvio rapido di Azure) e cercare le cartelle contenenti la stringa `vmss`.
 
 Se si ha già familiarità con i modelli, è possibile passare direttamente alla sezione "Passaggi successivi" per informazioni su come modificare questo modello.
-
-## <a name="review-the-template"></a>Rivedere il modello
-
-Usare GitHub per rivedere il modello del set di scalabilità a validità minima, ovvero [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-In questa esercitazione verranno esaminati in dettaglio i Diff (`git diff master minimum-viable-scale-set`) per creare punto per punto il modello di set di scalabilità a validità minima.
 
 ## <a name="define-schema-and-contentversion"></a>Definire $schema e contentVersion
 Definire prima gli elementi `$schema` e `contentVersion` nel modello. L'elemento `$schema` definisce la versione del linguaggio del modello e viene usato per l'evidenziazione della sintassi di Visual Studio e per funzionalità di convalida simili. L'elemento `contentVersion` non viene usato da Azure. Però consente di tenere traccia della versione del modello.
@@ -43,6 +37,7 @@ Definire prima gli elementi `$schema` e `contentVersion` nel modello. L'elemento
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Definire i parametri
 Successivamente definire due parametri, `adminUsername` e `adminPassword`. I parametri sono valori specificati al momento della distribuzione. Il parametro `adminUsername` è semplicemente un tipo `string`, ma dato che `adminPassword` è un segreto, gli viene assegnato il tipo `securestring`. Successivamente questi parametri vengono passati nella configurazione del set di scalabilità.
 
@@ -70,13 +65,13 @@ La sezione successiva del modello riguarda le risorse. In questa sezione si defi
    "resources": [
 ```
 
-Tutte le risorse richiedono le proprietà `type`, `name`, `apiVersion` e `location`. La prima risorsa dell'esempio è di tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), è denominata `myVnet` e l'apiVersion è `2016-03-30`. Per determinare la versione più recente dell'API di un tipo di risorsa, vedere le [informazioni di riferimento sui modelli di Azure Resource Manager](/azure/templates/).
+Tutte le risorse richiedono le proprietà `type`, `name`, `apiVersion` e `location`. La prima risorsa dell'esempio è di tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), è denominata `myVnet` e l'apiVersion è `2018-11-01`. Per determinare la versione più recente dell'API di un tipo di risorsa, vedere le [informazioni di riferimento sui modelli di Azure Resource Manager](/azure/templates/).
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Specificare il percorso
@@ -117,7 +112,7 @@ In questo caso c'è solo un elemento nell'elenco, ovvero la rete virtuale dell'e
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da c
 ```
 
 ### <a name="choose-type-of-updates"></a>Scegliere un tipo di aggiornamenti
-Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente sono disponibili due opzioni, `Manual` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md).
+Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente, sono disponibili tre opzioni, `Manual`, `Rolling` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

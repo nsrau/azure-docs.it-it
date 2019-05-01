@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290055"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939863"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Come creare un filtro facet in Ricerca di Azure 
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'esplorazione in base a facet: Vedere [Come implement
 
 ## <a name="choose-fields"></a>Selezionare i campi
 
-È possibile calcolare i facet su campi a valore singolo nonché su raccolte. I campi che funzionano meglio nell'esplorazione in base a facet hanno bassa molteplicità: un numero ridotto di valori distinct che si ripetono nei documenti dell'insieme delle ricerche (ad esempio, un elenco di colori, paesi o marchi). 
+È possibile calcolare i facet su campi a valore singolo nonché su raccolte. I campi che funzionano meglio nell'esplorazione in base a facet hanno bassa molteplicità: un numero ridotto di valori distinct che si ripetono i documenti in del corpo di ricerca (ad esempio, un elenco di colori, paesi/aree geografiche o nomi di marchi). 
 
 Il facet è abilitato campo per campo al momento della creazione dell'indice, impostando gli attributi seguenti su TRUE: `filterable`, `facetable`. Solo i campi filtrabili sono adatti all'esplorazione in base a facet.
 

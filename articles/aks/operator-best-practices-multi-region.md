@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464603"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920469"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ Questo articolo sulle procedure consigliate contiene considerazioni utili per pi
 
 Un cluster del servizio Azure Kubernetes viene distribuito in una singola area. Per proteggersi da errori di area, distribuire l'applicazione in più cluster del servizio Azure Kubernetes in aree diverse. Quando si pianificano le aree in cui distribuire il cluster del servizio Azure Kubernetes, si applicano le considerazioni seguenti:
 
-* [Disponibilità a livello di area del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [Disponibilità a livello di area del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Scegliere le aree vicine ai propri utenti. Il servizio Azure Kubernetes è in continua espansione in nuove aree.
 * [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Per la propria area geografica, scegliere due aree abbinate tra loro. In queste aree vengono coordinati gli aggiornamenti della piattaforma e gli interventi di ripristino vengono classificati in ordine di priorità, se necessario.
@@ -62,7 +62,7 @@ Per istruzioni su come configurare questi endpoint e il routing, vedere [Configu
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Routing dell'applicazione di livello 7 con Frontdoor di Azure
 
-Gestione traffico di Microsoft Azure usa DNS (livello 3) per gestire il traffico. [Porta principale Azure (attualmente in anteprima)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive del servizio Frontdoor includono terminazione SSL, dominio personalizzato, web application firewall, riscrittura URL e affinità di sessione.
+Gestione traffico di Microsoft Azure usa DNS (livello 3) per gestire il traffico. [Porta d'ingresso Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive del servizio Frontdoor includono terminazione SSL, dominio personalizzato, web application firewall, riscrittura URL e affinità di sessione.
 
 Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 

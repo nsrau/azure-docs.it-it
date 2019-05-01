@@ -3,19 +3,19 @@ title: Usare Application Insights per risolvere i problemi relativi ai criteri p
 description: Informazioni su come configurare Application Insights per tenere traccia dell'esecuzione di criteri personalizzati.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9b25e5dc5d090ad7aab3d61e2c303a465b5d7443
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089370"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703929"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Raccolta di log
 

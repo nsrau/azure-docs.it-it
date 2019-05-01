@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341643"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573375"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
 
@@ -32,18 +32,19 @@ ms.locfileid: "60341643"
 Oggetti di database|Database SQL di Azure|Qualsiasi database nel database SQL di Azure|
 ||Database singolo|Database creato usando l'opzione di distribuzione database singolo|
 ||Database in pool|Database creato o spostato in un pool elastico|
-||Database di istanza|Database creato in un'istanza gestita|
+||Database dell'istanza|Database creato in un'istanza gestita|
 ||Database Basic|Database creato o spostato nel livello di servizio Basic del modello di acquisto basato su DTU|
 ||Database Standard|Database creato o spostato nel livello di servizio Standard del modello di acquisto basato su DTU|
 ||Database Premium|Database creato o spostato nel livello di servizio Premium del modello di acquisto basato su DTU|
 ||Database di utilizzo generico|Database creato o spostato nel livello di servizio di utilizzo generico del modello di acquisto basato su vCore|
 ||Database Hyperscale|Database creato o spostato nel livello di servizio con iperscalabilità del modello di acquisto basato su vCore|
 ||Database Business Critical|Database creato o spostato nel livello di servizio Business Critical del modello di acquisto basato su vCore|
+||Database sottoposto a provisioning|Un database configurato nel livello di calcolo sottoposte a provisioning|
 |[Modelli e risorse di acquisto](sql-database-purchase-models.md)|modello di acquisto basato su DTU|[Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)|
-||Modello di acquisto in base ai vCore|[Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)|
+||Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Core fornito al sistema operativo guest dall'hypervisor.|
 ||Livello di servizio|Livello di servizio in un modello di acquisto|
-||Dimensione di calcolo|Quantità di risorse di calcolo per un database singolo, un pool elastico o un'istanza gestita in un livello di servizio|
+||Dimensioni di calcolo|Quantità di risorse di calcolo per un database singolo, un pool elastico o un'istanza gestita in un livello di servizio|
 ||Quantità di spazio di archiviazione|Quantità di spazio di archiviazione disponibile per un database singolo, un pool elastico o un'istanza gestita|
 ||Generazione di calcolo|Generazione del processore in un livello di servizio|
 |Regole del firewall IP per il server di database|Regole del firewall IP|[Regole del firewall IP](sql-database-firewall-configure.md)|

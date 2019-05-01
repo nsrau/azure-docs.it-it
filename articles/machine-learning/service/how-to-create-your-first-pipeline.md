@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819923"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914883"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>Visualizzare i risultati
 
 Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
@@ -368,6 +369,25 @@ Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
  ![elenco delle pipeline di Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
+
+## <a name="caching--reuse"></a>La memorizzazione nella cache e riutilizzo  
+
+Per ottimizzare e personalizzare il comportamento delle pipeline di è possibile eseguire alcune operazioni per la memorizzazione nella cache e riutilizzare. Ad esempio, è possibile scegliere di:
++ **Disattivare il riutilizzo predefinita del passaggio dell'output dell'esecuzione** impostando `allow_reuse=False` durante [passaggio definizione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Estendere l'hashing di là dello script**, per includere anche un percorso assoluto o i percorsi relativi di directory_origine ad altri file e directory tramite il `hash_paths=['<file or directory']` 
++ **Imporre la rigenerazione di output per tutti i passaggi in un'esecuzione** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+Per impostazione predefinita, passaggio riutilizzare è abilitato e viene eseguito l'hashing solo il file di script principale. Pertanto, se lo script per un passaggio specifico rimane invariato (`script_name`, input e i parametri), l'output di un passaggio precedente eseguire viene riutilizzata, non viene inviato il processo per le risorse di calcolo e i risultati dall'esecuzione precedente sono immediatamente disponibili per il passaggio successivo invece .  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare [questi notebook di Jupyter in GitHub](https://aka.ms/aml-pipeline-readme) per esplorare più in dettaglio le pipeline di Machine Learning.

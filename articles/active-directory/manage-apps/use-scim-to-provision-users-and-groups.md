@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291415"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918548"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -128,7 +128,7 @@ Quando si implementa un endpoint SCIM per garantire la compatibilità con Azure 
      - `and`
 * Non richiedono una corrispondenza tra maiuscole e minuscole per gli elementi strutturali in SCIM, in particolare delle PATCH `op` valori, operazione, come definito https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD genera i valori di 'op' come `Add`, `Replace`, e `Remove`.
 * Microsoft Azure AD invia una richiesta per recuperare un utente casuale e un gruppo per assicurarsi che l'endpoint e le credenziali siano valide. Viene eseguita anche come parte della **Test connessione** a Microsoft flow nel [portale di Azure](https://portal.azure.com). 
-* L'attributo che le risorse possono essere interrogate in deve essere impostata come un attributo corrispondente sull'applicazione nel [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [personalizzazione utente dei mapping degli attributi](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* L'attributo che le risorse possono essere interrogate in deve essere impostata come un attributo corrispondente sull'applicazione nel [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [personalizzazione utente dei mapping degli attributi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>Provisioning e deprovisioning utenti
 La seguente figura illustra i messaggi che Azure Active Directory invia al servizio SCIM per gestire il ciclo di vita di un utente nell'archivio di identità dell'applicazione.  

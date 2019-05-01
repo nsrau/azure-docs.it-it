@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101898"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925481"
 ---
 # <a name="scale-with-additional-process-servers"></a>Ridimensionare con server di elaborazione aggiuntivi
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, quando si esegue la replica di server fisici o mac
 
 Assicurarsi di aver [pianificato la capacità](site-recovery-plan-capacity-vmware.md) per la replica VMware. Ciò consente di identificare come e quando è necessario distribuire i server di elaborazione aggiuntivi.
 
-Da versione 9.24, materiale sussidiario viene aggiunto durante la selezione dei server di elaborazione per nuove repliche. Server di elaborazione verranno contrassegnati integro, avviso e critici in base a determinati criteri. Per comprendere i diversi scenari che possono influenzare lo stato del server di elaborazione, visitare [elaborare istruzioni sulla selezione del server](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Da versione 9.24, materiale sussidiario viene aggiunto durante la selezione dei server di elaborazione per nuove repliche. Server di elaborazione verranno contrassegnati integro, avviso e critico in base a determinati criteri. Per informazioni sui diversi scenari che possono influenzare lo stato del server di elaborazione, vedere la [elaborare avvisi server](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.

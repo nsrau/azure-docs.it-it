@@ -1,6 +1,6 @@
 ---
-title: Database SQL di Azure gestiti istanza fuso orario | Microsoft Docs"
-description: Informazioni sulle specifiche di fuso orario dell'istanza gestita di Azure SQL Database
+title: Istanza gestita di Database SQL Azure fusi orari | Microsoft Docs"
+description: Informazioni sulle specifiche fuso orario dell'istanza gestita di Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -10,46 +10,46 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487402"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866940"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuso orario in istanza gestita di Database SQL di Azure (anteprima)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Fusi orari in SQL Database istanza gestita di Azure (anteprima)
 
-Mentre tramite Coordinated Universal Time (UTC) è una procedura consigliata per il livello di dati di soluzioni cloud, istanza gestita di Azure SQL Database offre una scelta del fuso orario per soddisfare le esigenze delle applicazioni esistenti che archiviano i valori di data e ora e data chiamante e funzioni di ora con un contesto implicita di un fuso orario specifico.
+Coordinated Universal Time (UTC) è il fuso orario consigliato per il livello di dati di soluzioni cloud. Istanza gestita del Database SQL Azure offre anche una scelta dei fusi orari per soddisfare le esigenze delle applicazioni esistenti che archiviano i valori di data e ora e chiamano le funzioni di data e ora con un contesto implicita di un fuso orario specifico.
 
-T-SQL funziona in modo analogo [GETDATE ()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o codice CLR osservare il fuso orario impostato sull'istanza. Processi di SQL Agent anche seguono pianificazione in base al fuso orario dell'istanza.
+T-SQL funziona in modo analogo [GETDATE ()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o codice CLR osservare il fuso orario impostato sull'istanza. Processi di SQL Server Agent seguono anche le pianificazioni in base al fuso orario dell'istanza.
 
   >[!NOTE]
   > Istanza gestita è l'opzione di distribuzione solo del Database SQL di Azure che supporta l'impostazione del fuso orario. Altre opzioni di distribuzione seguono sempre UTC.
-Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) nel database SQL singoli e in pool se è necessario interpretare le informazioni di data e ora nel fuso orario non-UTC.
+Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) nel database SQL singoli e in pool se è necessario interpretare le informazioni di data e ora in un fuso orario non-UTC.
 
 ## <a name="supported-time-zones"></a>Fusi orari supportati
 
-Un set di zone di tempo supportate viene ereditato dal sistema operativo sottostante dell'istanza gestita e viene regolarmente aggiornata per ottenere le nuove definizioni di fuso orario e riflettere le modifiche a quelli esistenti.
+Un set di zone ora supportate verrà ereditato dal sistema operativo sottostante dell'istanza gestita. Venga aggiornata regolarmente per ottenere le nuove definizioni di fuso orario e riflettere le modifiche a quelli esistenti. 
 
 Un elenco con i nomi dei fusi orari supportati viene esposta tramite il [Sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista di sistema.
 
-## <a name="setting-time-zone"></a>Impostazione del fuso orario
+## <a name="set-a-time-zone"></a>Impostare un fuso orario
 
-Un fuso orario di istanza gestita può essere impostato durante la creazione di istanze soltanto. Il fuso orario predefinito è Coordinated Universal Time (UTC).
+Un fuso orario di un'istanza gestita può essere impostato durante la creazione di istanze soltanto. Il fuso orario predefinito è UTC.
 
   >[!NOTE]
   > Impossibile modificare il fuso orario di un'istanza gestita esistente.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Impostando il fuso orario tramite il portale di Azure
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Impostare il fuso orario nel portale di Azure
 
-Durante l'immissione dei parametri per la nuova istanza, selezionare un fuso orario dall'elenco dei fusi orari supportati:
+Quando si immettono i parametri per una nuova istanza, selezionare un fuso orario dall'elenco dei fusi orari supportati. 
   
-![Impostazione di fuso orario durante la creazione di istanze](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Impostazione di un fuso orario durante la creazione di istanze](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Specificare proprietà timezoneId nel [modello di Resource Manager](https://aka.ms/sql-mi-create-arm-posh) per impostare il fuso orario durante la creazione dell'istanza.
+Specificare la proprietà timezoneId nel [modello di Resource Manager](https://aka.ms/sql-mi-create-arm-posh) per impostare il fuso orario durante la creazione dell'istanza.
 
 ```json
 "properties": {
@@ -66,36 +66,35 @@ Specificare proprietà timezoneId nel [modello di Resource Manager](https://aka.
 
 ```
 
-Elenco di valori supportati per la proprietà timezoneId può trovarsi alla fine di questo articolo.
+Un elenco dei valori supportati per la proprietà timezoneId è alla fine di questo articolo.
 
-Se non specificato, fuso orario verrà impostato su UTC.
+Se non specificato, il fuso orario è impostato su UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>Verifica il fuso orario dell'istanza
+## <a name="check-the-time-zone-of-an-instance"></a>Controllare il fuso orario di un'istanza
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) funzione restituisce un nome visualizzato del fuso orario dell'istanza.
+Il [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) funzione restituisce un nome visualizzato del fuso orario dell'istanza.
 
 ## <a name="cross-feature-considerations"></a>Considerazioni sulla tra funzionalità
 
 ### <a name="restore-and-import"></a>Ripristino e l'importazione
 
-È possibile ripristinare i file di backup o importare i dati a istanza gestita da un'istanza o un server con le impostazioni di fuso orario diverso. Tuttavia, assicurarsi di eseguire questa operazione con cautela e per analizzare il comportamento dell'applicazione e i risultati delle query e report, esattamente come durante il trasferimento dei dati tra due istanze di SQL Server con le impostazioni di fuso orario diverso.
+È possibile ripristinare un file di backup o importare dati in un'istanza gestita da un'istanza o un server con le impostazioni di fuso orario diverso. Assicurarsi di eseguire questa operazione con cautela. Analizzare il comportamento dell'applicazione e i risultati delle query e report, proprio come quando si trasferiscono dati tra due istanze di SQL Server con le impostazioni di fuso orario diverso.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-Quando si esegue restore point-in-time, il tempo per il ripristino viene interpretato come ora UTC per evitare qualsiasi ambiguità a causa dell'ora legale e le relative modifiche potenziali.
+Quando si esegue un ripristino temporizzato in, il tempo per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare qualsiasi ambiguità a causa dell'ora legale e le relative modifiche potenziali.
 
 ### <a name="auto-failover-groups"></a>Gruppi di failover automatico
 
-Usando lo stesso fuso orario nell'istanza primaria e secondaria nel failover del gruppo non viene applicato, ma è fortemente consigliato.
-  >[!IMPORTANT]
-  > Anche se esistono scenari validi per la presenza di fuso orario diverso istanza di replica geografica secondaria utilizzata per la scalabilità in lettura solo, tenere presente che in caso di failover manuale o automatico istanza secondaria verrà mantenuto il fuso orario originale.
+Usando lo stesso fuso orario su un'istanza primaria e secondaria in un gruppo di failover non è applicata, ma è consigliabile utilizzarla.
+
+  >[!WARNING]
+  > È consigliabile usare lo stesso fuso orario per l'istanza primaria e secondaria in un gruppo di failover. A causa di alcuni scenari rari, mantenendo lo stesso fuso orario per le istanze principale e secondarie non è applicata. È importante comprendere che in caso di failover manuale o automatico, nell'istanza secondaria verrà mantenuto il fuso orario originale.
 
 ## <a name="limitations"></a>Limitazioni
 
 - Impossibile modificare il fuso orario dell'istanza gestita esistente.
-- I processi esterni avviati da processi di SQL Agent non sono limitati fuso orario dell'istanza.
-- Nativa di istanza gestita [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) cmdlet di PowerShell non in fase di passaggio supporto zona parametro ancora. Wrapper di PowerShell di utilizzo con [modello di Resource Manager](https://aka.ms/sql-mi-create-arm-posh) invece.
-- Riga di comando [az sql mi creare](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) non supporta ancora parametri di fuso orario.
+- I processi esterni avviati da processi di SQL Server Agent non osservare il fuso orario dell'istanza.
 
 ## <a name="list-of-supported-time-zones"></a>Elenco dei fusi orari supportati
 
@@ -240,7 +239,7 @@ Usando lo stesso fuso orario nell'istanza primaria e secondaria nel failover del
 | Ora solare Samoa | (UTC+13.00) Samoa |
 | Ora solare Isole Line | (UTC+14.00) Isola di Kiritimati |
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche  
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

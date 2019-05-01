@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046319"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872676"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -68,6 +68,8 @@ Qualsiasi criterio di indicizzazione ha includere il percorso radice `/*` come u
 
 - Includere il percorso radice per escludere in modo selettivo i percorsi che non devono essere indicizzati. Questo è l'approccio consigliato perché consente in modo proattivo indicizzare qualsiasi nuova proprietà che possono essere aggiunti al modello di Azure Cosmos DB.
 - Escludere il percorso radice in modo da includere in modo selettivo i percorsi che devono essere indicizzati.
+
+- Per i percorsi con caratteri normali che comprendono: caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/ path /?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/\"percorso-abc\"/?"). Se si prevede che i caratteri speciali nel proprio percorso, è possibile eseguire l'escape di ogni percorso per motivi di sicurezza. A livello funzionale non effettua alcuna differenza se l'escape di ogni percorso di Vs solo quelli che hanno caratteri speciali.
 
 Visualizzare [in questa sezione](how-to-manage-indexing-policy.md#indexing-policy-examples) per esempi di criteri di indicizzazione.
 

@@ -1,6 +1,6 @@
 ---
-title: Disponibilità dell'infrastruttura di Azure
-description: L'articolo descrive i livelli di ridondanza per garantire la massima disponibilità dei dati dei clienti.
+title: Disponibilità dell'infrastruttura di Azure - sicurezza di Azure
+description: Questo articolo fornisce informazioni sulle operazioni eseguite per proteggere l'infrastruttura di Azure e offrire la massima disponibilità dei dati dei clienti Microsoft.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587191"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872615"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilità dell'infrastruttura di Azure
-Azure offre una solida disponibilità, basata su un'estesa ridondanza ottenuta grazie alla tecnologia di virtualizzazione. nonché numerosi livelli di ridondanza per garantire la massima disponibilità dei dati dei clienti.
+Questo articolo fornisce informazioni sulle operazioni eseguite per proteggere l'infrastruttura di Azure e offrire la massima disponibilità dei dati dei clienti Microsoft. Azure offre una solida disponibilità, basata su un'estesa ridondanza ottenuta grazie alla tecnologia di virtualizzazione.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Interruzioni temporanee e disastri naturali
 Il team delle operazioni e dell'infrastruttura Microsoft Cloud progetta, crea, opera e migliora l'infrastruttura cloud. Tale team assicura che l'infrastruttura di Azure offra disponibilità e affidabilità elevate, alta efficienza e scalabilità intelligente. Il team fornisce un cloud più sicuro, privato e attendibile.

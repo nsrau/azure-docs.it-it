@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361957"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570652"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -76,7 +76,7 @@ Quando l'estensione Server dei criteri di rete per Azure è integrata con Server
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa sezione illustra in modo dettagliato i prerequisiti da completare prima di eseguire l'integrazione di Azure Multi-Factor Authentication con Gateway Desktop remoto. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti:
+In questa sezione illustra nel dettaglio i prerequisiti che devono essere completati prima di poter integrare MFA con la connessione VPN. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti:
 
 * Infrastruttura VPN
 * Ruolo Servizi di accesso e criteri di rete
@@ -338,7 +338,7 @@ Come parte della configurazione dell'estensione Server dei criteri di rete, è n
 
 ### <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
-L'estensione Server dei criteri di rete deve essere installata in un server con il ruolo Servizi di accesso e criteri di rete installato e che funzioni come server RADIUS nella progettazione. *Non* installare l'estensione Server dei criteri di rete nel server Desktop remoto.
+L'estensione Server dei criteri di rete deve essere installata in un server con il ruolo Servizi di accesso e criteri di rete installato e che funzioni come server RADIUS nella progettazione. Effettuare *non* installare l'estensione NPS nel server VPN.
 
 1. Scaricare l'estensione di Server dei criteri di rete dall'[Area download Microsoft](https://aka.ms/npsmfa).
 

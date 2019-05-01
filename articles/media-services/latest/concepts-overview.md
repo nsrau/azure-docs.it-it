@@ -1,6 +1,6 @@
 ---
-title: Concetti di servizi multimediali di Azure - Azure | Microsoft Docs
-description: Questo argomento offre una breve panoramica dei concetti di servizi multimediali di Azure e vengono forniti i collegamenti per informazioni dettagliate.
+title: Terminologia di servizi multimediali di Azure e i concetti - Azure | Microsoft Docs
+description: In questo argomento offre una breve panoramica dei concetti e terminologia di servizi multimediali di Azure e fornisce collegamenti ad ulteriori dettagli.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103851"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867070"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
 
-Questo argomento offre una breve panoramica dei concetti di servizi multimediali di Azure e fornisce collegamenti ad articoli con spiegazione approfondita di servizi multimediali v3 concetti e funzionalità. Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.
+In questo argomento offre una breve panoramica dei concetti e terminologia di servizi multimediali di Azure. L'articolo include anche collegamenti ad articoli con spiegazione approfondita di servizi multimediali v3 concetti e funzionalità. 
+
+Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.
 
 > [!NOTE]
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
+## <a name="terminology"></a>Terminologia
+
+In questa sezione illustra alcuni termini di settore common mapping all'API servizi multimediali v3.
+
+### <a name="live-event"></a>Evento live
+
+Oggetto **evento Live** rappresenta una pipeline per l'inserimento, la transcodifica (facoltativamente) e l'assemblaggio di flussi in tempo reale dei metadati video, audio e in tempo reale.
+
+Per i clienti di eseguire la migrazione dalle API di servizi multimediali v2, la **evento Live** sostituisce il **canale** entità nella versione 2. Per altre informazioni, vedere [eseguire la migrazione dalla v2 alla v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Endpoint di streaming (creazione di pacchetti e l'origine)
+
+Oggetto **Endpoint di Streaming** rappresenta un dinamico (just-in-time) creazione di pacchetti e l'origine del servizio che può distribuire contenuti live e on demand direttamente a un'applicazione di lettore client, usando uno dei più comuni supporti protocolli di streaming (HLS o un trattino). Inoltre, il **Endpoint di Streaming** fornisce la crittografia dinamica (just-in-time) per soluzioni DRM leader del settore.
+
+Nel supporto di streaming del settore, questo servizio è noto come un **Packager** oppure **Origin**.  Altri termini comuni nel settore per offrire questa funzionalità includono JITP (Just-in-tempo-packager) o JITE (Just-in-tempo-crittografia). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Caricamento e archiviazione nel cloud
 
 Per avviare la gestione, la crittografia, la codifica, l'analisi e lo streaming di contenuti multimediali in Azure, è necessario creare un account servizi multimediali e caricare i file digitali in **asset**.
@@ -52,7 +70,7 @@ Per analizzare i file audio e video, è anche necessario creare **trasforma** e 
 
 ## <a name="packaging-delivery-protection"></a>Creazione di pacchetti, distribuzione, protezione
 
-Una volta il contenuto viene codificato, è possibile sfruttare **creazione dinamica dei pacchetti**. **Endpoint di streaming** è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Per rendere i video nell'asset di output disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e quindi compilare gli URL di streaming. 
+Una volta il contenuto viene codificato, è possibile sfruttare **creazione dinamica dei pacchetti**. In servizi multimediali, una **Endpoint di Streaming**  /origine si trova il servizio di creazione dinamica dei pacchetti utilizzato per recapitare contenuto multimediale agli assegnatari di client. Per rendere i video nell'asset di output disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e quindi compilare gli URL di streaming. 
 
 Quando si crea il **localizzatore di Streaming**, oltre al nome dell'asset, è necessario specificare **Streaming criteri**. **I criteri di streaming** consentono di definire i protocolli di streaming e opzioni di crittografia (se presente) per il **localizzatori di Streaming**.
 

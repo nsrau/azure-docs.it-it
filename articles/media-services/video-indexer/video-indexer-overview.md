@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559863"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574137"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -37,8 +37,8 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 
 ## <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
-- **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, russo e portoghese (brasiliano). Se non è possibile rilevare la lingua, verrà usato per impostazione predefinita l'inglese.
-- **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, arabo, russo, portoghese (brasiliano), hindi e coreano.
+- **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e brasiliano portoghese sarà il fallback a inglese quando non è possibile rilevare la lingua.
+- **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, portoghese (Brasile), Hindi e coreano.
 - **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 - **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
 - **Riduzione del rumore**: ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).
@@ -47,7 +47,7 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 - **Statistiche dei relatori**: fornisce statistiche in merito al parlato dei relatori.
 - **Moderazione del contenuto testuale**: rileva testo esplicito nella trascrizione audio.
 - **Effetti audio**: identifica effetti audio, come applausi, parlato e silenzio.
-- **Rilevamento delle emozioni**: identifica le emozioni in base a segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
+- **Rilevamento delle emozioni**: Identifica le emozioni basate su riconoscimento vocale (parlato) e tonalità di voce (come lo è detto).  L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
 - **Traduzione**: crea traduzioni della trascrizione audio in 54 lingue diverse.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Informazioni dettagliate sui contenuti audio e video (più canali)

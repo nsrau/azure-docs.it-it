@@ -1,25 +1,18 @@
 ---
-title: Configurazione tecnica dell'offerta per un'applicazione SaaS di Azure | Microsoft Docs
+title: SaaS applicazione offerta tecnico configurazione di Azure | Azure Marketplace
 description: Configurare le informazioni tecniche per un'offerta di applicazione SaaS in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 46dcf4aeb7ddb67028eb23dde9236f2b7709f86d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594313"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941735"
 ---
 # <a name="saas-application-technical-info-tab"></a>Scheda Informazioni tecniche per le applicazioni SaaS
 
@@ -27,9 +20,11 @@ La scheda Informazioni tecniche include il modulo Configurazione tecnica, che è
 
 ![Modulo Configurazione tecnica](./media/saas-techinfo-techconfig.png)
 
+
 ## <a name="technical-configuration-form"></a>Modulo Configurazione tecnica
 
 Questo modulo ha due campi: Prodotto e Invito all'azione.
+
 
 ### <a name="product-field"></a>Campo Prodotto
 
@@ -37,6 +32,7 @@ Questo modulo ha due campi: Prodotto e Invito all'azione.
 - Per un utente aziendale selezionando l'opzione **Inserzione**.
 - Per un utente amministratore IT selezionando **Sell through Microsoft** (Vendi tramite Microsoft).
 Per decidere quale tipo di app SaaS si sta creando, leggere [Informazioni sulla selezione della vetrina](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#understand-storefront-selection).
+
 
 #### <a name="sell-through-microsoft"></a>Vendita tramite Microsoft
 Per creare questa esperienza, è necessario configurare gli elementi seguenti:
@@ -46,16 +42,17 @@ Per creare questa esperienza, è necessario configurare gli elementi seguenti:
 
   ![Modulo Sell through Microsoft (Vendi tramite Microsoft)](./media/saas-techinfo-sellthrough-ms.png)
 
-La tabella seguente descrive i campi obbligatori per l'opzione Sell through Microsoft (Vendi tramite Microsoft).
+Nella tabella seguente vengono descritti i campi obbligatori per **Vendi tramite Microsoft**.  I campi obbligatori sono indicati da un asterisco (*).
 
 |  **Nome campo**   |  **Descrizione**  |
 |  ---------------  |  ---------------  |
-|    Preview Subscription IDs (ID sottoscrizione di anteprima)               |    Tutti gli identificatori della sottoscrizione di Azure usati per testare l'offerta in anteprima prima che sia pubblicamente disponibile.               |
-|     Getting Started Instructions (Istruzioni per le attività iniziali)              |   Indicazioni da condividere con i clienti per aiutarli a connettersi all'app SaaS. Sono consentiti i tag HTML di base, ad esempio &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; e così via.                |
-|    Landing Page URL (URL della pagina di destinazione)  |   L'URL del sito al quale verranno indirizzati i clienti dopo l'acquisto nel portale di Azure. Questo URL sarà anche l'endpoint che riceverà le API di connessione che agevolano l'attività commerciale con Microsoft.                |
-|  Connection Webhook (Webhook di connessione)    |  Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, se la sottoscrizione di Azure non è più valida), viene richiesto di fornire un webhook di connessione. Se non si ha un sistema di webhook, la configurazione più semplice è costituita da un'app per la logica con endpoint HTTP che rimane in ascolto degli eventi inseriti e li gestisce in modo appropriato. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica</a>.                |
-|  Azure AD Tenant ID (ID tenant di Azure AD) e Azure AD App ID (ID app di Azure AD)      |   All'interno del portale di Azure è necessario creare un'app Active Directory in modo che la connessione tra i due servizi sia protetta da una comunicazione autenticata. Per questi campi, creare un'app Active Directory e inserire l'ID tenant e l'ID app corrispondenti. L'ID dell'app è associato all'ID dell'editore. Di conseguenza, verificare che l’ID sia lo stesso in tutte le offerte.             |
-
+|  **ID sottoscrizione di anteprima\***   |  Tutti gli identificatori della sottoscrizione di Azure usati per testare l'offerta in anteprima prima che sia pubblicamente disponibile.  |
+|  **Visualizzare in anteprima gli account AAD/MSA\***   |  Gli account Azure AD/MSA, separati da virgole, che vengono concesso l'accesso per la versione di anteprima. |
+|  **Introduzione a istruzioni** |  Indicazioni da condividere con i clienti per aiutarli a connettersi all'app SaaS. Sono consentiti i tag HTML di base, ad esempio &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; e così via.    |
+|  **URL della pagina di destinazione\***           |  L'URL del sito al quale verranno indirizzati i clienti dopo l'acquisto nel portale di Azure. Questo URL sarà anche l'endpoint che riceverà le API di connessione che agevolano l'attività commerciale con Microsoft.   |
+| **Connection Webhook\***            |  Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, se la sottoscrizione di Azure non è più valida), viene richiesto di fornire un webhook di connessione. Se non si ha un sistema di webhook, la configurazione più semplice è costituita da un'app per la logica con endpoint HTTP che rimane in ascolto degli eventi inseriti e li gestisce in modo appropriato. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica</a>.    |
+|  **ID Tenant di Azure AD\***  e **ID App\***      |   All'interno del portale di Azure è necessario creare un'app Active Directory in modo che la connessione tra i due servizi sia protetta da una comunicazione autenticata. Per questi campi, creare un'app Active Directory e inserire l'ID tenant e l'ID app corrispondenti. L'ID dell'app è associato all'ID dell'editore. Di conseguenza, verificare che l’ID sia lo stesso in tutte le offerte.   |
+|   |   |
 
 Infine, se si seleziona **Sell through Microsoft** (Vendi tramite Microsoft), è disponibile un'altra scheda per la nuova offerta denominata **Piani**. 
 

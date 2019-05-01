@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059606"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922469"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -29,7 +29,7 @@ La trascrizione batch è ideale se si desidera trascrivere una grande quantità 
 Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, la creazione di una chiave è l'unica operazione da eseguire.
 
 >[!NOTE]
-> Per usare la trascrizione batch è necessaria una sottoscrizione standard (S0) per i servizi di riconoscimento vocale. Le chiavi di sottoscrizione gratuita (F0) non funzioneranno. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> Per usare la trascrizione batch è necessaria una sottoscrizione standard (S0) per i servizi di riconoscimento vocale. Le chiavi di sottoscrizione gratuita (F0) non funzioneranno. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelli personalizzati
 
@@ -72,7 +72,8 @@ I parametri di configurazione vengono forniti in formato JSON:
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `none` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. | Facoltativo |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. | Facoltativo |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. | Facoltativo |
+ | `AddSentiment` | Specifica dei sentimenti devono essere aggiunte alle utterance. Valori accettati sono `true` che consente di sentimenti per ogni utterance e `false` (valore predefinito) per disabilitarlo. | Facoltativo |
 
 ### <a name="storage"></a>Archiviazione
 
@@ -97,6 +99,57 @@ Batch supporta di trascrizione [archiviazione Blob di Azure](https://docs.micros
 Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fornire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che è possibile informare il client al completamento di attività con esecuzione prolungata trascrizione.
 
 Per altre informazioni, vedere [Webhook](webhooks.md).
+
+## <a name="sentiment"></a>Valutazione
+
+Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costituisce un'importante funzionalità del dominio di centro di chiamata. I clienti possono usare il `AddSentiment` parametri alle loro richieste di 
+
+1.  Ottieni informazioni dettagliate sulla soddisfazione dei clienti
+2.  Ottieni informazioni dettagliate sulle prestazioni degli agenti (team richiede le chiamate)
+3.  Individuare il punto esatto nel tempo quando una chiamata ha avuto un giro in direzione negativa
+4.  Individuare la causa anche quando si attiva chiamate negative a positivo
+5.  Identificare cosa, come i clienti e quali sono graditi di un prodotto o un servizio
+
+Punteggio del sentiment è per ogni segmento di audio in cui un segmento di audio è definito come lasso di tempo tra l'inizio di utterance (offset) e l'inattività di rilevamento della fine del flusso di byte. L'intero testo all'interno di tale segmento viene utilizzato per il calcolo del sentiment. Non viene calcolare i valori di aggregazione del sentiment per la chiamata intera o del contenuto vocale intero di ogni canale. Questi vengono lasciati al proprietario del dominio per applicare ulteriormente.
+
+Sentiment viene applicato al formato lessicale.
+
+Un esempio di output JSON simile al seguente:
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+La funzionalità Usa un modello di Sentiment che è attualmente in versione Beta.
 
 ## <a name="sample-code"></a>Codice di esempio
 

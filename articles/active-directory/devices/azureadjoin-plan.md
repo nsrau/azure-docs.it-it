@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354519"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918825"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -135,7 +135,11 @@ L'aggiunta ad Azure AD:
 
 ### <a name="management-platform"></a>Piattaforma di gestione
 
-La gestione dei dispositivi aggiunti ad Azure AD è basata su una piattaforma MDM come Intune e su provider di servizi cloud MDM. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
+Gestione dei dispositivi aggiunti ad Azure AD si basa su una piattaforma MDM, ad esempio Intune e MDM CSP. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
+
+> [!NOTE]
+> I criteri di gruppo non sono supportati in dispositivi aggiunti ad Azure AD che non siano connessi a un'istanza locale di Active Directory. Gestione dei dispositivi aggiunti ad Azure AD è possibile solo tramite MDM
+
 
 Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
@@ -143,7 +147,6 @@ Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
 - **Co-gestione**: un dispositivo viene gestito da un provider MDM e da SCCM. In questo approccio l'agente SCCM è installato in un dispositivo gestito da MDM per l'amministrazione di determinati aspetti.
 
-Poiché i dispositivi aggiunti ad Azure AD non sono connessi ad Active Directory locale, i criteri di gruppo non sono supportati.
 
 
 Se si usano criteri di gruppo, valutare la parità dei criteri MDM usando [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

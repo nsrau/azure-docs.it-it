@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621431"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728046"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -321,10 +321,6 @@ In questa versione il costruttore Microsoft.WindowsAzure.MediaServices.Client.Co
 * Attualmente non è possibile inserire uno streaming live RTMP tramite una connessione SSL.
 * Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si vuole eseguire lo streaming tramite SSL, [creare un nuovo endpoint di streaming](media-services-portal-manage-streaming-endpoints.md). Per lo streaming dei contenuti tramite SSL usare gli URL basati sul nuovo endpoint di streaming.
 
-## <a id="october_changes_14"></a>Versione di ottobre 2014
-### <a id="new_encoder_release"></a>Versione del Codificatore di Servizi multimediali
- È stata annunciata la nuova versione di Azure Media Encoder di Servizi multimediali. Con la versione più recente di Media Encoder vengono addebitati solo i GB output. Per gli altri aspetti il nuovo codificatore assicura la compatibilità di funzioni con il codificatore precedente. Per altre informazioni, vedere [Prezzi di Servizi multimediali].
-
 ### <a id="oct_sdk"></a>SDK di Servizi multimediali per .NET
 Le estensioni di Media Services SDK per .NET sono ora disponibili nella versione 2.0.0.3.
 
@@ -396,14 +392,6 @@ Media Services .NET SDK è ora disponibile nella versione 3.0.0.5. Sono stati es
   * Quando vengono generate eccezioni Web, ad esempio durante una richiesta di token del Servizio di controllo di accesso, il fallimento e la risposta agli errori irreversibili è immediata.
 
 Per altre informazioni, vedere [Logica di ripetizione dei tentativi in Media Services SDK per .NET].
-
-## <a id="april_changes_14"></a>Versione del codificatore di aprile 2014
-### <a name="april_14_enocer_changes"></a>Aggiornamenti del Codificatore di Servizi multimediali
-* È stato aggiunto il supporto per inserire i file AVI creati tramite l'editor non lineare EDIUS di Grass Valley. In questo processo, il video viene leggermente compresso tramite il codec HQ/HQX di Grass Valley. Per altre informazioni, vedere la pagina relativa agli [annunci di Grass Valley sullo streaming EDIUS 7 nel cloud].
-*  È stato aggiunto supporto per specificare la convenzione di denominazione per i file creati da Media Services Encoder. Per altre informazioni, vedere [Controllo dei nomi file di output del codificatore di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  È stato aggiunto il supporto per le sovrimpressioni video e/o audio. Per altre informazioni, vedere [Creare sovrimpressioni](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  È stato aggiunto il supporto per unire più segmenti video. Per altre informazioni, vedere [Unione dei segmenti video](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* È stato corretto un bug correlato alla transcodifica di file MP4 in cui l'audio è stato codificato con MPEG-1 Audio Layer 3, noto anche come MP3.
 
 ## <a id="jan_feb_changes_14"></a>Versioni di gennaio/febbraio 2014
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 e 3.0.0.3
@@ -546,7 +534,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
   
     * A tutti i metodi è stato aggiunto il supporto asincrono.
 
-## <a name="provide-feedback"></a>Invia commenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->
@@ -556,7 +544,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
 <!--- URLs. --->
 [forum MSDN su Servizi multimediali di Microsoft Azure]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Prezzi di Servizi multimediali]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadati di input]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadati di output]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [Logica di ripetizione dei tentativi in Media Services SDK per .NET]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[annunci di Grass Valley sullo streaming EDIUS 7 nel cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

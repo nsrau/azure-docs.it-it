@@ -1,25 +1,18 @@
 ---
-title: Domande frequenti su Marketplace | Azure
+title: Domande frequenti su Azure Marketplace
 description: Risposte alle domande frequenti su Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709377"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938640"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
 
@@ -92,9 +85,9 @@ Le dipendenze per le offerte di Azure Marketplace non vengono gestite automatica
 
 Se il server di pubblicazione ha configurato il partner a essere disponibili tramite il canale CSP, sarà disponibile tramite il rivenditore.
 
-**In quali paesi è possibile acquistare le applicazioni e i servizi venduti/forniti tramite Azure Marketplace?**
+**Quali paesi/aree geografiche supportate per l'acquisto di applicazioni e i servizi venduti/forniti tramite Azure Marketplace?**
 
-Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi elencati nel [politiche di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi elencati nella [politiche di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
 **Quali valute sono supportate da Azure Marketplace?**
 
@@ -134,7 +127,7 @@ La sottoscrizione di Azure è inclusa nei prezzi delle soluzioni dei fornitori d
 
 *Tariffa mensile:* viene addebitata o fatturata una tariffa mensile fissa per una sottoscrizione dell'offerta, a partire dalla data di inizio della sottoscrizione per il piano specifico. Alla tariffa mensile può essere applicata la ripartizione proporzionale per gli annullamenti a metà mese o i servizi non usati.
 
-Altre informazioni specifiche sui prezzi dell'offerta sono disponibili nella pagina dei dettagli della soluzione all'indirizzo [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) o nel [portale di gestione di Microsoft Azure](https://portal.azure.com/).
+Altre informazioni specifiche sui prezzi dell'offerta sono disponibili nella pagina dei dettagli della soluzione all'indirizzo [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) o nel [portale di gestione di Microsoft Azure](https://portal.azure.com/).
 
 >[!Note]
 > Gli addebiti per l'utilizzo di Azure, ad eccezione delle tariffe mensili, sono applicabili a tutti i modelli di determinazione dei prezzi, se non diversamente indicato.
@@ -381,7 +374,7 @@ Dopo aver completato l'offerta e la configurazione dei lead destinatari, l'inser
 
 **Da quali paesi/aree geografiche gli editori possono vendere in Azure Marketplace?**
 
-Gli editori dei paesi seguenti attualmente possono vendere in Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua e Barbuda, Arabia Saudita, Argentina, Armenia, Australia, Austria, Azerbaigian, Bahrein, Bangladesh, Belgio, Benin, Bielorussia, Bolivia, Bosnia ed Erzegovina, Botswana, Brasile, Bulgaria, Burkina Faso, Burundi, Cambogia, Camerun, Canada, Ciad, Cile, Cipro, Colombia, Comore, Congo, Congo (RDC), Corea del Sud, Costa Rica, Côte d'Ivoire (Costa d'Avorio), Croazia, Danimarca, Dominica, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Eritrea, Estonia, Etiopia, Figi, Filippine, Finlandia, Francia, Georgia, Germania, Ghana, Giamaica, Giappone, Giordania, Grecia, Guatemala, Guinea, Haiti, Honduras, India, Indonesia, Iraq, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Laos, Lettonia, Libano, Liberia, Liechtenstein, Lituania, Lussemburgo, Madagascar, Malawi, Malaysia, Mali, Malta, Marocco, Mauritius, Messico, Monaco, Mongolia, Montenegro, Mozambico, Nepal, Nicaragua, Niger, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Qatar, RAS di Hong Kong, Regno Unito, Repubblica Ceca, Repubblica Centrafricana, Repubblica dominicana, Romania, Ruanda, Russia, Senegal, Serbia, Sierra Leone, Singapore, Slovacchia, Slovenia, Somalia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Tagikistan, Tanzania, Thailandia, Timor Leste, Togo, Tonga, Trinidad e Tobago, Tunisia, Turchia, Turkmenistan, Ucraina, Uganda, Ungheria, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia e Zimbabwe.
+Gli editori in paesi/aree geografiche seguenti attualmente possono vendere in Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua e Barbuda, Arabia Saudita, Argentina, Armenia, Australia, Austria, Azerbaigian, Bahrein, Bangladesh, Belgio, Benin, Bielorussia, Bolivia, Bosnia ed Erzegovina, Botswana, Brasile, Bulgaria, Burkina Faso, Burundi, Cambogia, Camerun, Canada, Ciad, Cile, Cipro, Colombia, Comore, Congo, Congo (RDC), Corea del Sud, Costa Rica, Côte d'Ivoire (Costa d'Avorio), Croazia, Danimarca, Dominica, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Eritrea, Estonia, Etiopia, Figi, Filippine, Finlandia, Francia, Georgia, Germania, Ghana, Giamaica, Giappone, Giordania, Grecia, Guatemala, Guinea, Haiti, Honduras, India, Indonesia, Iraq, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Laos, Lettonia, Libano, Liberia, Liechtenstein, Lituania, Lussemburgo, Madagascar, Malawi, Malaysia, Mali, Malta, Marocco, Mauritius, Messico, Monaco, Mongolia, Montenegro, Mozambico, Nepal, Nicaragua, Niger, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Qatar, RAS di Hong Kong, Regno Unito, Repubblica Ceca, Repubblica Centrafricana, Repubblica dominicana, Romania, Ruanda, Russia, Senegal, Serbia, Sierra Leone, Singapore, Slovacchia, Slovenia, Somalia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Tagikistan, Tanzania, Thailandia, Timor Leste, Togo, Tonga, Trinidad e Tobago, Tunisia, Turchia, Turkmenistan, Ucraina, Uganda, Ungheria, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia e Zimbabwe.
 
 **Come si elimina un'inserzione da Azure Marketplace?**
 
@@ -486,19 +479,19 @@ Le dipendenze per le offerte di Azure Marketplace non vengono gestite automatica
 
 **Chi può acquistare le applicazioni e i servizi venduti/forniti tramite Azure Marketplace?**
 
-Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi seguenti:
+Azure Marketplace è disponibile per i clienti di Microsoft Azure in paesi/aree geografiche seguenti:
 
 Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgio, Brasile, Bulgaria, Canada, Cile, Colombia, Costa Rica, Croazia, Cipro, Repubblica ceca, Danimarca, Repubblica dominicana, Ecuador, Egitto, El Salvador, Estonia, Finlandia, Francia, Germania, Grecia , Guatemala, RAS di Hong Kong, Ungheria, Islanda, India, Indonesia, Irlanda, Israele, Italia, Giappone, Giordania, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, settentrionale Macedonia, Malaysia, Malta, Messico, Montenegro, Marocco, Paesi Bassi, nuovo Zelanda, Nigeria, Norvegia, Oman, Pakistan, Panama, Paraguay, Perù, Filippine, Polonia, Portogallo, Portorico, Qatar, Romania, Russia, Arabia Saudita, Serbia, Singapore, Slovacchia, Slovenia, Sud Africa, Corea del Sud, Spagna, Sri Lanka, Svezia, Svizzera, Uniti e Taiwan, Thailandia, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Emirati Arabi Uniti, Regno Unito, Stati Uniti, Uruguay e Venezuela.
 
-**Come definire la disponibilità a livello geografico per abilitare la vendita in paesi diversi?**
+**Come definire la disponibilità a livello geografico per abilitare la vendita di soluzioni in diversi paesi/aree geografiche?**
 
-1.  Nel portale per Cloud Partner, passare allo SKU a cui si desidera aggiungere nuovi paesi.  Nei dettagli della SKU"" passare a "Disponibilità paese/area geografica" e fare clic su "Selezionare aree".
+1.  Nel portale per Cloud Partner, passare allo SKU a cui si desidera aggiungere nuovi paesi/aree geografiche.  Nei dettagli della SKU"" passare a "Disponibilità paese/area geografica" e fare clic su "Selezionare aree".
 
     ![Seleziona aree](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  Viene visualizzato un elenco con tutti i paesi disponibili da vendere alla.  Selezionare la casella di controllo accanto a ciascun paese che si desidera rendere disponibile questo SKU. Fare clic su "OK".
+1.  Verrà visualizzato un elenco con tutti i paesi/aree disponibili da vendere alla.  Selezionare la casella di controllo accanto a ogni paese/area geografica che si desidera rendere disponibile questo SKU. Fare clic su "OK".
 
-    ![Elenco di selezione paese](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Elenco di selezione paese/area geografica](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
 1.  Infine, le modifiche da applicare a un'offerta attiva, fare clic su "Pubblica".  
 
@@ -509,11 +502,11 @@ Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgio, Brasile, Bulga
 
 **Come può un server di pubblicazione modifica la disponibilità a livello geografico per un'offerta esistente?**
 
-Il server di pubblicazione può modificare un'offerta esistente, selezionare i paesi nuovo e utilizzare la funzione di caricamento/download del foglio di calcolo per impostare il prezzo.
+Il server di pubblicazione può modificare un'offerta esistente, selezionare i nuovo paesi/aree geografiche e utilizzare la funzione di caricamento/download del foglio di calcolo per impostare il prezzo.
 
-**Paesi in cui i clienti possono acquistare offerte in Azure Marketplace?**
+**In quali paesi/aree geografiche i clienti possono acquistare offerte in Azure Marketplace?**
 
-Azure Marketplace supporta 141 acquistare da aree geografiche, come definito dall'indirizzo di fatturazione del cliente. Visualizzare [politiche di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy) per un elenco di paesi.
+Azure Marketplace supporta 141 acquistare da aree geografiche, come definito dall'indirizzo di fatturazione del cliente. Visualizzare [politiche di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy) per un elenco di paesi/aree geografiche.
 
 **Quali valute sono supportate da Azure Marketplace?**
 
@@ -545,7 +538,7 @@ I prezzi variano in base ai tipi di prodotto e alle specifiche dell'editore. Le 
 
 * **Tariffa mensile**: viene addebitata o fatturata una tariffa mensile fissa per una sottoscrizione dell'offerta, a partire dalla data di inizio del piano specifico. Alla tariffa mensile può essere applicata la ripartizione proporzionale per gli annullamenti a metà mese o i servizi non usati.
 
-Le informazioni sui prezzi sono disponibili nella pagina dei dettagli della soluzione all'indirizzo [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) o nel portale di gestione di Microsoft Azure.
+Le informazioni sui prezzi sono disponibili nella pagina dei dettagli della soluzione all'indirizzo [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) o nel portale di gestione di Microsoft Azure.
 
 >[!Note]
 >Gli addebiti per l'utilizzo di Azure, ad eccezione delle tariffe mensili, sono applicabili a tutti i modelli di determinazione dei prezzi, se non diversamente indicato.

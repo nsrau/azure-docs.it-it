@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489623"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922453"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -40,6 +40,10 @@ Esistono due modi per abilitare il monitoraggio delle applicazioni per le applic
 > Se sia basato sull'agente di monitoraggio sia manuale SDK basato su strumentazione viene rilevato che verranno rispettate solo le impostazioni di strumentazione manuale. Per evitare dati duplicati da inviate. Per altre informazioni su questo, vedere la [risoluzione dei problemi di sezione](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) sotto.
 
 ## <a name="enable-agent-based-monitoring-net"></a>Abilitare basata su Agente monitoraggio .NET
+
+> [!NOTE]
+> la combinazione di APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression non è supportata. Per altre informazioni, vedere la spiegazione nel [risoluzione dei problemi di sezione](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per il servizio app.
 
@@ -134,7 +138,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione del principale, che controlla il monitoraggio di runtime. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Le funzionalità essenziali, solo in modalità predefinita sono abilitate per assicurare prestazioni ottimali. | `default` o `recommended`. |
@@ -352,6 +356,15 @@ La tabella seguente fornisce una spiegazione più dettagliata del significato di
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Questo valore indica che l'estensione rilevato riferimenti a `Microsoft.AspNet.TelemetryCorrelation` nell'applicazione e verrà backoff. | Rimuovere il riferimento.
 |`AppContainsDiagnosticSourceAssembly**:true`|Questo valore indica che l'estensione rilevato riferimenti a `System.Diagnostics.DiagnosticSource` nell'applicazione e verrà backoff.| Rimuovere il riferimento.
 |`IKeyExists:false`|Questo valore indica che la chiave di strumentazione non è presente in AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possibili cause: I valori potrebbero essere stati rimossi per errore, sia dimenticato di impostare i valori in uno script di automazione e così via. | Assicurarsi che l'impostazione è presente nelle impostazioni dell'applicazione di servizio App.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>Non è supportato APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression
+
+Se si usa APPINSIGHTS_JAVASCRIPT_ENABLED = true nei casi in cui il contenuto viene codificato, si potrebbero verificare errori, ad esempio: 
+
+- Errore di riscrittura dell'URL 500
+- 500.53 errore del modulo di riscrittura URL con messaggio di regole di riscrittura in uscita non può essere applicato quando il contenuto della risposta HTTP è codificato ('gzip'). 
+
+Ciò a causa dell'impostazione applicazione APPINSIGHTS_JAVASCRIPT_ENABLED viene impostata su true e la codifica di contenuto sia presente nello stesso momento. Questo scenario non è ancora supportato. La soluzione alternativa consiste nel rimuovere APPINSIGHTS_JAVASCRIPT_ENABLED dalle impostazioni dell'applicazione. Sfortunatamente, ciò significa che se strumentazione JavaScript client/browser-side è ancora necessaria, riferimenti al SDK di manuali sono necessarie per le pagine Web. Seguire le [istruzioni](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) per la strumentazione manuale con JavaScript SDK.
 
 Per informazioni aggiornate sull'estensione/agente di Application Insights, consultare il [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

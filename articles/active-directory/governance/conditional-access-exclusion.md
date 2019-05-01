@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351596"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571368"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Verifiche di accesso di Usa Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -38,7 +38,7 @@ Come ulteriore esempio, si potrebbero usare [località denominate](../conditiona
 
 ![Posizioni specifiche](./media/conditional-access-exclusion/named-locations.png)
 
-In alcuni casi, tuttavia, gli utenti potrebbero avere un motivo legittimo per eseguire l'accesso da questi paesi bloccati. Ad esempio, potrebbero essere in viaggio in uno di questi paesi per motivi di lavoro o personali. In questo esempio, i criteri di accesso condizionale per bloccare questi paesi potrebbero avere un gruppo di sicurezza cloud dedicato per gli utenti esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
+In alcuni casi, tuttavia, utenti potrebbero avere un motivo legittimo che eseguire l'accesso da questi paesi/aree bloccate. Ad esempio, potrebbero essere in viaggio in uno di questi paesi per motivi di lavoro o personali. In questo esempio, i criteri di accesso condizionale per bloccare questi paesi/aree geografiche può avere un gruppo di sicurezza cloud dedicato per gli utenti che sono esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
 
 Un altro esempio potrebbe essere la presenza di criteri di accesso condizionale che [bloccano l'autenticazione legacy per la maggior parte degli utenti](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft consiglia di bloccare l'uso di protocolli legacy nel tenant per migliorare il comportamento di sicurezza. Tuttavia, in presenza di utenti che devono assolutamente usare metodi di autenticazione legacy per accedere alle risorse tramite Office 2010 o client basati su SMTP/IMAP o POP, è possibile escludere gli utenti dai criteri che bloccano i metodi di autenticazione legacy.
 
@@ -97,9 +97,9 @@ Seguire questa procedura per creare un nuovo gruppo di Azure AD e criteri di acc
 
 Di seguito verranno illustrati due esempi in cui è possibile usare le verifiche di accesso per gestire le esclusioni nei criteri di accesso condizionale.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Esempio 1: Verifica di accesso per gli utenti che accedono da paesi bloccati
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Esempio 1: Verifica di accesso per gli utenti che accedono da bloccato paesi/aree geografiche
 
-Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso da determinati paesi. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
+Supponiamo di che avere un criterio di accesso condizionale che blocca l'accesso da determinati paesi/aree geografiche. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 
 > [!NOTE]
 > Un amministratore globale o un ruolo utente amministratore deve creare verifiche di accesso.
@@ -110,9 +110,9 @@ Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso 
 
 3. Tutti i membri di questo gruppo saranno inclusi nell'ambito per la revisione.
 
-4. Ogni utente dovrà attestare di avere ancora la necessità di accedere da questi paesi bloccati, pertanto di dover essere ancora membro del gruppo.
+4. Ogni utente disporrà di self-attestare che devono comunque avere l'accesso da questi paesi/aree bloccate, pertanto devono comunque essere un membro del gruppo.
 
-5. Se l'utente non risponde alla richiesta di revisione, verrà automaticamente rimosso dal gruppo e pertanto non potrà più accedere al tenant durante i viaggi in questi paesi.
+5. Se l'utente non risponde alla richiesta di revisione, verrà automaticamente rimosso dal gruppo e pertanto non può più accedere al tenant durante il viaggio per questi paesi/aree geografiche.
 
 6. Abilitare le notifiche tramite posta elettronica, in modo che gli utenti ricevano notifica dell'inizio e del completamento della verifica di accesso.
 

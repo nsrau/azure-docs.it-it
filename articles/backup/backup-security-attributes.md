@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253807"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680807"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Attributi di sicurezza comuni per il Backup di Azure
 
@@ -27,7 +27,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Sì | Uso della crittografia del servizio di archiviazione per gli account di archiviazione. |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Crittografia nella rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| No  | Uso di HTTPS. |
+| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| No  | Uso di HTTPS. |
 | Gestione della crittografia chiave (CMK, modalità BYOK e così via)| No  |  |
 | Crittografia a livello di colonna (Azure Data Services)| No  |  |
 | Chiamate API crittografate| Sì |  |
@@ -37,7 +37,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto endpoint del servizio| No  |  |
-| supportare l'inserimento di rete virtuale| No  |  |
+| Supportare l'inserimento di rete virtuale| No  |  |
 | Isolamento di rete e supporto firewall| Sì | Il tunneling forzato è supportato per il backup delle macchine virtuali. Il tunneling forzato non è supportato per i carichi di lavoro in esecuzione all'interno di macchine virtuali. |
 | Supporto di tunneling forzato| No  |  |
 

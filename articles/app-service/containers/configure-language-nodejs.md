@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850240"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919792"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app Node. js di Linux per servizio App di Azure
 
@@ -55,7 +55,7 @@ Questa impostazione specifica la versione di Node. js da usare, entrambi in fase
 
 ## <a name="configure-nodejs-server"></a>Configurare il server Node. js
 
-I contenitori di Node. js sono dotate [PM2](http://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per l'avvio con PM2, o con NPM o con un comando personalizzato.
+I contenitori di Node. js sono dotate [PM2](https://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per l'avvio con PM2, o con NPM o con un comando personalizzato.
 
 - [Eseguire un comando personalizzato](#run-custom-command)
 - [Eseguire npm start](#run-npm-start)
@@ -99,12 +99,12 @@ Il contenitore avvia automaticamente l'app con PM2 quando uno dei file di Node. 
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Uno dei seguenti [file PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *Process* e *ecosystem.config.js*
+- Uno dei seguenti [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *Process* e *ecosystem.config.js*
 
 È anche possibile configurare un file di avvio personalizzata con le estensioni seguenti:
 
 - Oggetto *js* file
-- Oggetto [file PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con l'estensione *JSON*, *. config. js*, *yaml*, o *yml*
+- Oggetto [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con l'estensione *JSON*, *. config. js*, *yaml*, o *yml*
 
 Per aggiungere un file di avvio personalizzate, eseguire il comando seguente [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](http://expressjs.com/guide/behind-proxies.html). Ad esempio: 
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](https://expressjs.com/guide/behind-proxies.html). Ad esempio: 
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ Quando un'app Node. js funzionante nel servizio App, si comporta in modo diverso
     - A seconda del *package. JSON*, pacchetti diversi possono essere installati per la modalità di produzione (`dependencies` confronto `devDependencies`).
     - Alcuni Framework web possono distribuire file statici in modo diverso in modalità di produzione.
     - Alcuni Framework web può usare gli script di avvio personalizzate durante l'esecuzione in modalità di produzione.
-- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](http://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](https://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

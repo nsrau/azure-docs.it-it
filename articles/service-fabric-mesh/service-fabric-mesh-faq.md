@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979752"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728586"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quanto costa partecipare all'anteprima?
 
-Al momento non sono previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima di Mesh. Gli utenti sono tuttavia invitati a eliminare le risorse distribuite e a non lasciarle in esecuzione, a meno che non ne eseguano attivamente i test.
+Al momento non sono previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima di Mesh. Tuttavia, si consiglia di eliminare le risorse si distribuisce e lasciarli non in esecuzione a meno che non si esegue attivamente il test li.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>È previsto un limite di quota per il numero di core e la RAM?
 
@@ -77,7 +77,9 @@ Ad esempio:
 
 Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="supported-container-os-images"></a>Immagini di sistema operativo contenitore supportate
+## <a name="deployments"></a>Deployments
+
+### <a name="what-container-images-are-supported"></a>Le immagini del contenitore sono supportati?
 
 Se le attività di sviluppo vengono eseguite in un computer con Windows Fall Creators Update (versione 1709), è possibile usare solo le immagini Docker di Windows versione 1709.
 
@@ -90,6 +92,10 @@ Per distribuire i servizi, possono essere usate le immagini del sistema operativ
     - Windows Server versione 1803
 - Linux
     - Nessuna limitazione nota
+
+### <a name="what-types-of-applications-can-i-deploy"></a>I tipi di applicazioni è possibile distribuire? 
+
+È possibile distribuire qualsiasi elemento che viene eseguito nei contenitori che rientrano nelle restrizioni posizionate in una risorsa di applicazione (vedere sopra per altre informazioni sulle quote). Se viene rilevato che si sta utilizzando Mesh per l'esecuzione di carichi di lavoro non validi o abuso del sistema (ad esempio di data mining), quindi Microsoft si riserva il diritto di interrompere le distribuzioni e blocklist la sottoscrizione da in esecuzione nel servizio. Rivolgersi a Microsoft se hai domande sull'esecuzione di un carico di lavoro specifico. 
 
 ## <a name="developer-experience-issues"></a>Problemi relativi all'esperienza di sviluppatore
 

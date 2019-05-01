@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaa6ff1384116064d88061b6eaf7f448e2222cd3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542127"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744273"
 ---
 Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione per ogni dimensione di questo raggruppamento. 
 
@@ -33,7 +33,7 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
@@ -58,7 +58,7 @@ ACU: 160-190
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 Le dimensioni della serie Dsv3 sono basate sul processore Intel Xeon® E5-2673 v3 (Haswell) a 2,4 GHz o sul processore più recente Intel XEON® E5-2673 v4 (Broadwell) a 2,3 GHz che con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz e usare Archiviazione Premium. Le dimensioni della serie Dsv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
 
@@ -80,7 +80,7 @@ ACU: 160-190
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 Le dimensioni della serie Dv3 sono basate sul processore Intel Xeon® E5-2673 v3 (Haswell) a 2,4 GHz o sul processore Intel XEON® E5-2673 v4 (Broadwell) a 2,3 GHz che con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz. Le dimensioni della serie Dv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
 
@@ -104,7 +104,7 @@ ACU: 210-250
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ ACU: 210-250
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 | Dimensione           | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Numero massimo di dischi dati | Velocità effettiva: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
@@ -136,7 +136,7 @@ ACU: 100
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 
 | Dimensione            | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) | 
@@ -153,7 +153,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Archiviazione Premium: Supportato
 
-Memorizzazione nella cache Archiviazione Premium: Supportato
+Memorizzazione nella cache archiviazione Premium: Supportato
 
 
 

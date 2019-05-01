@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906103"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875597"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
@@ -41,12 +41,11 @@ Information Protection include un set predefinito di etichette e i tipi di infor
 ## <a name="customize-the-information-protection-policy"></a>Personalizzare i criteri di protezione delle informazioni
 Per personalizzare i criteri di protezione delle informazioni del tenant di Azure, è necessario disporre di [privilegi amministrativi nel gruppo di gestione radice del tenant](security-center-management-groups.md). 
  
-1. Nel menu principale del Centro sicurezza selezionare **Criteri di sicurezza**.
-2. Scegliere **Visualizzazione gerarchica (anteprima)**, quindi, in **Tenant Root Group** (Gruppo radice del tenant), fare clic su **Modifica impostazioni**.
- 
+1. Della sicurezza nel centro menu principale, in **risorsa sicurezza igiene** passare alla **dati e archiviazione** e fare clic sul **SQL Information Protection** pulsante.
+
    ![Configurare i criteri di protezione delle informazioni](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. In **Componenti dei criteri** fare clic su **Information Protection**. Nella pagina **Impostazioni di Azure Information Protection** è possibile visualizzare il set corrente di etichette. Questi sono gli attributi di classificazione principali che consentono di classificare il livello di riservatezza dei dati. A questo punto, è possibile configurare le **etichette di Information Protection** e i **tipi di informazioni** per il tenant. 
+2. Nel **SQL Information Protection** pagina, è possibile visualizzare il set corrente di etichette. Questi sono gli attributi di classificazione principali che consentono di classificare il livello di riservatezza dei dati. A questo punto, è possibile configurare le **etichette di Information Protection** e i **tipi di informazioni** per il tenant. 
  
 ### <a name="customizing-labels"></a>Personalizzazione delle etichette
  

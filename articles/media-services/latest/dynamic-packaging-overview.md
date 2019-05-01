@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104123"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869664"
 ---
 # <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
-Servizi multimediali di Microsoft Azure può essere usato per distribuire molti formati di file di origine multimediali, formati di streaming multimediali e formati di protezione del contenuto a un'ampia gamma di tecnologie client, ad esempio iOS e Xbox. Questi client supportano tuttavia protocolli diversi. iOS, ad esempio, richiede un formato HTTP Live Streaming (HLS), mentre Xbox richiede Smooth Streaming. Se si dispone di un set di velocità in bit adattiva (più velocità in bit) MP4 file (ISO Base Media 14496-12) o un set di file Smooth Streaming a bitrate adattivo che si vuole renderli disponibili ai client che supportano HLS, MPEG DASH o Smooth Streaming, è possibile sfruttare dinamico Creazione di pacchetti. La creazione di pacchetti è indipendente dalla risoluzione video, sono supportati SD/HD/UHD - 4K.
+Servizi multimediali di Microsoft Azure può essere usato per distribuire molti formati di file di origine multimediali, formati di streaming multimediali e formati di protezione del contenuto a un'ampia gamma di tecnologie client, ad esempio iOS e Xbox. Questi client supportano tuttavia protocolli diversi. iOS, ad esempio, richiede un formato HTTP Live Streaming (HLS), mentre Xbox richiede Smooth Streaming. Se si dispone di un set di velocità in bit adattiva (più velocità in bit) MP4 file (ISO Base Media 14496-12) o un set di file Smooth Streaming a bitrate adattivo che si vuole renderli disponibili ai client che supportano HLS, MPEG DASH o Smooth Streaming, è possibile sfruttare  **Creazione dinamica dei pacchetti**. La creazione di pacchetti è indipendente dalla risoluzione video, sono supportati SD/HD/UHD - 4K.
 
-[Gli endpoint di streaming](streaming-endpoint-concept.md) è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). 
+In servizi multimediali, una [Endpoint di Streaming](streaming-endpoint-concept.md) rappresenta un dinamico (just-in-time) creazione di pacchetti e l'origine del servizio che può distribuire contenuti live e on demand direttamente a un'applicazione di lettore client, usando uno dei più comuni di streaming protocolli di supporti (HLS o DASH). Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). 
 
 Per poter sfruttare **creazione dinamica dei pacchetti**, è necessario avere un' **Asset** con un set di file MP4 a bitrate adattivo e streaming i file di configurazione necessari da Media Services creazione dinamica dei pacchetti. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con Servizi multimediali. Per rendere i video nell'Asset codificato disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto client di streaming (HLS, DASH o Smooth), il flusso sia ricevuto nel protocollo scelto.
 

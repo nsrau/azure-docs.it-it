@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880369"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574117"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -52,14 +52,16 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome del campo e fare clic su **ricerca su GitHub**.|
 |Ramo     | Ramo da cui eseguire il pull dei file di origine. Destinazione branch non è disponibile per il tipo di controllo sorgente TFVC.          |
 |Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo i runbook nella cartella specificata. Non è supportata la ricorsione.*        |
-|Sincronizzazione automatica     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
+|Auto Sync<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
 |Pubblica runbook     | Se impostato su **su**, dopo i runbook vengono sincronizzati dal controllo del codice sorgente verrà vengano pubblicati automaticamente.         |
 |DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
+
+<sup>1</sup> per abilitare la sincronizzazione automatica durante la configurazione di integrazione del controllo codice sorgente con i repository di Azure, è necessario essere un amministratore del progetto.
 
 ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Assicurarsi di essere connessi con l'account corretto durante la configurazione di controllo del codice sorgente. Se c'è qualche dubbio, aprire una nuova scheda nel browser e disconnettersi da visualstudio.com o github.com e provare di nuovo a connettersi al controllo del codice sorgente.
+> L'account di accesso per il repository di controllo del codice sorgente può differire l'account di accesso al portale di Azure. Assicurarsi di che essere connessi con l'account corretto per il repository di controllo del codice sorgente durante la configurazione di controllo del codice sorgente. Se c'è qualche dubbio, aprire una nuova scheda nel browser e disconnettersi da visualstudio.com o github.com e provare di nuovo a connettersi al controllo del codice sorgente.
 
 ## <a name="configure-source-control---powershell"></a>Configurare controllo del codice sorgente - PowerShell
 

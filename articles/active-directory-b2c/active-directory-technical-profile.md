@@ -3,19 +3,19 @@ title: Definire un profilo tecnico di Azure Active Directory in un criterio pers
 description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190702"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718697"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55190702"
 
 Azure Active Directory (Azure AD) B2C offre assistenza per la gestione dell'utente di Azure Active Directory. Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato.
 
-## <a name="protocol"></a>Protocollo
+## <a name="protocol"></a>Protocol
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **gestore** deve contenere il nome completo dell'assembly del gestore di protocollo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -254,7 +254,7 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Operazione | Yes | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
+| Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No  | Genera un errore se l'oggetto utente non esiste nella directory. I possibili valori sono: `true` o `false`. | 
 | UserMessageIfClaimsPrincipalDoesNotExist | No  | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. Il valore può essere [localizzato](localization.md).| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No  | Genera un errore se l'oggetto utente esiste già. I possibili valori sono: `true` o `false`.| 

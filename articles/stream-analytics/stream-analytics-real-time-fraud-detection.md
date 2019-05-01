@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818181"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943961"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -30,7 +30,7 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, l'azienda deve esaminare i record delle chiamate in ingresso e cercare specifici modelli, in questo caso, chiamate più o meno alla stessa ora in paesi diversi. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, la società deve esaminare i record delle chiamate in ingresso e cercare specifici modelli, ovvero in questo caso, per le chiamate effettuate intorno alla stessa ora in diversi paesi/aree geografiche. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -150,7 +150,7 @@ Di seguito sono riportati alcuni campi chiave che verranno usati in questa appli
 |**Record**|**Definizione**|
 |----------|--------------|
 |`CallrecTime`|Timestamp dell'ora di inizio della chiamata. |
-|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
+|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio, i commutatori sono stringhe che rappresentano il paese/area geografica di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
 |`CallingNum`|Numero di telefono del chiamante. |
 |`CallingIMSI`|Codice IMSI (International Mobile Subscriber Identity). Si tratta dell'identificatore univoco del chiamante. |
 |`CalledNum`|Numero di telefono del destinatario della chiamata. |
@@ -276,7 +276,7 @@ In molti casi, l'analisi non necessita di tutte le colonne dal flusso di input. 
 
 Si supponga di voler contare il numero di chiamate in ingresso per ogni area. Nei dati di streaming, se si vuole eseguire funzioni di aggregazione come il conteggio, è necessario segmentare il flusso in unità temporali (poiché il flusso di dati stesso è in effetti infinito). A tale scopo, usare una [funzione finestra](stream-analytics-window-functions.md) di Analisi di flusso. Sarà quindi possibile usare i dati all'interno di tale finestra come unità.
 
-Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata è possibile ottenere un conteggio delle chiamate in ingresso raggruppate per `SwitchNum`, che rappresenta il paese in cui la chiamata ha avuto origine. 
+Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata, è possibile ottenere un conteggio delle chiamate in ingresso raggruppate per `SwitchNum`, che rappresenta il paese/area geografica in cui la chiamata ha avuto origine. 
 
 1. Modificare la query nell'editor di codice nel modo seguente:
 
@@ -292,7 +292,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
     La proiezione include `System.Timestamp`, che restituisce un timestamp per la fine di ogni finestra. 
 
-    Per specificare che si desidera utilizzare una finestra a cascata, usare il [finestra a CASCATA](https://msdn.microsoft.com/library/dn835055.aspx) funzionare nel `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio la finestra a cascata è costituita da intervalli di 5 secondi, per ottenere un conteggio in base al paese per chiamate ogni 5 secondi.
+    Per specificare che si desidera utilizzare una finestra a cascata, usare il [finestra a CASCATA](https://msdn.microsoft.com/library/dn835055.aspx) funzionare nel `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata costituito da intervalli di 5 secondi, pertanto si otterrà un conteggio da paese/area geografica per il patrimonio di chiamate ogni 5 secondi.
 
 2. Fare di nuovo clic su **Test**. Si noti nei risultati che i timestamp in **WindowEnd** sono in incrementi di 5 secondi.
 
@@ -302,7 +302,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
 Per questo esempio, considerare come uso fraudolento le chiamate che provengono dallo stesso utente ma in posizioni diverse, a 5 secondi l'una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. 
 
-Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. Sarà quindi possibile cercare i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese di origine) non coincide.
+Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare chiamate i record in cui il `CallingIMSI` valore (numero di origine) è lo stesso, ma il `SwitchNum` valore (paese/area geografica di origine) non è uguale.
 
 Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno della clausola `ON` del join usando la funzione `DATEDIFF`. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
 

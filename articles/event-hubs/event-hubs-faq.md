@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162646"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690279"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -50,6 +50,47 @@ Il livello Standard di Hub eventi supporta attualmente un periodo di conservazio
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Come si monitora Hub eventi?
 Hub eventi genera metriche complete che specificano lo stato delle risorse in [Monitoraggio di Azure](../azure-monitor/overview.md). Consentono anche di valutare l'integrità generale delle risorse del servizio Hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Sono disponibili informazioni sul tipo di monitoraggio offerto per [Hub eventi di Azure](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
+È possibile utilizzare i protocolli seguenti con il Bus di servizio di Azure per inviare e ricevere messaggi:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+Vedere la tabella seguente per le porte in uscita che è necessario aprire per l'uso di questi protocolli per comunicare con hub eventi di Azure. 
+
+| Protocol | Porte | Dettagli | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Vedere [usare gli hub di eventi da applicazioni di Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP è necessario all'elenco elementi consentiti?
+Per trovare gli indirizzi IP a destra all'elenco elementi consentiti per le connessioni, seguire questa procedura:
+
+1. Eseguire il comando seguente al prompt dei comandi: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Annotare l'indirizzo IP restituito `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che comporterebbe la modifica è se si ripristina lo spazio dei nomi a un cluster diverso.
+
+Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario effettuare alcuni passaggi aggiuntivi: 
+
+1. In primo luogo, eseguire nslookup nello spazio dei nomi.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Annotare il nome nel **risposta non autorevole** sezione, in cui si trova in uno dei formati seguenti: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Eseguire nslookup per ognuno di essi con i suffissi s1, s2 e s3 per ottenere gli indirizzi IP di tutte le tre istanze in esecuzione in tre zone di disponibilità, 
 
 ## <a name="apache-kafka-integration"></a>Integrazione di Apache Kafka
 

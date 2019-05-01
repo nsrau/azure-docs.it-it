@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524144"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919828"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -48,7 +48,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 + Quando un servizio Gestione API viene distribuito in una rete virtuale, un [elenco di porte](./api-management-using-with-vnet.md#required-ports) vengono usate e devono essere aperte. 
 
 ## <a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
-Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un [servizio di bilanciamento del carico interno (classico)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Questo è l'unica opzione disponibile e non può essere modificato.
+Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un [servizio di bilanciamento del carico interno (classico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Questo è l'unica opzione disponibile e non può essere modificato.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 

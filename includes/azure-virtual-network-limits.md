@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804309"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733783"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -40,7 +40,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 > [!NOTE]
 > Sono stati aumentati di recente tutti i limiti predefiniti fino al rispettivo massimo. Se è presente nessuna colonna limite massimo consentito, la risorsa non è disponibili limiti regolabili. Se si avesse questi limiti aumentati di supporto in passato e non vengono visualizzati i limiti di aggiornato nelle tabelle seguenti, [aprire una richiesta di assistenza clienti online senza costi aggiuntivi](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Risorsa | Limite predefinito | 
+| Risorsa | Limite di limite o massimo predefinito | 
 | --- | --- |
 | Reti virtuali |1.000 |
 | Subnet per rete virtuale |3,000 |

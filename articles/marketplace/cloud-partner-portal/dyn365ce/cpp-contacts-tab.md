@@ -1,25 +1,18 @@
 ---
-title: Scheda Contacts (Contatti) dell'offerta Dynamics 365 for Customer Engagement - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement offrono scheda contatti | Azure Marketplace
 description: Configurare le informazioni di contatto per l'offerta Dynamics 365 for Customer Engagement nel marketplace AppSource.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873701"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942504"
 ---
 # <a name="azure-application-contacts-tab"></a>Scheda contatti dell'applicazione Azure
 
@@ -30,22 +23,22 @@ Usare la scheda **Contacts** (Contatti) per fornire informazioni sul supporto te
 
 ## <a name="specify-customer-and-engineering-contacts"></a>Specificare i contatti del supporto tecnico e dell'assistenza clienti
 
-Inserire i valori seguenti per definire il **contatto tecnico** principale per l'offerta.
+Inserire i valori seguenti per definire il **contatto tecnico** principale per l'offerta. I campi obbligatori sono indicati da un asterisco (*).
 
 |    Campo        |  DESCRIZIONE                    |
 |    ---------    |  ---------------                |
-|  **Nome**       |  Nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.   |
-|  **Indirizzo di posta elettronica**      |  Indirizzo e-mail del contatto tecnico  |
-|  **Telefono**      |  Numero di telefono del contatto tecnico  |
+|  **Nome\***       |  Nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.   |
+|  **Posta elettronica\***      |  Indirizzo e-mail del contatto tecnico  |
+|  **Telefono\***      |  Numero di telefono del contatto tecnico  |
 |  |  |
 
 Inserire i valori seguenti per definire il **contatto dell'assistenza clienti** principale per l'offerta.
 
 |    Campo        |   DESCRIZIONE                   |
 |    ---------    |  ---------------                |
-|  **Nome**       |  Nome del contatto dell'assistenza clienti per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.   |
-|  **Indirizzo di posta elettronica**      |  Indirizzo di posta elettronica del contatto dell'assistenza clienti  |
-|  **Telefono**      |  Numero di telefono del contatto dell'assistenza clienti  |
+|  **Nome\***       |  Nome del contatto dell'assistenza clienti per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.   |
+|  **Posta elettronica\***      |  Indirizzo di posta elettronica del contatto dell'assistenza clienti  |
+|  **Telefono\***      |  Numero di telefono del contatto dell'assistenza clienti  |
 |  |  |
 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701734"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916391"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -67,7 +67,7 @@ Aprire il pannello Disponibilità e aggiungere un test.
 
     **Risposta HTTP**: codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
-    **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
+    **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa. **Solo i caratteri dell'alfabeto inglese sono attualmente supportati con corrispondenza contenuto.** 
 
 * **Soglia località di avviso**: Si consiglia un minimo di 3-5 posizioni. Il rapporto ottimale tra la soglia località di avviso e il numero di località di test è dato da **soglia località di avviso** = **numero di località di test** - 2, con un numero minimo pari a cinque località di test.
 
@@ -92,7 +92,7 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 
     ![In Visual Studio Enterprise creare un progetto dal modello di test di carico e prestazioni Web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Se il modello di test di carico e prestazioni Web non viene visualizzato*, chiudere Visual Studio Enterprise. Aprire il **programma di installazione di Visual Studio** per modificare l'installazione di Visual Studio Enterprise. In **Singoli componenti** selezionare **Strumenti per test di carico e delle prestazioni Web**.
+ * *Se il modello di test di carico e prestazioni Web non viene visualizzato*, chiudere Visual Studio Enterprise. Aprire il **programma di installazione di Visual Studio** per modificare l'installazione di Visual Studio Enterprise. In **Singoli componenti** selezionare **Strumenti per test di carico e delle prestazioni Web**.
 
 2. Aprire il file con estensione webtest e iniziare la registrazione.
 
@@ -273,6 +273,9 @@ Se il test deve eseguire l'accesso con OAuth, procedere come indicato di seguito
   Visual Studio prova a impostare i parametri del test, ma non imposta correttamente i parametri dei token.
 
 ## <a name="performance-tests"></a>Test delle prestazioni
+> [!NOTE]  
+> Servizio di test di carico basati sul cloud è deprecato. Sono disponibili altre informazioni sulla deprecazione, la disponibilità del servizio e servizi alternativi [qui](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+
 È possibile eseguire un test di carico nel sito Web. Analogamente al test di disponibilità, è possibile inviare semplici richieste o richieste in più passaggi da diversi punti in tutto il mondo. A differenza dei test di disponibilità, vengono inviate molte richieste, simulando più utenti simultanei.
 
 In **Configura**, passare a **Test delle prestazioni** e fare clic su Nuovo per creare un test.

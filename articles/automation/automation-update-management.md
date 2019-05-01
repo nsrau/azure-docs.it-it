@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306536"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919696"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -54,7 +54,9 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato dalla finestra di manutenzione. Dieci minuti della finestra di manutenzione è riservato per i riavvii se è necessario un riavvio e se è selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto ed è inferiore a dieci minuti nella finestra di manutenzione, non si verificherà un riavvio.
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando in modo esplicito i computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato su ricerche nei log di un set specifico di computer, o un oggetto [Query di azure](#azure-machines) che seleziona in modo dinamico le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi da [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usato solo per determinare quali computer recupera i management pack che abilita la soluzione. 
+
+Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato dalla finestra di manutenzione. Dieci minuti della finestra di manutenzione è riservato per i riavvii se è necessario un riavvio e se è selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto ed è inferiore a dieci minuti nella finestra di manutenzione, non si verificherà un riavvio.
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
@@ -76,6 +78,9 @@ La tabella seguente elenca i sistemi operativi supportati:
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
+
+> [!NOTE]
+> Set di scalabilità di macchine virtuali di Azure possono essere gestiti con gestione aggiornamenti. Gestione degli aggiornamenti funziona nelle istanze di se stessi e non l'immagine di base. È necessario pianificare gli aggiornamenti in modo incrementale, tale da non aggiornare tutte le istanze di macchina virtuale in una sola volta.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 

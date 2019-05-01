@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922006"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720477"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -31,8 +31,12 @@ La tabella seguente riepiloga i servizi di archiviazione di Azure che sono suppo
 |Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (file System) | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
 |Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
 |Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
-|Archiviazione di Azure| Archiviazione BLOB | Oggetto | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | Tutti | Tutti |
+|Archiviazione di Azure| Archiviazione BLOB * * | Object | BLOB in blocchi | Standard | Accesso frequente, ad accesso sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (file System) | N/D | N/D | N/D | 3.6 solo | Tutti tranne HBase |
+
+* * Per i cluster HDInsight, solo gli account di archiviazione secondario possono essere di tipo BlobStorage.
+
+Per altre informazioni sui tipi di account di archiviazione di Azure, vedere [panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md)
 
 Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere [archiviazione Blob di Azure: Premium (anteprima), i livelli di archiviazione di frequente, sporadico e archivio](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 
 | HDInsight Version | Risorsa di archiviazione primaria | Archiviazione secondaria | Supportato |
 |---|---|---|---|
-| 3.6 & 4.0 | Blob standard | Blob standard | Sì |
-| 3.6 & 4.0 | Blob standard | Data Lake Storage Gen2 | No  |
-| 3.6 & 4.0 | Blob standard | Data Lake Storage Gen1 | Sì |
+| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
+| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Data Lake Storage Gen2 | No  |
+| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
 | 3.6 & 4.0 | Data Lake Store Gen2 * | Data Lake Storage Gen2 | Sì |
-| 3.6 & 4.0 | Data Lake Store Gen2 * | Blob standard | Sì |
+| 3.6 & 4.0 | Data Lake Store Gen2 * | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No  |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
-| 3.6 | Data Lake Storage Gen1 | Blob standard | Sì |
+| 3.6 | Data Lake Storage Gen1 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No  |
 | 4.0 | Data Lake Storage Gen1 | Qualsiasi | No  |
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553515"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733810"
 ---
 Azure Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ognuno degli altri carichi di lavoro. Per aumentare i limiti fino al valore massimo per la sottoscrizione, contattare il supporto tecnico.
 
@@ -26,7 +26,7 @@ Azure Data Factory è un servizio multi-tenant che presenta i seguenti limiti pr
 | Totale di core CPU per i runtime di integrazione SSIS di Azure in una sottoscrizione | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Esecuzioni di pipeline simultanee per ogni data factory in cui viene condiviso tra tutte le pipeline nella factory | 10,000  | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero massima attività per pipeline, che include le attività interne per i contenitori | 40 | 40 |
-| Numero massimo di runtime di integrazione collegato che possono essere creati da un runtime di integrazione self-hosted singolo | 20 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Numero massimo di runtime di integrazione collegato che possono essere creati da un runtime di integrazione self-hosted singolo | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Parametri massimi per ogni pipeline | 50 | 50 |
 | Elementi ForEach | 100,000 | 100,000 |
 | Parallelismo ForEach | 20 | 50 |

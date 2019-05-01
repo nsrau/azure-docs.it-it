@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437685"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575611"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -31,15 +31,14 @@ I modelli di hosting hanno diversi livelli di isolamento di rete disponibile. Sc
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
 
-|                |[Piano a consumo](functions-scale.md#consumption-plan)|⚠ [Piano Premium](functions-scale.md#premium-plan-public-preview)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
+|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium (anteprima)](functions-scale.md#premium-plan-public-preview)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrizioni di IP in ingresso](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Restrizioni di IP in uscita](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Integrazione della rete virtuale](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Anteprima dell'integrazione della rete virtuale (Azure ExpressRoute e gli endpoint di servizio)](#preview-version-of-virtual-network-integration)|❌No|⚠Sì|⚠Sì|✅Yes|
+|[Visualizzare in anteprima l'integrazione rete virtuale (Azure ExpressRoute e gli endpoint di servizio in uscita)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[Connessioni ibride](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[accesso al sito privato](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ Questa funzionalità in anteprima non è disponibile per la produzione.
+|[accesso al sito privato](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Restrizioni di IP in ingresso
 
@@ -49,6 +48,10 @@ I modelli di hosting hanno diversi livelli di isolamento di rete disponibile. Sc
 > Per usare l'editor del portale di Azure, il portale deve essere in grado di accedere direttamente alle app per le funzioni in esecuzione. Inoltre, il dispositivo che si sta utilizzando per accedere al portale deve avere relativo inserito nella whitelist IP. Con restrizioni di rete, è comunque possibile accedere tutte le funzionalità nel **funzionalità della piattaforma** scheda.
 
 Per altre informazioni, vedere [restrizioni di servizio App di Azure l'accesso statico](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Restrizioni di IP in uscita
+
+Restrizioni di IP in uscita sono disponibili solo per le funzioni distribuite in un ambiente del servizio App. È possibile configurare restrizioni in uscita per la rete virtuale in cui viene distribuito l'ambiente del servizio App.
 
 ## <a name="virtual-network-integration"></a>Integrazione della rete virtuale
 
@@ -88,7 +91,10 @@ Per altre informazioni, vedere la [documentazione del servizio App per le connes
 
 ## <a name="private-site-access"></a>Accesso al sito privato
 
-Accesso privato s'intende per rendere l'app accessibile solo da una rete privata, ad esempio all'interno di una rete virtuale di Azure. Accesso al sito privato è disponibile solo con un ambiente del servizio App configurato con un servizio di bilanciamento del carico interno (ILB). Per altre informazioni, vedere [creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio App](../app-service/environment/create-ilb-ase.md).
+Accesso privato s'intende per rendere l'app accessibile solo da una rete privata, ad esempio all'interno di una rete virtuale di Azure. 
+* Accesso al sito privato è disponibile nel servizio App delle Premium pianificare quando **gli endpoint di servizio** configurati. Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Tenere presente che con gli endpoint di servizio, la funzione ancora ha accesso completo in uscita a internet, anche con la configurazione dell'integrazione rete virtuale.
+* Accesso al sito privato è disponibile solo con un ambiente del servizio App configurato con un servizio di bilanciamento del carico interno (ILB). Per altre informazioni, vedere [creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio App](../app-service/environment/create-ilb-ase.md).
 
 Esistono molti modi per accedere alle risorse di rete virtuale di altre opzioni di hosting. Tuttavia, un ambiente del servizio App è l'unico modo per consentire i trigger per una funzione essere eseguita su una rete virtuale.
 

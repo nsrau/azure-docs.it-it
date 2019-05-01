@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410366"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917257"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 
@@ -39,7 +39,7 @@ In questa procedura si apprenderà come configurare l'SDK all'interno dell'appli
 
 Questa procedura presuppone che si sia in grado di:
 
-- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre informazioni, vedere [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md) (Registrare un'app con l'endpoint Azure AD v1.0).
+- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre informazioni, vedere [registrare un'app](quickstart-register-app.md)
 - Integrare l'applicazione con [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concetti dell'accesso Single Sign-On

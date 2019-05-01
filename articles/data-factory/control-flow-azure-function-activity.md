@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576379"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727039"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
 
@@ -28,7 +28,7 @@ Per un'introduzione di otto minuti e una dimostrazione di questa funzionalità, 
 
 ## <a name="azure-function-linked-service"></a>Servizio collegato della funzione di Azure
 
-Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Tenere presente che [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *non* è un `JObject`.) Qualsiasi altro tipo restituito diverso da `JObject` non riesce e genera l'errore utente generico *Error calling endpoint* (Errore durante la chiamata all'endpoint).
+Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Tenere presente che [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *non* è un `JObject`.) Diverso da un tipo restituito `JObject` ha esito negativo e viene generato l'errore utente *contenuto della risposta non è valido JObject*.
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
@@ -45,18 +45,25 @@ Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Ten
 | type  | Il tipo di attività è 'AzureFunctionActivity' | string | Sì |
 | linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | Sì |
 | function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | string | Sì |
-| statico  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | Sì |
+| method  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | Sì |
 | intestazione  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No  |
 | Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
 |   |   |   | |
 
 Vedere lo schema del payload della richiesta nella sezione  [Schema del payload della richiesta](control-flow-web-activity.md#request-payload-schema) .
 
-## <a name="more-info"></a>Altre informazioni
+## <a name="routing-and-queries"></a>Routing e le query
 
-L'attività di Funzione di Azure supporta il **routing**. Ad esempio, se l'app usa il routing seguente: `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>`, `functionName` è `functionName/{value}`, che può essere parametrizzato per fornire il `functionName` desiderato in fase di esecuzione.
+L'attività di Funzione di Azure supporta il **routing**. Ad esempio, se la funzione di Azure è l'endpoint `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, il `functionName` da utilizzare nell'attività di funzione di Azure è `<functionName>/<value>`. È possibile parametrizzare questa funzione per fornire il valore desiderato `functionName` in fase di esecuzione.
 
-L'attività di Funzione di Azure supporta anche le **query**. Una query deve far parte del `functionName`, ad esempio in `HttpTriggerCSharp2?name=hello`, dove il `function name` è `HttpTriggerCSharp2`.
+L'attività di Funzione di Azure supporta anche le **query**. Deve essere incluso come parte di una query di `functionName`. Ad esempio, quando è il nome della funzione `HttpTriggerCSharp` e la query che si desidera includere `name=hello`, quindi è possibile costruire il `functionName` nell'attività di funzione di Azure come `HttpTriggerCSharp?name=hello`. Questa funzione può essere parametrizzata in modo che il valore può essere determinato in fase di esecuzione.
+
+## <a name="timeout-and-long-running-functions"></a>Timeout e funzioni con esecuzione prolungata
+
+Azure funzioni timeout dopo 230 secondi indipendentemente il `functionTimeout` configurate nelle impostazioni dell'impostazione. Per altre informazioni, vedere [questo articolo](../azure-functions/functions-versions.md#timeout). Per risolvere questo problema, seguire un modello asincrono o usare funzioni permanenti. Il vantaggio di funzioni permanenti è che offrono un proprio meccanismo di monitoraggio dello stato, in modo da non dover implementare soluzioni personalizzate.
+
+Altre informazioni su funzioni permanenti [questo articolo](../azure-functions/durable/durable-functions-overview.md). È possibile configurare un'attività di funzione di Azure per chiamare la funzione durevole, che restituirà una risposta con un URI diverso, ad esempio [in questo esempio](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Poiché `statusQueryGetUri` restituisce HTTP 202 stato mentre la funzione è in esecuzione, è possibile eseguire il polling lo stato della funzione usando un'attività Web. È sufficiente configurare un'attività Web con il `url` campo impostato su `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Al termine, la funzione permanente l'output della funzione sarà l'output dell'attività Web.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

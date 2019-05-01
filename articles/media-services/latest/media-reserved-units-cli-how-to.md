@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721817"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
 
@@ -33,9 +33,9 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. For
 
 |Tipo di unità richiesta|Scenario|Risultati di esempio per il [video di 7 min con risoluzione 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|La codifica in file MP4 con risoluzione SD e velocità in bit singola tramite "Codec video H.264 a bitrate singolo con risoluzione 16x9 SD" richiede 10 minuti.|
-| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 720p" richiede circa 8 minuti.<br/><br/>La codifica con set di impostazioni "Codec video H.264 a bitrate multipli con risoluzione 720p" richiede circa 16,8 minuti.|
-| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 1080p" richiede circa 4 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 8 minuti.|
+| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|Codifica in file MP4 risoluzione SD di a bitrate singolo con "Codec video h.264 singolo a velocità in bit SD 16x9" richiede circa 7 minuti.|
+| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|Codifica con "Codec video h.264 a bitrate singolo con 720p" set di impostazioni richiede circa 6 minuti.<br/><br/>Codifica con "codec video h.264 a Bitrate multipli 720p" set di impostazioni richiede circa 12 minuti.|
+| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|Codifica con "Codec video h.264 a Bitrate singolo con risoluzione 1080p e" set di impostazioni richiede circa 3 minuti.<br/><br/>Codifica con "codec video h.264 a Bitrate multiplo con risoluzione 1080p e" set di impostazioni richiede circa 8 minuti.|
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -62,7 +62,7 @@ Eseguire il comando `mru`.
 Il comando [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) seguente imposta le Media Reserved Unit sull'account "amsaccount" usando i parametri **count** e **type**.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="billing"></a>Fatturazione

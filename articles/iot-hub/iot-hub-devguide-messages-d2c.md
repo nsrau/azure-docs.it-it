@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364499"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917414"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'IoT Hub per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -119,7 +119,7 @@ Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 m
 
 L'hub IoT offre diverse metriche correlate al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Ad esempio, usare la metrica **Routing: messaggi telemetria eliminati** oppure **d2c.telemetry.egress.dropped** per identificare il numero di messaggi che sono stati eliminati quando non rispettavano query su una delle route e route di fallback è stata disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
 
-È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro. Per endpoint di tipo hub eventi, ad esempio, è possibile monitorare **d2c.endpoints.latency.eventHubs**. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.
+È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro. Per endpoint di tipo hub eventi, ad esempio, è possibile monitorare **d2c.endpoints.latency.eventHubs**. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.
 
 È possibile usare i log di diagnostica delle **route** nelle [impostazioni di diagnostica](../iot-hub/iot-hub-monitor-resource-health.md) di Monitoraggio di Azure per tenere traccia degli errori che si verificano durante la valutazione dell'integrità di una query e un endpoint di routing nella percezione dell'hub IoT, ad esempio quando un endpoint è inattivo. Questi log di diagnostica può essere inviato al log monitoraggio di Azure, hub eventi o archiviazione di Azure per l'elaborazione personalizzata.
 

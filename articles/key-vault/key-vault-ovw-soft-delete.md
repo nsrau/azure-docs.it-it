@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Eliminazione temporanea di Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
@@ -7,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/19/2019
-ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 330337620f1732b9ccecfb2c95a0b4495476f97b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720518"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 

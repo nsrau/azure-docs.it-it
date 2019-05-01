@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699759"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876840"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra le sottoscrizioni di Azure e i gruppi di risorse
 
@@ -21,7 +21,7 @@ Questo articolo illustra come spostare un insieme di credenziali di Servizi di r
 
 ## <a name="supported-region"></a>Area supportata
 
-Lo spostamento di risorse per insieme di credenziali di servizi di ripristino è supportato in Australia orientale, Australia sud orientale, Canada centrale, Canada orientale, Asia sud-orientale, Asia orientale, Stati Uniti centrali, Settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, South central US, West Central US, centro-occidentali US2, Stati Uniti occidentali, India centrale, India meridionale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Europa settentrionale, Europa occidentale, Sudafrica settentrionale, Sudafrica occidentale, Regno Unito meridionale, Regno Unito occidentale, Emirati Arabi Uniti centrali ed Emirati Arabi Uniti settentrionali.
+Lo spostamento di risorse per insieme di credenziali di servizi di ripristino è supportato in Australia orientale, Australia sud orientale, Canada centrale, Canada orientale, Asia sud-orientale, Asia orientale, Stati Uniti centrali, Settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, South central US, West Central US, centro-occidentali US2, Stati Uniti occidentali, India centrale, India meridionale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Europa settentrionale, Europa occidentale, Sudafrica settentrionale, Sudafrica occidentale, Regno Unito meridionale e Regno Unito occidentale.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Prerequisiti per lo spostamento dell'insieme di credenziali di servizi di ripristino
 

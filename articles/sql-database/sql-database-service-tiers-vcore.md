@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357941"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572692"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Livelli di servizio vCore, Vantaggio Azure Hybrid e migrazione
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
 Il modello di acquisto basato su vCore consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Permette anche di scegliere la generazione di hardware:
 
 - Gen4 - fino a 24 CPU logiche basate su processori Intel E5-2673 v3 (Haswell) da 2.4 GHz, vCore = 1 PP (core fisici), 7 GB per core, collegato a unità SSD
 - Gen5 - fino a 80 CPU logiche basate su processori Intel E5-2673 v4 (Broadwell) da 2.3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB per core, velocità eNVM SSD
+
 
 L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo.
 
@@ -37,12 +38,12 @@ Il modello vCore offre tre livelli di servizio: Utilizzo generico, Hyperscale e 
 
 La tabella seguente consente di comprendere le differenze tra questi tre livelli:
 
-||**Utilizzo generico**|**Business Critical**|**Iperscalabilità (anteprima)**|
+||**Utilizzo generico**|**Business Critical**|**Hyperscale (anteprima)**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con archiviazione con scalabilità elevata e requisiti di scalabilità in lettura|
-|Calcolo|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|
-|Memoria|Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core | Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core |Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core|
-|Archiviazione|Usa l'archiviazione remota:<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
+|CPU|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore<br/>**Calcolo senza server**<br/>Quinta generazione: 0,5 - 4 vCore|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|
+|Memoria|**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per core<br/>Quinta generazione: 5,1 GB per core<br/>**Calcolo senza server**<br/>Quinta generazione: 3 GB per ogni core|**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per core<br/>Quinta generazione: 5,1 GB per core |**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per core<br/>Quinta generazione: 5,1 GB per core|
+|Archiviazione|Usa l'archiviazione remota:<br/>**Il provisioning di database singolo calcolo**:<br/>5 GB - 4 TB<br/>**Calcolo senza server di database singolo**:<br/>5 GB - 1 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>**Il provisioning di database singolo calcolo**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
 |Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|Da definire|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>DISPONIBILITÀ ELEVATA con ridondanza|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basato su snapshot nell'archiviazione remota di Azure e questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscono sulle prestazioni di I/O di calcolo. I ripristini sono molto veloci e non corrispondono a un'operazione di dimensionamento dei dati (impiegano pochi minuti invece di ore o giorni).|
@@ -54,18 +55,20 @@ La tabella seguente consente di comprendere le differenze tra questi tre livelli
 
 - Per altre informazioni, vedere [Limiti delle risorse vCore nel database singolo](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse vCore nell'istanza gestita](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Per altre informazioni sui livelli di servizio Utilizzo generico e Business critical, vedere [Livelli di servizio Utilizzo generico e Business critical](sql-database-service-tiers-general-purpose-business-critical.md).
-- Per informazioni dettagliate sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB](sql-database-service-tier-hyperscale.md).  
+- Per informazioni dettagliate sul livello di servizio Hyperscale nel modello di acquisto basato su vCore, vedere [Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Se per la capacità di calcolo è necessario meno di un vCore, usare il modello di acquisto basato su DTU.
+
 
 ## <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 
-Nel modello di acquisto basato su vCore è possibile scambiare le licenze esistenti con tariffe scontate per il database SQL tramite il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
+Nel livello computer con provisioning del modello di acquisto basato su vCore, è possibile scambiare le licenze esistenti con tariffe scontate sull'uso di Database SQL per il [vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
 
 ![prezzi](./media/sql-database-service-tiers/pricing.png)
 
-Con Vantaggio Azure Hybrid, è possibile scegliere di pagare solo per l'infrastruttura sottostante di Azure usando la licenza SQL Server esistente per il motore di database SQL stesso (**BasePrice**) oppure di pagare per l'infrastruttura sottostante e per la licenza di SQL Server (**LicenseIncluded**). È possibile scegliere o modificare il modello di licenza nel portale di Azure o utilizzando una delle seguenti API.
+Con Vantaggio Azure Hybrid, è possibile scegliere di pagare solo per l'infrastruttura sottostante di Azure usando la licenza SQL Server esistente per il motore di database SQL stesso (**BasePrice**) oppure di pagare per l'infrastruttura sottostante e per la licenza di SQL Server (**LicenseIncluded**).
+
+
+È possibile scegliere o modificare il modello di licenza nel portale di Azure o utilizzando una delle seguenti API.
 
 - Per impostare o aggiornare il tipo di licenza con PowerShell:
 
@@ -130,5 +133,5 @@ Per i gruppi di failover con più database è necessario eseguire separatamente 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per database singoli, vedere [Limiti delle risorse basate su vCore del database SQL per database singoli](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per database singoli, vedere [Limiti delle risorse basate su vCore del database SQL per database singoli](sql-database-vcore-resource-limits-single-databases.md)
 - Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per i pool elastici, vedere [Limiti delle risorse basate su vCore del database SQL per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

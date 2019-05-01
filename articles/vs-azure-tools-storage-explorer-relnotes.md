@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456208"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924803"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -38,7 +38,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 ### <a name="new"></a>Nuovo
 
 * È ora possibile modificare il proprietario e il gruppo proprietario quando gestiscono l'accesso per un contenitore di Azure Data Lake Store Gen2, file o cartella.
-* In Windows, l'aggiornamento di Storage Explorer all'interno del prodotto è ora un'installazione incrementale. Verrà inserita un'esperienza di aggiornamento più veloce. Se si preferisce un'installazione pulita, quindi è possibile scaricare il [programma di installazione](https://azure.microsoft.com/en-us/features/storage-explorer/) manualmente e quindi installare manualmente. #1089
+* In Windows, l'aggiornamento di Storage Explorer all'interno del prodotto è ora un'installazione incrementale. Verrà inserita un'esperienza di aggiornamento più veloce. Se si preferisce un'installazione pulita, quindi è possibile scaricare il [programma di installazione](https://azure.microsoft.com/features/storage-explorer/) manualmente e quindi installare manualmente. #1089
 
 ### <a name="preview-features"></a>Anteprima funzionalità
 
@@ -59,7 +59,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 ### <a name="known-issues"></a>Problemi noti
 
-* Quando si usa RBAC, Storage Explorer richiede alcune autorizzazioni di livello di gestione per accedere alle risorse di archiviazione. Vedere le [Guida alla risoluzione dei](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) per altre informazioni.
+* Quando si usa RBAC, Storage Explorer richiede alcune autorizzazioni di livello di gestione per accedere alle risorse di archiviazione. Vedere le [Guida alla risoluzione dei](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) per altre informazioni.
 * Tentativo di accedere ai BLOB di Azure Data Lake Store Gen2 dietro un proxy potrebbe non riuscire.
 * Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere il numero 537.
 * Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.

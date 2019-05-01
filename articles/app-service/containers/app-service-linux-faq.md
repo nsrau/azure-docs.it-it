@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851154"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919955"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -136,7 +136,7 @@ Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (a
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
-Attualmente non è disponibile il supporto per l'esposizione di più porte.
+Non Supportiamo l'esposizione di più di una porta.
 
 **È possibile usare la propria archiviazione?**
 
@@ -154,11 +154,11 @@ Il sito SCM viene eseguito in un contenitore separato. Non è possibile controll
 
 No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end condivisi.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Più contenitori con Docker Compose e Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Multi-contenitore con Docker Compose
 
 **Come si configura Registro Azure Container da usare con più contenitori?**
 
-Per usare Registro Azure Container con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro Azure Container. Quando sono nello stesso server del registro contenitori, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione di Kubernetes o Docker Compose per includere il nome dell'immagine di Registro Azure Container.
+Per usare Registro Azure Container con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro Azure Container. Quando sono nello stesso server del Registro di sistema, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione Docker Compose per includere il nome dell'immagine di registro contenitori di AZURE.
 
 Definire le impostazioni dell'applicazione seguenti:
 

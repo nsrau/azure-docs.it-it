@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791576"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717495"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gestire un dispositivo perimetrale di casella dei dati di Azure tramite Windows PowerShell
 
@@ -24,7 +24,6 @@ Questo articolo è incentrato sulle attività eseguite tramite l'interfaccia di 
 Questo articolo include le seguenti procedure:
 
 - Connettersi all'interfaccia di PowerShell
-- Avviare una sessione di supporto
 - Creare un pacchetto di supporto
 - Caricamento del certificato
 - Reimposta il dispositivo
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Per altre informazioni sui certificati, vedere [certificati Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) oppure [installare certificati in un gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Informazioni sul dispositivo di visualizzazione
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Se il ruolo di calcolo viene configurato nel dispositivo, è anche possibile ott
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>Chiudere la sessione remota
+
+Per uscire dalla sessione PowerShell remota, chiudere la finestra di PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

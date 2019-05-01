@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637047"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572606"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulle reti in funzioni di Azure
 
@@ -28,11 +28,14 @@ La distribuzione di una funzione in un ambiente del servizio App è attualmente 
 È possibile limitare l'accesso a internet in due modi:
 
 * [Le restrizioni IP](../app-service/app-service-ip-restrictions.md): Limitare il traffico in ingresso per app per le funzioni dall'intervallo di indirizzi IP.
+    * Sotto le restrizioni IP, si è anche possibile configurare [gli endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md), che consente di limitare la funzione che accetta solo il traffico in ingresso da una determinata rete virtuale.
 * Rimozione di tutti i trigger HTTP. Per alcune applicazioni, è sufficiente semplicemente evitare i trigger HTTP e utilizzare qualsiasi altra origine di eventi per attivare la funzione.
 
 Tenere presente che l'editor del portale di Azure richiede l'accesso diretto alla funzione in esecuzione. Modifiche al codice tramite il portale di Azure richiederà il dispositivo in uso per esplorare il portale per avere relativo inserito nella whitelist IP. Ma è comunque possibile usare qualsiasi elemento della scheda di funzionalità della piattaforma con restrizioni di rete.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Come si limita l'app per le funzioni a una rete virtuale?
+
+Si è in grado di limitare **in ingresso** traffic per un'app per le funzioni a una rete virtuale usando [endpoint di servizio](./functions-networking-options.md#private-site-access). Questa configurazione consente ancora l'app per le funzioni effettuare chiamate in uscita a internet.
 
 L'unico modo per limitare completamente una funzione in modo che tutto il traffico passa attraverso una rete virtuale consiste nell'utilizzare un ambiente del servizio App internamente con bilanciamento del carico. Questa opzione distribuisce il sito in un'infrastruttura dedicata all'interno di una rete virtuale e invia tutti i trigger e il traffico attraverso la rete virtuale. 
 
@@ -48,8 +51,11 @@ Tramite l'integrazione rete virtuale (attualmente in anteprima), è possibile ac
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Come è possibile attivare una funzione da una risorsa in una rete virtuale?
 
-È possibile attivare una funzione da una risorsa in una rete virtuale solo con la distribuzione di app per le funzioni in un ambiente del servizio App. Per informazioni dettagliate sull'uso di un ambiente del servizio App, vedere [creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio App](../app-service/environment/create-ilb-ase.md).
+Si è in grado di consentire i trigger HTTP per essere chiamato da una rete virtuale usando [gli endpoint di servizio](./functions-networking-options.md#private-site-access). 
 
+È anche possibile attivare una funzione da una risorsa in una rete virtuale con la distribuzione di app per le funzioni in un ambiente del servizio App. Per informazioni dettagliate sull'uso di un ambiente del servizio App, vedere [creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio App](../app-service/environment/create-ilb-ase.md).
+
+I servizio App e Premium piano supporto i trigger HTTP da una rete virtuale, ma solo un ambiente del servizio App supportano tutti gli altri tipi di trigger di funzione tramite una rete virtuale.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Come è possibile distribuire l'app per le funzioni in una rete virtuale?
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849367"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681853"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -129,9 +129,9 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disattivato la 
 
 3. In **Server protetti** selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server.
 
-4. Il server protetto e scegliere **Elimina**.
+4. Il server protetto e scegliere **Unregister**.
 
-   ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione di estensione in VM di SQL Server
 

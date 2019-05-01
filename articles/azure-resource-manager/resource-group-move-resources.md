@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239174"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698484"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -222,6 +222,22 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
 - Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni.
 
+Se non si ricorda il gruppo di risorse originale, è possibile trovarlo tramite diagnostica. Per l'app web, selezionare **diagnosticare e risolvere i problemi**. Quindi, selezionare **configurazione e gestione**.
+
+![Selezionare la diagnostica](./media/resource-group-move-resources/select-diagnostics.png)
+
+Selezionare **opzioni di migrazione**.
+
+![Selezionare le opzioni di migrazione](./media/resource-group-move-resources/select-migration.png)
+
+Selezionare l'opzione per procedure consigliate per spostare l'app web.
+
+![Selezionare passaggi consigliati](./media/resource-group-move-resources/recommended-steps.png)
+
+Noterete che le azioni consigliate da intraprendere prima di spostare le risorse. Le informazioni includono il gruppo di risorse originale per l'app web.
+
+![Consigli](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>Limitazioni del certificato del servizio app
 
 È possibile spostare il certificato del servizio app in un nuovo gruppo di risorse oppure in una nuova sottoscrizione. Se il certificato del servizio app è associato a un'app Web, è necessario eseguire alcuni passaggi prima di spostare le risorse in una nuova sottoscrizione. Eliminare l'associazione SSL e il certificato privato dall'app Web prima di spostare le risorse. Il certificato del servizio app non deve essere eliminato, è sufficiente eliminare solo il certificato privato nell'app Web.
@@ -251,7 +267,7 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, seguire questa procedura:
+Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, effettuare quanto segue:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 

@@ -1,26 +1,19 @@
 ---
-title: SaaS evasione API V1 - Azure Marketplace | Microsoft Docs
+title: SaaS evasione API V1 | Azure Marketplace
 description: Viene illustrato come creare un'offerta SaaS in Azure Marketplace con l'API V1 di evasione degli ordini associati.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 03/28/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101099"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943132"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS evasione API versione 1 (deprecata)
 

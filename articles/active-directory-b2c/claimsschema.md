@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento ClaimsSchema di criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487822"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721756"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,7 +42,7 @@ L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile 
 
 L'elemento **ClaimType** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
@@ -65,11 +65,11 @@ L'elemento **DefaultPartnerClaimTypes** può contenere l'elemento seguente:
 
 | Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| Protocollo | 0:n | Elenco di protocolli con il relativo nome del tipo di attestazione di partner predefinito. |
+| Protocol | 0:n | Elenco di protocolli con il relativo nome del tipo di attestazione di partner predefinito. |
 
 L'elemento **Protocollo** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
 | PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
@@ -104,7 +104,7 @@ Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di
 
 L'elemento **Mask** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | `Regex` | No  | Se **`Type`** è impostata su `Regex`, specificare l'espressione regolare da utilizzare.
@@ -144,7 +144,7 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering sol
 
 L'elemento **Restriction** può contenere l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | MergeBehavior | No  | Metodo usato per unire i valori di enumerazione con un elemento ClaimType nei criteri padre avente lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` è una raccolta di dati che è consigliabile accodare alla fine della raccolta specificata nei criteri padre. Il valore `Prepend` è una raccolta di dati che è consigliabile aggiungere all'inizio della raccolta specificata nei criteri padre. Il `ReplaceAll` valore è una raccolta di dati specificati nei criteri padre che è consigliabile ignorare. |
 
@@ -159,10 +159,10 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
+|Value | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No  | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. Valori possibili: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
@@ -188,7 +188,7 @@ Elenco a discesa delle città con valore predefinito impostato su New York:
 
 L'elemento **Pattern** può contenere gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | RegularExpression | Sì | Espressione regolare a cui le attestazioni di questo tipo devono corrispondere per poter essere valide. |
 | HelpText | No  | Criterio o espressione regolare per questa attestazione. |

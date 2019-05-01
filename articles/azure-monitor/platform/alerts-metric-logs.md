@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483863"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872567"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure
 
@@ -57,7 +57,7 @@ Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Anal
 
 1. **Area di lavoro di Log Analytics attiva**: è necessario che sia presente un'area di lavoro Log Analytics valida e attiva. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Agente configurato per l'area di lavoro di Log Analytics**: è necessario che un agente sia configurato per le macchine virtuali di Azure (e/o) per le macchine virtuali in locale per inviare i dati all'area di lavoro Log Analytics usata nel passaggio precedente. Per altre informazioni, vedere [Panoramica degli agenti di Azure per monitorare macchine virtuali di Azure](../../azure-monitor/platform/agents-overview.md).
-3. **Soluzioni di Log Analytics supportate**: la soluzione Log Analytics deve essere configurata per inviare i dati nell'area di lavoro di Log Analytics. Le soluzioni supportate sono [contatori delle prestazioni per Windows e Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [record di heartbeat per Integrità agente](../../azure-monitor/insights/solution-agenthealth.md), gestione degli aggiornamenti e [dati dell'evento](../../azure-monitor/platform/data-sources-windows-events.md).
+3. **Soluzioni di Log Analytics supportate**: Soluzione Analitica log deve essere configurati e l'invio dei dati nell'area di lavoro di Log Analitica - supportata soluzioni vengono [contatori delle prestazioni per Windows e Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [record di Heartbeat per integrità agente](../../azure-monitor/insights/solution-agenthealth.md) , [Gestione aggiornamenti](../../automation/automation-update-management.md), e [i dati dell'evento](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurazione degli avvisi delle metriche per i log

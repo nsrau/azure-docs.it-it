@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61371930"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875703"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testare la knowledge base in modo interattivo in QnA Maker
 
@@ -24,8 +24,8 @@ Testare la Knowledge Base di QnA Maker è una parte importante di un processo it
 
 ## <a name="test-answer-matching"></a>Testare la corrispondenza delle risposte
 
-1.  Accedere alla knowledge base selezionandone il nome nella pagina  **My knowledge bases** (Knowledge Base personali).
-2.  Per accedere al pannello a scorrimento Test, selezionare  **Test**  nel pannello superiore dell'applicazione.
+1.  Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
+2.  Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione.
 
     ![Accedere al pannello Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,21 +35,21 @@ Testare la Knowledge Base di QnA Maker è una parte importante di un processo it
 
 ## <a name="clear-test-panel"></a>Cancellare il pannello Test
 
-Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare  **Ricomincia**  nell'angolo in alto a sinistra del pannello Test.
+Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare **Ricomincia** nell'angolo in alto a sinistra del pannello Test.
 
 ## <a name="close-test-panel"></a>Chiudere il pannello Test
 
-Per chiudere il pannello Test, selezionare nuovamente il pulsante  **Test** . Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
+Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
 
 ## <a name="inspect-score"></a>Ispezionare il punteggio
 
-È possibile ispezionare i dettagli del risultato del test nel pannello Ispeziona.
+È possibile ispezionare i dettagli dei risultati del test nel pannello Inspect (Ispeziona).
 
-1.  Con il pannello a scorrimento Test aperto, selezionare  **Ispeziona**  per visualizzare altri dettagli sulla risposta.
+1.  Con il pannello a scorrimento Test aperto, selezionare **Inspect** (Ispeziona) per visualizzare altri dettagli sulla risposta.
 
     ![Ispezionare le risposte](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Verrà visualizzato il pannello Ispeziona. Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
 ## <a name="correct-the-top-scoring-answer"></a>Correggere la risposta con il punteggio più alto
 

@@ -1,6 +1,6 @@
 ---
-title: Endpoint di streaming in Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo descrive le caratteristiche degli endpoint di streaming e come vengono usati da Servizi multimediali di Azure.
+title: Streaming endpoint (origine) in servizi multimediali di Azure | Microsoft Docs
+description: In servizi multimediali di Azure, un Endpoint di Streaming (Origin) rappresenta una creazione dinamica dei pacchetti e servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione lettore client o a una rete di distribuzione contenuti (CDN) per l'ulteriore distribuzione.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125424"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867604"
 ---
-# <a name="streaming-endpoints"></a>Endpoint di streaming
+# <a name="streaming-endpoints-origin"></a>Endpoint di streaming (origine)
 
-In Servizi multimediali di Azure un'entità [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio **endpoint di streaming** può essere costituito da un flusso live o da una risorsa video on demand associata all'account di Servizi multimediali. Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Nell'account è possibile creare altri endpoint di streaming. 
+In servizi multimediali di Microsoft Azure, un [Endpoint di Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un dinamico (just-in-time) creazione di pacchetti e l'origine del servizio che può distribuire contenuti live e on demand direttamente a un'applicazione di lettore client, usando uno del Common supporti protocolli di streaming (HLS o DASH). Inoltre, il **Endpoint di Streaming** fornisce la crittografia dinamica (just-in-time) per soluzioni DRM leader del settore.
+
+Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. L'endpoint di streaming **predefinito** non può essere eliminato. Gli endpoint di Streaming aggiuntive possono essere creati con l'account (vedere [quote e limitazioni](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video. 
@@ -35,33 +37,37 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## <a name="types"></a>Tipi  
 
-Sono disponibili due tipi di **endpoint di streaming**: **Standard** e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
+Sono disponibili due tipi di **endpoint di streaming**: **Standard** (anteprima) e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
 
 La tabella seguente descrive i tipi:  
 
 |Type|Unità di scala|DESCRIZIONE|
 |--------|--------|--------|  
-|**Endpoint di streaming Standard** (scelta consigliata)|0|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** tipo, ma può essere modificato nel tipo Premium.<br/> Il tipo Standard è l'opzione consigliata per quasi tutti gli scenari di streaming e numero di destinatari. Il tipo **Standard** consente la scalabilità automatica della larghezza di banda in uscita. La velocità effettiva da questo tipo di Endpoint di Streaming è fino a 600 Mbps. I frammenti video memorizzati nella cache nella rete CDN, non usare la larghezza di banda di Endpoint di Streaming.<br/>Per i clienti con requisiti più complessi, Servizi multimediali mette a disposizione endpoint di streaming di tipo **Premium**, scalabili orizzontalmente qualora il numero dei destinatari Internet sia più ampio. Se si prevede che un vasto pubblico e utenti simultanei è elevato, contattaci in amsstreaming al\@microsoft.com, per indicazioni sulla necessità di spostare il **Premium** tipo. |
-|**Endpoint di streaming Premium**|>0|Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per passare al tipo **Premium** è necessario regolare il valore `scaleUnits`. Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium**, ogni unità abilitata fornisce all'applicazione una capacità di larghezza di banda aggiuntiva. |
- 
-## <a name="comparing-streaming-types"></a>Confronto tra le tipologie di streaming
+|**Standard**|0|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** digitare, può essere modificato nel tipo Premium regolando `scaleUnits`.|
+|**Premium**|>0|**Premium** gli endpoint di Streaming sono adatti per carichi di lavoro avanzati, che fornisce capacità di larghezza di banda dedicata e scalabile. Si sposta in una **Premium** tipo regolando `scaleUnits` (unità di streaming). Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium**, ogni unità abilitata fornisce all'applicazione una capacità di larghezza di banda aggiuntiva. |
 
-### <a name="features"></a>Funzionalità
+> [!NOTE]
+> Per i clienti che desiderano per distribuire contenuti a un vasto pubblico di internet, è consigliabile abilitare della rete CDN nell'Endpoint di Streaming.
+
+Per informazioni di contratto di servizio, vedere [prezzi e contratto di servizio](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Confronto tra le tipologie di streaming
 
 Funzionalità|Standard|Premium
 ---|---|---
-Gratis per i primi 15 giorni| Sì |No 
-Velocità effettiva |Fino a 600 Mbps quando non si usa la rete CDN di Azure. Scalabilità con la rete CDN.|200 Mbps per unità di streaming (SU). Scalabilità con la rete CDN.
+Liberare i primi 15 giorni <sup>1</sup>| Sì |No 
+Velocità effettiva |Fino a 600 Mbps e possono fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
-Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive
-Host applicazione di filtri/G20/personalizzato IP <sup>1</sup>|Sì|Sì
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming
+Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Sì|Sì
 Download progressivo|Sì|Sì
-Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.<br/>Per esigenze superiori alle funzionalità offerte dalla tipologia Standard. Se si prevede un numero di destinatari simultanei superiore a 50.000 visualizzatori, contattare Microsoft (amsstreaming@microsoft.com).
+Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
 
-<sup>1</sup> usato direttamente nell'Endpoint di Streaming solo quando la rete CDN non è abilitata nell'endpoint.
+<sup>1</sup> la versione di valutazione gratuita si applica solo agli account di servizi multimediali appena creato e il valore predefinito dell'Endpoint di Streaming.<br/>
+<sup>2</sup> usato direttamente nell'Endpoint di Streaming solo quando la rete CDN non è abilitata nell'endpoint.<br/>
 
 ## <a name="properties"></a>Properties 
 

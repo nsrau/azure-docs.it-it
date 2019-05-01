@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096125"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729541"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -158,7 +158,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derivato da groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | st |X |X | | |
@@ -241,7 +240,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Viene usata dalla sincronizzazione dell'hash delle password, dall'autenticazione pass-through e dalla federazione. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derivato da groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | st |X |X | | |
@@ -294,7 +292,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Viene usata dalla sincronizzazione dell'hash delle password, dall'autenticazione pass-through e dalla federazione. |
-| securityEnabled | | |X |Derivato da groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | st |X |X | | |
@@ -317,7 +314,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | objectSID |X | |X |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | proxyAddresses |X |X |X |Proprietà meccanica. Usata da Azure AD. Contiene tutti gli indirizzi di posta elettronica secondari per l'utente. |
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. |
-| securityEnabled | | |X |Derivato da groupType. |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
@@ -336,7 +332,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | objectSID |X | |X |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Viene usata dalla sincronizzazione dell'hash delle password, dall'autenticazione pass-through e dalla federazione. |
-| securityEnabled | | |X |Derivato da groupType |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
@@ -364,7 +359,6 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Viene usata dalla sincronizzazione dell'hash delle password, dall'autenticazione pass-through e dalla federazione. |
-| securityEnabled | | |X |Derivato da groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD. |
 | st |X |X | | |

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761414"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728821"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -157,7 +157,7 @@ Scaricare e installare l'ultima versione dell'interfaccia della riga di comando 
 
 ### <a name="try"></a>Soluzione:
 
-1. Controllare il percorso %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) per individuare azds.exe. Se è presente, aggiungere tale percorso alla variabile di ambiente PATH.
+1. Controllare la posizione %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev spazi CLI per azds.exe. Se è presente, aggiungere tale percorso alla variabile di ambiente PATH.
 2. Se azds.exe non è installato, eseguire il comando seguente:
 
     ```cmd
@@ -293,6 +293,16 @@ Questo errore si verifica se il client Helm non può più comunicare con il pod 
 ### <a name="try"></a>Soluzione:
 Il riavvio dei nodi agente nel cluster risolve in genere questo problema.
 
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Errore: rilascio azds -\<identifier\>-\<spacename\>-\<servicename\> non è riuscita: servizi\<servicename\>' esiste già "o" accesso negato per eseguire il Pull \<nomeservizio\>, repository non esiste o richiedano 'docker login' "
+
+### <a name="reason"></a>`Reason`
+Questi errori possono verificarsi se si combinano l'esecuzione di comandi Helm diretti (, ad esempio `helm install`, `helm upgrade`, o `helm delete`) con i comandi di sviluppo spazi (ad esempio `azds up` e `azds down`) all'interno dello stesso spazio di sviluppo. Si verificano perché gli spazi di sviluppo ha una propria istanza Tiller, che è in conflitto con il proprio istanza Tiller in esecuzione nello stesso spazio di sviluppo.
+
+### <a name="try"></a>Soluzione:
+È possibile usare sia i comandi di Helm e i comandi di spazi di sviluppo con lo stesso cluster AKS, ma ogni spazio dei nomi di abilitata spazi di sviluppo deve usare uno o l'altro.
+
+Si supponga, ad esempio, che si usa un comando di Helm per eseguire l'intera applicazione in uno spazio di sviluppo padre. È possibile creare figlio spazi dev disattivare tale padre, usare spazi di sviluppo per l'esecuzione dei singoli servizi nel figlio dev spazi e testare i servizi insieme. Quando si è pronti per archiviare le modifiche, usare un comando di Helm per distribuire il codice aggiornato allo spazio dev padre. Non usare `azds up` per eseguire il servizio aggiornato nell'elemento padre dello spazio di sviluppo, poiché in conflitto con il servizio eseguito inizialmente l'uso di Helm.
+
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Il proxy Azure Dev Spaces può interferire con altri pod in esecuzione in uno spazio di sviluppo
 
 ### <a name="reason"></a>Motivo
@@ -360,7 +370,7 @@ Dopo la reinstallazione del controller, ridistribuire il POD.
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorizzazioni RBAC non corrette per la chiamata di API e controller di spazi di sviluppo
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>`Reason`
 L'utente l'accesso al controller di spazi di sviluppo di Azure deve avere accesso in lettura admin *kubeconfig* nel cluster AKS. Ad esempio, questa autorizzazione è disponibile nel [incorporati ruolo di amministratore Cluster Azure Kubernetes Service](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L'utente l'accesso al controller di spazi di sviluppo di Azure deve avere anche il *collaboratori* o *proprietario* dei ruoli RBAC per il controller.
 
 ### <a name="try"></a>Prova

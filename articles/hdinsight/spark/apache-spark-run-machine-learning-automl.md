@@ -1,36 +1,36 @@
 ---
 title: Eseguire carichi di lavoro di Azure Machine Learning con Machine Learning automatizzato su Apache Spark in Azure HDInsight
 description: Informazioni su come eseguire carichi di lavoro di Azure Machine Learning con Machine Learning automatizzato su Apache Spark in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 896cae9b7fc43765e340ba3b92351e04b5512efd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762552"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917051"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Eseguire carichi di lavoro di Azure Machine Learning con Machine Learning automatizzato su Apache Spark in Azure HDInsight
 
-Azure Machine Learning è uno strumento collaborativo con supporto per il trascinamento della selezione che consente di creare, testare e distribuire soluzioni di analisi predittiva sui dati. Azure Machine Learning pubblica i modelli come servizi Web che possono essere facilmente usati da app personalizzate o strumenti di Business Intelligence come Excel. La tecnologia di Machine Learning automatizzato consente di creare modelli di Machine Learning di alta qualità usando funzionalità di ottimizzazione e automazione intelligente. Questa tecnologia è in grado di individuare l'algoritmo e gli iperparametri appropriati da usare per specifici tipi di problemi.
+Azure Machine Learning semplifica e accelera la creazione, training e la distribuzione di modelli di machine learning. In automatizzati di machine learning (AutoML), si inizia con dati di training che include una funzionalità di destinazione definito e quindi eseguire l'iterazione attraverso le combinazioni di algoritmi e selezione di funzionalità per selezionare automaticamente il modello migliore per i dati per i punteggi di training. HDInsight consente ai clienti di effettuare il provisioning di cluster con centinaia di nodi. AutoML in esecuzione in Spark in un cluster HDInsight consente agli utenti di usare la capacità di calcolo tra i nodi per eseguire processi di training in una modalità di scalabilità orizzontale e per eseguire più processi di training in parallelo. Ciò consente agli utenti di eseguire esperimenti AutoML pur condividendo le risorse di calcolo con loro altri carichi di lavoro di big data.
+ 
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installare Azure Machine Learning in un cluster HDInsight
 
-> [!Note]
-> L'area di lavoro di Azure Machine Learning è attualmente disponibile nelle aree seguenti: eastus, eastus2 e westcentralus. Anche il cluster HDInsight deve essere creato in una di queste aree.
-
-Per esercitazioni generiche su Azure Machine Learning e Machine Learning automatizzato, vedere [Esercitazione: Creare il primo esperimento data science in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) e [Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione](../../machine-learning/service/tutorial-auto-train-models.md).
-Per installare il servizio Machine Learning automatizzato nel cluster HDInsight di Azure, eseguire l'azione script - [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - nei nodi head e nei nodi di lavoro di un cluster Spark 2.3.0 di HDInsight 3.6 (scelta consigliata). Questa azione script può essere eseguita nell'ambito del processo di creazione del cluster o in un cluster esistente tramite il portale di Azure.
-
-Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](../hdinsight-hadoop-customize-cluster-linux.md). Oltre a installare i pacchetti e le dipendenze di Azure Machine Learning, lo script scarica anche un notebook di Jupyter di esempio (nel percorso `HdiNotebooks/PySpark` dell'archivio predefinito), che illustra come usare un classificatore di Machine Learning automatizzato per un problema di classificazione semplice.
+Per esercitazioni generale dell'apprendimento automatico, vedere [esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione](../../machine-learning/service/tutorial-auto-train-models.md).
+Tutti i nuovi cluster HDInsight Spark è preinstallato con Azure ml-AutoML SDK. È possibile iniziare a usare AutoML in HDInsight con questo [notebook di Jupyter di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). che illustra come usare un classificatore di Machine Learning automatizzato per un problema di classificazione semplice.
 
 > [!Note]
 > I pacchetti di Azure Machine Learning vengono installati nell'ambiente Conda Python3 e il notebook di Jupyter installato deve essere eseguito con il kernel PySpark3.
+
+In alternativa, è possibile usare i notebook di Zeppelin usare AutoML anche.
+
+> [!Note]
+> Zeppelin con un [problema noto](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) dove PySpark3 non selezionare la versione corretta di Python. Usare documentata risolvere.
 
 ## <a name="authentication-for-workspace"></a>Autenticazione dell'area di lavoro
 
@@ -42,8 +42,8 @@ Il frammento di codice seguente crea un token di autenticazione con un'**applica
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
                 tenant_id = '<Azure Tenant ID>',
-                username = '<Azure AD Application ID>',
-                password = '<Azure AD Application Key>'
+                service_principal_id = '<Azure AD Application ID>',
+                service_principal_password = '<Azure AD Application Key>'
                 )
 ```
 Il frammento di codice seguente crea un token di autenticazione con un **utente di Azure AD**.
@@ -69,9 +69,10 @@ dataflow_with_token = dprep.read_csv(path='https://dpreptestfiles.blob.core.wind
 
 ## <a name="experiment-submission"></a>Invio di esperimento
 
-Nella configurazione di Machine Learning automatizzato, la proprietà `spark_context` deve essere impostata in modo che il pacchetto venga eseguito in modalità distribuita. La proprietà `concurrent_iterations`, che corrisponde al numero massimo di iterazioni eseguite in parallelo, deve essere impostata su un numero inferiore rispetto ai core executor per l'app Spark.
+Nel [learning machineconfiguration automatizzati](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), la proprietà `spark_context` deve essere impostato per il pacchetto da eseguire in modalità distribuita. La proprietà `concurrent_iterations`, che corrisponde al numero massimo di iterazioni eseguite in parallelo, deve essere impostata su un numero inferiore rispetto ai core executor per l'app Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla logica alla base della tecnologia di Machine Learning automatizzato, vedere [Release models at pace using Microsoft's automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (Rilasciare modelli a intervalli regolari con la tecnologia di Machine Learning automatizzato Microsoft).
+* Per altre informazioni sulla motivazione alla base di apprendimento automatico, vedere [i modelli di rilascio a in base alla velocità usando Microsoft automatico di apprendimento automatico.](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* Per altre informazioni sull'utilizzo delle funzionalità di Azure Machine Learning automatizzati di Machine Learning, vedere [New automatizzata funzionalità di machine learning nel servizio Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [Progetto di Machine Learning automatizzato sviluppato da Microsoft Research](https://www.microsoft.com/research/project/automl/)

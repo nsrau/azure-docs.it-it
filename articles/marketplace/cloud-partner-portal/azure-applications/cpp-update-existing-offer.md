@@ -1,25 +1,18 @@
 ---
-title: Aggiornare l'offerta esistente di applicazioni Azure | Microsoft Docs
+title: Aggiornare un'offerta di applicazione di Azure esistente | Azure Marketplace
 description: Come aggiornare un'offerta esistente di applicazioni Azure in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744619"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942811"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Aggiornare un'offerta esistente di applicazioni Azure
 

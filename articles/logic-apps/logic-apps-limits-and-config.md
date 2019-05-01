@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916804"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -26,7 +26,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
@@ -48,7 +48,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 |------|-------|-------|
 | Durata esecuzione | 90 giorni | Per modificare questo limite, vedere [Modificare la durata dell'esecuzione e la conservazione nella risorsa di archiviazione](#change-duration). |
 | Intervallo di ricorrenza minimo | 1 secondo | |
@@ -75,7 +75,7 @@ Per modificare il limite predefinito e impostarlo su un valore compreso tra 7 gi
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -93,7 +93,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="global-logic-apps-service"></a>Servizio App per la logica globale
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo consentito. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
@@ -105,7 +105,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione (ISE)
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 |------|-------|-------|
 | Limite di esecuzione di unità di base | 10.000 esecuzioni di azioni per 5 minuti, <br>ovvero circa 80 milioni di esecuzioni di azioni al mese | |
 | Limite di esecuzione di unità di scala | 5.000 esecuzioni di azioni per 5 minuti, <br>quale è ~ 40 milioni di esecuzioni di azioni al mese | |
@@ -124,7 +124,7 @@ Ecco i limiti per una singola richiesta HTTP o a una chiamata sincrona di un con
 
 Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto di richieste di webhook e di conseguenza il timeout per queste operazioni può essere più prolungato rispetto a questi limiti. Per altre informazioni, vedere i dettagli tecnici per il connettore specifico e anche [Trigger e azioni dei flussi di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Richiesta in uscita | 120 secondi | Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Risposta sincrona | 120 secondi | Perché la richiesta originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
@@ -132,7 +132,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Dimensioni dei messaggi | 100 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. |
 | Dimensione dei messaggi con la divisione in blocchi | 1 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o che consentono di abilitare la divisione in blocchi nella configurazione di runtime. Per altre informazioni, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -141,7 +141,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="retry-policy"></a>Criteri di ripetizione
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Tentativi | 90 | Il valore predefinito è 4. Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervallo massimo tra i tentativi | 1 giorno | Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -154,7 +154,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 Limiti per i connettori personalizzati che è possibile creare da API Web.
 
-| Name | Limite |
+| NOME | Limite |
 | ---- | ----- |
 | Numero di connettori personalizzati | 1.000 per ogni sottoscrizione di Azure |
 | Numero di richieste al minuto per ogni connessione creata da un connettore personalizzato | 500 richieste per connessione |
@@ -164,7 +164,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 ## <a name="managed-identities"></a>Identità gestite
 
-| Name | Limite |
+| NOME | Limite |
 | ---- | ----- |
 | Numero di app per la logica con identità gestite assegnate dal sistema per ogni sottoscrizione di Azure | 10 |
 |||
@@ -179,45 +179,18 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 Limiti per il numero di elementi per ogni account di integrazione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Livello gratuito*
+> [!NOTE] 
+> Solo per scenari di analisi esplorativi, non gli scenari di produzione, usare il livello gratuito. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
 
-Usare il livello gratuito solo per scenari esplorativi, non per scenari di produzione. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
-
-| Elemento | Limite | Note |
-|----------|-------|-------|
-| Assembly | 10 | |
-| Configurazioni batch | 5 |
-| Certificati | 25 | |
-| Contratti commerciali EDI | 10 | |
-| Partner commerciali EDI | 25 | |
-| Mappe | 25 | |
-| Schemi | 25 |
-||||
-
-*Livello Basic*
-
-| Elemento | Limite | Note |
-|----------|-------|-------|
-| Assembly | 25 | |
-| Configurazioni batch | 1 | |
-| Certificati | 2 | |
-| Contratti commerciali EDI | 1 | |
-| Partner commerciali EDI | 2 | |
-| Mappe | 500 | |
-| Schemi | 500 |
-||||
-
-*Livello Standard*
-
-| Elemento | Limite | Note |
-|----------|-------|-------|
-| Assembly | 50 | |
-| Configurazioni batch | 50 |
-| Certificati | 500 | |
-| Contratti commerciali EDI | 500 | |
-| Partner commerciali EDI | 500 | |
-| Mappe | 1.000 | |
-| Schemi | 1.000 |
+| Elemento | Gratuito | Basic | Standard |
+|----------|------|-------|----------|
+| Contratti commerciali EDI | 10 | 1 | 500 |
+| Partner commerciali EDI | 25 | 2 | 500 |
+| Mappe | 25 | 500 | 1.000 |
+| Schemi | 25 | 500 | 1.000 |
+| Assembly | 10 | 25 | 50 |
+| Certificati | 25 | 2 | 500 |
+| Configurazioni batch | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -245,7 +218,7 @@ Usare il livello gratuito solo per scenari esplorativi, non per scenari di produ
 
 Ecco i limiti che si applicano ai protocolli B2B:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | AS2 | 50 MB | Applicabile alla decodifica e alla codifica |
 | X12 | 50 MB | Applicabile alla decodifica e alla codifica |
@@ -304,7 +277,7 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 | India meridionale | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asia sud-orientale | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Stati Uniti centro-occidentali | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europa occidentale | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Europa occidentale | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | India occidentale | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Stati Uniti occidentali | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Stati Uniti occidentali 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

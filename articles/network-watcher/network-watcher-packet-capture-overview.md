@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3ca9619dcfe9054ab69d248e20f6d8e59324d308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4cfbfc4bed5438ed901fca86d8c2939d3860c68e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727030"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684164"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduzione all'acquisizione di pacchetti di variabili in Azure Network Watcher
 
@@ -34,7 +34,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Acquisisci configurazione**
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |**Numero massimo di byte per pacchetto (byte)** | Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Se è necessaria solo l'intestazione IPv4, indicare qui 34 |
 |**Numero massimo di byte per sessione (byte)** | Numero totale di byte acquisiti, quando viene raggiunto il valore di termine della sessione.|
@@ -42,7 +42,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Filtro (facoltativo)**
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |**Protocollo** | Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Tutti.|
 |**Indirizzo IP locale** | Questo valore filtra l'acquisizione di pacchetti per ottenere i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore del filtro.|

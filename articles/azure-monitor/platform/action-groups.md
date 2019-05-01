@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778386"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919076"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
@@ -78,7 +78,7 @@ Dopo aver creato un gruppo di azioni, è visibile nel **gruppi di azioni** sezio
 
 Potrebbe essere un numero limitato di azioni di posta elettronica in un gruppo di azioni. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
-**Gestione dei servizi IT** -potrebbe essere un numero limitato numero limitato di azioni di gestione dei servizi IT in un gruppo di azioni. L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../../azure-monitor/platform/itsmc-overview.md).
+**Gestione dei servizi IT** -potrebbe essere un numero limitato di azioni di gestione dei servizi IT in un gruppo di azioni. L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
 **App per la logica** -potrebbe essere un numero limitato di azioni delle App per la logica in un gruppo di azioni.
 
@@ -105,15 +105,12 @@ Intervalli di indirizzi IP di origine
  - 51.5.148.86
  - 51.5.149.19
 
-Per ricevere aggiornamenti sulle modifiche apportate a questi indirizzi IP che è consigliabile configurare un [servizio avviso di integrità, che consente di monitorare le notifiche informative sul servizio di gruppi di azioni.
-
+Per ricevere aggiornamenti sulle modifiche apportate a questi indirizzi IP, è consigliabile che configurare un avviso di integrità del servizio, che consente di monitorare le notifiche informative sul servizio di gruppi di azioni.
 
 ## <a name="next-steps"></a>Passaggi successivi ##
-
 * Altre informazioni sul [Comportamento degli avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Leggere le [informazioni sullo schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Altre informazioni sul [connettore ITSM](../../azure-monitor/platform/itsmc-overview.md)
 * Altre informazioni sulla [limitazione della frequenza](../../azure-monitor/platform/alerts-rate-limiting.md) degli avvisi.
 * Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

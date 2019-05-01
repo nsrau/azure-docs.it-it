@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827440"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873158"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
 
@@ -260,3 +260,8 @@ demo_many_series1
 In meno di due minuti, Esplora dati di Azure ha analizzato quasi 20.000 serie temporali e ha rilevato due serie temporali anomale in cui il conteggio delle letture è calato improvvisamente.
 
 Queste funzionalità avanzate, unite alle prestazioni elevate di Esplora dati di Azure, offrono una soluzione potente ed esclusiva per l'analisi di serie temporali.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Scopri [ora rilevamento anomalie delle serie e le previsioni](/azure/data-explorer/anomaly-detection) in Esplora dati di Azure.
+* Scopri [di Machine learning funzionalità](/azure/data-explorer/machine-learning-clustering) in Esplora dati di Azure.

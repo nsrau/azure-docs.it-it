@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920539"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -215,7 +215,7 @@ oppure
 ```
 
 > [!NOTE]
-> Le entità di back-end possono essere gestite tramite Gestione [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Le entità di back-end possono essere gestite tramite Gestione [API](https://docs.microsoft.com/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Esempio
 
@@ -270,7 +270,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |base-url|Nuovo URL di base del servizio back-end.|Uno dei `base-url` o `backend-id` deve essere presente.|N/D|
-|backend-id|Identificatore del back-end verso cui avviene il routing. (Entità di back-end vengono gestite tramite [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Uno dei `base-url` o `backend-id` deve essere presente.|N/D|
+|backend-id|Identificatore del back-end verso cui avviene il routing. (Entità di back-end vengono gestite tramite [API](https://docs.microsoft.com/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Uno dei `base-url` o `backend-id` deve essere presente.|N/D|
 |sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No |N/D|
 |sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No |N/D|
 |sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No |N/D|

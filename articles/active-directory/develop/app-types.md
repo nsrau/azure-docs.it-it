@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411207"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917294"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
 
@@ -63,7 +63,7 @@ Le applicazioni che usano l'outsourcing per l'autenticazione ad Azure AD devono 
   * **Chiave**: la chiave inviata insieme a un ID applicazione durante l'autenticazione ad Azure AD per chiamare un'API Web.
 * Azure AD deve assicurarsi che l'applicazione disponga delle autorizzazioni necessarie per accedere ai dati della directory, ad altre applicazioni nell'organizzazione e così via.
 
-Per altre informazioni, vedere come [registrare un'app con l'endpoint v1.0 di Azure AD](quickstart-v1-add-azure-ad-app.md).
+Per i dettagli, vedere come [registrare un'app](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>App a tenant singolo e multi-tenant
 

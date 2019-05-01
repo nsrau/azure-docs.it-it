@@ -1,5 +1,5 @@
 ---
-title: Imporre restrizioni agli indirizzi IP dei client - Servizio app di Azure | Microsoft Docs
+title: Limitare l'accesso - servizio App di Azure | Microsoft Docs
 description: Come usare le restrizioni di accesso con il servizio App di Azure
 author: ccompy
 manager: stefsch
@@ -12,59 +12,71 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853284"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728694"
 ---
-# <a name="azure-app-service-static-access-restrictions"></a>Restrizioni di accesso statiche di servizio App di Azure #
+# <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso di servizio App di Azure #
 
-Restrizioni di accesso consentono di definire una priorità Consenti/Nega elenco ordinato di indirizzi IP consentiti per accedere all'app. L'elenco consenti può includere gli indirizzi IPv4 e IPv6. In presenza di una o più voci, alla fine dell'elenco è presente un nega tutto implicito.
+Restrizioni di accesso consentono di definire un elenco ordinato Consenti/Nega priorità che controlla l'accesso alla rete per l'app. Questo elenco può includere gli indirizzi IP o subnet di rete virtuale di Azure. Quando sono presenti una o più voci, è quindi implicita "deny_all" presente alla fine dell'elenco.
 
-La funzionalità di restrizioni di accesso funziona con tutte le che App ospitate del servizio carichi di lavoro, che sono rappresentati da: le app Web, App per le API, App Linux, le app contenitore Linux e funzioni.
+La funzionalità di restrizioni di accesso funziona con tutti i servizio App di lavoro ospitato carica compresi; le app Web, App per le API, App Linux, le app contenitore Linux e funzioni.
 
-Quando viene effettuata una richiesta all'App, l'indirizzo IP iniziale viene valutata rispetto all'elenco di restrizioni di accesso. Se all'indirizzo non viene consentito l'accesso in base alle regole nell'elenco, il servizio replica con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+Quando viene effettuata una richiesta all'App, l'indirizzo del mittente viene valutata in base alle regole di indirizzi IP nell'elenco di restrizioni di accesso. Se l'indirizzo del mittente è in una subnet che viene configurata con gli endpoint di servizio per Microsoft. Web, la subnet di origine viene confrontata con le regole della rete virtuale nel proprio elenco di restrizioni di accesso. Se all'indirizzo non viene consentito l'accesso in base alle regole nell'elenco, il servizio replica con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
-La funzionalità di restrizioni di accesso viene implementata nei ruoli front-end del servizio App, ovvero upstream degli host di lavoro in cui viene eseguito il codice. Di conseguenza, le restrizioni di accesso sono effettivamente gli ACL di rete.  
+La funzionalità di restrizioni di accesso viene implementata nei ruoli front-end del servizio App, ovvero upstream degli host di lavoro in cui viene eseguito il codice. Di conseguenza, le restrizioni di accesso sono effettivamente gli ACL di rete.
 
-![flusso di restrizioni di accesso](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+La possibilità di limitare l'accesso all'App web da una rete virtuale di Azure (VNet) viene chiamata [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalla subnet selezionata. Deve essere abilitata sul lato di rete oltre a servizio che viene viene abilitata con. 
 
-Per un periodo di tempo, la funzionalità di restrizioni di accesso nel portale è stato un livello sopra la funzionalità ipSecurity in IIS. La funzionalità di restrizioni di accesso corrente è diversa. È comunque possibile configurare ipSecurity all'interno dell'applicazione Web. config, ma verranno applicate le regole di restrizioni di accesso basato su server front-end prima di tutto il traffico raggiunge IIS.
+![flusso di restrizioni di accesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Aggiunta e modifica delle regole di limitazione dell'accesso nel portale ##
 
 Per aggiungere una regola di restrizione accesso all'App, usare il menu per aprire **Network**>**restrizioni di accesso** e fare clic su **configurare restrizioni di accesso**
 
-![Opzioni di connettività di rete del servizio app](media/app-service-ip-restrictions/ip-restrictions.png)  
+![Opzioni di connettività di rete del servizio app](media/app-service-ip-restrictions/access-restrictions.png)  
 
 Dall'interfaccia utente restrizioni di accesso, è possibile esaminare l'elenco delle regole di restrizioni di accesso definiti per l'app.
 
-![restrizioni di accesso di elenco](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+![restrizioni di accesso di elenco](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
-Se le regole sono state configurate come in questa immagine, l'app accetta solo il traffico da 131.107.159.0/24 e nega quello proveniente da qualsiasi altro indirizzo IP.
+L'elenco mostrerà tutte le restrizioni correnti che sono nella tua app. Se si dispone di una restrizione di rete virtuale nella tua app, verrà visualizzato nella tabella se gli endpoint di servizio sono abilitati per Microsoft. Web. Quando non sono previste restrizioni definite nella tua app, l'app sarà accessibile da qualsiasi posizione.  
 
 È possibile fare clic su **[+] Aggiungi** per aggiungere una nuova regola di restrizione di accesso. Dopo l'aggiunta una regola diventa effettiva immediatamente. Le regole vengono applicate in base alle priorità dal numero più basso al più alto. È presente un nega tutto implicito anche dopo l'aggiunta di una singola regola.
 
-![aggiungere una regola di restrizione di accesso](media/app-service-ip-restrictions/ip-restrictions-add.png)
+![aggiungere una regola di restrizione di accesso IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-La notazione Indirizzo IP deve essere specificata nella notazione CIDR per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo esatto, è possibile usare un indirizzo simile a 1.2.3.4/32, dove i primi quattro otteti rappresentano l'indirizzo IP e /32 è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, è possibile leggere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
+Quando si crea una regola, è necessario selezionare Consenti/Nega e anche il tipo di regola. È inoltre necessario fornire il valore di priorità e ciò che si è limitare l'accesso a.  È possibile aggiungere facoltativamente un nome e descrizione della regola.  
+
+Per impostare un indirizzo IP basata su regole, selezionare un tipo di IPv4 o IPv6. La notazione Indirizzo IP deve essere specificata nella notazione CIDR per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo esatto, è possibile usare un indirizzo simile a 1.2.3.4/32, dove i primi quattro otteti rappresentano l'indirizzo IP e /32 è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, è possibile leggere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+
+![aggiungere una regola di restrizione di accesso di rete virtuale](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Per limitare l'accesso alla subnet selezionata, selezionare un tipo di rete virtuale. Di seguito sarà possibile selezionare la sottoscrizione della rete virtuale e subnet che si desidera consentire o negare l'accesso con. Se gli endpoint di servizio non sono abilitati già con Microsoft. Web per la subnet selezionata, si saranno abilitato automaticamente per l'utente a meno che non si seleziona la casella in cui viene chiesto di non eseguire questa operazione. La situazione in cui si desidera abilitare la funzionalità in app, ma non la subnet è correlata in gran parte se si dispone delle autorizzazioni per abilitare gli endpoint di servizio nella subnet o No. Se è necessario ottenere qualcun altro per abilitare gli endpoint di servizio nella subnet, è possibile selezionare la casella di controllo e delle App configurati per gli endpoint di servizio in attesa di essere abilitato in un secondo momento nella subnet. 
 
 È possibile fare clic su qualsiasi riga per modificare una regola di restrizione di accesso esistente. Le modifiche diventano effettive immediatamente, incluse le modifiche nell'ordine di priorità.
 
-![modificare una regola di restrizione di accesso](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+![modificare una regola di restrizione di accesso](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+
+Quando si modifica una regola, è possibile modificare il tipo tra una regola di indirizzo IP e una regola della rete virtuale. 
+
+![modificare una regola di restrizione di accesso](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 Per eliminare una regola, fare clic su **...** nella regola e su **rimuovi**.
 
-![Elimina regola di restrizione di accesso](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+![Elimina regola di restrizione di accesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-È inoltre possibile limitare l'accesso di distribuzione nella scheda successiva. Per aggiungere/modificare/eliminare ogni regola, seguire il passaggio stesso come illustrato in precedenza.
+### <a name="scm-site"></a>Sito SCM 
 
-![restrizioni di accesso di elenco](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
+Oltre a essere in grado di controllare l'accesso all'App, è inoltre possibile limitare l'accesso al sito scm usato dall'app. Il sito scm è web distribuire endpoint e anche la console Kudu. Separatamente, è possibile assegnare le restrizioni di accesso al sito scm dall'app o usare lo stesso set per l'app e il sito scm. Quando si seleziona la casella per avere le stesse restrizioni dell'App, tutto ciò che viene visualizzato come vuoto. Se si deseleziona la casella, vengono applicate tutte le impostazioni nel sito scm era in precedenza. 
+
+![restrizioni di accesso di elenco](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Modifica livello di codice restrizione delle regole di accesso ##
 
@@ -88,6 +100,10 @@ La sintassi JSON per l'esempio precedente è:
 
 ## <a name="function-app-ip-restrictions"></a>Restrizioni IP dell'App (funzione)
 
-Le restrizioni IP sono disponibili per entrambe le App per le funzioni con la stessa funzionalità di piani di servizio App. Si noti che abilitando un indirizzo IP restrizioni disabiliterà l'editor di codice del portale per eventuali indirizzi IP non consentiti.
+Le restrizioni IP sono disponibili per entrambe le App per le funzioni con la stessa funzionalità di piani di servizio App. Abilitazione delle restrizioni IP disabiliterà l'editor di codice del portale per eventuali indirizzi IP non consentiti.
 
 Fare clic [qui](../azure-functions/functions-networking-options.md#inbound-ip-restrictions) per altre informazioni
+
+
+<!--Links-->
+[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228233"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922977"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
@@ -41,7 +41,7 @@ A seconda del modo in cui è configurato l'ambiente del servizio app di Azure, l
 ## <a id="profileondemand"></a> Attivare Profiler manualmente
 
 ### <a name="minimum-requirements"></a>Requisiti minimi 
-Per un utente di attivare manualmente una sessione del profiler richiedono almeno "" l'accesso in scrittura al loro ruolo per il componente di Application Insights. Nella maggior parte dei casi ottenere l'accesso automaticamente ed non è necessario alcun intervento aggiuntivo. Se si verificano problemi, ruolo di ambito della sottoscrizione per aggiungere sarebbe il ruolo "Collaboratore componente di Application Insights". [Vedere altre informazioni sul controllo degli accessi di ruolo con Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Per un utente di attivare manualmente una sessione del profiler richiedono almeno "" l'accesso in scrittura al loro ruolo per il componente di Application Insights. Nella maggior parte dei casi ottenere l'accesso automaticamente ed non è necessario alcun intervento aggiuntivo. Se si verificano problemi, ruolo di ambito della sottoscrizione per aggiungere sarebbe il ruolo "Collaboratore componente di Application Insights". [Vedere altre informazioni sul controllo degli accessi di ruolo con Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 È possibile attivare il Profiler manualmente con un solo clic. Si supponga di eseguire un test delle prestazioni Web. Sono necessarie tracce che consentano di comprendere le prestazioni dell'app Web in condizioni di carico. Il controllo sul momento in cui le tracce vengono acquisite è fondamentale poiché l'utente conosce il momento in cui il test di carico viene eseguito, ma l'intervallo di campionamento casuale potrebbe non rilevarlo.
 

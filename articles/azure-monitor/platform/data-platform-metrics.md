@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108085"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867973"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
 > [!NOTE]
-> La piattaforma di dati di monitoraggio di Azure si basa su due tipi di dati fondamentali: Metriche e log. Questo articolo descrive le metriche. Fare riferimento a [log in Monitoraggio di Azure](data-platform-logs.md) per una descrizione dettagliata dei log e di ottenere [platforn i dati di monitoraggio di Azure](data-platform.md) per un confronto tra i due.
+> La piattaforma di dati di monitoraggio di Azure si basa su due tipi di dati fondamentali: Metriche e log. Questo articolo descrive le metriche. Fare riferimento a [log in Monitoraggio di Azure](data-platform-logs.md) per una descrizione dettagliata dei log e di ottenere [piattaforma dati di monitoraggio di Azure](data-platform.md) per un confronto tra i due.
 
 Le metriche in Monitoraggio di Azure sono leggeri e in grado di supportare scenari in tempo reale che lo rendono particolarmente utile per quasi gli avviso e veloce rilevamento dei problemi. Questo articolo descrive come sono strutturate le metriche, operazioni eseguibili con loro e identifica le origini dati diverse che archiviano i dati nelle metriche.
 

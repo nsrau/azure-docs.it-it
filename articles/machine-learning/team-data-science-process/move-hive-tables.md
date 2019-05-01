@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522504"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681940"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 
@@ -47,7 +47,7 @@ Se si desidera far pratica con i **dati relativi alle corse dei Taxi di NYC**, �
 2. [Inviare le query Hive con l'editor Hive](#hive-editor)
 3. [Inviare le query Hive con i comandi di Azure PowerShell](#ps)
 
-Le query Hive sono simili a SQL. Se si ha già familiarità con SQL, i [fogli informativi per gli utenti di Hive](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) possono rivelarsi utili.
+Le query Hive sono simili a SQL. Se si ha già familiarità con SQL, i [fogli informativi per gli utenti di Hive](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) possono rivelarsi utili.
 
 Quando si invia una query Hive, è possibile controllare la destinazione dell'output, sia questo visualizzato sullo schermo o incluso in un file locale nel nodo head o in un BLOB di Azure.
 

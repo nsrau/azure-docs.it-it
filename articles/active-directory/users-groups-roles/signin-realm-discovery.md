@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468877"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920507"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Individuazione dell'area di autenticazione per le pagine di accesso Azure Active Directory
 
@@ -49,7 +49,7 @@ Un ulteriore vantaggio di questo miglioramento è funzionalità ottimizzate di e
     ![è stato digitato correttamente la password con il nome utente valido](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Questa funzionalità potrebbe influire sui domini federati di affidarsi a livello di dominio precedente Home Realm Discovery per forzare la federazione. Per aggiornamenti su quando verrà aggiunto il supporto di dominio federato, vedere [individuazione dell'area di autenticazione durante l'accesso per i servizi Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). Nel frattempo, alcune organizzazioni hanno eseguito il training di ai propri dipendenti di accedere con un nome utente che non esiste in Azure Active Directory ma contiene il nome di dominio corretto, perché i nomi di dominio indirizza gli utenti attualmente agli endpoint del dominio della propria organizzazione. Il nuovo comportamento di accesso non lo consente. L'utente viene informato per correggere il nome utente e che non possono accedere con un nome utente che non esiste in Azure Active Directory.
+> Questa funzionalità potrebbe influire sui domini federati di affidarsi a livello di dominio precedente Home Realm Discovery per forzare la federazione. Per aggiornamenti su quando verrà aggiunto il supporto di dominio federato, vedere [individuazione dell'area di autenticazione durante l'accesso per i servizi Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Nel frattempo, alcune organizzazioni hanno eseguito il training di ai propri dipendenti di accedere con un nome utente che non esiste in Azure Active Directory ma contiene il nome di dominio corretto, perché i nomi di dominio indirizza gli utenti attualmente agli endpoint del dominio della propria organizzazione. Il nuovo comportamento di accesso non lo consente. L'utente viene informato per correggere il nome utente e che non possono accedere con un nome utente che non esiste in Azure Active Directory.
 >
 > Se l'organizzazione dispone di procedure consigliate che dipendono dal comportamento precedente, è importante per gli amministratori dell'organizzazione per aggiornare la documentazione di accesso e l'autenticazione di dipendenti e per il training di ai dipendenti di usare il nome utente di Azure Active Directory per l'accesso.
   
