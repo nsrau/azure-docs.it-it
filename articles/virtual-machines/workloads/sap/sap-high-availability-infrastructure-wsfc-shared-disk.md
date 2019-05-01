@@ -551,7 +551,7 @@ Azure Load Balancer ha un servizio di bilanciamento del carico interno che chiud
 
 Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster dell'istanza di SAP ASCS/SCS, aggiungere prima queste voci del Registro di sistema di Windows in entrambi i nodi del cluster Windows per SAP ASCS/SCS:
 
-| path | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
@@ -562,7 +562,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 
 Aggiungere quindi questa voce del Registro di sistema Windows in entrambi i nodi del cluster Windows per SAP ASCS/SCS:
 
-| path | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome variabile |`KeepAliveInterval` |
 | Tipo di variabile |REG_DWORD (decimale) |

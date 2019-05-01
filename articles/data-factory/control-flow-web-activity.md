@@ -61,7 +61,7 @@ L'attività Web può essere usata per chiamare un endpoint REST personalizzato d
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività Web | string | Sì
 type | Deve essere impostato su **WebActivity**. | string | Sì

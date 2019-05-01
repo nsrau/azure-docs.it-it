@@ -45,7 +45,7 @@ URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>Source (Sorgente)
+## <a name="source"></a>`Source`
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 

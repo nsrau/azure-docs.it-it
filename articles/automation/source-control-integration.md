@@ -91,7 +91,7 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 
 Per altre informazioni sulla creazione di un token di accesso personale in GitHub, visitare [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Scope  |DESCRIZIONE  |
+|`Scope`  |DESCRIZIONE  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |
@@ -105,7 +105,7 @@ Per altre informazioni sulla creazione di un token di accesso personale in GitHu
 
 Per altre informazioni sulla creazione di un token di accesso personale in archivi di Azure, visitare [autenticare l'accesso con token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Scope  |
+|`Scope`  |
 |---------|
 |Codice (lettura)     |
 |Progetto e team (lettura)|

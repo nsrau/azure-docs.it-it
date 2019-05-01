@@ -48,7 +48,7 @@ Per la corrispondenza degli host front-end, viene usata la logica seguente:
 
 Per spiegare ulteriormente questo processo, esaminiamo una configurazione di esempio delle route di Frontdoor (solo lato sinistro):
 
-| Regola di routing | Host front-end | path |
+| Regola di routing | Host front-end | `Path` |
 |-------|--------------------|-------|
 | Una  | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
@@ -78,7 +78,7 @@ Dopo aver determinato lo specifico host front-end e filtrato le possibili regole
 
 Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
-| Regola di routing | Host front-end    | path     |
+| Regola di routing | Host front-end    | `Path`     |
 |-------|---------|----------|
 | Una      | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
@@ -112,7 +112,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > Configurazione di esempio:
 >
-> | Route | Host             | path    |
+> | Route | Host             | `Path`    |
 > |-------|------------------|---------|
 > | Una      | profile.contoso.com | /api/\* |
 >

@@ -37,7 +37,7 @@ Quando si usa un'attività Wait in una pipeline, la pipeline attende per il peri
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività `Wait`. | string | Sì
 type | Deve essere impostata su **Wait**. | string | Sì
