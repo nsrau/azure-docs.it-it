@@ -47,9 +47,9 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 ### <a name="attributes"></a>Attributi
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
-| **Nome**<br/><br/> Obbligatorio |**xs:string** |Il nome dell'asset di file multimediale. |
-| **Dimensione**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:long** |Dimensioni del file di asset in byte. |
-| **Duration**<br/><br/> Obbligatorio |**xs:duration** |Durata della riproduzione del contenuto. |
+| **Nome**<br/><br/> Obbligatoria |**xs:string** |Il nome dell'asset di file multimediale. |
+| **Dimensione**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:long** |Dimensioni del file di asset in byte. |
+| **Duration**<br/><br/> Obbligatoria |**xs:duration** |Durata della riproduzione del contenuto. |
 
 ### <a name="child-elements"></a>Elementi figlio
 | NOME | DESCRIZIONE |
@@ -76,7 +76,7 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 ### <a name="attributes"></a>Attributi
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
-| **Nome**<br/><br/> Obbligatorio |**xs:string** |Nome di file di origine di input. |
+| **Nome**<br/><br/> Obbligatoria |**xs:string** |Nome di file di origine di input. |
 
 ## <a name="VideoTracks"></a> Elemento VideoTracks
 Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. L'elemento **VideoTracks** rappresenta una raccolta di tutte le tracce video.  
@@ -96,18 +96,18 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 ### <a name="attributes"></a>Attributi
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia video. **Nota:**  Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. |
-| **FourCC**<br/><br/> Obbligatorio |**xs:string** |Codice FourCC del codec video. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Indice in base zero della traccia video. **Nota:**  Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. |
+| **FourCC**<br/><br/> Obbligatoria |**xs:string** |Codice FourCC del codec video. |
 | **Profilo** |**xs:string** |Profilo H264 (applicabile solo al codec H264). |
 | **Level** |**xs:string** |Livello H264 (applicabile solo al codec H264). |
-| **Width**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Larghezza del video codificata in pixel. |
-| **Height**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Altezza del video codificata in pixel. |
-| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:double** |Numeratore delle proporzioni della visualizzazione video. |
-| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
-| **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs: decimal** |Frequenza dei frame misurata in formato .3F. |
-| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs: decimal** |Frequenza dei frame preimpostata misurata in formato .3F. |
-| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Velocità media in bit video in kilobit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti. |
-| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Velocità media in bit mirata per la traccia video, come da set di impostazioni di codifica, in kilobit al secondo. |
+| **Width**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Larghezza del video codificata in pixel. |
+| **Height**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Altezza del video codificata in pixel. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:double** |Numeratore delle proporzioni della visualizzazione video. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
+| **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs: decimal** |Frequenza dei frame misurata in formato .3F. |
+| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs: decimal** |Frequenza dei frame preimpostata misurata in formato .3F. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Velocità media in bit video in kilobit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti. |
+| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Velocità media in bit mirata per la traccia video, come da set di impostazioni di codifica, in kilobit al secondo. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Velocità media in bit Max GOP per la traccia video, in kilobit al secondo. |
 
 ## <a name="AudioTracks"></a> Elemento AudioTrack
@@ -128,13 +128,13 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 ### <a name="attributes"></a>Attributi
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia audio. **Nota:**  Non corrisponde necessariamente al TrackID usato in un file MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Indice in base zero della traccia audio. **Nota:**  Non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **Codec** |**xs:string** |Stringa del codec della traccia audio. |
 | **EncoderVersion** |**xs:string** |Stringa facoltativa della versione del codificatore obbligatoria per EAC3. |
-| **Channels**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Numero dei canali audio. |
-| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
-| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Velocità media in bit audio in bit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti. |
-| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Tipo di bit per campione per il formato wFormatTag. |
+| **Channels**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Numero dei canali audio. |
+| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Velocità media in bit audio in bit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti. |
+| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obbligatoria |**xs:int** |Tipo di bit per campione per il formato wFormatTag. |
 
 ### <a name="child-elements"></a>Elementi figlio
 | NOME | DESCRIZIONE |
@@ -150,15 +150,15 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versione del kit **Dolby** per lo sviluppo della misurazione professionale della sonorità (DPLM). |
-| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obbligatorio |**xs:int** |DialogNormalization generato tramite DPLM, obbligatorio quando è impostato LoudnessMetering. |
-| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Obbligatorio |**xs:float** |Sonorità integrata |
-| **IntegratedLoudnessUnit**<br/><br/> Obbligatorio |**xs:string** |Unità integrata della sonorità. |
-| **IntegratedLoudnessGatingMethod**<br/><br/> Obbligatorio |**xs:string** |Identificatore limite. |
+| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obbligatoria |**xs:int** |DialogNormalization generato tramite DPLM, obbligatorio quando è impostato LoudnessMetering. |
+| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Obbligatoria |**xs:float** |Sonorità integrata |
+| **IntegratedLoudnessUnit**<br/><br/> Obbligatoria |**xs:string** |Unità integrata della sonorità. |
+| **IntegratedLoudnessGatingMethod**<br/><br/> Obbligatoria |**xs:string** |Identificatore limite. |
 | **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive ="0" maxInclusive="100" |**xs:float** |Contenuto vocale presente nel programma, in percentuale. |
-| **SamplePeak**<br/><br/> Obbligatorio |**xs:float** |Valore di campionamento assoluto di picco per canale, dall'ultimo ripristino o dall'ultima cancellazione.  Le unità sono espresse in dBFS. |
-| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Obbligatorio |**xs:anySimpleType** |Unità di picco di esempio. |
-| **TruePeak**<br/><br/> Obbligatorio |**xs:float** |Valore massimo di picco effettivo per canale, come da ITU-R BS.1770-2, dall'ultimo ripristino o dall'ultima cancellazione. Le unità sono espresse in dBFS. |
-| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Obbligatorio |**xs:anySimpleType** |Unità di picco effettivo. |
+| **SamplePeak**<br/><br/> Obbligatoria |**xs:float** |Valore di campionamento assoluto di picco per canale, dall'ultimo ripristino o dall'ultima cancellazione.  Le unità sono espresse in dBFS. |
+| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Obbligatoria |**xs:anySimpleType** |Unità di picco di esempio. |
+| **TruePeak**<br/><br/> Obbligatoria |**xs:float** |Valore massimo di picco effettivo per canale, come da ITU-R BS.1770-2, dall'ultimo ripristino o dall'ultima cancellazione. Le unità sono espresse in dBFS. |
+| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Obbligatoria |**xs:anySimpleType** |Unità di picco effettivo. |
 
 ## <a name="schema-code"></a>Codice schema
     <?xml version="1.0" encoding="utf-8"?>  
