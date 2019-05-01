@@ -23,7 +23,7 @@ ms.locfileid: "60899290"
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), la telemetria di traccia rappresenta le istruzioni di traccia in stile `printf` che vengono cercate come testo. `Log4Net`, `NLog` e altre voci del file di log basato su testo vengono convertite in istanze di questo tipo. La traccia non dispone di misure come l'estendibilità.
 
-## <a name="message"></a>Message
+## <a name="message"></a>`Message`
 
 Messaggio di traccia.
 

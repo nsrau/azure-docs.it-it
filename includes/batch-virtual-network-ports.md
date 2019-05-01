@@ -64,14 +64,14 @@ Non occorre specificare i gruppi di sicurezza di rete a livello di subnet perch√
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement` [Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) | * | Qualsiasi | 29876-29877 | TCP | CONSENTI |
 | Utente IP di origine per l'accesso remoto ai nodi di calcolo e/o subnet di nodo di calcolo per attivit√† a istanze multiple Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | CONSENTI |
 
 **Regole di sicurezza in uscita**
 
-| Source (Sorgente) | Porte di origine | Destination | Tag del servizio di destinazione | Protocollo | Azione |
+| `Source` | Porte di origine | Destination | Tag del servizio di destinazione | Protocol | Azione |
 | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | 443 | [Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (nella stessa area dell'account Batch e della rete virtuale)  | Qualsiasi | CONSENTI |
 
@@ -97,13 +97,13 @@ Configurare il traffico in ingresso sulla porta 3389 per Windows se si desidera 
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Indirizzi IP di origine | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
 | --- | --- | --- | --- | --- | --- |
 Qualsiasi <br /><br />Anche se per questa operazione sono richieste in effetti autorizzazioni di tipo "Consenti tutto", il servizio Batch applica una regola ACL a livello di ogni nodo per escludere tutti gli indirizzi IP di servizio non Batch. | * | Qualsiasi | 10100, 20100, 30100 | TCP | CONSENTI |
 | Facoltativo, per consentire l'accesso RDP nei nodi di calcolo. | * | Qualsiasi | 3389 | TCP | CONSENTI |
 
 **Regole di sicurezza in uscita**
 
-| Source (Sorgente) | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| `Source` | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
 | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | * | Qualsiasi | 443  | Qualsiasi | CONSENTI |
