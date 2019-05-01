@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805262"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702299"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
 
@@ -49,7 +49,7 @@ Azure Active Directory supporta i metodi di autenticazione per le soluzioni ibri
 ### <a name="cloud-authentication"></a>Autenticazione cloud
 Quando si sceglie questo metodo di autenticazione, è Azure AD a gestire la procedura di accesso degli utenti. Affiancandolo a un accesso Single Sign-On trasparente, gli utenti possono accedere alle applicazioni cloud senza dover immettere nuovamente le proprie credenziali. Con l'autenticazione cloud è possibile scegliere tra due opzioni: 
 
-**Sincronizzazione dell'hash delle password di Azure AD**. È il modo più semplice per abilitare l'autenticazione per gli oggetti directory locali in Azure AD. Gli utenti possono usare gli stessi nome utente e password usati in locale senza la necessità di implementare infrastrutture aggiuntive. Alcune funzionalità premium di Azure AD, come ad esempio Identity Protection, richiedono la sincronizzazione dell'hash delle password indipendentemente dal metodo di autenticazione scelto.
+**Sincronizzazione dell'hash delle password di Azure AD**. È il modo più semplice per abilitare l'autenticazione per gli oggetti directory locali in Azure AD. Gli utenti possono usare gli stessi nome utente e password usati in locale senza la necessità di implementare infrastrutture aggiuntive. Alcune funzionalità premium di Azure AD, ad esempio Identity Protection e [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), richiedono la sincronizzazione dell'hash password, indipendentemente dal metodo di autenticazione scelto.
 
 > [!NOTE] 
 > Le password non vengono mai archiviate in testo non crittografato o crittografate con un algoritmo reversibile in Azure AD. Per altre informazioni sul processo di sincronizzazione dell'hash delle password, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 * **Esperienza utente**. Per migliorare l'esperienza di accesso degli utenti, distribuire Seamless SSO con la sincronizzazione dell'hash delle password. Seamless SSO elimina i prompt non necessari dopo che gli utenti hanno eseguito l'accesso.
 
-* **Scenari avanzati**. Le organizzazioni possono scegliere di usare informazioni tratte dalle identità con i report di Azure AD Identity Protection con Azure AD Premium P2, ad esempio i report sulle credenziali perse. Con Windows Hello for Business [requisiti specifici quando si usa la sincronizzazione dell'hash password](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Scenari avanzati**. Le organizzazioni possono scegliere di usare informazioni tratte dalle identità con i report di Azure AD Identity Protection con Azure AD Premium P2, ad esempio i report sulle credenziali perse. Con Windows Hello for Business [requisiti specifici quando si usa la sincronizzazione dell'hash password](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) richiedono sincronizzazione dell'hash delle password per il provisioning degli utenti con le proprie credenziali aziendali nel dominio gestito.
 
     Le organizzazioni che necessitano dell'autenticazione a più fattori con la sincronizzazione dell'hash delle password devono usare l'autenticazione a più fattori di Azure AD. Queste organizzazioni non possono usare metodi di autenticazione a più fattori di terze parti o locali.
 

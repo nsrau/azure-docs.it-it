@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765827"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926021"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
@@ -29,11 +29,11 @@ Esempi di attività che è possibile eseguire con PowerShell:
 * [Eseguire query Apache Hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gestire cluster con PowerShell](hdinsight-administer-use-powershell.md).
 
-Attenersi alla procedura [installare e configurare Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) per ottenere la versione più recente. Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet per Azure Resource Manager, vedere [Migrare a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Attenersi alla procedura [installare e configurare Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) per ottenere la versione più recente.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilità che è possibile eseguire in un browser
 Le seguenti utilità hanno un'interfaccia utente Web che viene eseguita in un browser:
-* **[Azure Cloud Shell (anteprima)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  è una shell da riga di comando interattiva che viene eseguito nel browser e dal portale di Azure.
 * **[Interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
     * [Usare Apache Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista in Apache Ambari di Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Esempi di attività che è possibile eseguire con .NET SDK in Visual Studio:
 * [Eseguire query Apache Hive con .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> Se si eseguono soluzioni .NET con cluster HDInsight basati su Windows, è opportuno pianificare una migrazione verso cluster basati su Linux. Per altre informazioni, vedere [Migrare una soluzione .NET per HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA e IDE di Eclipse per cluster Spark
 È possibile usare sia [Intellij IDEA](https://www.jetbrains.com/idea/download) che l'[IDE di Eclipse](https://www.eclipse.org/downloads/) per:
 * Sviluppare e inviare un'applicazione Spark in Scala in un cluster HDInsight Spark.
@@ -77,14 +74,17 @@ I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin 
 * [Informazioni su come usare i kernel nei cluster Apache Spark con notebook Jupyter per testare le applicazioni Spark](spark/apache-spark-zeppelin-notebook.md)
 * [Informazioni su come usare notebook Apache Zeppelin nei cluster Spark per eseguire processi Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Eseguire strumenti e tecnologie basate su Linux in Windows
 
 Se si verifica una situazione in cui è necessario usare uno strumento o una tecnologia che è disponibile solo in Linux, considerare le opzioni seguenti:
 
-* **Bash (beta) in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. [Installare ed eseguire la versione beta di Bash in Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Visualizzare [sottosistema Windows per la Guida all'installazione di Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) per i passaggi di installazione.  Altri [shell Unix](https://www.gnu.org/software/bash/) funzioneranno anche.
 * **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È possibile inoltre usare Docker per eseguire un notebook Jupyter locale e connettersi da remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)**  consente di visualizzare graficamente il file system del cluster tramite una connessione SSH.
+
+## <a name="cross-platform-tools"></a>Strumenti multipiattaforma
+
+L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.  Per altre informazioni, vedere [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non si ha familiarità con l'uso dei cluster basati su Linux, vedere gli articoli seguenti:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371810"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919158"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un contratto di Microsoft dal cliente
 
@@ -108,7 +108,7 @@ Un tenant di Azure Active Directory è selezionato per il nuovo account di fattu
 
 Il nuovo account supporta solo gli utenti dal tenant a cui è stata selezionata durante la firma il contratto di Microsoft dal cliente. Se gli utenti con autorizzazioni di amministratore sul tuo contratto Enterprise Agreement fanno parte del tenant, si avrà accesso al nuovo account di fatturazione durante l'installazione. Se non sono parte del tenant, non sarà in grado di accedere al nuovo account di fatturazione a meno che non inviare un invito.
 
-Quando si invitano gli utenti, essi vengono aggiunti come utenti guest nel tenant e ottenere l'accesso all'account di fatturazione. Per invitare gli utenti, l'accesso guest deve essere attivata per il tenant. Per altre informazioni, vedere [controllare l'accesso guest in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se l'accesso guest è disattivato, contattare gli amministratori globali del tenant per attivarla. <!-- Todo - How can they find their global administrator -->
+Quando si invitano gli utenti, essi vengono aggiunti come utenti guest nel tenant e ottenere l'accesso all'account di fatturazione. Per invitare gli utenti, l'accesso guest deve essere attivata per il tenant. Per altre informazioni, vedere [controllare l'accesso guest in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se l'accesso guest è disattivato, contattare gli amministratori globali del tenant per attivarla. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Visualizzare le funzionalità sostituite dal nuovo account di fatturazione
 

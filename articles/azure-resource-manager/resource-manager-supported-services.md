@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389713"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702711"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -31,6 +31,8 @@ Quando si distribuiscono risorse, è spesso necessario recuperare informazioni s
 * Visualizzare le versioni API valide per un tipo di risorsa
 
 È possibile eseguire questi passaggi tramite il portale di Azure, Azure PowerShell o CLI di Azure.
+
+Per un elenco che esegue il mapping di provider di risorse ai servizi di Azure, vedere [provider di risorse per i servizi Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -291,5 +293,5 @@ West US
 
 * Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). 
 * Per visualizzare gli schemi dei modelli dei provider di risorse, vedere le [informazioni di riferimento sui modelli](/azure/templates/).
-* Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
+* Per un elenco che esegue il mapping di provider di risorse ai servizi di Azure, vedere [provider di risorse per i servizi Azure](azure-services-resource-providers.md).
 * Per visualizzare le operazioni di un provider di risorse, vedere [Azure REST API](/rest/api/) (API REST di Azure).

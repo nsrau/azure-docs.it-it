@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766304"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687075"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione esistente spazi dei nomi standard del Bus di servizio di Azure per il livello premium
 Il Bus di servizio di Azure offerto in precedenza, gli spazi dei nomi solo nel livello standard. Gli spazi dei nomi sono impostazioni di multi-tenant che sono ottimizzate per gli ambienti di sviluppo e una velocità effettiva bassa. Il livello premium offre risorse dedicate per ogni spazio dei nomi per aumentare la velocità effettiva a un prezzo fisso e latenza prevedibile. Il livello premium è ottimizzato per la velocità effettiva elevata e ambienti di produzione che richiedono funzionalità aggiuntive dell'organizzazione.
@@ -62,7 +62,7 @@ Per eseguire la migrazione di spazio dei nomi di Bus di servizio standard a prem
    ```
 
     >[!IMPORTANT]
-    > Il nome di post-migrazione (post_migration_dns_name) da utilizzare per il precedente dopo la migrazione dello spazio dei nomi standard di accesso. Utilizzare questa opzione per svuotare le code e le sottoscrizioni e quindi eliminare lo spazio dei nomi.
+    > Il post-migrazione/nome di alias (post_migration_dns_name) da utilizzare per il precedente dopo la migrazione dello spazio dei nomi standard di accesso. Utilizzare questa opzione per svuotare le code e le sottoscrizioni e quindi eliminare lo spazio dei nomi.
 
 1. Associare gli spazi dei nomi standard e premium, quindi avviare la sincronizzazione tramite il comando seguente:
 

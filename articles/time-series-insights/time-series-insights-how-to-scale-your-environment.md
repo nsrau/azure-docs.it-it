@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692426"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714138"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
 
@@ -60,5 +60,5 @@ La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 su
 4. Selezionare **Salva** per ridimensionare l'ambiente. Finché non viene eseguito il commit della modifica, viene visualizzato temporaneamente l'indicatore di stato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-> [!div class="nextstepaction"]
-> [Verificare che la nuova capacità sia sufficiente a impedire la limitazione delle richieste](time-series-insights-diagnose-and-solve-problems.md).
+
+- Verificare che la nuova capacità sia [sufficiente a impedire la limitazione delle richieste](time-series-insights-diagnose-and-solve-problems.md).

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286695"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682120"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>I log attività di Azure AD in Monitoraggio di Azure
 
@@ -72,14 +72,24 @@ Se si dispone già di una licenza di Azure AD, è necessaria una sottoscrizione 
 
 Ogni evento del log di controllo usa circa 2 KB di archiviazione dati. Per un tenant con 100.000 utenti, che potrebbe comportare circa 1,5 milioni di eventi al giorno, occorrerebbero circa 3 GB di archiviazione dati al giorno. Dato che le scritture vengono eseguite in batch ogni 5 minuti circa, è possibile prevedere circa 9.000 operazioni di scrittura al mese. 
 
-La tabella seguente contiene una stima del costo, a seconda delle dimensioni del tenant, per un account di archiviazione per utilizzo generico v2 negli Stati Uniti occidentali per almeno un anno di conservazione. Usare il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) per creare una stima più accurata per il volume di dati previsto per l'applicazione. La tabella include solo il costo di elaborazione/archiviazione e non il costo della sottoscrizione. 
+
+La tabella seguente contiene una stima del costo, a seconda delle dimensioni del tenant, per un account di archiviazione per utilizzo generico v2 negli Stati Uniti occidentali per almeno un anno di conservazione. Usare il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) per creare una stima più accurata per il volume di dati previsto per l'applicazione.
 
 
-| Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo mensile in dollari USA (est). |
-| ---                | ---             | ---            | ---                        | ---                          | 
-| Controllo e accessi | 100,000         | 16,500,000     | 495,000,000                | $1093                        |
-| Audit              | 100,000         | 1,500,000      | 45.000.000                 | $246.66                      |
-| Accessi           | 100,000         | 15.000.000     | 450,000,000                | $847.28                      |
+| Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
+|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
+| Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
+| Audit | 1.000 | 15.000 | 900 MB | $0,02 | $0,24 |
+| Accessi | 1.000 | 34.800 | 4 GB | $0,13 | $1,56 |
+| Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
+ 
+
+
+
+
+
+
+
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Messaggi dell'hub eventi per i log attività

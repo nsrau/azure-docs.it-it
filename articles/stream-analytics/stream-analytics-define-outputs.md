@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481192"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926069"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i tipi di output disponibili per un processo Azure Stream Analitica. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire ulteriormente analitica di business e il data warehousing dei dati.
@@ -182,7 +182,7 @@ Power BI Usa i criteri di conservazione First-Out (FIFO) first-in. I dati verran
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Convertire un tipo di dati da Stream Analitica a Power BI
 Analisi di flusso di Azure consente di aggiornare il modello di dati in modo dinamico in fase di esecuzione se viene modificato lo schema di output. Vengono rilevate tutte le modifiche al nome e al tipo di colonna e l'aggiunta o la rimozione di colonne.
 
-Questa tabella vengono illustrate le conversioni di tipi di dati dal [tipi di dati di Analitica Stream](https://msdn.microsoft.com/library/azure/dn835065.aspx) in Power BI [tipi Entity Data Model (EDM)](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), se non esiste un set di dati di Power BI e una tabella.
+Questa tabella vengono illustrate le conversioni di tipi di dati dal [tipi di dati di Analitica Stream](https://msdn.microsoft.com/library/azure/dn835065.aspx) in Power BI [tipi Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), se non esiste un set di dati di Power BI e una tabella.
 
 Dall'analisi di flusso | A Power BI
 -----|-----

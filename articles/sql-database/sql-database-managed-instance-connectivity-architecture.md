@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006132"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686299"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
 
@@ -80,7 +80,7 @@ Microsoft gestisce l'istanza gestita usando un endpoint di gestione. Questo endp
 Quando avviare le connessioni all'interno dell'istanza gestita (come con i backup e i log di controllo), il traffico viene visualizzata per l'avvio dall'indirizzo IP pubblico dell'endpoint di gestione. È possibile limitare l'accesso a servizi pubblici da un'istanza gestita impostando le regole del firewall per consentire solo indirizzo IP dell'istanza gestita. Per altre informazioni, vedere [firewall incorporato dell'istanza gestita di verificare](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice destinati a servizi di Azure che si trovano all'interno di aree dell'istanza gestita è ottimizzata e per tale motivo non fornisca all'indirizzo IP pubblico di istanza possono Gestione endpoint. Per questo motivo se è necessario usare le regole del firewall basato su IP, più comunemente per l'archiviazione del servizio deve essere in un'area diversa dall'istanza gestita.
+> Il traffico che passa a servizi di Azure che si trovano all'interno di aree dell'istanza gestita è ottimizzato e per questo motivo non fornisca a gestito indirizzo IP pubblico dell'istanza Gestione endpoint. Per questo motivo se è necessario usare le regole del firewall basato su IP, più comunemente per l'archiviazione del servizio deve essere in un'area diversa dall'istanza gestita.
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
@@ -97,7 +97,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Name       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Porta                        |Protocol|`Source`           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
@@ -105,7 +105,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Name       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Porta          |Protocol|`Source`           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
 |mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
@@ -122,7 +122,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|Name|Prefisso indirizzo|Hop successivo|
+|NOME|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Rete virtuale|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472397"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920489"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -58,6 +58,18 @@ Sono disponibili i ruoli di amministratore seguenti:
   * Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
   * Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
   * Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
+
+* **[Amministratore del flusso di utenti di B2C](#b2c-user-flow-administrator)**: Gli utenti con questo ruolo possono creare e gestire B2C flussi di utente (noto anche come criteri "predefiniti") nel portale di Azure. Creando o modificando i flussi degli utenti, questi utenti possono modificare il contenuto html/CSS/javascript dell'esperienza utente, modificare i requisiti di autenticazione a più fattori per ogni flusso utente, modificare le attestazioni nel token e modificare le impostazioni di sessione per tutti i criteri nel tenant. D'altra parte, questo ruolo non includono la possibilità di esaminare i dati utente o apportare modifiche agli attributi che sono inclusi nello schema di tenant. Modifica in Framework dell'esperienza di identità (noto anche come personalizzato) dei criteri è anche all'esterno dell'ambito di questo ruolo.
+
+* **[Amministratore dell'attributo flusso utente B2C](#b2c-user-flow-attribute-administrator)**: Gli utenti con questo ruolo aggiunta o eliminazione di attributi personalizzati disponibili per tutti i flussi degli utenti nel tenant. Di conseguenza, gli utenti con questo ruolo possono modificare o aggiungere nuovi elementi allo schema di utente finale e compromettere il comportamento di tutti i flussi degli utenti e indirettamente comportare modifiche alle quali dati possono essere richiesto agli utenti finali e infine inviati come attestazioni alle applicazioni. Questo ruolo non è possibile modificare i flussi utente.
+
+* **[Amministrazione di B2C IEF Keyset](#b2c-ief-keyset-administrator)**:    È possibile creare e gestire le chiavi dei criteri e i segreti per la crittografia dei token, token delle firme e crittografia/decrittografia di attestazione. Quando si aggiungono nuove chiavi per i contenitori delle chiavi esistenti, questo amministratore con limitazioni possono i segreti di rollover in base alle esigenze senza conseguenze per le applicazioni esistenti. Questo utente può visualizzare l'intero contenuto di questi segreti e le date di scadenza anche dopo la loro creazione.
+    
+  <b>Importante:</b> si tratta di un ruolo sensibile. Il ruolo di amministratore di keyset deve essere controllato attentamente e assegnato con cautela durante la fase di preproduzione e produzione.
+
+* **[Amministratore di criteri di B2C IEF](#b2c-ief-policy-administrator)**: Gli utenti con questo ruolo hanno la possibilità di creare, leggere, aggiornare ed eliminare tutti i criteri personalizzati in Azure AD B2C e pertanto hanno pieno controllo sul Framework dell'esperienza di identità nel tenant di Azure AD B2C pertinenti. Modificando i criteri, questo utente può stabilire la federazione diretta con i provider di identità esterni, modificare lo schema di directory, modificare il contenuto di tutti gli utenti finali (HTML, CSS, JavaScript), modificare i requisiti necessari per completare l'autenticazione, creare nuovi utenti, inviare dati utente per i sistemi esterni inclusi completa le migrazioni e modificare tutte le informazioni utente, inclusi quelli sensibili come le password e i numeri di telefono. Al contrario, questo ruolo non è possibile modificare le chiavi di crittografia o modificare i segreti usati per la federazione del tenant.
+
+  <b>Importante:</b> L'amministratore di criteri IEF B2 è un ruolo estremamente riservato che deve essere assegnato in modo molto limitato per i tenant nell'ambiente di produzione. Attività dagli utenti devono essere strettamente controllata, in particolare per i tenant nell'ambiente di produzione.
 
 * **[Amministratore fatturazione](#billing-administrator)**: può effettuare acquisti, gestire le sottoscrizioni e i ticket di supporto e monitorare l'integrità dei servizi.
 
@@ -110,6 +122,9 @@ Sono disponibili i ruoli di amministratore seguenti:
   > [!NOTE]
   > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Exchange". È l'"Amministratore di Exchange" nel [portale di Azure](https://portal.azure.com). È l'"amministratore di Exchange Online" nell'[interfaccia di amministrazione di Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Amministratore del Provider di identità esterne](#external-identity-provider-administrator)**: L'amministratore gestisce la federazione tra tenant di Azure Active Directory e i provider di identità esterno. Con questo ruolo, gli utenti possono aggiungere nuovi provider di identità e configurare tutte le impostazioni disponibili (ad esempio, percorso di autenticazione, id del servizio assegnato i contenitori delle chiavi). Questo utente può attivare il tenant di considerare attendibili le autenticazioni dai provider di identità esterno. L'impatto sulle esperienze utente finale risulta dipende dal tipo del tenant:
+  * Tenant di Azure Active Directory per i dipendenti e partner: L'aggiunta di una federazione (ad esempio, con Gmail) influirà immediatamente tutti gli inviti guest non ancora riscattati. Visualizzare [aggiunta di Google come provider di identità per gli utenti guest B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Tenant di Azure Active Directory B2C: L'aggiunta di una federazione (ad esempio Facebook o con un altro Azure Active Directory) non influisce immediatamente i flussi degli utenti finali fino a quando non viene aggiunto il provider di identità come un'opzione in un flusso utente (noto anche come criteri predefiniti). Visualizzare [configurazione di un account Microsoft come provider di identità](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) per un esempio. Per modificare i flussi utente, è necessario il ruolo limitato di "Amministratore di flusso di utenti di B2C".
 
 * **[Amministratore globale/Amministratore società](#company-administrator)**: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
 
@@ -314,6 +329,34 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+
+### <a name="b2c-user-flow-administrator"></a>Amministratore del flusso utente B2C
+Creare e gestire tutti gli aspetti dei flussi utente.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Leggere e configurare i flussi utente in Azure Active Directory B2C. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>Amministratore dell'attributo flusso utente B2C
+Creare e gestire lo schema di attributi disponibile per tutti i flussi degli utenti.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Leggere e configurare gli attributi utente in Azure Active Directory B2C. |
+
+### <a name="b2c-ief-keyset-administrator"></a>Amministrazione di B2C IEF Keyset
+Gestire i segreti per la federazione e crittografia in Framework dell'esperienza di identità.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Leggere e configurare i set di chiavi in Azure Active Directory B2C. |
+
+### <a name="b2c-ief-policy-administrator"></a>Amministratore di criteri di B2C IEF
+Creare e gestire i criteri di framework attendibilità nel Framework di esperienza di identità.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Leggere e configurare i criteri personalizzati in Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Amministratore fatturazione
 Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare le informazioni di pagamento.
@@ -675,6 +718,13 @@ Può gestire tutti gli aspetti del prodotto Exchange.
 | microsoft.office365.exchange/allEntities/allTasks | Gestire tutti gli aspetti di Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+
+### <a name="external-identity-provider-administrator"></a>Amministratore del Provider di identità esterne
+Configurare i provider di identità per l'uso nella federazione diretta.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Leggere e configurare i provider di identità in Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Mittente dell'invito guest
 Può invitare utenti guest indipendentemente dall'impostazione 'I membri possono invitare utenti guest'.

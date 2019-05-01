@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507818"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714071"
 ---
 # <a name="time-series-model"></a>Modello Time Series
 
@@ -76,7 +76,7 @@ Esempio:
 
 Per altre informazioni sui tipi di modello serie temporale, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 I tipi di Time Series Insights hanno variabili, denominate calcoli sui valori degli eventi. Le definizioni delle variabili di Time Series Insights contengono regole relative alle formule e ai calcoli. Le definizioni delle variabili includono *tipologia*, *valore*, *filtro*, *riduzione* e *limiti*. Le variabili vengono archiviate nella definizione del tipo nel modello serie temporale e possono essere fornite inline tramite le API di query per eseguire l'override della definizione archiviata.
 
@@ -203,9 +203,9 @@ Per altre informazioni sulle impostazioni del modello serie temporale, vedere la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
+- Vedere [Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
 
-Vedere il nuovo [modello serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+- Vedere il nuovo [modello serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

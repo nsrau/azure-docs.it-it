@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245557"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918515"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
@@ -25,7 +25,7 @@ Il modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncc
 ## <a name="overview"></a>Panoramica 
 I cmdlet di PowerShell seguenti possono essere usati per configurare le autorizzazioni di Active Directory dell'account del connettore di Active Directory Domain Services, per ogni funzionalità che si intende selezionare in Azure AD Connect. Per evitare problemi, è consigliabile preparare le autorizzazioni di Active Directory in anticipo ogni volta che si vuole installare Azure AD Connect usando un account di dominio personalizzato per la connessione alla foresta. Questo modulo ADSyncConfig può essere usato anche per configurare le autorizzazioni dopo la distribuzione di Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Panoramica dell'account di Active Directory Domain Services](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Per l'installazione di Azure AD Connect Express, viene creato un account generato automaticamente (MSOL_nnnnnnnnnn) in Active Directory con tutte le autorizzazioni necessarie, quindi non occorre usare questo modulo ADSyncConfig a meno che non si sia bloccata l'ereditarietà delle autorizzazioni per le unità organizzative o per oggetti specifici di Active Directory che si vuole sincronizzare con Azure AD. 
  

@@ -1,89 +1,77 @@
 ---
-title: Gestire il server di elaborazione per il ripristino di emergenza da macchine virtuali VMware e server fisici ad Azure con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive la gestione di un server di elaborazione per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Azure Site Recovery.
+title: Gestire un server di elaborazione usato per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive la gestione di un server di elaborazione impostata per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62732486"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925578"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
-Per impostazione predefinita il server di elaborazione usato quando si esegue la replica di macchine virtuali VMware o server fisici in Azure è installato nel computer server di configurazione locale. Esistono un paio di casi in cui è necessario configurare un server di elaborazione distinto:
+Questo articolo vengono descritte attività comuni per la gestione dei server di elaborazione di Site Recovery.
+
+Il server di elaborazione consente di ricevere, ottimizzare e inviare dati di replica in Azure. Ed esegue un'installazione push del servizio Mobility nelle VM VMware e server fisici da replicare, ed esegue l'individuazione automatica delle macchine virtuali locali. Per la replica di macchine virtuali VMware locali o server fisici in Azure, il server di elaborazione viene installato per impostazione predefinita nel server di configurazione. 
 
 - Per distribuzioni di grandi dimensioni potrebbe essere necessario disporre di server di elaborazione locali aggiuntivi per garantire la scalabilità della capacità.
-- Per il failback è necessario un server di elaborazione temporaneo configurato in Azure. È possibile eliminare questa macchina virtuale al termine del failback. 
+- Per il failback da Azure a locale, è necessario configurare un server di elaborazione temporaneo in Azure. È possibile eliminare questa macchina virtuale al termine del failback. 
 
-Questo articolo riepiloga le attività di gestione comuni per i server di elaborazione aggiuntivi.
+Altre informazioni sui server di elaborazione.
+
 
 ## <a name="upgrade-a-process-server"></a>Aggiornare un server di elaborazione
 
-Aggiornare un server di elaborazione in esecuzione in locale o in Azure (per motivi di failback), come indicato di seguito:
+Quando si distribuisce un server di elaborazione in locale, o come una macchina virtuale di Azure per il failback, è installata la versione più recente del server di elaborazione. I team di Site Recovery rilasciano correzioni e miglioramenti a intervalli regolari. È consigliabile mantenere aggiornati i server di elaborazione. È possibile aggiornare un server di elaborazione, come indicato di seguito:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
-> [!NOTE]
->   In genere, quando si usa l'immagine della raccolta di Azure per creare un server di elaborazione in Azure per il failback, viene eseguita la versione più recente disponibile di tale server. I team di Site Recovery rilasciano correzioni e miglioramenti a intervalli regolari. È consigliabile mantenere aggiornati i server di elaborazione.
 
-## <a name="balance-the-load-on-process-server"></a>Bilanciare il carico nel server di elaborazione
+## <a name="move-vms-to-balance-the-process-server-load"></a>Spostare le macchine virtuali per bilanciare il carico del server di processo
 
-Per bilanciare il carico tra due server di elaborazione:
+Bilanciare il carico spostando le VM tra due server di elaborazione, come indicato di seguito:
 
-1. Passare a **Insieme di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery**  >  **Per VMware e computer fisici** > **Server di configurazione**.
-2. Fare clic sul server di configurazione in cui sono registrati i server di elaborazione.
-3. Nella pagina è disponibile l'elenco dei server di elaborazione registrati nei server di configurazione.
-4. Fare clic sul server di elaborazione di cui si vuole modificare il carico di lavoro.
+1. Nell'insieme di credenziali, sotto **Manage** fare clic su **infrastruttura di Site Recovery**. Sotto **le macchine per VMware e fisici**, fare clic su **server di configurazione**.
+2. Fare clic sul server di configurazione con cui vengono registrati i server di elaborazione.
+3. Fare clic sul server di elaborazione per il quale si desidera bilanciare il carico.
 
     ![Bilanciamento del carico](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-5. È possibile usare l'opzione **Bilanciamento del carico** o **Switch**, come spiegato di seguito, a seconda dei requisiti.
-
-### <a name="load-balance"></a>Bilanciamento del carico
-
-Tramite questa opzione è possibile selezionare una o più macchine virtuali e trasferirle a un altro server di elaborazione.
-
-1. Fare clic su **Bilanciamento del carico** e selezionare il server di elaborazione di destinazione dall'elenco a discesa. Fare clic su **OK**.
+4. Fare clic su **bilanciare il carico**, selezionare il server di elaborazione di destinazione a cui si desidera spostare le macchine. Quindi fare clic su **OK**
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Fare clic su **Seleziona macchine virtuali** e scegliere le macchine virtuali da spostare dal server di elaborazione corrente a quello di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media.
-3. Fare clic su **OK**. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
-4. Dopo il completamento di questa operazione, sono necessari 15 minuti perché le modifiche siano visualizzate. In alternativa, per renderle immediatamente effettive, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+2. Fare clic su **selezionare le macchine virtuali**e scegliere le macchine di cui si desidera spostare da corrente per il server di elaborazione di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media. Fare quindi clic su **OK**. 
+3. Nell'insieme di credenziali, monitorare lo stato di avanzamento del processo sotto **Monitoring** > **processi di Site Recovery**.
 
-### <a name="switch"></a>Switch
+Richiederà circa 15 minuti per le modifiche siano visibili nel portale. Per un effetto più veloce [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-Tramite questa opzione, l'intero carico di lavoro protetto in un server di elaborazione viene spostato in un altro server di elaborazione.
+## <a name="switch-an-entire-workload-to-another-process-server"></a>Passare un intero carico di lavoro a un altro server di elaborazione
 
-1. Fare clic su **Switch**, selezionare il server di elaborazione di destinazione e fare clic su **OK**.
+Spostare l'intero carico di lavoro gestito da un server di elaborazione per un server di elaborazione diverso, come indicato di seguito:
+
+1. Nell'insieme di credenziali, sotto **Manage** fare clic su **infrastruttura di Site Recovery**. Sotto **le macchine per VMware e fisici**, fare clic su **server di configurazione**.
+2. Fare clic sul server di configurazione con cui vengono registrati i server di elaborazione.
+3. Fare clic sul server di elaborazione da cui si desidera passare il carico di lavoro.
+4. Fare clic su **commutatore**, selezionare il server di elaborazione di destinazione a cui si desidera spostare il carico di lavoro. Quindi fare clic su **OK**
 
     ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
 
-2. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
-3. Dopo il completamento di questa operazione, sono necessari 15 minuti perché le modifiche siano visualizzate. In alternativa, per renderle immediatamente effettive, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+5. Nell'insieme di credenziali, monitorare lo stato di avanzamento del processo sotto **Monitoring** > **processi di Site Recovery**.
 
-## <a name="process-server-selection-guidance"></a>Per istruzioni sulla selezione di Server di elaborazione
+Richiederà circa 15 minuti per le modifiche siano visibili nel portale. Per un effetto più veloce [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-Azure Site Recovery identifica automaticamente se Server di elaborazione sta per raggiungere i limiti di utilizzo. Quando è possibile configurare una scalabilità orizzontale del server di elaborazione, viene fornito materiale sussidiario.
 
-|Stato integrità  |Spiegazione  | Disponibilità delle risorse  | Recommendation|
-|---------|---------|---------|---------|
-| Integro (verde)    |   Server di elaborazione sia connesso e che sia integro      |Utilizzo della CPU e memoria è sotto dell'80%; Disponibilità di spazio disponibile è superiore al 30%| Questo server di elaborazione è utilizzabile per proteggere i server aggiuntivi. Verificare che il carico di lavoro nuovi non superi i [definiti i limiti di processo server](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
-|Avviso (arancione)    |   Server di elaborazione sia connesso, ma determinate risorse siano tentando di raggiungere i limiti massimi  |   Utilizzo della CPU e memoria è tra 80% - 95%; È la disponibilità di spazio disponibile tra il 25% - 30%       | Utilizzo del server di elaborazione è prossimo i valori di soglia. Aggiunta di nuovi server al server di elaborazione stesse porterà a oltrepassare i valori di soglia e può influire sulla elementi protetti esistenti. È consigliabile [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
-|Avviso (arancione)   |   Server di elaborazione sia connesso, ma i dati non è stati caricati in Azure in ultimi 30 minuti  |   Utilizzo delle risorse è entro i limiti di soglia       | Risoluzione dei problemi [errori di caricamento dei dati](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) prima di aggiungere nuovi carichi di lavoro **oppure** [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
-|Critico (rosso)    |     Server di elaborazione potrebbe non essere connesso  |  Utilizzo delle risorse è entro i limiti di soglia      | Risoluzione dei problemi [problemi di connettività di server di elaborare](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) oppure [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
-|Critico (rosso)    |     Utilizzo delle risorse ha superato i limiti della soglia |  Utilizzo della CPU e memoria è superiore al 95%; Disponibilità di spazio disponibile è inferiore al 25%.   | Aggiunta di nuovi carichi di lavoro nello stesso server di processo è disabilitato come soglia di risorse i limiti sono già stati soddisfatti. Pertanto [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start) per nuove repliche.
-Critico (rosso)    |     Dati non è stati caricati da Azure ad Azure in ultimi 45 minuti. |  Utilizzo delle risorse è entro i limiti di soglia      | Risoluzione dei problemi [errori di caricamento dei dati](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) prima di aggiungere nuovi carichi di lavoro stesso server di elaborazione o [configurare un server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#before-you-start)
 
 ## <a name="reregister-a-process-server"></a>Registrare di nuovo un server di elaborazione
 
-Se è necessario registrare di nuovo un server di elaborazione in esecuzione in locale o in Azure con il server di configurazione, eseguire le operazioni seguenti:
+Registrare di nuovo un server di elaborazione in esecuzione in locale o in una VM di Azure con il server di configurazione come indicato di seguito:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
@@ -100,9 +88,9 @@ Dopo avere salvato le impostazioni, eseguire le operazioni seguenti:
 
 ## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Modificare le impostazioni proxy per un server di elaborazione locale
 
-Se il server di elaborazione usa un proxy per la connessione a Site Recovery in Azure, usare questa procedura se è necessario modificare le impostazioni proxy esistenti.
+Se un server di elaborazione locale Usa un proxy per connettersi ad Azure, è possibile modificare le impostazioni del proxy come indicato di seguito:
 
-1. Accedere al computer del server di elaborazione. 
+1. Accedere al computer server di elaborazione. 
 2. Aprire una finestra di comando di PowerShell di amministratore ed eseguire il comando seguente:
    ```powershell
    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -110,7 +98,7 @@ Se il server di elaborazione usa un proxy per la connessione a Site Recovery in 
    net stop obengine
    net start obengine
    ```
-2. Passare alla cartella **%PROGRAMDATA%\ASR\Agent** ed eseguire il comando seguente:
+2. Passare alla cartella **%PROGRAMDATA%\ASR\Agent**, ed eseguire questo comando:
    ```
    cmd
    cdpcli.exe --registermt
@@ -126,9 +114,9 @@ Se il server di elaborazione usa un proxy per la connessione a Site Recovery in 
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-## <a name="manage-anti-virus-software-on-process-servers"></a>Gestire il software antivirus nei server di elaborazione
+## <a name="exclude-folders-from-anti-virus-software"></a>Escludere cartelle dall'antivirus
 
-Se il software antivirus è attivo in un server di elaborazione autonomo o in un server di destinazione master, escludere le cartelle seguenti dalle operazioni antivirus:
+Se un software antivirus è in esecuzione in un server di elaborazione scale-out (o server di destinazione master), escludere le cartelle seguenti dalle operazioni di anti-virus:
 
 
 - C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure
@@ -137,4 +125,4 @@ Se il software antivirus è attivo in un server di elaborazione autonomo o in un
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Directory di installazione del server di elaborazione, ad esempio: C:\Programmi (x86)\Microsoft Azure Site Recovery
+- Directory di installazione server di processo. Ad esempio:  C:\Programmi (x86)\Microsoft Azure Site Recovery

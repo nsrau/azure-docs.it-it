@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294209"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709605"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Riferimento agli eventi di rischio in Azure Active Directory Identity Protection
 
@@ -80,10 +80,16 @@ Questo tipo di evento di rischio indica accessi da indirizzi IP infettati da mal
 
 ## <a name="unfamiliar-sign-in-properties"></a>Proprietà di accesso insolite
 
-**Tipo di rilevamento:** Tempo reale  
-**Nome precedente:** Accessi da posizioni non note
+**Tipo di rilevamento:** In tempo reale **nome precedente:** Accessi da posizioni non note
 
 Questo tipo di evento di rischio prende in considerazione oltre cronologia di accesso (IP, latitudine / longitudine e l'ASN) per la ricerca per accessi anomali. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Gli utenti appena creati sarà in "modalità di apprendimento" per un periodo di tempo in familiare Accedi le proprietà che gli eventi di rischio verranno spente durante gli algoritmi disponibili informazioni sul comportamento dell'utente. L'apprendimento durata della modalità è dinamica e dipende dal tempo richiede l'algoritmo per raccogliere informazioni sufficienti per valutare i modelli di accesso dell'utente. La durata minima è di cinque giorni. Un utente può tornare in modalità di apprendimento dopo un lungo periodo di inattività. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
 
 È anche possibile eseguire questo rilevamento per l'autenticazione di base (o i protocolli legacy). Poiché questi protocolli non hanno proprietà moderne, ad esempio l'ID client, i dati di telemetria per ridurre i falsi positivi sono limitati. È consigliabile passare all'autenticazione moderna.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Intelligence per le minacce di Azure AD
+
+**Tipo di rilevamento:** Offline <br>
+**Nome precedente:** Questo rilevamento verrà visualizzato nei report di Azure AD Identity Protection legacy (gli utenti contrassegnati per il rischio, eventi di rischio) come "Utenti con credenziali perse"
+
+Questo tipo di evento di rischio indica attività degli utenti è insolito che l'utente specificato o è coerente con i modelli di attacco noti basati su origini di intelligence di Microsoft delle minacce interne ed esterne.

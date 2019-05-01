@@ -1,28 +1,19 @@
 ---
 title: Connessione di MapReduce e SSH con Apache Hadoop in HDInsight - Azure
 description: Informazioni su come usare SSH per eseguire processi MapReduce con Apache Hadoop in HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlunb
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 04/10/2018
-ms.date: 01/14/2019
-ms.author: v-yiso
+ms.date: 04/10/2018
+ms.author: hrasheed
 ms.openlocfilehash: 3448a5e89f6930a5bdcb7d0d77b92576e58fc90b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129383"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687289"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Usare MapReduce con Apache Hadoop in HDInsight con SSH
 
@@ -47,13 +38,13 @@ Informazioni su come inviare processi MapReduce da una connessione Secure Shell 
 Connettersi al cluster tramite SSH. Il comando seguente, ad esempio, stabilisce la connessione a un cluster denominato **myhdinsight** con l'account **sshuser**:
 
 ```bash
-ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se si usa una chiave del certificato per l'autenticazione SSH**, è possibile che sia necessario specificare il percorso della chiave privata nel sistema client, ad esempio:
 
 ```bash
-ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se si usa una password per l'autenticazione SSH**, è necessario fornire la password quando viene richiesta.
@@ -88,7 +79,7 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
 
     Con questo comando vengono visualizzati due file: `_SUCCESS` e `part-r-00000`. Il file `part-r-00000` contiene l'output del processo.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####** . In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:

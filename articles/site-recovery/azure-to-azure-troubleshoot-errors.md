@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789905"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699087"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -221,7 +221,17 @@ Assicurarsi che i dischi dati siano stati inizializzati e quindi provare a esegu
 
 Se il problema persiste, contattare il supporto tecnico.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Uno o più dischi sono disponibili per la protezione (codice di errore 153039)
+- **Causa possibile** </br>
+  - Se uno o più dischi aggiunti di recente alla macchina virtuale dopo la protezione. 
+  - Se uno o più dischi sono stati inizializzati in un secondo momento dopo la protezione della macchina virtuale.
 
+### <a name="fix-the-problem"></a>Risolvere il problema
+È possibile scegliere di proteggere i dischi o ignorare l'avviso per rendere nuovamente integro lo stato di replica della macchina virtuale.</br>
+1. Per proteggere i dischi. Passare a elementi replicati > macchina virtuale > dischi > fare clic sul disco non protetto > Abilitazione replica.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Per ignorare l'avviso. Passare a elementi replicati > macchina virtuale > fare clic su Ignora avviso nella sezione Panoramica.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossibile vedere la VM di Azure tra le opzioni per l'abilitazione della replica
 
  **Causa 1:  Il gruppo di risorse e la macchina virtuale di origine si trovano in una posizione diversa** <br>

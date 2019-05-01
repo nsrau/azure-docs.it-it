@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122660"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939525"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funzionalità multimodello del database SQL di Azure
 
@@ -90,7 +90,7 @@ In alcuni scenari specifici è possibile usare i modelli di documento invece dei
 
 ## <a name="spatial-features"></a>Funzionalità spaziali
 
-I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere dei punti oppure oggetti più complessi, come ad esempio paesi, strade o laghi.
+I dati spaziali rappresentano informazioni sulla posizione fisica e sulla forma degli oggetti geometrici. Questi oggetti possono essere posizioni dei punti oppure oggetti più complessi, ad esempio paesi, strade o laghi.
 
 Il database SQL di Azure supporta due tipi di dati spaziali: il tipo di dati geometria e il tipo di dati geografia.
 - Il tipo geometria rappresenta i dati in un sistema di coordinate Euclideo (piano).

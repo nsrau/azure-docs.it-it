@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559844"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712360"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -22,7 +22,7 @@ ms.locfileid: "60559844"
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria per vCore | 2 GB | 5 GB | 10 GB |
-| Dimensioni archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
 
@@ -30,7 +30,7 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 
 | Piano tariffario | Carichi di lavoro di destinazione |
 |:-------------|:-----------------|
-| Di base | Carichi di lavoro con esigenze di calcolo e di prestazioni I/O ridotte. Ad esempio, server usati per lo sviluppo o i test oppure applicazioni su scala ridotta usate raramente. |
+| Basic | Carichi di lavoro con esigenze di calcolo e di prestazioni I/O ridotte. Ad esempio, server usati per lo sviluppo o i test oppure applicazioni su scala ridotta usate raramente. |
 | Utilizzo generico | La maggior parte dei carichi di lavoro aziendali che richiedono risorse di calcolo e di memoria bilanciate con velocità effettiva di I/O scalabile. Ad esempio, server per l'hosting di app Web e di app per dispositivi mobili e altre applicazioni aziendali.|
 | Con ottimizzazione per la memoria | Carichi di lavoro di database ad alte prestazioni che richiedono prestazioni in memoria per l'elaborazione più rapida delle transazioni e una concorrenza maggiore. Ad esempio, server per l'elaborazione di dati in tempo reale e app transazionali o analitiche a prestazioni elevate.|
 
@@ -41,31 +41,25 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità). 
 
-> [!IMPORTANT]
-> A partire dal 12 dicembre 2018 i nuovi clienti non possono effettuare il provisioning di server di calcolo di quarta generazione in Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Stati Uniti orientali 2, India centrale, India occidentale, Giappone occidentale, Stati Uniti centro-settentrionali e Stati Uniti occidentali. Verrà eseguita la migrazione dei server di servizi di calcolo di quarta generazione creati in precedenza ai server di servizi di calcolo di quinta generazione a partire dal 1° febbraio 2019 in queste aree.
->
-> [!IMPORTANT]
-> A partire dal 19 febbraio 2019, i nuovi clienti non sarà in grado di effettuare il provisioning di server di generazione 4 di calcolo in Stati Uniti centrali, Stati Uniti orientali, Giappone orientale, Europa settentrionale, meridionali, Asia sud-orientale, Europa occidentale. Creato in precedenza la generazione di calcolo e 4 i server verranno migrati per generazione 5 il 1 aprile 2019 a partire da queste aree di calcolo.
-
 | **Area di Azure** | **Generazione 4** | **Generazione 5** |
 |:---|:----------:|:--------------------:|
 | Stati Uniti centrali |  | X |
 | Stati Uniti orientali |  | X |
 | Stati Uniti orientali 2 |  | X |
 | Stati Uniti centro-settentrionali |  | X |
-| Stati Uniti centro-meridionali | X | X |
+| Stati Uniti centro-meridionali |  | X |
 | Stati Uniti occidentali |  | X |
 | Stati Uniti occidentali 2 |  | X |
 | Brasile meridionale |  | X |
 | Canada centrale |  | X |
 | Canada orientale |  | X |
-| Europa settentrionale | X | X |
+| Europa settentrionale |  | X |
 | Europa occidentale |  | X |
 | Francia centrale |  | X |
 | Regno Unito meridionale |  | X |
 | Regno Unito occidentale |  | X |
 | Asia orientale |  | X |
-| Asia sud-orientale | X | X |
+| Asia sud-orientale |  | X |
 | Australia orientale |  | X |
 | Australia centrale |  | X |
 | Australia centrale 2 |  | X |
@@ -73,7 +67,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | India centrale |  | X |
 | India meridionale |  | X |
 | India occidentale |  | X |
-| Giappone orientale | X | X |
+| Giappone orientale |  | X |
 | Giappone occidentale |  | X |
 | Corea del Sud centrale |  | X |
 | Corea del Sud meridionale |  | X |
@@ -82,8 +76,8 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Cina settentrionale 1 | X |  |
 | Cina settentrionale 2 |  | X |
 | Germania centrale |  | X |
-| US DoD Central  | X |  |
-| US DoD East  | X |  |
+| US DoD (area centrale)  | X |  |
+| US DoD (area orientale)  | X |  |
 | US Gov Arizona |  | X |
 | US Gov Texas |  | X |
 | US Gov Virginia |  | X |
@@ -95,9 +89,9 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 |    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
+| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| Input/output al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
+| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 

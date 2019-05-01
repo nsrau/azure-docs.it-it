@@ -1,25 +1,18 @@
 ---
-title: Problemi comuni degli URL di firma di accesso condiviso e relative correzioni per Azure Marketplace | Microsoft Docs
+title: Problemi di URL di firma di accesso condiviso comuni e correzioni per Azure Marketplace
 description: Elenco dei problemi più comuni relativi all'uso di URI per la firma di accesso condiviso e possibili soluzioni.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 4f2770312624e1ca4c939ade458a451eb03f9d20
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744127"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938385"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problemi comuni degli URL di firma di accesso condiviso e relative correzioni
 

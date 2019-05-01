@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311642"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716760"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -66,7 +66,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 }
 ```
 
-Tutti gli esempi di Criteri di Azure sono disponibili in [Esempi di criteri](../samples/index.md).
+Tutti gli esempi di criteri di Azure sono alla [esempi di criteri di Azure](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
   - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
   - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
+  - `assignPermissions`: (Facoltativo) Impostare come _true_ affinché il portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desidera assegnare autorizzazioni di fuori dell'ambito di assegnazione. È presente un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per ogni definizione di ruolo in tutti i criteri nell'iniziativa). Il valore del parametro deve essere una valida risorsa o un ambito.
 - `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore. Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
 - `allowedValues`: (Facoltativo) Fornisce una matrice di valori che accetta il parametro durante l'assegnazione.
 
@@ -148,6 +149,7 @@ Nella proprietà `metadata` è possibile usare **strongType** per fornire un ele
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Con la regola di criterio rivisto `if()` verifica la lunghezza del **nome** prim
 
 ### <a name="effect"></a>Effetto
 
-Il criterio supporta i tipi di effetto seguenti:
+Criteri di Azure supportano i tipi di effetto seguenti:
 
 - **Deny**: genera un evento nel log attività e nega la richiesta
 - **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
@@ -410,7 +412,7 @@ L'effetto **DeployIfNotExists** richiede la proprietà **roleDefinitionId** nell
 }
 ```
 
-Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Informazioni sugli effetti di Criteri](effects.md).
+Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Understanding Azure criteri effetti](effects.md).
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
@@ -593,9 +595,9 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere [Informazioni sugli effetti di Criteri](effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md)
-- Informazioni su come [ottenere dati sulla conformità](../how-to/getting-compliance-data.md)
-- Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Leggere [Informazioni sugli effetti di Criteri](effects.md).
+- Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

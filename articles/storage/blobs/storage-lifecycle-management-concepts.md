@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392467"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938558"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -36,13 +36,13 @@ I criteri di gestione del ciclo di vita sono disponibili sia con gli account per
 
 La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Disponibilità a livello di area 
+## <a name="regional-availability"></a>Disponibilità internazionale 
 La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree pubbliche di Azure. 
 
 
 ## <a name="add-or-remove-a-policy"></a>Aggiungere o rimuovere un criterio 
 
-È possibile aggiungere, modificare o rimuovere un criterio usando il portale di Azure [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI di Azure [le API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), o uno strumento client. Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
+È possibile aggiungere, modificare o rimuovere un criterio usando il portale di Azure [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI di Azure [le API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), o uno strumento client. Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
 > [!NOTE]
 > Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste specificando eccezioni. Il bypass necessario sono: `Logging,  Metrics,  AzureServices`. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Modello ARM con criteri di gestione del ciclo di vita
 
+È possibile definire e distribuire la gestione del ciclo di vita come parte della distribuzione di soluzioni di Azure usando i modelli ARM. Di seguito è disponibile un modello di esempio per distribuire un account di archiviazione RA-GRS per utilizzo generico v2 con un criterio di gestione del ciclo di vita. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Policy
 
@@ -113,9 +153,9 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio ha diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatorio |
+| Nome parametro | Tipo di parametro | Note | Obbligatoria |
 |----------------|----------------|-------|----------|
-| name           | String |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True  |
+| name           | string |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True  |
 | Enabled | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | False | 
 | type           | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True  |
 | Definizione     | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True  |
@@ -305,8 +345,8 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Domanda frequente: ho creato un nuovo criterio, perché le azioni non vengono eseguite immediatamente? 
-
+## <a name="faq"></a>Domande frequenti 
+**Ho creato un nuovo criterio, perché le azioni non vengono eseguite immediatamente?**  
 La piattaforma esegue i criteri di gestione del ciclo di vita una volta al giorno. Dopo aver configurato un criterio, può richiedere fino a 24 ore per alcune azioni, come la suddivisione in livelli e l'eliminazione, da eseguire per la prima volta.  
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,157 +1,169 @@
 ---
-title: Riscrivere le intestazioni HTTP nel gateway applicazione di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica della funzionalità per riscrivere le intestazioni HTTP nel gateway applicazione di Azure
+title: Riscrivere le intestazioni HTTP con il Gateway applicazione di Azure | Microsoft Docs
+description: Questo articolo offre una panoramica di riscrittura di intestazioni HTTP nel Gateway applicazione di Azure
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947185"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il Gateway applicazione
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di realizzare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione di sicurezza, ad esempio HSTS / X-XSS-Protection, la rimozione di un'intestazione di risposta di campi che potrebbe rivelare informazioni riservate, rimuovendo le informazioni sulla porta da Le intestazioni X-Forwarded-For, e così via. Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP durante la richiesta e spostare pacchetti di risposta tra il pool back-end e client. Fornisce la possibilità di aggiungere le condizioni per garantire che le intestazioni specificate vengono riscritti solo quando vengono soddisfatte determinate condizioni. La funzionalità supporta anche diversi [variabili server](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) che contribuiscono a memorizzare informazioni aggiuntive richieste e risposte, permettendo quindi di verificare le regole di riscrittura potenti.
+Intestazioni HTTP consentono un client e server passare informazioni aggiuntive con una richiesta o risposta. Riscrivendo le intestazioni, è possibile eseguire attività importanti, ad esempio l'aggiunta di campi di intestazione di sicurezza, ad esempio HSTS / X-XSS-Protection, la rimozione di campi di intestazione di risposta che potrebbero rivelare informazioni riservate e rimozione di informazioni sulle porte da Intestazioni X-Forwarded-For.
+
+Il Gateway applicazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP durante la richiesta e spostano pacchetti di risposta tra il client e il pool back-end. E consente di aggiungere le condizioni per garantire che le intestazioni specificate vengono riscritti solo quando vengono soddisfatte determinate condizioni.
+
+Il Gateway applicazione supporta anche diversi [variabili server](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) che consentono archiviare informazioni aggiuntive sulle richieste e risposte. Questo rende più semplice per creare regole di riscrittura potenti.
+
 > [!NOTE]
 >
-> Il supporto alla riscrittura dell'intestazione HTTP è disponibile solo per il [nuovo SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+> Il supporto alla riscrittura dell'intestazione HTTP è disponibile solo per i [Standard_V2 e SKU WAF_v2](application-gateway-autoscaling-zone-redundant.md).
 
 ![Intestazioni di riscrittura](media/rewrite-http-headers/rewrite-headers.png)
 
-## <a name="headers-supported-for-rewrite"></a>Intestazioni supportate per riscrivere
+## <a name="supported-headers"></a>Intestazioni supportate
 
-La funzionalità consente di riscrivere tutte le intestazioni nella richiesta e risposta ad eccezione delle intestazioni Host, la connessione e aggiornamento. È anche possibile usare il gateway applicazione per creare le intestazioni personalizzate e aggiungerle alla richiesta e le risposte vengono inoltrate tramite lo. 
+È possibile riscrivere tutte le intestazioni di richieste e risposte, fatta eccezione per le intestazioni Host, la connessione e aggiornamento. È anche possibile usare il gateway applicazione per creare le intestazioni personalizzate e aggiungerle a richieste e risposte viene indirizzate attraverso il.
 
 ## <a name="rewrite-conditions"></a>Riscrivere le condizioni
 
-Tramite la riscrittura condizioni è possibile valutare il contenuto delle richieste HTTP (S) e le risposte ed eseguire un'intestazione di riscrivere solo quando vengono soddisfatte una o più condizioni. I seguenti 3 tipi di variabili vengono usati dal gateway applicazione per valutare il contenuto delle richieste HTTP (S) e le risposte:
+È possibile usare le condizioni di riscrittura per valutare il contenuto di risposte e richieste HTTP (S) ed eseguire una riscrittura intestazione solo quando per uno o più condizioni vengono soddisfatte. Il gateway applicazione usa questi tipi di variabili da valutare il contenuto di richieste HTTP (S) e risposte:
 
-- Intestazioni HTTP nella richiesta
-- Intestazioni HTTP nella risposta
-- Variabili del server gateway applicazione
+- Intestazioni HTTP nella richiesta.
+- Intestazioni HTTP nella risposta.
+- Variabili del server Gateway applicazione.
 
-Una condizione è utilizzabile per valutare se la variabile specificata è presente, indica se la variabile specificata corrisponde esattamente a un valore specifico oppure se la variabile specificata corrisponde esattamente a un modello specifico. [Libreria Perl compatibile regolare le espressioni (PCRE)](https://www.pcre.org/) viene usato per implementare il modello di espressione regolare nelle condizioni di corrispondenza. Per altre informazioni sulla sintassi delle espressioni regolari, vedere la [uomo con espressioni regolari Perl pagina](https://perldoc.perl.org/perlre.html).
+È possibile usare una condizione da valutare se una variabile specificata è presente, indica se una variabile specificata corrisponde a un valore specifico oppure se una variabile specificata corrisponde a un modello specifico. Si utilizza il [libreria Perl compatibile regolare le espressioni (PCRE)](https://www.pcre.org/) configurare ricerca di espressioni regolari nelle condizioni di corrispondenza. Per altre informazioni sulla sintassi delle espressioni regolari, vedere la [pagina principale di espressioni regolari Perl](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Riscrivere le azioni
 
-Riscrivere le azioni vengono utilizzate per specificare le intestazioni di richiesta e risposta che si prevede di riscrittura e il nuovo valore che dovranno essere riscritte per le intestazioni originale. È possibile creare una nuova intestazione, modificare il valore di un'intestazione esistente o eliminare un'intestazione esistente. Per i tipi seguenti di valori, è possibile impostare il valore di una nuova intestazione o un'intestazione esistente:
+Usare le azioni di riscrittura per specificare le intestazioni di richiesta e risposta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile creare una nuova intestazione, modificare il valore di un'intestazione esistente oppure eliminare un'intestazione esistente. Il valore di una nuova intestazione o un'intestazione esistente può essere impostato su questi tipi di valori:
 
-- Text 
-- Intestazione della richiesta: Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_*headerName*}
-- Intestazione della risposta: Per specificare un'intestazione di risposta, è necessario usare la sintassi {http_resp_*headerName*}
-- Variabile server: Per specificare una variabile del server, è necessario usare la sintassi {var_*serverVariable*}
-- Combinazione di testo, l'intestazione della richiesta, un'intestazione di risposta e una variabile del server.
+- Text.
+- Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_*headerName*}.
+- Intestazione della risposta. Per specificare un'intestazione di risposta, è necessario usare la sintassi {http_resp_*headerName*}.
+- Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_*serverVariable*}.
+- Una combinazione di testo, un'intestazione di richiesta, un'intestazione di risposta e una variabile del server.
 
 ## <a name="server-variables"></a>Variabili del server
 
-Il gateway applicazione usa le variabili del server per archiviare informazioni utili sul server, la connessione con il client e la richiesta corrente per la connessione, ad esempio l'indirizzo IP del client o il tipo di browser web. Queste variabili di modificare in modo dinamico, ad esempio quando viene caricata una nuova pagina o un modulo viene inviato. È possibile usare queste variabili del server per valutare le condizioni di riscrittura e riscrivere le intestazioni. 
+Il Gateway applicazione usa le variabili del server per archiviare informazioni utili sul server, la connessione con il client e la richiesta corrente per la connessione. Indirizzo IP del client e il tipo di browser web sono esempi di informazioni archiviate. Variabili server modificare in modo dinamico, ad esempio, quando una nuova pagina viene caricata o quando si invia un form. È possibile usare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni.
 
-Il gateway applicazione supporta le seguenti variabili server:
+Il gateway applicazione supporta le variabili del server:
 
-| Variabili server supportate | DESCRIZIONE                                                  |
+| Nome variabile | DESCRIZIONE                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | Contiene il "X-Forwarded-For" client richiesta campo di intestazione con il `client_ip` (illustrata in questa tabella riportata di seguito) variabile aggiunta nel formato (IP1, IP2, lt;IP3,...). Se il campo "X-Forwarded-For" non è presente nell'intestazione della richiesta client, il `add_x_forwarded_for_proxy` variabile è uguale al `$client_ip` variabile. Questa variabile è particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
-| ciphers_supported          | Restituisce l'elenco di modalità di crittografia supportate dal client          |
-| ciphers_used               | Restituisce la stringa di crittografia usata per una connessione SSL stabilita |
-| client_ip                  | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima il gateway applicazione e il client di origine, quindi *client_ip* restituirà l'indirizzo IP del proxy inverso. |
-| client_port                | Porta del client                                                  |
-| client_tcp_rtt             | Informazioni sulla connessione TCP client. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO |
-| client_user                | Quando si usa l'autenticazione HTTP, il nome utente fornito per l'autenticazione |
-| host                       | In questo ordine di precedenza: nome host dalla riga della richiesta o nome host dal campo di intestazione della richiesta "Host" oppure nome del server corrispondente a una richiesta |
-| cookie_*nome*              | il *nome* cookie                                            |
-| http_method                | Metodo usato per eseguire la richiesta di URL. Ad esempio GET, POST e così via. |
-| http_status                | Stato della sessione, ad esempio: 200, 400, 403 e così via.                       |
-| http_version               | Protocollo di richiesta, in genere "HTTP/1.0", "HTTP/1.1" o "HTTP/2.0" |
-| query_string               | Elenco di coppie variabile-valore che seguono il simbolo "?" nell'URL richiesto. |
-| received_bytes             | Lunghezza della richiesta, incluse riga della richiesta, intestazione e corpo della richiesta |
-| request_query              | Argomenti nella riga della richiesta                                |
-| request_scheme             | Schema della richiesta, "http" o "https"                            |
-| request_uri                | URI completo originale della richiesta (con gli argomenti)                   |
-| sent_bytes                 | Numero di byte inviati a un client                             |
-| server_port                | Porta del server che ha accettato una richiesta                 |
-| ssl_connection_protocol    | Restituisce il protocollo di una connessione SSL stabilita        |
-| ssl_enabled                | Restituisce "on" se la connessione opera in modalità SSL o una stringa vuota in caso contrario |
+| add_x_forwarded_for_proxy  | Il campo di intestazione di richiesta X-Forwarded-For client con il `client_ip` variabile (vedere la spiegazione più avanti in questa tabella) aggiunto a tale file nel formato IP1, IP2, lt;IP3 e così via. Se il campo X-Forwarded-For non è nell'intestazione della richiesta client, il `add_x_forwarded_for_proxy` variabile è uguale al `$client_ip` variabile. Questa variabile è particolarmente utile quando si desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
+| ciphers_supported          | Elenco di crittografie di supportate dal client.          |
+| ciphers_used               | La stringa di crittografia utilizzato per la connessione SSL. |
+| client_ip                  | L'indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima il gateway applicazione e il client di origine, *client_ip* restituirà l'indirizzo IP del proxy inverso. |
+| client_port                | La porta del client.                                                  |
+| client_tcp_rtt             | Informazioni sul client di connessione TCP. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO. |
+| client_user                | Quando viene utilizzata l'autenticazione HTTP, il nome utente fornito per l'autenticazione. |
+| host                       | In questo ordine di precedenza: il nome host dalla riga di richiesta, il nome host del campo di intestazione di richiesta Host o il nome del server corrispondente a una richiesta. |
+| cookie_*nome*              | Il *nome* cookie.                                            |
+| http_method                | il metodo utilizzato per eseguire la richiesta di URL. Ad esempio, GET o POST. |
+| http_status                | Lo stato della sessione. Ad esempio, 200, 400 o 403.                       |
+| http_version               | Il protocollo di richiesta. In genere HTTP/1.0, 1.1/HTTP o HTTP/2.0. |
+| query_string               | L'elenco di coppie valore/variabile che segue il "?" nell'URL richiesto. |
+| received_bytes             | La lunghezza della richiesta (tra cui la riga della richiesta, intestazione e corpo della richiesta). |
+| request_query              | Gli argomenti nella riga della richiesta.                                |
+| request_scheme             | Lo schema di richiesta: http o https.                            |
+| request_uri                | URI di richiesta originale completo (con gli argomenti).                   |
+| sent_bytes                 | Il numero di byte inviati a un client.                             |
+| server_port                | La porta del server che ha accettato una richiesta.                 |
+| ssl_connection_protocol    | Il protocollo di connessione SSL.        |
+| ssl_enabled                | "Sì" se la connessione viene eseguita in modalità SSL. In caso contrario, una stringa vuota. |
 
 ## <a name="rewrite-configuration"></a>Configurazione di riscrittura
 
-Per configurare riscrittura dell'intestazione HTTP, è necessario:
+Per configurare riscrittura dell'intestazione HTTP, è necessario completare questi passaggi.
 
-1. Creare i nuovi oggetti necessari per riscrivere le intestazioni http:
+1. Creare gli oggetti che sono necessari per la riscrittura di intestazione HTTP:
 
-   - **Riscrivere azione**: consente di specificare la richiesta e campi di intestazione di richiesta che si prevede di riscrittura e il nuovo valore che dovranno essere riscritte per le intestazioni originale. È possibile scegliere di associare uno o più condizioni di riscrittura con un'azione di riscrittura.
+   - **Riscrivere azione**: Utilizzato per specificare la richiesta e campi di intestazione di richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare uno o più condizioni con un'azione di riscrittura di riscrittura.
 
-   - **Riscrivere condizione**: È una configurazione facoltativa. Se viene aggiunta una condizione di riscrittura, valuterà il contenuto delle richieste HTTP (S) e le risposte. La decisione di eseguire l'azione di riscrittura associato alla condizione di riscrittura si baseranno se la richiesta HTTP (S) o la risposta corrispondente con la condizione di riscrittura. 
+   - **Riscrivere condizione**: Configurazione facoltativa. Le condizioni di riscrittura di valutare il contenuto delle richieste HTTP (S) e le risposte. L'azione di riscrittura verificherà se la richiesta HTTP (S) o la risposta soddisfa la condizione di riscrittura.
 
-     Se più condizioni sono associati a un'azione, quindi l'azione verrà eseguita solo quando vengono soddisfatte tutte le condizioni, ad esempio, verrà eseguita un'operazione con AND logica.
+     Se si associa più di una condizione con un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione con AND logica.
 
-   - **Regola di riscrittura**: regola di riscrittura contiene più azioni di riscrittura - riscrive le combinazioni di condizione.
+   - **Regola di riscrittura**: Contiene più azioni di riscrittura / riscrivere le combinazioni di condizione.
 
-   - **Sequenza di regole**: consente di determinare l'ordine in cui le diverse regole di riscrittura venga eseguito. Ciò risulta utile quando sono presenti più regole di riscrittura in un set di riscrittura. La regola di riscrittura con valore di sequenza minore regola Ottiene eseguita per prime. Se si fornisce la stessa sequenza di regole da due regole di riscrittura, l'ordine di esecuzione sarà non deterministica.
+   - **Sequenza di regole**: Consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando sono presenti più regole di riscrittura in un set di riscrittura. Una regola di riscrittura con un valore di sequenza più basso di regole viene eseguito per prima. Se si assegna la stessa sequenza di regole da due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
-   - **Riscrivere Set**: contiene più regole di riscrittura degli indirizzi che verrà associate a una regola di routing di richiesta.
+   - **Riscrivere set**: Contiene più regole di riscrittura degli indirizzi che verranno associate a una regola di routing di richiesta.
 
-2. Sarà necessario collegare il set di riscrittura (*rewriteRuleSet*) con una regola di routing. Questo avviene perché la configurazione di riscrittura è allegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione di riscrittura delle intestazioni viene associata a un listener di origine e la riscrittura è globale. Quando viene usata una regola di routing basata sul percorso, la configurazione di riscrittura delle intestazioni è definita sulla mappa del percorso URL. Pertanto, si applica solo all'area del percorso specifico di un sito.
+2. Collegare il set di riscrittura (*rewriteRuleSet*) a una regola di routing. La configurazione di riscrittura è allegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione di riscrittura di intestazione è associata a un listener di origine ed è una riscrittura intestazione globale. Quando si usa una regola di routing basato sul percorso, la configurazione di riscrittura di intestazione è definita nel mapping del percorso URL. In tal caso, si applica solo all'area di percorso specifico di un sito.
 
-È possibile creare più set di riscrittura dell'intestazione http e ogni set di riscrittura degli indirizzi può essere applicato a più listener. Tuttavia, è possibile applicare solo una riscrittura impostato su un listener specifico.
+È possibile creare più set di riscrittura dell'intestazione HTTP e applicare ogni riscrittura impostato su più listener. Ma è possibile applicare solo una riscrittura impostato su un listener specifico.
 
 ## <a name="common-scenarios"></a>Scenari comuni
 
-Di seguito sono riportate alcuni scenari comuni che richiedono la riscrittura di intestazione.
+Ecco alcuni scenari comuni per l'uso di riscrittura di intestazione.
 
 ### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Rimuovere le informazioni della porta dall'intestazione X-Forwarded-For
 
-Il gateway applicazione inserisce intestazione X-Forwarded-For a tutte le richieste prima che inoltra le richieste al back-end. Il formato per questa intestazione è un elenco delimitato da virgole di IP: Port. Tuttavia, potrebbero esserci scenari in cui i server back-end richiedono l'intestazione contenga solo gli indirizzi IP. Per portare a termine questi scenari, riscrittura di intestazione è utilizzabile per rimuovere le informazioni della porta dall'intestazione X-Forwarded-For. Un modo per eseguire questa operazione consiste nell'impostare l'intestazione a add_x_forwarded_for_proxy variabile del server. 
+Il Gateway applicazione inserisce un'intestazione X-Forwarded-For in tutte le richieste prima che inoltra le richieste al back-end. Questa intestazione è un elenco delimitato da virgole di porte IP. Potrebbero essere presenti scenari in cui i server back-end devono solo le intestazioni per contenere gli indirizzi IP. È possibile usare la riscrittura dell'intestazione per rimuovere le informazioni della porta dall'intestazione X-Forwarded-For. Un modo per eseguire questa operazione consiste nell'impostare l'intestazione per la variabile server add_x_forwarded_for_proxy:
 
 ![Rimuovere la porta](media/rewrite-http-headers/remove-port.png)
 
-### <a name="modify-the-redirection-url"></a>Modificare l'URL di reindirizzamento
+### <a name="modify-a-redirection-url"></a>Modificare un URL di reindirizzamento
 
-Quando un'applicazione back-end invia una risposta di reindirizzamento, è possibile reindirizzare il client a un URL diverso da quello specificato dall'applicazione back-end. Un tale scenario è quando un servizio app è ospitato dietro un gateway applicazione e richiede il client può eseguire un reindirizzamento per il percorso relativo (reindirizzamento da contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2). 
+Quando un'applicazione back-end invia una risposta di reindirizzamento, è possibile reindirizzare il client a un URL diverso da quello specificato dall'applicazione back-end. Ad esempio, è possibile eseguire questa operazione quando un servizio app è ospitato dietro un gateway applicazione e richiede il client può eseguire un reindirizzamento per il percorso relativo. (Ad esempio, un reindirizzamento da contoso.azurewebsites.net/path1 contoso.azurewebsites.net/path2.)
 
-Poiché il servizio app è un servizio multi-tenant, Usa l'intestazione host nella richiesta per il routing all'endpoint corretto. Servizi App hanno un nome di dominio predefinito di *. azurewebsites.net (ad esempio contoso.azurewebsites.net) che è diverso dal nome di dominio del gateway applicazione (ad esempio contoso.com). Poiché la richiesta originale inviata dal client dispone di nome di dominio contoso.com del gateway applicazione come nome host, il gateway applicazione modifica il nome host per contoso.azurewebsites.net, in modo che il servizio app può indirizzarlo all'endpoint corretto. Quando il servizio app invia una risposta di reindirizzamento, Usa lo stesso nome host nell'intestazione location della risposta di quello nella richiesta che riceve dal gateway applicazione. Pertanto, il client di effettuare la richiesta direttamente a contoso.azurewebsites.net/path2, invece di passare attraverso il gateway applicazione (contoso.com/path2). Ignorando il gateway applicazione non è auspicabile. 
+Poiché il servizio App è un servizio multi-tenant, utilizza l'intestazione host nella richiesta per indirizzare la richiesta all'endpoint corretto. Servizi App hanno un nome di dominio predefinito di *. azurewebsites.net (ad esempio contoso.azurewebsites.net) che è diverso dal nome di dominio del gateway applicazione (ad esempio contoso.com). Poiché la richiesta originale inviata dal client con il nome di dominio del gateway applicazione (contoso.com) come il nome host, il gateway applicazione modifica il nome host per contoso.azurewebsites.net. Rende questa modifica in modo che il servizio app può instradare la richiesta all'endpoint corretto.
 
-Questo problema può essere risolto tramite l'impostazione del nome host nell'intestazione location al nome di dominio del gateway applicazione. A tale scopo, è possibile creare una regola di riscrittura con una condizione che restituisce se l'intestazione location nella risposta contiene azurewebsites.net immettendo `(https?):\/\/.*azurewebsites\.net(.*)$` come il modello ed esegue un'azione per riscrivere l'intestazione location per disporre del gateway applicazione nome host immettendo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come il valore dell'intestazione.
+Quando il servizio app invia una risposta di reindirizzamento, Usa lo stesso nome host nell'intestazione location della risposta di quello nella richiesta che riceve dal gateway applicazione. Quindi, il client di effettuare la richiesta direttamente a contoso.azurewebsites.net/path2 invece di passare attraverso il gateway applicazione (contoso.com/path2). Ignorando il gateway applicazione non è auspicabile.
+
+È possibile risolvere questo problema impostando il nome host nell'intestazione location al nome di dominio del gateway applicazione.
+
+Ecco i passaggi per la sostituzione del nome host:
+
+1. Creare una regola di riscrittura con una condizione che restituisce se l'intestazione location nella risposta contiene azurewebsites.net. Immettere il motivo `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Eseguire un'azione per riscrivere l'intestazione location in modo che includa il nome host del gateway applicazione. Effettuare questa operazione immettendo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come il valore dell'intestazione.
 
 ![Modificare intestazione location](media/rewrite-http-headers/app-service-redirection.png)
 
 ### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implementare le intestazioni di sicurezza HTTP per impedire vulnerabilità
 
-Le vulnerabilità di sicurezza diversi possono essere risolti mediante l'implementazione di intestazioni necessarie nella risposta dell'applicazione. Alcune di queste intestazioni di sicurezza sono X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, e così via. È possibile usare il gateway applicazione per impostare queste intestazioni per tutte le risposte.
+È possibile risolvere le vulnerabilità di sicurezza diversi implementando intestazioni necessarie nella risposta dell'applicazione. Queste intestazioni di sicurezza includono X-XSS-Protection Strict-Transport-Security e Content-Security-Policy. È possibile usare il Gateway applicazione per impostare queste intestazioni per tutte le risposte.
 
 ![Intestazione di sicurezza](media/rewrite-http-headers/security-header.png)
 
 ### <a name="delete-unwanted-headers"></a>Eliminazione delle intestazioni indesiderate
 
-È possibile rimuovere tali intestazioni dalla risposta HTTP che rivelare informazioni riservate, ad esempio nome del server back-end del sistema operativo, i dettagli della libreria, e così via. È possibile utilizzare il gateway applicazione per rimuovere questi elementi.
+È possibile rimuovere le intestazioni che rivelano informazioni riservate da una risposta HTTP. Ad esempio, è possibile rimuovere le informazioni come il nome del server back-end, sistema operativo o i dettagli della libreria. È possibile usare il gateway applicazione per rimuovere queste intestazioni:
 
 ![L'eliminazione di intestazione](media/rewrite-http-headers/remove-headers.png)
 
-### <a name="check-presence-of-a-header"></a>Controllare se è presente un'intestazione di
+### <a name="check-for-the-presence-of-a-header"></a>Verificare la presenza di un'intestazione
 
-È possibile valutare l'intestazione di richiesta o risposta HTTP per la presenza di una variabile di intestazione o un server. Ciò è utile quando si prevede di eseguire una riscrittura intestazione solo quando è presente un'intestazione determinata.
+È possibile valutare un'intestazione di richiesta o risposta HTTP per la presenza di una variabile di intestazione o un server. Questa versione di valutazione è utile quando si desidera eseguire una riscrittura intestazione solo quando è presente un'intestazione determinata.
 
 ![Controllo della presenza di un'intestazione](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limitazioni
 
-- Riscrivere le intestazioni di connessione, aggiornamento e l'Host non è ancora supportata.
+- Riscrivere le intestazioni Host, aggiornamento e connessione non è attualmente supportata.
 
-- I nomi di intestazioni possono contenere qualsiasi carattere alfanumerico e simboli specifici come definito in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Tuttavia, nel nome dell'intestazione attualmente non è supportato il carattere speciale di sottolineatura"" (\_). 
+- I nomi di intestazione possono contenere caratteri alfanumerici e simboli specifici come definito in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Il carattere di sottolineatura non sono attualmente supportate (\_) caratteri speciali nei nomi di intestazione.
 
 ## <a name="need-help"></a>Richiesta di assistenza
 
-Contattare Microsoft all'indirizzo [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) per assistenza sull'uso di questa funzionalità.
+Contattare Microsoft all'indirizzo [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) se occorre assistenza con questa funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come riscrivere le intestazioni HTTP, vedere:
 
--  [Riscrivere le intestazioni HTTP tramite il portale di Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Riscrivere le intestazioni HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Riscrivere le intestazioni HTTP tramite il portale di Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Riscrivere le intestazioni HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

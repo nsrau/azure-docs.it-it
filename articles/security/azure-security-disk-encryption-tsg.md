@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490038"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694122"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Aggiornare l'agente di macchine virtuali di Azure e le versioni dell'estensione
 
-Operazioni di crittografia dischi di Azure potrebbero non riuscire nelle immagini di macchine virtuali con le versioni non supportate dell'agente di macchine virtuali di Azure. Per altre informazioni, consultare [supporto della versione minima per gli agenti di macchina virtuale in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Operazioni di crittografia dischi di Azure potrebbero non riuscire nelle immagini di macchine virtuali con le versioni non supportate dell'agente di macchine virtuali di Azure. Le immagini Linux con versioni precedenti a 2.2.38 di agente devono essere aggiornate prima di abilitare la crittografia. Per altre informazioni, vedere [come aggiornare l'agente Linux di Azure in una macchina virtuale](../virtual-machines/extensions/update-linux-agent.md) e [supporto della versione minima per gli agenti di macchina virtuale in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 La versione corretta dell'estensione dell'agente guest Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux è anche necessaria. Le versioni dell'estensione vengono mantenute e aggiornate automaticamente dalla piattaforma quando sono soddisfatti i prerequisiti di agente di macchine virtuali di Azure e viene utilizzata una versione supportata dell'agente di macchine virtuali.
 

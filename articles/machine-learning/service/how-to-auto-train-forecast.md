@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820043"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697864"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-training di un modello di previsione serie temporale
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Durante il training di un modello per la previsione dei valori futuri, assicurarsi che tutte le funzionalità usate nel training possono essere utilizzate durante l'esecuzione di stime per l'orizzonte desiderata. Ad esempio, durante la creazione di una previsione della domanda, tra cui la funzione di prezzo azionario corrente potrebbe altamente aumentare la precisione di training. Tuttavia, se si prevede di previsione con un orizzonte lungo, potrebbe non riuscire a prevedere con precisione futuri valori azionari corrispondente per i futuri punti di serie temporali e potrebbe soffrirne l'accuratezza del modello.
 
-## <a name="configure-experiment"></a>Configurare l'esperimento
+## <a name="configure-and-run-experiment"></a>Configurare ed eseguire l'esperimento
 
 Per le attività di previsione, automatizzati di machine learning Usa i passaggi di pre-elaborazione e la stima di specifiche di dati delle serie temporali. Verranno eseguiti i passaggi di pre-elaborazione seguenti:
 
@@ -79,7 +79,7 @@ Per le attività di previsione, automatizzati di machine learning Usa i passaggi
 
 Il `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'attività automatizzata di apprendimento automatico. Analogamente a un problema di regressione, si definiscono i parametri standard di training come tipo di attività, il numero di iterazioni, dati di training e numero di cross-convalide. Per le attività di previsione, sono presenti parametri aggiuntivi che devono essere impostati che interessano l'esperimento. Nella tabella seguente descrive ogni parametro e il relativo utilizzo.
 
-| Param | DESCRIZIONE | Obbligatorio |
+| Param | DESCRIZIONE | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Consente di specificare la colonna Data/ora nei dati di input usati per la compilazione della serie temporale e la frequenza l'inferenza.|✓|
 |`grain_column_names`|Nomi definizione di gruppi di serie singola nei dati di input. Se non viene definito livello di dettaglio, si presuppone che il set di dati da una serie temporale.||
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Per la procedura (Visualizzatore di concorrenza) la convalida incrociata, dati delle serie temporali possono violare i presupposti statistici della strategia di convalida incrociata di K-riduzione canonico, in modo automatizzato di machine learning implementa una routine di convalida di origine in sequenza per creare riduzioni di convalida incrociata per i dati di serie temporali. Per utilizzare questa procedura, specificare il `n_cross_validations` parametro il `AutoMLConfig` oggetto. È possibile ignorare la convalida e Usa i set di convalida personalizzata con il `X_valid` e `y_valid` parametri.
 
+### <a name="view-feature-engineering-summary"></a>Riepilogo di progettazione delle funzionalità di visualizzazione
+
+Per i tipi di attività di serie temporali nell'apprendimento automatico, è possibile visualizzare i dettagli dal processo di progettazione delle funzioni. Il codice seguente illustra ogni funzionalità non elaborati insieme gli attributi seguenti:
+
+* Nome della funzionalità non elaborati
+* Numero di funzioni progettate formato esplicitamente questa funzionalità non elaborata
+* Rilevato tipo
+* Indica se è stato eliminato funzionalità
+* Elenco di trasformazioni di funzionalità per le funzioni non elaborate
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>Previsioni con il modello migliore
 
 Usare l'iterazione del modello migliore per prevedere i valori per il set di dati di test.
@@ -133,6 +147,16 @@ Usare l'iterazione del modello migliore per prevedere i valori per il set di dat
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+In alternativa, è possibile usare la `forecast()` funzione anziché `predict()`, in modo che le specifiche di quando avviare le stime. Nell'esempio seguente, è innanzitutto sostituire tutti i valori `y_pred` con `NaN`. L'origine di previsione saranno alla fine dei dati di training in questo caso, come lo sarebbe in genere quando si usa `predict()`. Tuttavia, se è stato sostituito solo il secondo semestre `y_pred` con `NaN`, la funzione potrebbe lasciare i valori numerici nella prima metà invariato, ma previsione il `NaN` valori nella seconda metà. La funzione restituisce sia i valori previsti e le funzionalità allineate.
+
+È anche possibile usare il `forecast_destination` parametro il `forecast()` funzione per prevedere valori fino a una data specificata.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calcolare RMSE (radice errore quadratico medio) tra il `y_test` i valori effettivi e i valori previsti in `y_pred`.

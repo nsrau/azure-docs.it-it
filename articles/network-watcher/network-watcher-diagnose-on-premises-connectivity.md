@@ -3,8 +3,8 @@ title: Diagnosticare la connettività locale tramite il gateway VPN con Azure Ne
 description: Questo articolo descrive come diagnosticare la connettività locale tramite il gateway VPN con la risoluzione dei problemi delle risorse di Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051581"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713777"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -81,7 +81,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | `Reason` | Log|
 |---|---|---|
 | NoFault | Non viene rilevato alcun errore. |Sì|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
@@ -96,7 +96,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 ### <a name="connection"></a>Connessione
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | `Reason` | Log|
 |---|---|---|
 | NoFault | Non viene rilevato alcun errore. |Sì|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |

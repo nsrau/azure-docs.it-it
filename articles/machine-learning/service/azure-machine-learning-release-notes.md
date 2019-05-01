@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821300"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914932"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -69,7 +69,7 @@ Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `p
 + **Nuove funzionalità**
   + il SDK di Azure Machine Learning supporta ora 3.7 di Python.
   + Azure Machine Learning DNN Businesss ora offrono il supporto di più versioni predefinito. Ad esempio, `TensorFlow`  estimator ora accetta un `framework_version` parametro e gli utenti possono specificare versione '1.10' o '1.12'. Per un elenco delle versioni supportate per la versione SDK corrente, chiamare `get_supported_versions()` sulla classe framework desiderata (ad esempio `TensorFlow.get_supported_versions()`).
-  Per un elenco delle versioni supportate dalla versione di SDK più recente, vedere la [documentazione di rete neurale profonda Estimator](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  Per un elenco delle versioni supportate dalla versione di SDK più recente, vedere la [documentazione di rete neurale profonda Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>1.1.1 SDK di preparazione dei dati di Azure Machine Learning
 
@@ -143,13 +143,13 @@ Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `p
 
 + **Nuove funzionalità**
 
-  + Azure Machine Learning fornisce ora supporto avanzato per i framework DNN più diffusi Chainer. Usando [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) agli utenti di classe possono facilmente eseguire il training e distribuire modelli Chainer.
+  + Azure Machine Learning fornisce ora supporto avanzato per i framework DNN più diffusi Chainer. Usando [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) agli utenti di classe possono facilmente eseguire il training e distribuire modelli Chainer.
     + Informazioni su come [eseguire l'addestramento distribuito con ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Informazioni su come [eseguire Ottimizzazione degli iperparametri con Chainer usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Pipeline di Azure Machine Learning aggiunti trigger consente un'esecuzione della Pipeline basata su modifiche di archivio dati. La pipeline [notebook pianificazione](https://aka.ms/pl-schedule) viene aggiornato per illustrare questa funzionalità.
 
 + **Correzioni di bug e miglioramenti**
-  + È stato aggiunto supporto per le pipeline di Azure Machine Learning per l'impostazione della proprietà source_directory_data_store in un archivio dati desiderato (ad esempio, un archivio blob) in [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) che vengono specificate per il [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Per impostazione predefinita questa procedura Usa File di Azure store come archivio dati sottostante che è possibile riscontrare problemi di limitazioni quando viene eseguito simultaneamente un numero elevato di passaggi.
+  + È stato aggiunto supporto per le pipeline di Azure Machine Learning per l'impostazione della proprietà source_directory_data_store in un archivio dati desiderato (ad esempio, un archivio blob) in [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) che vengono specificate per il [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Per impostazione predefinita questa procedura Usa File di Azure store come archivio dati sottostante che è possibile riscontrare problemi di limitazioni quando viene eseguito simultaneamente un numero elevato di passaggi.
 
 ### <a name="azure-portal"></a>Portale di Azure
 

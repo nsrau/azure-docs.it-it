@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121522"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935874"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Frame di sicurezza: Autorizzazione | Soluzioni di prevenzione 
 | Prodotto o servizio | Articolo |
@@ -280,7 +280,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Tipo di archiviazione: tabella |
 | **Riferimenti**              | [Come delegare l'accesso agli oggetti nell'account di archiviazione di Azure con la firma di accesso condiviso](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Passaggi** | In alcuni scenari di business, l'archiviazione tabelle di Azure potrebbe essere necessaria per archiviare dati sensibili per diverse parti, ad esempio, dati sensibili relativi a paesi diversi. In questi casi, le firme di accesso condiviso possono essere create specificando gli intervalli di chiavi di partizione e di riga, in modo che un utente possa accedere a dati specifici per un determinato paese.| 
+| **Passaggi** | In alcuni scenari di business, l'archiviazione tabelle di Azure potrebbe essere necessaria per archiviare dati sensibili per diverse parti, Ad esempio, dati sensibili relativi a diversi paesi/aree geografiche. In questi casi, le firme di firma di accesso condiviso è possibile costruire specificando gli intervalli di chiavi partizione e di riga, tale che un utente può accedere a dati specifici di un determinato paese/area geografica.| 
 
 ## <a id="rbac-azure-manager"></a>Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager
 

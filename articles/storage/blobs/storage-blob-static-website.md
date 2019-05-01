@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122677"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925274"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
@@ -52,16 +52,21 @@ Quando non viene fornito un nome file, viene usato il nome file predefinito sele
 
 ## <a name="cdn-and-ssl-support"></a>Supporto della rete CDN e di SSL
 
-Per rendere disponibili i file di un sito Web statico tramite HTTPS, vedere [Uso della rete CDN di Azure per accedere a BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario che *la rete CDN punti all'endpoint Web* invece che all'endpoint BLOB. Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non viene eseguita immediatamente.
+Per rendere disponibile i file del sito Web statico tramite il dominio personalizzato e HTTPS, vedere [tramite la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario che *la rete CDN punti all'endpoint Web* invece che all'endpoint BLOB. Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non viene eseguita immediatamente.
 
 Quando si aggiorna il sito Web statico, assicurarsi di cancellare il contenuto memorizzato nella cache nei server perimetrali della rete CDN eliminando l'endpoint della rete CDN. Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS è supportato in modo nativo tramite l'endpoint web dell'account. L'uso di domini personalizzati tramite HTTPS richiede l'uso della rete CDN di Azure in questo momento. 
+>
+> Endpoint web account pubblica su HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Nomi di dominio personalizzati
 
 È possibile [configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure](storage-custom-domain-name.md) per rendere disponibile il sito Web statico tramite un dominio personalizzato. Per informazioni dettagliate su come ospitare un dominio in Azure, vedere [Ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prezzi
-L'hosting di siti Web statici viene fornito senza alcun costo aggiuntivo. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Abilitare l'hosting di siti Web statici è gratuito. I clienti saranno addebitati i costi di archiviazione e le operazioni blob sovrautilizzati. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Guida introduttiva
 
@@ -159,7 +164,10 @@ No, l'hosting dei siti Web statici è disponibile solo negli account di archivia
 Sì, il nuovo endpoint Web rispetta le regole VNET e del firewall configurate per l'account di archiviazione.
 
 **L'endpoint web fa distinzione tra maiuscole e minuscole?**  
-Sì, l'endpoint Web fa distinzione tra maiuscole e minuscole esattamente come l'endpoint BLOB. 
+Sì, l'endpoint Web fa distinzione tra maiuscole e minuscole esattamente come l'endpoint BLOB.
+
+**È accessibile tramite HTTP e HTTPS all'endpoint web?**
+Sì, l'endpoint web è accessibile tramite HTTP e HTTPS. Tuttavia, se l'account di archiviazione è configurato per richiedere il trasferimento sicuro tramite HTTPS, gli utenti devono utilizzare l'endpoint HTTPS. Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)

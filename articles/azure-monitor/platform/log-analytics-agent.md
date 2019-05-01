@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781992"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916370"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
@@ -38,7 +38,7 @@ Se si sta monitorando un computer con System Center Operations Manager 2012 R2 o
 
 L'agente Windows può inviare report a un massimo di quattro aree di lavoro di Log Analytics, mentre l'agente Linux supporta solo l'invio di report a una singola area di lavoro.  
 
-L'agente per Linux e Windows non serve solo per la connessione a monitoraggio di Azure, ma supporta anche l'automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [Change Tracking](../../automation/automation-change-tracking.md) e [gestionedegliaggiornamenti](../../automation/automation-update-management.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
+L'agente per Linux e Windows non serve solo per la connessione a monitoraggio di Azure, ma supporta anche l'automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [Change Tracking](../../automation/change-tracking.md) e [gestionedegliaggiornamenti](../../automation/automation-update-management.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:

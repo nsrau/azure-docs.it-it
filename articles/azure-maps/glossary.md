@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769839"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575347"
 ---
 # <a name="glossary"></a>Glossario
 
@@ -63,7 +63,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="bearing"></a> **Orientamento**: direzione orizzontale di un punto in relazione a un altro punto. Questo valore viene espresso come un angolo rispetto al Nord, da 0 a 360 gradi in senso orario. 
 
-<a name="boundary"></a> **Confine**: linea o poligono che separa entità politiche adiacenti, ad esempio paesi, territori e aree demaniali. Un confine è costituito da una linea che può seguire o meno le caratteristiche fisiche, come fiumi, montagne o muri.
+<a name="boundary"></a> **Confine**: Una linea o poligono separando le entità politiche adiacenti, quali paesi/aree geografiche, zone e proprietà. Un confine è costituito da una linea che può seguire o meno le caratteristiche fisiche, come fiumi, montagne o muri.
 
 <a name="bounds"></a> **Limiti**: vedere [Rettangolo delimitatore](#bounding-box).
 
@@ -91,13 +91,13 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="coordinate-system"></a> **Sistema di coordinate**: framework di riferimento usato per definire le posizioni dei punti nello spazio in due o tre dimensioni.
 
-<a name="country-code"></a> **Codice paese**: identificatore univoco per un paese basato sullo standard ISO. ISO2 è un codice di due caratteri per un paese (ad esempio, US), mentre ISO3 è un codice di tre caratteri (ad esempio, USA).
+<a name="country-code"></a> **Codice paese**: Un identificatore univoco per un paese/area geografica in base allo standard ISO. ISO2 è un codice di due caratteri per un paese (ad esempio, US), mentre ISO3 è un codice di tre caratteri (ad esempio, USA).
 
-<a name="country-subdivision"></a> **Suddivisione di paese**: area di primo livello in cui è suddiviso un paese, comunemente definita regione o Stato.
+<a name="country-subdivision"></a> **Suddivisione di paese**: Una suddivisione di primo livello di un paese/area geografica, comunemente noto come o la provincia.
 
-<a name="country-secondary-subdivision"></a> **Suddivisione di paese di secondo livello**: area di secondo livello in cui è suddiviso un paese, comunemente definita provincia o contea.
+<a name="country-secondary-subdivision"></a> **Suddivisione di paese di secondo livello**: Una suddivisione di secondo livello di un paese/area geografica, comunemente noto come una regione.
 
-<a name="country-tertiary-subdivision"></a> **Suddivisione di paese di terzo livello**: area di terzo livello in cui è suddiviso un paese. A questa area è in genere assegnato un nome, ad esempio distretto.
+<a name="country-tertiary-subdivision"></a> **Suddivisione di paese di terzo livello**: Suddivisione di un paese/area geografica, in genere un'area denominata ad esempio un ward terzo livello.
 
 <a name="cross-street"></a> **Incrocio**: punto in cui si intersecano due o più strade.
 
@@ -283,7 +283,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="post-code"></a> **CAP**: vedere [Codice postale](#postal-code).
 
-<a name="postal-code"></a> **Codice postale**: serie di lettere e/o numeri in un formato specifico, usata dal servizio postale di un paese per la suddivisione di aree geografiche in zone al fine di semplificare il recapito della posta.
+<a name="postal-code"></a> **Codice postale**: Una serie di lettere o numeri o entrambi, in un formato specifico, utilizzato dal servizio postale di un paese/regione per dividere le aree geografiche in zone per semplificare la distribuzione di posta elettronica.
 
 <a name="prime-meridian"></a> **Meridiano zero**: linea longitudinale che rappresenta una longitudine di 0 gradi. I valori di longitudine diminuiscono quando ci si sposta fino a 180 gradi verso Ovest e aumentano quando ci si sposta fino a -180 gradi verso Est. 
 
@@ -351,11 +351,11 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="terrain"></a> **Terreno**: area con particolari caratteristiche, ad esempio terreno sabbioso o montuoso.
 
-<a name="thematic-maps"></a> **Mappa tematica**: mappa semplice creata per fornire informazioni su un tema specifico in relazione a un'area geografica. Uno scenario comune per questo tipo di mappa consiste nell'assegnazione di colori alle aree amministrative, ad esempio i paesi, in base a una determinata metrica di dati.
+<a name="thematic-maps"></a> **Mappa tematica**: mappa semplice creata per fornire informazioni su un tema specifico in relazione a un'area geografica. Uno scenario comune per questo tipo di mappa è quello di assegnare le aree amministrative, ad esempio paesi/aree geografiche basate su alcune metriche dei dati.
 
 <a name="tile-layer"></a> **Layer a tessere**: layer visualizzato assemblando le tessere della mappa (sezioni rettangolari) in una superficie continua. Le tessere possono essere di tipo raster o vettoriale. I layer a tessere raster vengono in genere sottoposti a rendering in anticipo e archiviati come immagini in un server. Ciò può richiedere una notevole quantità di spazio di archiviazione. I layer a tessere vettoriali vengono sottoposti a rendering in tempo reale all'interno dell'applicazione client e pertanto i requisiti di archiviazione sul lato server sono minori.
 
-<a name="time-zone"></a> **Fuso orario**: zona del globo in cui viene adottato uno stesso orario per scopi legali, commerciali e sociali. I fusi orari tendono a rispettare i confini dei paesi e le relative suddivisioni.
+<a name="time-zone"></a> **Fuso orario**: zona del globo in cui viene adottato uno stesso orario per scopi legali, commerciali e sociali. Fusi orari tendono a seguire i limiti di paesi/aree geografiche e delle loro suddivisioni.
 
 <a name="transaction"></a> **Transazione**: Mappe di Azure adotta un modello di licenze basato su transazione, dove:
 
@@ -398,5 +398,5 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="zip-code"></a> **ZIP, codice**: vedere [Codice postale](#postal-code).
 
-<a name="Zoom level"></a> **Livello di zoom**: specifica il livello di dettaglio e l'ampiezza dell'area visibile della mappa. Quando il livello di zoom viene ridotto a 0, verrà probabilmente visualizzata l'intera mappa del mondo, ma con informazioni limitate, ad esempio i nomi e i confini dei paesi e i nomi degli oceani. Se si esegue lo zoom avanti fino a giungere in prossimità del livello 17, la mappa mostrerà l'area corrispondente ad alcuni isolati di una città con informazioni stradali dettagliate. Per altre informazioni, vedere l'articolo [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Livello di zoom**: specifica il livello di dettaglio e l'ampiezza dell'area visibile della mappa. In visualizzazione ridotta fino a un livello 0, la mappa del mondo completo sarà spesso nella visualizzazione, ma visualizzerà informazioni limitate, ad esempio i nomi di paese/area geografica e i bordi e i nomi sull'Oceano. Se si esegue lo zoom avanti fino a giungere in prossimità del livello 17, la mappa mostrerà l'area corrispondente ad alcuni isolati di una città con informazioni stradali dettagliate. Per altre informazioni, vedere l'articolo [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
 

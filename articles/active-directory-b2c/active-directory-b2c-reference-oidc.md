@@ -3,19 +3,19 @@ title: Accesso Web con OpenID Connect - Azure Active Directory B2C | Microsoft D
 description: Creare applicazioni web con il protocollo di autenticazione OpenID Connect in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6285a90a9dca305f3a9cd909af6c084c747daf99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317123"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703941"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parametro | Obbligatorio | DESCRIZIONE |
+| Parametro | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | client_id | Sì | ID applicazione che il [portale di Azure](https://portal.azure.com/) assegnato all'applicazione. |
 | response_type | Sì | Deve includere un token ID per OpenID Connect. Se l'applicazione web necessita anche di token per chiamare un'API web, è possibile usare `code+id_token`. |
@@ -162,7 +162,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parametro | Obbligatorio | DESCRIZIONE |
+| Parametro | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | p | Sì | Flusso utente usato per acquisire il codice di autorizzazione. È possibile usare un flusso utente diverso in questa richiesta. Questo parametro può essere aggiunto alla stringa di query, non al corpo del POST. |
 | client_id | Sì | ID applicazione che il [portale di Azure](https://portal.azure.com/) assegnato all'applicazione. |
@@ -229,7 +229,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parametro | Obbligatorio | DESCRIZIONE |
+| Parametro | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | p | Sì | Flusso utente usato per acquisire il token di aggiornamento originale. È possibile usare un flusso utente diverso in questa richiesta. Questo parametro può essere aggiunto alla stringa di query, non al corpo del POST. |
 | client_id | Sì | ID applicazione che il [portale di Azure](https://portal.azure.com/) assegnato all'applicazione. |
@@ -286,7 +286,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametro | Obbligatorio | DESCRIZIONE |
+| Parametro | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | p | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |
 | post_logout_redirect_uri | No  | L'URL all'utente al quale deve essere reindirizzato dopo la disconnessione ha esito positivo. Se non è incluso, Azure AD B2C Mostra all'utente un messaggio generico. |

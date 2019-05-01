@@ -1,7 +1,6 @@
 ---
 title: MapReduce con Apache Hadoop in HDInsight
 description: Informazioni su come eseguire processi MapReduce in un cluster Apache Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521197"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707957"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usare MapReduce in Apache Hadoop in HDInsight
 
@@ -49,15 +48,13 @@ Lo streaming di Hadoop comunica con il mapper e il riduttore tramite STDIN e STD
 
 Per altre informazioni, vedere l'argomento relativo a [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Per esempi di uso dello streaming di Hadoop con HDInsight, vedere i documenti seguenti:
+Per esempi di uso di Hadoop streaming con HDInsight, vedere il documento seguente:
 
 * [Sviluppare processi C# MapReduce](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Sviluppare processi Python MapReduce](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Dati di esempio
 
-HDInsight offre diversi set di dati di esempio, archiviati nelle directory `/example/data` e `/HdiSamples`. Queste directory si trovano nella risorsa di archiviazione predefinita per il cluster. In questo documento, viene usato il file `/example/data/gutenberg/davinci.txt`. Questo file contiene i quaderni di Leonardo Da Vinci.
+HDInsight offre diversi set di dati di esempio, archiviati nelle directory `/example/data` e `/HdiSamples`. Queste directory si trovano nella risorsa di archiviazione predefinita per il cluster. In questo documento, viene usato il file `/example/data/gutenberg/davinci.txt`. Questo file contiene i quaderni di Leonardo da Vinci.
 
 ## <a id="job"></a>MapReduce di esempio
 
@@ -137,11 +134,9 @@ public class WordCount {
 }
 ```
 
-Per istruzioni sulla scrittura di applicazioni MapReduce, vedere i seguenti documenti:
+Per istruzioni sulla scrittura di applicazioni MapReduce, vedere il documento seguente:
 
 * [Sviluppare applicazioni Java MapReduce per HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Sviluppare applicazioni Python MapReduce per HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Eseguire il processo MapReduce
 
@@ -158,8 +153,6 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 Per altre informazioni su come usare i dati in HDInsight, vedere i documenti seguenti:
 
 * [Sviluppare programmi MapReduce Java per HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Sviluppare programmi MapReduce per la creazione di flussi Python per HDInsight](apache-hadoop-streaming-python.md)
 
 * [Usare Apache Hive con HDInsight][hdinsight-use-hive]
 

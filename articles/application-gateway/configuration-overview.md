@@ -2,17 +2,17 @@
 title: Cenni preliminari su configurazione Gateway applicazione di Azure
 description: Questo articolo descrive come configurare i componenti del Gateway applicazione di Azure
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998907"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946819"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -71,7 +71,7 @@ Per questo scenario, usare gli Nsg nella subnet del Gateway applicazione. Inseri
 
 Per lo SKU v1, route definite dall'utente (Udr) sono supportate nella subnet del Gateway applicazione, purché non modificano la comunicazione end-to-end richiesta/risposta. Ad esempio, è possibile configurare una route UDR nella subnet del Gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti. Ma è necessario assicurarsi che il pacchetto possa raggiungere la destinazione prevista dopo l'ispezione. In caso contrario potrebbe probe di integrità non corretto o il comportamento di routing del traffico. Sono inclusi route o route 0.0.0.0/0 predefinite che vengono propagate tramite Azure ExpressRoute o VPN gateway nella rete virtuale.
 
-Per lo SKU v2, route definite dall'utente non sono supportati nella subnet del Gateway applicazione. Per altre informazioni, vedere [la scalabilità automatica e la ridondanza della zona per il Gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Per lo SKU v2, route definite dall'utente non sono supportati nella subnet del Gateway applicazione. Per altre informazioni, vedere [SKU di Gateway applicazione di Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > L'utilizzo di route definite dall'utente nella subnet del Gateway applicazione determina lo stato di integrità nel [visualizzazione dell'integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) venga visualizzato come "Sconosciuto". Determina anche la generazione di log del Gateway applicazione e le metriche di esito negativo. È consigliabile non usare route definite dall'utente nella subnet del Gateway applicazione in modo che sia possibile visualizzare l'integrità back-end, log e metriche.
@@ -84,7 +84,7 @@ Un indirizzo IP pubblico non è necessario per un endpoint interno non esposto a
 
 È supportato solo 1 indirizzo IP pubblico o 1 indirizzo IP privato. Quando si crea il gateway applicazione scegliere l'indirizzo IP front-end.
 
-- Per un indirizzo IP pubblico, è possibile creare un nuovo indirizzo IP pubblico o usare un indirizzo IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (dinamico o statico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [statico e indirizzo IP pubblico dinamico](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Per un indirizzo IP pubblico, è possibile creare un nuovo indirizzo IP pubblico o usare un indirizzo IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (dinamico o statico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [statico e indirizzo IP pubblico dinamico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Per un indirizzo IP privato, è possibile specificare un indirizzo IP privato dalla subnet in cui viene creato il gateway applicazione. Se non si specifica uno, un indirizzo IP arbitrario viene selezionato automaticamente dalla subnet. Per altre informazioni, vedere [creare un gateway applicazione con un servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -118,7 +118,7 @@ Scegliere l'indirizzo IP front-end che si intende associare a questo listener. I
 
 Scegliere la porta front-end. Selezionare una porta esistente o crearne uno nuovo. Scegliere qualsiasi valore compreso il [intervallo di porte consentito](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). È possibile utilizzare non solo porte note, ad esempio 80 e 443, ma qualsiasi porta consentita personalizzato adatto. Una porta utilizzabile per listener rivolte al pubblico o privato rivolte al listener.
 
-### <a name="protocol"></a>Protocollo
+### <a name="protocol"></a>Protocol
 
 Scegliere HTTP o HTTPS:
 
@@ -259,7 +259,7 @@ Questa funzionalità è utile quando si desidera mantenere una sessione utente n
 
 Lo svuotamento della connessione consente di rimuovere correttamente i membri del pool back-end durante gli aggiornamenti pianificati del servizio. È possibile applicare questa impostazione per tutti i membri di un pool back-end durante la creazione della regola. Assicura che tutte le istanze di annullare la registrazione di un pool back-end non ricevano le nuove richieste. Nel frattempo, le richieste esistenti possono completare entro un limite di tempo configurato. Lo svuotamento della connessione si applica alle istanze di back-end che vengono rimossi dal pool di back-end in modo esplicito da una chiamata API. Si applica anche alle istanze di back-end che vengono segnalate come *integro* per lo stato di integrità probe.
 
-### <a name="protocol"></a>Protocollo
+### <a name="protocol"></a>Protocol
 
 Il Gateway applicazione supporta HTTP e HTTPS per il routing delle richieste per i server back-end. Se si sceglie HTTP, il traffico verso i server back-end non crittografato. Se la comunicazione non crittografata non è accettabile, scegliere HTTPS.
 

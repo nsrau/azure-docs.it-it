@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844178"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691924"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Riferimento per i tipi di trigger e azione nel linguaggio di definizione del flusso di lavoro per le App per la logica di Azure
 
@@ -338,7 +338,7 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 
 Per funzionare correttamente con l'app per la logica, l'endpoint deve essere conforme a un modello o contratto di trigger specifico e riconoscere queste proprietà:  
   
-| Risposta | Obbligatorio | DESCRIZIONE | 
+| Risposta | Obbligatoria | DESCRIZIONE | 
 |----------|----------|-------------| 
 | Codice di stato | Sì | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
 | Intestazione retry-after | No  | Il numero di secondi fino a quando l'app per la logica esegue il polling dell'endpoint nuovamente | 
@@ -2301,6 +2301,7 @@ Per i trigger e azioni, è possibile limitare la durata del modello asincrono a 
 | `runtimeConfiguration.concurrency.runs` | Integer | Modifica il [ *limite predefinito* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) sul numero di istanze del flusso di lavoro che è possibile eseguire contemporaneamente o in parallelo. Questo valore può limitare il numero di richieste ricevute dai sistemi back-end. <p>L'impostazione della proprietà `runs` su `1` funziona allo stesso modo dell'impostazione della proprietà `operationOptions` su `SingleInstance`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per modificare il limite predefinito, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency) oppure [Attivazione sequenziale delle istanze](#sequential-trigger). | Tutti i trigger | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modifica il [ *limite predefinito* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) sul numero di istanze del flusso di lavoro che possono attendere da eseguire quando il flusso di lavoro è già in esecuzione il numero massimo di istanze simultaneo. È possibile modificare il limite di concorrenza nella proprietà `concurrency.runs`. <p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | Tutti i trigger | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Modifica il [*limite predefinito*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) sul numero di iterazioni del ciclo "for each" che è possibile eseguire contemporaneamente o in parallelo. <p>L'impostazione della proprietà `repetitions` su `1` funziona allo stesso modo dell'impostazione della proprietà `operationOptions` su `SingleInstance`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per modificare il limite predefinito, vedere [Modificare la concorrenza "for each"](#change-for-each-concurrency) oppure [Eseguire i cicli "for each" in sequenza](#sequential-for-each). | Azione: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Per azioni specifiche che supportano e avere attivata la paginazione, questo valore specifica la *minimo* numero di risultati da recuperare. <p>Per attivare la paginazione, vedere [ottenere dati per operazioni bulk, elementi o i risultati usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Azione: Consentono di variare |
 ||||| 
 
 <a name="operation-options"></a>

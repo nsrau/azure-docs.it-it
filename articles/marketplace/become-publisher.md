@@ -1,25 +1,19 @@
 ---
-title: Diventare un editore nelle vetrine sul Marketplace | Azure
+title: Diventare un editore in vetrine in marketplace | Azure Marketplace
 description: Questo articolo descrive come diventare un editore in Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625517"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935658"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 

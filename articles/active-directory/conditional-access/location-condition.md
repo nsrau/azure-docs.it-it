@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354677"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917673"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -50,16 +50,13 @@ Una posizione specifica ha le caratteristiche seguenti:
 - **Intervalli IP**: uno o più intervalli di indirizzi IPv4 in formato CIDR. Specifica un intervallo di indirizzi IPv6 non è supportata.
 
    > [!NOTE]
-   > IPv6 indirizzo rangess attualmente non è possibile includere in un measn SC5400RA denominata in questo IPv6 non è possibile escludere intervalli di indirizzi da un criterio di accesso condizionale.
+   > IPv6 indirizzo rangess attualmente non è possibile includere in una posizione denominata. Gli intervalli IPv6 questo measn non possono essere esclusa da un criterio di accesso condizionale.
 
 - **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre che per l'accesso condizionale, le posizioni specifiche attendibili vengono usate anche da Azure AD Identity Protection e dai report di sicurezza di Azure AD per ridurre il numero di [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
 - **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare i percorsi in base alle limitazioni seguenti:
-
-- Una posizione specifica con un massimo di 1200 intervalli IP.
-- Un massimo di 90 posizioni specifiche, ognuna con un intervallo IP assegnato.
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 località in ebraico, ciascuna configurata con intervalli di indirizzi IP di 12000.
 
 Criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Località denominate attualmente non consentire gli intervalli IPv6 da configurare. Questa limitazione comporta le situazioni seguenti:
 

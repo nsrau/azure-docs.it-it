@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799546"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926105"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -82,7 +82,7 @@ Queste informazioni possono essere visualizzate nei [portale di Azure](../../aut
 ```
 
 Per il nome di configurazione del nodo, verificare che si usa il nome del *configurazione del nodo* e non la configurazione.
-Una configurazione è definita in uno script che viene usato [per compilare la configurazione di nodo (file MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Una configurazione è definita in uno script che viene usato [per compilare la configurazione di nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Il nome sarà sempre la configurazione seguita da un punto `.` e il valore `localhost` o un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager

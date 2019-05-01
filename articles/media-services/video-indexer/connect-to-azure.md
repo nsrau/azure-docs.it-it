@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796546"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715093"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -103,7 +103,7 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
 
 1. Usare il portale di [Azure](https://portal.azure.com/) per creare un account di Servizi multimediali di Azure, come descritto in [Creare un account](../previous/media-services-portal-create-account.md).
 
-    Quando si crea un account di archiviazione per l'account di Servizi multimediali, selezionare **StorageV2** (Archiviazione v2) per il tipo di account e **Con ridondanza geografica** per i campi di replica.
+    Quando si crea un account di archiviazione per l'account servizi multimediali, selezionare **archiviazione v2** per il tipo di account e **geograficamente ridondante (GRS)** per i campi di replica.
 
     ![Nuovo account di Servizi multimediali di Azure](./media/create-account/create-ams-account1.png)
 

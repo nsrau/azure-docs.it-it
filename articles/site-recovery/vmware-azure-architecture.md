@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837428"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704871"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
@@ -53,6 +53,7 @@ La tabella e l'immagine seguenti offrono una visualizzazione generale dei compon
     - Il server di configurazione orchestra la replica con Azure attraverso la porta HTTPS 443 in uscita.
     - Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
     - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
+5. I dati di replica registra ' s land prima in un account di archiviazione della cache di Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito Azure (denominato come disco di valore di inizializzazione di Azure Site Recovery). I punti di ripristino vengono creati sul disco.
 
 
 

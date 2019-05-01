@@ -1,30 +1,30 @@
 ---
-title: Selezionare un contratto di pagina in Azure Active Directory B2C | Microsoft Docs
+title: Selezionare un contratto di pagina - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come selezionare un contratto di pagina in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361048"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570569"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un contratto di pagina in Azure Active Directory B2C tramite criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-È possibile abilitare il codice lato client JavaScript nei criteri di Azure Active Directory (Azure AD) B2C, indipendentemente dal fatto che si usino flussi utente o criteri personalizzati. Questo articolo illustra come selezionare un contratto di pagina in Azure AD B2C configurandolo in [criteri personalizzati](active-directory-b2c-overview-custom.md). Un contratto di pagina è un'associazione di elementi forniti da Azure AD B2C e del contenuto fornito dall'utente. Se si prevede di usare [JavaScript](javascript-samples.md), è necessario definire una versione del contratto di pagina per tutte le definizioni del contenuto nei criteri personalizzati.
+È possibile abilitare il codice lato client JavaScript nei criteri di Azure Active Directory (Azure AD) B2C, indipendentemente dal fatto che si usino flussi utente o criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento per il [criteri personalizzati](active-directory-b2c-overview-custom.md), selezionare un contratto di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste. Un contratto di pagina è un'associazione di elementi forniti da Azure AD B2C e del contenuto fornito dall'utente. Questo articolo illustra come selezionare un contratto di pagina in Azure AD B2C mediante la configurazione in un criterio personalizzato.
 
 > [!NOTE]
-> Se si vuole abilitare JavaScript per i flussi utente, vedere [Informazioni sull'uso di JavaScript e sulle versioni del contratto di pagina in un flusso utente](user-flow-javascript-overview.md).
+> Se si desidera abilitare JavaScript per i flussi utente, vedere [JavaScript e pagina Contratto di versioni in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Sostituire i valori di DataUri
 

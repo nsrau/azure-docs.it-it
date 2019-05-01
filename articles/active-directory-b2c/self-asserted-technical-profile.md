@@ -3,19 +3,19 @@ title: Definire un profilo tecnico autocertificato nei criteri personalizzati in
 description: Definire un profilo tecnico autocertificato nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419493"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691019"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60419493"
 
 Tutte le interazioni in Azure Active Directory (Azure AD) B2C in cui è previsto che l'utente immetta un input sono profili tecnici autocertificati, ad esempio una pagina di registrazione, una pagina di accesso o una pagina di reimpostazione della password.
 
-## <a name="protocol"></a>Protocollo
+## <a name="protocol"></a>Protocol
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **handler** deve contenere il nome completo dell'assembly del gestore di protocollo usato da Azure AD B2C per l'autocertificazione: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -127,7 +127,7 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | No  | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showCancelButton | No  | Visualizza il pulsante Annulla. I valori possibili sono: `true` (impostazione predefinita) o `false` |

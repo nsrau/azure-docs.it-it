@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034162"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575599"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:
@@ -30,14 +30,14 @@ Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità
 * Tutto il traffico verso il server applicazioni deve passare attraverso un'appliance virtuale firewall. Questa appliance virtuale verrà usata per l'accesso al server back-end e l'accesso proveniente dalla rete locale tramite un gateway VPN.
 * Gli amministratori devono essere in grado di gestire le appliance virtuali firewall dai computer locali, con una terza appliance virtuale firewall usata esclusivamente per scopi di gestione.
 
-Si tratta di uno scenario di rete perimetrale standard con una rete perimetrale e una rete protetta. Questo scenario può essere creato in Azure usando gruppi di sicurezza di rete, appliance virtuali firewall o una combinazione di entrambi. La tabella seguente mostra un confronto tra vantaggi e svantaggi di gruppi di sicurezza di rete e appliance virtuali firewall.
+Questo è uno scenario di rete (knowns anche come DMZ) perimetrale standard con una rete Perimetrale e una rete protetta. Scenario di questo tipo può essere creato in Azure usando gli Nsg, Appliance virtuali firewall o una combinazione di entrambi. La tabella seguente mostra un confronto tra vantaggi e svantaggi di gruppi di sicurezza di rete e appliance virtuali firewall.
 
 |  | Vantaggi | Svantaggi |
 | --- | --- | --- |
-| NSG |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>Le regole possono essere create in modelli di Azure Resource Manager. |La complessità può variare in ambienti più grandi. |
+| NSG |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>È possibile creare le regole nei modelli di Azure Resource Manager. |La complessità può variare in ambienti più grandi. |
 | Firewall |Controllo completo del piano dati. <br/>Gestione centrale con console firewall. |Costo dell'appliance firewall. <br/>Non integrato nel controllo degli accessi in base al ruolo di Azure. |
 
-La soluzione seguente usa appliance virtuali firewall per implementare uno scenario di rete perimetrale/rete protetta.
+La soluzione seguente usa Appliance virtuali firewall per implementare una rete perimetrale (DMZ) / protetti uno scenario di rete.
 
 ## <a name="considerations"></a>Considerazioni
 È possibile distribuire l'ambiente illustrato in precedenza in Azure usando diverse funzionalità attualmente disponibili come indicato di seguito.
@@ -167,5 +167,5 @@ Per distribuire lo scenario seguire questi passaggi generali.
 2. Se si intende distribuire una rete virtuale per simulare la rete locale, effettuare il provisioning delle risorse che fanno parte di **ONPREMRG**.
 3. Effettuare il provisioning delle risorse che fanno parte di **AZURERG**.
 4. Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
-5. Dopo aver effettuato il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping di 10.0.3.101 per verificare la connessione tra **onpremsn2** e **azsn3**.
+5. Una volta che vengono effettuato il provisioning di tutte le risorse, accedere al **onpremvm2** e il ping di 10.0.3.101 per verificare la connettività tra **onpremsn2** e **azsn3**.
 

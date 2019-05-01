@@ -1,25 +1,19 @@
 ---
-title: Procedure consigliate di marketing del test drive | Microsoft Docs
-description: Procedure consigliate di marketing del test drive per gli editori
+title: Il test Drive di procedure consigliate di Marketing | Azure Marketplace
+description: Il test Drive di procedure consigliate di marketing per i server di pubblicazione
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81fc5e9ca93178f7c2d7f56563b4cf9253c8f326
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 02b2715c813f7814cf8bf5d23414bc14d5ff5a30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322771"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939968"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>Marketing del test drive e procedure consigliate
 =======================================

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919721"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -40,7 +40,7 @@ Il Centro sicurezza di AZURE per IoT modello tariffario è costituito da due par
   >[!Note]
   > I messaggi di sicurezza verranno addebitato anche il consumo di quota in IoT Hub.
 
-Per altre informazioni, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Per altre informazioni, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Costi associati
 
@@ -65,7 +65,7 @@ Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazio
 |     | Uso | Comment |
 | --- | --- | --- |
 | **Utilizzo di quota dell'IoT Hub** |  |
-| [Esportare dispositivi](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) processo (esportazione dei dispositivi gemelli) | Una volta al giorno | Disabilitare _twin raccolta di metadati_ |
+| [Esportare dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) processo (esportazione dei dispositivi gemelli) | Una volta al giorno | Disabilitare _twin raccolta di metadati_ |
 | **Archiviazione dei log Analitica** |  |
 | Gli avvisi e le raccomandazioni di dispositivo| Raccomandazione di sicurezza e gli avvisi generati dal servizio | Non è facoltativo |
 | Dati di sicurezza non elaborati| Dati di sicurezza non elaborati dai dispositivi IoT, vengono raccolti dagli agenti di protezione | Disabilitare _archiviare gli eventi di sicurezza di dispositivi raw_ |

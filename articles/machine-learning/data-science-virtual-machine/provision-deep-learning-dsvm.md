@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578606"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943913"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -35,7 +35,8 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
 ).
 2. Fare clic sul pulsante **Crea** nella parte inferiore per visualizzare una procedura guidata.![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. La procedura guidata usata per creare la DLVM richiede **input** per ognuno dei **quattro passaggi** elencati in ordine numerico sul lato destro della figura. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
-   
+
+   <a name="basics"></a>   
    1. **Nozioni di base**
       
       1. **Nome**: nome del server di data science che si sta creando.
@@ -46,13 +47,14 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
       5. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse di Azure oppure usarne uno **vuoto** esistente nella sottoscrizione.
       6. **Località**: selezionare il data center più appropriato. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete. 
       
-> [!NOTE]
-> Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
+      > [!NOTE]
+      > Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
 
-1. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
-1. **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
+   1. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
+
+   1. **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
 
 > [!NOTE]
 > Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
@@ -66,7 +68,7 @@ Dopo aver creato la VM, è possibile connettersi tramite desktop remoto con le c
 
 ### <a name="linux-edition"></a>Edizione per Linux
 
-Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione **Nozioni di base** del passaggio 3 per l'interfaccia della shell di testo. In un client Windows è possibile scaricare uno strumento client SSH come [Putty](https://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go.
+Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nel [ **nozioni di base** ](#basics) sezione del passaggio 3 per l'interfaccia della shell di testo. Per altre informazioni sulle connessioni SSH alle macchine virtuali di Azure, vedere [installare e configurare Desktop remoto per connettersi a una VM Linux in Azure](/azure/virtual-machines/linux/use-remote-desktop). In un client Windows, è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go. 
 
 > [!NOTE]
 > Nei test Microsoft il client X2Go ha fornito prestazioni migliori di X11 Forwarding. È quindi consigliabile usare il client X2Go per un'interfaccia desktop grafica.

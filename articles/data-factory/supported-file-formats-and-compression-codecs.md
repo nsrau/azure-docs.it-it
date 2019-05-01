@@ -3,18 +3,18 @@ title: Formati di file supportati in Azure Data Factory | Microsoft Docs
 description: Questo argomento descrive i formati di file e i codici di compressione supportati dai connettori basati su file in Azure Data Factory.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394431"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925148"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -29,13 +29,16 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 * [Formato Avro](#avro-format)
 
 > [!TIP]
-> Informazioni su come l'attività di copia esegue il mapping dei dati di origine nel sink in [Mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md), incluso come vengono determinati i metadati in base alle impostazioni di formato di file e suggerimenti sui casi in cui specificare la sezione [set di dati`structure`](concepts-datasets-linked-services.md#dataset-structure).
+> Informazioni su come l'attività di copia esegue il mapping dei dati di origine nel sink in [Mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md), incluso come vengono determinati i metadati in base alle impostazioni di formato di file e suggerimenti sui casi in cui specificare la sezione [set di dati`structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema).
 
 ## <a name="text-format"></a>Formato testo
 
+>[!NOTE]
+>Data Factory introdotto nuovo delimitato da set di dati di testo formato, vedere [formato di testo delimitato](format-delimited-text.md) articolo con i dettagli. Le configurazioni seguenti nel set di dati di archivio dati basato su file è ancora supportata come-per compabitility con le versioni precedenti. Consigliabile per usare il nuovo modello in futuro.
+
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No  |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No  |
@@ -88,7 +91,7 @@ Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, 
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No  |
@@ -97,7 +100,7 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No  |
 
 >[!NOTE]
->Nel caso di applicazione incrociata dei dati nella matrice in più righe (caso 1 -> esempio di 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere solo espandere singola matrice utilizzando proprietà `jsonNodeReference`. 
+>Nel caso di applicazione incrociata dei dati nella matrice in più righe (caso 1 -> esempio di 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere solo espandere singola matrice utilizzando proprietà `jsonNodeReference`.
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
@@ -196,7 +199,7 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
 
 **Esempio 1: Estrarre i dati dall'oggetto e dalla matrice**
 
-In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un singolo record in un risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:  
+In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un singolo record in un risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:
 
 ```json
 {
@@ -408,6 +411,9 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 
 ## <a name="parquet-format"></a>Formato Parquet
 
+>[!NOTE]
+>Data Factory introdotto nuovo set di dati Parquet formato, vedere [formato Parquet](format-delimited-text.md) articolo con i dettagli. Le configurazioni seguenti nel set di dati di archivio dati basato su file è ancora supportata come-per compabitility con le versioni precedenti. Consigliabile per usare il nuovo modello in futuro.
+
 Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
@@ -426,13 +432,13 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*. 
+Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*.
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
 
 >[!TIP]
->Se si copiano i dati nel/dal formato Parquet usando il runtime di integrazione self-hosted e si verifica l'errore "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**" (Errore durante la chiamata di Java, messaggio: java.lang.OutOfMemoryError: spazio dell'heap di Java), è possibile aggiungere una variabile di ambiente `_JAVA_OPTIONS` nel computer che ospita il runtime di integrazione self-hosted per regolare le dimensioni min/max dell'heap per JVM e poter ottimizzare la copia, quindi eseguire di nuovo la pipeline. 
+>Se si copiano i dati nel/dal formato Parquet usando il runtime di integrazione self-hosted e si verifica l'errore "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**" (Errore durante la chiamata di Java, messaggio: java.lang.OutOfMemoryError: spazio dell'heap di Java), è possibile aggiungere una variabile di ambiente `_JAVA_OPTIONS` nel computer che ospita il runtime di integrazione self-hosted per regolare le dimensioni min/max dell'heap per JVM e poter ottimizzare la copia, quindi eseguire di nuovo la pipeline.
 
 ![Impostare le dimensioni dell'heap JVM nel runtime di integrazione self-hosted](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -454,8 +460,8 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Single | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
-| String | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/D | N/D |
+| string | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
@@ -483,7 +489,7 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*. 
+Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*.
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
@@ -500,16 +506,16 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | String |
+| UInt64 | string |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| String | String |
-| Datetime | Timestamp |
+| string | string |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | String |
+| Guid | string |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO
@@ -538,7 +544,7 @@ Azure Data Factory supporta la compressione/decompressione dei dati durante la c
 * Leggere il file con estensione zip dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Definire un set di dati FTP di input con la proprietà `compression` `type` impostata su ZipDeflate.
 * Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. Definire il set di dati di input del BLOB di Azure con `compression` `type` impostato su GZIP e il set di dati di output con `compression` `type` impostato su BZIP2.
 
-Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:   
+Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:
 
 ```json
 {
@@ -579,11 +585,12 @@ La sezione **compression** ha due proprietà:
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Tipi di file non supportati e formati di compressione
 
-È possibile usare le funzionalità di estendibilità di Azure Data Factory per trasformare i file che non sono supportati. Due opzioni includono funzioni di Azure e le attività personalizzate usando Azure Batch.
+È possibile usare le funzionalità di estendibilità di Azure Data Factory per trasformare i file che non sono supportati.
+Due opzioni includono funzioni di Azure e le attività personalizzate usando Azure Batch.
 
 È possibile visualizzare un esempio che usa una funzione di Azure per [estrarre il contenuto di un file con estensione tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Per altre informazioni, vedere [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-È anche possibile compilare questa funzionalità con un'attività personalizzata dotnet. Sono disponibili altre informazioni [qui](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+È anche possibile compilare questa funzionalità con un'attività personalizzata dotnet. Sono disponibili altre informazioni [qui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

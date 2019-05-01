@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126911"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919134"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
@@ -78,7 +78,7 @@ Questo esempio mostra l'output dell'input precedente assumendo che *insertPreTag
 
 Uno scenario comune per l'uso di unione testi è quello di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento. 
 
-Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {

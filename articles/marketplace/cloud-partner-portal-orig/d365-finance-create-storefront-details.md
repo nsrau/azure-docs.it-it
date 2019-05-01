@@ -1,25 +1,18 @@
 ---
-title: Come compilare il modulo Storefront Details (Dettagli vetrina) | Microsoft Docs
+title: Come compilare il modulo Storefront Details (Dettagli vetrina)
 description: Questo articolo spiega i valori del modulo Storefront Details (Dettagli vetrina) per una nuova app Dynamics 365 Business Central.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397942"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935034"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Come compilare il modulo Storefront Details (Dettagli vetrina)
 ===========================================
@@ -57,9 +50,9 @@ Deve essere presente un collegamento attivo che consenta ai clienti di accedere 
 
 ### <a name="supported-countriesregions"></a>Supported countries/regions (Paesi supportati)
 
-Questo campo specifica i paesi o le aree in cui sarà disponibile la versione di valutazione dell'offerta. È possibile scegliere solo paesi in cui Microsoft Dynamics 365 Business Central è già disponibile o è in versione di anteprima. Per l'elenco corrente, vedere [Countries and Translations Supported](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations) (Paesi e traduzioni supportati).
+Questo campo specifica i paesi o le aree in cui sarà disponibile la versione di valutazione dell'offerta. È possibile scegliere solo i paesi/aree geografiche in cui Microsoft Dynamics 365 Business Central viene già disponibile o in fase di anteprima. Per l'elenco corrente, vedere [paesi/aree geografiche e le conversioni supportate](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Selezionare paesi e traduzioni supportati](./media/d365-financials/image008.png)
+![Selezionare i paesi/aree geografiche e le conversioni supportate](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Lingue supportate

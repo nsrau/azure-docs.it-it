@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358804"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688684"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Report | Location | DESCRIZIONE |
+| Report | Località | DESCRIZIONE |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > Server MFA > Blocca/Sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -122,7 +122,9 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
 - Controlli di sessione
 - Risultato
 
-## <a name="powershell-reporting"></a>Report di PowerShell
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Creazione di report per utenti registrati per MFA PowerShell
+
+In primo luogo, assicurarsi di avere il [modulo di PowerShell MSOnline V1](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installato.
 
 Identificare gli utenti che hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
 
