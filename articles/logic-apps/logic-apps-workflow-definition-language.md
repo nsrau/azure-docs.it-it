@@ -37,7 +37,7 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
 }
 ```
 
-| Elemento | Obbligatorio | DESCRIZIONE |
+| Elemento | Obbligatoria | DESCRIZIONE |
 |---------|----------|-------------|
 | Definizione | Sì | Elemento iniziale della definizione del flusso di lavoro |
 | $schema | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -69,7 +69,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 },
 ```
 
-| Elemento | Obbligatorio | Type | DESCRIZIONE |
+| Elemento | Obbligatoria | Type | DESCRIZIONE |
 |---------|----------|------|-------------|
 | type | Sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
 | defaultValue | Sì | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
@@ -99,7 +99,7 @@ Di seguito è riportata la struttura generale della definizione di un output:
 }
 ```
 
-| Elemento | Obbligatorio | Type | DESCRIZIONE |
+| Elemento | Obbligatoria | Type | DESCRIZIONE |
 |---------|----------|------|-------------|
 | <*key-name*> | Sì | string | Valore chiave del valore di output restituito |
 | type | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |

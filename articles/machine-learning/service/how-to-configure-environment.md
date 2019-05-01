@@ -300,7 +300,7 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
 1. Scegli **sola** opzione (nessun altra installazione di SDK sono supportati)
 
-   |SDK&nbsp;pacchetto&nbsp;funzionalità aggiuntive|Source (Sorgente)|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;pacchetto&nbsp;funzionalità aggiuntive|`Source`|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Per Databricks| Caricare Python Egg o PyPI | azureml-sdk[databricks]|
    |Per Databricks - with-<br> funzionalità di Machine Learning automatizzate| Caricare Python Egg o PyPI | azureml-sdk[automl_databricks]|

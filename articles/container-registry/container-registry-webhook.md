@@ -40,7 +40,7 @@ Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni
 | Intestazioni personalizzate | Le intestazioni che si vuole passare insieme alla richiesta POST. Devono essere nel formato "chiave: valore". |
 | Azioni trigger | Le azioni che attivano il webhook. Le azioni includono push dell'immagine Elimina immagine, push grafico Helm, delete grafico Helm e quarantena immagine. È possibile scegliere una o più azioni per attivare il webhook. |
 | Stato | Lo stato del webhook dopo che è stato creato. Questa opzione è abilitata per impostazione predefinita. |
-| Scope | L'ambito in cui viene applicato il webhook. Se non specificato, l'ambito è per tutti gli eventi nel Registro di sistema. Può essere specificato a un repository o un tag usando il formato "repository: tag" o "repository: *" per tutti i tag in un repository. |
+| `Scope` | L'ambito in cui viene applicato il webhook. Se non specificato, l'ambito è per tutti gli eventi nel Registro di sistema. Può essere specificato a un repository o un tag usando il formato "repository: tag" o "repository: *" per tutti i tag in un repository. |
 
 Modulo di webhook di esempio:
 
