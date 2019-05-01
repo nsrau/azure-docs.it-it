@@ -2,21 +2,14 @@
 title: Go-To-Market Services - Promuovere la propria attività con Microsoft | Azure
 description: Go-To-Market Services - Gli editori possono imparare a promuovere la propria attività con Microsoft in questa sezione.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60740132"

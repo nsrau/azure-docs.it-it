@@ -114,7 +114,7 @@ Punti da notare:
 ## <a name="context"></a>Context
 Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tutti questi campi vengono trasmessi con ogni punto dati.
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | context.custom.dimensions [0] |oggetto [ ] |Coppie di stringhe chiave-valore impostate dal parametro delle proprietà personalizzate. La lunghezza massima delle chiavi 100, la lunghezza massima dei valori è 1024. Più di 100 valori univoci. La proprietà può essere cercata, ma non può essere usata per la segmentazione. Massimo 200 chiavi per ikey. |
 | context.custom.metrics [0] |oggetto [ ] |Coppie di chiave-valore impostate dai parametri delle misurazioni personalizzate e da TrackMetrics. La lunghezza massima delle chiavi 100, i valori possono essere numerici. |
@@ -161,7 +161,7 @@ Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tut
 ## <a name="events"></a>Eventi
 Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | event [0] count |numero intero |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
 | event [0] name |string |Nome evento.  Lunghezza massima: 250. |
@@ -172,7 +172,7 @@ Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-cus
 ## <a name="exceptions"></a>Eccezioni
 Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server e nel browser.
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |numero intero |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
@@ -201,7 +201,7 @@ Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server
 ## <a name="trace-messages"></a>Messaggi di traccia
 Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -211,7 +211,7 @@ Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tra
 ## <a name="remote-dependency"></a>Dipendenza remota
 Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo delle [chiamate alle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) nel server e delle chiamate AJAX nel browser.
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
@@ -232,7 +232,7 @@ Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo dell
 ## <a name="requests"></a>Requests
 Inviate da [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | request [0] count |numero intero |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio:  4 =&gt; 25%. |
 | request [0] durationMetric.value |number |Tempo tra l'arrivo della richiesta e la risposta. 1e7 == 1 s |
@@ -250,7 +250,7 @@ Inviate dal browser. Misura il tempo necessario per elaborare una pagina, da qua
 
 I valori del contesto indicano la versione del sistema operativo client e del browser.
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |numero intero |Tempo compreso tra la fine della ricezione del codice HTML e la visualizzazione della pagina. |
 | clientPerformance [0] name |string | |
@@ -267,7 +267,7 @@ I valori del contesto indicano la versione del sistema operativo client e del br
 ## <a name="page-views"></a>Visualizzazioni pagina
 Inviate da trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | view [0] count |numero intero |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
 | view [0] durationMetric.value |numero intero |Valore facoltativo impostato in trackPageView() o da startTrackPage() - stopTrackPage(). Non corrisponde ai valori di clientPerformance. |
@@ -280,7 +280,7 @@ Inviate da trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-
 ## <a name="availability"></a>Disponibilità
 Segnala i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| path | Type | Note |
+| `Path` | Type | Note |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilità |
 | availability [0] availabilityMetric.value |number |1,0 o 0,0 |

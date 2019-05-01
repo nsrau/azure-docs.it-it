@@ -24,7 +24,7 @@ Questo articolo mostra come risolvere i problemi comuni per la gestione o la dis
 
 Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architettura di Azure.
 
-| Scope | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
+| `Scope` | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
 | --- | --- | --- | --- | --- | --- |
 | Nome del gruppo di contenitori | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome contenitore | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |

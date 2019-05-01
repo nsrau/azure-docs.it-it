@@ -15,7 +15,7 @@ ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60946610"
@@ -70,13 +70,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatorio|Default|
+|NOME|DESCRIZIONE|Obbligatoria|Default|
 |----------|-----------------|--------------|-------------|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - applica sempre la conversione.<br />-   content-type-json - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di JSON.|Sì|N/D|
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se JSON è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No |true|
@@ -114,13 +114,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |kind|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   javascript-friendly - il JSON convertito ha un formato intuitivo per gli sviluppatori JavaScript.<br />-   direct - il JSON convertito riflette la struttura del documento XML originario.|Sì|N/D|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - esegue sempre la conversione.<br />-   content-type-xml - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di XML.|Sì|N/D|
@@ -150,13 +150,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |from|Stringa da cercare.|Sì|N/D|
 |to|La stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
@@ -188,7 +188,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento radice.|Sì|
 
@@ -261,13 +261,13 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |base-url|Nuovo URL di base del servizio back-end.|Uno dei `base-url` o `backend-id` deve essere presente.|N/D|
 |backend-id|Identificatore del back-end verso cui avviene il routing. (Entità di back-end vengono gestite tramite [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Uno dei `base-url` o `backend-id` deve essere presente.|N/D|
@@ -397,13 +397,13 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |set-body|Elemento radice. Contiene il testo del corpo o un'espressione che restituisce un corpo.|Sì|
 
 ### <a name="properties"></a>Properties
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |template|Consente di modificare la modalità di modello in cui verrà eseguito il criterio del corpo impostato. Al momento, l'unico valore supportato è:<br /><br />-liquid - i criteri del corpo impostati useranno il motore del modello liquidi |No |liquid|
 
@@ -504,14 +504,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
 |value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Properties
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No |override|
 |name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
@@ -564,14 +564,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
 |value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Properties
 
-|NOME|DESCRIZIONE|Obbligatorio|Predefinito|
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando il parametro di query è già specificato. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore del parametro esistente.<br />-   skip - non sostituisce il valore del parametro di query esistente.<br />-   append - aggiunge il valore del parametro di query esistente.<br />-   delete - elimina il parametro di query dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione del parametro di query in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No |override|
 |name|Specifica il nome del parametro di query da impostare.|Sì|N/D|
@@ -643,13 +643,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|DESCRIZIONE|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
 |template|URL effettivo del servizio Web con eventuali parametri delle stringhe di query. Quando si usano le espressioni, l'intero valore deve essere un'espressione.|Sì|N/D|
 |copy-unmatched-params|Specifica se i parametri di query nella richiesta in ingresso non presenti nel modello di URL originale vengono aggiunti all'URL definito dal modello di riscrittura|No |true|
@@ -712,7 +712,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento radice.|Sì|
 |parametro|Consente di definire le variabili usate nella trasformazione|No |

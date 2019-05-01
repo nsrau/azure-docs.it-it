@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60754607"
 ---
-| N. porta| In ingresso/In uscita | Ambito porta| Obbligatorio|   Note |   |
+| N. porta| In ingresso/In uscita | Ambito porta| Obbligatoria|   Note |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|In uscita|WAN |No |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br>Il proxy Web in uscita è configurabile dall'utente. |
 | TCP 443 (HTTPS)|In uscita|WAN|Sì|La porta in uscita viene usata per accedere ai dati nel cloud.<br>Il proxy Web in uscita è configurabile dall'utente.|

@@ -2230,12 +2230,12 @@ Specifica un endpoint che deve essere esposto nella rete di contenitori.
 ```
 ### <a name="attribute-details"></a>Dettagli relativi agli attributi
 
-#### <a name="source"></a>Source (Sorgente)
+#### <a name="source"></a>`Source`
 Cartella di origine che può essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente.
 
 |Attributo|Value|
 |---|---|
-|name|Source (Sorgente)|
+|name|`Source`|
 |use|Obbligatoria|
 
 #### <a name="destination"></a>Destination
@@ -3065,12 +3065,12 @@ Numero di porta per l'endpoint. Esegue l'override del valore nel manifesto del s
 |name|Porta|
 |type|xs:string|
 
-#### <a name="protocol"></a>Protocollo
+#### <a name="protocol"></a>Protocol
 Protocollo per l'endpoint. Esegue l'override del valore nel manifesto del servizio. Per gli endpoint HTTPS è inoltre necessario dichiarare un EndpointCertificate e un EndpointBindingPolicy nel manifesto dell'applicazione. Il protocollo non può essere modificato in un secondo momento durante un aggiornamento dell'applicazione. 
 
 |Attributo|Value|
 |---|---|
-|name|Protocollo|
+|name|Protocol|
 |type|xs:string|
 |use|Facoltativo|
 
@@ -3198,12 +3198,12 @@ Nome dell'endpoint.
 |name|NOME|
 |use|Obbligatoria|
 
-#### <a name="protocol"></a>Protocollo
+#### <a name="protocol"></a>Protocol
 Protocollo per l'endpoint: http, https, tcp o udp. Per gli endpoint HTTPS è inoltre necessario dichiarare un EndpointCertificate e un EndpointBindingPolicy nel manifesto dell'applicazione. Il protocollo non può essere modificato in un secondo momento durante un aggiornamento dell'applicazione. 
 
 |Attributo|Value|
 |---|---|
-|name|Protocollo|
+|name|Protocol|
 |use|Facoltativo|
 |default|tcp|
 
@@ -4626,11 +4626,11 @@ Descrive i certificati associati a questo tipo di nodo.
 |type|xs:positiveInteger|
 |use|Obbligatoria|
 
-#### <a name="protocol"></a>Protocollo
+#### <a name="protocol"></a>Protocol
 
 |Attributo|Value|
 |---|---|
-|name|Protocollo|
+|name|Protocol|
 |use|Facoltativo|
 |default|tcp|
 
@@ -4669,11 +4669,11 @@ Descrive i certificati associati a questo tipo di nodo.
 |type|xs:positiveInteger|
 |use|Obbligatoria|
 
-#### <a name="protocol"></a>Protocollo
+#### <a name="protocol"></a>Protocol
 
 |Attributo|Value|
 |---|---|
-|name|Protocollo|
+|name|Protocol|
 |use|Facoltativo|
 |default|tcp|
 
@@ -5147,11 +5147,11 @@ Nome del pacchetto di codice, configurazione o dati da condividere. Deve corrisp
 |---|---|
 |name|PackageRef|
 
-#### <a name="scope"></a>Scope
+#### <a name="scope"></a>`Scope`
 
 |Attributo|Value|
 |---|---|
-|name|Scope|
+|name|`Scope`|
 |default|Nessuna|
 
 ## <a name="parametertype-complextype"></a>complexType ParameterType
@@ -7644,12 +7644,12 @@ Dichiara le impostazioni di configurazione di un manifesto del servizio di cui d
 ```
 ### <a name="content-element-details"></a>Dettagli relativi agli elementi di contenuto
 
-#### <a name="section"></a>Sezione
+#### <a name="section"></a>`Section`
 Sezione del file Settings.xml di cui eseguire l'override.
 
 |Attributo|Value|
 |---|---|
-|name|Sezione|
+|name|`Section`|
 |maxOccurs|unbounded|
 
 ## <a name="settingstype-complextype"></a>complexType SettingsType
@@ -7702,12 +7702,12 @@ Descrive le impostazioni definite dall'utente per un componente del servizio o u
 ```
 ### <a name="content-element-details"></a>Dettagli relativi agli elementi di contenuto
 
-#### <a name="section"></a>Sezione
+#### <a name="section"></a>`Section`
 Sezione denominata definita dall'utente.
 
 |Attributo|Value|
 |---|---|
-|name|Sezione|
+|name|`Section`|
 |minOccurs|0|
 |maxOccurs|unbounded|
 

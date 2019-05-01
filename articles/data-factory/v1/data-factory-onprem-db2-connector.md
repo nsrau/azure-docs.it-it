@@ -79,7 +79,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="db2-linked-service-properties"></a>Proprietà del servizio collegato DB2
 La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio collegato DB2.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
 | **server** |Il nome del server DB2. |Sì |
@@ -95,7 +95,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable**, che comprende il set di dati DB2, presenta la proprietà seguente:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **tableName** |Il nome della tabella nell'istanza del database DB2 a cui il servizio collegato fa riferimento. Questa proprietà fa distinzione tra maiuscole e minuscole. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -104,7 +104,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per le attività di copia con origine di tipo **RelationalSource** (che comprende DB2), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from "MySchema"."MyTable""` |No (se è specificata la proprietà **tableName** di un set di dati) |
 

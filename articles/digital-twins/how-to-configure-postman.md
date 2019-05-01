@@ -74,7 +74,7 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 |
     | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
-    | Scope | Lasciare vuoto |
+    | `Scope` | Lasciare vuoto |
     | Stato | Lasciare vuoto |
     | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
 

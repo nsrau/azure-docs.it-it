@@ -54,7 +54,7 @@ I metadati dei BLOB JSON sono conformi al modello seguente:
 | Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **nome** |string | Nome descrittivo per il BLOB |
+| **name** |string | Nome descrittivo per il BLOB |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
 | **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
@@ -111,7 +111,7 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 | Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
 | **id** | string | Identificatore univoco per il BLOB |
-| **nome** |string | Nome descrittivo per il BLOB |
+| **name** |string | Nome descrittivo per il BLOB |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |

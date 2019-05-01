@@ -4274,11 +4274,11 @@ Specifica se la raccolta dei log è abilitata. Funziona solo in un ambiente clus
 ```
 ### <a name="attribute-details"></a>Dettagli relativi agli attributi
 
-#### <a name="path"></a>path
+#### <a name="path"></a>`Path`
 
 |Attributo|Value|
 |---|---|
-|name|path|
+|name|`Path`|
 |type|xs:string|
 |use|Facoltativo|
 
@@ -6552,7 +6552,7 @@ Sezione del file Settings.xml di cui eseguire l'override.
 |type|complexType anonimo|
 |content|1 elemento, 1 attributo|
 |defined|localmente in [complexType SettingsOverridesType](service-fabric-service-model-schema-complex-types.md#settingsoverridestype-complextype)|
-|name|Sezione|
+|name|`Section`|
 |maxOccurs|unbounded|
 
 ### <a name="xml-source"></a>Origine XML
@@ -6633,7 +6633,7 @@ Sezione denominata definita dall'utente.
 |type|complexType anonimo|
 |content|1 elemento, 1 attributo|
 |defined|localmente in [complexType SettingsType](service-fabric-service-model-schema-complex-types.md#settingstype-complextype)|
-|name|Sezione|
+|name|`Section`|
 |minOccurs|0|
 |maxOccurs|unbounded|
 

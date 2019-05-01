@@ -54,7 +54,7 @@ ms.locfileid: "60764306"
 
 
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività hook web | string | Sì |
 type | Deve essere impostata su **WebHook**. | string | Sì |

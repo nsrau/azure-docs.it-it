@@ -43,7 +43,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
@@ -254,7 +254,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |string |Spazio dei nomi del provider |
 | resourceType |No  |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
@@ -329,7 +329,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No  |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
@@ -592,7 +592,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No  |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No  |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |

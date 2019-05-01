@@ -54,7 +54,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 | Opzione | DESCRIZIONE |
 | --- | --- |
-| Source (Sorgente) |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
+| `Source` |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
 | Dest |Specifica la destinazione di Data Lake Storage Gen1 in cui eseguire la copia. |
 | SourceKey |Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
 | Account |**Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Azure Data Lake Storage Gen1) come origini dati per l'account di Data Lake Analytics. |
