@@ -59,7 +59,7 @@ ms.locfileid: "60764323"
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività "Convalida" | string | Sì |
 type | Deve essere impostata su **convalida**. | string | Sì |

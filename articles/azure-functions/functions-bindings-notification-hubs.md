@@ -257,7 +257,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** |n/d| Deve essere impostato su "notificationHub". |
 |**direction** |n/d| Deve essere impostato su "out". | 
-|**nome** |n/d| Nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica. |
+|**name** |n/d| Nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica. |
 |**tagExpression** |**TagExpression** | Le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag.  Per altre informazioni, vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome della risorsa dell'hub di notifica nel portale di Azure. |
 |**connessione** | **ConnectionStringSetting** | Nome di un'impostazione dell'app che contiene una stringa di connessione di Hub di notifica.  La stringa di connessione deve essere impostata sul valore di *DefaultFullSharedAccessSignature* per l'hub di notifica. Vedere [Configurazione della stringa di connessione](#connection-string-setup) più avanti in questo articolo.|

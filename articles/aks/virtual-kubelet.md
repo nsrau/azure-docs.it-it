@@ -85,7 +85,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 Per il comando `aks install-connector` sono disponibili questi argomenti.
 
-| Argomento: | DESCRIZIONE | Obbligatorio |
+| Argomento: | DESCRIZIONE | Obbligatoria |
 |---|---|:---:|
 | `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Sì |
 | `--name` `-n` | Nome del cluster gestito. | Sì |

@@ -101,7 +101,7 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |cache-lookup|Elemento radice.|Sì|
 |vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No |
@@ -109,7 +109,7 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 
 ### <a name="attributes"></a>Attributi
 
-| NOME                           | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Predefinito           |
+| NOME                           | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | allow-private-response-caching | Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.                                                                                                                                                                                                                                                                        | No        | false             |
 | caching-type               | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
@@ -180,13 +180,13 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |cache-store|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Predefinito           |
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
 
@@ -223,13 +223,13 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |cache-lookup-value|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Predefinito           |
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
 | default-value    | Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.                                                                                                                                                                                                           | No        | `null`            |
@@ -266,13 +266,13 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 
 ### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |cache-store-value|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Predefinito           |
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
 | duration         | Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.                                                                                                                                                                                                                                                                                 | Sì      | N/D               |
@@ -305,13 +305,13 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 
 #### <a name="elements"></a>Elementi
 
-|NOME|DESCRIZIONE|Obbligatorio|
+|NOME|DESCRIZIONE|Obbligatoria|
 |----------|-----------------|--------------|
 |cache-remove-value|Elemento radice.|Sì|
 
 #### <a name="attributes"></a>Attributi
 
-| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Predefinito           |
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
 | key              | La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.                                                                                                                                                                                                                                                                                        | Sì      | N/D               |

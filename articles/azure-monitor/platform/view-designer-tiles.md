@@ -60,7 +60,7 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="two-numbers-tile"></a>Riquadro Due numeri
@@ -81,7 +81,7 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="donut-tile"></a>Riquadro Anello
@@ -105,7 +105,7 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="line-chart-tile"></a>Riquadro Grafico a linee
@@ -126,7 +126,7 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="line-chart-and-callout-tile"></a>Riquadro Grafico a linee e callout
@@ -151,7 +151,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="two-timelines-tile"></a>Riquadro Due sequenze temporali
@@ -176,7 +176,7 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 | **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
 | Enabled |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
-| Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
+| `Message` |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

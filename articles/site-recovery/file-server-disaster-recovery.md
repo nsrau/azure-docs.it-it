@@ -64,7 +64,7 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 ### <a name="site-recovery-support"></a>Supporto di Site Recovery
 Dato che la replica di Site Recovery è indipendente dall'applicazione, queste raccomandazioni saranno valide anche per gli scenari seguenti.
 
-| Source (Sorgente)    |In un sito secondario    |In Azure
+| `Source`    |In un sito secondario    |In Azure
 |---------|---------|---------|
 |Azure| -|Sì|
 |Hyper-V|   Sì |Sì

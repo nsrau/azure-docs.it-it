@@ -44,7 +44,7 @@ Il canvas è l'area in cui vengono progettati i Runbook. È possibile aggiungere
 
 Il controllo Library consente di selezionare [attività](#activities) da aggiungere al Runbook. È possibile aggiungerle al canvas, dove vengono connesse ad altre attività. Il canvas include quattro sezioni descritte nella tabella seguente:
 
-| Sezione | DESCRIZIONE |
+| `Section` | DESCRIZIONE |
 |:--- |:--- |
 | Cmdlets |Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbook |Include i runbook dell'account di Automazione. Questi runbook possono essere aggiunti al canvas per essere usati come runbook figlio. Vengono visualizzati solo i runbook dello stesso tipo di memoria centrale come il runbook in corso di modifica; per i runbook grafici vengono visualizzati solo i runbook basati su PowerShell, mentre per i runbook grafici del flusso di lavoro PowerShell vengono visualizzati solo i runbook basati sul flusso di lavoro PowerShell. |
