@@ -8,17 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/5/2019
+ms.date: 4/24/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480470"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697872"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
+
+Si tratta di una versione di correzione di bug e influisce solo sulle SDK nativo/gestito. Che non impedisca la versione JavaScript del SDK.
 
 ## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 

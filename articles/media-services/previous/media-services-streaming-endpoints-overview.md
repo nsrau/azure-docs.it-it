@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544956"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573035"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
-## <a name="overview"></a>Panoramica
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti: gli StreamingEndpoint esistenti presenteranno la versione 1.0 e possono passare alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
 
@@ -46,14 +47,17 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 
 ### <a name="standardpremium-types-version-20"></a>Tipologia standard o Premium (versione 2.0)
 
-A partire dalla versione dei Servizi multimediali rilasciata a gennaio 2017, ci sono due tipologie di streaming: **Standard** e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
+A partire dalla versione dei Servizi multimediali rilasciata a gennaio 2017, ci sono due tipologie di streaming: **Standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
-Type|DESCRIZIONE
----|---
-**Standard** |Questa è l'opzione predefinita che viene utilizzata nella maggior parte dei casi.<br/>Con questa opzione, si crea un contratto di servizio predefinito/limitato e i primi 15 giorni dopo l'avvio dell'endpoint di streaming sono gratuiti.<br/>Se si creano più di un endpoint di streaming, solo il primo è gratuito per i primi 15 giorni, gli altri vengono addebitati non appena vengono avviati. <br/>Si noti che la versione di valutazione gratuita è applicabile solo per gli account di servizi multimediali nuovi e per l'endpoint di streaming predefinito. Gli endpoint di streaming esistenti e gli endpoint di streaming creati in seguito non includono il periodo di prova gratuito anche se questi vengono aggiornati alla versione 2.0 o vengono creati con la versione 2.0.
-**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo.<br/>Diversi tipi di contratto di servizio in base alla capacità dell'unità di streaming (SU) premium acquistata, endpoint di streaming live dedicati in un ambiente isolato e nessuna competizione per le risorse.
 
-Per ulteriori informazioni, vedere la sezione **Confronto tra le tipologie di streaming** seguente.
+|Type|DESCRIZIONE|
+|--------|--------|  
+|**Standard**|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** digitare, può essere modificato nel tipo Premium modificando le unità di streaming.|
+|**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si sposta in una **Premium** tipo modificando le unità di streaming.<br/>Dedicato gli endpoint di Streaming live in ambiente isolato e non contendono le risorse.|
+
+Per i clienti che desiderano per distribuire contenuti a un vasto pubblico di internet, è consigliabile abilitare della rete CDN nell'Endpoint di Streaming.
+
+Per ulteriori informazioni, vedere la sezione [Confronto tra le tipologie di streaming](#comparing-streaming-types) seguente.
 
 ### <a name="classic-type-version-10"></a>Tipologia classica (versione 1.0)
 
@@ -71,29 +75,32 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 ### <a name="versions"></a>Versioni
 
-|Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|Contratto di servizio| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Classico|1.0|0|ND|Gratuito|ND|
-|Endpoint di streaming Standard|2.0|0|Sì|A pagamento|Sì|
-|Unità di streaming Premium|1.0|>0|Sì|A pagamento|Sì|
-|Unità di streaming Premium|2.0|>0|Sì|A pagamento|Sì|
+|Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Classico|1.0|0|ND|Gratuito|
+|Endpoint di Streaming standard (anteprima)|2.0|0|Sì|A pagamento|
+|Unità di streaming Premium|1.0|>0|Sì|A pagamento|
+|Unità di streaming Premium|2.0|>0|Sì|A pagamento|
 
 ### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Gratis per i primi 15 giorni| Sì |No 
-Velocità effettiva |Fino a 600 Mbps quando non si usa la rete CDN di Azure. Scalabilità con la rete CDN.|200 Mbps per unità di streaming (SU). Scalabilità con la rete CDN.
-Contratto di servizio | 99,9|99,9 (200 Mbps per SU).
+Liberare i primi 15 giorni <sup>1</sup>| Sì |No 
+Velocità effettiva |Fino a 600 Mbps e possono fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
-Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive
-Host con filtro IP/G20/personalizzato|Sì|Sì
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
+Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Sì|Sì
 Download progressivo|Sì|Sì
-Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.<br/>Per esigenze superiori alle funzionalità offerte dalla tipologia Standard. Se si prevede un numero di destinatari simultanei superiore a 50.000 visualizzatori, contattare Microsoft (amsstreaming@microsoft.com).
+Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale. 
 
+<sup>1</sup> la versione di valutazione gratuita si applica solo agli account di servizi multimediali appena creato e il valore predefinito dell'Endpoint di Streaming.<br/>
+<sup>2</sup> usato direttamente nell'Endpoint di Streaming solo quando la rete CDN non è abilitata nell'endpoint.<br/>
+
+Per informazioni di contratto di servizio, vedere [prezzi e contratto di servizio](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 

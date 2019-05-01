@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772071"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570591"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -78,9 +78,9 @@ Questa tabella mostra l'elenco di comandi disponibili per le macchine virtuali L
 
 ## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
 
-Elencare i comandi di esecuzione o mostrare i dettagli di un comando richiede l'`Microsoft.Compute/locations/runCommands/read` autorizzazione che il ruolo dell'elemento predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e versioni successive hanno.
+Per elencare i comandi di esecuzione o che visualizza i dettagli di un comando richiedono il `Microsoft.Compute/locations/runCommands/read` l'autorizzazione a livello di sottoscrizione, quale predefiniti [lettore](../../role-based-access-control/built-in-roles.md#reader) ruolo e versioni successive.
 
-L'esecuzione di un comando richiede l'`Microsoft.Compute/virtualMachines/runCommand/action` autorizzazione, che il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ha e versioni successive.
+Richiede l'esecuzione di un comando il `Microsoft.Compute/virtualMachines/runCommand/action` l'autorizzazione a livello di sottoscrizione, che il [collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ruolo e versioni successive.
 
 È possibile usare uno dei ruoli [incorporati](../../role-based-access-control/built-in-roles.md) o creare un ruolo [personalizzato](../../role-based-access-control/custom-roles.md) per usare Esegui del comando.
 

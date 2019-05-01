@@ -3,19 +3,19 @@ title: Esempi di trasformazione delle attestazioni di data per lo schema del fra
 description: Esempi di trasformazione delle attestazioni di data per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384236"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710433"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -29,8 +29,8 @@ Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | stringa | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
-| inputClaim | rightOperand | stringa | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
+| inputClaim | leftOperand | string | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
+| inputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
@@ -143,7 +143,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operator | stringa | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | risultato | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 

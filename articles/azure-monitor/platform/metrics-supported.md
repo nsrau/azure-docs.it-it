@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/26/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bacc77cc5814dc15473375a891096dba9d567be
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255843"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867649"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -84,13 +84,24 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |FailedRequests|Richieste gateway non riuscite|Conteggio|Totale|Numero di errori nelle richieste gateway|Location, Hostname|
 |OtherRequests|Altre richieste del gateway|Conteggio|Totale|Numero di altre richieste del gateway|Location, Hostname|
 |Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
+|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
+|EventHubTotalEvents|Eventi di hub eventi totali|Conteggio|Totale|Numero di eventi inviati all'hub eventi|Località|
+|EventHubSuccessfulEvents|Eventi di hub eventi ha esito positivo|Conteggio|Totale|Numero di eventi di hub eventi riusciti|Località|
+|EventHubTotalFailedEvents|Eventi di hub eventi non riusciti|Conteggio|Totale|Numero di eventi di hub eventi non riusciti|Località|
+|EventHubRejectedEvents|Eventi di hub eventi rifiutati|Conteggio|Totale|Numero di eventi di hub eventi rifiutati (configurazione errato o non autorizzato)|Località|
+|EventHubThrottledEvents|Eventi di hub eventi limitate|Conteggio|Totale|Numero di eventi limitati di hub eventi|Località|
+|EventHubTimedoutEvents|Timeout gli eventi di hub eventi|Conteggio|Totale|Numero di timeout degli eventi di hub eventi|Località|
+|EventHubDroppedEvents|Eventi di hub eventi eliminati|Conteggio|Totale|Numero di eventi ignorati a causa di raggiunte le dimensioni della coda|Località|
+|EventHubTotalBytesSent|Dimensioni degli eventi di hub eventi|Byte|Totale|Dimensione totale degli eventi di hub eventi in byte|Località|
+|Requests|Requests|Conteggio|Totale|Richieste gateway|Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |TotalJob|Processi totali|Conteggio|Totale|Numero totale di processi|Runbook, stato|
+|TotalUpdateDeploymentRuns|Esecuzione distribuzione aggiornamento totale|Conteggio|Totale|Esecuzioni di distribuzione di aggiornamenti software totale|SoftwareUpdateConfigurationName, Status|
+|TotalUpdateDeploymentMachineRuns|Esecuzione di computer di distribuzione aggiornamento totale|Conteggio|Totale|Computer di distribuzione aggiornamento software totale viene eseguito in una distribuzione degli aggiornamenti software eseguita|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -340,91 +351,108 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|TotalCalls|Totale chiamate|Conteggio|Totale|Numero totale di chiamate.|Nessuna dimensione|
-|SuccessfulCalls|Chiamate riuscite|Conteggio|Totale|Numero di chiamate riuscite.|Nessuna dimensione|
-|TotalErrors|Totale errori|Conteggio|Totale|Numero totale di chiamate con risposta di errore (codice di risposta HTTP 4xx o 5xx).|Nessuna dimensione|
-|BlockedCalls|Chiamate bloccate|Conteggio|Totale|Numero di chiamate che hanno superato il limite di frequenza o di quota.|Nessuna dimensione|
-|ServerErrors|Errori server|Conteggio|Totale|Numero di chiamate con errore interno del servizio (codice di risposta HTTP 5xx).|Nessuna dimensione|
-|ClientErrors|Errori client|Conteggio|Totale|Numero di chiamate con errore sul lato client (codice di risposta HTTP 4xx).|Nessuna dimensione|
-|DataIn|Dati in entrata|Byte|Totale|Dimensione in byte dei dati in entrata.|Nessuna dimensione|
-|DataOut|Dati in uscita|Byte|Totale|Dimensione in byte dei dati in uscita.|Nessuna dimensione|
-|Latenza|Latenza|Millisecondi|Media|Latenza in millisecondi.|Nessuna dimensione|
-|CharactersTranslated|Caratteri convertiti|Conteggio|Totale|Numero totale di caratteri nella richiesta di testo in ingresso.|Nessuna dimensione|
-|SpeechSessionDuration|Durata della sessione vocale|Secondi|Totale|Durata totale della sessione vocale in secondi.|Nessuna dimensione|
+|TotalCalls|Totale chiamate|Conteggio|Totale|Numero totale di chiamate.|ApiName, OperationName, Region|
+|SuccessfulCalls|Chiamate riuscite|Conteggio|Totale|Numero di chiamate riuscite.|ApiName, OperationName, Region|
+|TotalErrors|Totale errori|Conteggio|Totale|Numero totale di chiamate con risposta di errore (codice di risposta HTTP 4xx o 5xx).|ApiName, OperationName, Region|
+|BlockedCalls|Chiamate bloccate|Conteggio|Totale|Numero di chiamate che hanno superato il limite di frequenza o di quota.|ApiName, OperationName, Region|
+|ServerErrors|Errori server|Conteggio|Totale|Numero di chiamate con errore interno del servizio (codice di risposta HTTP 5xx).|ApiName, OperationName, Region|
+|ClientErrors|Errori client|Conteggio|Totale|Numero di chiamate con errore sul lato client (codice di risposta HTTP 4xx).|ApiName, OperationName, Region|
+|DataIn|Dati in entrata|Byte|Totale|Dimensione in byte dei dati in entrata.|ApiName, OperationName, Region|
+|DataOut|Dati in uscita|Byte|Totale|Dimensione in byte dei dati in uscita.|ApiName, OperationName, Region|
+|Latenza|Latenza|Millisecondi|Media|Latenza in millisecondi.|ApiName, OperationName, Region|
+|CharactersTranslated|Caratteri convertiti|Conteggio|Totale|Numero totale di caratteri nella richiesta di testo in ingresso.|ApiName, OperationName, Region|
+|CharactersTrained|Caratteri sottoposto a training|Conteggio|Totale|Numero totale di caratteri con training.|ApiName, OperationName, Region|
+|SpeechSessionDuration|Durata della sessione vocale|Secondi|Totale|Durata totale della sessione vocale in secondi.|ApiName, OperationName, Region|
 |TotalTransactions|Totale transazioni|Conteggio|Totale|Numero totale di transazioni.|Nessuna dimensione|
-|TotalTokenCalls|Totale chiamate token|Conteggio|Totale|Numero totale di chiamate token.|Nessuna dimensione|
+|TotalTokenCalls|Totale chiamate token|Conteggio|Totale|Numero totale di chiamate token.|ApiName, OperationName, Region|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|Nessuna dimensione|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|Nessuna dimensione|
+|Rete in ingresso|Rete in ingresso (fatturabile)|Byte|Totale|Numero di byte fatturabili ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
+|Rete in uscita|Rete in uscita (fatturabile)|Byte|Totale|Numero di byte fatturabili inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
+|Byte letti da disco|Byte letti da disco|Byte|Totale|Byte letti dal disco durante il periodo di monitoraggio|Nessuna dimensione|
+|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Byte scritti sul disco durante il periodo di monitoraggio|Nessuna dimensione|
 |Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|Nessuna dimensione|
 |Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
 |Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
 |Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
-|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
-|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
-|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
-|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
-|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
+|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Profondità coda per disco dati|Profondità coda per un disco dati (deprecato)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per disco del sistema operativo|Profondità coda per un disco del sistema operativo (deprecato)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
+|Byte letti da disco/sec per un disco dati|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio|LUN|
+|Byte scritti su disco/sec per un disco dati|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|LUN|
+|Operazioni di lettura da disco/sec per un disco dati|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio|LUN|
+|Operazioni di scrittura su disco/sec per un disco dati|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio|LUN|
+|Profondità coda per un disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|LUN|
+|Byte letti da disco/sec per un disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per un disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per un disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per un disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per un disco del sistema operativo|Profondità coda per un disco del sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
+|Flussi in ingresso|Flussi in ingresso (anteprima)|Conteggio|Media|Flussi in ingresso è il numero di flussi correnti nella direzione in ingresso (traffico verso la macchina virtuale)|Nessuna dimensione|
+|Flussi in uscita|Flussi in uscita (anteprima)|Conteggio|Media|Flussi in uscita è il numero di flussi correnti nella direzione in uscita (traffico in uscita dalla macchina virtuale)|Nessuna dimensione|
+|Numero massimo richieste di creazione flussi in ingresso|Numero massimo richieste di creazione flussi in ingresso (anteprima)|Conteggio al secondo|Media|Numero massimo di richieste di creazione per i flussi in ingresso (traffico verso la macchina virtuale)|Nessuna dimensione|
+|Numero massimo richieste di creazione flussi in uscita|Numero massimo richieste di creazione flussi in uscita (anteprima)|Conteggio al secondo|Media|Numero massimo di richieste di creazione per i flussi in uscita (traffico dalla macchina virtuale)|Nessuna dimensione|
+|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
+|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
+|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
+|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
+|Rete in ingresso (totale)|Rete in ingresso (totale)|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
+|Rete in uscita (totale)|Rete in uscita (totale)|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|Nessuna dimensione|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|Nessuna dimensione|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|Nessuna dimensione|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
+|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|VMName|
+|Rete in ingresso|Rete in ingresso (fatturabile)|Byte|Totale|Numero di byte fatturabili ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|VMName|
+|Rete in uscita|Rete in uscita (fatturabile)|Byte|Totale|Numero di byte fatturabili inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|VMName|
+|Byte letti da disco|Byte letti da disco|Byte|Totale|Byte letti dal disco durante il periodo di monitoraggio|VMName|
+|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Byte scritti sul disco durante il periodo di monitoraggio|VMName|
+|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|VMName|
+|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|VMName|
 |Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
 |Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
-|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
-|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
-|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
-|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
-|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
-
-## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|Nessuna dimensione|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|Nessuna dimensione|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|Nessuna dimensione|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|Nessuna dimensione|
-|Crediti CPU rimanenti|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
-|Crediti CPU usati|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
-|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio|SlotId|
-|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio|SlotId|
-|Profondità coda per disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
-|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la lettura da un singolo disco per il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
-|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Totale di operazioni di I/O al secondo eseguite durante la scrittura su un singolo disco per il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
-|Profondità coda per disco del sistema operativo|Profondità coda per un disco sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
+|Byte letti da disco/sec per disco|Byte letti da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Byte scritti su disco/sec per disco|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di lettura da disco/sec per disco|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio|SlotId|
+|Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio|SlotId|
+|Profondità coda per disco dati|Profondità coda per un disco dati (deprecato)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Byte letti da disco/sec per disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Operazioni di scrittura su disco/sec per disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (deprecato)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|Nessuna dimensione|
+|Profondità coda per disco del sistema operativo|Profondità coda per un disco del sistema operativo (deprecato)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
+|Byte letti da disco/sec per un disco dati|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio|LUN, VMName|
+|Byte scritti su disco/sec per un disco dati|Byte scritti su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio|LUN, VMName|
+|Operazioni di lettura da disco/sec per un disco dati|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio|LUN, VMName|
+|Operazioni di scrittura su disco/sec per un disco dati|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio|LUN, VMName|
+|Profondità coda per un disco dati|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|LUN, VMName|
+|Byte letti da disco/sec per un disco del sistema operativo|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Byte al secondo letti da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|VMName|
+|Byte scritti su disco/sec per un disco del sistema operativo|Byte scritti su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Byte al secondo scritti su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|VMName|
+|Operazioni di lettura da disco/sec per un disco del sistema operativo|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo lette da un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|VMName|
+|Operazioni di scrittura su disco/sec per un disco del sistema operativo|Operazioni di scrittura su disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Operazioni di I/O al secondo scritte su un singolo disco durante il periodo di monitoraggio per un disco del sistema operativo|VMName|
+|Profondità coda per un disco del sistema operativo|Profondità coda per un disco del sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|VMName|
+|Flussi in ingresso|Flussi in ingresso (anteprima)|Conteggio|Media|Flussi in ingresso è il numero di flussi correnti nella direzione in ingresso (traffico verso la macchina virtuale)|VMName|
+|Flussi in uscita|Flussi in uscita (anteprima)|Conteggio|Media|Flussi in uscita è il numero di flussi correnti nella direzione in uscita (traffico in uscita dalla macchina virtuale)|VMName|
+|Numero massimo richieste di creazione flussi in ingresso|Numero massimo richieste di creazione flussi in ingresso (anteprima)|Conteggio al secondo|Media|Numero massimo di richieste di creazione per i flussi in ingresso (traffico verso la macchina virtuale)|VMName|
+|Numero massimo richieste di creazione flussi in uscita|Numero massimo richieste di creazione flussi in uscita (anteprima)|Conteggio al secondo|Media|Numero massimo di richieste di creazione per i flussi in uscita (traffico dalla macchina virtuale)|VMName|
+|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN, VMName|
+|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN, VMName|
+|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|VMName|
+|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|VMName|
+|Rete in ingresso (totale)|Rete in ingresso (totale)|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|VMName|
+|Rete in uscita (totale)|Rete in uscita (totale)|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|VMName|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -435,6 +463,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |NetworkBytesReceivedPerSecond|Byte di rete ricevuti al secondo|Byte|Media|Byte di rete ricevuti al secondo.|Nessuna dimensione|
 |NetworkBytesTransmittedPerSecond|Byte di rete trasmessi al secondo|Byte|Media|Byte di rete trasmessi al secondo.|Nessuna dimensione|
 
+## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|TotalPullCount|Conteggio Pull totali|Conteggio|Media|Numero di immagine effettua il pull in totale|Nessuna dimensione|
+|SuccessfulPullCount|Conteggio Pull ha esito positivo|Conteggio|Media|Numero di pull di immagini con esito positivo|Nessuna dimensione|
+|TotalPushCount|Numero totale di Push|Conteggio|Media|Numero di immagine effettua il push in totale|Nessuna dimensione|
+|SuccessfulPushCount|Conteggio Push ha esito positivo|Conteggio|Media|Numero di push immagine ha esito positivo|Nessuna dimensione|
+|RunDuration|Durata esecuzione|Millisecondi|Totale|Durata dell'esecuzione in millisecondi|Nessuna dimensione|
+
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
@@ -442,7 +480,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |kube_node_status_allocatable_cpu_cores|Numero totale di core CPU disponibili in un cluster gestito|Conteggio|Totale|Numero totale di core CPU disponibili in un cluster gestito|Nessuna dimensione|
 |kube_node_status_allocatable_memory_bytes|Numero totale di memoria disponibile in un cluster gestito|Byte|Totale|Numero totale di memoria disponibile in un cluster gestito|Nessuna dimensione|
 |kube_pod_status_ready|Numero di pod in stato Pronto|Conteggio|Totale|Numero di pod in stato Pronto|spazio dei nomi, pod|
-|kube_node_status_condition|Stati per diverse condizioni dei nodi|Conteggio|Totale|Stati per diverse condizioni dei nodi|condizione, stato, nodo|
+|kube_node_status_condition|Stati per diverse condizioni dei nodi|Conteggio|Totale|Stati per diverse condizioni dei nodi|condizione di stato, status2, nodo|
 |kube_pod_status_phase|Numero di pod per fase|Conteggio|Totale|Numero di pod per fase|fase, spazio dei nomi, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
@@ -480,12 +518,29 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |DCIPredictiveMatchPoliciesCount|Numero di corrispondenze predittive|Conteggio|Last (Ultimo)||Nessuna dimensione|
 |DCIPredictionsCount|Numero di stime|Conteggio|Last (Ultimo)||Nessuna dimensione|
 
+## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|NICReadThroughput|Velocità effettiva lettura (rete)|Byte al secondo|Media|Velocità effettiva in lettura dell'interfaccia di rete nel dispositivo nel periodo di riferimento per tutti i volumi nel gateway.|InstanceName|
+|NICWriteThroughput|Velocità effettiva scrittura (rete)|Byte al secondo|Media|Velocità effettiva in scrittura dell'interfaccia di rete nel dispositivo nel periodo di riferimento per tutti i volumi nel gateway.|InstanceName|
+|CloudReadThroughputPerShare|Velocità effettova download cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di riferimento.|Condividi|
+|CloudUploadThroughputPerShare|Velocità effettiva caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di riferimento.|Condividi|
+|BytesUploadedToCloudPerShare|Cloud byte caricati (condivisione)|Byte|Media|Numero totale di byte caricati in Azure da una condivisione durante il periodo di riferimento.|Condividi|
+|TotalCapacity|Capacità totale|Byte|Media|Capacità totale|Nessuna dimensione|
+|AvailableCapacity|Capacità disponibile|Byte|Media|Capacità disponibile in byte durante il periodo di riferimento.|Nessuna dimensione|
+|CloudUploadThroughput|Velocità effettiva caricamento cloud|Byte al secondo|Media|Velocità effettiva di caricamento cloud in Azure durante il periodo di riferimento.|Nessuna dimensione|
+|CloudReadThroughput|Velocità effettiva download cloud|Byte al secondo|Media|Velocità effettiva di download cloud in Azure durante il periodo di riferimento.|Nessuna dimensione|
+|BytesUploadedToCloud|Cloud byte caricati (dispositivo)|Byte|Media|Numero totale di byte caricati in Azure da un dispositivo durante il periodo di riferimento.|Nessuna dimensione|
+|HyperVVirtualProcessorUtilization|Calcolo Edge - Percentuale CPU|Percentuale|Media|Percentuale di utilizzo CPU|InstanceName|
+|HyperVMemoryUtilization|Calcolo Edge - Utilizzo memoria|Percentuale|Media|Quantità di RAM in uso|InstanceName|
+
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|FailedRuns|Esecuzioni non riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart|
-|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale||pipelineName, activityName, windowEnd, windowStart|
+|FailedRuns|Esecuzioni non riuscite|Conteggio|Totale||pipelineName, activityName|
+|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale||pipelineName, activityName|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
@@ -499,6 +554,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |TriggerSucceededRuns|Succeeded trigger runs metrics (Metrica esecuzioni trigger riuscite)|Conteggio|Totale||Name, FailureType|
 |IntegrationRuntimeCpuPercentage|Uso della CPU di Integration runtime|Percentuale|Media||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Memoria disponibile di Integration Runtime|Byte|Media||IntegrationRuntimeName, NodeName|
+|MaxAllowedResourceCount|Numero massimo consentito entità|Conteggio|Massima||Nessuna dimensione|
+|MaxAllowedFactorySizeInGbUnits|Numero massimo di dimensioni factory (GB per unità)|Conteggio|Massima||Nessuna dimensione|
+|ResourceCount|Numero totale di entità|Conteggio|Massima||Nessuna dimensione|
+|FactorySizeInGbUnits|Dimensioni factory totale (GB per unità)|Conteggio|Massima||Nessuna dimensione|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
@@ -506,10 +565,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |JobEndedSuccess|Processi completati|Conteggio|Totale|Numero di processi completati|Nessuna dimensione|
 |JobEndedFailure|Processi non riusciti|Conteggio|Totale|Numero di processi non riusciti|Nessuna dimensione|
-|JobEndedCanceled|Processi annullati|Conteggio|Totale|Numero di processi annullati.|Nessuna dimensione|
+|JobEndedCancelled|Processi annullati|Conteggio|Totale|Numero di processi annullati.|Nessuna dimensione|
 |JobAUEndedSuccess|Tempo di aggiornamenti automatici con esito positivo|Secondi|Totale|Tempo totale di aggiornamenti automatici per i processi completati|Nessuna dimensione|
 |JobAUEndedFailure|Tempo di aggiornamenti automatici non riusciti|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi non riusciti|Nessuna dimensione|
-|JobAUEndedCanceled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati.|Nessuna dimensione|
+|JobAUEndedCancelled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati.|Nessuna dimensione|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -536,6 +595,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
 |connections_failed|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
+|seconds_behind_master|Intervallo di replica in secondi|Conteggio|Media|Intervallo di replica in secondi|Nessuna dimensione|
+|backup_storage_used|Archivio di backup usato|Byte|Media|Archivio di backup usato|Nessuna dimensione|
 |network_bytes_egress|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
 |network_bytes_ingress|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
 
@@ -555,6 +616,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
 |connections_failed|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
 |seconds_behind_master|Intervallo di replica in secondi|Conteggio|Media|Intervallo di replica in secondi|Nessuna dimensione|
+|backup_storage_used|Archivio di backup usato|Byte|Media|Archivio di backup usato|Nessuna dimensione|
 |network_bytes_egress|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
 |network_bytes_ingress|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
 
@@ -573,6 +635,22 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
 |connections_failed|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
+|backup_storage_used|Archivio di backup usato|Byte|Media|Archivio di backup usato|Nessuna dimensione|
+|network_bytes_egress|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
+|network_bytes_ingress|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
+|pg_replica_log_delay_in_seconds|Replica Lag (Ritardo replica)|Secondi|Massima|Ritardo di replica in pochi secondi|Nessuna dimensione|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas (Ritardo massimo tra repliche)|Byte|Massima|Ritardo in byte di più repliche in ritardo|Nessuna dimensione|
+
+## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
+|memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
+|numero di IOPS|IOPS|Conteggio|Media|Operazioni dei / o al secondo|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
+|active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
 |network_bytes_egress|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
 |network_bytes_ingress|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
 
@@ -637,7 +715,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |jobs.failed|Processi non riusciti|Conteggio|Totale|Numero di tutti i processi non riusciti.|Nessuna dimensione|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors (Numero di errori di limitazione)|Conteggio|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuna dimensione|
 |dailyMessageQuotaUsed|Total number of messages used (Numero totale di messaggi usati)|Conteggio|Media|Numero totale di messaggi usati nella data odierna. Si tratta di un valore cumulativo che viene reimpostato su zero alle 00:00 UTC ogni giorno.|Nessuna dimensione|
-|deviceDataUsage|Uso totale devicedata (deprecato)|Byte|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
+|deviceDataUsage|Uso totale dati dispositivi (deprecato)|Byte|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
 |deviceDataUsageV2|Uso totale dei dati del dispositivo (anteprima)|Byte|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
 |totalDeviceCount|Dispositivi totali (anteprima)|Conteggio|Media|Il numero di dispositivi registrati nell'hub IoT|Nessuna dimensione|
 |connectedDeviceCount|Dispositivi connessi (anteprima)|Conteggio|Media|Il numero di dispositivi connessi all'hub IoT|Nessuna dimensione|
@@ -653,59 +731,33 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-### <a name="request-metrics"></a>Metriche per le richieste
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
-|---|---|---|---|---|---| ---| ---| ---|
-| TotalRequests |   Totale richieste| Conteggio   | Conteggio | Numero di richieste eseguite|  DatabaseName, CollectionName, Region, StatusCode|   Tutti |   Totale richieste, Http 2xx, Http 3xx, Http 400, Http 401, Errore server interno, Servizio non disponibile, Richieste limitate, Media richieste al secondo |    Usata per monitorare le richieste per codice di stato, raccolta con una granularità di un minuto. Per ottenere la media delle richieste al secondo, usare il tipo di aggregazione Conteggio al minuto e dividere per 60. |
-| MetadataRequests |    Metadata Requests (Richieste di metadati)   |Conteggio| Conteggio   | Conteggio delle richieste di metadati. Azure Cosmos DB gestisce la raccolta dei metadati di sistema per ogni account, consentendo di enumerare le raccolte, i database e altri elementi, insieme alle relative configurazioni, senza alcun costo.    | DatabaseName, CollectionName, Region, StatusCode| Tutti|  |Usata per monitorare le limitazioni dovute a richieste di metadati.|
-| MongoRequests |   Richieste Mongo| Conteggio | Conteggio|  Numero di richieste Mongo eseguite   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tutti |Mongo Query Request Rate (Frequenza richieste di query Mongo), Mongo Update Request Rate (Frequenza richieste di aggiornamento Mongo), Mongo Delete Request Rate (Frequenza richieste di eliminazione Mongo), Mongo Insert Request Rate (Frequenza richieste di inserimento Mongo), Mongo Count Request Rate (Frequenza richieste di conteggio Mongo)|   Usata per monitore gli errori delle richieste Mongo, utilizzi per tipo di comando. |
-
-### <a name="request-unit-metrics"></a>Metriche delle unità richiesta
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
-|---|---|---|---|---|---| ---| ---| ---|
-| MongoRequestCharge|   Mongo Request Charge (Addebito richiesta Mongo) |  Conteggio   |Totale  |Unità richiesta Mongo utilizzate|  DatabaseName, CollectionName, Region, CommandName, ErrorCode|   Tutti |Mongo Query Request Charge (Addebito richieste di query Mongo), Mongo Update Request Charge (Addebito richieste di aggiornamento Mongo), Mongo Delete Request Charge (Addebito richieste di eliminazione Mongo), Mongo Insert Request Charge (Addebito richieste di inserimento Mongo), Mongo Count Request Charge (Addebito richieste di conteggio Mongo)| Usata per monitorare le unità richiesta Mongo in un minuto.|
-| TotalRequestUnits |Total Request Units (Unità richiesta totali)|   Conteggio|  Totale|  Unità richiesta utilizzate| DatabaseName, CollectionName, Region, StatusCode    |Tutti|   TotalRequestUnits|  Usata per monitorare l'utilizzo delle unità richiesta totali con una granularità di un minuto. Per ottenere la media delle unità richiesta utilizzate al secondo, usare il tipo di aggregazione Totale al minuto e dividere per 60.|
-| ProvisionedThroughput |Velocità effettiva sottoposta a provisioning|    Conteggio|  Massima |Velocità effettiva sottoposta a provisioning con granularità per raccolta|  DatabaseName, CollectionName|   5M| |   Usata per monitorare la velocità effettiva sottoposta a provisioning per raccolta.|
-
-### <a name="storage-metrics"></a>Metriche di archiviazione
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
-|---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Spazio di archiviazione disponibile   |Byte| Totale|  Spazio di archiviazione totale disponibile segnalato con una granularità di 5 minuti per area|   DatabaseName, CollectionName, Region|   5M| Spazio di archiviazione disponibile|   Usata per monitorare la capacità di archiviazione disponibile (applicabile solo per le raccolte di archiviazioni fisse). La granularità minima deve essere di 5 minuti.|
-| DataUsage |Utilizzo dei dati |Byte| Totale   |Utilizzo dei dati totale segnalato con una granularità di 5 minuti per area|    DatabaseName, CollectionName, Region|   5M  |Dimensioni dei dati  | Usata per monitorare l'utilizzo dei dati totale per raccolta e area. La granularità minima deve essere di 5 minuti.|
-| IndexUsage|   Utilizzo indice|    Byte|  Totale   |Utilizzo totale dell'indice segnalato con una granularità di 5 minuti per area|    DatabaseName, CollectionName, Region|   5M| Dimensioni dell'indice| Usata per monitorare l'utilizzo dei dati totale per raccolta e area. La granularità minima deve essere di 5 minuti. |
-| DocumentQuota|    Quota documenti| Byte|  Totale|  Quota di archiviazione totale disponibile segnalata con una granularità di 5 minuti per area. Applicabile per le raccolte di archiviazione predefinito| DatabaseName, CollectionName, Region|   5M  |Capacità di archiviazione|  Usata per monitorare la quota totale per raccolta e area. La granularità minima deve essere di 5 minuti.|
-| DocumentCount|    Conteggio documenti| Conteggio   |Totale  |Conteggio totale dei documenti segnalato con una granularità di 5 minuti per area|  DatabaseName, CollectionName, Region|   5M  |Conteggio documenti|Usata per monitorare il conteggio dei documenti per raccolta e area. La granularità minima deve essere di 5 minuti.|
-
-### <a name="latency-metrics"></a>Metriche di latenza
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Uso |
-|---|---|---|---|---|---| ---| ---|
-| ReplicationLatency    | Latenza di replica|  Millisecondi|   Minima,Massima,Media | Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica| SourceRegion, TargetRegion| Tutti | Usata per monitorare la latenza di replica P99 tra due aree per un account abilitato per la replica geografica. |
-
-### <a name="availability-metrics"></a>Metriche di disponibilità
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
-|---|---|---|---|---|---| ---| ---| ---|
-| ServiceAvailability   | Disponibilità del servizio| Percentuale |Minima,Massima|   Disponibilità delle richieste di account con una granularità di un'ora|  |   1H  | Disponibilità del servizio  | Percentuale delle richieste totali passate. Una richiesta viene considerata non riuscita a causa di un errore di sistema se il codice di stato è 410, 500 o 503. Usata per monitorare la disponibilità dell'account con una granularità di un'ora. |
-
-### <a name="cassandra-api-metrics"></a>Metriche dell'API Cassandra
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Uso |
-|---|---|---|---|---|---| ---| ---|
-| CassandraRequests | Richieste di Cassandra |  Conteggio|  Conteggio|  Numero di richieste dell'API Cassandra|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Tutti| Usata per monitorare le richieste di Cassandra con una granularità di un minuto. Per ottenere la media delle richieste al secondo, usare il tipo di aggregazione Conteggio al minuto e dividere per 60.|
-| CassandraRequestCharges|  Addebiti richieste Cassandra| Conteggio|   Somma, Min, Max, Media| Unità richiesta utilizzate dalle richieste dell'API Cassandra|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Tutti| Usata per monitorare le UR usate al minuto da un account dell'API Cassandra.|
-| CassandraConnectionClosures   | Chiusure di connessione Cassandra |Conteggio| Conteggio   |Numero di connessioni a Cassandra chiuse|    ClosureReason, Region|  Tutti | Usata per monitorare la connettività tra i client e l'API Cassandra di Azure Cosmos DB.|
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|AvailableStorage|Spazio di archiviazione disponibile|Byte|Totale|Archiviazione totale segnalati con una granularità di 5 minuti|Area CollectionName, DatabaseName,|
+|CassandraConnectionClosures|Chiusure di connessione Cassandra|Conteggio|Totale|Numero di connessioni di Cassandra che sono stati chiusi, viene segnalato a una granularità di 1 minuto|Area, ClosureReason|
+|CassandraRequestCharges|Addebiti richieste Cassandra|Conteggio|Totale|Unità richiesta consumate per le richieste di Cassandra|DatabaseName, CollectionName, Region, OperationType, ResourceType|
+|CassandraRequests|Richieste di Cassandra|Conteggio|Conteggio|Numero di richieste di Cassandra|DatabaseName, CollectionName, area, OperationType, ResourceType, codice di errore|
+|DataUsage|Utilizzo dei dati|Byte|Totale|Utilizzo dati totale segnalati con una granularità di 5 minuti|Area CollectionName, DatabaseName,|
+|DocumentCount|Conteggio documenti|Conteggio|Totale|Numero totale di documenti segnalato con una granularità di 5 minuti|Area CollectionName, DatabaseName,|
+|DocumentQuota|Quota documenti|Byte|Totale|Quota di archiviazione totale segnalati con una granularità di 5 minuti|Area CollectionName, DatabaseName,|
+|IndexUsage|Utilizzo indice|Byte|Totale|Utilizzo della totali dell'indice indicato con una granularità di 5 minuti|Area CollectionName, DatabaseName,|
+|MetadataRequests|Metadata Requests (Richieste di metadati)|Conteggio|Conteggio|Conteggio delle richieste di metadati. Cosmos DB gestisce la raccolta dei metadati di sistema per ogni account, consentendo di enumerare le raccolte, i database e così via e le relative configurazioni gratuitamente.|DatabaseName, CollectionName, area, StatusCode, |
+|MongoRequestCharge|Mongo Request Charge (Addebito richiesta Mongo)|Conteggio|Totale|Unità richiesta Mongo utilizzate|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|MongoRequests|Richieste Mongo|Conteggio|Conteggio|Numero di richieste Mongo eseguite|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|ProvisionedThroughput|Velocità effettiva sottoposta a provisioning|Conteggio|Massima|Velocità effettiva sottoposta a provisioning|DatabaseName, CollectionName|
+|ReplicationLatency|Livello P99 Latenza di replica|Millisecondi|Media|Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica|SourceRegion, TargetRegion|
+|ServiceAvailability|Disponibilità del servizio|Percentuale|Media|Disponibilità dell'account di richieste con una granularità di un'ora, giorno o mese|Nessuna dimensione|
+|TotalRequestUnits|Total Request Units (Unità richiesta totali)|Conteggio|Totale|Unità richiesta utilizzate|DatabaseName, CollectionName, area, StatusCode, OperationType|
+|TotalRequests|Totale richieste|Conteggio|Conteggio|Numero di richieste eseguite|DatabaseName, CollectionName, area, StatusCode, OperationType|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Eventi pubblicati|Conteggio|Totale|Numero totale di eventi pubblicati in questo argomento|Nessuna dimensione|
-|PublishFailCount|Eventi non riusciti|Conteggio|Totale|Numero totale di eventi che non è stato possibile pubblicare in questo argomento|ErrorType, Error|
+|PublishFailCount|Pubblicare eventi non riusciti|Conteggio|Totale|Numero totale di eventi che non è stato possibile pubblicare in questo argomento|ErrorType, Error|
 |UnmatchedEventCount|Eventi senza corrispondenza|Conteggio|Totale|Totale eventi non corrispondenti ad alcuna sottoscrizione di eventi per questo argomento|Nessuna dimensione|
+|PublishSuccessLatencyInMs|Pubblicare latenza operazioni riuscite|Conteggio|Totale|Pubblicare la latenza di esito positivo in millisecondi|Nessuna dimensione|
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
@@ -715,7 +767,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |DeliveryAttemptFailCount|Eventi con recapito non riuscito|Conteggio|Totale|Numero totale di eventi con recapito non riuscito a questa sottoscrizione di eventi|Error, ErrorType|
 |DeliverySuccessCount|Eventi recapitati|Conteggio|Totale|Totali eventi recapitati a questa sottoscrizione di eventi|Nessuna dimensione|
 |DestinationProcessingDurationInMs|Durata di elaborazione della destinazione|Millisecondi|Media|Durata di elaborazione della destinazione in millisecondi|Nessuna dimensione|
-|DroppedEventCount|Eventi eliminati|Conteggio|Totale|Totali eventi eliminati corrispondenti a questa sottoscrizione di eventi|Nessuna dimensione|
+|DroppedEventCount|Eventi eliminati|Conteggio|Totale|Totali eventi eliminati corrispondenti a questa sottoscrizione di eventi|DropReason|
 |DeadLetteredCount|Eventi di messaggi non recapitati|Conteggio|Totale|Totale eventi di messaggi non recapitati che corrispondono a questa sottoscrizione di eventi|DeadLetterReason|
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
@@ -725,45 +777,46 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |PublishSuccessCount|Eventi pubblicati|Conteggio|Totale|Numero totale di eventi pubblicati in questo argomento|Nessuna dimensione|
 |PublishFailCount|Eventi non riusciti|Conteggio|Totale|Numero totale di eventi che non è stato possibile pubblicare in questo argomento|ErrorType, Error|
 |UnmatchedEventCount|Eventi senza corrispondenza|Conteggio|Totale|Totale eventi non corrispondenti ad alcuna sottoscrizione di eventi per questo argomento|Nessuna dimensione|
+|PublishSuccessLatencyInMs|Pubblicare latenza operazioni riuscite|Conteggio|Totale|Pubblicare la latenza di esito positivo in millisecondi|Nessuna dimensione|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Richieste completate (anteprima)|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub. (Anteprima)|EntityName|
-|ServerErrors|Errori server. (Anteprima)|Conteggio|Totale|Errori del server per Microsoft.EventHub. (Anteprima)|EntityName|
-|UserErrors|Errori utente. (Anteprima)|Conteggio|Totale|Errori utente per Microsoft.EventHub. (Anteprima)|EntityName|
-|QuotaExceededErrors|Errori di superamento quota. (Anteprima)|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub. (Anteprima)|EntityName|
-|ThrottledRequests|Richieste limitate. (Anteprima)|Conteggio|Totale|Richieste limitate per Microsoft.EventHub. (Anteprima)|EntityName|
-|IncomingRequests|Richieste in ingresso (anteprima)|Conteggio|Totale|Richieste in ingresso per Microsoft.EventHub. (Anteprima)|EntityName|
-|IncomingMessages|Messaggi in ingresso (anteprima)|Conteggio|Totale|Messaggi in ingresso per Microsoft.EventHub. (Anteprima)|EntityName|
-|OutgoingMessages|Messaggi in uscita (anteprima)|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub. (Anteprima)|EntityName|
-|IncomingBytes|Byte in ingresso. (Anteprima)|Byte|Totale|Byte in ingresso per Microsoft.EventHub. (Anteprima)|EntityName|
-|OutgoingBytes|Byte in uscita. (Anteprima)|Byte|Totale|Byte in uscita per Microsoft.EventHub. (Anteprima)|EntityName|
-|ActiveConnections|ActiveConnections (anteprima)|Conteggio|Media|Totale connessioni attive per Microsoft.EventHub. (Anteprima)|Nessuna dimensione|
-|ConnectionsOpened|Connessioni aperte. (Anteprima)|Conteggio|Media|Connessioni aperte per Microsoft.EventHub. (Anteprima)|EntityName|
-|ConnectionsClosed|Connessioni chiuse. (Anteprima)|Conteggio|Media|Connessioni chiuse per Microsoft.EventHub. (Anteprima)|EntityName|
-|CaptureBacklog|Backlog acquisiti. (Anteprima)|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
-|CapturedMessages|Messaggi acquisiti. (Anteprima)|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
-|CapturedBytes|Byte acquisiti. (Anteprima)|Byte|Totale|Byte acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
-|Dimensione|Dimensione (anteprima)|Byte|Media|Dimensioni di un hub eventi in byte. (Anteprima)|EntityName|
-|INREQS|Richieste in ingresso|Conteggio|Totale|Totale richieste di invio in ingresso per uno spazio dei nomi|Nessuna dimensione|
-|SUCCREQ|Richieste riuscite|Conteggio|Totale|Richieste riuscite totali per uno spazio dei nomi|Nessuna dimensione|
-|FAILREQ|Richieste non riuscite|Conteggio|Totale|Richieste non riuscite totali per uno spazio dei nomi|Nessuna dimensione|
-|SVRBSY|Errori server occupato|Conteggio|Totale|Errori di server occupato totali per uno spazio dei nomi|Nessuna dimensione|
-|INTERR|Errori interni server|Conteggio|Totale|Errori di server interni totali per uno spazio dei nomi|Nessuna dimensione|
-|MISCERR|Altri errori|Conteggio|Totale|Richieste non riuscite totali per uno spazio dei nomi|Nessuna dimensione|
-|INMSGS|Messaggi in ingresso (deprecata)|Conteggio|Totale|Totale messaggi in ingresso per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica Messaggi in ingresso|Nessuna dimensione|
-|EHINMSGS|Messaggi in ingresso|Conteggio|Totale|Messaggi in ingresso totali per uno spazio dei nomi|Nessuna dimensione|
-|OUTMSGS|Messaggi in uscita (deprecata)|Conteggio|Totale|Totale messaggi in uscita per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica Messaggi in uscita|Nessuna dimensione|
-|EHOUTMSGS|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita totali per uno spazio dei nomi|Nessuna dimensione|
-|EHINMBS|Byte in ingresso (deprecata)|Byte|Totale|Velocità effettiva dei messaggi in ingresso dell'hub eventi per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica Byte in ingresso|Nessuna dimensione|
-|EHINBYTES|Byte in ingresso|Byte|Totale|Velocità effettiva dei messaggi in ingresso di Hub eventi per uno spazio dei nomi|Nessuna dimensione|
-|EHOUTMBS|Byte in uscita (deprecata)|Byte|Totale|Velocità effettiva dei messaggi in uscita dell'hub eventi per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica Byte in uscita|Nessuna dimensione|
-|EHOUTBYTES|Byte in uscita|Byte|Totale|Velocità effettiva dei messaggi in uscita dell'hub eventi per uno spazio dei nomi|Nessuna dimensione|
-|EHABL|Messaggi backlog archiviati|Conteggio|Totale|Messaggi archiviati di Hub eventi nel backlog per uno spazio dei nomi|Nessuna dimensione|
-|EHAMSGS|Messaggi archiviati|Conteggio|Totale|Messaggi archiviati di Hub eventi in uno spazio dei nomi|Nessuna dimensione|
-|EHAMBS|Velocità effettiva messaggi archiviati|Byte|Totale|Velocità effettiva dei messaggi archiviati di Hub eventi in uno spazio dei nomi|Nessuna dimensione|
+|SuccessfulRequests|Richieste riuscite|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub.|EntityName, |
+|ServerErrors|Errori server.|Conteggio|Totale|Errori del server per Microsoft.EventHub.|EntityName, |
+|UserErrors|Errori utente.|Conteggio|Totale|Errori utente per Microsoft.EventHub.|EntityName, |
+|QuotaExceededErrors|Errori di superamento quota.|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub.|EntityName, |
+|ThrottledRequests|Richieste limitate.|Conteggio|Totale|Richieste limitate per Microsoft.EventHub.|EntityName, |
+|IncomingRequests|Richieste in ingresso|Conteggio|Totale|Richieste in ingresso per Microsoft.EventHub.|EntityName|
+|IncomingMessages|Messaggi in ingresso|Conteggio|Totale|Messaggi in ingresso per Microsoft.EventHub.|EntityName|
+|OutgoingMessages|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub.|EntityName|
+|IncomingBytes|Byte in ingresso.|Byte|Totale|Byte in ingresso per Microsoft.EventHub.|EntityName|
+|OutgoingBytes|Byte in uscita.|Byte|Totale|Byte in uscita per Microsoft.EventHub.|EntityName|
+|ActiveConnections|ActiveConnections|Conteggio|Media|Totale connessioni attive per Microsoft.EventHub.|Nessuna dimensione|
+|ConnectionsOpened|Connessioni aperte.|Conteggio|Media|Connessioni aperte per Microsoft.EventHub.|EntityName|
+|ConnectionsClosed|Connessioni chiuse.|Conteggio|Media|Connessioni chiuse per Microsoft.EventHub.|EntityName|
+|CaptureBacklog|Backlog acquisiti.|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub.|EntityName|
+|CapturedMessages|Messaggi acquisiti.|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub.|EntityName|
+|CapturedBytes|Byte acquisiti.|Byte|Totale|Byte acquisiti per Microsoft.EventHub.|EntityName|
+|Dimensione|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|EntityName|
+|INREQS|Richieste in ingresso (deprecate)|Conteggio|Totale|Totale in ingresso Invia le richieste di uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|SUCCREQ|Richieste riuscite (deprecate)|Conteggio|Totale|Richieste riuscite totali per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|FAILREQ|Richieste non riuscite (deprecate)|Conteggio|Totale|Totale richieste non riuscite per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|SVRBSY|Errori server occupato (deprecati)|Conteggio|Totale|Totale errori del server occupato per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|INTERR|Errori interni del Server (deprecati)|Conteggio|Totale|Errori server interni totali per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|MISCERR|Altri errori (deprecate)|Conteggio|Totale|Totale richieste non riuscite per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|INMSGS|Messaggi in ingresso (deprecata) (deprecati)|Conteggio|Totale|Totale messaggi in ingresso per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica messaggi in ingresso (deprecata)|Nessuna dimensione|
+|EHINMSGS|Messaggi in ingresso (deprecata)|Conteggio|Totale|Totali messaggi in ingresso per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|OUTMSGS|Messaggi in uscita (deprecati) (deprecati)|Conteggio|Totale|Totale messaggi in uscita per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica messaggi in uscita (deprecata)|Nessuna dimensione|
+|EHOUTMSGS|Messaggi in uscita (deprecata)|Conteggio|Totale|Totale messaggi in uscita per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|EHINMBS|Byte in ingresso (deprecata) (deprecata)|Byte|Totale|Velocità effettiva dei messaggi in ingresso dell'hub eventi per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica byte in ingresso (deprecata)|Nessuna dimensione|
+|EHINBYTES|Byte in ingresso (deprecata)|Byte|Totale|Dell'Hub eventi in arrivo messaggio elaborati per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|EHOUTMBS|Byte in uscita (deprecata) (deprecata)|Byte|Totale|Velocità effettiva dei messaggi in uscita dell'hub eventi per uno spazio dei nomi. Questa metrica è deprecata. Usare la metrica byte in uscita (deprecata)|Nessuna dimensione|
+|EHOUTBYTES|Byte in uscita (deprecata)|Byte|Totale|Dell'Hub eventi in uscita messaggi elaborati per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|EHABL|Archiviazione backlog messaggi (deprecata)|Conteggio|Totale|Messaggi archiviati di Hub eventi in backlog per uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|EHAMSGS|Messaggi archiviati (deprecata)|Conteggio|Totale|Hub eventi di messaggi archiviati in uno spazio dei nomi (deprecata)|Nessuna dimensione|
+|EHAMBS|Velocità effettiva messaggi archiviati (deprecata)|Byte|Totale|Velocità effettiva dei messaggi archiviati dell'Hub eventi in uno spazio dei nomi (deprecata)|Nessuna dimensione|
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
@@ -794,6 +847,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |GatewayRequests|Richieste del gateway|Conteggio|Totale|Numero di richieste del gateway|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Richieste del gateway per categoria|Conteggio|Totale|Numero di richieste del gateway per categoria (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
+|Autoscale|Metrica di scalabilità automatica|Conteggio|Massima|Metrica di scalabilità automatica|ClusterDnsName, MetricName|
+|AllocatedMB|MB allocati|Conteggio|Massima|MB allocati|ClusterDnsName, MetricName|
+|AvailableMB|MB disponibili|Conteggio|Massima|MB disponibili|ClusterDnsName, MetricName|
+|AppsPending|App in sospeso|Conteggio|Massima|App in sospeso|ClusterDnsName, MetricName|
+|AppsRunning|App in esecuzione|Conteggio|Massima|App in esecuzione|ClusterDnsName, MetricName|
+|AppsSubmitted|App inviate|Conteggio|Massima|App inviate|ClusterDnsName, MetricName|
+|NumActiveWorkers|Numero di thread di lavoro attivi|Conteggio|Massima|Numero di thread di lavoro attivi|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
@@ -810,9 +870,9 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|availabilityResults/duration|Durata test|Millisecondi|Media|Durata test|availabilityResult/name, availabilityResult/location, availabilityResult/success|
-|billingMeters/telemetryCount|Numero di punti dati|Conteggio|Totale|Numero di punti dati inviati a questa risorsa di Application Insights. Questa metrica viene elaborata con una latenza massima di due ore.|billing/telemetryItemType, billing/telemetryItemSource|
-|billingMeters/telemetrySize|Volume dei punti dati|Byte|Totale|Volume dei dati inviati a questa risorsa di Application Insights. Questa metrica viene elaborata con una latenza massima di due ore.|billing/telemetryItemType, billing/telemetryItemSource|
+|availabilityResults/availabilityPercentage|Disponibilità|Percentuale|Media|Percentuale di test di disponibilità completati correttamente|availabilityResult availabilityResult/nome, e un percorso|
+|availabilityResults/count|Test della disponibilità|Conteggio|Conteggio|Numero di test di disponibilità|availabilityResult/name, availabilityResult/location, availabilityResult/success|
+|availabilityResults/duration|Durata del test di disponibilità|Millisecondi|Media|Durata del test di disponibilità|availabilityResult/name, availabilityResult/location, availabilityResult/success|
 |browserTimings/networkDuration|Tempo di connessione alla rete per il caricamento della pagina|Millisecondi|Media|Tempo tra la richiesta utente e la connessione di rete. Include la connessione di trasporto e di ricerca DNS.|Nessuna dimensione|
 |browserTimings/processingDuration|Tempo di elaborazione client|Millisecondi|Media|Tempo compreso tra la ricezione dell'ultimo byte di un documento e il caricamento del DOM. Le richieste asincrone potrebbero essere ancora in fase di elaborazione.|Nessuna dimensione|
 |browserTimings/receiveDuration|Tempo per la ricezione della risposta|Millisecondi|Media|Tempo compreso tra il primo e l'ultimo byte o fino alla disconnessione.|Nessuna dimensione|
@@ -820,7 +880,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |browserTimings/totalDuration|Tempo di caricamento della pagina del browser|Millisecondi|Media|Tempo compreso tra la richiesta utente e il caricamento di DOM, fogli di stile, script e immagini.|Nessuna dimensione|
 |dependencies/count|Chiamate di dipendenza|Conteggio|Conteggio|Numero delle chiamate eseguite dall'applicazione alle risorse esterne.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |dependencies/duration|Durata della dipendenza|Millisecondi|Media|Durata delle chiamate eseguite dall'applicazione alle risorse esterne.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|dependencies/failed|Errori di dipendenze|Conteggio|Conteggio|Numero di chiamate di dipendenza non riuscite eseguite dall'applicazione alle risorse esterne.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/failed|Errori di chiamate di dipendenza|Conteggio|Conteggio|Numero di chiamate di dipendenza non riuscite eseguite dall'applicazione alle risorse esterne.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |pageViews/count|Visualizzazioni pagina|Conteggio|Conteggio|Numero delle visualizzazioni di pagina.|operation/synthetic|
 |pageViews/duration|Tempo di caricamento della visualizzazione pagina|Millisecondi|Media|Tempo di caricamento della visualizzazione pagina|operation/synthetic|
 |performanceCounters/requestExecutionTime|Tempo di esecuzione della richiesta HTTP|Millisecondi|Media|Tempo di esecuzione della richiesta più recente.|cloud/roleInstance|
@@ -835,10 +895,11 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |requests/duration|Tempo di risposta del server|Millisecondi|Media|Tempo compreso tra la ricezione di una richiesta HTTP e il completamento dell'invio della risposta.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/count|Richieste server|Conteggio|Conteggio|Numero delle richieste HTTP completate.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/failed|Richieste non riuscite|Conteggio|Conteggio|Numero delle richieste HTTP contrassegnate come non riuscite. Nella maggior parte dei casi si tratta di richieste con un codice di risposta maggiore o uguale a 400 e diverso da 401.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|exceptions/count|Eccezioni|Conteggio|Totale|Numero combinato di tutte le eccezioni non rilevate.|cloud/roleName, cloud/roleInstance, client/type|
-|exceptions/browser|Eccezioni del browser|Conteggio|Totale|Conteggio delle eccezioni non rilevate generate nel browser.|Nessuna dimensione|
-|exceptions/server|Eccezioni del server|Conteggio|Totale|Numero delle eccezioni non rilevate generate nell'applicazione server.|cloud/roleName, cloud/roleInstance|
-|traces/count|Numero di analisi|Conteggio|Totale|Numero documenti di analisi|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
+|requests/rate|Frequenza delle richieste server|Conteggio al secondo|Media|Frequenza delle richieste server al secondo|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|exceptions/count|Eccezioni|Conteggio|Conteggio|Numero combinato di tutte le eccezioni non rilevate.|cloud/roleName, cloud/roleInstance, client/type|
+|exceptions/browser|Eccezioni del browser|Conteggio|Conteggio|Conteggio delle eccezioni non rilevate generate nel browser.|Nessuna dimensione|
+|exceptions/server|Eccezioni del server|Conteggio|Conteggio|Numero delle eccezioni non rilevate generate nell'applicazione server.|cloud/roleName, cloud/roleInstance|
+|traces/count|Tracce|Conteggio|Conteggio|Numero documenti di analisi|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
@@ -857,8 +918,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IngestionsLoadFactor|Uso dell'inserimento|Percentuale|Media|Percentuale di slot di inserimento usati nel cluster|Nessuna dimensione|
 |IsEngineAnsweringQuery|Keep-alive|Conteggio|Media|Test di integrità che indica che il cluster risponde alle query|Nessuna dimensione|
 |IngestCommandOriginalSizeInMb|Volume di inserimento (in MB)|Conteggio|Totale|Volume complessivo dei dati inseriti nel cluster (in MB)|Nessuna dimensione|
-|EventAgeSeconds|Latenza di inserimento (in secondi)|Secondi|Media|Tempo di inserimento dall'origine (ad esempio messaggio in EventHub) nel cluster in secondi|Nessuna dimensione|
-|EventReceivedFromEventHub|Eventi elaborati (per gli hub eventi)|Conteggio|Totale|Numero di eventi elaborati dal cluster durante l'inserimento dall'hub eventi|Nessuna dimensione|
+|IngestedEventAgeSeconds|Latenza di inserimento (in secondi)|Secondi|Media|Tempo di inserimento dall'origine (ad esempio messaggio in EventHub) nel cluster in secondi|Nessuna dimensione|
+|EventRecievedFromEventHub|Eventi elaborati (per gli hub eventi)|Conteggio|Totale|Numero di eventi elaborati dal cluster durante l'inserimento dall'hub eventi|Nessuna dimensione|
 |IngestionResult|Risultato inserimento|Conteggio|Conteggio|Numero di operazioni di inserimento|IngestionResultDetails|
 |EngineCPU|CPU|Percentuale|Media|Livello di uso della CPU|Nessuna dimensione|
 
@@ -876,7 +937,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |RunsCompleted|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
 |RunsSucceeded|Esecuzioni riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunsFailed|Esecuzioni non riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
-|RunsCanceled|Esecuzioni annullate|Conteggio|Totale|Numero di flussi di lavoro esecuzioni annullata.|Nessuna dimensione|
+|RunsCancelled|Esecuzioni annullate|Conteggio|Totale|Numero di flussi di lavoro esecuzioni annullata.|Nessuna dimensione|
 |RunLatency|Latenza esecuzioni|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
 |RunSuccessLatency|Latenza esecuzioni riuscite|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunThrottledEvents|Eventi limitati esecuzione|Conteggio|Totale|Il numero di eventi limitati di trigger o azione del flusso di lavoro.|Nessuna dimensione|
@@ -908,6 +969,58 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |BillingUsageNativeOperation|Uso fatturazione per esecuzioni di operazioni native|Conteggio|Totale|Numero di esecuzioni di operazioni native fatturate.|Nessuna dimensione|
 |BillingUsageStandardConnector|Uso fatturazione per esecuzioni del connettore standard|Conteggio|Totale|Numero di esecuzioni del connettore standard fatturate.|Nessuna dimensione|
 |BillingUsageStorageConsumption|Uso fatturazione per esecuzioni con uso dell'archiviazione|Conteggio|Totale|Numero di esecuzioni con uso dell'archiviazione fatturate.|Nessuna dimensione|
+
+## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|RunsStarted|Esecuzioni avviate|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro avviate.|Nessuna dimensione|
+|RunsCompleted|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
+|RunsSucceeded|Esecuzioni riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
+|RunsFailed|Esecuzioni non riuscite|Conteggio|Totale|Il numero di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
+|RunsCancelled|Esecuzioni annullate|Conteggio|Totale|Numero di flussi di lavoro esecuzioni annullata.|Nessuna dimensione|
+|RunLatency|Latenza esecuzioni|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
+|RunSuccessLatency|Latenza esecuzioni riuscite|Secondi|Media|La latenza delle esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
+|RunThrottledEvents|Eventi limitati esecuzione|Conteggio|Totale|Il numero di eventi limitati di trigger o azione del flusso di lavoro.|Nessuna dimensione|
+|RunStartThrottledEvents|Eventi di avvio esecuzione limitati|Conteggio|Totale|Numero di eventi di avvio esecuzione del flusso di lavoro limitati.|Nessuna dimensione|
+|RunFailurePercentage|Percentuale di errori di esecuzione|Percentuale|Totale|Percentuale di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
+|ActionsStarted|Azioni avviate |Conteggio|Totale|Il numero di azioni del flusso di lavoro avviate.|Nessuna dimensione|
+|ActionsCompleted|Azioni completate |Conteggio|Totale|Il numero di azioni del flusso di lavoro completate.|Nessuna dimensione|
+|ActionsSucceeded|Azioni riuscite |Conteggio|Totale|Il numero di azioni del flusso di lavoro riuscite.|Nessuna dimensione|
+|ActionsFailed|Azioni non riuscite |Conteggio|Totale|Il numero di azioni del flusso di lavoro non riuscite.|Nessuna dimensione|
+|ActionsSkipped|Azioni ignorate |Conteggio|Totale|Il numero di azioni del flusso di lavoro ignorate.|Nessuna dimensione|
+|ActionLatency|Latenza azioni |Secondi|Media|La latenza delle azioni del flusso di lavoro completate.|Nessuna dimensione|
+|ActionSuccessLatency|Latenza azioni riuscite |Secondi|Media|La latenza delle azioni del flusso di lavoro riuscite.|Nessuna dimensione|
+|ActionThrottledEvents|Eventi limitati azione|Conteggio|Totale|Il numero di eventi limitati di azione del flusso di lavoro.|Nessuna dimensione|
+|TriggersStarted|Trigger avviati |Conteggio|Totale|Il numero di trigger del flusso di lavoro avviati.|Nessuna dimensione|
+|TriggersCompleted|Trigger completati |Conteggio|Totale|Il numero di trigger del flusso di lavoro completati.|Nessuna dimensione|
+|TriggersSucceeded|Trigger riusciti |Conteggio|Totale|Il numero di trigger del flusso di lavoro riusciti.|Nessuna dimensione|
+|TriggersFailed|Trigger non riusciti |Conteggio|Totale|Il numero di trigger del flusso di lavoro non riusciti.|Nessuna dimensione|
+|TriggersSkipped|Trigger ignorati|Conteggio|Totale|Il numero di trigger del flusso di lavoro ignorati.|Nessuna dimensione|
+|TriggersFired|Trigger rimossi |Conteggio|Totale|Il numero di trigger del flusso di lavoro rimossi.|Nessuna dimensione|
+|TriggerLatency|Latenza trigger |Secondi|Media|La latenza dei trigger del flusso di lavoro completati.|Nessuna dimensione|
+|TriggerFireLatency|Latenza trigger rimossi |Secondi|Media|La latenza dei trigger del flusso di lavoro rimossi.|Nessuna dimensione|
+|TriggerSuccessLatency|Latenza trigger riusciti |Secondi|Media|La latenza dei trigger del flusso di lavoro riusciti.|Nessuna dimensione|
+|TriggerThrottledEvents|Eventi limitati trigger|Conteggio|Totale|Il numero di eventi limitati di trigger del flusso di lavoro.|Nessuna dimensione|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+
+## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|Esecuzioni completate|Esecuzioni completate|Conteggio|Totale|Numero di esecuzioni completate correttamente per questa area di lavoro|Scenario|
+|Esecuzione avviate|Esecuzione avviate|Conteggio|Totale|Numero di esecuzioni avviate per questa area di lavoro|Scenario|
+|Esecuzioni non riuscite|Esecuzioni non riuscite|Conteggio|Totale|Numero di esecuzioni non riuscito per questa area di lavoro|Scenario|
+
+## <a name="microsoftmapsaccounts"></a>Microsoft.Maps/accounts
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|Uso|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Disponibilità|Disponibilità|Percentuale|Media|Disponibilità delle API|ApiCategory, ApiName|
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/Volumes
 
@@ -1007,6 +1120,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |PacketCount|Numero di pacchetti|Conteggio|Totale|Numero totale di pacchetti trasmessi nel periodo di tempo|Port, Direction|
 |SynCount|Numero di SYN|Conteggio|Totale|Numero totale di pacchetti SYN trasmessi nel periodo di tempo|Port, Direction|
 
+## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|ApplicationRuleHit|Numero di riscontri delle regole di applicazione|Conteggio|Totale|Numero di volte in cui sono stati riscontri delle regole di applicazione|Status, Reason, Protocol|
+|NetworkRuleHit|Numero di passaggi di regole di rete|Conteggio|Totale|Numero di volte in cui sono stati riscontri delle regole di rete|Status, Reason, Protocol|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
@@ -1018,6 +1138,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |FailedRequests|Richieste non riuscite|Conteggio|Totale|Numero di richieste non riuscite restituite dal gateway applicazione|BackendSettingsPool|
 |ResponseStatus|Stato della risposta|Conteggio|Totale|Stato della risposta HTTP restituito dal gateway applicazione|HttpStatusGroup|
 |CurrentConnections|Current Connections (Connessioni correnti)|Conteggio|Totale|Numero di connessioni correnti stabilite con il gateway applicazione|Nessuna dimensione|
+|CapacityUnits|Unità di capacità correnti|Conteggio|Media|Unità di capacità usate|Nessuna dimensione|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -1025,7 +1146,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |AverageBandwidth|Larghezza di banda S2S gateway|Byte al secondo|Media|Larghezza di banda media da sito a sito per un gateway in byte al secondo|Nessuna dimensione|
 |P2SBandwidth|Larghezza di banda per connessione da punto a sito gateway|Byte al secondo|Media|Larghezza di banda media per connessione da punto a sito per un gateway in byte al secondo|Nessuna dimensione|
-|P2SConnectionCount|Numero di connessioni da punto a sito|Conteggio|Massima|Numero di connessioni da punto a sito di un gateway|Protocollo|
+|P2SConnectionCount|Numero di connessioni da punto a sito|Conteggio|Massima|Numero di connessioni da punto a sito di un gateway|Protocol|
 |TunnelAverageBandwidth|Larghezza di banda tunnel|Byte al secondo|Media|Larghezza di banda media di un tunnel in byte al secondo|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Byte in uscita tunnel|Byte|Totale|Byte in uscita di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressBytes|Byte in ingresso tunnel|Byte|Totale|Byte in ingresso di un tunnel|ConnectionName, RemoteIP|
@@ -1038,8 +1159,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|Nessuna dimensione|
-|BitsOutPerSecond|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|Nessuna dimensione|
+|BitsInPerSecond|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|PeeringType|
+|BitsOutPerSecond|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|PeeringType|
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
@@ -1276,8 +1397,26 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Dimensione|Dimensione (anteprima)|Byte|Media|Dimensioni di una coda o di un argomento in byte. (Anteprima)|EntityName|
 |Messaggi|Numero di messaggi contenuti in una coda o in un argomento. (Anteprima)|Conteggio|Media|Numero di messaggi contenuti in una coda o in un argomento. (Anteprima)|EntityName|
 |ActiveMessages|Numero di messaggi attivi contenuti in una coda o in un argomento. (Anteprima)|Conteggio|Media|Numero di messaggi attivi contenuti in una coda o in un argomento. (Anteprima)|EntityName|
+|DeadletteredMessages|Numero di messaggi non recapitabili in una coda/argomento. (Anteprima)|Conteggio|Media|Numero di messaggi non recapitabili in una coda/argomento. (Anteprima)|EntityName|
+|ScheduledMessages|Numero di messaggi pianificati in una coda/argomento. (Anteprima)|Conteggio|Media|Numero di messaggi pianificati in una coda/argomento. (Anteprima)|EntityName|
 |CPUXNS|Uso della CPU per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo CPU per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
 |WSXNS|Uso delle dimensioni della memoria per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo memoria per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
+
+## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|AllocatedCpu|AllocatedCpu|Conteggio|Media|CPU allocata a questo contenitore in millicore|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|AllocatedMemory|AllocatedMemory|Byte|Media|Memoria allocata a questo contenitore in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|ActualCpu|ActualCpu|Conteggio|Media|Utilizzo della CPU effettivo in millicore|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|ActualMemory|ActualMemory|Byte|Media|Utilizzo effettivo della memoria in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percentuale|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percentuale|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|ApplicationStatus|ApplicationStatus|Conteggio|Media|Stato dell'applicazione di Service Fabric Mesh|ApplicationName, stato|
+|ServiceStatus|ServiceStatus|Conteggio|Media|Stato di integrità di un servizio nell'applicazione di Service Fabric Mesh|ApplicationName, Status, ServiceName|
+|ServiceReplicaStatus|ServiceReplicaStatus|Conteggio|Media|Stato di integrità di una replica del servizio nell'applicazione di Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName|
+|ContainerStatus|ContainerStatus|Conteggio|Media|Stato del contenitore nell'applicazione di Service Fabric Mesh|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName, Status|
+|RestartCount|RestartCount|Conteggio|Media|Riavvia conteggio di un contenitore nell'applicazione di Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName, CodePackageName|
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
@@ -1287,8 +1426,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MessageCount|Numero messaggi|Conteggio|Totale|Quantità totale di messaggi.|Nessuna dimensione|
 |InboundTraffic|Traffico in ingresso|Byte|Totale|Traffico in ingresso del servizio|Nessuna dimensione|
 |OutboundTraffic|Traffico in uscita|Byte|Totale|Traffico in uscita del servizio|Nessuna dimensione|
-|UserErrors|Errori utente|Percentuale|Media|Percentuale di errori utente|Nessuna dimensione|
-|SystemErrors|Errori di sistema|Percentuale|Media|Percentuale di errori di sistema|Nessuna dimensione|
+|UserErrors|Errori utente|Percentuale|Massima|Percentuale di errori utente|Nessuna dimensione|
+|SystemErrors|Errori di sistema|Percentuale|Massima|Percentuale di errori di sistema|Nessuna dimensione|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -1298,22 +1437,31 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|Nessuna dimensione|
 |log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O registro|Nessuna dimensione|
 |dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|Nessuna dimensione|
-|storage|Dimensioni totali database|Byte|Massima|Dimensioni totali database|Nessuna dimensione|
+|storage|Spazio dati usato|Byte|Massima|Dimensioni totali database|Nessuna dimensione|
 |connection_successful|Connessioni riuscite|Conteggio|Totale|Connessioni riuscite|Nessuna dimensione|
 |connection_failed|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
 |blocked_by_firewall|Blocco da parte del firewall|Conteggio|Totale|Blocco da parte del firewall|Nessuna dimensione|
 |deadlock|Deadlock|Conteggio|Totale|Deadlock|Nessuna dimensione|
-|storage_percent|Percentuale di dimensioni del database|Percentuale|Massima|Percentuale di dimensioni del database|Nessuna dimensione|
+|storage_percent|Percentuale di spazio usato i dati|Percentuale|Massima|Percentuale di dimensioni del database|Nessuna dimensione|
 |xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
 |workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
 |sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|Nessuna dimensione|
 |dtu_limit|Limite DTU|Conteggio|Media|Limite DTU|Nessuna dimensione|
 |dtu_used|Uso DTU|Conteggio|Media|Uso DTU|Nessuna dimensione|
+|cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|Nessuna dimensione|
+|cpu_used|CPU usata|Conteggio|Media|CPU usata|Nessuna dimensione|
 |dwu_limit|Limite DWU|Conteggio|Massima|Limite DWU|Nessuna dimensione|
 |dwu_consumption_percent|Percentuale DWU|Percentuale|Massima|Percentuale DWU|Nessuna dimensione|
 |dwu_used|Uso DWU|Conteggio|Massima|Uso DWU|Nessuna dimensione|
 |dw_cpu_percent|Percentuale CPU a livello di nodo DW|Percentuale|Media|Percentuale CPU a livello di nodo DW|DwLogicalNodeId|
 |dw_physical_data_read_percent|Percentuale I/O dati a livello di nodo DW|Percentuale|Media|Percentuale I/O dati a livello di nodo DW|DwLogicalNodeId|
+    |cache_hit_percent|Percentuale dei riscontri nella cache|Percentuale|Massima|Percentuale dei riscontri nella cache|Nessuna dimensione|
+|cache_used_percent|Percentuale della cache utilizzata|Percentuale|Massima|Percentuale della cache utilizzata|Nessuna dimensione|
+|local_tempdb_usage_percent|Percentuale di tempdb locale|Percentuale|Media|Percentuale di tempdb locale|Nessuna dimensione|
+|app_cpu_billed|CPU dell'app fatturata|Conteggio|Totale|CPU dell'app fatturata|Nessuna dimensione|
+|app_cpu_percent|Percentuale CPU di App|Percentuale|Media|Percentuale CPU di App|Nessuna dimensione|
+|app_memory_percent|Percentuale memoria utilizzata di App|Percentuale|Media|Percentuale memoria utilizzata di App|Nessuna dimensione|
+|allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|Nessuna dimensione|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -1323,14 +1471,18 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|Nessuna dimensione|
 |log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O registro|Nessuna dimensione|
 |dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|Nessuna dimensione|
-|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale di spazio usato i dati||Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
 |workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
 |sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|Nessuna dimensione|
 |eDTU_limit|Limite eDTU|Conteggio|Media|Limite eDTU|Nessuna dimensione|
-|storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
+|storage_limit|Dimensioni massime dati|Byte|Media|Limite archiviazione|Nessuna dimensione|
 |eDTU_used|Uso eDTU|Conteggio|Media|Uso eDTU|Nessuna dimensione|
-|storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
+|storage_used|Spazio dati usato|Byte|Media|Uso archiviazione|Nessuna dimensione|
 |xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
+|cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|Nessuna dimensione|
+|cpu_used|CPU usata|Conteggio|Media|CPU usata|Nessuna dimensione|
+|allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|Nessuna dimensione|
+|allocated_data_storage_percent|Percentuale di spazio allocato dati|Percentuale|Massima|Percentuale di spazio allocato dati|Nessuna dimensione|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
@@ -1348,7 +1500,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|UsedCapacity|Capacità usata|Byte|Totale|Capacità usata account|Nessuna dimensione|
+|UsedCapacity|Capacità usata|Byte|Media|Capacità usata account|Nessuna dimensione|
 |Transazioni|Transazioni|Conteggio|Totale|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Usare la dimensione ResponseType per il numero di tipi di risposta diversi.|ResponseType, GeoType, ApiName, Authentication|
 |Dati in ingresso|Dati in ingresso|Byte|Totale|Quantità di dati in ingresso, in byte. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure.|GeoType, ApiName, Authentication|
 |Egress|Egress|Byte|Totale|Quantità di dati in uscita, in byte. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili.|GeoType, ApiName, Authentication|
@@ -1360,9 +1512,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacità BLOB|Byte|Totale|Quantità di memoria usata dal servizio BLOB dell'account di archiviazione, in byte.|BlobType|
-|BlobCount|Numero di BLOB|Conteggio|Totale|Numero di BLOB nel servizio BLOB dell'account di archiviazione.|BlobType|
+|BlobCapacity|Capacità BLOB|Byte|Media|Quantità di memoria usata dal servizio BLOB dell'account di archiviazione, in byte.|BlobType, Tier|
+|BlobCount|Numero di BLOB|Conteggio|Totale|Numero di BLOB nel servizio BLOB dell'account di archiviazione.|BlobType|       |BlobCount|Numero di BLOB|Conteggio|Media|Numero di BLOB nel servizio BLOB dell'account di archiviazione.|BlobType, Tier|
 |ContainerCount|Numero di contenitori BLOB|Conteggio|Media|Numero di contenitori nel servizio BLOB dell'account di archiviazione.|Nessuna dimensione|
+|IndexCapacity|Capacità indice|Byte|Media|Quantità di memoria usata dall'indice di ADLS Gen2 (gerarchico) in byte.|Nessuna dimensione|
 |Transazioni|Transazioni|Conteggio|Totale|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Usare la dimensione ResponseType per il numero di tipi di risposta diversi.|ResponseType, GeoType, ApiName, Authentication|
 |Dati in ingresso|Dati in ingresso|Byte|Totale|Quantità di dati in ingresso, in byte. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure.|GeoType, ApiName, Authentication|
 |Egress|Egress|Byte|Totale|Quantità di dati in uscita, in byte. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili.|GeoType, ApiName, Authentication|
@@ -1412,24 +1565,37 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |SuccessE2ELatency|Latenza end-to-end per richieste con esito positivo|Millisecondi|Media|Latenza end-to-end media di richieste con esito positivo eseguite in un servizio di archiviazione o nell'operazione API specificata, in millisecondi. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta.|GeoType, ApiName, Authentication|
 |Disponibilità|Disponibilità|Percentuale|Media|Percentuale della disponibilità per il servizio di archiviazione o per l'operazione API specificata. La disponibilità viene calcolata prendendo il valore TotalBillableRequests e dividendolo per il numero di richieste applicabili, incluse quelle che hanno restituito errori imprevisti. Tutti gli errori imprevisti provocano la riduzione della disponibilità per il servizio di archiviazione o per l'operazione API specificata.|GeoType, ApiName, Authentication|
 
+## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|ServerSyncSessionResult|Risultato della sessione di sincronizzazione|Conteggio|Media|Metrica che registri un valore di 1 ogni tempo l'Endpoint Server è stata completata una sessione di sincronizzazione con l'Endpoint Cloud|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncSyncSessionAppliedFilesCount|File sincronizzati|Conteggio|Totale|Numero di file sincronizzati|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncSyncSessionPerItemErrorsCount|File non sincronizzati|Conteggio|Totale|Numero di file non sono state sincronizzate|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncBatchTransferredFileBytes|Byte sincronizzati|Byte|Totale|Dimensioni totali dei file trasferiti per le sessioni di sincronizzazione|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncServerHeartbeat|Stato online del server|Conteggio|Massima|Metrica che registri un valore di 1 ogni ora il server registrato correttamente registra un heartbeat con l'Endpoint Cloud|ServerName|
+|StorageSyncRecallIOTotalSizeBytes|Richiamo cloud a livelli|Byte|Totale|Dimensioni totali dei dati richiamati dal server|ServerName|
+
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|ResourceUtilization|% utilizzo unità di streaming|Percentuale|Massima|% utilizzo unità di streaming|Nessuna dimensione|
-|InputEvents|Eventi di input|Conteggio|Totale|Eventi di input|Nessuna dimensione|
-|InputEventBytes|Byte evento di input|Byte|Totale|Byte evento di input|Nessuna dimensione|
-|LateInputEvents|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|Nessuna dimensione|
-|OutputEvents|Eventi di output|Conteggio|Totale|Eventi di output|Nessuna dimensione|
-|ConversionErrors|Errori di conversione dati|Conteggio|Totale|Errori di conversione dati|Nessuna dimensione|
-|Errors|Errori di runtime|Conteggio|Totale|Errori di runtime|Nessuna dimensione|
-|DroppedOrAdjustedEvents|Eventi non in ordine|Conteggio|Totale|Eventi non in ordine|Nessuna dimensione|
-|AMLCalloutRequests|Richieste di funzioni|Conteggio|Totale|Richieste di funzioni|Nessuna dimensione|
-|AMLCalloutFailedRequests|Richieste di funzioni non riuscite|Conteggio|Totale|Richieste di funzioni non riuscite|Nessuna dimensione|
-|AMLCalloutInputEvents|Eventi di funzioni|Conteggio|Totale|Eventi di funzioni|Nessuna dimensione|
-|DeserializationError|Errori di deserializzazione dell'input|Conteggio|Totale|Errori di deserializzazione dell'input|Nessuna dimensione|
-|EarlyInputEvents|Eventi di input anticipati|Conteggio|Totale|Eventi di input anticipati|Nessuna dimensione|
-|OutputWatermarkDelaySeconds|Ritardo limite|Secondi|Massima|Ritardo limite|Nessuna dimensione|
+|ResourceUtilization|% utilizzo unità di streaming|Percentuale|Massima|% utilizzo unità di streaming|LogicalName, PartitionId|
+|InputEvents|Eventi di input|Conteggio|Totale|Eventi di input|LogicalName, PartitionId|
+|InputEventBytes|Byte evento di input|Byte|Totale|Byte evento di input|LogicalName, PartitionId|
+|LateInputEvents|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|LogicalName, PartitionId|
+|OutputEvents|Eventi di output|Conteggio|Totale|Eventi di output|LogicalName, PartitionId|
+|ConversionErrors|Errori di conversione dati|Conteggio|Totale|Errori di conversione dati|LogicalName, PartitionId|
+|Errors|Errori di runtime|Conteggio|Totale|Errori di runtime|LogicalName, PartitionId|
+|DroppedOrAdjustedEvents|Eventi non in ordine|Conteggio|Totale|Eventi non in ordine|LogicalName, PartitionId|
+|AMLCalloutRequests|Richieste di funzioni|Conteggio|Totale|Richieste di funzioni|LogicalName, PartitionId|
+|AMLCalloutFailedRequests|Richieste di funzioni non riuscite|Conteggio|Totale|Richieste di funzioni non riuscite|LogicalName, PartitionId|
+|AMLCalloutInputEvents|Eventi di funzioni|Conteggio|Totale|Eventi di funzioni|LogicalName, PartitionId|
+|DeserializationError|Errori di deserializzazione dell'input|Conteggio|Totale|Errori di deserializzazione dell'input|LogicalName, PartitionId|
+|EarlyInputEvents|Eventi di input anticipati|Conteggio|Totale|Eventi di input anticipati|LogicalName, PartitionId|
+|OutputWatermarkDelaySeconds|Ritardo limite|Secondi|Massima|Ritardo limite|LogicalName, PartitionId|
+|InputEventsSourcesBacklogged|Eventi di input con backlog|Conteggio|Massima|Eventi di input con backlog|LogicalName, PartitionId|
+|InputEventsSourcesPerSecond|Origini di input ricevute|Conteggio|Totale|Origini di input ricevute|LogicalName, PartitionId|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
@@ -1442,6 +1608,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IngressStoredEvents|Ingress Stored Events (Eventi archiviati in ingresso)|Conteggio|Totale|Numero degli eventi flat elaborati correttamente e disponibili per le query|Nessuna dimensione|
 |IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag (Tempo di ritardo messaggi ricevuti in ingresso)|Secondi|Massima|Differenza tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.|Nessuna dimensione|
 |IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag (Ritardo numero di messaggi ricevuti in ingresso)|Conteggio|Media|Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso|Nessuna dimensione|
+|WarmStorageMaxProperties|Proprietà Max a caldo di archiviazione|Conteggio|Massima|Numero massimo di proprietà utilizzate consentito dall'ambiente per lo SKU S1 o S2 e numero massimo di proprietà consentiti da Store Warm per PAYG SKU|Nessuna dimensione|
+|WarmStorageUsedProperties|Utilizzare l'archiviazione a caldo proprietà |Conteggio|Massima|Numero di proprietà utilizzato dall'ambiente per lo SKU S1 o S2 e numero di proprietà utilizzate da Store Warm per PAYG SKU|Nessuna dimensione|
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
@@ -1454,6 +1622,32 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IngressStoredEvents|Ingress Stored Events (Eventi archiviati in ingresso)|Conteggio|Totale|Numero degli eventi flat elaborati correttamente e disponibili per le query|Nessuna dimensione|
 |IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag (Tempo di ritardo messaggi ricevuti in ingresso)|Secondi|Massima|Differenza tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.|Nessuna dimensione|
 |IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag (Ritardo numero di messaggi ricevuti in ingresso)|Conteggio|Media|Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso|Nessuna dimensione|
+|WarmStorageMaxProperties|Proprietà Max a caldo di archiviazione|Conteggio|Massima|Numero massimo di proprietà utilizzate consentito dall'ambiente per lo SKU S1 o S2 e numero massimo di proprietà consentiti da Store Warm per PAYG SKU|Nessuna dimensione|
+|WarmStorageUsedProperties|Utilizzare l'archiviazione a caldo proprietà |Conteggio|Massima|Numero di proprietà utilizzato dall'ambiente per lo SKU S1 o S2 e numero di proprietà utilizzate da Store Warm per PAYG SKU|Nessuna dimensione|
+
+## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|DiskReadBytesPerSecond|Disk Read Bytes/Sec|Byte al secondo|Media|Velocità effettiva Media a causa di operazioni di lettura durante il periodo dell'esempio.|Nessuna dimensione|
+|DiskWriteBytesPerSecond|Disk Write Bytes/Sec|Byte al secondo|Media|Velocità effettiva Media a causa di operazioni di scrittura durante il periodo dell'esempio.|Nessuna dimensione|
+|Byte letti da disco|Byte letti da disco|Byte|Totale|Velocità effettiva totale del disco a causa di operazioni di lettura durante il periodo dell'esempio.|Nessuna dimensione|
+|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Velocità effettiva totale del disco a causa di operazioni di scrittura durante il periodo dell'esempio.|Nessuna dimensione|
+|DiskReadOperations|Operazioni di lettura disco|Conteggio|Totale|Il numero dei / o operazioni di lettura nel periodo dell'esempio precedente. Si noti che queste operazioni possono essere di dimensioni variabili.|Nessuna dimensione|
+|DiskWriteOperations|Operazioni di scrittura disco|Conteggio|Totale|Il numero dei / o operazioni di scrittura nel periodo dell'esempio precedente. Si noti che queste operazioni possono essere di dimensioni variabili.|Nessuna dimensione|
+|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero medio dei / o operazioni di lettura nel periodo dell'esempio precedente. Si noti che queste operazioni possono essere di dimensioni variabili.|Nessuna dimensione|
+|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero medio dei / o operazioni di scrittura nel periodo dell'esempio precedente. Si noti che queste operazioni possono essere di dimensioni variabili.|Nessuna dimensione|
+|DiskReadLatency|Latenza di lettura da disco|Millisecondi|Media|Totale latenza di lettura. La somma del dispositivo e kernel latenze di lettura.|Nessuna dimensione|
+|DiskWriteLatency|Latenza di scrittura su disco|Millisecondi|Media|Latenza di scrittura totale. La somma del dispositivo e kernel latenze di scrittura.|Nessuna dimensione|
+|NetworkInBytesPerSecond|Rete In byte/Sec|Byte al secondo|Media|Velocità effettiva di rete medio per il traffico ricevuto.|Nessuna dimensione|
+|NetworkOutBytesPerSecond|Rete in uscita byte/Sec|Byte al secondo|Media|Velocità effettiva di rete medio per il traffico trasmessa.|Nessuna dimensione|
+|Rete in ingresso|Rete in ingresso|Byte|Totale|Velocità effettiva di rete totale per il traffico ricevuto.|Nessuna dimensione|
+|Rete in uscita|Rete in uscita|Byte|Totale|Velocità effettiva di rete totale per il traffico trasmessa.|Nessuna dimensione|
+|MemoryUsed|Memoria utilizzata|Byte|Media|La quantità di memoria della macchina in uso dalla macchina virtuale.|Nessuna dimensione|
+|MemoryGranted|Memoria concessa|Byte|Media|La quantità di memoria che è stato concesso alla macchina virtuale dall'host. Memoria non viene concessa all'host fino a quando non selezionata una sola volta e concessa memoria può essere scambiata o ballooned assente se il VMkernel necessita la memoria.|Nessuna dimensione|
+|MemoryActive|Memoria attiva|Byte|Media|La quantità di memoria utilizzata dalla macchina virtuale nella finestra di piccole dimensioni precedente del tempo. Questo è il numero "true" della quantità di memoria della macchina virtuale attualmente abbia bisogno. Sia lo swapping della memoria aggiuntiva e non usata o ballooned senza alcun impatto sulle prestazioni del guest.|Nessuna dimensione|
+|CPU percentuale|CPU percentuale|Percentuale|Media|L'utilizzo della CPU. Questo valore viene restituito con il 100%, che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale 2 vie usando 50% di un sistema di quattro core è completamente usando due core.|Nessuna dimensione|
+|PercentageCpuReady|Percentuale CPU pronto|Millisecondi|Totale|L'ora Ready time è il tempo trascorso in attesa di CPU diventi disponibile nel precedente intervallo di aggiornamento.|Nessuna dimensione|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 

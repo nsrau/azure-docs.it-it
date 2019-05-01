@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022111"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875933"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -41,6 +41,9 @@ Se non specificato diversamente, gli esempi in questo articolo si riferiscono al
 ### <a name="v2"></a>Versione 2.x
 
 La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). È prima di tutto necessario installare .NET Core 2.x SDK.
+
+> [!IMPORTANT]
+> Quando si abilita il bundle di estensione nel file host. JSON del progetto, non è necessaria installare .NET Core 2.x SDK. Per altre informazioni, vedere [lo sviluppo locale con Azure Functions Core Tools e aggregazioni estensione ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bundle di estensione richiede la versione 2.6.1071 degli strumenti di base, o versione successiva.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ Il comando `host` è richiesto solo nella versione 1.x.
 | **`--script-root --prefix`** | Viene usato per specificare il percorso della radice dell'app per le funzioni da eseguire o distribuire. Viene usato per progetti compilati che generano file di progetto in una sottocartella. Ad esempio, quando si crea un progetto di libreria di classi C#, i file host.json, local.settings.json e function.json vengono generati in una sottocartella *radice* con un percorso simile a `MyProject/bin/Debug/netstandard2.0`. In questo caso, impostare il prefisso come `--script-root MyProject/bin/Debug/netstandard2.0`. Questa è la radice dell'app per le funzioni durante l'esecuzione in Azure. |
 | **`--timeout -t`** | Il timeout per l'host di Funzioni da avviare, in secondi. Predefinito: 20 secondi.|
 | **`--useHttps`** | Eseguire l'associazione a `https://localhost:{port}` anziché a `http://localhost:{port}`. Per impostazione predefinita, questa opzione crea un certificato attendibile nel computer in uso.|
+| **`--enableAuth`** | Abilitare l'autenticazione completa gestione delle pipeline.|
 
 Per un progetto di libreria di classi C# (con estensione csproj), è necessario includere l'opzione `--build` per generare la libreria .dll.
 

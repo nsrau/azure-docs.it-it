@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817338"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707400"
 ---
 # <a name="scaling-media-processing-overview"></a>Panoramica del ridimensionamento dell'elaborazione multimediale 
 Questa pagina presenta una panoramica di come e perché ridimensionare l'elaborazione multimediale. 
@@ -33,9 +33,9 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. For
 
 |Tipo di unità richiesta|Scenario|Risultati di esempio per il [video di 7 min con risoluzione 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|La codifica in file MP4 con risoluzione SD e velocità in bit singola tramite "Codec video H.264 a bitrate singolo con risoluzione 16x9 SD" richiede 10 minuti.|
-| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 720p" richiede circa 8 minuti.<br/><br/>La codifica con set di impostazioni "Codec video H.264 a bitrate multipli con risoluzione 720p" richiede circa 16,8 minuti.|
-| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 1080p" richiede circa 4 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 8 minuti.|
+| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|Codifica in file MP4 risoluzione SD di a bitrate singolo con "Codec video h.264 singolo a velocità in bit SD 16x9" richiede circa 7 minuti.|
+| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|Codifica con "Codec video h.264 a bitrate singolo con 720p" set di impostazioni richiede circa 6 minuti.<br/><br/>Codifica con "codec video h.264 a Bitrate multipli 720p" set di impostazioni richiede circa 12 minuti.|
+| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|Codifica con "Codec video h.264 a Bitrate singolo con risoluzione 1080p e" set di impostazioni richiede circa 3 minuti.<br/><br/>Codifica con "codec video h.264 a Bitrate multiplo con risoluzione 1080p e" set di impostazioni richiede circa 8 minuti.|
 
 ## <a name="considerations"></a>Considerazioni
 > [!IMPORTANT]

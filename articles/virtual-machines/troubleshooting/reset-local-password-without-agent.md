@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307731"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708122"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Reimpostare una password di Windows locale per una VM di Azure offline
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. I passaggi descritti in questo articolo non si applicano ai controller di dominio Windows. 
@@ -106,7 +106,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
      ```
      
      ![Creare gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Creare `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Accertarsi che vengano visualizzate le cartelle nascoste. Se necessario, creare le cartelle `Machine` o `Scripts`.
+5. Creare `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Accertarsi che vengano visualizzate le cartelle nascoste. Se necessario, creare le cartelle `Machine` o `Scripts`.
    
    * Aggiungere le righe seguenti al file `scripts.ini` creato:
      
@@ -156,7 +156,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
     
     * Da %windir%\System32
       * rimuovere FixAzureVM.cmd
-    * Da %windir%\System32\GroupPolicy\Machine\
+    * Da %windir%\System32\GroupPolicy\Machine\Scripts
       * rimuovere scripts.ini
     * Da %windir%\System32\GroupPolicy
       * rimuovere il file gpt.ini (se gpt.ini era presente in precedenza, ed era stato rinominato in gpt.ini.bak, modificare il nome del file con estensione bak nuovamente in gpt.ini)

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337753"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914934"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -121,9 +121,9 @@ La recente operazione di backup ha avuto esito negativo poiché è presente e in
 3. Scegliere **Processi di backup** dal menu del dashboard dell'insieme di credenziali per visualizzare tutti i processi di backup.
 
     * Se è in corso un processo di backup, attenderne il completamento o annullarlo.
-        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Se è stato riconfigurato il backup in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se è presente un processo di backup, annullarlo.
-        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * Per annullare il processo di backup, fare clic sul processo di backup con il pulsante destro del mouse e scegliere **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Ripetere l'operazione di backup.
 
 Se l'operazione di backup pianificata sta impiegando più tempo del previsto, causando conflitti con la configurazione del backup successivo, rivedere [Procedure consigliate](backup-azure-vms-introduction.md#best-practices), [Prestazioni del backup](backup-azure-vms-introduction.md#backup-performance) e [Considerazioni sul ripristino](backup-azure-vms-introduction.md#backup-and-restore-considerations).

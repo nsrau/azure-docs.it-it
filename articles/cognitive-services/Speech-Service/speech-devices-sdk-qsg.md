@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457532"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916837"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introduzione a Speech Devices SDK
 
@@ -28,7 +28,7 @@ Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK
 
 Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le informazioni e ottenere il software necessario:
 
-* Ottenere un [kit di sviluppo di ROOBO](http://ddk.roobo.com/). Sono disponibili kit con configurazioni array di microfoni lineari o circolari. Scegliere la configurazione adatta alle proprie esigenze.
+* Ottenere un [kit di sviluppo di ROOBO](https://ddk.roobo.com/). Sono disponibili kit con configurazioni array di microfoni lineari o circolari. Scegliere la configurazione adatta alle proprie esigenze.
 
     |Configurazione kit di sviluppo|Posizione del parlante|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Se si verificano errori del certificato quando si usano i servizi di riconoscime
 
 ### <a name="audio"></a>Audio
 
-ROOBO include uno strumento che acquisisce tutto l'audio e lo inserisce nella memoria flash. Tale strumento può essere utile per la risoluzione dei problemi relativi all' audio. Una versione dello strumento è disponibile con ogni configurazione del kit di sviluppo. Nel [sito di ROOBO](http://ddk.roobo.com/) selezionare il dispositivo e quindi fare clic sul collegamento **ROOBO Tools** (Strumenti ROOBO) nella parte inferiore della pagina.
+ROOBO include uno strumento che acquisisce tutto l'audio e lo inserisce nella memoria flash. Tale strumento può essere utile per la risoluzione dei problemi relativi all' audio. Una versione dello strumento è disponibile con ogni configurazione del kit di sviluppo. Nel [sito di ROOBO](https://ddk.roobo.com/) selezionare il dispositivo e quindi fare clic sul collegamento **ROOBO Tools** (Strumenti ROOBO) nella parte inferiore della pagina.

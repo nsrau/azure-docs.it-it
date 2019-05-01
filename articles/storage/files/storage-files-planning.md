@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095645"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574464"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -77,26 +77,16 @@ Se si usa Sincronizzazione file di Azure per accedere alla condivisione file di 
 File di Azure offre due livelli di prestazioni: standard e premium.
 
 * Le **condivisioni file standard** sono supportate da unità disco rigido rotazionali (HDD) che forniscono prestazioni affidabili per i carichi di lavoro di I/O che sono meno sensibili alla variabilità delle prestazioni, ad esempio condivisioni file per utilizzo generico e ambienti di sviluppo/test. Le condivisioni file standard sono disponibili solo in un modello di fatturazione con pagamento in base al consumo.
-* Le **condivisioni file premium (anteprima)** sono supportate da unità a stato solido (SSD) che forniscono prestazioni elevate omogenee e a bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni di I/O, per la maggior parte dei carichi di lavoro a elevato utilizzo di I/O. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard. Se si desidera imparare a creare una condivisione di file premium, vedere l'articolo sull'argomento: [Come creare un account di archiviazione file di Azure premium](storage-how-to-create-premium-fileshare.md).
+* Le **condivisioni file premium (anteprima)** sono supportate da unità a stato solido (SSD) che forniscono prestazioni elevate omogenee e a bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni di I/O, per la maggior parte dei carichi di lavoro a elevato utilizzo di I/O. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard.
+
+Backup di Azure è disponibile per le condivisioni file premium e Azure Kubernetes Service supporta le condivisioni file premium in versione 1.13 e versioni successive.
+
+Se si desidera imparare a creare una condivisione di file premium, vedere l'articolo sull'argomento: [Come creare un account di archiviazione file di Azure premium](storage-how-to-create-premium-fileshare.md).
+
+Attualmente, è possibile convertire direttamente tra una condivisione file standard e una condivisione di file premium. Se si desidera passare a un livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. È possibile farlo usando uno degli strumenti di copia i file di Azure supportati, ad esempio AzCopy.
 
 > [!IMPORTANT]
-> File Premium condivisioni sono ancora in anteprima, disponibile solo con archiviazione con ridondanza locale e sono disponibili solo in un subset di aree con il supporto di Backup di Azure siano disponibili in selezionare le aree:
-
-|Area disponibile  |Supporto di Backup di Azure  |
-|---------|---------|
-|Stati Uniti Orientali 2      | Sì|
-|Stati Uniti orientali       | Sì|
-|Stati Uniti occidentali       | No  |
-|Stati Uniti occidentali 2      | No  |
-|Stati Uniti centrali    | No  |
-|Europa settentrionale  | No  |
-|Europa occidentale   | Sì|
-|Asia sud-orientale       | Sì|
-|Asia orientale     | No  |
-|Giappone orientale    | No  |
-|Giappone occidentale    | No  |
-|Corea del Sud centrale | No  |
-|Australia orientale| No  |
+> Le condivisioni file Premium sono ancora in anteprima, sono disponibili solo con archiviazione con ridondanza locale e sono disponibili nella maggior parte delle aree che offrono gli account di archiviazione. Per scoprire se le condivisioni file premium sono attualmente disponibili nella propria area, vedere la [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina per Azure.
 
 ### <a name="provisioned-shares"></a>Condivisioni con provisioning
 
@@ -115,7 +105,9 @@ In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenz
 >
 > velocità in ingresso = 40 MiB/s + 0,04 * provisioning GiB
 
-Dimensioni della condivisione possono essere aumentata in qualsiasi momento, ma possono essere ridotto solo dopo 24 ore dopo l'ultimo incremento. Dopo aver atteso per 24 ore senza un aumento delle dimensioni, è possibile ridurre le dimensioni della condivisione più volte fino a quando non si aumenta. IOPS/velocità effettiva scalabilità modifiche saranno applicati entro pochi minuti dopo la modifica delle dimensioni.
+Dimensioni della condivisione possono essere aumentata in qualsiasi momento, ma possono essere ridotto solo dopo 24 ore dopo l'ultimo incremento. Dopo aver atteso per 24 ore senza un aumento delle dimensioni, è possibile ridurre le dimensioni della condivisione come tutte le volte che si desidera, fino a quando non si aumenta. IOPS/velocità effettiva scalabilità modifiche saranno applicati entro pochi minuti dopo la modifica delle dimensioni.
+
+È possibile ridurre le dimensioni della condivisione con provisioning di sotto di GiB usati. In questo caso, non si perderanno i dati ma, si verrà comunque addebitato per la dimensione utilizzata e si ricevono le prestazioni (linea di base di IOPS, velocità effettiva e IOPS burst) della condivisione con provisioning, non le dimensioni utilizzate.
 
 Nella tabella seguente illustra alcuni esempi di queste formule per le dimensioni di condivisione con provisioning:
 
@@ -141,7 +133,7 @@ Le condivisioni file Premium possono eseguire il burst fino a un fattore pari a 
 I crediti si accumulano in un bucket di picco ogni volta che il traffico per la condivisione file è di sotto della linea di base di IOPS. Ad esempio, una 100 GiB condivisione presenta una linea di base di 100 operazioni IOPS. Se effettivo del traffico per la condivisione è 40 IOPS per un intervallo specifico di 1 secondo, il numero di IOPS inutilizzati 60 è accreditato in un bucket di burst. Questi crediti verranno quindi utilizzati in un secondo momento quando operazioni supererebbe il numero di IOPs della linea di base.
 
 > [!TIP]
-> Dimensione del bucket burst = Baseline_IOPS * 2 * 3600.
+> Dimensione del bucket burst = IOPS di linea di base * 2 * 3600.
 
 Ogni volta che una condivisione supera la linea di base di IOPS e dispone di crediti in un bucket di burst, verrà burst. Condivisioni possono continuare a eseguire il burst, purché i crediti rimanenti, anche se inferiori a 50 TiB condivisioni rimarranno solo raggiunge il limite di burst al massimo un'ora. Condivisioni di dimensioni superiori a 50 TiB tecnicamente possibile superare questo limite di un'ora, backup a due ore ma, ciò si basa sul numero di crediti di burst accumulati. Ogni i/o di là della linea di base IOPS utilizza una carta di credito e una volta che vengono utilizzati tutti i crediti della condivisione ritornerà a linea di base di IOPS.
 

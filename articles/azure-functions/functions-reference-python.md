@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021281"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571168"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -28,7 +28,7 @@ Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure con Python
 
 ## <a name="programming-model"></a>Modello di programmazione
 
-Una funzione di Azure deve essere un metodo senza stato nello script Python che elabora un input e restituisce un output. Per impostazione predefinita, il runtime si aspetta che sia implementata come metodo globale denominato `main()` nel file `__init__.py`.
+Una funzione di Azure deve essere un metodo senza stato nello script Python che elabora un input e restituisce un output. Per impostazione predefinita, il runtime si aspetta che il metodo per essere implementata come metodo globale denominato `main()` nella `__init__.py` file.
 
 È possibile modificare la configurazione predefinita specificando le proprietà `scriptFile` e `entryPoint` nel file `function.json`. Ad esempio, il file _function.json_ di seguito indica al runtime di usare il metodo _customentry()_ nel file _main.py_ come punto di ingresso per la funzione di Azure.
 
@@ -40,7 +40,7 @@ Una funzione di Azure deve essere un metodo senza stato nello script Python che 
 }
 ```
 
-I dati da trigger e associazioni vengono associati alla funzione tramite gli attributi del metodo usando la proprietà `name` definita nel file di configurazione `function.json`. Ad esempio, il file _function.json_ descrive una semplice funzione attivata da una richiesta HTTP denominata `req`:
+I dati da trigger e associazioni vengono associati alla funzione tramite gli attributi del metodo usando la proprietà `name` definita nel file di configurazione `function.json`. Ad esempio, il _Function. JSON_ di seguito viene descritta una semplice funzione attivata da una richiesta HTTP denominata `req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ Il codice condiviso deve essere mantenuto in una cartella separata. Per fare rif
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Le estensioni di associazione usate nel runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-azure-functions-core-tools) con Azure Functions Core Tools. 
+Le estensioni di associazione usate nel runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) con Azure Functions Core Tools. 
 
 Quando si distribuisce un progetto Funzioni a un'app per le funzioni in Azure, occorre includere nel pacchetto l'intero contenuto della cartella FunctionApp, ma non la cartella stessa.
 
-## <a name="inputs"></a>Input
+## <a name="triggers-and-inputs"></a>I trigger e input
 
-In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Anche se sono diversi in `function.json`, l'uso nel codice Python è diverso. Si consideri il frammento di codice di esempio seguente:
+In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Anche se sono diversi in `function.json`, l'uso nel codice Python è diverso.  Le stringhe di connessione per le origini di input e trigger devono eseguire il mapping ai valori di `local.settings.json` file in locale e le impostazioni dell'applicazione durante l'esecuzione in Azure. Si consideri il frammento di codice di esempio seguente:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'inp
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Una voce verrà recuperata dall'archivio BLOB di Azure in base all'_ID_ nell'URL di route e verrà resa disponibile come `obj` nel corpo della funzione.
+Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Verrà recuperata dall'archivio Blob di Azure basata su una voce di _ID_ nell'URL della route e resi disponibili come `obj` nel corpo della funzione.  In questo caso l'account di archiviazione specificato viene trovata la stringa di connessione `AzureWebJobsStorage` che è lo stesso account di archiviazione usato dall'app per le funzioni.
+
 
 ## <a name="outputs"></a>Output
 

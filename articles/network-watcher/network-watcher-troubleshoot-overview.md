@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60682947"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684253"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -49,30 +49,30 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | `Reason` | Log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
-| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |N.|
-| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |N.|
-| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | N. |
-| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | N. |
-| PlatformInActive | Si è verificato un errore con la piattaforma. | N.|
-| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | N.|
-| NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| N.|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
+| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No |
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No  |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
+| PlatformInActive | Si è verificato un errore con la piattaforma. | No |
+| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
+| NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No |
 | ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
 | GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
 ### <a name="connection"></a>Connessione
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | `Reason` | Log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
-| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |N.|
-| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |N.|
-| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | N. |
-| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | N. |
-| ConnectionEntityNotFound | Configurazione della connessione non presente | N. |
-| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |N.|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
+| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No |
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No  |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
+| ConnectionEntityNotFound | Configurazione della connessione non presente | No  |
+| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No |
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
 | Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
@@ -88,15 +88,15 @@ L'elenco tabella seguente mostra i gateway e le connessioni supportate con la ri
 |---------|---------|
 |**Tipi di gateway**   |         |
 |VPN      | Supportato        |
-|ExpressRoute | Non supportata |
+|ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
 |Basato su route | Supportato|
-|Basata su criteri | Non supportata|
+|Basata su criteri | Non supportato|
 |**Tipi di connessione**||
 |IPsec| Supportato|
 |Vnet2Vnet| Supportato|
-|ExpressRoute| Non supportata|
-|VPNClient| Non supportata|
+|ExpressRoute| Non supportato|
+|VPNClient| Non supportato|
 
 ## <a name="log-files"></a>File di log
 

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117215"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712320"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisiti ExpressRoute QoS
 Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestione QoS differenziata. Se si prevede di utilizzare i servizi vocali tramite ExpressRoute, è necessario rispettare i requisiti descritti di seguito.
@@ -25,9 +25,9 @@ Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestion
 > 
 > 
 
-La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype per aziende. Fare riferimento a [Gestione QoS per Skype per aziende](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) per ulteriori informazioni.
+Nella tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Microsoft Teams e Skype for Business. Fare riferimento a [Gestione QoS per Skype per aziende](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) per ulteriori informazioni.
 
-| **Classe di traffico** | **Modalità di gestione (contrassegno DSCP)** | **Carichi di lavoro di Skype per aziende** |
+| **Classe di traffico** | **Modalità di gestione (contrassegno DSCP)** | **Microsoft Teams e Skype per Business carichi di lavoro** |
 | --- | --- | --- |
 | **Voice** |ENTITY FRAMEWORK (46) |Skype / voice di Lync |
 | **Interattivo** |AF41 (34) |Video, VBSS |
