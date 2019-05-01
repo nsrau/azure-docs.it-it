@@ -1,25 +1,19 @@
 ---
-title: Preparazione della soluzione Dynamics 365 | Microsoft Docs
+title: Preparazione della soluzione Dynamics 365
 description: Framework per installare, disinstallare e creare pacchetti dei componenti
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricarod.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2ea62a826b9f99e264cb1b2242f8d8108453d8e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 919feb39c9cd84f8da0ef89827ad3e83e0eb9bc5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397321"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935243"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Preparazione della soluzione Dynamics 365
 

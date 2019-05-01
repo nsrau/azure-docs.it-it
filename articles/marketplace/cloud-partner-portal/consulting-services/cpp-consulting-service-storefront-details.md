@@ -1,25 +1,18 @@
 ---
-title: Offerta di servizi di consulenza per Azure e Dynamics 365 - Inserimento dei dettagli della vetrina | Microsoft Docs
-description: Guida alla definizione dei dettagli della vetrina in un'offerta di un servizio di consulenza per Azure o Dynamics 365 nel portale Cloud Partner.
+title: Immettere i dettagli della vetrina di offerta di consulenza | Azure Marketplace
+description: Definire i dettagli della vetrina in un'offerta di servizio Azure o Dynamics 365 consulenza nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865367"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942720"
 ---
 # <a name="storefront-details-tab"></a>Scheda Dettagli vetrina
 
@@ -32,14 +25,16 @@ Questo articolo illustra come immettere i dettagli relativi alla vetrina. La sch
 
 ![Creare una nuova offerta di servizi di consulenza - Scheda Dettagli vetrina](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Dettagli offerta
 
 La sezione **Dettagli offerta** contiene le caselle seguenti:
 
--   **Riepilogo offerta**
--   **Descrizione dell'offerta**
+-   **Riepilogo dell'offerta\***
+-   **Descrizione dell'offerta\***
 
-### <a name="offer-summary"></a>Riepilogo offerta
+
+### <a name="offer-summary"></a>Riepilogo dell'offerta\*
 
 Il riepilogo dell'offerta è una breve descrizione dell'offerta visualizzata immediatamente sotto al nome dell'offerta. Per immettere il riepilogo dell'offerta, usare testo normale senza interruzioni di riga. Di seguito sono riportati alcuni ottimi esempi di riepilogo offerta insieme ai relativi nomi offerta corrispondenti.
 
@@ -68,7 +63,8 @@ Il riepilogo dell'offerta è una breve descrizione dell'offerta visualizzata imm
 -   **Nome offerta**: Dynamics e progetti: valutazione di 3 giorni
 -   **Riepilogo offerta**: raccolta e valutazione dei requisiti per la soluzione ERP destinata a società di servizi professionali e imprese orientate ai progetti.
 
-### <a name="offer-description"></a>Descrizione dell'offerta
+
+### <a name="offer-description"></a>Descrizione dell'offerta\*
 
 Immettere la descrizione dell'offerta del servizio di consulenza nella casella **Descrizione dell'offerta**. Una buona descrizione dell'offerta include i dettagli esatti di come sarà l'engagement e quale sarà la consegna finale al cliente. Dovrebbe aiutare i clienti a comprendere in maniera chiara qual'è il risultato finale. Includere anche come l'offerta si rapporta con il prodotto Microsoft per cui si offrono servizi di consulenza.
 
@@ -144,6 +140,7 @@ Immettere il nuovo ID del Centro per i partner, se disponibile.
 Immettere una chiave privata per visualizzare un'anteprima dell'offerta in AppSource prima della pubblicazione.
 Questo identificatore non è una password.
 
+
 ## <a name="listing-details"></a>Dettagli inserzione
 
 **Tipo di servizio di consulenza**
@@ -166,7 +163,7 @@ Sono inclusi i seguenti cinque tipi di offerte:
 Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o area, è necessario creare una nuova offerta.
 
 >[!Note]
->I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile presentare un'offerta per un paese anche se non è ancora attiva, dal momento che verrà esaminata e preparata per essere pubblicata. Per garantire la disponibilità per un nuovo paese è necessario un numero minimo di offerte pronte per essere pubblicate, pertanto si incoraggiano gli utenti a presentare offerte anche per paesi in cui non sono ancora attive.
+>I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile inviare un'offerta per un paese/area geografica che non è ancora in tempo reale e verrà esaminato e preparato per essere pubblicata. Per aprire un nuovo paese/area geografica, in modo che le offerte per paesi/aree geografiche che non sono in tempo reale sono invitate è necessari un numero minimo di offerte può essere attivata.
 
 **Settori**
 
@@ -207,6 +204,7 @@ Caricare la brochure di marketing che descrive l'offerta del servizio di consule
 **Screenshot (al massimo cinque)**
 
 Caricare fino a cinque immagini che offrono ulteriori informazioni sull'offerta, sui risultati dell'offerta o sulla propria azienda. Ad esempio, un frammento della brochure di marketing, una diapositiva rilevante di una presentazione o un'immagine che illustra l'espansione o le competenze dell'azienda.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

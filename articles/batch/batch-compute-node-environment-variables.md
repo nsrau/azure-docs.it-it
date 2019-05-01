@@ -1,6 +1,6 @@
 ---
-title: Variabili di ambiente per i nodi di calcolo - Azure Batch | Microsoft Docs
-description: Riferimento variabile di ambiente del nodo di calcolo per le analisi di Azure Batch.
+title: Variabili di ambiente di runtime - Azure Batch di attività | Microsoft Docs
+description: Attività runtime ambiente variabile indicazioni e informazioni di riferimento per Azure Batch Analitica.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782231"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575571"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Variabili di ambiente per i nodi di calcolo di Azure Batch
+# <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente di Azure Batch runtime
 
 Il [servizio Azure Batch](https://azure.microsoft.com/services/batch/) imposta le variabili di ambiente seguenti sui nodi di calcolo. È possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nei programmi e negli script eseguiti dalle righe di comando.
 
@@ -28,6 +28,12 @@ Per altre informazioni sull'uso delle variabili di ambiente con Batch, vedere [I
 ## <a name="environment-variable-visibility"></a>Visibilità delle variabili di ambiente
 
 Queste variabili di ambiente sono visibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. *Non* verranno visualizzate se ci si [connette in modalità remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo di calcolo tramite Remote Desktop Protocol (RDP) o Secure Shell (SSH) e si elencano le variabili di ambiente. L'account utente usato per la connessione remota non corrisponde infatti all'account usato dall'attività.
+
+Per ottenere il valore corrente di una variabile di ambiente, avviare `cmd.exe` nodo di calcolo in un Windows o `/bin/sh` in un nodo Linux:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Espansione delle variabili di ambiente della riga di comando
 

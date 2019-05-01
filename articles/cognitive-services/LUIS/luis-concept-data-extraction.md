@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812833"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867709"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da un testo utterance con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -441,7 +441,7 @@ Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e 
 
 ### <a name="names-of-places"></a>Nomi di località
 
-I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Utilizzare l'entità precompilato **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
+Nomi di località vengono impostati e noti, ad esempio le città, province, gli stati, province e paesi/aree geografiche. Utilizzare l'entità precompilato **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
 

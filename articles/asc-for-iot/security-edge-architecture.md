@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505404"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919911"
 ---
 # <a name="azure-iot-edge-security-module"></a>Modulo di sicurezza di Azure IoT Edge
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505404"
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per worklo§1ads di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) offre potenti funzionalità per gestire ed eseguire flussi di lavoro aziendali nei dispositivi perimetrali.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) offre potenti funzionalità per gestire ed eseguire flussi di lavoro aziendali nei dispositivi perimetrali.
 La parte principale di IoT Edge svolge negli ambienti IoT lo rendono particolarmente interessanti per gli attori dannosi.
 
 Azure Security Center (Centro sicurezza di AZURE) per il modulo di sicurezza IoT offre una soluzione di sicurezza completa per l'IoT Edge dispositivi.
@@ -44,7 +44,7 @@ Centro sicurezza di AZURE per IoT modulo di sicurezza per IoT Edge offre le funz
 
 - Analisi dei manifesti di distribuzione di IoT Edge.
 
-- Aggrega gli eventi di sicurezza non elaborati in messaggi inviati tramite [Hub di IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Aggrega gli eventi di sicurezza non elaborati in messaggi inviati tramite [Hub di IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Rimuovere la configurazione tramite l'uso del dispositivo gemello del modulo di protezione.
 

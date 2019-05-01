@@ -1,25 +1,18 @@
 ---
-title: SKU per un'immagine di contenitori di Azure | Microsoft Docs
+title: SKU disponibili per un'immagine del contenitore di Azure | Azure Marketplace
 description: Configurare SKU per un contenitore di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472857"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942922"
 ---
 # <a name="container-skus-tab"></a>Scheda SKU del contenitore
 
@@ -38,11 +31,13 @@ In fase di creazione, una nuova offerta non ha alcuno SKU associato. Per creare 
     -   Metadati dello SKU
     -   Metadati del contenitore
 
+
 ### <a name="sku-metadata"></a>Metadati dello SKU
 
 I metadati dello SKU contengono informazioni di visualizzazione vetrina per l'elenco di contenitori.
 
 ![Metadati dello SKU](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>Metadati del contenitore
 
@@ -50,29 +45,31 @@ I metadati del contenitore includono informazioni di riferimento dei dettagli de
 
 ![Metadati del contenitore](./media/containers-image-repository.png)
     
-I **dettagli del repository di immagini** illustrati nella precedente acquisizione di schermata includono i campi seguenti:
+Il **dettagli dell'immagine del Repository** nella schermata precedente acquisizione contiene i campi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
 
--   **ID sottoscrizione**: l'ID della sottoscrizione di Azure in cui si trova il Registro Azure Container.
--   **Nome del gruppo di risorse**: il nome del gruppo di risorse di Registro Azure Container.
--   **Nome del Registro**: il nome di Registro Azure Container.
--   **Nome del repository**: il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
--   **Nome utente**: il nome utente (nome utente amministratore) associato al Registro Azure Container.
--   **Password**: la password associata al Registro Azure Container.
+-   **ID sottoscrizione\***  -ID sottoscrizione di Azure in cui è presente il registro contenitori di AZURE.
+-   **Nome del gruppo di risorse\***  -il nome del gruppo di risorse il registro contenitori di Azure.
+-   **Nome del Registro di sistema\***  -nome di registro contenitori di AZURE.
+-   **Nome del repository\***  -il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
+-   **Nome utente\***  -il nome utente (nome utente amministratore) associato all'immagine di registro contenitori di AZURE.
+-   **La password\***  -password associata all'immagine di registro contenitori di AZURE.
 
     >[!NOTE]
     >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.
+
 
 ### <a name="image-version"></a>Versione dell'immagine
 
 Durante la pubblicazione di un'immagine del contenitore è possibile specificare uno o più tag immagine e digest dell'Agente integrità sistema.
 
-**Image Tag or Digest** (Digest o tag immagine)
+**Tag di immagine\* o del Digest**
  
 - Il tag o digest deve includere un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. 
 - È possibile aggiungere varie versioni del contenitore mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi tag devono essere aggiunti qui.
 
 >[!NOTE]
 >Ricordarsi di aggiungere un **tag di test** all'immagine, in modo da poterla identificare durante i test.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

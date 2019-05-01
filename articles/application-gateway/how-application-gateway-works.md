@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830323"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702419"
 ---
 # <a name="how-an-application-gateway-works"></a>Funzionamento di un gateway applicazione
 
@@ -26,7 +26,7 @@ Questo articolo illustra come un gateway applicazione accetta le richieste in in
 
 2. DNS di Azure restituisce l'indirizzo IP al client, ovvero l'indirizzo IP front-end del gateway applicazione.
 
-3. Il gateway applicazione accetta il traffico in ingresso su uno o più listener. Un listener è un'entità logica che verifica la presenza di richieste di connessione. Si è configurato con un indirizzo IP server front, protocollo e il numero di porta per le connessioni dai client al gateway applicazione.
+3. Il gateway applicazione accetta il traffico in ingresso su uno o più listener. Un listener è un'entità logica che verifica la presenza di richieste di connessione. Si è configurato con un indirizzo IP front-end, protocollo e il numero di porta per le connessioni dai client al gateway applicazione.
 
 4. Se un web application firewall (WAF) è in uso, il gateway applicazione controlla le intestazioni della richiesta e il corpo, se presente, in base alle regole di WAF. Questa azione determina se la richiesta non è richiesta valida o una minaccia alla sicurezza. Se la richiesta è valida, viene indirizzato al back-end. Se la richiesta non è valida, ma viene bloccata come una minaccia alla sicurezza.
 

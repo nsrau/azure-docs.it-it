@@ -1,25 +1,19 @@
 ---
-title: Gestisci profilo di pubblicazione di Azure Marketplace e AppSource | Microsoft Docs
+title: Gestisci profilo di pubblicazione di Azure Marketplace e AppSource | Azure Marketplace
 description: Viene illustrato come gestire i profili di pubblicazione di Azure Marketplace e AppSource
 services: Azure, Marketplace, AppSource, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fd3f5750f050db0d57a8747b28798c04f666b077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525613"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942230"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gestisci il tuo profilo di pubblicazione di Azure Marketplace e AppSource
 

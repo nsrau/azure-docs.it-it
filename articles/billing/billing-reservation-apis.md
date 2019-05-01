@@ -1,24 +1,22 @@
 ---
 title: API per l'automazione delle prenotazioni di Azure | Microsoft Docs
 description: Informazioni sulle API di Azure utilizzabili per ottenere informazioni sulle prenotazioni a livello di codice.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371207"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702613"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
 
@@ -32,7 +30,38 @@ Usare l'API Raccomandazioni di prenotazione per ottenere consigli su quale piano
 
 ## <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
-Attualmente non è possibile acquistare una prenotazione a livello di codice. Per acquistare una prenotazione, vedere gli articoli seguenti:
+È possibile acquistare prenotazioni di Azure e i piani software a livello di programmazione tramite le API REST. Per altre informazioni, vedere [ordine di prenotazione: API di acquisto](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Ecco una richiesta di esempio per l'acquisto tramite l'API REST:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Corpo della richiesta:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+È anche possibile acquistare una prenotazione nel portale di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
 Piani di servizio:
 - [Macchina virtuale](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373497"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569610"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 
@@ -206,7 +206,7 @@ Genera il risultato:
 
 ![Controlli di modifica delle sezioni delle cartelle di controllo di Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Un esempio più adatto usa un elenco a discesa per consentire la selezione da un set di paesi in base al nome:
+Un esempio più appropriato consiste nell'usare un elenco a discesa per selezionare da un set di paesi/aree geografiche in base al nome:
 
 ```
 customEvents

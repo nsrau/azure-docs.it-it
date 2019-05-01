@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484225"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926512"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
@@ -23,7 +23,7 @@ Quando si verificano le anomalie nelle attività, vengono generati avvisi di sic
 
 > [!NOTE]
 > * Advanced Threat Protection per l'archiviazione di Azure è attualmente disponibile solo per l'archiviazione Blob.
-> * Per dettagli sui prezzi, incluse una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Per dettagli sui prezzi, incluse una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 > * Per la funzionalità di archiviazione di Azure ATP non è attualmente disponibile in Azure per enti pubblici e aree del cloud con sovranità.
 
 Advanced Threat Protection per l'archiviazione di Azure inserisce i log di diagnostica di lettura, scrittura ed eliminazione delle richieste nell'archivio Blob per il rilevamento delle minacce. Per analizzare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlato usando registrazione Analitica dell'archiviazione. Per altre informazioni, vedere come [configurare la registrazione di archiviazione Analitica](storage-monitor-storage-account.md#configure-logging).

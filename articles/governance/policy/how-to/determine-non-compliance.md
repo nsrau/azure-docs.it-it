@@ -3,16 +3,16 @@ title: Determinare le cause di non conformità
 description: Se una risorsa non conforme, esistono numerose cause. Informazioni su come stabilire la causa la non conformità.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499327"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868680"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -47,7 +47,7 @@ Per visualizzare i dettagli di conformità, seguire questa procedura:
 
    ![Riquadro dei dettagli di conformità e i motivi per la mancata conformità](../media/determine-non-compliance/compliance-details-pane.png)
 
-   Per un **auditIfNotExists** oppure **deployIfNotExists** definizione dei criteri, i dettagli includono il **details.type** proprietà e le eventuali proprietà facoltative. Per un elenco, vedere [proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [deployIfNotExists proprietà](../concepts/effects.md#deployifnotexists-properties). **Ultima valutazione resource** è delle risorse correlata di **dettagli** sezione della definizione.
+   Per un **auditIfNotExists** oppure **deployIfNotExists** definizione dei criteri, i dettagli includono il **details.type** proprietà e le eventuali proprietà facoltative. Per un elenco, vedere [proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [deployIfNotExists proprietà](../concepts/effects.md#deployifnotexists-properties). **Ultima valutazione resource** è una risorsa correlata dal **dettagli** sezione della definizione.
 
    Esempio parziale **deployIfNotExists** definizione:
 
@@ -85,7 +85,7 @@ Questi dettagli di spiegano il motivo per cui una risorsa è attualmente non con
 
 La matrice seguente esegue il mapping di ogni possibile _motivo_ per il responsabile [condizione](../concepts/definition-structure.md#conditions) nella definizione dei criteri:
 
-|Motivo | Condizione |
+|`Reason` | Condizione |
 |-|-|
 |Il valore corrente deve contenere il valore di destinazione come chiave. |containsKey oppure **non** notContainsKey |
 |Il valore corrente deve contenere il valore di destinazione. |contiene oppure **non** notContains |
@@ -105,9 +105,107 @@ La matrice seguente esegue il mapping di ogni possibile _motivo_ per il responsa
 |Il valore corrente non deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |notMatchInsensitively oppure **non** matchInsensitively |
 |Non esiste alcuna risorsa correlata corrispondente ai dettagli dell'effetto nella definizione dei criteri. |Una risorsa del tipo definito **then.details.type** correlata alla risorsa definita nel **se** parte della regola dei criteri non esiste. |
 
-## <a name="change-history-preview"></a>Cronologia modifiche (anteprima)
+## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione di Guest
 
-Come parte di una nuova **versione di anteprima pubblica**, gli ultimi 14 giorni di modifica della cronologia è disponibile per tutte le risorse di Azure che supportano [completare l'eliminazione di modalità](../../../azure-resource-manager/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Un rilevamento delle modifiche viene attivato quando le proprietà di Resource Manager vengano aggiunto, rimosso o modificate.
+Per _audit_ i criteri nel _Guest configurazione_ categoria, potrebbero esserci più impostazioni valutate all'interno della macchina virtuale e sarà necessario visualizzare i dettagli per ogni impostazione. Ad esempio, se si esegue il controllo per un elenco delle applicazioni installate e lo stato di assegnazione viene _Non conformi_, è necessario sapere quali applicazioni sono mancanti.
+
+Inoltre non si dispone dell'accesso per accedere direttamente alla macchina virtuale ma è necessario eseguire segnalazioni su perché la macchina virtuale viene _Non conformi_. È ad esempio, potrebbe essere controllare che le macchine virtuali vengono aggiunti al dominio corretto e includono l'appartenenza al dominio corrente nei dettagli del report.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+
+1. Nel **Overview** o **conformità** pagina, selezionare un'assegnazione di criteri per le iniziative che contiene una definizione di criteri di configurazione di Guest che _Non conforme_.
+
+1. Selezionare un _audit_ dei criteri nell'iniziativa Ecco _Non conforme_.
+
+   ![Visualizzare i dettagli di definizione di controllo](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. Nel **conformità risorsa** scheda, viene fornite le informazioni seguenti:
+
+   - **Nome** -il nome delle assegnazioni di configurazione di Guest.
+   - **Risorsa padre** -la macchina virtuale in un _Non conforme_ dello stato per l'assegnazione del Guest configurazione selezionata.
+   - **Tipo di risorsa** - il _guestConfigurationAssignments_ nome completo.
+   - **Ultima valutazione** : l'ultima volta il servizio di configurazione Guest riceve una notifica sullo stato della macchina virtuale di destinazione i criteri di Azure.
+
+   ![Visualizzare i dettagli sulla conformità.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Selezionare il nome dell'assegnazione di configurazione Guest nel **Name** colonna per aprire il **conformità risorsa** pagina.
+
+1. Selezionare il **risorsa vista** nella parte superiore della pagina per aprire il **Guest assegnazione** pagina.
+
+Il **Guest assegnazione** pagina vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga nella visualizzazione rappresenta una versione di valutazione è stata eseguita all'interno della macchina virtuale. Nel **motivo** colonna, una frase che descrive il motivo per cui l'assegnazione del Guest _Non conforme_ viene visualizzato. Ad esempio, se si sta controllando che le macchine virtuali devono essere unite in join a un dominio, il **motivo** colonna potrebbe visualizzare il testo tra cui l'appartenenza al dominio corrente.
+
+![Visualizzare i dettagli sulla conformità.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+È anche possibile visualizzare i dettagli di conformità da Azure PowerShell. In primo luogo, assicurarsi di avere installato il modulo di configurazione di Guest.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+È possibile visualizzare lo stato corrente di tutte le assegnazioni di Guest per una macchina virtuale usando il comando seguente:
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Per visualizzare solo le _motivo_ frase che descrive il motivo per cui la macchina virtuale sia _Non conforme_, restituire solo la proprietà figlio di motivo.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+È anche possibile inviare una cronologia di conformità per le assegnazioni di Guest nell'ambito per la macchina virtuale. L'output da questo comando include i dettagli di ogni report per la macchina virtuale.
+
+> [!NOTE]
+> L'output potrebbe restituire una quantità notevole di dati. È consigliabile archiviare l'output in una variabile.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+Per semplificare questa visualizzazione, usare il **ShowChanged** parametro. L'output da questo comando include solo i report di seguito una modifica nello stato di conformità.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Cronologia delle modifiche (anteprima)
+
+Come parte di una nuova **versione di anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano [completare l'eliminazione di modalità](../../../azure-resource-manager/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Un rilevamento delle modifiche viene attivato quando le proprietà di Resource Manager vengano aggiunto, rimosso o modificate.
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
@@ -129,10 +227,10 @@ Dati della cronologia delle modifiche viene forniti da [Graph di Azure Resource]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](../concepts/definition-structure.md)
-- Vedere [Informazioni sugli effetti di Criteri](../concepts/effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md)
-- Informazioni su come [ottenere dati sulla conformità](getting-compliance-data.md)
-- Informazioni su come [correggere le risorse non conformi](remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere [Struttura delle definizioni di criteri di Azure](../concepts/definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
+- Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](getting-compliance-data.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

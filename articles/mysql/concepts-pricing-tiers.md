@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528301"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688625"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -40,31 +40,25 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità).
 
-> [!IMPORTANT]
-> A partire dal 12 dicembre 2018 i nuovi clienti non possono effettuare il provisioning di server di calcolo di quarta generazione in Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Stati Uniti orientali 2, India centrale, India occidentale, Giappone occidentale, Stati Uniti centro-settentrionali e Stati Uniti occidentali. Verrà eseguita la migrazione dei server di servizi di calcolo di quarta generazione creati in precedenza ai server di servizi di calcolo di quinta generazione a partire dal 1° febbraio 2019 in queste aree.
->
-> [!IMPORTANT]
-> A partire dal 15 febbraio 2019, i nuovi clienti non sarà in grado di effettuare il provisioning di server di generazione 4 di calcolo in Stati Uniti centrali, Stati Uniti orientali, Giappone orientale, Europa settentrionale, meridionali, Asia sud-orientale, Europa occidentale. Creato in precedenza la generazione di calcolo e 4 i server verranno migrati per generazione 5 il 1 aprile 2019 a partire da queste aree di calcolo.
-
 | **Area di Azure** | **Generazione 4** | **Generazione 5** |
 |:---|:----------:|:--------------------:|
 | Stati Uniti centrali |  | X |
 | Stati Uniti orientali |  | X |
 | Stati Uniti orientali 2 |  | X |
 | Stati Uniti centro-settentrionali |  | X |
-| Stati Uniti centro-meridionali | X | X |
+| Stati Uniti centro-meridionali |  | X |
 | Stati Uniti occidentali |  | X |
 | Stati Uniti occidentali 2 |  | X |
 | Brasile meridionale |  | X |
 | Canada centrale |  | X |
 | Canada orientale |  | X |
-| Europa settentrionale | X | X |
+| Europa settentrionale |  | X |
 | Europa occidentale |  | X |
 | Francia centrale |  | X |
 | Regno Unito meridionale |  | X |
 | Regno Unito occidentale |  | X |
 | Asia orientale |  | X |
-| Asia sud-orientale | X | X |
+| Asia sud-orientale |  | X |
 | Australia orientale |  | X |
 | Australia centrale |  | X |
 | Australia centrale 2 |  | X |
@@ -72,7 +66,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | India centrale |  | X |
 | India meridionale |  | X |
 | India occidentale |  | X |
-| Giappone orientale | X | X |
+| Giappone orientale |  | X |
 | Giappone occidentale |  | X |
 | Corea del Sud centrale |  | X |
 | Corea del Sud meridionale |  | X |

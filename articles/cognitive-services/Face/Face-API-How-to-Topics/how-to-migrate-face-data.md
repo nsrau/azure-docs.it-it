@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548405"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682529"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
 Questa guida illustra come spostare i dati sui visi (ad esempio un **PersonGroup** di visi salvato) in un'altra sottoscrizione delll'API Viso tramite la funzionalità per la creazione di snapshot. In questo modo è possibile evitare di dover creare ripetutamente **PersonGroup** o **FaceList** e sottoporli a training in caso di trasferimento o ampliamento delle attività. Ad esempio, è possibile che sia stato creato un **PersonGroup** usando una sottoscrizione di valutazione gratuita e che si voglia ora eseguirne la migrazione alla sottoscrizione a pagamento o potrebbe essere necessario sincronizzare i dati sui visi tra aree diverse per le attività di un'azienda di grandi dimensioni.
 
-Questa stessa strategia di migrazione si applica anche agli oggetti **LargePersonGroup** e **LargeFaceList**. Se non si ha familiarità con i concetti presentati in questa guida, vedere le relative definizioni nel [glossario](../Glossary.md). Questa guida usa la libreria client .NET per l'API Viso con C#.
+Questa stessa strategia di migrazione si applica anche agli oggetti **LargePersonGroup** e **LargeFaceList**. Se non ha familiarità con i concetti presentati in questa Guida, vedere le relative definizioni nel [affrontare concetti riconoscimento](../concepts/face-recognition.md) Guida. Questa guida usa la libreria client .NET per l'API Viso con C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,15 +29,13 @@ Questa stessa strategia di migrazione si applica anche agli oggetti **LargePerso
 - La stringa dell'ID di sottoscrizione per l'API Viso corrispondente alla sottoscrizione di destinazione (disponibile nel pannello **Panoramica** nel portale di Azure). 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
 Questa guida userà una semplice app console per eseguire la migrazione dei dati sui visi. Per un'implementazione completa, vedere l'[esempio Face API Snapshot](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) su GitHub.
 
-1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **FaceApiSnapshotSample**. 
+1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **FaceApiSnapshotSample**.
 1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e selezionare **Includi versione preliminare**, quindi cercare e installare il pacchetto seguente:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Creare client dell'API Viso
 
@@ -226,7 +224,9 @@ Dopo aver completato la migrazione dei dati sui visi, si consiglia di eliminare 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Argomenti correlati
+## <a name="next-steps"></a>Passaggi successivi
+
+Successivamente, vedere la relativa documentazione di riferimento API, esplorare un'app di esempio che usa la funzionalità di Snapshot o seguire una Guida dettagliata per iniziare a usare le altre operazioni dell'API indicate di seguito.
 
 - [Documentazione di riferimento sugli snapshot (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Esempio Face API Snapshot](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

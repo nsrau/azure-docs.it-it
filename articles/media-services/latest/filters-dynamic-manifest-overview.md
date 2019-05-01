@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44894694bab7d34ed9e6a71fe5e47c9e41144bca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323087"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716274"
 ---
 # <a name="dynamic-manifests"></a>Manifesti dinamici
 
@@ -26,7 +26,7 @@ Servizi multimediali offre **manifesti dinamici** basati su filtri predefiniti. 
 
 Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
-|Protocollo|Esempio|
+|Protocol|Esempio|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -131,7 +131,7 @@ Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-m
 - I valori di **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** non devono essere impostati per un filtro VoD. Vengono usati solo per gli scenari di filtro live. 
 - Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 
 - È possibile usare lo stesso nome di filtro per i filtri account e asset. I filtri asset, tuttavia, hanno la precedenza e sovrascrivono quindi i filtri account.
-- Se si aggiorna un filtro, possono volerci fino a 2 minuti per Endpoint di Streaming aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento dei filtri può determinare un errore del lettore. È consigliabile cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.
+- Se si aggiorna un filtro, possono volerci fino a 2 minuti per l'Endpoint di Streaming per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento dei filtri può determinare un errore del lettore. È consigliabile cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.
 - I clienti devono scaricare manualmente il manifesto e analizzare il startTimestamp esatto e la scala cronologica.
     
     - Per determinare le proprietà dei brani in un asset, [ottenere ed esaminare il file manifesto](#get-and-examine-manifest-files).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481981"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866538"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -109,7 +109,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Circa 1100 frasi selezionate da testi non protetti da copyright per l'uso specifico in progetti di sintesi vocale. Si tratta di un punto di partenza eccellente.|
 |Testi non più protetti<br>da copyright|Si tratta in genere di testi pubblicati prima del 1923. Per l'inglese, sul sito [Project Gutenberg](https://www.gutenberg.org/) sono disponibili decine di migliaia di tali testi. Può essere opportuno, tuttavia, concentrarsi su testi più recenti perché la lingua si avvicina di più all'inglese moderno.|
-|Testi&nbsp;di enti pubblici|I testi creati dagli enti pubblici degli Stati Uniti non sono protetti da copyright negli Stati Uniti, ma possono esserlo in altri paesi.|
+|Testi&nbsp;di enti pubblici|Sebbene il governo potrebbe affermare copyright in altri paesi/aree geografiche, negli Stati Uniti, non è sono protette da copyright Works creati per il governo degli Stati Uniti.|
 |Pubblico dominio|Testi per cui è stata fatta rinuncia esplicita al diritto di copyright o che sono stati definiti di pubblico dominio. In alcune giurisdizioni può non essere possibile rinunciare completamente al copyright.|
 |Testi concessi in licenza|Testi distribuiti in base a una licenza, ad esempio Creative Commons o la GNU Free Documentation License (GFDL). Wikipedia usa la licenza GFDL. Alcune licenze, tuttavia, possono imporre restrizioni sulle prestazioni correlate al contenuto concesso in licenza, condizione che può influire sulla creazione di un modello di voce personalizzata. È consigliabile pertanto leggere attentamente la licenza.|
 

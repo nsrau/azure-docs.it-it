@@ -1,25 +1,18 @@
 ---
-title: Pubblicare un'offerta di app Power BI - Azure Marketplace | Microsoft Docs
+title: Pubblicare l'offerta per l'App di Power BI | Azure Marketplace
 description: Pubblicare un'offerta di App di Power BI tramite il marketplace Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 0e82041dab1932ed7c129b598740b2441aa59315
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725713"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943187"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Pubblicare un'offerta di App di Power BI
 

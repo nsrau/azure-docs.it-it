@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833914"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706111"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita del database SQL di Azure
 
@@ -31,7 +31,7 @@ In caso di migrazione di un database protetto tramite [Transparent Data Encrypti
 Per un'opzione alternativa basata sull'uso di un servizio completamente gestito per una migrazione senza problemi sia del database protetto tramite TDE che del certificato corrispondente, vedere l'articolo su [come eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database di Azure](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Per un'istanza gestita del database SQL di Azure, Transparent Data Encryption funziona in modalità servizio gestito. Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Subito dopo il ripristino, tale certificato viene sostituito da un altro gestito dal sistema.
+> Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. A breve termine ripristino, il certificato migrato vengono sostituito da un programma di protezione diversi, gestita dal servizio e certificato o chiave asimmetrica dall'insieme di credenziali chiave, a seconda del tipo di transparent data encryption è impostato sull'istanza.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

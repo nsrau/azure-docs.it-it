@@ -1,25 +1,18 @@
 ---
-title: Informazioni canale dell'offerta di applicazioni SaaS di Azure | Microsoft Docs
+title: Informazioni sul canale offerta di applicazione SaaS Azure | Azure Marketplace
 description: Configurare le informazioni canale per un'offerta di applicazione SaaS in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 72830734855f35dc1180035bb51bbb3c877a9901
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 448ae37f07dee6186b43cac4822d07151b52e050
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101289"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943198"
 ---
 # <a name="saas-application-channel-info-tab"></a>Scheda Informazioni canale Applicazione SaaS
 

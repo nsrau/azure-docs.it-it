@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360183"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574103"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Scegliere tra i vCore e il modello di acquisto basato su DTU
 
 Database SQL di Azure consente di acquistare con facilità un motore di database PaaS completamente gestito che si adatta alle proprie esigenze di prestazioni e costi. A seconda del modello di distribuzione del Database SQL di Azure, è possibile selezionare il modello di acquisto adatto alle proprie esigenze:
-
-- [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) (scelta consigliata) che consente di scegliere la quantità esatta di capacità di archiviazione e di calcolo necessaria per il carico di lavoro.
-- [Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) in cui è possibile scegliere pacchetti di calcolo e archiviazione in bundle bilanciati per i carichi di lavoro comuni.
 
 Nei modelli di distribuzione del database SQL di Azure sono disponibili modelli di acquisto diversi:
 
 - Le opzioni di distribuzione [database singolo](sql-database-single-databases-manage.md) e [pool elastico](sql-database-elastic-pool.md) nel [database SQL di Azure](sql-database-technical-overview.md) offrono sia il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) sia il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 - L'opzione di distribuzione [istanza gestita](sql-database-managed-instance.md) nel database SQL di Azure offre solo il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> Il [livello di servizio con iperscalabilità (anteprima)](sql-database-service-tier-hyperscale.md) è disponibile solo nell'anteprima pubblica per database singoli che usano il modello di acquisto vCore.
 
-La tabella e il grafico seguenti mettono a confronto questi due modelli.
+La seguente tabella grafico e metterli a confronto i vCore e DTU modelli di acquisto.
 
 |**Modello di acquisto**|**Descrizione**|**Ideale per**|
 |---|---|---|
@@ -46,17 +41,20 @@ La tabella e il grafico seguenti mettono a confronto questi due modelli.
 
 ## <a name="compute-costs"></a>Costi di calcolo
 
-Il costo delle risorse di calcolo riflette la capacità di calcolo totale di cui è stato eseguito il provisioning per l'applicazione. Nel livello di servizio Business Critical vengono allocate automaticamente almeno tre repliche. Per riflettere questa allocazione aggiuntiva di risorse di calcolo, il prezzo nel modello di acquisto basato su vCore è circa 2,7 volte più alto nel livello di servizio Business Critical rispetto al livello di servizio di utilizzo generico. Per lo stesso motivo, il prezzo di archiviazione per GB più alto nel livello di servizio Business Critical riflette l'I/O elevato e la bassa latenza dell'archiviazione su unità SSD. Il costo di archiviazione per i backup è tuttavia lo stesso per i due livelli di servizio perché in entrambi i casi viene usata una classe di archiviazione standard.
+### <a name="provisioned-compute-costs"></a>Costi di calcolo sottoposte a provisioning
+
+Nel livello di calcolo sottoposte a provisioning, il costo di calcolo riflette la capacità di calcolo totale che è stato effettuato il provisioning per l'applicazione.  Nel livello di servizio Business Critical vengono allocate automaticamente almeno tre repliche. Per riflettere questa allocazione aggiuntiva di risorse di calcolo, il prezzo nel modello di acquisto basato su vCore è circa 2,7 volte più alto nel livello di servizio Business Critical rispetto al livello di servizio di utilizzo generico. Per lo stesso motivo, il prezzo di archiviazione per GB più alto nel livello di servizio Business Critical riflette l'I/O elevato e la bassa latenza dell'archiviazione su unità SSD. Il costo di archiviazione per i backup è tuttavia lo stesso per i due livelli di servizio perché in entrambi i casi viene usata una classe di archiviazione standard.
+
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
 I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza.
 
-7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Una quantità di risorse di archiviazione minima equivalente al 100% delle dimensioni del database viene fornita senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
+7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Uno spazio di archiviazione minimo equivalente al 100% delle dimensioni del database viene fornito senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
 
 Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+## <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
 Una memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware e caratteristiche fisiche dell'hardware (ad esempio, numero di core, memoria, spazio di archiviazione). Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza nell'uso individuale delle risorse e un metodo diretto per convertire i requisiti dei carichi di lavoro locali nel cloud. Questo modello consente di scegliere le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Nel modello di acquisto basato su vCore è possibile scegliere tra livelli di servizio [Utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [Business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [pool elastici](sql-database-elastic-pool.md) e [istanze gestite](sql-database-managed-instance.md). Per i database singoli è anche possibile scegliere il [livello di servizio con iperscalabilità (anteprima)](sql-database-service-tier-hyperscale.md).
 
@@ -78,7 +76,7 @@ Se un database singolo o un pool elastico usa più di 300 DTU, la conversione in
 
 ## <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
 
-La DTU (unità di transazione di database) rappresenta una misura combinata di CPU, memoria e operazioni di lettura e scrittura. Il modello di acquisto basato su DTU offre un set di bundle preconfigurati di risorse di calcolo e archiviazione per diversi livelli di prestazioni dell'applicazione. I clienti che preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile, possono considerare il modello basato su DTU come più adatto alle proprie esigenze. In questo modello i clienti possono scegliere tra livelli di servizio **Basic**, **Standard** e **Premium** sia per [database singoli](sql-database-single-database-scale.md) sia per [pool elastici](sql-database-elastic-pool.md). Il modello d’acquisto non è disponibile nell'[istanza gestita](sql-database-managed-instance.md).
+La DTU (unità di transazione di database) rappresenta una misura combinata di CPU, memoria e operazioni di lettura e scrittura. Il modello di acquisto basato su DTU offre un set di bundle preconfigurati di risorse di calcolo e archiviazione per ottenere diversi livelli di prestazioni dell'applicazione. I clienti che preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile, possono considerare il modello basato su DTU come più adatto alle proprie esigenze. Nel modello di acquisto basato su DTU, i clienti possono scegliere tra livelli di servizio **Basic**, **Standard** e **Premium** sia per [database singoli](sql-database-single-database-scale.md) sia per [pool elastici](sql-database-elastic-pool.md). Il modello d’acquisto non è disponibile nell'[istanza gestita](sql-database-managed-instance.md).
 
 ### <a name="database-transaction-units-dtus"></a>Unità di transazione di database (DTU)
 
@@ -90,7 +88,7 @@ Le DTU sono particolarmente utili per comprendere la quantità relativa di risor
 
 Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro, usare le [informazioni dettagliate sulle prestazioni delle query](sql-database-query-performance.md) per:
 
-- Identificare le query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni. Una query con uso intensivo dell'I/O, ad esempio, può trarre vantaggio dall'uso di [tecniche di ottimizzazione in memoria](sql-database-in-memory.md) per usare in modo più efficiente la memoria disponibile per un livello di servizio e una dimensione di calcolo specifici.
+- Identificare le query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni. Una query con uso intensivo dell'I/O, ad esempio, può trarre vantaggio dall'uso di [tecniche di ottimizzazione in memoria](sql-database-in-memory.md) per usare in modo più efficiente la memoria disponibile per un livello di servizio e dimensioni di calcolo specifici.
 - Eseguire il drill-down dei dettagli di una query, visualizzarne il testo e la cronologia di utilizzo delle risorse.
 - Accedere alle raccomandazioni relative all'ottimizzazione delle prestazioni che descrivono le azioni eseguite da [Advisor per database SQL](sql-database-advisor.md).
 
@@ -110,7 +108,7 @@ Se si intende eseguire la migrazione di un carico di lavoro di macchine virtuali
 
 I pool sono adatti per un numero elevato di database con modelli di utilizzo specifici. Per un determinato database, questo modello è caratterizzato da un utilizzo medio ridotto con picchi di utilizzo relativamente poco frequenti. Database SQL valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di database SQL esistente e consiglia una configurazione appropriata del pool nel portale di Azure. Per altre informazioni, vedere [Quando usare un pool elastico](sql-database-elastic-pool.md)
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Domande frequenti sui modelli di acquisto
+## <a name="purchase-models-frequently-asked-questions-faq"></a>I modelli di acquisto: domande frequenti (FAQ)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>È necessario portare offline l'applicazione per eseguire la conversione da un database basato su DTU a un livello di servizio basato su vCore?
 

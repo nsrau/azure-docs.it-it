@@ -3,19 +3,19 @@ title: Panoramica dei token - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sui token usati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316936"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681901"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Le attestazioni nei token ID non vengono restituite in un ordine particolare. Po
 
 Nella tabella seguente elenca le attestazioni che è possibile aspettarsi nel token ID e accedere ai token emessi da Azure AD B2C.
 
-| Name | Attestazione | Valore di esempio | DESCRIZIONE |
+| NOME | Attestazione | Valore di esempio | DESCRIZIONE |
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica il destinatario del token. Per Azure AD B2C, il destinatario è l'ID applicazione. L'applicazione deve convalidare questo valore e rifiutare il token, se non corrisponde. Audience equivale a risorsa. |
 | Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Identifica, inoltre, la directory in cui è stato autenticato l'utente. L'applicazione deve convalidare l'attestazione dell'autorità di certificazione per assicurarsi che il token provenga all'endpoint appropriato. |
@@ -65,7 +65,7 @@ Nella tabella seguente elenca le attestazioni che è possibile aspettarsi nel to
 | Riferimento alla classe contesto di autenticazione | `acr` | Non applicabile | Utilizzato solo con i criteri precedenti. |
 | Criteri del framework di attendibilità | `tfp` | `b2c_1_signupsignin1` | Il nome del criterio usato per acquisire il token ID. |
 | Ora di autenticazione | `auth_time` | `1438535543` | L'ora in cui un utente ha immesso ultima credenziali, rappresentata dal valore epoch Time. |
-| Scope | `scp` | `Read`| Le autorizzazioni concesse alla risorsa per un token di accesso. Le autorizzazioni multiple concesse sono separate da uno spazio. |
+| `Scope` | `scp` | `Read`| Le autorizzazioni concesse alla risorsa per un token di accesso. Le autorizzazioni multiple concesse sono separate da uno spazio. |
 | Entità autorizzati | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | L'**ID applicazione** dell'applicazione client che ha avviato la richiesta. |
 
 ## <a name="configuration"></a>Configurazione

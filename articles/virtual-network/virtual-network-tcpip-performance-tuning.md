@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032452"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924781"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
 
@@ -304,7 +304,7 @@ La funzionalità rete accelerata è progettata per migliorare le prestazioni di 
 
 Macchine virtuali di Azure hanno almeno un'interfaccia di rete a cui è collegata. Si potrebbe avere diversi. La larghezza di banda allocata a una macchina virtuale è la somma di tutto il traffico in uscita in tutte le interfacce di rete collegate alla macchina. In altre parole, la larghezza di banda viene allocato per singola macchina virtuale, indipendentemente dal numero di interfacce di rete è collegato alla macchina.
 
-Velocità effettiva in uscita prevista e il numero di interfacce di rete supportate da ogni dimensione di VM sono descritti in dettaglio [macchine virtuali di dimensioni per Windows in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Per visualizzare la massima velocità effettiva, selezionare un tipo, ad esempio **generico**e quindi individuare la sezione sulla serie di dimensioni della pagina risultante (ad esempio, "serie Dv2"). Per ogni serie, è disponibile una tabella che fornisce le specifiche di rete nell'ultima colonna, dal titolo "schede di rete Max / larghezza di banda (Mbps) previsto."
+Velocità effettiva in uscita prevista e il numero di interfacce di rete supportate da ogni dimensione di VM sono descritti in dettaglio [macchine virtuali di dimensioni per Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Per visualizzare la massima velocità effettiva, selezionare un tipo, ad esempio **generico**e quindi individuare la sezione sulla serie di dimensioni della pagina risultante (ad esempio, "serie Dv2"). Per ogni serie, è disponibile una tabella che fornisce le specifiche di rete nell'ultima colonna, dal titolo "schede di rete Max / larghezza di banda (Mbps) previsto."
 
 Il limite di velocità effettiva si applica alla macchina virtuale. Velocità effettiva non dipende dai fattori seguenti:
 
@@ -388,4 +388,4 @@ Tuttavia, questi tipi di pacchetto sono indicazioni che elaborate TCP non raggiu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si sono appresi ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure, è possibile leggere altre considerazioni sullo [pianificazione di reti virtuali](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) o [altre informazioni sulla connessione e configurazione di reti virtuali ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Ora che si sono appresi ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure, è possibile leggere altre considerazioni sullo [pianificazione di reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) o [altre informazioni sulla connessione e configurazione di reti virtuali ](https://docs.microsoft.com/azure/virtual-network/).

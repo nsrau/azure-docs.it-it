@@ -1,25 +1,18 @@
 ---
-title: Eliminare le offerte di Marketplace - Azure Marketplace | Microsoft Docs
+title: Eliminare le offerte di marketplace | Azure Marketplace
 description: Eliminare le offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942118"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminare le offerte o gli SKU di Azure Marketplace e AppSource
 
@@ -28,7 +21,7 @@ Per vari motivi è possibile decidere di ritirare l'offerta dal relativo marketp
 - *Rimozione dell'offerta*: impedisce a nuovi clienti di acquistare o distribuire l'offerta, ma non ha alcun impatto sui clienti esistenti, ai quali è necessario fornire assistenza in base al contratto di licenza e alle normative pertinenti. 
 - *Risoluzione dell'offerta*: è il processo di chiusura del servizio e/o di risoluzione del contratto di licenza tra l'editore e i clienti esistenti. 
 
-Linee guida e i criteri correlati alla chiusura e la rimozione dell'offerta sono regolati dalle [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560) e il [politiche di partecipazione](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sezione [offerta sospensione e rimozione](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Linee guida e i criteri correlati alla chiusura e la rimozione dell'offerta sono regolati dalle [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560) e il [politiche di partecipazione](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sezione [offerta sospensione e rimozione](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Questo articolo illustra i diversi scenari di eliminazione supportati e i passaggi necessari per eseguire ognuno.  
 

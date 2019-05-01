@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 7f9397ee21f74fe6a776881940e5721264216b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386126"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684684"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
-I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato.  Il runtime di Service Fabric viene installato in ogni macchina virtuale del set di scalabilità. È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
+I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato.  Il runtime di Service Fabric installato in ogni macchina virtuale nel set di scalabilità spostando l'estensione macchina virtuale di sezione. È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
 
 La figura seguente mostra un cluster con due tipi di nodo denominati FrontEnd e BackEnd. Ogni tipo di nodo ha cinque nodi.
 
@@ -38,6 +38,56 @@ Se è stato distribuito il cluster dal portale Azure o è stato usato il modello
 
 ![Risorse][Resources]
 
+## <a name="service-fabric-virtual-machine-extension"></a>Estensione macchina virtuale di Service Fabric
+Estensione macchina virtuale di Service Fabric consente di eseguire l'avvio di Service Fabric per le macchine virtuali di Azure e configurare la sicurezza del nodo.
+
+Di seguito è riportato un frammento di estensione della macchina virtuale di Service Fabric:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "1.1"
+     }
+   },
+```
+
+Di seguito sono le descrizioni delle proprietà:
+
+| **Nome** | **Valori consentiti** | ** --- ** | **Indicazioni o breve descrizione** |
+| --- | --- | --- | --- |
+| name | string | --- | nome univoco per l'estensione |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifica OS Service Fabric è il bootstrap per |
+| autoUpgradeMinorVersion | true o false | --- | Abilita l'aggiornamento automatico del Runtime di Service Fabric le versioni secondarie |
+| publisher | Microsoft.Azure.ServiceFabric | --- | nome del server di pubblicazione dell'estensione Service Fabric |
+| clusterEndpont | string | --- | URI:Port all'endpoint di gestione |
+| nodeTypeRef | string | --- | nome del tipo di nodo |
+| durabilityLevel | bronzo, argento, oro, platinum | --- | periodo di tempo consentito per mettere in pausa non modificabile dell'infrastruttura di Azure |
+| enableParallelJobs | true o false | --- | Abilitare ParallelJobs di calcolo come rimuovere una macchina virtuale e riavviare la macchina virtuale nella stesso set di scalabilità in parallelo |
+| nicPrefixOverride | string | --- | Prefisso della subnet, ad esempio "10.0.0.0/24" |
+| commonNames | string[] | --- | Nomi comuni dei certificati installati cluster |
+| x509StoreName | string | --- | Nome del certificato del cluster installati in cui si trova Store |
+| typeHandlerVersion | 1.1 | --- | Versione dell'estensione. 1.0 versione classica dell'estensione sono consigliati per l'aggiornamento a 1.1 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere la [panoramica della funzionalità "Distribuzione in qualsiasi ambiente" e un confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md).

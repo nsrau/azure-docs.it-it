@@ -1,25 +1,19 @@
 ---
-title: Raccolte dei processi aziendali | Microsoft Docs
+title: Le librerie di processo di Business | Azure Marketplace
 description: Spiegazione delle raccolte dei processi aziendali e metodologie.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: df323d121b42ab1200844f3fefb713122ba43106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 870e77f3390c820278970f5ffda002b4826b82a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625075"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935631"
 ---
 # <a name="business-process-libraries"></a>Raccolte dei processi aziendali
 

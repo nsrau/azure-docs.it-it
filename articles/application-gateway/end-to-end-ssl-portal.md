@@ -2,25 +2,25 @@
 title: Guida introduttiva - configurare la crittografia SSL end-to-end con il Gateway applicazione di Azure - portale di Azure | Microsoft Docs
 description: Informazioni su come usare il portale di Azure per creare un Gateway applicazione di Azure con crittografia SSL end-to-end.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831955"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946789"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurare SSL end-to-end tramite il Gateway applicazione con il portale
 
 Questo articolo illustra come usare il portale di Azure per configurare la crittografia SSL end-to-end con un gateway applicazione lo SKU v1.  
 
 > [!NOTE]
-> SKU v2 del Gateway applicazione richiede i certificati radice trusted per abilitare la configurazione end-to-end. Non è ancora disponibile il supporto del portale per l'aggiunta di certificati radice attendibili. Pertanto, in caso di SKU V2 osserverà [configurare SSL end-to-end tramite PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> SKU v2 del Gateway applicazione richiede i certificati radice trusted per abilitare la configurazione end-to-end. Non è ancora disponibile il supporto del portale per l'aggiunta di certificati radice attendibili. Pertanto, in caso di v2 vedere SKU [configurare SSL end-to-end tramite PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -32,7 +32,7 @@ Per altre informazioni, vedere [SSL SSL end-to-end e chiusura](https://docs.micr
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Creare un nuovo gateway applicazione con SSL end-to-end
 
-Per creare un nuovo gateway applicazione con la crittografia SSL end-to-end, è necessario abilitare innanzitutto la terminazione SSL durante la creazione di un nuovo gateway applicazione. Abilita la crittografia SSL per la comunicazione tra il client e il gateway applicazione. Quindi, dovrai elenco elementi consentiti certificati per i server back-end nelle impostazioni HTTP per abilitare la crittografia SSL per la comunicazione tra il server gateway e back-end dell'applicazione, quindi eseguire la crittografia SSL end-to-end.
+Per creare un nuovo gateway applicazione con la crittografia SSL end-to-end, è necessario abilitare innanzitutto la terminazione SSL durante la creazione di un nuovo gateway applicazione. Abilita la crittografia SSL per la comunicazione tra il client e il gateway applicazione. Quindi, è necessario per i certificati di elenco elementi consentiti per i server back-end nelle impostazioni HTTP per abilitare la crittografia SSL per la comunicazione tra il server gateway e back-end dell'applicazione, eseguire la crittografia SSL end-to-end.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Abilitare la terminazione SSL durante la creazione di un nuovo gateway applicazione
 
@@ -61,9 +61,9 @@ Fare riferimento a questo articolo per comprendere come [abilitare la terminazio
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Abilitare SSL end-to-end per il gateway applicazione esistente
 
-Per configurare un gateway applicazione esistente con la crittografia SSL end-to-end, è necessario prima della terminazione SSL Abilita nel listener. Abilita la crittografia SSL per la comunicazione tra il client e il gateway applicazione. Quindi, dovrai elenco elementi consentiti certificati per i server back-end nelle impostazioni HTTP per abilitare la crittografia SSL per la comunicazione tra il server gateway e back-end dell'applicazione, quindi eseguire la crittografia SSL end-to-end.
+Per configurare un gateway applicazione esistente con la crittografia SSL end-to-end, è necessario prima della terminazione SSL Abilita nel listener. Abilita la crittografia SSL per la comunicazione tra il client e il gateway applicazione. Quindi, è necessario per i certificati di elenco elementi consentiti per i server back-end nelle impostazioni HTTP per abilitare la crittografia SSL per la comunicazione tra il server gateway e back-end dell'applicazione, eseguire la crittografia SSL end-to-end.
 
-È necessario usare un listener con il protocollo HTTPS e il certificato per l'abilitazione della terminazione SSL. È possibile modificare il protocollo di un listener esistente. Pertanto, è possibile scegliere di usare un listener esistente con certificato e il protocollo HTTPS o creare un nuovo listener. Nel caso in cui si sceglie il primo, è possibile ignorare i passaggi a indicati di seguito **chiusura abilita SSL nel gateway applicazione esistente** e passare direttamente alla **elenco elementi consentiti certificati per server back-end** sezione. Se si sceglie quest'ultimo, seguire questi passaggi. 
+È necessario usare un listener con il protocollo HTTPS e il certificato per l'abilitazione della terminazione SSL. È possibile modificare il protocollo di un listener esistente. Pertanto, è possibile scegliere di usare un listener esistente con certificato e il protocollo HTTPS o creare un nuovo listener. Nel caso in cui si sceglie il primo, è possibile ignorare i passaggi a indicati di seguito **chiusura abilita SSL nel gateway applicazione esistente** e passare direttamente alla **elenco elementi consentiti certificati per server back-end** sezione. Se si sceglie quest'ultimo, usare questi passaggi.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Abilitare la terminazione SSL nel gateway applicazione esistente
 

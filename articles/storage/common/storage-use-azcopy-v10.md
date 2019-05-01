@@ -1,23 +1,23 @@
 ---
-title: Copiare o spostare i dati in archiviazione di Azure tramite AzCopy v10 (anteprima) | Microsoft Docs
-description: Usare il v10 AzCopy utilità della riga di comando (anteprima) per spostare o copiare dati da o verso blob, data lake e contenuto del file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
+title: Copiare o spostare i dati in archiviazione di Azure tramite AzCopy v10 | Microsoft Docs
+description: Usare l'utilità della riga di comando AzCopy per spostare o copiare dati da o verso blob, data lake e contenuto del file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278429"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723177"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>Trasferire dati con AzCopy v10 (anteprima)
+# <a name="transfer-data-with-azcopy-v10"></a>Trasferire dati con AzCopy v10
 
-AzCopy v10 (anteprima) è l'utilità della riga di comando per copiare dati da o verso Blob di Microsoft Azure e archiviazione File. AzCopy v10 offre un'interfaccia della riga di comando riprogettata e trasferisce nuova architettura per affidabile dei dati. Tramite AzCopy, è possibile copiare dati tra un file system e un account di archiviazione o tra account di archiviazione.
+AzCopy è l'utilità della riga di comando per copiare dati da o verso Blob di Microsoft Azure e archiviazione File. AzCopy offre un'interfaccia della riga di comando riprogettata e trasferisce nuova architettura per affidabile dei dati. Tramite AzCopy, è possibile copiare dati tra un file system e un account di archiviazione o tra account di archiviazione.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Novità di AzCopy v10
 
@@ -33,28 +33,24 @@ AzCopy v10 (anteprima) è l'utilità della riga di comando per copiare dati da o
 
 ## <a name="download-and-install-azcopy"></a>Scaricare e installare AzCopy
 
-### <a name="latest-preview-version-v10"></a>Versione di anteprima più recente (v10)
+### <a name="latest-production-version-v10"></a>Versione di produzione più recente (v10)
 
-Scaricare la versione di anteprima più recente di AzCopy:
+Scaricare la versione più recente di AzCopy:
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>Versione di produzione più recente (v8.1)
-
-Scaricare la [versione di produzione più recente di AzCopy per Windows](https://aka.ms/downloadazcopy).
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>AzCopy che supporta il servizio di Archiviazione tabelle (v7.3)
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>AzCopy più recenti che supportano il servizio di archiviazione tabelle (v7.3)
 
 Scaricare [AzCopy v7.3 che supporta la copia dei dati da e verso il servizio di Archiviazione tabelle di Microsoft Azure](https://aka.ms/downloadazcopynet).
 
 ## <a name="post-installation-steps"></a>Passaggi successivi all'installazione
 
-AzCopy v10 non richiede un'installazione. Aprire l'applicazione della riga di comando preferito e passare alla cartella in cui `azcopy.exe` si trova. Se necessario, è possibile aggiungere il percorso di cartella di AzCopy al percorso di sistema per la semplicità d'uso.
+AzCopy non richiede un'installazione. Aprire l'applicazione della riga di comando preferito e passare alla cartella in cui `azcopy.exe` si trova. Se necessario, è possibile aggiungere il percorso di cartella di AzCopy al percorso di sistema per la semplicità d'uso.
 
 ## <a name="authentication-options"></a>Opzioni di autenticazione
 
-Durante l'autenticazione con archiviazione di Azure, AzCopy v10 supporta le seguenti opzioni:
+Durante l'autenticazione con archiviazione di Azure, AzCopy supporta le seguenti opzioni:
 - **Azure Active Directory** (1!s!per **i servizi Blob e Data Lake Storage Gen2**). Usare ```.\azcopy login``` effettuare l'accesso con Azure Active Directory.  L'utente deve avere [ruolo "Collaboratore ai dati di archiviazione Blob" assegnato](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) da scrivere nell'archiviazione Blob con l'autenticazione di Azure Active Directory. Per l'autenticazione tramite identità gestita per le risorse di Azure, usare `azcopy login --identity`.
 - **Condividere i token di firma di accesso [supportati per i servizi Blob e File]**. Aggiungere il token di firma di accesso condiviso per il percorso del blob nella riga di comando per usarlo. È possibile generare i token di firma di accesso condiviso con il portale di Azure [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), o altri strumenti di propria scelta. Per altre informazioni, vedere gli [esempi](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
@@ -198,7 +194,7 @@ Per eseguire la sincronizzazione del file system locale con un account di archiv
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Questo comando consente di sincronizzare in modo incrementale l'origine alla destinazione in base l'ultimo timestamp modificato. Se si aggiunge o si elimina un file nell'origine, AzCopy v10 eseguirà la stessa operazione nella destinazione. Prima dell'eliminazione, AzCopy chiederà di confermare.
+Questo comando consente di sincronizzare in modo incrementale l'origine alla destinazione in base l'ultimo timestamp modificato. Se si aggiunge o elimina un file nell'origine, AzCopy eseguirà la stessa nella destinazione. Prima dell'eliminazione, AzCopy chiederà di confermare.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Copiare dati da Amazon Web Services (AWS) S3
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-AzCopy v10 crea file di log e file di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy su Windows oppure in $HOME\\.azcopy su Mac e Linux.
+AzCopy crea file di log e file di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy su Windows oppure in $HOME\\.azcopy su Mac e Linux.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o alla risoluzione del problema che interessa di terze parti), condividere la versione con alcune modifiche del comando da eseguire. In questo modo che la firma di accesso condiviso non viene accidentalmente condivise con altri. È possibile trovare la versione con modifiche all'inizio del file di log.

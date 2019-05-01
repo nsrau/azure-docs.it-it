@@ -1,25 +1,18 @@
 ---
-title: Prerequisiti dell'offerta di applicazioni SaaS di Azure | Microsoft Docs
+title: Prerequisiti di offerta di applicazione SaaS Azure | Azure Marketplace
 description: Prerequisiti per la pubblicazione dell'offerta di un'applicazione SaaS in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7322a4c0ba82218d9b2ed77e4c4533cc504c2616
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: b8c70841669882afced086a797b921ce3459ab1b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101246"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942008"
 ---
 # <a name="saas-application-publishing-prerequisites"></a>Prerequisiti per la pubblicazione di un'applicazione SaaS
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464969"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690459"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -36,7 +36,7 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 * Un **taint** viene applicato a un nodo per indicare che possono essere pianificati solo pod specifici.
 * Una **tolleranza** viene quindi applicata a un pod per *tollerare* un taint di un nodo.
 
-Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga ad esempio di avere un pool di nodi nel cluster servizio Azure Kubernetes per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
+Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Ad esempio, si supponga di che avere un pool di nodi del cluster servizio contenitore di AZURE per i nodi con GPU supporta. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -72,6 +72,23 @@ Quando questo pod viene distribuito, ad esempio usando `kubectl apply -f gpu-tol
 Quando si applicano i taint, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire le tolleranze richieste nelle proprie distribuzioni.
 
 Per altre informazioni su taint e tolleranze, vedere l'articolo sull'[applicazione di taint e tolleranze][k8s-taints-tolerations].
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento di taints e tolerations nel servizio contenitore di AZURE
+
+Quando si aggiorna un pool di nodi nel servizio contenitore di AZURE, taints e tolerations seguono un modello di set di come vengono applicati a nuovi nodi:
+
+- **Cluster predefinito senza supporto di scalabilità di macchine virtuali**
+  - Si supponga che si dispone di un cluster a due nodi - *node1* e *node2*. Quando si esegue l'aggiornamento, un nodo aggiuntivo (*node3*) viene creato.
+  - Il taints dal *node1* vengono applicate ai *node3*, quindi *node1* viene quindi eliminata.
+  - Viene creato un altro nodo nuovo (denominato *node1*, poiché precedente *node1* è stato eliminato) e il *node2* taints vengono applicate al nuovo *node1*. Quindi *node2* viene eliminato.
+  - In sostanza *node1* diventa *node3*, e *node2* diventa *node1*.
+
+- **I cluster che usano macchine virtuali di set di scalabilità** (attualmente in anteprima nel servizio contenitore di AZURE)
+  - Anche in questo caso, si supponga che si dispone di un cluster a due nodi - *node1* e *node2*. Si aggiorna il pool di nodi.
+  - Vengono creati altri due nodi, *node3* e *Nodo4*, mentre il taints vengono passati nello rispettivamente.
+  - Originale *node1* e *node2* vengono eliminati.
+
+Quando si ridimensiona un pool di nodi nel servizio contenitore di AZURE, taints e tolerations non hanno da progettazione.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controllare la pianificazione dei pod tramite selettori di nodo e affinità
 

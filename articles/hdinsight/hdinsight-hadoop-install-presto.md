@@ -1,7 +1,6 @@
 ---
 title: Installare Presto nei cluster Azure HDInsight Linux
 description: Informazioni su come installare Presto e Airpal nei cluster HDInsight Hadoop basati su Linux usando azioni script.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258344"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704804"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installare e usare Presto nei cluster HDInsight basati su Hadoop
 
@@ -26,7 +25,7 @@ HDInsight offre anche l'applicazione Starburst Presto per i cluster Apache Hadoo
 > I passaggi descritti in questo articolo richiedono un cluster HDInsight 3.5 Hadoop che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Versioni di HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Che cos'è Presto?
-[Presto](https://prestodb.io/overview.html) è un motore di query SQL a distribuzione veloce per Big Data. Presto è adatto per l'esecuzione di query interattive di petabyte di dati. Per altre informazioni sui componenti di Presto e il relativo funzionamento, vedere [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst) (Concetti di Presto).
+[Presto](https://prestosql.io) è un motore di query SQL a distribuzione veloce per Big Data. Presto è adatto per l'esecuzione di query interattive di petabyte di dati. Per altre informazioni sui componenti di Presto e il relativo funzionamento, vedere [Presto concepts](https://prestosql.io/docs/current/overview/concepts.html) (Concetti di Presto).
 
 > [!WARNING]  
 > I componenti forniti con il cluster HDInsight sono completamente supportati. Il supporto tecnico Microsoft aiuterà a isolare e risolvere i problemi correlati a questi componenti.
@@ -86,9 +85,9 @@ Per usare Presto in un cluster HDInsight, procedere come segue:
    
     `select count (*) from hivesampletable;`
    
-    Per impostazione predefinita, i connettori [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) e [TPCH](https://prestodb.io/docs/current/connector/tpch.html) per Presto sono già configurati. Il connettore Hive è configurato per usare l'installazione Hive predefinita. Tutte le tabelle da Hive sono pertanto visibili automaticamente in Presto.
+    Per impostazione predefinita, i connettori [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) e [TPCH](https://prestosql.io/docs/current/connector/tpch.html) per Presto sono già configurati. Il connettore Hive è configurato per usare l'installazione Hive predefinita. Tutte le tabelle da Hive sono pertanto visibili automaticamente in Presto.
 
-    Per altre informazioni, vedere la [documentazione su Presto](https://prestodb.io/docs/current/index.html).
+    Per altre informazioni, vedere la [documentazione su Presto](https://prestosql.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Usare Airpal con Presto
 
@@ -151,7 +150,7 @@ Per personalizzare l'installazione, seguire questa procedura:
    
     Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Apportare le modifiche di configurazione nel file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Per altre informazioni sulla configurazione di Presto, vedere [Presto configuration options for YARN-based clusters](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html) (Opzioni di configurazione di Presto per i cluster basati su YARN).
+2. Apportare le modifiche di configurazione nel file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Per altre informazioni sulla configurazione di Presto, vedere [Presto configuration options for YARN-based clusters](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html) (Opzioni di configurazione di Presto per i cluster basati su YARN).
 
 3. Arrestare e terminare l'istanza in esecuzione corrente di Presto:
 

@@ -4,14 +4,14 @@ description: Informazioni sui tipi di risorse di Azure che supportano i tag. Inc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388064"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575440"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
@@ -862,7 +862,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | dnszones/SOA | No  | 
 | dnszones/SRV | No  | 
 | dnszones/TXT | No  | 
-| expressRouteCircuits | Sì | 
+| expressRouteCircuits | Sì (valore di tag attualmente non è presente nel report dei costi) | 
 | expressRouteServiceProviders | No  | 
 | frontdoors | Sì | 
 | frontdoorWebApplicationFirewallPolicies | Sì | 
@@ -876,7 +876,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | networkInterfaces | Sì | 
 | networkProfiles | Sì | 
 | networkSecurityGroups | Sì | 
-| networkWatchers | Sì | 
+| networkWatchers | Sì (valore di tag attualmente non è presente nel report dei costi) | 
 | networkWatchers/connectionMonitors | Sì | 
 | networkWatchers/lenses | Sì | 
 | networkWatchers/pingMeshes | Sì | 
@@ -892,9 +892,10 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | virtualHubs | Sì | 
 | virtualNetworkGateways | Sì | 
 | virtualNetworks | Sì | 
+| virtualNetworks/subnets | No  | 
 | virtualNetworkTaps | Sì | 
 | virtualWans | Sì | 
-| vpnGateways | Sì | 
+| vpnGateways | Sì (valore di tag attualmente non è presente nel report dei costi) | 
 | vpnSites | Sì | 
 | webApplicationFirewallPolicies | Sì | 
 

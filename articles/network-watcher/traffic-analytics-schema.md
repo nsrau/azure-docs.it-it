@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799333"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691424"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Aggregazione di schema e i dati in traffico Analitica
 
@@ -35,7 +35,7 @@ Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità 
 1. Tutti i log dei flussi in un gruppo di sicurezza tra "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t" vengono acquisiti a intervalli di un minuto nell'account di archiviazione come BLOB prima di essere elaborato dal traffico Analitica. 
 2. Intervallo di elaborazione di Analitica traffico predefinito è 60 minuti. Ciò significa che ogni 60 minuti che Analitica traffico sceglie i BLOB di archiviazione per l'aggregazione.
 3. I flussi che hanno lo stesso indirizzo IP di origine, IP di destinazione, porta di destinazione, nome NSG, regola NSG, direzione del flusso e trasporto layer protocol (TCP o UDP) (Nota: Porta di origine viene escluso per l'aggregazione) viene eseguito in un singolo flusso per il traffico Analitica
-4. Questo record singolo è decorato (dettagli nella sezione seguente) e inseriti in Log Analitica per il traffico Analitica.
+4. Questo record singolo è decorati (dettagli nella sezione seguente) e inseriti in Log Analitica dal traffico Analytics.This processo può richiedere fino a 1 ora massima.
 5. Campo FlowStartTime_t indica la prima occorrenza di questo tipo un aggregato del flusso (stesso quattro tuple) nel log di flusso tra "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t" intervallo di elaborazione. 
 6. Per qualsiasi risorsa nel trust Anchor, i flussi indicati nell'interfaccia utente sono flussi totali visualizzati per il gruppo di sicurezza, ma nel Log Anlaytics utente visualizzerà solo il record singolo, ridotto. Per visualizzare tutti i flussi, usare il campo blob_id, che è possibile fare riferimento da un archivio. Il flusso totale Conteggio per che record corrispondenti ai criteri i singoli flussi visibili nel blob.
 
@@ -60,7 +60,7 @@ Di seguito sono riportati i campi nello schema di e quali indicare.
 | SrcIP_s | Indirizzo IP di origine | Verrà lasciato vuoto in caso di AzurePublic ed ExternalPublic flussi |
 | DestIP_s | Indirizzo IP di destinazione | Verrà lasciato vuoto in caso di AzurePublic ed ExternalPublic flussi |
 | VMIP_s | Indirizzo IP della VM | Utilizzato per i flussi AzurePublic ed ExternalPublic |
-| PublicIP_S | Indirizzi IP pubblici | Utilizzato per i flussi AzurePublic ed ExternalPublic |
+| PublicIP_s | Indirizzi IP pubblici | Utilizzato per i flussi AzurePublic ed ExternalPublic |
 | DestPort_d | Porta di destinazione | Porta in corrispondenza del quale il traffico è in arrivo | 
 | L4Protocol_s  | * T <br> * U  | Protocollo di trasporto. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Nome del protocollo | Derivate dalla porta di destinazione |
@@ -121,6 +121,7 @@ Di seguito sono riportati i campi nello schema di e quali indicare.
 1. MaliciousFlow - uno degli indirizzi IP appartenenti a rete virtuale di azure mentre l'altro indirizzo IP è un indirizzo IP pubblico che non si trova in Azure e viene indicato come dannoso nei feed Centro sicurezza di AZURE che utilizza il traffico Analitica per l'intervallo di elaborazione tra" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. UnknownPrivate - uno degli indirizzi IP appartenenti a rete virtuale di Azure mentre l'altro indirizzo IP appartiene a un intervallo di IP privati come definito in RFC 1918 e non può essere mappato dal traffico Analitica a un sito o rete virtuale di Azure di proprietà del cliente.
 1. Sconosciuto: non è possibile eseguire il mapping tra l'indirizzo IP indirizzi per i flussi con la topologia dei clienti in Azure così come in locale (sito).
+1. Alcuni nomi di campo vengono aggiunti con s o d. Questi comporta l'origine e destinazione.
 
 ### <a name="next-steps"></a>Fasi successive
 Per ottenere le risposte alle domande più frequenti, vedere [analitica domande frequenti di traffico](traffic-analytics-faq.md) per visualizzare informazioni dettagliate sulle funzionalità, vedere [documentazione analitica del traffico](traffic-analytics.md)

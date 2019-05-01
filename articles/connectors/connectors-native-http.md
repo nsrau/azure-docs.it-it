@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447604"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713806"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chiamare endpoint HTTP o HTTPS con le App per la logica di Azure
 
-Con App per la logica di Azure e il connettore Hypertext Transfer Protocol (HTTP), è possibile automatizzare i flussi di lavoro in grado di comunicare con qualsiasi endpoint HTTP o HTTPS mediante la compilazione di App per la logica. Ad esempio, è possibile monitorare l'endpoint di servizio per il sito Web. Quando si verifica un evento su un endpoint, ad esempio il sito Web non funziona, questo attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate. 
+Con App per la logica di Azure e il connettore Hypertext Transfer Protocol (HTTP), è possibile automatizzare i flussi di lavoro in grado di comunicare con qualsiasi endpoint HTTP o HTTPS mediante la compilazione di App per la logica. Ad esempio, è possibile monitorare l'endpoint di servizio per il sito Web. Quando si verifica un evento su un endpoint, ad esempio il sito Web non funziona, questo attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate.
 
 È possibile usare il trigger HTTP come primo passaggio nel flusso di lavoro per la verifica o il *polling* di un endpoint a intervalli regolari. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica. 
 
-È possibile usare l'azione HTTP come qualsiasi altro passaggio nel flusso di lavoro per chiamare l'endpoint quando si desidera. La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
+È possibile usare l'azione HTTP come qualsiasi altro passaggio nel flusso di lavoro per chiamare l'endpoint quando si desidera. La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro. 
+
+Base funzionalità dell'endpoint di destinazione, il connettore supporta Transport Layer Security (TLS) versioni 1.0, 1.1 e 1.2. App per la logica esegue la negoziazione con l'endpoint su utilizzando la versione supportata più alto possibile. Quindi, ad esempio, se l'endpoint supporta 1.2, il connettore Usa 1.2 prima di tutto. In caso contrario, il connettore Usa la versione supportata più recente successiva.
 
 Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'URL per l'endpoint di destinazione che si desidera chiamare 
 

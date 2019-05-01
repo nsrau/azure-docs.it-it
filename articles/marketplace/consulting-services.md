@@ -2,24 +2,17 @@
 title: Servizi di consulenza in Azure Marketplace e AppSource
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per le nuove offerte di servizi di consulenza in Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121132"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938305"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -48,7 +41,7 @@ Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI s
 > [!TIP]
 > Per pubblicare nella vetrina di Azure Marketplace, occorre effettuare questa selezione scegliendo "Azure" dal menu a discesa "Prodotto principale" nel portale Cloud Partner. Per pubblicare in AppSource, occorre effettuare questa selezione scegliendo "Dynamics 365," "Power BI" o "Power Apps" dal menu a discesa "Prodotto principale" nel portale Cloud Partner.
 
-## <a name="eligible-partners-and-supported-countries"></a>Partner idonei e Paesi supportati
+## <a name="eligible-partners-and-supported-countriesregions"></a>I partner idonei e paesi e regioni supportati
 
 I partner devono avere **competenze Silver o Gold** nell'area pertinente al servizio offerto. 
 
@@ -74,7 +67,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 <b> Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**I partner integratori di sistemi possono inviare offerte di servizi di consulenza per i 18 paesi seguenti**
+**I partner SI possono inviare offerte di servizi di consulenza per i 18 paesi/aree geografiche seguenti**
 
 |Paesi idonei |   |   |   |
 |---------|----------|----------|----------|
@@ -84,7 +77,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 |Danimarca   |Italia   |     Norvegia          |Stati Uniti |
 |Finlandia   |Giappone   |     Polonia          
 
-Il lancio dei servizi di consulenza avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi verranno attivati dopo che i partner avranno inviato e Microsoft avrà approvato un numero significativo e una selezione accattivante di offerte di servizi.
+Il lancio dei servizi di consulenza avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi/aree geografiche entra in tempo reale dopo un numero significativo di una selezione di offerte di servizio accattivante sono stati inviati dai partner e approvati da Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Come effettuare la registrazione ai servizi di consulenza in Azure Marketplace e AppSource
 Iniziare [registrando](https://azuremarketplace.microsoft.com/sell/signup) le informazioni sulla società nel marketplace. Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
@@ -124,7 +117,7 @@ L'inserzione dell'offerta del servizio di consulenza in Azure Marketplace e AppS
 3. **Invio**: fornire le informazioni richieste elencate nelle istruzioni. Tutto il contenuto e il materiale di supporto devono essere inviati in inglese. 
 4. **Revisione:** il team di marketing ed editoriale esamina il materiale inviato e lo ottimizza in termini di leggibilità, grammatica ed efficacia. 
 5. **Staging**: il materiale inviato viene gestito in modalità temporanea per consentire all'utente di esaminarlo. 
-6. **Pubblicazione**: quando l'utente e Microsoft sono soddisfatti del contenuto in preproduzione, l'inserzione può essere attivata nel marketplace. La data di attivazione dell'inserzione dipende dal paese specificato nell'offerta. Se il catalogo per il paese selezionato è già attivo in Azure Marketplace o AppSource, l'inserzione verrà visualizzata entro alcune ore. In caso contrario, verrà visualizzata non appena il catalogo sarà attivo.
+6. **Pubblicazione**: quando l'utente e Microsoft sono soddisfatti del contenuto in preproduzione, l'inserzione può essere attivata nel marketplace. La data go-live per l'inserzione dipende il paese/regione specificato nell'offerta. Se il catalogo per il paese/regione selezionato è già attivo in Azure Marketplace o AppSource, l'inserzione verrà visualizzata entro alcune ore. In caso contrario, verrà visualizzata non appena il catalogo sarà attivo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Presentazioni delle offerte e criteri di revisione del contenuto
 Le offerte devono essere di uno dei cinque tipi di servizi seguenti (è possibile elencarne più di uno): 
@@ -156,7 +149,7 @@ Esempi:
 
 Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team applicherà i criteri seguenti:
 
-|Tipo di offerta  |Obbligatorio |Consigliato  |
+|Tipo di offerta  |Obbligatoria |Consigliato  |
 |---------|---------|---------|
 |**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
 |**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che un briefing deve essere offerto di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |

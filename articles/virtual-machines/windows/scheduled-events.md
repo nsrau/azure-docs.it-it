@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711000"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926310"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -48,7 +48,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 - Manutenzione avviata dalla piattaforma (ad esempio l'aggiornamento del sistema operativo host)
 - Hardware con funzionalità ridotte
 - Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
-- [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) nella scala imposta
+- [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/blog/low-priority-scale-sets) nella scala imposta
 
 ## <a name="the-basics"></a>Nozioni di base  
 

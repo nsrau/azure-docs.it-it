@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 36566d72de1505cd5689aaad737d7948b80801ca
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110549"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714499"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
 
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-Task<ActionResult> Report(string reportId)
+Attività\<ActionResult > Report (stringa ID report)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)

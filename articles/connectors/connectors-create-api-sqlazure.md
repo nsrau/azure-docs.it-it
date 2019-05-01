@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540977"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696410"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Connettersi a SQL Server o al database SQL di Azure - App per la logica di Azure
 
@@ -116,23 +116,26 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Elaborare i dati in bulk
+## <a name="handle-bulk-data"></a>Gestire in blocco dei dati
 
-Se si usano set di risultati di dimensioni tali che il connettore non riesce a restituire tutti i risultati contemporaneamente o se si vuole un controllo migliore sulle dimensioni e sulla struttura dei set di risultati, è possibile usare la *paginazione*, che consente di gestire i risultati in set più piccoli. 
+In alcuni casi, potrebbe essere necessario lavorare con set di risultati così grande che il connettore non restituisce tutti i risultati nello stesso momento o si desidera maggiore controllo di dimensioni e della struttura per i set di risultati. Ecco alcuni aspetti che è possibile gestire tali set di risultati di grandi dimensioni:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Per aiutarti a gestire i risultati come set di dimensioni ridotte, attivare *paginazione*. Per altre informazioni, vedere [ottenere dati per operazioni bulk, i record e gli elementi usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Creare una stored procedure
+* Creare una stored procedure che consente di organizzare i risultati nel modo desiderato.
 
-Se si ottengono o si inseriscono più righe, l'app per la logica può scorrere questi elementi usando un [*ciclo Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) nell'ambito di questi [limiti](../logic-apps/logic-apps-limits-and-config.md). In alcuni casi, tuttavia, l'app per la logica deve interagire con set di record talmente grandi, ad esempio migliaia o milioni di righe, che si vuole ridurre al minimo i costi delle chiamate al database. 
+  Per ottenere o inserimento di più righe, l'app per la logica può scorrere queste righe utilizzando un [ *ciclo until* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) all'interno di tali [limiti](../logic-apps/logic-apps-limits-and-config.md). 
+  Tuttavia, quando l'app per la logica deve funzionare con set di record di così grandi dimensioni, ad esempio, migliaia o milioni di righe, che si desidera ridurre al minimo i costi derivanti da chiamate al database.
 
-In questi casi, è possibile creare una <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> in modo che venga eseguita nell'istanza di SQL e usi l'istruzione **SELECT - ORDER BY** per organizzare i risultati nel modo desiderato. Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server. 
+  Per organizzare i risultati nel modo desiderato, è possibile creare un [ *stored procedure* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) che viene eseguito nell'istanza di SQL e si usa il **SELECT - ORDER BY** istruzione. 
+  Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. 
+  L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server.
 
-Per informazioni dettagliate sulla soluzione, vedere gli articoli seguenti:
+  Per informazioni dettagliate sulla soluzione, vedere gli articoli seguenti:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a> (Paginazione SQL per il trasferimento di dati in bulk con App per la logica)
+  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx) (Paginazione SQL per il trasferimento di dati in bulk con App per la logica)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">Clausola SELECT - ORDER BY</a>
+  * [Clausola SELECT - ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 

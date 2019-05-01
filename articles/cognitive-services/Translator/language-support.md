@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577592"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690139"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -28,7 +28,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 **API Traduzione V2**
 
 > [!NOTE]
-> La versione 2 è stata deprecata il 30 aprile 2018 e verrà sospesa il 30 aprile 2019.
+> Versione 2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni per V3 per trarre vantaggio dalle nuove funzionalità disponibili in modo esclusivo in V3.
 
 * Solo sistema statistico: nessun sistema neurale è disponibile per questa lingua.
 * Sistema neurale disponibile: è disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
@@ -230,14 +230,17 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 | Indonesiano|   `id`    |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
+|Kiswahili| `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
+|Malgascio|  `mg`    |
 | Norvegese      | `nb`          |
 | Polacco      | `pl`          |
 | Portoghese      | `pt`          |
 | Rumeno      | `ro`          |
 | Russo      | `ru`          |
+|Samoano|    `sm`    |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
 | Slovacco     | `sk`          |
 | Sloveno      | `sl`          |

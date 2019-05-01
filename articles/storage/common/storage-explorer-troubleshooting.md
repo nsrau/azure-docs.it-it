@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483385"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710860"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
 
@@ -96,7 +96,7 @@ Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi pr
 
 Vuoti Accedi le finestre di dialogo sono spesso causati da ad FS che chiede di Storage Explorer per eseguire un reindirizzamento, che non è supportato da Electron. Per aggirare questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, seguire questa procedura:
 
-1. "Vai all'anteprima" -> "Usa dispositivi codice Accedi".
+1. Menu di scelta: Anteprima -> "Usa dispositivi codice Accedi".
 2. Aprire la finestra di dialogo della connessione (tramite l'icona a forma di spina sulla barra verticale a sinistra o facendo clic su "Aggiungi account" nel pannello dell'account).
 3. Scegliere qual è l'ambiente che si desidera accedere.
 4. Fare clic sul pulsante "Accedi".
