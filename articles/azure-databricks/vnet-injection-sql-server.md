@@ -64,7 +64,7 @@ In questa esercitazione si apprenderà come:
     
     |Impostazione|Valore consigliato|DESCRIZIONE|
     |-------|---------------|-----------|
-    |Source (Sorgente)|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
+    |`Source`|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
     |Indirizzi IP di origine|< l'indirizzo ip pubblico\>|Immettere il proprio indirizzo IP pubblico. È possibile trovare l'indirizzo IP pubblico visitando [bing.com](https://www.bing.com/) e cercando **"my IP"**.|
     |Intervalli di porte di origine|*|Consentire il traffico da qualsiasi porta.|
     |Destination|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in uscita per una specifica origine, indirizzo IP verrà consentito o negato da questa regola.|
@@ -80,7 +80,7 @@ In questa esercitazione si apprenderà come:
 
     |Impostazione|Valore consigliato|DESCRIZIONE|
     |-------|---------------|-----------|
-    |Source (Sorgente)|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
+    |`Source`|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
     |Indirizzi IP di origine|10.179.0.0/16|Immettere l'intervallo di indirizzi della rete virtuale.|
     |Intervalli di porte di origine|*|Consentire il traffico da qualsiasi porta.|
     |Destination|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in uscita per una specifica origine, indirizzo IP verrà consentito o negato da questa regola.|
