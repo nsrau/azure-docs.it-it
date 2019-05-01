@@ -71,7 +71,7 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
 }
 ```
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifica se ignorare o meno le righe incompatibili durante la copia. | True <br/>False (impostazione predefinita) | No 
 redirectIncompatibleRowSettings | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No 

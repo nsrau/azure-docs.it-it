@@ -60,7 +60,7 @@ L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamar
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività di esecuzione della pipeline. | string | Sì
 type | deve essere impostato su: **ExecutePipeline**. | string | Sì

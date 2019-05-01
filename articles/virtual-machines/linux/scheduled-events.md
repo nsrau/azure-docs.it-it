@@ -17,7 +17,7 @@ ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60799261"
@@ -55,7 +55,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
   Il servizio metadati presenta informazioni sulle macchine virtuali in esecuzione usando un endpoint REST accessibile dall'interno della macchina virtuale. Le informazioni sono disponibili tramite un indirizzo IP non instradabile, in modo da non essere esposte al di fuori della macchina virtuale.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>`Scope`
 Gli eventi pianificati vengono recapitati a:
 
 - Tutte le macchine virtuali in un servizio cloud.
