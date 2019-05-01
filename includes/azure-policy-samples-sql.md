@@ -2,18 +2,19 @@
 title: File di inclusione
 description: File di inclusione
 services: azure-policy
-author: DCtheGeek
+author: WenJason
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
-ms.author: dacoulte
+origin.date: 05/17/2018
+ms.date: 07/09/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: be7bcd2b1f383d87b0379db0d410ad2bc02637cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 80087e000c015dedfaeaeacfd4c28520c45f4764
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865901"
 ---
 ## <a name="sql"></a>SQL
 

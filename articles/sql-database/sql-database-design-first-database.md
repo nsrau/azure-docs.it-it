@@ -10,12 +10,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990480"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730403"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con SSMS
 
@@ -32,7 +32,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 *Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> Per le finalità di questa esercitazione viene usato un database singolo. È anche possibile usare un database in pool di un pool elastico o un database dell'istanza in un'istanza gestita. Per la connettività a un'istanza gestita, vedere queste guide introduttive relative alle istanze gestite: [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
+> Per le finalità di questa esercitazione viene usato un database singolo. È anche possibile usare un database in un pool elastico o un database di un'istanza gestita. Per la connettività a un'istanza gestita, vedere queste guide introduttive relative alle istanze gestite: [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -106,7 +106,7 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
    ![regola del firewall IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall IP. Una regola del firewall IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
+4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
 5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
@@ -227,10 +227,10 @@ Nel diagramma seguente viene illustrato come queste tabelle sono correlate tra l
 4. Eseguire questi comandi per inserire i dati di esempio nelle tabelle, sostituendo i valori *server*, *database*, *user* e *password* con i valori dell'ambiente in uso.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 A questo punto, sono stati caricati i dati di esempio nelle tabelle create in precedenza.
@@ -271,7 +271,7 @@ In questa esercitazione sono state illustrate molte attività di base sui databa
 
 > [!div class="checklist"]
 > - Creare un database singolo
-> - Configurare una regola del firewall IP a livello di server
+> - Configurare una regola del firewall per gli indirizzi IP a livello di server
 > - Connettersi al database con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 > - Creare tabelle
 > - Eseguire il caricamento bulk dei dati

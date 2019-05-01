@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525423"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925496"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -153,7 +153,7 @@ Avviare l'emulatore dal prompt dei comandi come amministratore con “/EnableCas
 
 * [Installare Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [Installare Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
+* [Installare Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
 
 * Eseguire i comandi seguenti in una normale finestra del prompt dei comandi:
 
@@ -181,7 +181,7 @@ Avviare l'emulatore dal prompt dei comandi come amministratore con “/EnableCas
 
 Avviare l'emulatore dal prompt dei comandi come amministratore con “/EnableGremlinEndpoint”. In alternativa, è anche possibile impostare la variabile di ambiente `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Installare apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
+* [Installare apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
 
 * In Esplora dati dell'emulatore creare un database "db1" e una raccolta "coll1"; per la chiave di partizione scegliere "/name"
 

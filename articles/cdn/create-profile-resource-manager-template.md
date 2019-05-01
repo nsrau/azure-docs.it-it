@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727611"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922384"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure usando un modello di Resource Manager
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 In questo passaggio verrà creato un file modello che distribuisce le risorse.
 
-Anche se questo esempio illustra uno scenario di accelerazione di sito Web generale, esistono molte altre impostazioni che possono essere configurate. Queste impostazioni sono disponibili nelle informazioni di riferimento sui modelli di Azure Resource Manager. Vedere le informazioni di riferimento per il [profilo della rete CDN](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) e per l'[endpoint di tale profilo](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Anche se questo esempio illustra uno scenario di accelerazione di sito Web generale, esistono molte altre impostazioni che possono essere configurate. Queste impostazioni sono disponibili nelle informazioni di riferimento sui modelli di Azure Resource Manager. Vedere le informazioni di riferimento per il [profilo della rete CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) e per l'[endpoint di tale profilo](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Si noti che la rete CDN di Microsoft non supporta la modifica dell'elenco dei tipi di contenuto.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Riferimenti
 
-* Profilo della rete CDN: [Azure Resource Manager Template Reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) (Informazioni di riferimento sui modelli di Azure Resource Manager)
-* Endpoint della rete CDN: [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) (Documentazione di riferimento sui modelli di Azure Resource Manager)
+* Profilo della rete CDN: [Azure Resource Manager Template Reference](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) (Informazioni di riferimento sui modelli di Azure Resource Manager)
+* Endpoint della rete CDN: [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) (Documentazione di riferimento sui modelli di Azure Resource Manager)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317188"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917113"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Avvio rapido per Progetto Acustica in Unity
 Usare il contenuto di esempio di Progetto Acustica per Unity per sperimentare i controlli di progettazione supportati dalla simulazione.
 
 Requisiti software:
-* [Unity 2018.2+](http://unity3d.com) per Windows
+* [Unity 2018.2+](https://unity3d.com) per Windows
 * [Pacchetto di contenuto di esempio per Progetto Acustica](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Contenuto del pacchetto di esempio:

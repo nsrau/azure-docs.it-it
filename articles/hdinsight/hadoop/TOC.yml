@@ -136,8 +136,6 @@
         - name: Usare nodi perimetrali vuoti
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Sviluppare programmi di streaming Python
-          href: apache-hadoop-streaming-python.md
         - name: Elaborare e analizzare documenti JSON
           href: using-json-in-hive.md
         - name: 'Usare funzioni C# definite dall''utente'

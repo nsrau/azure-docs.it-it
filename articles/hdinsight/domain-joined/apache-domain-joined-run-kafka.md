@@ -1,19 +1,18 @@
 ---
 title: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package - Azure
 description: Informazioni su come configurare i criteri di Apache Ranger per Kafka in HDInsight di Azure con Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750223"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730240"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 

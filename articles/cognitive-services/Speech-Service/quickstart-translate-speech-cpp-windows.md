@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 9187863234dd62757efecf6f0817ff00da48064a
-ms.sourcegitcommit: 524625dd12e0537173616a991802075e2dc9da12
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64414085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685540"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Guida introduttiva: Traduzione vocale con Speech SDK per C++
 

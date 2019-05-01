@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc4118e54b2049f7e5d6cf4ed3b92bfc5e41ae7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904951"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
@@ -107,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Domo](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.domo.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.domo.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
     
     | |
     |--|
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
     | nameidentifier | user.userprinicipalname |
     | name | user.displayname |
@@ -158,7 +158,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
 
     g. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
 
 ### <a name="configure-domo-single-sign-on"></a>Configurare l'accesso Single Sign-On per Domo
 
-Per configurare l'accesso Single Sign-On sul lato **Domo**, passare all'articolo della Knowledge Base di Domo disponibile [qui](http://knowledge.domo.com?cid=azuread) e seguire le istruzioni.
+Per configurare l'accesso Single Sign-On sul lato **Domo**, passare all'articolo della Knowledge Base di Domo disponibile [qui](https://knowledge.domo.com?cid=azuread) e seguire le istruzioni.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 

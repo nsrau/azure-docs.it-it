@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790230"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916992"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Esercitazione sul bake in Unity con Progetto Acustica
 Questa esercitazione descrive il bake con Progetto Acustica in Unity.
 
 Requisiti software:
-* [Unity 2018.2+](http://unity3d.com) per Windows
+* [Unity 2018.2+](https://unity3d.com) per Windows
 * [Plug-in di Progetto Acustica integrato nel progetto Unity](unity-integration.md) o [contenuto di esempio di Progetto acustica per Unity](unity-quickstart.md)
 * Facoltativo: Un account [Azure Batch](create-azure-account.md) per accelerare il bake tramite cloud computing
 

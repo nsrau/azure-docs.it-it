@@ -3,8 +3,8 @@ title: Limitare l'accesso di rete alle risorse PaaS - Esercitazione - Portale di
 description: In questa esercitazione si apprenderà come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint servizio di rete virtuale usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
-ms.author: jdial
-ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.author: kumud
+ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708836"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 
@@ -104,7 +104,7 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
 
     |Impostazione|Valore|
     |----|----|
-    |Sorgente| Selezionare **VirtualNetwork** |
+    |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **Service Tag** (Tag del servizio)|
     |Tag del servizio di destinazione | Selezionare **Archiviazione**|
@@ -118,7 +118,7 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
 
     |Impostazione|Valore|
     |----|----|
-    |Sorgente| Selezionare **VirtualNetwork** |
+    |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **Service Tag** (Tag del servizio)|
     |Tag del servizio di destinazione| Selezionare **Internet**|
@@ -134,7 +134,7 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
 
     |Impostazione|Valore|
     |----|----|
-    |Sorgente| Qualsiasi |
+    |Source (Sorgente)| Qualsiasi |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **VirtualNetwork**|
     |Intervalli di porte di destinazione| 3389 |

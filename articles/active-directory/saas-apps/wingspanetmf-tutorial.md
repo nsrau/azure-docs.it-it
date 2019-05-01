@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280758"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Esercitazione: Integrazione di Azure Active Directory con Wingspan eTMF
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wingspan eTMF, seguire 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Wingspan eTMF](http://www.wingspan.com/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Wingspan eTMF](https://www.wingspan.com/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -130,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wingspan eTMF, seguire 
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Configurare l'accesso Single Sign-On di Wingspan eTMF
 
-Per configurare l'accesso Single Sign-On sul lato **Wingspan eTMF**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Wingspan eTMF](http://www.wingspan.com/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Wingspan eTMF**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Wingspan eTMF](https://www.wingspan.com/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -184,7 +184,7 @@ In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On 
 
 ### <a name="create-wingspan-etmf-test-user"></a>Creare l'utente di test di Wingspan eTMF
 
-In questa sezione si crea un utente di nome Britta Simon in Wingspan eTMF. Collaborare con il  [team di supporto di Wingspan eTMF](http://www.wingspan.com/contact-us/) per aggiungere gli utenti alla piattaforma Wingspan eTMF. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome Britta Simon in Wingspan eTMF. Collaborare con il  [team di supporto di Wingspan eTMF](https://www.wingspan.com/contact-us/) per aggiungere gli utenti alla piattaforma Wingspan eTMF. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

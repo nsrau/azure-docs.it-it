@@ -5,19 +5,20 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
-ms.author: dacoulte
+origin.date: 05/17/2018
+ms.date: 11/12/2018
+ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 9ed68754321cbd5ae97f50854df035bf437deb42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29b5cec2de7c9d1eb7836fca3aca10a4e383513f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865889"
 ---
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
 |  |  |
 |---------|---------|
-| [NSG X in ogni scheda di interfaccia di rete](../articles/azure-policy/scripts/nsg-on-nic.md) | Richiede che con ogni interfaccia di rete virtuale venga usato uno specifico gruppo di sicurezza di rete. Si specifica l'ID del gruppo di sicurezza di rete da usare. |
-| [NSG X in ogni subnet](../articles/azure-policy/scripts/nsg-on-subnet.md) | Richiede che con ogni subnet virtuale venga usato uno specifico gruppo di sicurezza di rete. Si specifica l'ID del gruppo di sicurezza di rete da usare. |
+| [NSG X in ogni scheda di interfaccia di rete](../articles/governance/policy/samples/nsg-on-nic.md) | Richiede che con ogni interfaccia di rete virtuale venga usato uno specifico gruppo di sicurezza di rete. Si specifica l'ID del gruppo di sicurezza di rete da usare. |
+| [NSG X in ogni subnet](../articles/governance/policy/samples/nsg-on-subnet.md) | Richiede che con ogni subnet virtuale venga usato uno specifico gruppo di sicurezza di rete. Si specifica l'ID del gruppo di sicurezza di rete da usare. |

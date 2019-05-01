@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889863"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Esercitazione: Integrazione di Azure Active Directory con Datahug
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Datahug, seguire questa
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Datahug, seguire questa
     Nella casella di testo **URL di accesso** digitare un URL: `https://apps.datahug.com/`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Datahug](http://datahug.com/about/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Datahug](https://datahug.com/about/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -146,7 +146,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Datahug, seguire questa
 
 ### <a name="configure-datahug-single-sign-on"></a>Configurare l'accesso Single Sign-On per Datahug
 
-Per configurare l'accesso Single Sign-On sul lato **Datahug**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Datahug](http://datahug.com/about/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Datahug**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Datahug](https://datahug.com/about/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
