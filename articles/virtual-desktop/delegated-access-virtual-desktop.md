@@ -25,7 +25,7 @@ Windows Desktop virtuale delegati access supporta i valori seguenti per ogni ele
     * Entità servizio
 * Definizione di ruolo
     * Ruoli predefiniti
-* Scope
+* `Scope`
     * Gruppi del tenant
     * Tenant
     * Pool di host

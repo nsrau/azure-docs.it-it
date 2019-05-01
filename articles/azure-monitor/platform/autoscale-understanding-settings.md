@@ -89,7 +89,7 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 }
 ```
 
-| Sezione | Nome dell'elemento | DESCRIZIONE |
+| `Section` | Nome dell'elemento | DESCRIZIONE |
 | --- | --- | --- |
 | Impostazione | ID | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
