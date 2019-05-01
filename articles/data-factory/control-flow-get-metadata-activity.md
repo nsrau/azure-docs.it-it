@@ -131,7 +131,7 @@ Nell'elenco dei campi attività GetMetadata da recuperare è possono specificare
 
 Attualmente l'attività GetMetadata può recuperare i tipi di informazioni dei metadati seguenti.
 
-Proprietà | Descrizione | Obbligatorio
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Sì 
 dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Sì

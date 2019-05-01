@@ -596,7 +596,7 @@ Nuovo valore dell'impostazione.
 |Attributo|Value|
 |---|---|
 |content|1 attributo|
-|name|path|
+|name|`Path`|
 
 ### <a name="xml-source"></a>Origine XML
 ```xml
@@ -611,12 +611,12 @@ Nuovo valore dell'impostazione.
 ```
 ### <a name="attribute-details"></a>Dettagli relativi agli attributi
 
-#### <a name="path"></a>path
+#### <a name="path"></a>`Path`
 Percorso della condivisione file. Formato: file:[]
 
 |Attributo|Value|
 |---|---|
-|name|path|
+|name|`Path`|
 |type|xs:string|
 |use|Obbligatoria|
 

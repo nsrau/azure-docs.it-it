@@ -184,7 +184,7 @@ Nell'esempio precedente, la pianificazione specificata per i set di dati di inpu
 ### <a name="dataset-availability"></a>Disponibilità dei set di dati 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione **availability**:
 
-| Proprietà | Descrizione | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Sì |ND |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b>: se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |ND |
@@ -232,7 +232,7 @@ Per un set di dati è possibile definire anche un criterio di convalida che spec
 
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare. La tabella seguente descrive le proprietà che è possibile usare nella sezione **policy**:
 
-| Nome criterio | DESCRIZIONE | Applicato a | Obbligatorio | Predefinito |
+| Nome criterio | DESCRIZIONE | Applicato a | Obbligatoria | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB di Azure |No  |ND |
 | minimumRows | Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> |No  |ND |
