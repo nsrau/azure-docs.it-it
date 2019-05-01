@@ -39,7 +39,7 @@ Prima di tutto è necessario aprire la porta desiderata.
    | --- | --- |
    | NOME |Nome descrittivo del probe. |
    | Porta |Porta del contenitore da testare. |
-   | path |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
+   | `Path` |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
    | Interval |Intervallo di tempo tra i tentativi del probe, in secondi. |
    | Soglia non integra |Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. |
 6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
@@ -74,9 +74,9 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
    | --- | --- |
    | NOME |Nome descrittivo della regola del firewall. |
    | Priorità |Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
-   | Source (Sorgente) |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
+   | `Source` |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
-   | Protocollo |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
+   | Protocol |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
    | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024-1500**. |
    | Azione |Consentire o negare il traffico che soddisfa i criteri. |
 

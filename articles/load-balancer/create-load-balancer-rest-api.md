@@ -33,7 +33,7 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
   ```
 ### <a name="uri-parameters"></a>Parametri URI
 
-|NOME  |In ingresso  |Obbligatorio |Type |DESCRIZIONE |
+|NOME  |In ingresso  |Obbligatoria |Type |DESCRIZIONE |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True        |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
 |resourceGroupName     |     path    | True         |  string       |   Nome del gruppo di risorse.     |

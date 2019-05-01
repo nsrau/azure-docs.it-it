@@ -117,7 +117,7 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 Per gli eventi nello schema di Eventi cloud, usare i valori seguenti per l'elemento key:
 
 * EventId
-* Source (Sorgente)
+* `Source`
 * EventType
 * EventTypeVersion
 * Dati dell'evento (ad esempio, Data.key1)

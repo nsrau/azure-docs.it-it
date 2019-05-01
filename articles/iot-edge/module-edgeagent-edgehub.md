@@ -26,7 +26,7 @@ Questo articolo descrive le proprietà desiderate e quelle segnalate dei moduli 
 
 Il dispositivo gemello del modulo per l'agente di IoT Edge è denominato `$edgeAgent` e coordina le comunicazioni tra l'agente di IoT Edge in esecuzione su un dispositivo e l'hub IoT. Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. 
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | schemaVersion | Deve essere "1.0" | Sì |
 | runtime.type | Deve essere "docker" | Sì |

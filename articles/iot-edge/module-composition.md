@@ -132,13 +132,13 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 Per ogni route è necessaria un'origine e un sink, mentre la condizione è un elemento facoltativo che è possibile usare per filtrare i messaggi. 
 
 
-### <a name="source"></a>Source (Sorgente)
+### <a name="source"></a>`Source`
 
 L'origine specifica da dove provengono i messaggi. IoT Edge può indirizzare i messaggi da dispositivi foglia o moduli.
 
 La proprietà di origine può essere uno dei valori seguenti:
 
-| Source (Sorgente) | DESCRIZIONE |
+| `Source` | DESCRIZIONE |
 | ------ | ----------- |
 | `/*` | Tutte le notifiche da dispositivo a cloud o dei dispositivi gemelli le notifiche da qualsiasi dispositivo foglia o modulo |
 | `/twinChangeNotifications` | Qualsiasi modifica gemella (proprietà segnalate) provenienti da qualsiasi dispositivo foglia o modulo |

@@ -14,7 +14,7 @@ ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 9540a82933337dab112119cc791fa12d98b30aff
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61042935"
@@ -59,7 +59,7 @@ Per il servizio collegato di SFTP sono supportate le proprietà seguenti:
 
 Per usare l'autenticazione di base, impostare la proprietà "authenticationType" su **Di base** e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | userName | Utente che ha accesso al server SFTP. |Sì |
 | password | Password per l'utente (userName). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
@@ -96,7 +96,7 @@ Per usare l'autenticazione di base, impostare la proprietà "authenticationType"
 
 Per usare l'autenticazione basata su chiave pubblica SSH, impostare la proprietà "authenticationType" su **SshPublicKey** e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | userName | Utente che ha accesso al server SFTP |Sì |
 | privateKeyPath | Specificare il percorso assoluto del file di chiave privato a cui può accedere il runtime di integrazione. Si applica solo quando in "connectVia" viene specificato il runtime di integrazione di tipo self-hosted. | Specificare `privateKeyPath` o `privateKeyContent`.  |

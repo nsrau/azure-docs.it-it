@@ -34,7 +34,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà generiche usate nella definizione JSON. 
 
-| Proprietà                 | Descrizione                              | Obbligatorio                                 |
+| Proprietà                 | Descrizione                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Sì                                      |
 | **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |

@@ -169,7 +169,7 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 
 | Tipo di dati di Ricerca di Azure | Supportato nel sink di Ricerca di Azure |
 | ---------------------- | ------------------------------ |
-| string | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

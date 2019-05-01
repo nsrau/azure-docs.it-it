@@ -144,7 +144,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "in"|
-| **nome**|| Nome del parametro di input nella firma della funzione.|
+| **name**|| Nome del parametro di input nella firma della funzione.|
 |**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
 | **id**| **Id** | Identificatore del record da recuperare. Può essere statico o basato sul trigger che richiama la funzione. Se, ad esempio, si usa un trigger della coda per la funzione, `"id": "{queueTrigger}"` userà il valore di stringa del messaggio della coda come ID del record da recuperare.|
 |**connessione**|**Connection**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
@@ -302,7 +302,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "out"|
-| **nome**|| Nome del parametro di output nella firma della funzione.|
+| **name**|| Nome del parametro di output nella firma della funzione.|
 |**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
 |**connessione**|**MobileAppUriSetting**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|Il nome di un'impostazione dell'app con la chiave API dell'app per dispositivi mobili. Specificare la chiave API se si [implementa una chiave API nel back-end dell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o se si [implementa una chiave API nel back-end dell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Per specificare la chiave, creare un'impostazione nell'app per le funzioni che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. |

@@ -33,7 +33,7 @@ Le cartelle di lavoro sono utili per scenari, ad esempio:
 
 Monitoraggio di Azure per le macchine virtuali include diverse cartelle di lavoro per iniziare a usare e la tabella seguente contiene un riepilogo.
 
-| Cartella di lavoro | DESCRIZIONE | Scope |
+| Cartella di lavoro | DESCRIZIONE | `Scope` |
 |----------|-------------|-------|
 | Prestazioni | Fornisce una versione personalizzabile dei nostri Top N elenco e visualizzazione di grafici in una singola cartella di lavoro che si basa su tutti i contatori delle prestazioni di Analitica di Log abilitati.| Su larga scala |
 | Contatori delle prestazioni | Visualizzazione grafico Top N tra un ampio set di contatori delle prestazioni. | Su larga scala |

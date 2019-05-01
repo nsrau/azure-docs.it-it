@@ -67,7 +67,7 @@ Nel payload di risposta, copiare la proprietà **connectionString** del disposit
 
  Il contenuto del payload di un **messaggio** può essere costituito da dati arbitrari con dimensioni massime di 256 KB. Per le proprietà del tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) sono previsti alcuni requisiti. La tabella mostra le proprietà obbligatorie e facoltative supportate dal sistema.
 
-| Nome proprietà | Value | Obbligatorio | DESCRIZIONE |
+| Nome proprietà | Value | Obbligatoria | DESCRIZIONE |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sì | Valore costante che identifica un messaggio al sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sì | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio: `00FF0643BE88-CO2`. |

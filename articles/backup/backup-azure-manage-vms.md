@@ -74,7 +74,7 @@ Per gestire un criterio di backup:
 
    * Per passare i criteri, selezionare un criterio diverso e quindi selezionare **salvare**. Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
 
-     ![Scegliere i criteri di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+     ![Scegliere un criterio di backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 È possibile eseguire un backup su richiesta di una macchina virtuale dopo aver impostato la protezione. Tenere presente questi dettagli:

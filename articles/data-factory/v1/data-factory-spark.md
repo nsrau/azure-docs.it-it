@@ -347,7 +347,7 @@ L'attività Spark non supporta uno script inline come invece fanno le attività 
 
 Creare la struttura di cartelle seguente nell'archivio BLOB a cui fa riferimento il servizio collegato HDInsight. Caricare quindi i file dipendenti nelle sottocartelle appropriate all'interno della cartella radice rappresentata da **entryFilePath**. Caricare, ad esempio, i file Python nella sottocartella pyFiles e i file jar nella sottocartella jars della cartella radice. In runtime, il servizio Data Factory prevede la struttura di cartelle seguente nell'archivio BLOB: 
 
-| path | DESCRIZIONE | Obbligatorio | Type |
+| `Path` | DESCRIZIONE | Obbligatorio | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Sì | Cartella |
 | &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Sì | File |
