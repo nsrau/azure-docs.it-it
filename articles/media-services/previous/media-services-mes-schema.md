@@ -38,7 +38,7 @@ Definisce un set di impostazioni per la codifica.
 
 | NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
-| **Versione**<br/><br/> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="Encoding"></a> Encoding
 Contiene una sequenza degli elementi seguenti:  
