@@ -2,24 +2,18 @@
 title: Eseguire la registrazione nel Dev Center | Azure
 description: Come eseguire la registrazione nel centro per sviluppatori (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735799"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937587"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -34,7 +28,7 @@ Per assicurarsi di non essere connessi a un account personale aprire una nuova s
     ![Informazioni sull'account con casella relativa a paese/area geografica](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Per vendere i propri servizi in Azure Marketplace, verificare che l'entità registrata si trovi in uno dei paesi di *origine della vendita* approvati. Questa limitazione di posizione è necessaria per motivi legati ai proventi e alla tassazione. 
+    >Per vendere i propri servizi in Azure Marketplace, verificare che l'entità registrata si trovi in uno di approvati *di origine della vendita* paesi/aree geografiche. Questa limitazione di posizione è necessaria per motivi legati ai proventi e alla tassazione. 
     >*   Per altre informazioni vedere la pagina Criteri di Partecipazione a Microsoft Azure Marketplace all'indirizzo [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Per *Tipo di account*, selezionare il pulsante di opzione `Company`.  

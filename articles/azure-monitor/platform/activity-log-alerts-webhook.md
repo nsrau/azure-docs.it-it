@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731500"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688351"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -21,6 +21,10 @@ Nella definizione di un gruppo di azione è possibile configurare gli endpoint w
 Per altre informazioni sugli avvisi del log di attività, vedere come [creare gli avvisi del log attività di Azure](activity-log-alerts.md).
 
 Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> È anche possibile usare la [common schema avviso](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di una singola estendibile e unificato payload avviso tra avviso tutti i servizi in Monitoraggio di Azure, per le integrazioni di webhook. [Scopri le definizioni di avviso dello schema comune.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
 Facoltativamente il webhook può usare l'autorizzazione basata su token per l'autenticazione. L'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -176,7 +180,7 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
 |  timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
-| resourceId |ID della risorsa interessata. |
+| resourceId |ID risorsa della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
 | event |Elemento contenente i metadati relativi all'evento. |

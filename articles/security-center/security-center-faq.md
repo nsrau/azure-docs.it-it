@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909630"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917642"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -77,7 +77,7 @@ Le macchine virtuali IaaS Windows o Linux hanno diritto al provisioning automati
 
 - L'estensione Microsoft Monitoring Agent non è attualmente installata nella macchina virtuale.
 - La macchina virtuale è nello stato di esecuzione.
-- Il Windows o Linux [agente di macchine virtuali di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) è installato.
+- Il Windows o Linux [agente di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) è installato.
 - La macchina virtuale non viene usata come appliance, ad esempio web application firewall o firewall di nuova generazione.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>È possibile eliminare le aree di lavoro predefinite create dal Centro sicurezza?

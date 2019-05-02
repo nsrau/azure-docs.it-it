@@ -14,11 +14,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823947"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,23 +66,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato MySQL.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Yes |
-| server |Nome del server MySQL. |Yes |
-| database |Nome del database MySQL. |Yes |
+| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Sì |
+| server |Nome del server MySQL. |Sì |
+| database |Nome del database MySQL. |Sì |
 | schema |Nome dello schema nel database. |No  |
-| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Yes |
-| username |Specificare nome utente per la connessione al database MySQL. |Yes |
-| password |Specificare la password per l'account utente specificato. |Yes |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Yes |
+| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
+| username |Specificare nome utente per la connessione al database MySQL. |Sì |
+| password |Specificare la password per l'account utente specificato. |Sì |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati MySQL) presenta le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -305,10 +305,10 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | bigint |Int64 |
 | bit |Decimal |
 | BLOB |Byte[] |
-| bool |boolean |
+| bool |Boolean |
 | char |string |
-| date |DateTime |
-| Datetime |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
 | decimal |Decimal |
 | double precision |Double |
 | Double |Double |
@@ -332,14 +332,14 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |string |
-| time |Intervallo di tempo |
-|  timestamp |DateTime |
+| time |TimeSpan |
+|  timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |string |
 | varchar |string |
-| year |int |
+| year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

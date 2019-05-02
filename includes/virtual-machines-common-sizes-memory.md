@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344275"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744262"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -33,7 +33,7 @@ ACU: 160-190 <sup>1</sup>
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz e usare Archiviazione Premium. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
@@ -63,7 +63,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 Le istanze della serie Ev3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
@@ -94,7 +94,7 @@ ACU: 160-180 <sup>1</sup>
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 Acceleratore di scrittura:  [Supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU: 180 - 240
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 | Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Memorizzazione nella cache archiviazione Premium:  Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU: 210 - 250
 
 Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 | Dimensione              | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

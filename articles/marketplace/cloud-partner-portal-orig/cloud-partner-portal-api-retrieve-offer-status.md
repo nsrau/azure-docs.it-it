@@ -1,25 +1,18 @@
 ---
-title: Recupero dello stato dell'offerta | Microsoft Docs
+title: Recuperare lo stato dell'offerta | Azure Marketplace
 description: L'API recupera lo stato corrente dell'offerta.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808277"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935446"
 ---
 <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta 
 =====================
@@ -42,7 +35,7 @@ Recupera lo stato corrente dell'offerta.
 <a name="header"></a>Intestazione
 ------
 
-|  NOME           |  Valore               |
+|  NOME           |  Value               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Authorization  | `Bearer YOUR_TOKEN`  |
@@ -132,14 +125,14 @@ Recupera lo stato corrente dell'offerta.
 |  **Nome**             |    **Descrizione**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito: |
-|  del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
+|   del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
 |  steps                | Matrice dei passaggi di pubblicazione di un'offerta                      |
 |  estimatedTimeFrame   | Stima del tempo necessario per completare questo passaggio, in formato descrittivo                       |
 |  id                   | Identificatore del passaggio                                                                         |
 |  stepName             | Nome del passaggio                                                                               |
 |  description          | Descrizione del passaggio                                                                        |
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
-|  del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
+|   del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |
@@ -166,8 +159,8 @@ Recupera lo stato corrente dell'offerta.
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
 |  Succeeded                   | Invio dell'offerta completato.               |
-|  Canceled                    | Invio dell'offerta annullato.                           |
-|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
+|  Cancellati                    | Invio dell'offerta annullato.                           |
+|  Failed                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
 
 
@@ -182,5 +175,5 @@ Recupera lo stato corrente dell'offerta.
 |  Bloccato                     | Il passaggio è bloccato.                             |
 |  Rifiutato                    | Il passaggio è stato rifiutato.                            |
 |  Complete                    | Il passaggio è stato completato.                            |
-|  Canceled                    | Il passaggio è stato annullato.                           |
+|  Cancellati                    | Il passaggio è stato annullato.                           |
 |  |  |

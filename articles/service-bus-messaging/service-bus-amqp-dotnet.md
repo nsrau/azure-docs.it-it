@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749258"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
@@ -79,7 +79,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | DateTime | timestamp |Valore AMQP |
 | Guid |uuid |Valore AMQP |
 | byte[] |binary |Valore AMQP |
-| stringa |stringa |Valore AMQP |
+| string |string |Valore AMQP |
 | System.Collections.IList |list |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Array |array |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Collections.IDictionary |map |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. Nota: sono supportate solo chiavi di tipo String. |

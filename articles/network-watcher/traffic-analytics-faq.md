@@ -3,8 +3,8 @@ title: Domande frequenti su Analisi del traffico di Azure | Microsoft Docs
 description: Ottenere le risposte ad alcune delle domande più frequenti su Analisi del traffico.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236608"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939916"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -241,7 +241,7 @@ Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricin
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Frequenza con cui il traffico di Analitica elabori i dati?
 
-Vedere il [sezione aggregazione dei dati](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) nello Schema di Analitica di traffico e documento di aggregazione di dati
+Vedere il [sezione aggregazione dei dati](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) nello Schema di Analitica di traffico e documento di aggregazione di dati
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Come traffico Analitica decidere che un indirizzo IP sia dannoso? 
 
@@ -253,14 +253,14 @@ Il traffico Analitica non è supporto incorporato per gli avvisi. Tuttavia, poic
 - È possibile usare il collegamento breve per Log Analitica nel traffico Analitica. 
 - Usare la [schema documentato qui](traffic-analytics-schema.md) per scrivere le query 
 - Fare clic su "Nuova regola di avviso" creazione dell'avviso
-- Fare riferimento a [documentazione degli avvisi di log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) per creare l'avviso
+- Fare riferimento a [documentazione degli avvisi di log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della mappa geografica fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Distribuzione, Traffico dai paesi e Di tipo dannoso). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
-- **Mappa**: sotto al banner, la sezione Mappa mostra la distribuzione del traffico tra i data center di Azure e i paesi.
+- **Banner**: Il banner nella parte superiore della mappa geografica fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, la distribuzione, il traffico da paesi/aree geografiche e dannosi). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Mappa**: Sotto il banner, la sezione mappa Mostra la distribuzione del traffico tra Data Center di Azure e paesi/aree geografiche.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
     

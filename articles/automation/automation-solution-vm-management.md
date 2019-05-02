@@ -248,8 +248,8 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 
 |Proprietà | DESCRIZIONE|
 |----------|----------|
-|Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
+|Caller |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
+|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
 |CorrelationId | GUID che rappresenta l'ID di correlazione del processo del runbook.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
@@ -263,14 +263,14 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |SourceSystem | Specifica il sistema di origine per i dati inviati. Per Automazione, il valore è OpsManager|
 |StreamType | Specifica il tipo di evento. I valori possibili sono:<br>- Dettagliato<br>- Output<br>- Errore<br>- Avviso|
 |SubscriptionId | Specifica l'ID sottoscrizione del processo.
-|Tempo | Data e ora di esecuzione del processo del runbook.|
+|Time | Data e ora di esecuzione del processo del runbook.|
 
 ### <a name="job-streams"></a>Flussi di processo
 
 |Proprietà | DESCRIZIONE|
 |----------|----------|
-|Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
+|Caller |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
+|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
@@ -282,7 +282,7 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |RunbookName | Il nome del runbook.|
 |SourceSystem | Specifica il sistema di origine per i dati inviati. Per Automazione, il valore è OpsManager.|
 |StreamType | Il tipo di flusso del processo. I valori possibili sono:<br>- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato|
-|Tempo | Data e ora di esecuzione del processo del runbook.|
+|Time | Data e ora di esecuzione del processo del runbook.|
 
 Quando si esegue una ricerca log che restituisce record di categoria di **JobLogs** o **JobStreams**, è possibile selezionare la visualizzazione **JobLogs** o **JobStreams** che presenta una serie di riquadri di riepilogo degli aggiornamenti restituiti dalla ricerca.
 

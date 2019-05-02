@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61bcc0565d57f9c64c453f79f319fc56d5a6de18
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776289"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925057"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -126,7 +126,7 @@ Il ripristino di emergenza per macchine virtuali di Azure comporta costi di lice
 **Aggiornamento** | **Dettagli**
 --- | ---
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo)
-**Ripristino di emergenza per Linux** | **Macchine virtuali di Azure**: Aggiunta del supporto per Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Le macchine virtuali VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Basato su Linux con macchine virtuali che usa lo stile di partizione GUID partizione GPT (tabella) in modalità di compatibilità BIOS legacy sono ora supportati. Visualizzare [domande frequenti sui dischi delle macchine Virtuali IaaS di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) per altre informazioni. 
+**Ripristino di emergenza per Linux** | **Macchine virtuali di Azure**: Aggiunta del supporto per Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Le macchine virtuali VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Basato su Linux con macchine virtuali che usa lo stile di partizione GUID partizione GPT (tabella) in modalità di compatibilità BIOS legacy sono ora supportati. Visualizzare [domande frequenti sui dischi delle macchine Virtuali IaaS di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) per altre informazioni. 
 **Supporto di cloud** | È supportato il ripristino di emergenza per macchine virtuali di Azure nel cloud Germania.
 **Ripristino di emergenza tra sottoscrizioni** | Supporto per la replica di macchine virtuali di Azure in un'unica area a un'altra area in una sottoscrizione diversa, nello stesso tenant di Azure Active Directory. [Altre informazioni](https://aka.ms/cross-sub-blog)
 **Windows Server 2008** | Supporto per la migrazione di macchine in esecuzione Windows Server 2008 R2 o 2008 a 64 bit e a 32 bit.<br/><br/> Solo per la migrazione (replica e failover). Non è supportato il failback.

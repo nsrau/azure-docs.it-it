@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463532"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -94,7 +94,7 @@ La tabella seguente illustra gli elementi del file di output JSON.
 
 | Elemento | DESCRIZIONE |
 | --- | --- |
-| Versione |Indica la versione dell'API Video. La versione corrente è 2. |
+| Version |Indica la versione dell'API Video. La versione corrente è 2. |
 | Scala cronologica |"Scatti" al secondo del video. |
 | Offset |Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
 | Frequenza fotogrammi |Fotogrammi al secondo del video. |

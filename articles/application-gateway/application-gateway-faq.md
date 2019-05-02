@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682951"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947078"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul Gateway applicazione
 
@@ -119,7 +119,7 @@ Usare Gestione traffico per distribuire il traffico tra più gateway applicazion
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Il Gateway applicazione supporta la scalabilità automatica?
 
-Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [la scalabilità automatica e il Gateway applicazione ridondanza della zona (anteprima pubblica)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [la scalabilità automatica e il Gateway applicazione ridondanza della zona](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Esegue manuale aumento o riduzione delle prestazioni a causa dei tempi di inattività?
 
@@ -267,7 +267,7 @@ Il Gateway applicazione supporta fino a 10 certificati di autenticazione. Il val
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Il Gateway applicazione integra in modo nativo con Azure Key Vault?
 
- No.
+Sì, lo SKU di Gateway applicazione v2 supporta l'insieme di credenziali delle chiavi. Per altre informazioni, vedere [terminazione SSL con certificati Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Come si configura il listener HTTPS per i siti. com e .net? 
 

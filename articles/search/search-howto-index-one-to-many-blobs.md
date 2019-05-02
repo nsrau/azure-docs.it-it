@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
 ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871200"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indicizzazione di blob che produce più documenti di ricerca
 Per impostazione predefinita, un indicizzatore blob considererà il contenuto di un blob come un documento di ricerca singola. Determinati **parsingMode** valori supportano scenari in cui un singolo blob può comportare più documenti di ricerca. I diversi tipi di **parsingMode** che consentono un indicizzatore di estrarre più di una ricerca nel documento da un blob è:

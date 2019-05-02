@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453187"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916286"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -97,9 +97,9 @@ Gestire la maggior parte delle impostazioni dei dati nel menu **Impostazioni ava
 | Log personalizzati                  | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | syslog                       | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Application Insights         | La soluzione è stata deprecata, dal momento che Log Analytics e Application Insights condividono lo stesso motore di dati.  |
-| Rilevamento file di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/automation-change-tracking.md). |
-| Rilevamento del Registro di sistema di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/automation-change-tracking.md). |
-| Rilevamento file di Linux          | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/automation-change-tracking.md). |
+| Rilevamento file di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/change-tracking.md). |
+| Rilevamento del Registro di sistema di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/change-tracking.md). |
+| Rilevamento file di Linux          | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../../automation/change-tracking.md). |
 
 ### <a name="solutions"></a>Soluzioni
 Gestire le soluzioni nel menu **Soluzioni** per l'area di lavoro. 

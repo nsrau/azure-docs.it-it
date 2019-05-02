@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d020ff2b998da4cb52fe91e4d7d4b93544965a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 385d9126d578250064659153f6f0f54eec696790
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870673"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>Note sulla versione dell'aggiornamento 0.5 per l'array virtuale StorSimple
 
@@ -47,7 +47,7 @@ L'aggiornamento 0.5 è principalmente una build per la correzione di bug. I migl
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| di serie | Funzionalità | Problema |
+|  No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Resilienza dei backup| Nelle versioni precedenti i backup vengono ritentati solo per determinate eccezioni. Questa versione include una correzione per aumentare la resilienza dei backup eseguendo nuovamente tutte le eccezioni di backup.|
 | 2 |Monitoraggio| La funzionalità di monitoraggio dell'utilizzo della memoria per Serie di dispositivi virtuali StorSimple verrà deprecata a partire dal 30 giugno 2017. Questa azione influisce sui grafici di monitoraggio del servizio Gestione dispositivi StorSimple in esecuzione negli array virtuali StorSimple (modello 1200). Questa versione include aggiornamenti che consentono all'utente di continuare a usare la funzionalità di monitoraggio dell'utilizzo della memoria negli array virtuali anche dopo il 30 giugno 2017.|
@@ -58,7 +58,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti.
 
-| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
+|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

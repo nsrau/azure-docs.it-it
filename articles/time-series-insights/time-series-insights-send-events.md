@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557020"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683971"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -104,7 +104,7 @@ Oggetto JSON semplice:
 
 #### <a name="output-one-event"></a>Output: Un evento
 
-|id|timestamp|
+|id| timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -129,7 +129,7 @@ Una matrice JSON con due oggetti JSON. Ogni oggetto JSON viene convertito in un 
 
 #### <a name="output-two-events"></a>Output: Due eventi
 
-|id|timestamp|
+|id| timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
@@ -210,8 +210,7 @@ Oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Questo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [View your environment in the Time Series Insights explorer](https://insights.timeseries.azure.com) (Visualizzare l'ambiente in Time Series Insights Explorer)
+- [Panoramica dell'ambiente](https://insights.timeseries.azure.com) in Time Series Insights explorer.
 
 <!-- Images -->
 [1]: media/send-events/updated.png

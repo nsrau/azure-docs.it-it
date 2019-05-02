@@ -10,11 +10,11 @@ ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760668"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712767"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Come definire la struttura del codice JSON per massimizzare le prestazioni delle query 
 
@@ -200,4 +200,4 @@ Se è presente una proprietà con un numero elevato di valori possibili, è cons
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per mettere in pratica queste indicazioni, vedere [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) (Sintassi delle query di Azure Time Series Insights) per ottenere altre informazioni sulla sintassi delle query per l'API REST di accesso ai dati di Time Series Insights.
+- Per mettere in pratica queste indicazioni, vedere [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) (Sintassi delle query di Azure Time Series Insights) per ottenere altre informazioni sulla sintassi delle query per l'API REST di accesso ai dati di Time Series Insights.

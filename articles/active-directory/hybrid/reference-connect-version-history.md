@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387214"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572404"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -43,12 +43,12 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 Mentre ci addentriamo questo processo, il numero di versione della versione verrà visualizzato con una "X" nella posizione numero versione secondaria, come in "1.3.X.0 -" indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1.3". Non appena è stato completato il processo di rilascio il numero di versione verrà aggiornato alla versione rilasciata più di recente e lo stato di rilascio verrà aggiornato in "Rilasciato per il download e l'aggiornamento automatico".
 Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>Stato della versione 
 
-3/25/2019: In sospeso
- 
+04/24/2019: resa disponibile per il download
+
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità 
 
 - Aggiungere il supporto per dominio di aggiornamento 
@@ -64,7 +64,7 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 - Eseguire l'aggiornamento ad ADAL 3.19.8 per prelevare una correzione di WS-Trust per il comando Ping e aggiungere il supporto per nuove istanze di Azure 
 - Modifica gruppo regole di sincronizzazione per propagare samAccountName, DomainNetbios e DomainFQDN per cloud - necessari per le attestazioni 
 - Modificare la gestione di regola sincronizzazione predefinita: leggere altre [qui](how-to-connect-fix-default-rules.md).
-- Aggiungere un nuovo agente in esecuzione come servizio windows. Questo agente, denominato "Admin agente", consente una diagnostica più approfondita remota del server Azure AD Connect per risolvere i problemi Engineers Microsoft quando si apre una richiesta di assistenza. Altre informazioni su agente Admin [qui](whatis-aadc-admin-agent.md). 
+- Aggiungere un nuovo agente in esecuzione come servizio windows. Questo agente, denominato "Admin agente", consente una diagnostica più approfondita remota del server Azure AD Connect per risolvere i problemi Engineers Microsoft quando si apre una richiesta di assistenza. Questo agente non installato e abilitato per impostazione predefinita.  Per altre informazioni su come installare e abilitare l'agente, vedere [qual è l'agente Azure AD Connect amministratore?](whatis-aadc-admin-agent.md). 
 - Aggiornato il contratto di licenza utente finale (EULA) 
 - Aggiunto il supporto di aggiornamento automatico per le distribuzioni che usano AD FS come relativo tipo di account di accesso.  Questo inoltre rimosso il requisito di l'aggiornamento di AD FS Azure Active Directory Trust della Relying Party come parte del processo di aggiornamento. 
 - Aggiungere un'attività di gestione di trust di Azure AD che sono disponibili due opzioni: analizzare o aggiornare relazione di trust e reimpostazione della relazione di trust. 

@@ -16,11 +16,11 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835414"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluzioni Oracle e rispettiva distribuzione in Microsoft Azure
 Questo articolo fornisce le informazioni necessarie per una distribuzione corretta delle diverse soluzioni Oracle in Microsoft Azure. Queste soluzioni sono basate su immagini di macchine virtuali pubblicate da Oracle in Azure Marketplace. Per ottenere un elenco delle immagini attualmente disponibili, eseguire il comando seguente:

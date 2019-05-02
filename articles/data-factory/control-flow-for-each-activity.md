@@ -69,7 +69,7 @@ Le proprietà sono descritte più avanti in questo articolo. La proprietà items
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività ForEach. | string | Sì
 type | Deve essere impostato su **ForEach** | string | Sì

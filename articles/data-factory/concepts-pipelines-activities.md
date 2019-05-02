@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261935"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Ecco come una pipeline viene definita in formato JSON:
 }
 ```
 
-Tag | DESCRIZIONE | Type | Obbligatorio
+Tag | DESCRIZIONE | Type | Obbligatoria
 --- | ----------- | ---- | --------
 name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | string | Sì
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No 
@@ -168,7 +168,7 @@ Criteri che influiscono sul comportamento runtime di un'attività, offrendo le o
 }
 ```
 
-Nome JSON | DESCRIZIONE | Valori consentiti | Obbligatorio
+Nome JSON | DESCRIZIONE | Valori consentiti | Obbligatoria
 --------- | ----------- | -------------- | --------
 timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan |  No. Il timeout predefinito è 7 giorni.
 retry | Numero massimo di tentativi | Integer |  No. Il valore predefinito è 0
