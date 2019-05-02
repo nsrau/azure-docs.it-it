@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731067"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -69,7 +69,7 @@ Per il corretto funzionamento di Profiler:
 * Application Insights deve essere abilitato per l'app Web.
 * L'app web deve avere le impostazioni seguenti:
 
-    |Impostazione app    | Valore    |
+    |Impostazione app    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -101,7 +101,7 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Attivare **Always On**.
 1. Creare le impostazioni dell'app:
 
-    |Impostazione app    | Valore    |
+    |Impostazione app    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

@@ -1,25 +1,18 @@
 ---
-title: Test drive di app per la logica | Microsoft Docs
+title: Versione di Test di App per la logica | Azure Marketplace
 description: Viene illustrato come creare un test drive che si connette a un'istanza di Dynamics AX/CRM o a qualsiasi altra risorsa non di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338599"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64940015"
 ---
 <a name="logic-app-test-drive"></a>Test drive di app per la logica
 ====================

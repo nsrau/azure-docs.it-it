@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722982"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
 I connettori consentono di accedere rapidamente dall'App per la logica di Azure per gli eventi, dati e le azioni in altre App, servizi, i sistemi, protocolli e piattaforme. Utilizzando i connettori nelle App per la logica, si espandono le funzionalità per le app cloud e locali eseguire attività con i dati che creano e si dispone già di.
 
-Mentre App per la logica offre [oltre 200 connettori](https://docs.microsoft.com/connectors), questo articolo descrive i connettori più popolari e più comuni che vengono usati con successo da migliaia di applicazioni e milioni di esecuzioni per l'elaborazione di dati e informazioni. Per trovare l'elenco completo dei connettori e informazioni di riferimento ogni connettore, come ad esempio trigger, azioni e i limiti, rivedere il connettore di fare riferimento a pagine nelle [panoramica dei connettori](https://docs.microsoft.com/connectors). Anche le informazioni sulle [trigger e azioni](#triggers-actions).
+Mentre App per la logica offre [oltre 200 connettori](https://docs.microsoft.com/connectors), questo articolo descrive i connettori più popolari e più comuni che vengono usati con successo da migliaia di applicazioni e milioni di esecuzioni per l'elaborazione di dati e informazioni. Per trovare l'elenco completo dei connettori e le informazioni di riferimento ogni connettore, ad esempio trigger, azioni e i limiti, vedere le pagine di riferimento connettore sotto [panoramica dei connettori](https://docs.microsoft.com/connectors). Anche le informazioni sulle [trigger e azioni](#triggers-actions).
 
 > [!NOTE]
 > Per integrare con un servizio o l'API che non dispone di connettore, è possibile direttamente chiamare il servizio tramite un protocollo come HTTP o crearne una [connettore personalizzato](#custom).
@@ -29,27 +29,32 @@ I connettori sono disponibili come azioni e trigger predefiniti o come connettor
 
 * [**Incorporati**](#built-ins): Questi trigger e azioni predefinite sono "nativo" per le App per la logica di Azure e consentono di che creare App per la logica che Esegui in base a pianificazioni personalizzate, di comunicare con altri endpoint, ricevere e rispondere alle richieste e chiamare funzioni di Azure, Azure API App (app Web), le tue API gestito e pubblicato con gestione API di Azure e App per la logica annidata che possono ricevere le richieste. È inoltre possibile utilizzare azioni predefinite che consentono di organizzare e controllare il flusso di lavoro dell'applicazione logica e anche di lavorare con i dati.
 
-* **Connettori gestiti**: Distribuite e gestite da Microsoft, questi connettori forniscono trigger e azioni per l'accesso di altri servizi e sistemi, ad esempio Office 365, archiviazione Blob di Azure, SQL Server, Salesforce e altro ancora. Alcuni connettori è necessario innanzitutto creare connessioni, che vengono gestite dall'App per la logica di Azure. I connettori gestiti sono organizzati in questi gruppi:
+* **Connettori gestiti**: Distribuite e gestite da Microsoft, questi connettori forniscono trigger e azioni per l'accesso a servizi cloud, i sistemi locali o entrambi, tra cui Office 365, archiviazione Blob di Azure, SQL Server, Dynamics, Salesforce, SharePoint e altro ancora. Alcuni connettori supportano scenari di comunicazione business to business (B2B) in modo specifico e richiede un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) che è stato collegato all'app per la logica. Prima di utilizzare alcuni connettori, è necessario innanzitutto creare connessioni, che vengono gestite dall'App per la logica di Azure. 
+
+  Ad esempio, se si usa Microsoft BizTalk Server, le App per la logica possono connettersi e comunicare con BizTalk Server tramite il [BizTalk Server connector locale](#on-premises-connectors). 
+  È quindi possibile estendere o eseguire operazioni di tipo BizTalk in App per la logica utilizzando [connettori dell'account di integrazione](#integration-account-connectors).
+
+  I connettori sono classificati come Standard o Enterprise. 
+  [Connettori aziendali](#enterprise-connectors) forniscono l'accesso ai sistemi aziendali, ad esempio SAP, IBM MQ e 3270 di IBM per un costo aggiuntivo. Per determinare se un connettore è Standard o Enterprise, vedere i dettagli tecnici nella pagina di riferimento di ogni connettore sotto [panoramica dei connettori](https://docs.microsoft.com/connectors). 
+  
+  È anche possibile identificare i connettori usando queste categorie, anche se alcuni connettori possono attraversare più categorie. 
+  Ad esempio, SAP è un connettore Enterprise e un connettore locale:
 
   |   |   |
   |---|---|
-  | [**Connettori delle API gestiti**](#managed-api-connectors) | Consentono di creare app per la logica che usano i servizi, ad esempio archiviazione BLOB di Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e molti altri. | 
-  | [**Connettori locali**](#on-premises-connectors) | Dopo aver installato e configurato il [gateway dati locale][gateway-doc], questi connettori consentono alle app per la logica di accedere a sistemi locali quali SQL Server, SharePoint Server, Oracle DB, condivisioni di file e altri. | 
-  | [**Connettori dell'account di integrazione**](#integration-account-connectors) | Disponibili quando si crea e si paga un account di integrazione, questi connettori trasformano e convalidano XML, codificano e decodificano file flat ed elaborano messaggi business-to-business (B2B) con i protocolli AS2, EDIFACT e X12. | 
-  | [**Connettori aziendali**](#enterprise-connectors) | Forniscono l'accesso a sistemi aziendali come SAP e IBM MQ a un costo aggiuntivo. |
-  ||| 
-
-  Ad esempio, se si usa Microsoft BizTalk Server, le App per la logica possono connettersi e comunicare con BizTalk Server tramite il [connettore BizTalk Server](#on-premises-connectors). 
-  È quindi possibile estendere o eseguire operazioni di tipo BizTalk in App per la logica utilizzando [connettori dell'account di integrazione](#integration-account-connectors). 
+  | [**Connettori delle API gestiti**](#managed-api-connectors) | Consentono di creare app per la logica che usano i servizi, ad esempio archiviazione BLOB di Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e molti altri. |
+  | [**Connettori locali**](#on-premises-connectors) | Dopo aver installato e configurato il [gateway dati locale][gateway-doc], questi connettori consentono alle app per la logica di accedere a sistemi locali quali SQL Server, SharePoint Server, Oracle DB, condivisioni di file e altri. |
+  | [**Connettori dell'account di integrazione**](#integration-account-connectors) | Disponibili quando si crea e si paga un account di integrazione, questi connettori trasformano e convalidano XML, codificano e decodificano file flat ed elaborano messaggi business-to-business (B2B) con i protocolli AS2, EDIFACT e X12. |
+  |||
 
 > [!NOTE]
-> Per l'elenco di connettori completo e le informazioni di riferimento per ogni connettore, ad esempio azioni e tutti i trigger definiti da una descrizione Swagger e qualsiasi limite, è possibile trovare l'elenco completo nella [Panoramica dei connettori](/connectors/). Per informazioni sui prezzi, vedere [Dettagli prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md). 
+> Per un elenco completo dei connettori e le informazioni di riferimento ogni connettore, ad esempio azioni e trigger, che sono definiti da un file OpenAPI (in precedenza Swagger) descrizione, oltre a eventuali limiti, è possibile trovare l'elenco completo sotto il [panoramica dei connettori ](/connectors/). Per informazioni sui prezzi, vedere [Dettagli prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>Predefiniti
 
-App per la logica offre trigger e azioni predefiniti che consentono di creare flussi di lavoro basati sulla pianificazione, aiutare le applicazioni logiche a comunicare con altre applicazioni e servizi, controllare il flusso di lavoro attraverso le app per la logica e gestire o manipolare i dati. 
+App per la logica offre trigger e azioni predefiniti che consentono di creare flussi di lavoro basati sulla pianificazione, aiutare le applicazioni logiche a comunicare con altre applicazioni e servizi, controllare il flusso di lavoro attraverso le app per la logica e gestire o manipolare i dati.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -89,7 +94,7 @@ Di seguito sono riportati i connettori più popolari per automatizzare attività
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Icona API][azure-service-bus-icon]<br/>**Bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. | [![Icona API][sql-server-icon]<br/>**SQL** Server][sql-server-doc] | Connettersi all'account e-mail di Office 365 per creare e gestire e-mail, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. | 
+| [![Icona API][azure-service-bus-icon]<br/>**Bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. | [![Icona API][sql-server-icon]<br/>**SQL** Server][sql-server-doc] | Connettersi all'istanza locale di SQL Server o a un database SQL di Azure nel cloud per gestire record oppure eseguire stored procedure o query. | 
 | [![Icona API][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Connettersi all'account e-mail di Office 365 per creare e gestire e-mail, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. | [![Icona API][azure-blob-storage-icon]<br/>**Archiviazione BLOB<br/>di Azure**][azure-blob-storage-doc] | Connettersi all'account di archiviazione in modo che sia possibile creare e gestire il contenuto del BLOB. | 
 | [![Icona API][sftp-icon]<br/>**SFTP**][sftp-doc] | Connettersi ai server SFTP a cui è possibile accedere da Internet per lavorare con file e cartelle. | [![Icona API][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | Connettersi a SharePoint Online in modo che sia possibile gestire i file, allegati, cartelle e altro ancora. | 
 | [![Icona API][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Connettersi all'account di Dynamics 365 in modo che sia possibile creare e gestire i record, elementi e altro ancora. | [![Icona API][ftp-icon]<br/>**FTP**][ftp-doc] | Connettersi ai server FTP a cui è possibile accedere da Internet per lavorare con file e cartelle. | 
@@ -117,7 +122,7 @@ Di seguito sono riportati i connettori per la creazione di soluzioni business-to
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Icona API][as2-icon]<br/>**Decodifica</br> AS2**][as2-decode-doc] | [![Icona API][as2-icon]<br/>**Codifica</br> AS2**][as2-encode-doc] | [![Icona API][edifact-icon]<br/>**Decodifica</br> EDIFACT**][edifact-decode-doc] | [![Icona API][edifact-icon]<br/>**Codifica</br> EDIFACT**][edifact-encode-doc] | 
+| [![Icona API][as2-icon]<br/>**Decodifica</br> AS2**][as2-doc] | [![Icona API][as2-icon]<br/>**Codifica</br> AS2**][as2-doc] | [![Icona API][edifact-icon]<br/>**Decodifica</br> EDIFACT**][edifact-decode-doc] | [![Icona API][edifact-icon]<br/>**Codifica</br> EDIFACT**][edifact-encode-doc] | 
 | [![Icona API][flat-file-decode-icon]<br/>**Decodifica</br> file flat**][flat-file-decode-doc] | [![Icona API][flat-file-encode-icon]<br/>**Codifica</br> file flat**][flat-file-encode-doc] | [![Icona API][integration-account-icon]<br/>**Account<br/> di integrazione**][integration-account-doc] | [![Icona API][liquid-icon]<br/>**Trasformazioni**</br>**Liquid**][json-liquid-transform-doc] | 
 | [![Icona API][x12-icon]<br/>**Decodifica</br> X12**][x12-decode-doc] | [![Icona API][x12-icon]<br/>**Codifica</br> X12**][x12-encode-doc] | [![Icona API][xml-transform-icon]<br/>**Trasforma**</br>**XML**][xml-transform-doc] | [![Icona API][xml-validate-icon]<br/>**Convalida <br/>XML**][xml-validate-doc] |  
 ||||| 
@@ -128,10 +133,10 @@ Di seguito sono riportati i connettori per la creazione di soluzioni business-to
 
 App per la logica può accedere a sistemi aziendali, come SAP e IBM MQ:
 
-|   |   | 
-|---|---| 
-| [![Icona API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icona API][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![Icona API][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![Icona API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icona API][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Ecco i tipi generali di trigger che fornisce le App per la logica di Azure:
 
 Trigger e azioni di ogni connettore forniscono le proprie proprietà per la configurazione. Molti connettori richiedono anche creare prima di tutto una *connessione* per il servizio di destinazione o il sistema e fornire le credenziali di autenticazione o altri dettagli di configurazione prima di poter usare un trigger o azione nelle app per la logica. Ad esempio, è necessario autorizzare una connessione a un account Twitter per l'accesso ai dati o la registrazione per tuo conto. 
 
-Per i connettori che usano OAuth, creazione di una connessione significa accedere al servizio, ad esempio Office 365, Salesforce o GitHub, in cui il token di accesso è crittografato e archiviato in modo sicuro in un archivio segreto di Azure. Gli altri connettori, ad esempio FTP e SQL, richiedono una connessione con i dettagli di configurazione, ad esempio l'indirizzo del server, nome utente e password. I dettagli di questa configurazione di connessione vengono inoltre crittografati e archiviati in modo sicuro. 
+Per i connettori che usano OAuth, creazione di una connessione significa accedere al servizio, ad esempio Office 365, Salesforce o GitHub, in cui il token di accesso è crittografato e archiviato in modo sicuro in un archivio segreto di Azure. Gli altri connettori, ad esempio FTP e SQL, richiedono una connessione con i dettagli di configurazione, ad esempio l'indirizzo del server, nome utente e password. Questi dettagli di configurazione della connessione vengono inoltre crittografati e archiviati in modo sicuro. 
 
-Connessioni possono accedere al servizio di destinazione o di un sistema per fino a quando tale servizio o il sistema consente. Per i servizi che usano le connessioni OAuth di Azure Active Directory (AD), ad esempio Office 365 e Dynamics, App per la logica di Azure consente di aggiornare i token di accesso per un periodo illimitato. Altri servizi potrebbero imporre limiti su quanto tempo le App per la logica di Azure può usare un token senza aggiornamento. In genere, alcune azioni invalidano tutti i token di accesso, ad esempio la modifica della password.
+Connessioni possono accedere al servizio di destinazione o di un sistema per fino a quando tale servizio o il sistema consente. Per i servizi che usano le connessioni OAuth di Azure Active Directory (AD), ad esempio Office 365 e Dynamics, App per la logica di Azure consente di aggiornare i token di accesso per un periodo illimitato. Altri servizi potrebbero alcun limite per quanto tempo le App per la logica di Azure può usare un token senza aggiornamento. In genere, alcune azioni invalidano tutti i token di accesso, ad esempio la modifica della password.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Connettersi a Google Drive per poter usare i dati"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Connettersi a Fogli Google per modificare i fogli di lavoro"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Connettersi a Google Tasks per poter gestire le attività"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Connettersi ad applicazioni 3270 su mainframe IBM"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Connettersi a IBM DB2 nel cloud o in locale. Aggiornare una riga, recuperare una tabella e altro ancora"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Connettersi a Informix nel cloud o in locale. Leggere una riga, elencare le tabelle e altro ancora"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connettersi a IBM MQ in locale o in Azure per inviare e ricevere messaggi"
@@ -257,8 +263,6 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2" (Informazioni su Enterprise Integration: AS2)
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode" (Informazioni su Enterprise Integration: decodifica AS2)
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode" (Informazioni su Enterprise Integration: codifica AS2)
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
@@ -330,6 +334,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

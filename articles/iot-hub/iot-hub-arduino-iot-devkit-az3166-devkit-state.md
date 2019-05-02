@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61369849"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -69,7 +69,7 @@ ms.locfileid: "55811053"
 
 2. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **config-device-connection**
 
-3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il pulsante di**** reimpostazione, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
+3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il **pulsante di reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
 
 4. Attendere il completamento del processo di configurazione della stringa di connessione.
 

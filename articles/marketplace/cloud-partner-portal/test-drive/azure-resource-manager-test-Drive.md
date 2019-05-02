@@ -1,25 +1,19 @@
 ---
-title: Test drive di Azure Resource Manager | Microsoft Docs
+title: Azure Resource Manager Test Drive | Azure Marketplace
 description: Compilare un test drive di Marketplace tramite Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541163"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941581"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test drive di Azure Resource Manager
 
@@ -90,10 +84,10 @@ Tuttavia, il test drive funziona in modalità interamente automatica, senza inte
 
 | Tipo di metadati   | Tipo di parametro  | DESCRIZIONE     | Valore di esempio    |
 |---|---|---|---|
-| **baseuri**     | stringa          | URI di base del pacchetto di distribuzione| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | stringa          | Nuovo nome utente casuale.| admin68876      |
+| **baseuri**     | string          | URI di base del pacchetto di distribuzione| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **username**    | string          | Nuovo nome utente casuale.| admin68876      |
 | **password**    | stringa sicura    | Nuova password casuale | Lp!ACS\^2kh     |
-| **id sessione**   | stringa          | ID univoco della sessione di test drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **id sessione**   | string          | ID univoco della sessione di test drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>username
 

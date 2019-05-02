@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851543"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -35,7 +35,7 @@ Per completare la procedura descritta in questo argomento è necessario avere un
 3. Digitare i valori per **Name** (Nome) e **Description** (Descrizione) per la nuova app. Incollare l'**URL** dell'applicazione per il valore **Website** (Sito Web). Nella casella **Callback URL** (URL callback) incollare quindi il valore di **URL callback** copiato prima. Si tratta del gateway dell'app per dispositivi mobili con il percorso */.auth/login/twitter/callback* come suffisso. Ad esempio `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 4. Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Create your Twitter application**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 5. Fare clic sulla scheda **Settings** (Impostazioni), selezionare **Allow this application to be used to sign in with Twitter** (Consenti l'uso dell'applicazione per l'accesso con Twitter) e quindi fare clic su **Update Settings** (Aggiorna impostazioni).
-6. Selezionare la scheda **Keys and Access Tokens** . Prendere nota dei valori di **Consumer Key (API Key)** (Chiave utente (chiave API)) e **Consumer secret (API Secret)** (Segreto utente (chiave privata API)).
+6. Selezionare la scheda **Keys and Access Tokens** . Prendere nota dei valori di Consumer Key (API Key) (Chiave utente (chiave API)) e **Consumer secret (API Secret)** (Segreto utente (chiave privata API)).
    
    > [!NOTE]
    > Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
