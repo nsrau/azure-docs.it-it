@@ -136,8 +136,8 @@ La diagnostica di automazione di Azure crea due categorie di record nel log di m
 | ConfigurationMode | Indica la modalità di applicazione della configurazione al nodo. I valori possibili sono __"ApplyOnly"__,__"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC applica la configurazione e non esegue altre operazioni, a meno che non venga eseguito il push di una nuova configurazione nel nodo di destinazione o in caso di pull di una nuova configurazione da un server. Dopo l'applicazione iniziale di una nuova configurazione, DSC non verifica la deviazione da uno stato configurato in precedenza. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyOnly__. </li><li> __ApplyAndMonitor__: Si tratta del valore predefinito. Gestione configurazione locale applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyAndMonitor__.</li><li>__ApplyAndAutoCorrect__: DSC applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log e quindi applica di nuovo la configurazione corrente.</li></ul> |
 | HostName_s | Nome del nodo gestito. |
 | IPAddress | Indirizzo IPv4 del nodo gestito. |
-| Categoria | DscNodeStatus |
-| Risorsa | Nome dell'account di Automazione di Azure. |
+| Category | DscNodeStatus |
+| Resource | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |
@@ -162,8 +162,8 @@ La diagnostica di automazione di Azure crea due categorie di record nel log di m
 | OperationName |DscResourceStatusData|
 | ResultType |Indica se la risorsa è conforme. |
 | NodeName_s |Nome del nodo gestito. |
-| Categoria | DscNodeStatus |
-| Risorsa | Nome dell'account di Automazione di Azure. |
+| Category | DscNodeStatus |
+| Resource | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |

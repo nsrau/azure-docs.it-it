@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60886984"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -32,7 +32,7 @@ Selezionando **modifica**, apre il pannello di libreria dashboard. La libreria c
 
 ![Libreria dashboard](media/howto-configure-homepage/image2.png)
 
-Ad esempio, è possibile aggiungere un **le impostazioni del dispositivo e proprietà** riquadro per mostrare la selezione dei valori correnti delle impostazioni e le proprietà per un dispositivo. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Quindi, assegnare un titolo al riquadro e selezionare un'**impostazione** o una **proprietà** da visualizzare. Lo screenshot seguente mostra le impostazioni e le proprietà selezionate da aggiungere al riquadro. Selezionare **** per salvare la modifica al dashboard.
+Ad esempio, è possibile aggiungere un **le impostazioni del dispositivo e proprietà** riquadro per mostrare la selezione dei valori correnti delle impostazioni e le proprietà per un dispositivo. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Quindi, assegnare un titolo al riquadro e selezionare un'**impostazione** o una **proprietà** da visualizzare. Lo screenshot seguente mostra le impostazioni e le proprietà selezionate da aggiungere al riquadro. Selezionare **Done** per salvare la modifica al dashboard.
 
 ![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](media/howto-configure-homepage/image3.png)
 
