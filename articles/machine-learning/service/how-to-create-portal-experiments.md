@@ -11,18 +11,18 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b6d7f791300a970e71fda4f1d56354a45d07afd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029896"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035438"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creazione e l'esplorazione automatizzati esperimenti di machine learning nel portale di Azure (anteprima)
 
- In questo articolo descrive come creare, eseguire ed esplorare automatizzati esperimenti di machine learning nel portale di Azure senza una singola riga di codice. Apprendimento automatico consente di automatizzare il processo di selezione dell'algoritmo più appropriato da usare per i dati specifici, in modo che è possibile generare rapidamente un modello di machine learning. [Altre informazioni sull'apprendimento automatico](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ In questo articolo descrive come creare, eseguire ed esplorare automatizzati esperimenti di machine learning nel portale di Azure senza una singola riga di codice. Apprendimento automatico consente di automatizzare il processo di selezione dell'algoritmo più appropriato da usare per i dati specifici, in modo che è possibile generare rapidamente un modello di machine learning. [Altre informazioni sull'apprendimento automatico](concept-automated-ml.md).
 
- Se si preferisce un'esperienza di codice basato su altre, è anche possibile [configurare automatizzati esperimenti di machine learning in Python](how-to-configure-auto-train.md) con il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Se si preferisce un'esperienza maggiormente basata su codice, è anche possibile [configurare automatizzati esperimenti di machine learning in Python](how-to-configure-auto-train.md) con il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Passare al riquadro sinistro dell'area di lavoro. Selezionare automatizzati di M
 
 ![Pagina di destinazione esperimento del portale di Azure](media/how-to-create-portal-experiments/landing-page.png)
 
-In caso contrario, si noterà dashboard Automated machine learning con una panoramica di tutti gli automatizzati di machine learning esperimenti e viene eseguito, inclusi quelli eseguiti usando il SDK. Qui è possibile filtrare ed esplorare le esecuzioni per data, provare a nome e lo stato di esecuzione.
+In caso contrario, si noterà dashboard Automated machine learning con una panoramica di tutti automatizzati esperimenti di machine learning, inclusi quelli eseguiti con il SDK. Qui è possibile filtrare ed esplorare le esecuzioni per data, provare a nome e lo stato di esecuzione.
 
 ![Dashboard di esperimento del portale di Azure](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -148,8 +148,6 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
 * **Curtosi**: curtosi della colonna. Voci vuote vengono visualizzati per le funzionalità con tipi non pertinenti.
 
-Inoltre, è possibile utilizzare queste statistiche per decidere se si desidera includere o escludere determinate colonne. Attivando e disattivando il selettore in ogni colonna, è possibile controllare l'ambito in cui colonne da utilizzare nell'automatizzati esperimento di machine learning.
-
 <a name="preprocess"></a>
 
 ### <a name="advanced-preprocessing"></a>Advanced pre-elaborazione
@@ -168,72 +166,24 @@ Quando si configurano gli esperimenti, è possibile abilitare l'impostazione ava
 |Peso di prova (rapidamente)|Calcola rapidamente come misura di correlazione di colonne di categoria per la colonna di destinazione. Viene calcolato come il registro del rapporto tra le probabilità di out-of-class-classe in Visual Studio. Questo passaggio genera una colonna di funzionalità numerico per ogni classe e rimuove la necessità di attribuire in modo esplicito i valori mancanti e una gestione degli outlier.|
 |Distanza del cluster|Esegue il training di un modello di clustering k-means per tutte le colonne numeriche.  Output k nuove funzionalità, una nuova funzionalità numerica per ogni cluster, che contiene la distanza tra ogni campione del centro di ogni cluster.|
 
-## <a name="run-experiment"></a>Eseguire esperimento
+## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 
-Per eseguire l'esperimento, fare clic sul pulsante Start.
-  
-L'esperimento di preparazione del processo richiede alcuni minuti.
+Per eseguire l'esperimento, fare clic su Avvia. L'esperimento di preparazione del processo richiede alcuni minuti.
 
-## <a name="view-results"></a>Visualizzare i risultati
+### <a name="view-experiment-details"></a>Visualizzare i dettagli di esperimento
 
-Una volta che viene eseguita la fase di preparazione esperimento, si verrà visualizzata la schermata di dettagli dell'esecuzione. Questo fornirà un elenco completo dei modelli creati. Per impostazione predefinita, il modello che assegna punteggi la massima basato su paramatri sarà nella parte superiore dell'elenco. Durante il processo di training tentativo out più modelli, sarà possibile visualizzarli aggiunto all'elenco e grafico.
-Usare il grafico per ottenere un rapido confronto delle metriche per i modelli di prodotto finora.
-
-![Dashboard dettagli delle esecuzioni](media/how-to-create-portal-experiments/run-details.png)
-
-Si è in grado di eseguire il drill-in uno qualsiasi dei modelli di output che consente di aprire i dettagli di tale modello incluse le metriche e i grafici delle prestazioni e la distribuzione. [Altre informazioni sui grafici](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
-
-![Dettagli iterazione](media/how-to-create-portal-experiments/dashboard.png)
+Al termine, la fase di preparazione esperimento si noterà la schermata dei dettagli di esecuzione. Ciò offre un elenco completo dei modelli creati. Per impostazione predefinita, il modello che assegna punteggi la massima in base i parametri nella parte superiore dell'elenco. Durante il processo di training tentativo out più modelli, essi vengono aggiunti all'elenco di iterazione e grafico. Usare il grafico di iterazione per ottenere un rapido confronto delle metriche per i modelli di prodotto finora.
 
 I processi di training può richiedere un po' di tempo per ogni termine dell'esecuzione della pipeline.
 
-## <a name="deploy-model"></a>Distribuzione del modello
+![Dashboard dettagli delle esecuzioni](media/how-to-create-portal-experiments/run-details.png)
 
-Dopo aver creato il modello migliore in questione, è possibile distribuirlo come servizio web per eseguire previsioni su nuovi dati.
+### <a name="view-training-run-details"></a>Formazione di visualizzazione Dettagli esecuzione
 
-ML automatizzata consente di distribuire il modello senza scrivere codice:
+Eseguire il drill-in uno qualsiasi dei modelli di output per visualizzare i dettagli dell'esecuzione, come i grafici di metriche e la distribuzione delle prestazioni di training. [Altre informazioni sui grafici](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
-1. Nel riquadro di riepilogo esecuzione sulla destra, selezionare "Registrare modello".
-
-    ![Registrare il modello](media/how-to-create-portal-experiments/register-model.png)
-
-1. Dopo aver registrato il modello, è possibile scaricare lo script di assegnazione dei punteggi da utilizzare durante la distribuzione.
-
-    ![Scaricare script di assegnazione dei punteggi](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. Dopo aver creato lo script di assegnazione dei punteggi, passare alla pagina "Models" (nel riquadro di spostamento a sinistra sotto **asset**).
-
-    ![Riquadro di spostamento del modello](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Selezionare la casella di controllo accanto al modello che è stato registrato e selezionare "Crea immagine".
-
-    È possibile identificare il modello tramite la relativa descrizione, che include il numero di iterazione e ID di esecuzione, nel formato seguente: **modello < Iteration_number > _ < Run_ID >**.
-
-1. Immettere un nome per l'immagine e caricare il file di assegnazione dei punteggi che è scaricato in precedenza. [Altre informazioni su script di assegnazione dei punteggi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
-
-    È possibile usare il proprio script di assegnazione dei punteggi e il file Conda. Se non si dispone di un file Conda [creane di nuove](tutorial-deploy-models-with-aml.md#create-environment-file) e caricarlo insieme a eventuali altri file aggiuntivi, è possibile usare.
-
-    ![Creare un form dell'immagine](media/how-to-create-portal-experiments/create-image.png)
-
-1. Selezionare il pulsante "Crea" per avviare la creazione dell'immagine. Questo richiederà alcuni minuti, al termine, verrà visualizzato un messaggio nella barra superiore.
-
-1. Passare alla scheda "Immagini", selezionare la casella di controllo accanto l'immagine da distribuire e selezionare "Crea distribuzione".
-
-    ![Immagine di creare la schermata di distribuzione](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Immettere un nome univoco di distribuzione.
-
-1. (facoltativo) Immettere una descrizione per la distribuzione.
-
-1. Selezionare il tipo di calcolo di destinazione da utilizzare. 
-
-    ![Creare il modulo di distribuzione](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. Selezionare "Crea" per avviare il processo di distribuzione, che richiederà alcuni minuti.
-
-1. L'operazione è terminata. Si dispone di un servizio web operativo per generare stime.
+![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come usare un modello distribuito](how-to-consume-web-service.md).
-* [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md).
+* [Altre informazioni sull'apprendimento automatico](concept-automated-ml.md) e Azure Machine Learning.
