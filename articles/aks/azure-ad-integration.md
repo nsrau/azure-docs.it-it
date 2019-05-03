@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116778"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574297"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
 Il servizio Azure Kubernetes può essere configurato per usare Azure Active Directory (AD) per l'autenticazione utente. In questa configurazione, è possibile accedere a un cluster del servizio contenitore di AZURE usando il token di autenticazione di Azure Active Directory. Inoltre, gli amministratori di cluster sono in grado di configurare Kubernetes accesso basato sui ruoli controllo degli accessi in base all'appartenenza identità o una directory dell'utente.
 
-Questo articolo illustra come distribuire i prerequisiti per servizio contenitore di AZURE e Azure AD e quindi come distribuire un cluster di Azure Active Directory abilitata e creare un ruolo RBAC base nel cluster AKS.
+Questo articolo illustra come distribuire i prerequisiti per servizio contenitore di AZURE e Azure AD e quindi come distribuire un cluster di Azure Active Directory abilitata e creare un ruolo RBAC di base del cluster servizio contenitore di AZURE usando il portale di Azure. È anche possibile [completare questi passaggi usando Azure CLI][azure-ad-cli].
 
 Si applicano le limitazioni seguenti:
 
@@ -46,7 +46,7 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
 2. Selezionare **Manifesto** e modificare il valore `groupMembershipClaims` in `"All"`.
 
-   Salvare gli aggiornamenti al termine.
+   **Salvare** gli aggiornamenti al termine dell'operazione.
 
    ![Impostare l'appartenenza al gruppo su All](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
    ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/read-directory.png)
 
-6. In **Autorizzazioni delegate** selezionare **Accedi e leggi il profilo di un altro utente** e **Lettura dati directory**. Salvare gli aggiornamenti al termine.
+6. In **Autorizzazioni delegate** selezionare **Accedi e leggi il profilo di un altro utente** e **Lettura dati directory**. Scegli **seleziona** per salvare gli aggiornamenti.
 
    ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/delegated-permissions.png)
 
-   Selezionare **Operazione completata**.
+   Quindi, selezionare ****.
 
 7. Scegliere *Microsoft Graph* nell'elenco delle API, quindi selezionare **Concedi autorizzazioni**. Questo passaggio avrà esito negativo se l'account corrente non è un amministratore del tenant.
 
@@ -96,11 +96,13 @@ La seconda applicazione di Azure AD viene usata per l'accesso con l'interfaccia 
 
    ![Configurare le autorizzazioni per l'applicazione](media/aad-integration/select-api.png)
 
-3. Inserire un segno di spunta accanto all'applicazione e fare clic su **Seleziona**.
+    Selezionare l'applicazione server, quindi scegliere **seleziona**.
+
+3. Nella *Aggiungi accesso all'API* finestra, scegliere **selezionare le autorizzazioni**. Immettere un segno di spunta sotto il *autorizzazioni delegate* per l'accesso all'applicazione, quindi scegliere **selezionare**.
 
    ![Selezionare l'endpoint dell'applicazione server AAD servizio Azure Kubernetes](media/aad-integration/select-server-app.png)
 
-   Selezionare **Operazione completata**
+   Nella *Aggiungi accesso all'API* finestra, seleziona **eseguita**.
 
 4. Selezionare l'API del server dall'elenco e quindi scegliere **Concedi autorizzazioni**:
 
@@ -259,3 +261,4 @@ Per le procedure consigliate sul controllo delle identità e risorse, vedere [pr
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

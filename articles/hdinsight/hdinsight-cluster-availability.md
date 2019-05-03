@@ -2,7 +2,6 @@
 title: Come monitorare la disponibilità di cluster con Ambari e monitoraggio di Azure log
 description: Informazioni su come usare i log di Ambari e monitoraggio di Azure per monitorare l'integrità del cluster e la disponibilità.
 keywords: monitoraggio, ambari, monitoraggio, log analitica, avviso, disponibilità, integrità
-services: hdinsight
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 9bf0c0f45007f81312ac08230d571b727220bcd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718904"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità di cluster con Ambari e monitoraggio di Azure log
 
@@ -156,7 +155,7 @@ Nel **valutati in base** sezione, impostare il **periodo** e **frequenza** basat
 
 Si noti che ai fini di questo avviso, si desidera assicurarsi **periodo = frequenza.** Altre informazioni sul periodo, la frequenza e altri parametri di avviso sono reperibili [qui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
 
-Fare clic su **** al termine della configurazione per la logica di segnale.
+Fare clic su **Done** al termine della configurazione per la logica di segnale.
 
 ![Regola di avviso Configura logica dei segnali](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
 
