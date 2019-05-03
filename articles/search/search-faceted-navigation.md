@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924580"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023966"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Come implementare l'esplorazione in base a facet in Ricerca di Azure
 L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Il termine "esplorazione in base a facet" può essere poco noto, ma probabilmente è già stato usato in precedenza. Come illustrato nell'esempio seguente, l'esplorazione in base a facet non è rappresentata dalle categorie usate per filtrare i risultati.
 
  ![Job Portal Demo di Ricerca di Azure][1]
 
-L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca. Offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse. I facet consentono di trovare ciò che si sta cercando con una percentuale di successo accertata. Per gli sviluppatori i facet consentono di esporre i criteri di ricerca più utili per lo spostamento del corpo di ricerca. Nelle applicazioni di vendita online, l'esplorazione in base a facet si basa spesso sulle marche, sui reparti (scarpe per bambini), sulla taglia, sul prezzo, sulla popolarità e sulle classificazioni. 
+L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca. Offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse. I facet consentono di trovare ciò che si sta cercando con una percentuale di successo accertata. Gli sviluppatori i facet consentono di esporre i criteri di ricerca più utili per lo spostamento di un indice di ricerca. Nelle applicazioni di vendita online, l'esplorazione in base a facet si basa spesso sulle marche, sui reparti (scarpe per bambini), sulla taglia, sul prezzo, sulla popolarità e sulle classificazioni. 
 
 L'implementazione dell'esplorazione in base a facet si distingue tra le tecnologie di ricerca. Nella Ricerca di Azure, l'esplorazione in base a facet viene creata in fase di query, usando campi attribuiti precedenti nello schema.
 

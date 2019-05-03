@@ -1,7 +1,7 @@
 ---
 title: "Indicizzare blob che contiene più di eseguire ricerche nei documenti dell'indice da indicizzatore di Blob di Azure per la ricerca full-text: ricerca di Azure"
 description: Ricerca per indicizzazione i BLOB di Azure per il contenuto di testo usando l'indicizzatore Blob ricerca di Azure. Ogni blob può contenere uno o più documenti di indice di ricerca di Azure.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871200"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024657"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indicizzazione di blob che produce più documenti di ricerca
 Per impostazione predefinita, un indicizzatore blob considererà il contenuto di un blob come un documento di ricerca singola. Determinati **parsingMode** valori supportano scenari in cui un singolo blob può comportare più documenti di ricerca. I diversi tipi di **parsingMode** che consentono un indicizzatore di estrarre più di una ricerca nel documento da un blob è:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` modalità di analisi è in anteprima pubblica e non deve essere utilizzata in ambienti di produzione. Per altre informazioni, vedere [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>Chiave del documento uno-a-molti
 Ogni documento che viene visualizzato in un indice di ricerca di Azure viene identificata da una chiave del documento. 
@@ -106,7 +103,7 @@ Se si desidera configurare un mapping dei campi espliciti, assicurarsi che il _s
 + [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
 + [Indicizzazione di Archiviazione BLOB di Azure con Ricerca di Azure](search-howto-index-json-blobs.md)
 + [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
-+ [Indicizzazione di BLOB JSON con l'indicizzatore blob ricerca di Azure](search-howto-index-csv-blobs.md)
++ [Indicizzazione di BLOB JSON con l'indicizzatore blob ricerca di Azure](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Passaggi successivi
 * Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio ricerca](https://azure.microsoft.com/services/search/).

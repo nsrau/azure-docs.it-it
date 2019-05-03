@@ -1,7 +1,7 @@
 ---
 title: Connettere e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori - Ricerca di Azure
 description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817158"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025348"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -63,7 +63,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 1. Creare l'origine dati:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 3. Creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all'indice di destinazione:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 
 Un indicizzatore creato in questo modo non dispone di una pianificazione. Viene eseguito non appena viene creato. È possibile rieseguirlo in qualsiasi momento mediante una richiesta di **esecuzione indicizzatore** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Creare un'API di indicizzatore).
@@ -104,7 +104,7 @@ Potrebbe essere necessario consentire ai servizi di Azure di connettersi al data
 
 Per monitorare lo stato dell'indicizzatore e la cronologia di esecuzione (numero di elementi indicizzati, errori e così via), utilizzare una richiesta di **stato indicizzatore** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 La risposta sarà simile alla seguente:
@@ -146,7 +146,7 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 ## <a name="run-indexers-on-a-schedule"></a>Eseguire gli indicizzatori in base a una pianificazione
 È inoltre possibile fare in modo che l'indicizzatore si esegua periodicamente in base a una pianificazione. A tale scopo, aggiungere la proprietà **schedule** al momento della creazione o dell'aggiornamento dell'indicizzatore. Nell'esempio seguente viene illustrata una richiesta PUT di aggiornamento dell'indicizzatore:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

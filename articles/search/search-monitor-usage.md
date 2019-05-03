@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564742"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035365"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -58,7 +58,7 @@ Ricerca di Azure non archivia dati, oltre agli oggetti gestiti, e questo signifi
 
 La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunta di funzionalità di monitoraggio approfondite per le operazioni del servizio e i carichi di lavoro di query tramite Application Insights.
 
-| Risorsa | Usato per |
+| Resource | Usato per |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Gli eventi registrati e le metriche di query, gli schemi seguenti, in base riconducibili a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
 | [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Gli eventi registrati e le metriche di query, basate su schemi riportato di seguito. Gli eventi vengono registrati per un'area di lavoro di Log Analitica. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [iniziare con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -114,7 +114,7 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
 | operationName |string |"Query.Search" |Nome dell'operazione |
-| operationVersion |string |"2017-11-11" |api-version usata |
+| operationVersion |string |"2019-05-06" |api-version usata |
 | category |string |"OperationLogs" |costante |
 | resultType |string |"Esito positivo" |Valori possibili: Esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
@@ -126,7 +126,7 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 | NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | DESCRIZIONE |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parametri della query |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametri della query |
 | Documenti |int |42 |Numero di documenti elaborati |
 | IndexName |string |"testindex" |Nome dell'indice associato all'operazione |
 

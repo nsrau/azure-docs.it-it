@@ -6,15 +6,15 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197269"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025260"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creare un indice per i documenti in più lingue in Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Molte applicazioni Web e per dispositivi mobili vengono sfruttate dagli utenti i
 
 Se la lingua dell'agente che esegue una query è nota, è possibile definire per una richiesta di ricerca un ambito relativo a un campo specifico usando il parametro di query **searchFields** . La query seguente verrà generata solo per la descrizione in polacco:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2019-05-06`
 
 È possibile eseguire query sull'indice dal portale, usando **Esplora ricerche** per incollare una query simile a quello illustrata in precedenza. Esplora ricerche è disponibile nella barra dei comandi nel pannello del servizio. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-explorer.md) .
 
@@ -79,7 +79,7 @@ Se la lingua dell'agente che esegue una query è nota, è possibile definire per
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
 Per gli sviluppatori .NET, si noti che è possibile configurare analizzatori delle lingue mediante l' [SDK .NET di Ricerca di Azure](https://www.nuget.org/packages/Microsoft.Azure.Search). La versione più recente supporta anche gli analizzatori delle lingue di Microsoft.
 
