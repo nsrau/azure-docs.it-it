@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 9097fef88a2c3c667416761c341a2e320c790121
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919045"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993075"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+Nei casi in cui il certificato intermedio non può essere scaricato a causa dei vincoli di rete durante la convalida, è possibile aggiungere il certificato intermedio. Tuttavia, Azure eseguirà il rollover dei certificati in base alla procedura standard di infrastruttura a chiave pubblica. I certificati aggiunti dovrà essere aggiornata quando si verifica il rollover. Ogni volta che una modifica per aggiornare il certificato intermedio è pianificata, il blog di Azure verrà aggiornato e riceverà una notifica ai clienti di Azure. Sono disponibili i certificati intermedi [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ognuna delle aree possono essere diversi.
+
 ### <a name="failover-clustering-in-windows-server"></a>Clustering di failover in Windows Server
 
 Per alcuni scenari, quando si eseguono query sul servizio metadati dell'istanza con il cluster di failover, è necessario aggiungere una route alla tabella di routing.
@@ -686,13 +688,15 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Dati personalizzati
-Istanza Metadata Service fornisce la possibilità per la macchina virtuale di accedere ai relativi dati personalizzati. I dati binari devono essere minore di 64KB e viene forniti per la macchina virtuale nel formato con codificata base64. Per informazioni dettagliate su come creare una macchina virtuale con dati personalizzati, vedere [distribuire una macchina virtuale con CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Istanza Metadata Service fornisce la possibilità per la macchina virtuale di accedere ai relativi dati personalizzati. I dati binari devono essere minore di 64 KB e viene forniti per la macchina virtuale nel formato con codificata base64. Per informazioni dettagliate su come creare una macchina virtuale con dati personalizzati, vedere [distribuire una macchina virtuale con CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+Dati personalizzati sono disponibili per tutti i processi in esecuzione nella macchina virtuale. È consigliabile che i clienti non inserire le informazioni segrete nei dati personalizzati.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Recupero di dati personalizzati nella macchina virtuale
 Istanza Metadata Service fornisce i dati personalizzati per la macchina virtuale nel formato con codificata base64. Nell'esempio seguente consente di decodificare la stringa con codificata base64.
 
 > [!NOTE]
-> I dati personalizzati in questo esempio viene interpretati come una stringa ASCII che legge, "My super dati riservati.".
+> I dati personalizzati in questo esempio viene interpretati come una stringa ASCII con il testo "My data personalizzata.".
 
 **Richiesta**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **Risposta**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Esempi di chiamate del Servizio metadati con diversi linguaggi all'interno della macchina virtuale 

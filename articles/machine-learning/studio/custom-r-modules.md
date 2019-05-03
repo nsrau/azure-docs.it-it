@@ -1,7 +1,7 @@
 ---
 title: Definire moduli R personalizzati
 titleSuffix: Azure Machine Learning Studio
-description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
+description: In questo argomento viene descritto come creare e distribuire una versione personalizzata di R Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751200"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025071"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definire moduli R personalizzati per Azure Machine Learning Studio
 
-Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
+In questo argomento viene descritto come creare e distribuire una versione personalizzata di R Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
 
 
@@ -159,7 +159,7 @@ Le porte **DataTable** facoltative che non vengono passate come input in un espe
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Per i moduli R personalizzati non è necessario che l'ID di una porta ZIP corrisponda ai parametri della funzione R perché il file ZIP viene estratto automaticamente nella directory di lavoro R.
+Per i moduli R personalizzati, l'ID di una porta Zip non hanno corrisponda ai parametri della funzione R. perché il file ZIP viene estratto automaticamente nella directory di lavoro R.
 
 **Regole di input:**
 
@@ -225,7 +225,7 @@ Restituire quindi gli oggetti in un elenco con l'ordine corretto in 'CustomAddRo
 ### <a name="arguments"></a>Argomenti
 Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro.
 Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue, possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati nella sezione successiva. Gli argomenti con la proprietà **isOptional** impostata su **"true"** non richiedono che l'utente immetta un valore. Se non viene fornito un valore per l'argomento, l'argomento non verrà passato alla funzione del punto di ingresso. Gli argomenti della funzione del punto di ingresso facoltativi devono essere gestiti in modo esplicito dalla funzione, ad esempio viene assegnato un valore predefinito NULL nella definizione della funzione del punto di ingresso. Un argomento facoltativo imporrà gli altri vincoli dell'argomento, ad esempio min o max, solo se l'utente fornisce un valore.
-Così come con input e output, è fondamentale che ogni parametro presenti valori ID univoci associati. Nell'esempio di avvio rapido il parametro/id associato era *swap*.
+Come con input e output, è fondamentale che ognuno dei parametri includono valori ID univoci associati. In questo esempio di Guida introduttiva è stato il parametro/id associato *scambio*.
 
 ### <a name="arg-element"></a>Elemento Arg
 Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports**, l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito. 
@@ -270,7 +270,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 
 * *Proprietà facoltative*: **default** e **isOptional**
 
-**ColumnPicker**: parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. L'elemento **Property** viene usato per specificare l'ID della porta dal quale verranno selezionate le colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
+**ColumnPicker**: parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. Il **proprietà** elemento viene usato qui per specificare l'ID della porta dal quale sono selezionate colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
         </Arg>
 
 
-* *Proprietà obbligatorie*: **portId**. Corrisponde all'ID di un elemento Input di tipo *DataTable*.
+* *Proprietà obbligatorie*: **portId** -corrisponda all'ID di un elemento di Input con tipo *DataTable*.
 * *Proprietà facoltative*:
   
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
@@ -286,7 +286,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * Numeric
     * Boolean
     * Categorical
-    * string
+    * String
     * Etichetta
     * Funzionalità
     * Score
@@ -327,7 +327,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     </Arg>    
 
 * *Proprietà facoltative*:
-  * **default**: il valore della proprietà predefinita deve corrispondere a un valore ID di uno degli elementi **Item**.
+  * **impostazione predefinita** -il valore della proprietà predefinita deve corrispondere con un valore di ID da uno dei **elemento** elementi.
 
 ### <a name="auxiliary-files"></a>File ausiliari
 Qualsiasi file inserito nel file ZIP del modulo personalizzato sarà disponibile per l'uso durante la fase di esecuzione. Vengono mantenute le strutture di directory presenti. Ciò significa che l'esecuzione del file funziona nello stesso modo sia localmente che in Azure Machine Learning Studio. 

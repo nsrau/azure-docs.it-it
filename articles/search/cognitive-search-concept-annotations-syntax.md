@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344207"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023866"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un insieme di competenze di ricerca cognitiva
 
@@ -36,13 +36,13 @@ Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Esempio 1: Riferimento di annotazione semplice
 
-Nel servizio di archiviazione BLOB di Azure, si supponga di disporre di una serie di file contenenti i riferimenti ai nomi delle persone che si desidera estrarre tramite riconoscimento delle entità denominate. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
+Nell'archivio Blob di Azure, si supponga di che avere un'ampia gamma di file che contiene riferimenti ai nomi delle persone che si desidera estrarre tramite riconoscimento di entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
 
 Poiché il contesto predefinito è `"/document"`, è ora possibile fare riferimento all'elenco delle persone come `"/document/people"`. In questo caso specifico `"/document/people"` è un'annotazione, che potrebbe ora essere mappata a un campo in un indice o utilizzata in un'altra competenza nello stesso insieme di competenze.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +98,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 
-Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore rispetto a quello del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
+Si noti che la cardinalità del `"/document/people/*/lastname"` è superiore a quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
 
 ```json
   {

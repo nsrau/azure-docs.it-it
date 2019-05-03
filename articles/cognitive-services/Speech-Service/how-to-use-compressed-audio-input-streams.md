@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6ab43b530c045eb4f2920b65f601ba981dfc8a2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60697677"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020758"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Audio Stream compressi con Speech SDK
 
 il SDK di riconoscimento vocale **Stream di Input Audio Compressed** API fornisce un modo per lo streaming di audio compressi per il servizio riconoscimento vocale usando PullStream o PushStream.
 
 > [!IMPORTANT]
-> Lo streaming di audio compresso è supportato solo per C++, C#e Java su Linux (Ubuntu 16.04 o 18.04 Ubuntu).
+> Lo streaming di audio compresso è supportato solo per C++, C#e Java su Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
 > Il supporto è limitato a MP3 e sono state/OGG.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario installare queste dipendenze per l'uso di input audio compressi con Speech SDK per Linux:
+Installare le dipendenze aggiuntive per l'uso di input audio compressi con Speech SDK per Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -37,7 +37,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 Per eseguire lo streaming in un formato audio compresso per i servizi di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream`. Creare quindi un `AudioConfig` da un'istanza della classe del flusso, che specifica il formato di compressione del flusso.
 
-Si supponga di avere una classe di flusso di input denominata `myPushStream` e Usa sono state/OGG. Questo è ciò che il codice potrebbe essere simile: 
+Si supponga di avere una classe di flusso di input denominata `myPushStream` e Usa sono state/OGG. Il codice potrebbe essere simile al seguente:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

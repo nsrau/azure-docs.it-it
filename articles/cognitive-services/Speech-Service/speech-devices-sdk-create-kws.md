@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461613"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020525"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
 
@@ -47,29 +47,26 @@ Quando si sceglie una parola di attivazione, tenere presente le linee guida segu
 
 ## <a name="create-your-wake-word"></a>Creare la parola di attivazione
 
-Per usare una parola di attivazione personalizzata con il dispositivo, è necessario prima crearla usando il servizio Microsoft Custom Wake Word Generation. Dopo aver specificato una parola di riattivazione, il servizio genera un file che viene distribuito il kit di sviluppo per abilitare la riattivazione word nel dispositivo.
+Prima di utilizzare una parola riattivazione personalizzata con il dispositivo, è necessario creare una parola di riattivazione con il servizio Microsoft personalizzato riattivazione generazione di parole. Dopo aver specificato una parola di riattivazione, il servizio genera un file che viene distribuito il kit di sviluppo per abilitare la riattivazione word nel dispositivo.
 
-1. Andare alla [portale di servizi di riconoscimento vocale personalizzato](https://cris.ai/).
+1. Andare alla [portale del servizio riconoscimento vocale personalizzato](https://aka.ms/sdsdk-speechportal) e **Accedi** o se non hai una sottoscrizione di riconoscimento vocale Scegli [ **creare una sottoscrizione**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![Il portale di servizi di riconoscimento vocale personalizzato](media/speech-devices-sdk/wake-word-4.png)
 
-1. Accedere con l'indirizzo di posta elettronica che ha ricevuto l'invito per Azure Active Directory.
-
-1. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti diretti per accedervi. La funzionalità di riconoscimento vocale personalizzato richiede una sottoscrizione di Azure, ma non la funzionalità personalizzata riattivazione Word. Se si visualizza il messaggio di errore **No Subscriptions found** (Non sono state trovate sottoscrizioni), sostituire semplicemente **"Subscriptions?errorMessage=No%20Subscriptions%20found"** con "**customkws**" nell'URL e premere INVIO. L'URL deve corrispondere a uno dei seguenti: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, a seconda della propria regione.
-
-1. Digitare la parola di attivazione scelta, quindi selezionare **Submit the word** (Invia parola).
+1. Nel [Custom riattivazione Word](https://aka.ms/sdsdk-wakewordportal) pagina digitare la parola di riattivazione scelta e fare clic su **Add riattivazione word**. Alcune [linee guida](#choose-an-effective-wake-word) per scegliere una parola chiave valida. Attualmente sono supportate solo lingua en-US.
 
     ![Immettere la parola di attivazione](media/speech-devices-sdk/wake-word-5.png)
 
-1. La generazione dei file può richiedere alcuni minuti. Verrà visualizzato un cerchio rotante nella finestra del browser. Poco dopo viene visualizzata una barra delle informazioni con la richiesta di scaricare un file ZIP.
+1. Verrà creata tre alternativa pronuncia della parola di riattivazione. È possibile scegliere tutte le pronunce desiderato. Quindi selezionare **Submit** per generare la parola di riattivazione. Se si desidera modificare la parola di riattivazione, rimuovere quella esistente prima di tutto, quando passa il mouse sulla riga pronuncia che verrà visualizzata l'icona di eliminazione.
 
-1. Salvare il file ZIP nel computer. È necessario questo file per distribuire la parola di attivazione personalizzata nel kit di sviluppo. Per distribuire la parola di attivazione personalizzata, seguire le istruzioni riportate in [Introduzione a Speech Devices SDK](speech-devices-sdk-qsg.md).
+    ![Esaminare la parola di riattivazione](media/speech-devices-sdk/wake-word-6.png)
 
-1. Selezionare **Sign out** (Disconnessione).
+1. Potrebbe richiedere fino a un minuto per il modello da generare. Verrà richiesto di scaricare il file.
+
+    ![Download delle parole di riattivazione](media/speech-devices-sdk/wake-word-7.png)
+
+1. Salvare il file ZIP nel computer. È necessario questo file per la distribuzione delle parole riattivazione personalizzato al kit di sviluppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, ottenere un [account gratuito Azure](https://azure.microsoft.com/free/) e registrarsi per Speech Devices SDK.
-
-> [!div class="nextstepaction"]
-> [Registrarsi per Speech Devices SDK](get-speech-devices-sdk.md)
+Test delle parole riattivazione personalizzati con [Guida introduttiva di riconoscimento vocale dispositivi SDK](https://aka.ms/sdsdk-quickstart).

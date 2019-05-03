@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924382"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993156"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -46,7 +46,7 @@ Grazie agli eventi pianificati, l'applicazione è in grado di sapere quando verr
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
-- Manutenzione avviata dalla piattaforma, ad esempio un aggiornamento del sistema operativo host
+- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (ad esempio, VM riavvio, migrazione in tempo reale o gli aggiornamenti per host con mantenimento della memoria)
 - Hardware con funzionalità ridotte
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
 - [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/blog/low-priority-scale-sets) nella scala imposta
@@ -58,6 +58,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 ### <a name="scope"></a>`Scope`
 Gli eventi pianificati vengono recapitati a:
 
+- Macchine virtuali autonome.
 - Tutte le macchine virtuali in un servizio cloud.
 - Tutte le macchine virtuali in un set di disponibilità.
 - Tutte le macchine virtuali in un gruppo di posizionamento di un set di scalabilità. 
@@ -129,7 +130,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 |Proprietà  |  Descrizione |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: per la macchina virtuale è pianificata una pausa di pochi secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: per la macchina virtuale è pianificato un riavvio (la memoria non permanente andrà persa). <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo (i dischi temporanei andranno persi). <li>`Preempt`: Viene eliminata la macchina virtuale con priorità bassa (i dischi temporanei andranno persi).|
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: La macchina virtuale è pianificata una sospensione per pochi secondi. La connettività di rete e CPU può essere sospesa, ma non ha alcun impatto in memoria o i file aperti.<li>`Reboot`: per la macchina virtuale è pianificato un riavvio (la memoria non permanente andrà persa). <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo (i dischi temporanei andranno persi). <li>`Preempt`: Viene eliminata la macchina virtuale con priorità bassa (i dischi temporanei andranno persi).|
 | ResourceType | Tipo di risorsa interessata dall'evento. <br><br> Valori: <ul><li>`VirtualMachine`|
 | Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato dopo la data e l'ora specificate nella proprietà `NotBefore`.<li>`Started`: l'evento è stato avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.

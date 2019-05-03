@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817547"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023796"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con Azure Machine Learning Data Prep SDK
 
 In questo articolo descrive diversi metodi di trasformazione dei dati usando il SDK di Azure Machine Learning Data Prep. il SDK offre le funzioni che rendono più semplice aggiungere colonne e filtrare le colonne o le righe non desiderate attribuire valori mancanti. Per visualizzare la documentazione di riferimento per il SDK, vedere la [Panoramica](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i propri dati, i dati dello snapshot e archiviare le definizioni di set di dati con controllo delle versioni. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
 
 Questo argomento vengono illustrati esempi per le attività seguenti:
 
@@ -35,7 +38,7 @@ Questo argomento vengono illustrati esempi per le attività seguenti:
 
 Azure Machine Learning Data Prep SDK contiene le espressioni `substring` che è possibile usare per calcolare un valore dalle colonne esistenti e quindi inserire tale valore in una nuova colonna. In questo esempio si caricano i dati e si cerca di aggiungere colonne a tali dati di input.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Usare l'espressione `substring(start, length)` per estrarre il prefisso dalla colonna Case Number e inserire tale stringa in una nuova colonna, `Case Category`. Passando la variabile `substring_expression` al parametro `expression` viene creata una nuova colonna calcolata che esegue l'espressione su ogni record.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|05/07/2015 23:20:00 PM|121XX S FRONT AVE|0486|BATTERIA|SEMPLICE BATTERIA NAZIONALE|VIA|false|true|...|9|53|08B|||2015|12/07/2015 12:42:46|
 
 
-
 Usare l'espressione `substring(start)` per estrarre solo il numero dalla colonna Case Number e creare una nuova colonna. Convertirla in un tipo di dati numerico usando la funzione `to_number()` e passare il nome della colonna stringa come parametro.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

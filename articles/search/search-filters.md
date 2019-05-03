@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289587"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024838"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -73,10 +73,10 @@ Gli esempi seguenti rappresentano definizioni di filtro prototipo in diverse API
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ La ricompilazione di singoli campi può essere un'operazione di basso impatto, c
 
 ## <a name="text-filter-fundamentals"></a>Concetti fondamentali sui filtri di testo
 
-I filtri di testo sono validi per i campi stringa da cui si vuole effettuare il pull di una raccolta arbitraria di documenti in base ai valori nel corpo della ricerca.
+Filtri per testo sono validi per i campi stringa, da cui si vuole effettuare il pull di una raccolta arbitraria di documenti in base ai valori all'interno dell'indice di ricerca.
 
 Per i filtri di testo costituiti da stringhe, non c'è un'analisi lessicale o una separazione delle parole, quindi i confronti riguardano solo le corrispondenze esatte. Si supponga, ad esempio, un campo *f* che contiene "sunny day": non viene trovata la corrispondenza con `$filter=f eq 'Sunny'`, mentre con `$filter=f eq 'Sunny day'` sì. 
 

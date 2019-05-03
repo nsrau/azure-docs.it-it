@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951797"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022173"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Risorse della documentazione per i carichi di lavoro della ricerca cognitiva
 
-La ricerca cognitiva, ora in anteprima pubblica, è un nuovo livello di arricchimento nell'indicizzazione di Ricerca di Azure che consente di trovare informazioni latenti in origini non di testo e testo indifferenziato, trasformandolo in contenuto full-text disponibile per la ricerca in Ricerca di Azure.
+Ricerca cognitiva, ora disponibile a livello generale, è un nuovo livello di arricchimento di indicizzazione di ricerca di Azure che consente di trovare informazioni latente origini non di testo e consentono di usare il testo, li trasforma in contenuto ricercabile full-text in ricerca di Azure.
 
 Gli articoli seguenti rappresentano la documentazione completa per la ricerca cognitiva.
 
@@ -51,9 +51,9 @@ Gli articoli seguenti rappresentano la documentazione completa per la ricerca co
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-+ [Anteprima API REST](search-api-2017-11-11-preview.md)
-  + [Creare un insieme di competenze (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Creare un indicizzatore (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [API REST](https://docs.microsoft.com/rest/api/searchservice/)
+  + [Creare set di competenze (versione api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Creare un indicizzatore (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Vedere anche 
 

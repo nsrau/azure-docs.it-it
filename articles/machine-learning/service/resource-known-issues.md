@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752337"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021099"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso del servizio di Azure Machine Learning.
+
+## <a name="visual-interface-issues"></a>Problemi di interfaccia visiva
+
+Interfaccia visiva per i problemi del servizio di apprendimento automatico.
+
+### <a name="long-compute-preparation-time"></a>Tempo di calcolo tempo di preparazione
+
+Creare nuovo calcolo o essere chiamata dallo lasciando calcolo richiede tempo, potrebbe essere alcuni minuti o anche più a lungo. Il team sta lavorando per l'ottimizzazione.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Non è possibile eseguire un esperimento contiene solo set di dati 
+
+Si potrebbe voler eseguire un esperimento contiene solo i set di dati per visualizzare il set di dati. Tuttavia, non è consentito eseguire un esperimento contiene solo set di dati di oggi. È corso la risoluzione di questo problema.
+ 
+Prima la correzione, è possibile connettere il set di dati a qualsiasi modulo di trasformazione dei dati (Seleziona colonne in set di dati, modificare i metadati, e così via di suddivisione dei dati) ed eseguire l'esperimento. È quindi possibile visualizzare il set di dati. 
+
+Di seguito figura viene illustrato come: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 

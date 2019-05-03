@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Inviare feedback sul prodotto
+      href: 'https://cognitive.uservoice.com/'
     - name: Codice di comportamento
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
     - name: Knowledge Base

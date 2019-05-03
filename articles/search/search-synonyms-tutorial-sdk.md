@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281778"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025162"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Esempio: Aggiungere sinonimi per Ricerca di Azure in C#
 
@@ -23,13 +23,15 @@ I sinonimi espandono una query tramite la corrispondenza con termini considerati
 In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio illustra i passaggi essenziali per l'aggiunta e utilizzo dei sinonimi a un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Abilitare i sinonimi creando e pubblicando regole di mapping 
-> * Fare riferimento a una mappa di sinonimi in una stringa di query
+> * Creare una mappa di sinonimi usando il [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) classe. 
+> * Impostare il [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) proprietà sui campi che devono supportare l'espansione della query tramite i sinonimi.
+
+È possibile eseguire una query un campo sinonimo abilitati come di consueto. Non è disponibile alcuna sintassi di query aggiuntive necessarie per accedere ai sinonimi.
 
 È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Ricerca di Azure esegue una ricerca in una mappa di sinonimi, se tale mappa viene specificata nei campi usati nella query.
 
 > [!NOTE]
-> I sinonimi sono supportati nelle ultime versioni di API e SDK (api-version=2017-11-11, SDK versione 5.0.0). Non è attualmente disponibile alcun supporto nel portale di Azure. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> È possibile creare sinonimi a livello di codice, ma non nel portale. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -172,7 +174,7 @@ Il modo più rapido per la pulizia dopo che è un esempio, eliminando il gruppo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio viene illustrato il [API REST di sinonimi](https://aka.ms/rgm6rq) in C# codice per creare e pubblicare le regole di mapping e quindi chiamare la mappa di sinonimi per una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+In questo esempio viene illustrata la funzionalità relativa ai sinonimi in C# codice per creare e pubblicare le regole di mapping e quindi chiamare la mappa di sinonimi per una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Come usare i sinonimi in Ricerca di Azure](search-synonyms.md)

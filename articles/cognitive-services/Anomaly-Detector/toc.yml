@@ -20,6 +20,14 @@
   items:
     - name: Identificare le anomalie nei dati
       href: how-to/identify-anomalies.md
+    - name: Usare i contenitori
+      items:
+        - name: Installare ed eseguire i contenitori
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: anomaly-detector-container-howto.md
+        - name: Configurare i contenitori
+          href: anomaly-detector-container-configuration.md
+          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
 - name: Concetti
   items:
     - name: Procedure consigliate per l'API Rilevamento anomalie

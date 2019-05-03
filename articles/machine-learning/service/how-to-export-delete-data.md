@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819422"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023969"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning 
 
@@ -231,3 +231,29 @@ I modelli possono essere ottenuti con:
 Le origini dati possono essere ottenute con:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Eliminare gli asset di interfaccia visiva
+
+Nell'interfaccia visiva in cui è stato creato l'esperimento, eliminare le singole risorse:
+
+1. A sinistra, selezionare il tipo di asset che si desidera eliminare.
+
+    ![Eliminare gli asset](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Nell'elenco, selezionare i singoli asset da eliminare.
+
+1. Nella parte inferiore, selezionare **Elimina**.
+
+## <a name="export-visual-interface-data"></a>Esportare i dati di interfaccia visiva
+
+Nell'interfaccia visiva in cui è stato creato l'esperimento, esportare i dati che sono stati aggiunti:
+
+1. A sinistra, selezionare **dati**.
+
+1. Nella parte superiore, selezionare **My Datasets** oppure **esempi** per individuare i dati da esportare.
+
+    ![Scaricare i dati](media/how-to-export-delete-data.md/download-data.png)
+
+1. Nell'elenco, selezionare i singoli set di dati da esportare.
+
+1. Nella parte inferiore, selezionare **scaricare**.

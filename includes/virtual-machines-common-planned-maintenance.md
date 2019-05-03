@@ -5,21 +5,21 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301705"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993098"
 ---
 Azure aggiorna periodicamente la piattaforma per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Questi aggiornamenti includono l'applicazione di patch ai componenti software nell'ambiente host, l'aggiornamento dei componenti di rete e la rimozione delle autorizzazioni per l'hardware. La maggior parte di questi aggiornamenti non ha alcuna conseguenza sulle macchine virtuali ospitate. È possibile, tuttavia, che gli aggiornamenti abbiano conseguenze sulle macchine virtuali ospitate e, in questo caso, Azure sceglie il metodo di aggiornamento a minor impatto:
 
 - Se è possibile un aggiornamento senza riavvio, durante l'aggiornamento dell'host la macchina virtuale viene sospesa o migrata in tempo reale su un host già aggiornato.
 
-- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. Azure indicherà anche una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente. Azure investe in tecnologie che consentano di ridurre i casi in cui le macchine virtuali devono essere riavviate per la manutenzione pianificata della piattaforma. 
+- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. Azure indicherà anche una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente. Finestra di manutenzione automatica ora è in genere quattro settimane, a meno che non è urgente per eseguire la manutenzione. Azure investe anche nelle tecnologie per ridurre i casi, quando le macchine virtuali devono essere riavviati per la manutenzione pianificata della piattaforma. 
 
 Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere Gestire la disponibilità delle macchine virtuali per [Windows](../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,18 +29,30 @@ Per informazioni sulle procedure di gestione della manutenzione pianificata, ved
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Manutenzione non richiedono un riavvio
 
-L'obiettivo per attività di manutenzione che non richiedono un riavvio è inferiore a 10 secondi la sospensione per la macchina virtuale. Nei casi in cui vengono usati meccanismi di manutenzione con mantenimento della memoria, la macchina virtuale viene sospesa per un massimo di 30 secondi e la memoria viene mantenuta nella RAM. La macchina virtuale viene quindi ripresa e l'orologio della macchina virtuale viene sincronizzato automaticamente. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.
+L'obiettivo per la manutenzione di impatto più diverso da zero che non richiede un riavvio è inferiore a 10 secondi la sospensione per la macchina virtuale. Il meccanismo di aggiornamento che è meno forte impatto per macchine virtuali dei clienti sceglie Azure. In alcuni casi, vengono usati meccanismi di manutenzione con mantenimento della memoria, che consente di sospendere la macchina virtuale fino a 30 secondi e mantiene la memoria nella RAM. La macchina virtuale viene quindi ripresa e l'orologio viene sincronizzato automaticamente. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.  
 
 Queste operazioni di manutenzione senza riavvio sono applicate dominio di errore per dominio di errore e l'avanzamento viene arrestato se vengono ricevuti segnali di avviso di integrità. 
 
 Alcune applicazioni potrebbero essere interessate da questi tipi di aggiornamenti. Nel caso in cui la macchina virtuale venga migrata in tempo reale su un host diverso, è possibile che alcuni carichi di lavoro subiscano un lieve peggioramento delle prestazioni nei pochi minuti che precedono la sospensione della macchina virtuale. In questi casi potrebbe essere utile usare Eventi pianificati per [Windows](../articles/virtual-machines/windows/scheduled-events.md) o [Linux](../articles/virtual-machines/linux/scheduled-events.md) per preparare la manutenzione della macchina virtuale e non generare alcun impatto durante la manutenzione di Azure. I team di Azure stanno lavorando anche su funzionalità di controllo della manutenzione per scenari particolarmente sensibili. 
 
+## <a name="live-migration"></a>Migrazione in tempo reale
+
+Migrazione in tempo reale è un'operazione non rebootful tale da mantenere la memoria per la macchina virtuale e i risultati in un sospendono o il bloccano, che dura in genere non più di 5 secondi. Oggi tutta l'infrastruttura come macchine virtuali di un servizio (IaaS), oltre alla serie G, M, N e H, è possibile eseguire la migrazione in tempo reale. Ciò equivale a oltre il 90% delle macchine virtuali IaaS distribuiti della flotta di Azure. 
+
+Viene avviata la migrazione in tempo reale dall'infrastruttura di Azure negli scenari seguenti:
+- Manutenzione pianificata
+- Errore hardware
+- Ottimizzazioni di allocazione
+
+Migrazione in tempo reale viene usata in alcuni scenari di manutenzione pianificata e gli eventi pianificati è utilizzabile per sapere in anticipo Live quando iniziano le operazioni di migrazione.
+
+Migrazione in tempo reale viene usata anche per le macchine virtuali spostate all'esterno di hardware con un errore imminente del stimato quando rilevato dal nostro algoritmi di Machine Learning e ottimizzare le allocazioni di macchina virtuale. Per altre informazioni sui nostri modellazione predittiva che rileva le istanze di hardware danneggiato, vedere il post di blog intitolato [resilienza miglioramento della macchina virtuale di Azure con migrazione in tempo reale e Machine Learning predittivo](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). I clienti riceveranno sempre un avviso di migrazione in tempo reale nel portale di Azure in Monitoraggio / log di integrità dei servizi, nonché come tramite gli eventi pianificati se questi vengono utilizzati.
 
 ## <a name="maintenance-requiring-a-reboot"></a>Manutenzione per cui è necessario un riavvio
 
 Nel caso raro in cui sia necessario riavviare le macchine virtuali per la manutenzione pianificata, si riceve una notifica in anticipo. La manutenzione pianificata prevede due fasi: la finestra self-service e una finestra di manutenzione pianificata.
 
-La **finestra self-service** consente di avviare la manutenzione delle macchine virtuali. Durante questa fase, è possibile eseguire query su ogni VM per visualizzarne lo stato e controllare il risultato dell'ultima richiesta di manutenzione.
+La **finestra self-service** consente di avviare la manutenzione delle macchine virtuali. Durante questo periodo è in genere quattro settimane, è possibile eseguire una query ogni VM per visualizzarne lo stato e controllare il risultato dell'ultima richiesta di manutenzione.
 
 Quando si avvia la manutenzione self-service, la macchina virtuale viene ridistribuita su un nodo già aggiornato. A causa dei riavvii della VM, il disco temporaneo viene perso e gli indirizzi IP dinamici associati all'interfaccia di rete virtuale vengono aggiornati.
 
@@ -54,7 +66,7 @@ Per informazioni sulla gestione della manutenzione che richiede un riavvio, vede
 
 Se si decide di attendere fino alla visualizzazione della finestra di manutenzione pianificata, sono necessarie alcune considerazioni per mantenere la disponibilità più elevata possibile delle VM. 
 
-#### <a name="paired-regions"></a>Aree associate
+#### <a name="paired-regions"></a>Aree abbinate
 
 Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica e insieme formano una coppia di aree. Durante la manutenzione pianificata, Azure aggiornerà solo le macchine virtuali di una sola area di una coppia di aree. Ad esempio, quando si aggiornano le macchine virtuali negli Stati Uniti centro-settentrionali, Azure non aggiornerà contemporaneamente le macchine virtuali negli Stati Uniti centro-meridionali. Tuttavia, altre aree, ad esempio Europa settentrionale, possono essere sottoposte a manutenzione contemporaneamente a Stati Uniti orientali. Sapendo come funzionano le coppie di aree, è possibile distribuire meglio le VM tra le aree. Per altre informazioni, vedere [Coppie di aree di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 

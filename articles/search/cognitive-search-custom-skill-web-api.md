@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343341"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023864"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 
-La competenza **API Web personalizzata** consente di estendere la ricerca cognitiva chiamando un endpoint API Web con operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. In base agli input, l'API Web riceve un payload JSON durante l'esecuzione dell'indicizzatore e restituisce come risposta un payload JSON, con un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
+Il **API Web personalizzata** competenze consente di estendere ricerca cognitiva chiamando un endpoint dell'API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. In base agli input, l'API Web riceve un payload JSON durante le esecuzioni dell'indicizzatore e restituisce un payload JSON sotto forma di risposta, con un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
 
 La struttura dei payload JSON è descritta in dettaglio più avanti in questo documento.
 
@@ -38,7 +38,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
-| Uri | URI dell'API Web a cui verrà inviato il payload _JSON_. È consentito solo lo schema URI **https** |
+| Uri | L'URI dell'API Web a cui il _JSON_ payload verrà inviato. È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
 | httpHeaders | Raccolta di coppie chiave-valore in cui le chiavi corrispondono ai nomi di intestazione e i valori rappresentano i valori di intestazione che verranno inviati all'API Web insieme al payload. In questa raccolta è proibito l'uso delle intestazioni seguenti: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 90 secondi e un minimo di 1 secondo. |
@@ -139,10 +139,10 @@ Seguirà sempre questi vincoli:
 
 ## <a name="sample-output-json-structure"></a>Struttura JSON di output di esempio
 
-L'output corrisponde alla risposta restituita dall'API Web. L'API Web dovrebbe restituire solo un payload _JSON_ (verificato esaminando l'intestazione della risposta `Content-Type`) e soddisfare i vincoli seguenti:
+Il "output" corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un _JSON_ payload (verificato esaminando il `Content-Type` intestazione della risposta) e devono soddisfare i vincoli seguenti:
 
 * Deve contenere un'entità di primo livello denominata `values` che deve essere una matrice di oggetti.
-* Il numero di oggetti nella matrice deve essere lo stesso degli oggetti inviati all'API Web.
+* Il numero di oggetti nella matrice deve essere lo stesso come il numero di oggetti inviate all'API Web.
 * Ogni oggetto deve avere:
    * Una proprietà `recordId`
    * Una proprietà `data`, che è un oggetto in cui i campi sono arricchimenti corrispondenti ai "nomi" nell'`output` e il cui valore viene considerato l'arricchimento.

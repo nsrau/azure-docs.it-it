@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456173"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020391"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -49,19 +49,26 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 
 ## <a name="linux"></a>Linux
 
-Speech SDK attualmente supporta le distribuzioni di Ubuntu 16.04 e 18.04.
+Speech SDK attualmente supporta le distribuzioni di Ubuntu 16.04, 18.04 Ubuntu e Debian 9.
 Per un'applicazione nativa è necessario fornire la raccolta Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Assicurarsi di selezionare la versione (x86/x64) corrispondente all'applicazione. A seconda della versione di Linux, potrebbe essere necessario anche includere le seguenti dipendenze:
 
 * Le raccolte condivise della Libreria GNU C (inclusa la libreria di programmazione thread POSIX, `libpthreads`)
-* La raccolta OpenSSL (`libssl.so.1.0.0`)
+* La libreria OpenSSL (`libssl.so.1.0.0` o `libssl.so.1.0.2`)
 * La libreria condivisa per le applicazioni ALSA (`libasound.so.2`)
 
 In Ubuntu le librerie GNU C dovrebbero essere già installate per impostazione predefinita. È possibile installare gli ultimi tre utilizzando i comandi seguenti:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+In Debian 9 installare questi pacchetti:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

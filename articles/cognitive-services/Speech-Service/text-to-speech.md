@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460270"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020372"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è sintesi vocale?
 
@@ -32,7 +32,9 @@ Voices standard vengono create utilizzando le tecniche di sintesi parametriche s
 
 Voices neurale usare reti neurali profonde per superare i limiti dei tradizionali sistemi di sintesi vocale in corrispondenti ai modelli di stress e intonazione in linguaggio parlato e la sintesi le unità di riconoscimento vocale in una voce di computer. Sintesi vocale standard suddivide prosodia separato per analisi linguistica e intervalli per la stima acustico governate dai modelli indipendenti. Che può comportare la sintesi vocale sordo, squillanti. La funzionalità neurale esegue sintesi vocale e stima di prosodia contemporaneamente, offrendo una voce più fluida e naturale.
 
-Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Prosodia naturale human-like e la chiaro tempestiva delle parole, voices neurale ridurre notevolmente la fatica di ascolto quando si interagisce con i sistemi di intelligenza artificiale. Per altre informazioni sulle voci neurali, vedere [Supporto per le lingue](language-support.md#text-to-speech).
+Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Prosodia naturale human-like e la chiaro tempestiva delle parole, voices neurale ridurre notevolmente la fatica di ascolto quando si interagisce con i sistemi di intelligenza artificiale. 
+
+Voices neurale supportano stili diversi, ad esempio indipendente e persone. Pronunciare, ad esempio, la voce Jessa (en-US) possa cheerfully, che è ottimizzata per la conversazione a caldo, felice. È possibile modificare l'output vocale, come segnale acustico, passo e facilitare l'uso delle [linguaggio di Markup sintesi vocale](speech-synthesis-markup.md). Per un elenco completo delle voci disponibili, vedere [lingue supportate](language-support.md#text-to-speech).
 
 Per altre informazioni sui vantaggi di voci neurale, vedere [servizio di sintesi vocale neurale nuovo di Microsoft ti macchine pronunciare, ad esempio persone](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 

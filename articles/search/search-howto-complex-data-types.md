@@ -1,6 +1,6 @@
 ---
 title: Come modellare tipi di dati complessi - Ricerca di Azure
-description: È possibile modellare strutture di dati annidate o gerarchiche in un indice di Ricerca di Azure usando un set di righe bidimensionale e il tipo di dati Collection.
+description: È possibile modellare strutture di dati annidate o gerarchiche in un indice di ricerca di Azure con ComplexType e raccolte di tipi di dati.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,129 +8,190 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 397b3ea7fee67e25cd160f6b529a660e18c44046
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61076194"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024751"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Come modellare tipi di dati complessi in Ricerca di Azure
-I set di dati esterni usati per popolare un indice di Ricerca di Azure includono talvolta sottostrutture gerarchiche o annidate che non vengono suddivise con precisione in un set di righe tabulare. Gli esempi di strutture di questo tipo possono includere più ubicazioni e numeri di telefono per un singolo cliente, più colori e dimensioni per un singolo SKU, più autori di un singolo libro e così via. In termini di modellazione, queste strutture possono essere definite, ad esempio, *tipi di dati complessi*, *tipi di dati composti*, *tipi di dati compositi* o *tipi di dati aggregati*.
 
-Ricerca di Azure non offre supporto nativo per i tipi di dati complessi. Una soluzione alternativa collaudata include tuttavia un processo in due passaggi con cui la struttura viene resa flat e quindi viene usato un tipo di dati **Collection** per ricostituire la struttura interna. Seguendo la tecnica descritta in questo articolo, il contenuto risulta disponibile per l'esecuzione di ricerche, facet, l'applicazione di filtri e l'ordinamento.
+Set di dati esterni utilizzati per popolare un indice di ricerca di Azure talvolta includono sottostrutture gerarchiche o annidate. Alcuni esempi potrebbero includere più ubicazioni e numeri di telefono per un singolo cliente, più colori e dimensioni per un singolo SKU, più autori di un singolo libro e così via. In termini di modellazione, è possibile visualizzare queste strutture dette *tipi di dati complessi*, *tipi di dati composti*, *tipi di dati compositi*, o *aggregazione tipi di dati*. Nella terminologia di ricerca di Azure, un tipo complesso è un campo che contiene gli elementi figlio (campi secondari) che a loro volta possono essere semplici o complessi. È simile a un tipo di dati strutturati in un linguaggio di programmazione. I campi complessi possono essere singoli campi, che rappresentano un singolo oggetto nel documento o una raccolta, che rappresenta una matrice di oggetti
 
-## <a name="example-of-a-complex-data-structure"></a>Esempio di struttura di dati complessa
-I dati in questione si trovano in genere come set di documenti JSON o XML oppure come elementi di un archivio NoSQL, ad esempio Azure Cosmos DB. Strutturalmente, il problema deriva dalla presenza di più elementi figlio su cui è necessario eseguire ricerche e applicare filtri.  Come punto di partenza per illustrare la soluzione alternativa verrà usato il documento JSON seguente che elenca una serie di contatti di esempio:
+Ricerca di Azure supporta in modo nativo le raccolte e tipi complessi. Insieme, questi tipi consentono di modellare quasi ogni struttura JSON nidificata in un indice di ricerca di Azure. Nelle versioni precedenti delle API di ricerca di Azure, solo bidimensionale è stato possibile importare i set di righe. Nella versione più recente, l'indice a questo punto può corrispondere più da vicino ai dati di origine. In altre parole, se i dati di origine includono i tipi complessi, l'indice può avere tipi complessi anche.
 
-~~~~~
-[
-  {
-    "id": "1",
-    "name": "John Smith",
-    "company": "Adventureworks",
-    "locations": [
-      {
-        "id": "1",
-        "description": "Adventureworks Headquarters"
-      },
-      {
-        "id": "2",
-        "description": "Home Office"
-      }
-    ]
-  }, 
-  {
-    "id": "2",
-    "name": "Jen Campbell",
-    "company": "Northwind",
-    "locations": [
-      {
-        "id": "3",
-        "description": "Northwind Headquarter"
-      },
-      {
-        "id": "4",
-        "description": "Home Office"
-      }
-    ]
-}]
-~~~~~
+Per iniziare, è consigliabile il [set di dati Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), che è possibile caricare nel **importare i dati** guidata nel portale di Azure. La procedura guidata rileva i tipi complessi nell'origine e suggerisce uno schema di indice basato sulle strutture rilevate.
 
-Mentre per i campi denominati "id", "name" e "company" è possibile eseguire facilmente il mapping uno-a-uno come campi in un indice di Ricerca di Azure, il campo "locations" contiene una matrice di ubicazioni che include sia un set di ID ubicazione sia le descrizioni delle ubicazioni. Dato che Ricerca di Azure non ha un tipo di dati che supporta questa caratteristica, è necessario modellare i dati in modo diverso in Ricerca di Azure. 
+> [!Note]
+> Supporto per i tipi complessi è disponibile a livello generale in `api-version=2019-05-06`. 
+>
+> Se la soluzione di ricerca si basa su versioni precedenti soluzioni alternative dei set di dati bidimensionale in una raccolta, è necessario modificare l'indice per includere i tipi complessi come supportato nella versione più recente dell'API. Per altre informazioni sull'aggiornamento di versioni dell'API, vedere [l'aggiornamento alla versione più recente API REST](search-api-migration.md) oppure [esegue l'aggiornamento alla versione più recente del SDK di .NET](search-dotnet-sdk-migration.md).
 
-> [!NOTE]
-> Questa tecnica è descritta anche da Kirk Evans nel post di blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indicizzazione di Azure Cosmos DB con Ricerca di Azure), che illustra una tecnica per rendere flat i dati e ottenere così un campo denominato `locationsID` e un campo `locationsDescription`, che sono entrambi [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx) o una matrice di stringhe.   
-> 
-> 
+## <a name="example-of-a-complex-structure"></a>Esempio di una struttura complessa
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>Parte 1: Rendere flat la matrice convertendola in singoli campi
-Per creare un indice di Ricerca di Azure appropriato per questo set di dati, creare singoli campi per la sottostruttura annidata, `locationsID` e `locationsDescription`, con il tipo di dati delle [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx), ovvero una matrice di stringhe. In questi campi verranno indicizzati i valori "1" e "2" nel campo `locationsID` per John Smith e i valori "3" e "4" nel campo `locationsID` per Jen Campbell.  
+Il documento JSON seguente è costituito da campi semplici e complessi. Campi complesso, ad esempio `Address` e `Rooms`, avere campi secondari. `Address` ha un singolo set di valori per tali campi secondari, poiché si tratta di un singolo oggetto nel documento. Al contrario, `Rooms` con più set di valori per i relativi campi secondari, uno per ogni oggetto nella raccolta.
 
-I dati in Ricerca di Azure si presenteranno come segue: 
-
-![Dati di esempio, 2 righe](./media/search-howto-complex-data-types/sample-data.png)
-
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Parte 2: Aggiungere un campo di tipo raccolta nella definizione dell'indice
-Nello schema dell'indice, le definizioni dei campi possono avere un aspetto simile al seguente.
-
-~~~~
-var index = new Index()
+```json
 {
-    Name = indexName,
-    Fields = new[]
-    {
-        new Field("id", DataType.String) { IsKey = true },
-        new Field("name", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("company", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("locationsId", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("locationsDescription", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true }
-    }
-};
-~~~~
+    "HotelId": "1",
+    "HotelName": "Secret Point Motel",
+    "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+    "Address": {
+        "StreetAddress": "677 5th Ave",
+        "City": "New York",
+        "StateProvince": "NY"
+    },
+    "Rooms": [
+        {
+            "Description": "Budget Room, 1 Queen Bed (Cityside)",
+            "Type": "Budget Room",
+            "BaseRate": 96.99,
+        },
+        {
+            "Description": "Deluxe Room, 2 Double Beds (City View)",
+            "Type": "Deluxe Room",
+            "BaseRate": 150.99,
+        },
+    ]
+}
+```
 
-## <a name="validate-search-behaviors-and-optionally-extend-the-index"></a>Convalidare i comportamenti di ricerca ed estendere facoltativamente l'indice
-Supponendo che l'indice sia stato creato e che i dati siano stati caricati, è ora possibile testare la soluzione per verificare l'esecuzione di query di ricerca sul set di dati. Ogni campo di tipo **raccolta** dovrà essere **ricercabile**, **filtrabile** e **con facet**. Dovrebbe essere possibile eseguire query come le seguenti:
+## <a name="creating-complex-fields"></a>Creazione di campi complessi
 
-* Trovare tutte le persone che lavorano presso "Adventureworks Headquarters".
-* Ottenere il conteggio del numero di persone che lavorano in "Home Office".  
-* In relazione alle persone che lavorano in "Home Office", visualizzare gli altri uffici in cui lavorano con un conteggio delle persone in ogni ubicazione.  
+Come con una definizione dell'indice, è possibile usare il portale [API REST](https://docs.microsoft.com/rest/api/searchservice/create-index), o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) per creare uno schema che include i tipi complessi. 
 
-Questa tecnica si rivela inadeguata quando è necessario eseguire una ricerca che combina sia l'ID che la descrizione dell'ubicazione, Ad esempio: 
+Nell'esempio seguente viene illustrato uno schema di indice JSON con semplici campi, raccolte e tipi complessi. Si noti che all'interno di un tipo complesso, ogni campo secondario dispone di un tipo e possa avere attributi, i campi solo di primo livello. Lo schema corrisponde ai dati di esempio precedenti. `Address` è un campo di tipo complesso che non è una raccolta (un hotel ha un indirizzo). `Rooms` è un campo di raccolta complessa (dispone di un hotel chat molti).
 
-* Trovare tutte le persone con "Home Office" E con ID ubicazione 4.  
+<!---
+For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
-Come si ricorderà, il contenuto originale si presentava come segue:
+Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with Knowledge Store](knowledge-store-howto.md).
+-->
 
-~~~~
-   {
-        id: '4',
-        description: 'Home Office'
-   }
-~~~~
+```json
+{
+    "name": "hotels",
+    "fields": [
+        {   "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true    },
+        {   "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+        { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        {   "name": "Address", "type": "Edm.ComplexType",
+            "fields": [{
+                    "name": "StreetAddress",
+                    "type": "Edm.String",
+                    "filterable": false,
+                    "sortable": false,
+                    "facetable": false,
+                    "searchable": true  },
+                {
+                    "name": "City",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "StateProvince",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                }
+            ]
+        },
+        {
+            "name": "Rooms",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [{
+                    "name": "Description",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "analyzer": "en.lucene"
+                },
+                {
+                    "name": "Type",
+                    "type": "Edm.String",
+                    "searchable": true
+                },
+                {
+                    "name": "BaseRate",
+                    "type": "Edm.Double",
+                    "filterable": true,
+                    "facetable": true
+                },
+            ]
+        }
+    ]
+}
+```
+## <a name="updating-complex-fields"></a>L'aggiornamento di campi complessa
 
-Ora che i dati sono stati separati in campi distinti, tuttavia, non è possibile sapere se il valore "Home Office" per Jen Campbell è correlato a `locationsID 3` o `locationsID 4`.  
+Tutti i [la reindicizzazione delle regole](search-howto-reindex.md) che si applicano a campi comunque si applicano in genere ai campi complessi. Incrementa di alcune delle regole principale in questo caso, aggiunta di un campo non richiede una ricompilazione dell'indice, ma eseguire la maggior parte delle modifiche.
 
-Per gestire questo caso, definire un altro campo dell'indice che combina tutti i dati in una singola raccolta.  In questo esempio, il campo verrà denominato `locationsCombined` e il contenuto verrà separato con `||`. È tuttavia possibile scegliere qualsiasi separatore che si ritiene possa essere una serie di caratteri univoca per il contenuto specifico. Ad esempio:  
+### <a name="structural-updates-to-the-definition"></a>Aggiornamenti strutturali alla definizione
 
-![Dati di esempio, 2 righe con separatore](./media/search-howto-complex-data-types/sample-data-2.png)
+È possibile aggiungere nuovi campi secondari a un campo complesso in qualsiasi momento senza la necessità di una ricompilazione dell'indice. Ad esempio, aggiungendo "ZipCode" per `Address` o "Servizi" per `Rooms` è consentito, esattamente come l'aggiunta di un campo di primo livello a un indice. I documenti esistenti hanno un valore null per i nuovi campi fino a quando non esplicitamente popolare questi campi mediante l'aggiornamento dei dati.
 
-Usando il campo `locationsCombined` , è ora possibile supportare query aggiuntive, ad esempio:
+Si noti che all'interno di un tipo complesso, ogni campo secondario ha un tipo e possa avere attributi, solo come primo livello dei campi
 
-* Visualizzare un conteggio delle persone che lavorano in "Home Office" con ID ubicazione "4".  
-* Cercare le persone che lavorano in "Home Office" con ID ubicazione "4". 
+### <a name="data-updates"></a>Aggiornamenti dei dati
 
-## <a name="limitations"></a>Limitazioni
-Questa tecnica è utile per diversi scenari, ma non è applicabile in tutti i casi.  Ad esempio: 
+L'aggiornamento di documenti esistenti in un indice con l'opzione Carica funziona allo stesso modo per i campi semplici e complessi, ovvero tutti i campi vengono sostituiti. Tuttavia, unione (o mergeOrUpload quando applicato a un documento esistente) non funzionano in tutti i campi. In particolare, merge non è la possibilità di unire elementi all'interno di una raccolta. Questo vale per le raccolte di tipi primitivi, nonché le raccolte complesse. Per aggiornare una raccolta, si sarà necessario per recuperare il valore della raccolta completa, apportare le modifiche e quindi includere la nuova raccolta nella richiesta di API di indice.
 
-1. Se il tipo di dati complesso non include un set statico di campi e non è stato possibile eseguire il mapping di tutti i tipi possibili a un singolo campo. 
-2. L'aggiornamento degli oggetti annidati richiede operazioni aggiuntive per determinare esattamente gli elementi da aggiornare nell'indice di Ricerca di Azure.
 
-## <a name="sample-code"></a>Codice di esempio
-Un esempio dell'indicizzazione di un set di dati JSON complesso in Ricerca di Azure e dell'esecuzione di diverse query su tale set di dati è disponibile in questo [repository GitHub](https://github.com/liamca/AzureSearchComplexTypes).
+## <a name="searching-complex-fields"></a>La ricerca di campi complessi
 
-## <a name="next-step"></a>Passaggio successivo
-[Votare per il supporto nativo di tipi di dati complessi](https://feedback.azure.com/forums/263029-azure-search) nella pagina UserVoice relativa a Ricerca di Azure e fornire eventuali input aggiuntivi da prendere in considerazione in merito all'implementazione di questa funzionalità. È anche possibile contattare direttamente @liamca su Twitter.
+Espressioni di ricerca in formato libero funzionano come previsto con i tipi complessi. Se corrisponde a qualsiasi campo ricercabile o sottocampo in qualsiasi punto in un documento, il documento stesso è una corrispondenza. 
 
+Get di query più netti quando si dispone di più termini e operatori, e alcune condizioni hanno nomi di campo specificati, così come sono possibili con la [sintassi Lucene](query-lucene-syntax.md). Questa query, ad esempio, tenta di ottenere due termini, "Napoli" e "OR", in base a due campi secondari del campo dell'indirizzo:
+
+```json
+search=Address/City:Portland AND Address/State:OR
+```
+
+Le query simile alla seguente non sono correlate per la ricerca full-text (a differenza dei filtri, in cui eseguire query sui campi secondari di un insieme complesso, può essere correlata tramite uno o tutti, ad esempio una sottoquery correlata in SQL). Ciò significa che la query di Lucene precedente restituirà i documenti che contengono "Portland, Maine" nonché "Portland, Oregon" e altri città in Oregon. Questo avviene perché ogni clausola viene valutato rispetto a tutti i valori del campo specificato nell'intero documento, pertanto non presenta alcuna nozione di un "documento secondario corrente". 
+
+ 
+
+## <a name="selecting-complex-fields"></a>Selezionare i campi complessi
+
+Il `$select` parametro viene utilizzato per scegliere quali campi vengono restituiti nei risultati della ricerca. Per usare questo parametro per selezionare campi secondari specifici di un campo complesso, includere il campo padre e il sottocampo separati da una barra (`/`).
+
+```json
+$select=HotelName, Address/City, Rooms/BaseRate
+```
+
+Se si desidera che nei risultati della ricerca, i campi devono essere contrassegnati come recuperabile nell'indice. Solo i campi contrassegnati come recuperabile possono essere usati un `$select` istruzione. 
+
+
+## <a name="filter-facet-and-sort-complex-fields"></a>Filtro, facet e ordinamento complessi campi
+
+Lo stesso [sintassi del percorso OData](query-odata-filter-orderby-syntax.md) utilizzato per il filtro e natura prese in considerazione le ricerche sono anche utilizzabile per i facet, ordinamento e selezionano campi in una richiesta di ricerca. Per i tipi complessi, si applicano regole che determinano quali campi secondari possono essere contrassegnati come ordinabili o con facet. 
+
+### <a name="faceting-sub-fields"></a>Uso di facet campi secondari 
+
+Qualsiasi campo secondarie può essere contrassegnato come facetable a meno che non è di tipo `Edm.GeographyPoint` o `Collection(Edm.GeographyPoint)`. 
+
+Quando vengono restituiti i conteggi dei documenti per la struttura di esplorazione in base a facet, i conteggi sono rispetto al documento padre (albergo), non ai documenti annidati all'interno di un insieme complesso (chat). Si supponga, ad esempio, che dispone di un hotel 20 stanze di tipo "gruppo". Dato questo parametro facet `facet=Rooms/Type`, il conteggio di facet verrà uno per il documento padre (hotel) e non a livello intermedio documenti secondari (chat). 
+
+### <a name="sorting-complex-fields"></a>L'ordinamento campi complessi
+
+Operazioni di ordinamento si applicano ai documenti (hotel) e non documenti secondari (chat). Quando si dispone di una raccolta di tipo complesso, ad esempio le chat, è importante tenere presente che non è possibile ordinare nella chat room affatto. È in realtà, non è possibile ordinare qualsiasi raccolta. 
+
+Operazioni di ordinamento quando i campi sono a valore singolo, se un campo semplice, o come campo secondario in un tipo complesso. Ad esempio, `$orderby=Address/ZipCode` tipo complesso è ordinabile perché non esiste un solo codice postale per ogni albergo. 
+
+Incrementa le regole relative all'ordinamento, all'interno di un campo di indice devono essere contrassegnati come filtrabile e ordinabile da usare un `$orderby` istruzione. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+ Provare il [set di dati Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) nel **importare i dati** guidata. È necessario le informazioni di connessione di Cosmos DB specificate nel file Leggimi per accedere ai dati. 
+ 
+ Con queste informazioni a disposizione, il primo passaggio della procedura guidata consiste nel creare una nuova origine dati Azure Cosmos DB. Ulteriormente nella procedura guidata, quando si arriva alla pagina di indice di destinazione, si aprirà un indice con i tipi complessi. Creare e caricare l'indice e quindi eseguire query per comprendere la nuova struttura.
+
+> [!div class="nextstepaction"]
+> [Guida introduttiva: creazione guidata del portale per l'importazione, l'indicizzazione e query](search-get-started-portal.md)

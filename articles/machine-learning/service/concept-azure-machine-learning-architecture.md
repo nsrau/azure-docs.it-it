@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821259"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025231"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -68,7 +68,7 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 
 Nel seguente diagramma viene illustrata una tassonomia dell'area di lavoro:
 
-[![Tassonomia dell'area di lavoro](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Tassonomia dell'area di lavoro](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Esperimento
 
@@ -106,6 +106,16 @@ Una configurazione di esecuzione può essere salvata in modo permanente in un fi
 
 Per degli esempi di configurazioni di esecuzione, vedere [Selezionare e usare una destinazione di calcolo per eseguire il training del modello](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Set di dati
+
+Azure Machine Learning i set di dati (anteprima) rendono più semplice accedere e usare i dati. Set di dati di gestire i dati in diversi scenari, ad esempio training modello e la creazione di pipeline. Usa il SDK di Azure Machine Learning, è possibile accedere all'archiviazione sottostante, esplorare e preparare i dati, gestire il ciclo di vita delle diverse definizioni di set di dati e confrontare tra set di dati usati nel training e in fase di produzione.
+
+I set di dati fornisce i metodi per l'utilizzo di dati in formati comuni, ad esempio usando `from_delimited_files()` o `to_pandas_dataframe()`.
+
+Per altre informazioni, vedere [crea e registra il set di dati di Azure Machine Learning](how-to-create-register-datasets.md).
+
+Per un esempio dell'uso di set di dati, vedere la [notebook di esempio](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Archivio dati
 
 Un archivio dati è un'astrazione dell'archiviazione su un account di archiviazione di Azure. L'archivio dati può usare un contenitore BLOB o una condivisione file di Azure come risorsa di archiviazione back-end. Ogni area di lavoro presenta un archivio dati predefinito, ma è possibile registrare altri archivi dati.
@@ -127,7 +137,7 @@ Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo scrip
 | Istanze di Azure Container | &nbsp; | ✓ |
 | Servizio Azure Kubernetes | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
+| Field-programmable Gate Array (FPGA) | &nbsp; | ✓ |
 
 Le destinazioni di calcolo sono allegate a un'area di lavoro. Le destinazioni di calcolo diverse dal computer locale vengono condivise dagli utenti dell'area di lavoro.
 
@@ -189,8 +199,6 @@ Azure Machine Learning può creare due tipi di immagine:
 * **Immagine docker**: usata durante la distribuzione in destinazioni di calcolo diverse da FPGA. Alcuni esempi sono le Istanze di Azure Container e il servizio Azure Kubernetes.
 
 Il servizio di Azure Machine Learning fornisce un'immagine di base, che viene usata per impostazione predefinita. È anche possibile fornire le tue immagini personalizzate.
-
-Per altre informazioni, vedere la sezione relativa alla configurazione e alla registrazione di un'immagine nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#configureimage).
 
 Per un esempio di creazione di un'immagine, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
 

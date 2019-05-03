@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480663"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020656"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate dal servizio Voce
 
@@ -28,9 +28,9 @@ Verificare di usare l'endpoint corrispondente all'area relativa alla propria sot
 
 In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#).
 
-### <a name="speech-recognition-and-translation"></a>Riconoscimento vocale e traduzione vocale
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Per il riconoscimento vocale, sintesi vocale e traduzione
 
-Speech SDK è disponibile per il **riconoscimento vocale** e la **traduzione vocale** nelle aree seguenti:
+Speech SDK è disponibile nelle aree seguenti per **riconoscimento vocale**, **sintesi vocale**, e **traduzione**:
 
   Region | Parametro Speech SDK | Portale di personalizzazione del servizio Voce
  ------|-------|--------

@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637519"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021945"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitiva deprecate
 
@@ -31,7 +31,7 @@ Questo documento descrive le competenze cognitive considerate deprecate. Usare l
 
 ### <a name="last-available-api-version"></a>Ultima versione disponibile dell'API
 
-2017-11-11-Preview
+2019-05-06-preview
 
 ### <a name="end-of-support"></a>Fine del supporto
 
@@ -43,7 +43,8 @@ Usare invece [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-ski
 
 Per eseguire la migrazione alla [competenza di riconoscimento entità](cognitive-search-skill-entity-recognition.md), sarà necessario apportare una o più delle modifiche seguenti alla definizione della competenza. È possibile aggiornare la definizione della competenza usando l'[API di aggiornamento del set di competenze](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Nota_: il punteggio di attendibilità come concetto non è attualmente supportato. Sarà supportato a breve in futuro. Il parametro `minimumPrecision` esiste in `EntityRecognitionSkill` per un utilizzo futuro e per la compatibilità con le versioni precedenti.
+> [!NOTE]
+> il punteggio di attendibilità come concetto non è attualmente supportato. Il parametro `minimumPrecision` esiste in `EntityRecognitionSkill` per un utilizzo futuro e per la compatibilità con le versioni precedenti.
 
 1. *(Obbligatorio)* Modificare `@odata.type` da `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` a `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

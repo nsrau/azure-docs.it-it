@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283579"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024561"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Strategie di distribuzione e le procedure consigliate per ottimizzare le prestazioni in ricerca di Azure
 
@@ -81,7 +81,7 @@ Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca di
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Usare gli indicizzatori per l'aggiornamento del contenuto su più servizi
 
-Se si usa già un indicizzatore su un servizio, è possibile configurare un indicizzatore di secondo in un secondo servizio per utilizzare lo stesso oggetto di origine dati, il pull dei dati dallo stesso percorso. Ogni servizio in ogni area ha un proprio indicizzatore e un indice di destinazione (il corpo della ricerca non è condiviso, ovvero i dati duplicati), ma ogni indicizzatore fa riferimento alla stessa origine dati.
+Se si usa già un indicizzatore su un servizio, è possibile configurare un indicizzatore di secondo in un secondo servizio per utilizzare lo stesso oggetto di origine dati, il pull dei dati dallo stesso percorso. Ogni servizio in ogni area ha un proprio indicizzatore e un indice di destinazione (l'indice di ricerca non è condiviso, ovvero i dati duplicati), ma ogni indicizzatore fa riferimento alla stessa origine dati.
 
 Di seguito è un oggetto visivo ad alto livello di aspetto quell'architettura.
 

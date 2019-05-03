@@ -1,6 +1,6 @@
 ---
-title: Procedura di failover di HANA al sito di emergenza per SAP HANA di Azure (Istanze large) | Microsoft Docs
-description: Come eseguire il failover al sito di ripristino di emergenza per SAP HANA in Azure (Istanze large)
+title: Procedura di failover di HANA in un sito di emergenza per SAP HANA in Azure (istanze Large) | Microsoft Docs
+description: Come eseguire il failover a un sito di ripristino di emergenza per SAP HANA in Azure (istanze Large)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,46 +14,50 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685114"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987897"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedura di failover di ripristino di emergenza
 
 
 >[!IMPORTANT]
->Questa documentazione non sostituisce la documentazione relativa all'amministrazione di SAP HANA o le note su SAP. Si presuppone che il lettore abbia una solida comprensione ed esperienza in termini di amministrazione e operazioni di SAP HANA, in particolare per quanto riguarda gli argomenti di backup, ripristino, disponibilità elevata e ripristino di emergenza. In questa documentazione, vengono mostrate schermate da SAP HANA Studio. Contenuto, struttura e natura delle schermate degli strumenti di amministrazione SAP e gli strumenti stessi possono variare nelle diverse versioni di SAP HANA.
+>Questo articolo non è una sostituzione per la documentazione relativa all'amministrazione di SAP HANA o SAP note. È probabile che si dispone di una solida comprensione ed esperienza nell'amministrazione di SAP HANA e le operazioni, in particolare per il backup, ripristino, disponibilità elevata e ripristino di emergenza (DR). In questo articolo, vengono visualizzate schermate da SAP HANA Studio. Contenuto, struttura e natura delle schermate degli strumenti di amministrazione SAP e gli strumenti stessi possono variare nelle diverse versioni di SAP HANA.
 
-Esistono due casi diversi da prendere in considerazione per il failover nel sito di ripristino di emergenza:
+Esistono due casi diversi da prendere in considerazione quando eseguire il failover a un sito di ripristino di emergenza:
 
-- È necessario riportare il database SAP HANA allo stato più recente dei dati. In questo caso, è disponibile uno script self-service che permette di eseguire il failover senza contattare Microsoft. Tuttavia, per il failback sarà necessario operare insieme a Microsoft.
-- Si vuole ripristinare uno snapshot di archiviazione che non è lo snapshot più recente replicato. In questo caso, è necessario operare insieme a Microsoft. 
+- È necessario riportare il database SAP HANA allo stato più recente dei dati. In questo caso, vi è uno script self-service a cui è possibile eseguire il failover senza la necessità di contattare Microsoft. Per il failback, è necessario operare insieme a Microsoft.
+- Si desidera ripristinare uno snapshot di archiviazione che non è lo snapshot più recente replicato. In questo caso, è necessario operare insieme a Microsoft. 
 
 >[!NOTE]
->È necessario eseguire i passaggi seguenti nell'unità HANA in istanze Large, che rappresenta l'unità di ripristino di emergenza. 
+>I passaggi seguenti devono essere eseguiti nell'unità di istanze Large di HANA, che rappresenta l'unità di ripristino di emergenza. 
  
-Per ripristinare gli snapshot più recente archiviazione replicata, eseguire i passaggi elencati nella sezione **'Eseguire failover di ripristino di emergenza completo - azure_hana_dr_failover'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Per ripristinare gli snapshot più recente archiviazione replicata, seguire la procedura descritta in "Esegui completa failover di ripristino di emergenza - azure_hana_dr_failover" nella [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-Se si desidera disporre di più istanze di SAP HANA effettuate il failover, è necessario eseguire il comando azure_hana_dr_failover più volte. Quando viene richiesto, digitare il SID SAP HANA di cui si vuole eseguire il failover e il ripristino. 
+Se si desidera disporre di più istanze di SAP HANA effettuate il failover, eseguire il comando azure_hana_dr_failover più volte. Quando richiesto, immettere il SID di SAP HANA si vuole eseguire il failover e ripristino. 
 
 
-È possibile eseguire anche il test del failover del ripristino di emergenza senza conseguenze per la relazione di replica effettiva. Per eseguire un failover di test, seguire i passaggi descritti in **'Di eseguire un test di failover di ripristino di emergenza - azure_hana_test_dr_failover'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+È possibile testare anche il failover di ripristino di emergenza senza conseguenze per la relazione di replica effettiva. Per eseguire un failover di test, seguire la procedura descritta in "Eseguire un test di failover di ripristino di emergenza - azure_hana_test_dr_failover" nella [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Effettuare *non* eseguire transazioni di produzione nell'istanza che è stato creato nel sito di ripristino di emergenza tramite il processo di **test di un failover**. Azure_hana_test_dr_failover tale comando crea un set di volumi che non hanno relazione con il sito primario. Di conseguenza, *non* sarà possibile eseguire una nuova sincronizzazione con il sito primario. 
+>Effettuare *non* eseguire transazioni di produzione nell'istanza che è stato creato nel sito di ripristino di emergenza tramite il processo di **test di un failover**. Azure_hana_test_dr_failover il comando crea un set di volumi che non hanno relazione con il sito primario. Di conseguenza, *non* sarà possibile eseguire una nuova sincronizzazione con il sito primario. 
 
-Se si vuole testare più istanze di SAP HANA, è necessario eseguire lo script più volte. Quando viene richiesto, digitare il SID SAP HANA dell'istanza da testare per il failover. 
+Se si desidera disporre di più istanze di SAP HANA per testare, eseguire lo script più volte. Quando richiesto, immettere il SID SAP HANA dell'istanza da testare per il failover. 
 
 >[!NOTE]
 >Se è necessario eseguire il failover al sito di ripristino di emergenza per salvare alcuni dati che sono stati eliminati ore fa ed è necessario i volumi di ripristino di emergenza sia impostato su uno snapshot precedente, questa procedura è valida. 
 
-1. Arrestare l'istanza non di produzione di HANA nell'unità di ripristino di emergenza di HANA in istanze Large in esecuzione. Il motivo è la presenza di un'istanza di produzione HANA inattiva preinstallata.
-1. Assicurarsi che nessun processo SAP HANA sia più in esecuzione. A questo scopo, usare il comando `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. L'output dovrebbe mostrare il processo **hdbdaemon** in uno stato arrestato e nessun altro processo HANA in esecuzione o con stato avviato.
+1. Arrestare l'istanza non di produzione di HANA in unità di ripristino di emergenza di istanze Large di HANA in esecuzione. Un'istanza di produzione HANA inattiva preinstallata.
+1. Assicurarsi che nessun processo SAP HANA sia più in esecuzione. A questo scopo, usare il comando seguente:
+
+      `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
+
+      L'output dovrebbe mostrare il processo **hdbdaemon** in uno stato arrestato e nessun altro processo HANA in esecuzione o con stato avviato.
 1. Determinare con quale nome di snapshot o ID backup di SAP HANA si vuole ripristinare il sito di ripristino di emergenza. In casi di ripristino di emergenza reali, questo snapshot è in genere il più recente. Nel caso in cui sia necessario recuperare dati persi, selezionare uno snapshot precedente.
-1. Contattare il supporto di Azure tramite una richiesta di supporto ad alta priorità. Richiedere il ripristino dello snapshot (con il nome e la data dello snapshot) o l'ID backup di HANA nel sito di ripristino di emergenza. Il valore predefinito prevede che il lato operazioni ripristini solo il volume /hana/data. Se si vuole ripristinare anche i volumi hana/logbackups, è necessario indicarlo in modo specifico. *Non ripristinare il volume /hana/shared.* È preferibile invece scegliere file specifici, ad esempio global.ini, dalla directory **.snapshot** e dalle relative sottodirectory dopo aver rimontato il volume /hana/shared per PRD. 
+1. Contattare il supporto di Azure tramite una richiesta di supporto ad alta priorità. Richiedere il ripristino dello snapshot con il nome e data di snapshot o l'ID di backup HANA nel sito di ripristino di emergenza. Il valore predefinito prevede che il lato operazioni ripristini solo il volume /hana/data. Se si desidera disporre anche i volumi hana/logbackups, è necessario in modo specifico. *Non ripristinare il volume /hana/shared.* Al contrario, scegliere file specifici, ad esempio Global il **snapshot** directory e dalle relative sottodirectory dopo rimontato il volume /Hana/Shared per PRD. 
 
    Sul lato operazioni si verificano i passaggi seguenti:
 
@@ -65,15 +69,18 @@ Se si vuole testare più istanze di SAP HANA, è necessario eseguire lo script p
       
 1. Montare i volumi di ripristino di emergenza nell'unità HANA in istanze Large nel sito di ripristino di emergenza. 
 1. Avviare l'istanza di produzione di SAP HANA inattiva.
-1. Se si sceglie di copiare i log di backup del log delle transazioni per ridurre il valore RPO, è necessario unire questi backup del log delle transazioni nella nuova directory /hana/logbackups di ripristino di emergenza appena montata. Non sovrascrivere i backup esistenti, ma copiare quelli più recenti che non sono stati replicati con l'ultima replica di uno snapshot di archiviazione.
-1. È anche possibile ripristinare singoli file degli snapshot replicati nel volume /hana/shared/PRD nell'area di Azure di ripristino di emergenza.
+1. Se si sceglie di copiare i log di backup del log delle transazioni per ridurre l'obiettivo del punto, unire i backup del log delle transazioni nella directory appena montata di ripristino di emergenza/hana/logbackups. Non sovrascrivere i backup esistenti, Copiare i backup più recente che non sono stati replicati con l'ultima replica di uno snapshot di archiviazione.
+1. È anche possibile ripristinare singoli file di snapshot non sono stati replicati nel volume /hana/shared/PRD nell'area di Azure di ripristino di emergenza.
 
-La sequenza di passaggi successiva prevede il ripristino dell'istanza di produzione di SAP HANA in base allo snapshot di archiviazione ripristinato e ai backup del log delle transazioni disponibili:
+La procedura seguente illustra come ripristinare l'istanza di produzione di SAP HANA basato su snapshot di archiviazione ripristinato e i backup del log delle transazioni disponibili.
 
 1. Modificare il percorso di backup in **/hana/logbackups** con SAP HANA Studio.
+
    ![Modificare il percorso di backup per il ripristino di emergenza](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA analizza i percorsi dei file di backup e suggerisce il backup del log delle transazioni più recente per il ripristino. L'analisi può richiedere alcuni minuti fino a una schermata simile viene visualizzato quanto segue: ![Elenco di backup del log delle transazioni per il ripristino di emergenza](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA analizza i percorsi dei file di backup e suggerisce il backup del log delle transazioni più recente per il ripristino. L'analisi può richiedere alcuni minuti fino a una schermata simile viene visualizzato quanto segue:
+
+   ![Elenco di backup del log delle transazioni per il ripristino di emergenza](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Modificare alcune delle impostazioni predefinite:
 
@@ -90,25 +97,29 @@ Dovrebbe venire visualizzata una finestra di stato, come quella illustrata qui. 
 
 ![Stato del ripristino](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Se il ripristino sembra bloccarsi nella **fine** schermata e non viene visualizzata la schermata di stato, verificare che tutte le istanze di SAP HANA nei nodi di lavoro sono in esecuzione. Se necessario, avviare manualmente le istanze di SAP HANA.
+Se il ripristino si blocca la **fine** schermata e non viene visualizzata la schermata di stato, verificare che tutte le istanze di SAP HANA nei nodi di lavoro sono in esecuzione. Se necessario, avviare manualmente le istanze di SAP HANA.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Failback da un sito di ripristino di emergenza a un sito di produzione
-È possibile eseguire il failback dal ripristino di emergenza a un sito di produzione. Si consideri uno scenario in cui il failover nel sito di ripristino di emergenza è stato causato da problemi nell'area di Azure di produzione e non dalla necessità di recuperare dati persi. Per un periodo di tempo il carico di lavoro di produzione SAP è stato eseguito nel sito di ripristino di emergenza. Quando i problemi relativi al sito di produzione vengono risolti, si vuole eseguire il failback nel sito di produzione. Poiché non si vogliono perdere dati, tuttavia, il ritorno al sito di produzione prevede diversi passaggi e una stretta collaborazione con il servizio operazioni di SAP HANA in Azure. Una volta risolti i problemi, è necessario sollecitare personalmente il team operativo perché avvii la sincronizzazione di nuovo nel sito di produzione.
+È possibile eseguire il failback dal ripristino di emergenza a un sito di produzione. Si consideri uno scenario in cui il failover nel sito di ripristino di emergenza è stato causato da problemi nell'area di Azure di produzione e non dalla necessità di recuperare dati persi. 
 
-Questa è la sequenza dei passaggi da eseguire:
+Si usa il carico di lavoro di produzione di SAP per un periodo di tempo nel sito di ripristino di emergenza. Quando i problemi relativi al sito di produzione vengono risolti, si vuole eseguire il failback nel sito di produzione. Poiché non si vogliono perdere dati, tuttavia, il ritorno al sito di produzione prevede diversi passaggi e una stretta collaborazione con il servizio operazioni di SAP HANA in Azure. Una volta risolti i problemi, è necessario sollecitare personalmente il team operativo perché avvii la sincronizzazione di nuovo nel sito di produzione.
+
+A tale scopo, seguire questa procedura:
 
 1. Il team operativo di SAP HANA in Azure avvia la sincronizzazione dei volumi di archiviazione di produzione dai volumi di archiviazione di ripristino di emergenza, che rappresentano ora lo stato di produzione. In questo stato, l'unità di istanze Large di HANA nel sito di produzione viene arrestata.
-1. Il team operativo di SAP HANA in Azure monitora la replica e verifica il completamento dell'aggiornamento prima di informare il cliente.
-1. È necessario arrestare le applicazioni che usano l'istanza di produzione di HANA nel sito di ripristino di emergenza. Eseguire quindi un backup del log delle transazioni HANA. Arrestare quindi l'istanza di HANA in esecuzione nelle unità HANA in istanze Large nel sito di ripristino di emergenza.
-1. Dopo l'arresto dell'istanza di HANA in esecuzione nell'unità HANA in istanze Large nel sito di ripristino di emergenza, il team operativo sincronizza di nuovo i volumi dei dischi manualmente.
-1. Il servizio operazioni di SAP HANA in Azure avvia nuovamente l'unità di istanze Large di HANA nel sito di produzione e la consegna all'utente. Assicurarsi che l'istanza di SAP HANA sia in uno stato di arresto nel momento in cui viene avviata l'unità HANA in istanze Large.
-1. Eseguire gli stessi passaggi di ripristino del database eseguiti in precedenza per il failover nel sito di ripristino di emergenza.
+1. SAP HANA in team operativo di Azure monitora la replica e assicura che si sia aggiornato prima che essi informare l'utente.
+1. È necessario arrestare le applicazioni che usano l'istanza di produzione di HANA nel sito di ripristino di emergenza. Eseguire quindi un backup del log delle transazioni HANA. Arrestare quindi l'istanza di HANA che è in esecuzione nelle unità di istanze Large di HANA nel sito di ripristino di emergenza.
+1. Dopo che l'istanza di HANA che è in esecuzione nell'unità di istanze Large di HANA nel sito di ripristino di emergenza viene arrestata, il team operativo Sincronizza manualmente nuovamente i volumi dei dischi.
+1. SAP HANA in team operativo di Azure viene riavviata l'unità di istanze Large di HANA nel sito di produzione. Essi consegna all'utente. Assicurarsi che l'istanza di SAP HANA sia in uno stato di chiusura in fase di avvio dell'unità di istanze Large di HANA.
+1. Eseguire gli stessi passaggi di ripristino di database che è stato fatto quando precedentemente eseguito il failover al sito di ripristino di emergenza.
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorare la replica di ripristino di emergenza
 
-È possibile monitorare lo stato di avanzamento della replica di archiviazione eseguendo lo script `azure_hana_replication_status`. Questo comando deve essere eseguito da un'unità in esecuzione nella posizione di ripristino di emergenza a funzionare come previsto. Il comando funziona indipendentemente dal fatto che la replica sia attiva. Il comando può essere eseguito per ogni unità di istanze Large di HANA del tenant nella posizione di ripristino di emergenza. Non può essere usato per ottenere informazioni dettagliate sul volume di avvio. Per informazioni dettagliate del comando e il relativo output leggere **'Ottenere lo stato della replica di ripristino di emergenza - azure_hana_replication_status'** del documento [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Per monitorare lo stato di avanzamento della replica di archiviazione, eseguire lo script `azure_hana_replication_status`. Questo comando deve essere eseguito da un'unità che viene eseguito nella posizione di ripristino di emergenza a funzionare come previsto. Il comando funziona indipendentemente dal fatto che la replica sia attiva. Il comando può essere eseguito per ogni unità di istanze Large di HANA del tenant nella posizione di ripristino di emergenza. Non è utilizzabile per ottenere informazioni dettagliate sul volume di avvio. 
+
+Per altre informazioni sul comando e il relativo output, vedere "Ottieni lo stato della replica di ripristino di emergenza - azure_hana_replication_status" nella [per gli snapshot strumenti Microsoft per SAP HANA in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Fare riferimento a [il monitoraggio e la risoluzione dei problemi dal lato HANA](hana-monitor-troubleshoot.md).
+- Visualizzare [monitoraggio e risoluzione dei problemi dal lato HANA](hana-monitor-troubleshoot.md).

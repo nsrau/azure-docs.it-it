@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916984"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023377"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
 
@@ -80,7 +80,6 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     ```
 
 + Collegare una configurazione dell'area di lavoro in una cartella per abilitare la consapevolezza contestuale dell'interfaccia della riga.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Collegare un cluster del servizio contenitore di AZURE come destinazione di calcolo.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Creare una nuova destinazione AMLcompute
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Eseguire gli esperimenti
-
-+ Collegare una configurazione dell'area di lavoro in una cartella per abilitare la consapevolezza contestuale dell'interfaccia della riga.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Avviare un'esecuzione dell'esperimento. Quando si utilizza questo comando, specificare il nome del file runconfig (il testo prima \*. runconfig se si sta esaminando il file system) con il parametro - c.
 
@@ -123,7 +110,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Registrazione del modello, la profilatura, distribuzione
+## <a name="model-registration-profiling--deployment"></a>Registrazione del modello, profilatura e la distribuzione
 
 I comandi seguenti illustrano come registrare un modello con training e quindi distribuirlo come servizio di produzione:
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871100"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024769"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Procedura guidata Importa dati per Ricerca di Azure
 
@@ -27,7 +27,7 @@ Il portale di Azure include una procedura guidata **Importa dati** nel dashboard
 
 La procedura guidata non può connettersi a un indice predefinito o eseguire un indicizzatore esistente, ma all'interno della procedura guidata si può configurare un nuovo indice o indicizzatore per supportare la struttura e i comportamenti richiesti.
 
-Non si ha familiarità con Ricerca di Azure? Vedere [Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure](search-get-started-portal.md) per provare a eseguire l'importazione e l'indicizzazione con **Importa dati** e il set di dati di esempio realestate incorporato.
+Non si ha familiarità con Ricerca di Azure? Vedere [Avvio rapido: Importare, indicizzare ed eseguire query usando gli strumenti del portale](search-get-started-portal.md) per testare l'importazione di indicizzazione usando **importare i dati** e il set di dati di esempio incorporata immobiliare.
 
 ## <a name="start-importing-data"></a>Avviare l'importazione di dati
 
@@ -77,14 +77,14 @@ La procedura guidata **Importa dati** crea un oggetto origine dati permanente ch
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archiviazione tabelle di Azure](cognitive-search-concept-intro.md) (non supportato per le pipeline di [ricerca cognitiva](search-howto-indexing-azure-tables.md))
 
-Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. 
+È possibile importare solo da una singola tabella, vista di database o struttura, dati equivalenti, ma la struttura può includere sottostrutture gerarchiche o annidate. Per altre informazioni, vedere [come modellare tipi complessi](search-howto-complex-data-types.md).
 
 È consigliabile creare questa struttura di dati prima di eseguire la procedura guidata e deve contenere il contenuto. Non eseguire la **importare dati** procedura guidata in un'origine dati vuota.
 
 |  Selezione | Descrizione |
 | ---------- | ----------- |
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, è possibile selezionare una definizione esistente dell'origine dati per un'altra importazione. In Ricerca di Azure, gli oggetti origine dati vengono usati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati**.|
-| **Esempi**| Ricerca di Azure ospita un database SQL di Azure pubblico gratuito che è possibile usare per apprendere il funzionamento delle richieste di importazione e query in Ricerca di Azure. Vedere [Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure](search-get-started-portal.md) per una procedura dettagliata. |
+| **Esempi**| Ricerca di Azure ospita un database SQL di Azure globale gratuito che è possibile utilizzare per apprendere le richieste di importazione e query in ricerca di Azure. Vedere [Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure](search-get-started-portal.md) per una procedura dettagliata. |
 | **Database SQL di Azure** |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [Connessione di una macchina virtuale SQL a Ricerca di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | **Cosmos DB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe o lasciare vuota la query. In questa procedura guidata non è necessaria una query.|

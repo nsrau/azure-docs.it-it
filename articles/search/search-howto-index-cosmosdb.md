@@ -1,7 +1,7 @@
 ---
 title: Indicizzare un'origine dati di Azure Cosmos DB - Ricerca di Azure
 description: Eseguire la ricerca per indicizzazione in un'origine dati di Azure Cosmos DB e inserire dati in un indice di ricerca full-text in Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per alcune origini dati come Azure Cosmos DB.
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871726"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024731"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indicizzazione di Cosmos DB usando un indicizzatore di ricerca di Azure
 
@@ -122,9 +122,8 @@ Se si sta valutando MongoDB, è necessario utilizzare l'API REST per creare l'or
 
 Nell'account Cosmos DB è possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile disattivare l'indicizzazione automatica. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i rispettivi collegamenti automatici o tramite query usando l'ID documento. Il servizio Ricerca di Azure richiede l'attivazione dell'indicizzazione automatica di Cosmos DB nella raccolta che verrà indicizzata da Ricerca di Azure. 
 
-> [!NOTE]
-> Azure Cosmos DB è la nuova generazione di DocumentDB. Anche se è stato modificato il nome del prodotto, la sintassi `documentdb` negli indicizzatori di Ricerca di Azure esiste ancora per garantire la compatibilità con le versioni precedenti nelle API di ricerca di Azure e nelle pagine del portale. Quando si configurano gli indicizzatori, assicurarsi di specificare la sintassi `documentdb` come illustrato in questo articolo.
-
+> [!WARNING]
+> Azure Cosmos DB è la nuova generazione di DocumentDB. In precedenza con la versione API **2017-11-11** è possibile usare il `documentdb` sintassi. Questo significava che è possibile specificare il tipo di origine dati come `cosmosdb` o `documentdb`. A partire dalla versione API **2019-05-06** sia l'API di ricerca di Azure e portale supportano solo il `cosmosdb` sintassi seguendo le istruzioni presenti in questo articolo. Ciò significa che il tipo di origine dati deve `cosmosdb` se si desidera connettersi a un endpoint di Cosmos DB.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - assemblare gli input per la richiesta
 
@@ -150,13 +149,13 @@ Un'**origine dati** specifica i dati per l'indice, le credenziali e i criteri pe
 
 Per creare un'origine dati, formulare una richiesta POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 | Campo   | DESCRIZIONE |
 |---------|-------------|
 | **name** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
-|**type**| Richiesto. Deve essere `documentdb`. |
+|**type**| Richiesto. Deve essere `cosmosdb`. |
 |**credentials** | Richiesto. Deve essere una stringa di connessione di Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Per le raccolte di MongoDB, aggiungere **ApiKind = MongoDb** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.|
 | **container** | contiene gli elementi seguenti: <br/>**name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
@@ -193,7 +192,7 @@ Documento di esempio:
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 Query di filtro:
@@ -219,7 +218,7 @@ Query di appiattimento matrici:
 
 [Creare un indice di ricerca di Azure di destinazione](/rest/api/searchservice/create-index) se si non è già disponibile. L'esempio seguente crea un indice con un campo dell'ID e la descrizione:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -253,7 +252,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| string |Edm.String |
+| String |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -263,13 +262,13 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Se si usa una query personalizzata, assicurarsi che la proprietà a cui fa rifer
 
 L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

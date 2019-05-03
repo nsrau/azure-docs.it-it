@@ -1,7 +1,7 @@
 ---
 title: Indicizzare BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure - Ricerca di Azure
 description: Eseguire la ricerca per indicizzazione nell'archiviazione BLOB di Azure per la ricerca full-text usando un indice di Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per le origini dati selezionate, ad esempio l'archiviazione BLOB di Azure.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871264"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024693"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure
 Per impostazione predefinita, l' [indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di testo delimitato come blocco singolo di testo. Nel caso dei BLOB che contengono dati, tuttavia, è spesso consigliabile gestire ogni riga del BLOB come documento separato. Ad esempio, in base al testo delimitato seguente, si potrebbe decidere di analizzarlo in due documenti, ciascuno contenente campi "id", "datePublished" e "tag": 
@@ -24,7 +24,9 @@ Per impostazione predefinita, l' [indicizzatore di BLOB di Ricerca di Azure](sea
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-In questo articolo verrà illustrato come analizzare i BLOB CSV con un indicizzatore di BLOB di Ricerca di Azure. 
+In questo articolo si apprenderà come analizzare i BLOB CSV con un'impostazione indexerby blob di ricerca di Azure il `delimitedText` modalità di analisi. 
+
+Il `delimitedText` modalità di analisi è attualmente in anteprima pubblica e non è consigliata per i carichi di lavoro di produzione.
 
 > [!NOTE]
 > Seguire le indicazioni di configurazione dell'indicizzatore nelle [indicizzazione di uno-a-molti](search-howto-index-one-to-many-blobs.md) per visualizzare più documenti di ricerca da un blob di Azure.
@@ -62,7 +64,7 @@ Per concludere, ecco gli esempi completi del payload.
 
 Origine dati: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -75,7 +77,7 @@ Origine dati:
 
 Indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 

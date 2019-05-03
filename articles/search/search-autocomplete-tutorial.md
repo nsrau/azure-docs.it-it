@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126743"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025149"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Esempio: Aggiungere il completamento automatico o suggerimenti all'applicazione di ricerca di Azure
 
@@ -23,7 +23,7 @@ In questo articolo, informazioni su come usare [suggerimenti](https://docs.micro
 
 + *I suggerimenti* vengono suggeriti i risultati generati durante la digitazione, in cui ogni suggerimento è un singolo risultato dall'indice che corrisponde a quanto digitato finora. 
 
-+ *Completamento automatico*, [una funzionalità di anteprima](search-api-preview.md), "completa", la parola o frase che un utente è attualmente la digitazione. Invece di restituire i risultati, il completamento di una query, che è quindi possibile eseguire per restituire i risultati. Come con i suggerimenti, una completato parola o frase in una query viene affermata su una corrispondenza dell'indice. Il servizio non offerta le query che restituiscono zero risultati nell'indice.
++ *Completamento automatico* "completa", la parola o frase che un utente è attualmente la digitazione. Invece di restituire i risultati, il completamento di una query, che è quindi possibile eseguire per restituire i risultati. Come con i suggerimenti, una completato parola o frase in una query viene affermata su una corrispondenza dell'indice. Il servizio non offerta le query che restituiscono zero risultati nell'indice.
 
 È possibile scaricare ed eseguire il codice di esempio **DotNetHowToAutocomplete** valutare queste funzionalità. Il codice di esempio è destinato a un indice predefinito popolato con [NYCJobs demo dati](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L'indice NYCJobs contiene un [costrutto dello strumento suggerimenti](index-add-suggesters.md), che rappresenta un requisito per l'uso di suggerimenti o il completamento automatico. È possibile usare l'indice preparata ospitata in un servizio sandbox, oppure [popolare il proprio indice](#configure-app) usando un caricatore dei dati nella soluzione di esempio NYCJobs. 
 

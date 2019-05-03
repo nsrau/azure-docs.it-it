@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914909"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021670"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori personalizzati a un indice di Ricerca di Azure
 
@@ -300,7 +300,7 @@ Nella tabella seguente i filtri di caratteri che vengono implementati usando Apa
 |[mapping](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Filtro di caratteri che applica i mapping definiti con l'opzione mappings. La corrispondenza è greedy. I criteri di ricerca più lunghi in un determinato punto hanno la precedenza. È consentita la sostituzione con una stringa vuota.<br /><br /> **Opzioni**<br /><br /> mappings (tipo: matrice di stringhe): elenco di mapping nel formato seguente: "a=>b" (tutte le occorrenze del carattere "a" vengono sostituite con il carattere "b"). Richiesto.|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Filtro di caratteri che sostituisce i caratteri nella stringa di input. Usa un'espressione regolare per identificare le sequenze di caratteri da conservare e un criterio di sostituzione per identificare i caratteri da sostituire. Ad esempio, testo di input = "aa  bb aa bb", criterio="(aa)\\\s+(bb)" sostituzione="$1#$2", risultato = "aa#bb aa#bb".<br /><br /> **Opzioni**<br /><br /> pattern (tipo: stringa): obbligatorio.<br /><br /> replacement (tipo: stringa): obbligatorio.|  
 
- <sup>1</sup> I tipi di filtri di caratteri presentano sempre il prefisso "#Microsoft.Azure.Search" nel codice, ad esempio "MappingCharFilter" verrà di fatto specificato come "#Microsoft.Azure.Search.MappingCharFilter". Il prefisso è stato rimosso per ridurre la larghezza della tabella, ma si ricordi di includerlo nel codice. Si noti che char_filter_type viene fornito solo per i filtri che possono essere personalizzati. Se non esistono opzioni, come avviene con l'analizzatore html_strip, non è associato nessun tipo #Microsoft.Azure.Search.
+ <sup>1</sup> I tipi di filtri di caratteri presentano sempre il prefisso "#Microsoft.Azure.Search" nel codice, ad esempio "MappingCharFilter" verrà di fatto specificato come "#Microsoft.Azure.Search.MappingCharFilter". Il prefisso è stato rimosso per ridurre la larghezza della tabella, ma si ricordi di includerlo nel codice. Si noti che tale char_filter_type viene fornito solo per i filtri che possono essere personalizzati. Se non esistono opzioni, come avviene con l'analizzatore html_strip, non è associato nessun tipo #Microsoft.Azure.Search.
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ Nella tabella seguente i tokenizer che vengono implementati usando Apache Lucene
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Suddivide in token gli URL e gli indirizzi di posta elettronica come un unico token.<br /><br /> **Opzioni**<br /><br /> maxTokenLength (tipo: int): lunghezza massima del token. Predefinito: 255, lunghezza massima: 300. I token con lunghezza superiore a quella massima vengono suddivisi.|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|Il tipo si applica solo quando sono disponibili le opzioni |Divide il testo in corrispondenza degli spazi vuoti. I token che contengono più di 255 caratteri vengono suddivisi.|  
 
- <sup>1</sup> I tipi di tokenizer presentano sempre il prefisso "#Microsoft.Azure.Search" nel codice, ad esempio "ClassicTokenizer" verrà di fatto specificato come "#Microsoft.Azure.Search.ClassicTokenizer". Il prefisso è stato rimosso per ridurre la larghezza della tabella, ma si ricordi di includerlo nel codice. Si noti che tokenizer_type viene fornito solo per i tokenizer che possono essere personalizzati. Se non esistono opzioni, come avviene con il tokenizer letter, non è associato nessun tipo #Microsoft.Azure.Search.
+ <sup>1</sup> I tipi di tokenizer presentano sempre il prefisso "#Microsoft.Azure.Search" nel codice, ad esempio "ClassicTokenizer" verrà di fatto specificato come "#Microsoft.Azure.Search.ClassicTokenizer". Il prefisso è stato rimosso per ridurre la larghezza della tabella, ma si ricordi di includerlo nel codice. Si noti che tale tokenizer_type viene fornito solo per tokenizer che possono essere personalizzate. Se non esistono opzioni, come avviene con il tokenizer letter, non è associato nessun tipo #Microsoft.Azure.Search.
 
 <a name="TokenFilters"></a>
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 50e42172af6ca6b966f9f60d3e037f9ae3dc5cbe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943933"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023769"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utilizzare SSL per proteggere il servizio Web con il servizio Azure Machine Learning
 
@@ -72,7 +72,36 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 
 Per distribuire o ridistribuire il servizio con SSL abilitato, impostare il `ssl_enabled` parametro per `True`, ove applicabile. Impostare il parametro `ssl_certificate` sul valore del file di __certificato__ e `ssl_key` sul valore del file di __chiave__.
 
-+ **Distribuire nel servizio Azure Kubernetes**
++ **Visual interface - creare sicuro Azure Kubernetes Service (AKS) per la distribuzione** 
+    
+    Fare riferimento al seguente se si sta tentando di creare calcolo distribuzione sicura per l'interfaccia visiva. Durante il provisioning del cluster servizio contenitore di AZURE, specificare i valori per parametri associate a SSL, quindi creare un nuovo servizio contenitore di AZURE.  Fare riferimento al seguente frammento di codice:
+    
+
+    > [!TIP]
+    >  Se non ha familiarità con Python SDK, iniziare da [Panoramica SDK Python di Azure Machine Learning.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **Distribuire in Azure Kubernetes Service (AKS) e FPGA**
 
   Durante la distribuzione nel servizio contenitore di AZURE, è possibile creare un nuovo cluster AKS o collegare uno esistente. Crea un nuovo cluster utilizzi [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) mentre collegamento di un cluster esistente Usa [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Entrambe restituiscono un oggetto di configurazione che ha un `enable_ssl` (metodo).
 
@@ -142,6 +171,8 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
   Aggiornare il DNS nella scheda "Configurazione" di "Indirizzo IP pubblico" del cluster servizio Azure Kubernetes come illustrato nell'immagine. È possibile trovare l'indirizzo IP pubblico come uno dei tipi di risorse create nel gruppo di risorse che contiene i nodi agente servizio Azure Kubernetes e altre risorse di rete.
 
   ![Servizio Azure Machine Learning: Protezione del servizio Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile passare agli argomenti seguenti:

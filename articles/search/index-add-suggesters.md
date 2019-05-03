@@ -1,7 +1,7 @@
 ---
 title: Aggiungere query typeahead a un indice - ricerca di Azure
 description: Abilitare azioni di completamento automatico delle query in ricerca di Azure tramite la creazione di componenti per il suggerimento e formulare le richieste che richiamano il completamento automatico o autosuggested termini della query.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844433"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021886"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Aggiungere suggester a un indice per typeahead in ricerca di Azure
 
@@ -39,9 +39,6 @@ Per implementare questi comportamenti in ricerca di Azure, è un componente dell
 + Il componente dell'indice è un componente di suggerimento. È possibile usare il portale, l'API REST o .NET SDK per creare un componente di suggerimento. 
 
 + Il componente di query è un'azione specificata nella richiesta di query (azione di suggerimenti o il completamento automatico). 
-
-> [!Important]
-> Completamento automatico è attualmente in anteprima, disponibile in anteprima le API REST e .NET SDK. Non si tratta delle applicazioni di produzione. 
 
 Ricerca---digitazione supporto è abilitato in base al campo. Se si desidera un'esperienza simile a quello indicato nella schermata, è possibile implementare entrambi i comportamenti typeahead all'interno della stessa soluzione di ricerca. Destinazione entrambe le richieste il *documenti* raccolta dell'indice specifico e le risposte vengono restituiti dopo che un utente ha fornito ad almeno una stringa di input di tre caratteri.
 
@@ -106,7 +103,7 @@ Un componente per il suggerimento è definito dalle proprietà seguenti:
 
 |Proprietà      |DESCRIZIONE      |
 |--------------|-----------------|
-|`name`        |Il nome del componente. Utilizza il nome del componente quando si chiama il [API REST per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) oppure [Autocomplete REST API (anteprima)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |Il nome del componente. Utilizza il nome del componente quando si chiama il [API REST per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) oppure [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
 |`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. Solo i campi di tipo `Edm.String` e `Collection(Edm.String)` possono essere origini per i suggerimenti. È possibile usare solo campi per i quali non è impostato un analizzatore di lingua personalizzato.<p/>Specificare solo i campi che si prestano a una risposta prevista e appropriata, sia che si tratti di una stringa completa in una barra di ricerca o un elenco a discesa.<p/>Un nome di un hotel è un candidato valido perché contiene la precisione. I campi dettagliati, ad esempio le descrizioni e i commenti sono troppo ad alta densità. Analogamente, i campi ripetitivi, quali categorie e tag, risultano meno efficaci. Negli esempi si includono "category" comunque per dimostrare che è possibile includere più campi. |
 
@@ -120,7 +117,7 @@ Se si aggiunge un componente di suggerimento per un indice esistente, in cui son
 
 Come indicato in precedenza, è possibile usare un componente di suggerimento per le query suggerite, completamento automatico o entrambi. 
 
-Un componente di suggerimento fa riferimento alla richiesta con l'operazione. Ad esempio, in una chiamata GET REST, specificare `suggest` o `autocomplete` nella raccolta di documenti. Per REST, dopo la creazione di un componente di suggerimento, usare il [API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) o nella [Autocomplete API (anteprima)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) nella logica di query.
+Un componente di suggerimento fa riferimento alla richiesta con l'operazione. Ad esempio, in una chiamata GET REST, specificare `suggest` o `autocomplete` nella raccolta di documenti. Per REST, dopo la creazione di un componente di suggerimento, usare il [API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) o il [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) nella logica di query.
 
 Per .NET, usare [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) oppure [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

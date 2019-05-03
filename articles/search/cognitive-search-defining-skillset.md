@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344546"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021778"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
 
-La ricerca cognitiva estrae e arricchisce i dati per consentirne la ricerca in Ricerca di Azure. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un set di competenze può usare [competenze predefinite](cognitive-search-predefined-skills.md) o competenze personalizzate. Per altre informazioni, vedere [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) (Esempio: creare una competenza personalizzata).
+La ricerca cognitiva estrae e arricchisce i dati per consentirne la ricerca in Ricerca di Azure. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Può usare un insieme di competenze [competenze incorporate](cognitive-search-predefined-skills.md) o competenze personalizzate (vedere [esempio: creazione di una competenza personalizzata](cognitive-search-create-custom-skill-example.md) per altre informazioni).
 
 Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un set di competenze è collegato all'[indicizzatore](search-indexer-overview.md) di Ricerca di Azure. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
 
@@ -57,7 +57,7 @@ Nel diagramma il passaggio di *individuazione del documento* avviene automaticam
 Un set di competenze è definito come una matrice di competenze. Ogni competenza definisce l'origine dei relativi input e il nome degli output generati. Tramite l'[API REST di creazione del set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) è possibile definire un set di competenze corrispondente al diagramma precedente: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -69,7 +69,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -138,11 +138,11 @@ Durante la creazione di un set di competenze è possibile specificare una descri
 }
 ```
 
-La parte successiva nel set di competenze è una matrice di competenze. Si può pensare a ogni competenza come una primitiva di arricchimento. Ogni competenza esegue una breve attività all'interno di questa pipeline di arricchimento. Ognuna prende un input (o un set di input) e restituisce output. Le prossime sezioni descrivono come specificare le competenze predefinite e personalizzate, concatenando le competenze tra loro tramite riferimenti di input e di output. Gli input possono provenire da dati di origine o da un'altra competenza. Gli output possono essere mappati a un campo in un indice di ricerca o essere usati come input per una competenza a valle.
+La parte successiva nel set di competenze è una matrice di competenze. Si può pensare a ogni competenza come una primitiva di arricchimento. Ogni competenza esegue una breve attività all'interno di questa pipeline di arricchimento. Ognuna prende un input (o un set di input) e restituisce output. Le prossime sezioni concentrarsi su come specificare le competenze predefinite e personalizzate, il concatenamento di competenze fino ai riferimenti di input e outpui. Gli input possono provenire da dati di origine o da un'altra competenza. Gli output possono essere mappati a un campo in un indice di ricerca o essere usati come input per una competenza a valle.
 
-## <a name="add-predefined-skills"></a>Aggiungere competenze predefinite
+## <a name="add-built-in-skills"></a>Acquisisci competenze predefinite
 
-Si osservi la prima competenza, che è la [competenza di riconoscimento delle entità](cognitive-search-skill-entity-recognition.md) predefinita:
+Esaminiamo la competenza prima, ovvero l'oggetto incorporato [competenza di riconoscimento di entità](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -165,11 +165,11 @@ Si osservi la prima competenza, che è la [competenza di riconoscimento delle en
     }
 ```
 
-* Ogni competenza predefinita include le proprietà `odata.type`, `input` e `output`. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
+* Ogni competenza incorporata dispone `odata.type`, `input`, e `output` proprietà. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
 
-* Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nella competenza precedente il contesto è l'intero documento, vale a dire che la competenza di riconoscimento delle entità denominate viene chiamata una volta per ogni documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
+* Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nella competenza precedente, il contesto è l'intero documento, vale a dire che le competenze di riconoscimento di entità viene chiamata una volta per ogni documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
 
-* La competenza include un input denominato "testo", con un input di origine impostato su ```"/document/content"```. La competenza (riconoscimento delle entità denominate) opera sul campo *contenuto* di ogni documento, che è un campo standard creato dall'indicizzatore di BLOB di Azure. 
+* La competenza include un input denominato "testo", con un input di origine impostato su ```"/document/content"```. La competenza (riconoscimento di entità) opera sul *contenuto* campo di ogni documento, che è un campo standard creato dall'indicizzatore blob di Azure. 
 
 * La competenza genera un output denominato ```"organizations"```. Gli output esistono solo durante l'elaborazione. Per concatenare questo output all'input della competenza a valle, fare riferimento all'output come ```"/document/organizations"```.
 
@@ -229,13 +229,13 @@ Richiamare la struttura dell'arricchitore di Ricerca entità di Bing personalizz
     }
 ```
 
-Questa definizione è una [competenza personalizzata](cognitive-search-custom-skill-web-api.md) che chiama un'API Web come parte del processo di arricchimento. Per ogni organizzazione identificata dal riconoscimento delle entità denominate, questa competenza chiama un'API Web per individuare la descrizione dell'organizzazione. L'orchestrazione di quando chiamare l'API Web e come propagare le informazioni ricevute viene gestita internamente dal motore di arricchimento. L'inizializzazione necessaria per chiamare l'API personalizzata deve tuttavia essere specificata nel file JSON (ad esempio URI, intestazioni http e input previsti). Per informazioni sulla creazione di un'API Web personalizzata per la pipeline di arricchimento, vedere [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Come definire un'interfaccia personalizzata).
+Questa definizione è una [competenza personalizzata](cognitive-search-custom-skill-web-api.md) che chiama un'API Web come parte del processo di arricchimento. Per ogni organizzazione identificato dal riconoscimento di entità, questa abilità chiama un'API web per trovare la descrizione dell'organizzazione. L'orchestrazione di quando chiamare l'API Web e come propagare le informazioni ricevute viene gestita internamente dal motore di arricchimento. L'inizializzazione necessaria per chiamare l'API personalizzata deve tuttavia essere specificata nel file JSON (ad esempio URI, intestazioni http e input previsti). Per informazioni sulla creazione di un'API Web personalizzata per la pipeline di arricchimento, vedere [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Come definire un'interfaccia personalizzata).
 
 Si noti che il campo "contesto" è impostato su ```"/document/organizations/*"``` con un asterisco. Questo significa che il passaggio di arricchimento viene chiamato *per ogni* organizzazione presente in ```"/document/organizations"```. 
 
 L'output, in questo caso la descrizione di una società, viene generato per ogni organizzazione identificata. Quando si fa riferimento alla descrizione in un passaggio a valle (ad esempio, nell'estrazione di frasi chiave), si usa il percorso ```"/document/organizations/*/description"``` a tale scopo. 
 
-## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Creazione di strutture da informazioni non strutturate tramite gli arricchimenti
+## <a name="add-structure"></a>Aggiungere una struttura
 
 Il set di competenze genera informazioni strutturate da dati non strutturati. Si consideri l'esempio seguente:
 
@@ -245,9 +245,38 @@ Un probabile risultato può essere una struttura generata simile a quella nella 
 
 ![Struttura di output di esempio](media/cognitive-search-defining-skillset/enriched-doc.png "Struttura di output di esempio")
 
-Non va dimenticato che questa struttura è interna. Non è possibile ottenere di fatto questo grafico nel codice.
+Fino ad ora, questa struttura è stato solo interno, solo memoria e viene utilizzato solo in indici di ricerca di Azure. L'aggiunta di un archivio knowledge offre un modo per risparmiare con miglioramenti per l'utilizzo di fuori di ricerca.
+
+## <a name="add-a-knowledge-store"></a>Aggiungere un archivio della Knowledge Base
+
+[Store Knowledge](knowledge-store-concept-intro.md) è una funzionalità di anteprima di ricerca di Azure per il salvataggio del documento arricchito. Un archivio della Knowledge base creati dall'utente, supportata da un account di archiviazione di Azure, è il repository in cui i dati arricchiti apre. 
+
+Una definizione di archivio della Knowledge base viene aggiunto a un insieme di competenze. Per una procedura dettagliata dell'intero processo, vedere [come iniziare a usare archivio knowledge](knowledge-store-howto.md).
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
+        }
+      ]
+    }
+  ]
+}
+```
+
+È possibile scegliere di salvare i documenti arricchiti sotto forma di tabelle con relazioni gerarchiche mantenute o come documenti JSON in archiviazione blob. Output da una qualsiasi delle competenze nelle tue competenze può essere originato come input per la proiezione. Se si sta cercando di proiettare i dati in una determinata forma, aggiornato [competenza shaper](cognitive-search-skill-shaper.md) ora possono modellare i tipi complessi da usare. 
 
 <a name="next-step"></a>
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo avere acquisito familiarità con la pipeline di arricchimento e i set di competenze, passare a [Come fare riferimento alle annotazioni in un set di competenze](cognitive-search-concept-annotations-syntax.md) o [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Come mappare gli output ai campi di un indice). 

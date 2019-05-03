@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817364"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023704"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Scrivere e configurare i dati usando Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Scrivere e configurare i dati con il SDK di Azure Machine Learning Data Prep
 
 In questo articolo descrive diversi metodi per scrivere i dati usando il [Python SDK di Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) e su come configurare i dati per la sperimentazione con il [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  I dati di output possono essere scritto in qualsiasi punto in un flusso di dati. Operazioni di scrittura vengono aggiunte come passaggi al flusso di dati risultante e questi passaggi vengono eseguiti ogni volta che il flusso di dati viene eseguito. I dati vengono scritti in più file di partizione per consentire operazioni di scrittura in parallelo.
+
+> [!Important]
+> Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i propri dati, i dati dello snapshot e archiviare le definizioni di set di dati con controllo delle versioni. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
 
 Poiché non esistono limitazioni per il numero di passaggi di scrittura presenti in una pipeline, è molto semplice aggiungere passaggi di scrittura aggiuntivi per ottenere risultati intermedi per la risoluzione dei problemi o per altre pipeline.
 

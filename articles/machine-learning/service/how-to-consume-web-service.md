@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819464"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023825"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Quando si distribuisce un'immagine in Istanze di Azure Container, nel servizio Azure Kubernetes o in Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
+Si crea un servizio web quando si distribuisce un'immagine in istanze di contenitore di Azure, Azure Kubernetes Service o matrici di campo-programmable gate (FPGA). Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
