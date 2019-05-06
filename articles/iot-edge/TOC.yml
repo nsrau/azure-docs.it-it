@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: Esercitazioni
   items:
-    - name: Filtrare i dati con Funzioni di Azure
-      href: tutorial-deploy-function.md
-    - name: Trovare medie con ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Assegnare punteggi ai dati con il servizio Azure Machine Learning
-      href: tutorial-deploy-machine-learning.md
-    - name: Classificare immagini con Visione personalizzata
-      href: tutorial-deploy-custom-vision.md
-    - name: Archiviare i dati in locale con SQL
-      href: tutorial-store-data-sql-server.md
-    - name: Sviluppare moduli di codice personalizzati
+    - name: 1. Configurare l'ambiente di sviluppo
       items:
+        - name: Sviluppare per dispositivi Linux
+          href: tutorial-develop-for-linux.md
+        - name: Sviluppare per dispositivi Windows
+          href: tutorial-develop-for-windows.md
+    - name: 2. Sviluppare moduli di codice personalizzati
+      items:
+        - name: C
+          items:
+            - name: Moduli C per dispositivi Linux
+              href: tutorial-c-module.md
+            - name: Moduli C per dispositivi Windows
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: 'Moduli C# per dispositivi Linux'
+              href: tutorial-csharp-module.md
+            - name: 'Moduli C# per dispositivi Windows'
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. Distribuire servizi di Azure come moduli
+      items:
+        - name: Filtrare i dati con Funzioni di Azure
+          href: tutorial-deploy-function.md
+        - name: Trovare medie con ASA
+          href: tutorial-deploy-stream-analytics.md
+        - name: Assegnare punteggi ai dati con il servizio Azure Machine Learning
+          href: tutorial-deploy-machine-learning.md
+        - name: Classificare immagini con Visione personalizzata
+          href: tutorial-deploy-custom-vision.md
+        - name: Archiviare i dati in locale con SQL
+          href: tutorial-store-data-sql-server.md
 - name: Concetti
   items:
     - name: Runtime di IoT Edge

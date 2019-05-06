@@ -19,9 +19,11 @@
       href: functions-create-first-java-maven.md
     - name: Creare una funzione - Python
       href: functions-create-first-function-python.md
-    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
+    - name: Creare una funzione - PowerShell
+      href: functions-create-first-function-powershell.md
+    - name: Creare una funzione - Interfaccia della riga di comando di Azure
       href: functions-create-first-azure-function-azure-cli.md
-    - name: 'Creare una funzione: portale'
+    - name: Creare una funzione - Portale
       href: functions-create-first-azure-function.md
     - name: 'Creare una funzione: Linux'
       href: functions-create-first-azure-function-azure-cli-linux.md
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: Archiviazione
+        - name: Archiviazione - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: Archiviazione - Portale
           href: functions-integrate-storage-queue-output-binding.md
 - name: Esercitazioni
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: Diagnostica
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: Creare un'app per le funzioni Linux
           href: create-function-app-linux-app-service-plan.md
+        - name: Eseguire il debug delle funzioni locali di PowerShell
+          href: functions-debug-powershell-local.md
         - name: Gestire le connessioni
           href: manage-connections.md
         - name: Gestione degli errori
@@ -148,6 +156,8 @@
       items:
         - name: Distribuzione continua
           href: functions-continuous-deployment.md
+        - name: Compilare e distribuire con Azure Pipelines
+          href: functions-how-to-azure-devops.md
         - name: Distribuzione di file ZIP
           href: deployment-zip-push.md
         - name: Eseguire dal pacchetto

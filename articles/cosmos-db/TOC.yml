@@ -143,17 +143,6 @@
             - name: Criteri di indicizzazione
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Feed delle modifiche
-          items:
-            - name: Panoramica
-              href: change-feed.md
-            - name: Lettura del feed di modifiche
-              href: read-change-feed.md
-            - name: Processore dei feed di modifiche
-              href: change-feed-processor.md
-            - name: Attivare Funzioni di Azure
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Durata (TTL)
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Gestire i criteri di indicizzazione
           href: how-to-manage-indexing-policy.md
+        - name: Esempi di sottoquery SQL
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Feed di modifiche
       items:
         - name: Più trigger di Azure Cosmos DB

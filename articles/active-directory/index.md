@@ -8,15 +8,15 @@ author: barbkess
 manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/24/2019
+ms.date: 04/18/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352050f4bd53188a420f75607677d88ebc081505
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f067d2d83c97d22dee26050d31e08e47252310ee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381761"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682980"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -255,9 +255,9 @@ ms.locfileid: "60381761"
                                                         <br><br>
                                                         <h3><a href="governance/index.yml">Identity Governance</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Creare una verifica di accesso</a><br>
-                                                            <a href="governance/perform-access-review.md">Avviare una verifica dell'accesso</a><br>
-                                                            <a href="conditional-access/terms-of-use.md">Uso delle Condizioni per l'utilizzo</a><br>
+                                                            <a href="governance/entitlement-management-overview.md">Informazioni su Gestione entitlement</a><br>
+                                                            <a href="governance/access-reviews-overview.md">Informazioni sulle verifiche di accesso</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Richiedere Condizioni per l'utilizzo</a><br>
                                                             <a href="governance/index.yml"><i>Altro &gt;</i></a>
                                                         </p>
                                                         <br><br>

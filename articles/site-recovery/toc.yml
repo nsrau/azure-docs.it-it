@@ -93,9 +93,11 @@
           href: vmware-azure-about-disaster-recovery.md
         - name: Domande frequenti
           href: vmware-azure-common-questions.md
-        - name: Matrice di supporto da VMware/server fisici ad Azure
+        - name: Matrice di supporto da VMware/computer fisici ad Azure
           href: vmware-physical-azure-support-matrix.md
-        - name: Requisiti di supporto per la distribuzione dei server di configurazione
+        - name: 'Informazioni sui componenti di Site Recovery (server di configurazione, server elaborazione e server di destinazione master)'
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Requisiti di supporto per i server di configurazione e di elaborazione
           href: vmware-azure-configuration-server-requirements.md
         - name: Architettura da VMware ad Azure
           href: vmware-azure-architecture.md
@@ -113,7 +115,7 @@
           href: hyper-v-azure-architecture.md
     - name: Informazioni sul ripristino di emergenza di server fisici in Azure
       items:
-        - name: Matrice di supporto da VMware/server fisici ad Azure
+        - name: Matrice di supporto da VMware/computer fisici ad Azure
           href: vmware-physical-azure-support-matrix.md
         - name: Architettura da server fisico ad Azure
           href: physical-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: Panoramica e prerequisiti
                   href: site-recovery-deployment-planner.md
+                - name: Cronologia delle versioni di Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Eseguire lo strumento Deployment Planner
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Analizzare il report generato
@@ -319,6 +323,8 @@
               items:
                 - name: Panoramica e prerequisiti
                   href: hyper-v-deployment-planner-overview.md
+                - name: Cronologia delle versioni di Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Eseguire lo strumento Deployment Planner
                   href: hyper-v-deployment-planner-run.md
                 - name: Analizzare il report generato
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/server fisico
       items:
+        - name: Monitorare i server di elaborazione
+          href: vmware-physical-azure-monitor-process-server.md
         - name: Risolvere i problemi della replica da VMware ad Azure
           href: vmware-azure-troubleshoot-replication.md
         - name: Risolvere i problemi del server di configurazione
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: Risolvere i problemi dei server di elaborazione
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: Risolvere i problemi dell'installazione push del servizio Mobility per VM VMware/server fisici
           href: vmware-azure-troubleshoot-push-install.md
         - name: Risolvere i problemi del failover in Azure

@@ -118,10 +118,8 @@
           href: sql-database-purchase-models.md
         - name: Modello basato su vCore
           href: sql-database-service-tiers-vcore.md
-        - name: Piani di servizio DTU
+        - name: Livelli di servizio DTU
           href: sql-database-service-tiers-dtu.md
-        - name: Livello di elaborazione serverless
-          href: sql-database-serverless.md
         - name: Pagare in anticipo la capacità riservata
           href: sql-database-reserved-capacity.md
         - name: Eseguire la migrazione dal livello di servizio Premium RS
@@ -234,8 +232,6 @@
     - name: Security
       items:
         - name: Panoramica della sicurezza
-          href: sql-database-security-index.yml
-        - name: Funzionalità di sicurezza
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: Sicurezza dei dati avanzata
@@ -358,9 +354,9 @@
           href: sql-database-temporal-tables.md
         - name: Automazione dei processi
           href: sql-database-job-automation-overview.md
-        - name: Machine learning
+        - name: Machine Learning Services
           items:
-            - name: Panoramica di Machine Learning
+            - name: Panoramica
               href: sql-database-machine-learning-services-overview.md
             - name: Differenze principali
               href: sql-database-machine-learning-services-differences.md
@@ -476,6 +472,8 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connettere le applicazioni
           href: sql-database-managed-instance-connect-app.md
+        - name: Configurare un endpoint pubblico
+          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Caricare e spostare dati
       items:
         - name: Copiare un database all'interno di Azure
@@ -660,6 +658,8 @@
           href: sql-database-machine-learning-services-functions.md
         - name: Usare dati R e SQL
           href: sql-database-machine-learning-services-data-issues.md
+        - name: Aggiungere pacchetti R
+          href: sql-database-machine-learning-services-add-r-packages.md
 - name: riferimento
   items:
     - name: Azure PowerShell

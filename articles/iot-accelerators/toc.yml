@@ -133,26 +133,22 @@
       items:
         - name: Informazioni su IoT industriale
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: Informazioni su OPC Twin
-              href: overview-opc-twin.md
-            - name: Architettura di OPC Twin
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: Informazioni su OPC Vault
-              href: overview-opc-vault.md
-        - name: Connected Factory
-          items:
-            - name: Panoramica di Connected Factory
-              href: iot-accelerators-connected-factory-features.md
-            - name: Architettura di Connected Factory
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: Informazioni su OPC Twin
+          href: overview-opc-twin.md
+        - name: Informazioni su OPC Vault
+          href: overview-opc-vault.md
+        - name: Informazioni su Connected Factory
+          href: iot-accelerators-connected-factory-features.md
     - name: Guide introduttive
       items:
         - name: Provare una soluzione di fabbrica connessa
           href: quickstart-connected-factory-deploy.md
+    - name: Concetti
+      items:
+        - name: Architettura di OPC Twin
+          href: overview-opc-twin-architecture.md
+        - name: Architettura di Connected Factory
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guide alle procedure
       items:
         - name: Connected Factory

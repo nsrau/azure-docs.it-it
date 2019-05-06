@@ -22,8 +22,12 @@
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: Eseguire la migrazione online di MySQL al database di Azure per MySQL
       href: tutorial-mysql-azure-mysql-online.md
+    - name: Eseguire la migrazione online di RDS MySQL al database di Azure per MySQL
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - name: Eseguire la migrazione online di PostgreSQL al database di Azure per PostgreSQL
       href: tutorial-postgresql-azure-postgresql-online.md
+    - name: Eseguire la migrazione online di RDS PostgreSQL al database di Azure per PostgreSQL
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: Eseguire la migrazione offline di MongoDB all'API Mongo di Azure Cosmos DB
       href: tutorial-mongodb-cosmos-db.md
     - name: Eseguire la migrazione online di MongoDB all'API Mongo di Azure Cosmos DB

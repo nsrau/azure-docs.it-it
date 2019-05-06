@@ -47,7 +47,7 @@
       items:
         - name: Panoramica
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Trasformazioni e processi
           href: transforms-jobs-concept.md
         - name: Formati di Media Encoder Standard
@@ -56,14 +56,19 @@
         - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
           href: autogen-bitrate-ladder.md
         - name: Codifica con riconoscimento del contenuto
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: Codici di errore dei processi
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Analisi di contenuti multimediali
       items:
         - name: Panoramica
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: Trasformazioni e processi
           href: transforms-jobs-concept.md
+        - name: Codici di errore dei processi
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 'Creazione di pacchetti, distribuzione, protezione'
       items:
         - name: Packaging
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: Criteri di chiave simmetrica
           href: content-key-policy-concept.md
+        - name: Codici di errore dell'origine
+          href: origin-error-codes.md
     - name: Streaming live
       items:
         - name: Panoramica
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: Controllo degli accessi in base al ruolo
           href: rbac-overview.md
+        - name: Codici di errore
+          items:
+            - name: Codici di errore dell'origine
+              href: origin-error-codes.md
+            - name: Codici di errore dei processi
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Indicazioni sulla migrazione dalla versione 2 alla versione 3
       href: migrate-from-v2-to-v3.md
 - name: Guide alle procedure
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Codici di errore
+      items:
+        - name: Codici di errore dell'origine
+          href: origin-error-codes.md
+        - name: Codici di errore dei processi
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: Risorse
   items:
     - name: Community di Servizi multimediali di Azure

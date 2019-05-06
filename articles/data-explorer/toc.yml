@@ -60,16 +60,22 @@
     - name: Panoramica dell'inserimento dati
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Analisi di serie temporali
-      href: time-series-analysis.md
 - name: Guide alle procedure
   items:
     - name: Attività iniziali
       items:
-        - name: Scrivere query
-          href: write-queries.md
         - name: Inserire dati di esempio
           href: ingest-sample-data.md
+    - name: Eseguire query sui dati
+      items:
+        - name: Scrivere query
+          href: write-queries.md
+        - name: Analisi di serie temporali
+          href: time-series-analysis.md
+        - name: Rilevamento anomalie e previsioni
+          href: anomaly-detection.md
+        - name: Machine learning
+          href: machine-learning-clustering.md
     - name: Gestisci
       items:
         - name: Gestire le autorizzazioni per i database
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Usare altri strumenti
       items:
+        - name: Connettore Apache Spark
+          href: spark-connector.md
         - name: Connettersi da Databricks tramite Python
           href: connect-from-databricks.md
         - name: Analizzare i dati in Jupyter Notebook e Kqlmagic

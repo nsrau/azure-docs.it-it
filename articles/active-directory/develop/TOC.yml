@@ -14,20 +14,14 @@
         - name: Configurare un'applicazione
           items:
             - name: Registrare un'app
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: Aggiornare un'app
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Rimuovere un'app
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registrare un'app (anteprima)
               href: quickstart-register-app.md
-            - name: Configurare l'app per accedere alle API Web (anteprima)
+            - name: Configurare l'app per accedere alle API Web
               href: quickstart-configure-app-access-web-apis.md
-            - name: Configurare l'app per esporre le API Web (anteprima)
+            - name: Configurare l'app per esporre le API Web
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Modificare gli account supportati da un'app (anteprima)
+            - name: Modificare gli account supportati da un'app
               href: quickstart-modify-supported-accounts.md
-            - name: Rimuovere un'app (anteprima)
+            - name: Rimuovere un'app
               href: quickstart-remove-app.md
         - name: App a pagina singola
           items:
@@ -243,20 +237,14 @@
         - name: Configurare un'applicazione
           items:
             - name: Registrare un'app
-              href: quickstart-v2-register-an-app.md
-            - name: Aggiornare un'app
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Rimuovere un'app
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registrare un'app (anteprima)
               href: quickstart-register-app.md
-            - name: Configurare l'app per accedere alle API Web (anteprima)
+            - name: Configurare l'app per accedere alle API Web
               href: quickstart-configure-app-access-web-apis.md
-            - name: Configurare l'app per esporre le API Web (anteprima)
+            - name: Configurare l'app per esporre le API Web
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Modificare gli account supportati da un'app (anteprima)
+            - name: Modificare gli account supportati da un'app
               href: quickstart-modify-supported-accounts.md
-            - name: Rimuovere un'app (anteprima)
+            - name: Rimuovere un'app
               href: quickstart-remove-app.md
         - name: App a pagina singola
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: Configurazione dell'applicazione
           items:
+            - name: Guida di formazione per Registrazioni app
+              href: app-registrations-training-guide.md
             - name: Applicazioni ed entità servizio
               href: app-objects-and-service-principals.md
             - name: App a tenant singolo e multi-tenant

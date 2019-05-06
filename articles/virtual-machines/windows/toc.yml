@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - VM a disponibilità elevata
       href: tutorial-availability-sets.md
-    - name: 6 - Creare un set di scalabilità di macchine virtuali
+    - name: 6 - Creare un set di scalabilità
       href: tutorial-create-vmss.md
     - name: 7 - Bilanciare il carico delle VM
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: Creare immagini condivise con l'interfaccia della riga di comando
               href: ../linux/shared-images.md
+            - name: Portale
+              href: shared-images-portal.md
             - name: Risolvere i problemi relativi alle immagini condivise
               href: troubleshooting-shared-images.md
         - name: Trovare e usare immagini

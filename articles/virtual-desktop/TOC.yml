@@ -44,6 +44,18 @@
       href: delegated-access-virtual-desktop.md
     - name: Metodo di bilanciamento del carico per i pool di host
       href: host-pool-load-balancing.md
+- name: Risolvere problemi
+  items:
+    - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'
+      href: troubleshoot-set-up-overview.md
+    - name: Creazione di pool di host e tenant
+      href: troubleshoot-set-up-issues.md
+    - name: Configurazione di macchine virtuali nell'host sessione
+      href: troubleshoot-vm-configuration.md
+    - name: Connessioni client di Desktop remoto
+      href: troubleshoot-client-connection.md
+    - name: PowerShell con Desktop virtuale Windows
+      href: troubleshoot-powershell.md
 - name: riferimento
   items:
     - name: PowerShell

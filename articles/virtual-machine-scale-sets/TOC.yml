@@ -152,6 +152,8 @@
         - name: Quote vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Domande frequenti sui set di scalabilità
+      href: virtual-machine-scale-sets-faq.md
 - name: Procedure
   items:
     - name: Pianificare e progettare
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Scalabilità automatica avanzata
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Risolvere i problemi relativi alla scalabilità automatica
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Applicazioni nei set di scalabilità
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Estensioni nei set di scalabilità
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Crittografia del disco con la sequenziazione delle estensioni
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Usare set di scalabilità di grandi dimensioni
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
@@ -247,14 +255,6 @@
         - name: Ridimensionare automaticamente un set di scalabilità
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Risolvere problemi
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Domande frequenti
-      items:
-        - name: Domande frequenti sui set di scalabilità
-          href: virtual-machine-scale-sets-faq.md
 - name: riferimento
   items:
     - name: Azure PowerShell

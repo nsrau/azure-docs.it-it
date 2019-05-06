@@ -184,11 +184,11 @@
           href: how-to-connect-sync-recycle-bin.md
         - name: Configurare l'account del connettore di Active Directory Domain Services
           href: how-to-connect-configure-ad-ds-connector-account.md
-        - name: Modificare la password dell'account del servizio Azure AD Sync
+        - name: Cambiare la password dell'account del servizio Azure AD Sync
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Modificare l'account del connettore di Azure AD
+        - name: Cambiare la password dell'account del connettore di Azure AD
           href: how-to-connect-azureadaccount.md
-        - name: Modificare la password dell'account del connettore di Active Directory Domain Services
+        - name: Cambiare la password dell'account del connettore di Active Directory Domain Services
           href: how-to-connect-sync-change-addsacct-pass.md
     - name: Gestire l'autenticazione pass-through
       items:

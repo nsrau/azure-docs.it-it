@@ -2,15 +2,20 @@
   href: ./index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul servizio Azure Container
+    - name: Informazioni sul servizio Azure Kubernetes
       href: intro-kubernetes.md
 - name: Guide introduttive
   expanded: true
   items:
-    - name: 'Creare un cluster del servizio Azure Container: interfaccia della riga di comando'
-      href: kubernetes-walkthrough.md
-    - name: 'Creare un cluster del servizio Azure Container: portale'
-      href: kubernetes-walkthrough-portal.md
+    - name: Creare un cluster del servizio Azure Kubernetes
+      expanded: true
+      items:
+        - name: Utilizzare l’interfaccia della riga di comando di Azure
+          href: kubernetes-walkthrough.md
+        - name: Usare il portale di Azure
+          href: kubernetes-walkthrough-portal.md
+        - name: Usare il modello di Resource Manager
+          href: kubernetes-walkthrough-rm-template.md
     - name: Sviluppare applicazioni
       expanded: true
       items:
@@ -87,7 +92,7 @@
             - name: Sicurezza dei pod
               href: developer-best-practices-pod-security.md
     - name: Quote e limiti a livello di area
-      href: container-service-quotas.md
+      href: quotas-skus-regions.md
     - name: Eseguire la migrazione dal servizio Azure Container ad servizio Azure Kubernetes
       href: acs-aks-migration.md
     - name: Versione di Kubernetes supportata

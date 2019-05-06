@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Gestire le preferenze
           href: howto-manage-preferences.md
+        - name: Attivare e disattivare la live chat
+          href: howto-show-hide-chat.md
 - name: Risorse correlate
   items:
     - name: Soluzioni

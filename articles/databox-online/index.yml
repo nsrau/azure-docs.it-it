@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentazione di Azure Data Box - Trasferimento online
 metadata:
-  title: Documentazione di Azure Data Box - Trasferimento online
-  description: 'Usare i dispositivi Data Box per eseguire trasferimenti dati a prestazioni elevate in rete ad Azure in modo rapido, economico e affidabile.'
+  title: Documentazione di Data Box Gateway e Data Box Edge per il trasferimento dei dati in Azure tramite la rete
+  description: 'Usare Data Box Edge e Data Box Gateway per eseguire trasferimenti di dati a elevate prestazioni in Azure tramite la rete in modo rapido, affidabile e a costi contenuti.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'La famiglia di prodotti Azure Data Box consente di trasferire centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. Usare i dispositivi Data Box per trasferimenti dati a prestazioni elevate in rete.<p>Scegliere Data Box Gateway per inviare dati per l''archiviazione nel cloud, il ripristino di emergenza o l''elaborazione dei dati su scala cloud.  Usare Data Box Edge per filtrare, analizzare e trasformare i dati spostati in Azure.</p><p>Le esercitazioni illustrano come sfruttare Data Box Gateway e Data Box Edge per il trasferimento basato su rete.</p>'
+  description: 'La famiglia di prodotti Azure Data Box consente di trasferire centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. Usare i dispositivi Data Box Edge e Data Box Gateway per eseguire trasferimenti di dati e elevate prestazioni tramite la rete.<p>Scegliere Data Box Gateway per inviare dati per l''archiviazione nel cloud, il ripristino di emergenza o l''elaborazione dei dati su scala cloud.  Usare Data Box Edge per filtrare, analizzare e trasformare i dati spostati in Azure.</p><p>Le esercitazioni illustrano come sfruttare Data Box Gateway e Data Box Edge per il trasferimento basato su rete.</p>'
 sections:
   - title: Esercitazioni
     items:

@@ -4,7 +4,7 @@ title: Documentazione di identità ibrida
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Documentazione di identità ibrida
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: 'Azure AD Connect integra le directory locali con Azure Active Directory. Consente quindi di fornire agli utenti un''identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD.'
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: 'Le soluzioni di gestione delle identità di Microsoft abbracciano funzionalità locali e basate sul cloud, creando una singola identità utente per l’autenticazione e l’autorizzazione per tutte le risorse, indipendentemente dalla loro ubicazione. Tutto questo viene chiamato Identità ibrida.</br></br></br>Azure AD Connect integra le directory locali con Azure Active Directory. Consente quindi di fornire agli utenti un''identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. Questo argomento fornisce una guida dettagliata sulle procedure di pianificazione, distribuzione e funzionamento. Include una raccolta di collegamenti agli argomenti correlati a questa area.'
   aside:
     image:
-      alt: null
+      alt: Video di Channel 9
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Informazioni su come iniziare a estendere le identità sul cloud mediante la sincronizzazione dell'hash delle password</p>
             image:
+              alt: Sincronizzazione dell'hash delle password
               src: media/index/azuread2.png
             title: Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Informazioni su come iniziare a estendere le identità sul cloud mediante l'autenticazione pass-through.</p>
             image:
+              alt: Autenticazione pass-through
               src: media/index/manage2.png
             title: Integrare una singola foresta di AD mediante l'autenticazione pass-through
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Informazioni su come attuare la federazione di Azure Active Directory (Azure AD) Connect con l'istanza locale di Active Directory Federation Services (AD FS) e Azure AD.</p>
             image:
+              alt: federazione
               src: media/index/federate2.png
             title: Integrare una singola foresta di AD mediante la federazione
   - title: Guide pratiche

@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Copertura per il routing
           href: routing-coverage.md
-    - name: Lingue supportate
+    - name: Supporto della localizzazione
       href: supported-languages.md
     - name: Stili di mappa supportati
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Controllo mappa
           items:
-            - name: Usare il controllo mappa
+            - name: Introduzione al controllo mappa Web
               href: how-to-use-map-control.md
             - name: Creare una mappa
               href: map-create.md
-            - name: Scegliere uno stile mappa
+            - name: Cambiare lo stile della mappa
               href: choose-map-style.md
             - name: Aggiungere controlli alla mappa
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Sviluppare con Android SDK
       items:
-        - name: Come usare il controllo mappa di Android
+        - name: Introduzione al controllo mappa di Android
           href: how-to-use-android-map-control-library.md
+        - name: Aggiungere un livello per i simboli
+          href: how-to-add-symbol-to-android-map.md
+        - name: Aggiungi forme
+          href: how-to-add-shapes-to-android-map.md
+        - name: Cambiare lo stile della mappa
+          href: set-android-map-styles.md
 - name: riferimento
   items:
     - name: Estensioni di API e parametri

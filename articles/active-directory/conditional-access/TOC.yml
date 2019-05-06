@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
-    - name: Controllare l'accesso a Exchange Online e SharePoint Online
-      href: conditional-access-for-exo-and-spo.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration.md
+    - name: Controlli della frequenza degli accessi e della persistenza del browser
+      href: howto-conditional-access-session-lifetime.md
     - name: Richiedere app client approvate
       href: app-based-conditional-access.md
     - name: Richiedere criteri di protezione dell'app

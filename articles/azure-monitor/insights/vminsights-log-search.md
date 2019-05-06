@@ -114,8 +114,8 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 |DESCRIZIONE |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
-|Attendibilità |I valori sono *0 - 100*. |
-|Gravità |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
+|Confidence |I valori sono *0 - 100*. |
+|Severity |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
 |FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
 |LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
 |IsActive |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
@@ -137,9 +137,9 @@ Ogni record presente nel VMBoundPort è identificato dai campi seguenti:
 | Proprietà | DESCRIZIONE |
 |:--|:--|
 |Process | Identità del processo (o gruppi di processi) a cui è associata con la porta.|
-|IP | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
-|Porta |Il numero di porta |
-|Protocollo | Il protocollo.  Esempio *tcp* oppure *udp* (solo *tcp* è attualmente supportata).|
+|Ip | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
+|Port |Il numero di porta |
+|Protocol | Il protocollo.  Esempio *tcp* oppure *udp* (solo *tcp* è attualmente supportata).|
  
 L'identità una porta è derivata da cinque campi sopra elencati e viene archiviata nella proprietà ID porta. Questa proprietà è utilizzabile per trovare rapidamente i record per una porta specifica nel tempo. 
 
