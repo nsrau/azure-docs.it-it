@@ -348,6 +348,9 @@
     - name: servizio Azure Container
       tocHref: /azure/aks/
       topicHref: /azure/aks/
+    - name: OpenShift
+      tocHref: /azure/openshift/
+      topicHref: /azure/openshift/
     - name: Servizio contenitore
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/

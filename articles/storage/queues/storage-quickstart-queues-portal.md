@@ -1,19 +1,20 @@
 ---
 title: Guida introduttiva di Azure - Creare una coda in Archiviazione di Azure con il portale di Azure | Microsoft Docs
-description: In questa guida introduttiva si userà il portale di Azure per creare una coda, quindi si userà il portale di Azure per aggiungere un messaggio, visualizzarne le proprietà e rimuoverlo dalla coda.
+description: In questa guida introduttiva si userà il portale di Azure per creare una coda quindi si userà il portale di Azure per aggiungere un messaggio, visualizzarne le proprietà e rimuoverlo dalla coda.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/06/2019
-ms.author: tamram
-ms.openlocfilehash: 8a5dba5f949d5c20e0fbf752caac4125b8aecd52
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138263"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure
 

@@ -50,19 +50,19 @@ I campi e le convenzioni seguenti si applicano sia VMConnection VMBoundPort:
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
-|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Machine |FQDN del computer |
 |Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
-|Protocollo |Protocollo usato per la connessione.  Il valore è *tcp*. |
+|Protocol |Protocollo usato per la connessione.  Il valore è *tcp*. |
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 |LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 |LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -73,11 +73,11 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
-|Risposte |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
+|Responses |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
 |ResponseTimeMax |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeMin |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
 |ResponseTimeSum |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report. In assenza di valore, la proprietà è vuota.|
@@ -99,7 +99,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="geolocation"></a>Georilevazione
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 |RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 |RemoteLatitude |Latitudine della georilevazione. Ad esempio, *47.68* |
@@ -108,11 +108,11 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="malicious-ip"></a>Indirizzi IP dannosi
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIZIONE |Descrizione della minaccia osservata. |
+|Description |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
 |Confidence |I valori sono *0 - 100*. |
 |Severity |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
@@ -134,7 +134,7 @@ Porte in un computer che attivamente accettano il traffico in ingresso o potenzi
 
 Ogni record presente nel VMBoundPort è identificato dai campi seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 |Process | Identità del processo (o gruppi di processi) a cui è associata con la porta.|
 |Ip | Porte indirizzo IP (indirizzo IP con caratteri jolly, è possibile *0.0.0.0*) |
@@ -160,7 +160,7 @@ Ecco alcuni punti importanti da considerare:
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record di tipo *ServiceMapComputer_CL* includono dati di inventario per i server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -185,7 +185,7 @@ I record di tipo *ServiceMapComputer_CL* includono dati di inventario per i serv
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i processi connessi tramite TCP nei server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
