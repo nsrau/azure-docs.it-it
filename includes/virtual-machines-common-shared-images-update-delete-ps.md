@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 10b95a92f36ad6eb340ae864cbfd9fcbeac371a8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148753"
+ms.locfileid: "65191693"
 ---
 ## <a name="update-resources"></a>Aggiornare le risorse
 
@@ -34,7 +34,7 @@ Versione immagine:
 - Esclusione dalla versione più recente
 - Data di scadenza
 
-
+Se si prevede di aggiunta di aree di replica, non eliminare l'immagine gestita di origine. L'immagine gestita di origine è necessaria per la replica versione immagine in aree aggiuntive. 
 
 Per aggiornare la descrizione di una raccolta, usare [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 

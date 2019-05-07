@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198586"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet. Queste reti possono quindi essere connesse alle reti locali mediante tecnologie VPN. 
@@ -271,9 +271,9 @@ La nuova versione è disponibile in anteprima e presenta le caratteristiche segu
 * È possibile accedere alle risorse attraverso le connessioni ExpressRoute senza alcuna configurazione aggiuntiva oltre all'integrazione con la rete virtuale connessa a ExpressRoute.
 * L'app e la rete virtuale devono essere nella stessa area
 * La nuova funzionalità richiede una subnet inutilizzata nella rete virtuale di Resource Manager.
+* L'app deve essere in una distribuzione del Servizio app di Azure in grado di passare a Premium v2.
 * Il piano di servizio app deve essere un piano Standard, Premium o PremiumV2
 * I carichi di lavoro di produzione non sono supportati nella nuova funzionalità in anteprima
-* L'app deve essere in una distribuzione del Servizio app di Azure in grado di passare a Premium v2.
 * La nuova funzionalità Integrazione rete virtuale non funziona per le app in un ambiente del servizio app.
 * Non è possibile eliminare una rete virtuale con un'app integrata.  
 * Le tabelle di route e il peering globale non sono ancora disponibili con la nuova funzionalità Integrazione rete virtuale.  

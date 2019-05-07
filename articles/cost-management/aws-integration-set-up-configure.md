@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205708"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione di report di utilizzo e costi di AWS
 
 Con l'integrazione di report di utilizzo e costi di Amazon Web Services, è possibile monitorare e controllare la spesa di AWS in Gestione costi di Azure. L'integrazione consente a un'unica posizione nel portale di Azure in cui è possibile monitorare e controllo di spesa di Azure e AWS. Questo articolo illustra come configurare l'integrazione e configurarlo in modo che usi le funzionalità di gestione dei costi per analizzare i costi e rivedere i budget.
 
-Gestione dei costi legge il report di utilizzo e costi AWS archiviato in un bucket S3 usando le credenziali di accesso AWS per ottenere le definizioni dei report e scaricare i file CSV GZIP report.
+I processi di gestione dei costi il report di utilizzo e costi AWS archiviato in un bucket S3 usando le credenziali di accesso AWS per ottenere le definizioni dei report e scaricare i file CSV GZIP report.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Creare un report di utilizzo e costi in AWS
 
@@ -45,13 +45,15 @@ Usare la **report** della console di gestione dei costi e fatturazione in AWS pe
 14. Dopo aver esaminato le impostazioni per il report, fare clic su **verifica e completa**.
     Si noti il **Nome Report**. Si userà lo nei passaggi successivi.
 
-Può richiedere fino a 24 ore per AWS per iniziare a recapitare i report nel bucket Amazon S3. Dopo l'avvio di recapito, AWS Aggiorna i file di report di utilizzo e costi AWS almeno una volta al giorno.
+Può richiedere fino a 24 ore per AWS per iniziare a recapitare i report nel bucket Amazon S3. Dopo l'avvio di recapito, AWS Aggiorna i file di report di utilizzo e costi AWS almeno una volta al giorno. È possibile continuare a configurare l'ambiente di AWS senza tempi di attesa per il recapito iniziare.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Creare un ruolo e i criteri in AWS
 
 Gestione costi di Azure consente di accedere il bucket S3 in cui il report di utilizzo e costi si trova più volte al giorno. Gestione costi necessita di accedere alle credenziali per verificare la presenza di nuovi dati. Creare un ruolo e i criteri in AWS per consentire l'accesso da Gestione costi.
 
 Per abilitare l'accesso basato sui ruoli a un account AWS in Gestione costi di Azure, il ruolo viene creato nella console di AWS. È necessario avere il _ARN del ruolo_ e _ID esterno_ dalla console di AWS. In un secondo momento, serviranno in Crea una pagina di connettore AWS in Gestione costi di Azure.
+
+Usare la creazione guidata nuovo ruolo:
 
 1. Accedi alla console di AWS e selezionare **Services**.
 2. Nell'elenco dei servizi, selezionare **IAM**.
@@ -64,30 +66,42 @@ Per abilitare l'accesso basato sui ruoli a un account AWS in Gestione costi di A
 8. Fare clic su **Avanti: Permissions** (Avanti: Autorizzazioni).
 9. Fare clic su **Create policy** (Crea criterio). Viene aperta una nuova scheda del browser in cui si crea un nuovo criterio.
 10. Fare clic su **scegliere un servizio**.
-11. Tipo di **Report sull'utilizzo e costi**.
-12. Selezionare **livello di accesso**, **lettura** > **DescribeReportDefinitions**. In questo modo che Gestione costi di leggere ciò che CUR i report vengono definiti e determinare se il prerequisito di definizione del report corrispondono.
-13. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
-14. Fare clic su **scegliere un servizio**.
-15. Tipo di _S3_.
-16. Selezionare **livello di accesso**, **elenco** > **ListBucket**. Questa operazione Ottiene l'elenco di oggetti nel Bucket di S3.
-17. Selezionare **livello di accesso**, **lettura** > **GetObject**. Questa azione consente di scaricare i file di fatturazione.
-18. Selezionare **risorse**.
-19. Selezionare **bucket – aggiungere ARN**.
-20. Nelle **nome del Bucket**, immettere il bucket utilizzato per archiviare i file CUR.
-21. Selezionare **oggetto – aggiungere ARN**.
-22. Nelle **nome del Bucket**, immettere il bucket utilizzato per archiviare i file CUR.
-23. Nelle **nome dell'oggetto**, selezionare **qualsiasi**.
-24. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
-25. Fare clic su **scegliere un servizio**.
-26. Tipo di _costo Service Explorer_.
-27. Selezionare **tutti i costi Explorer Service actions (ce:\*)**. Questa azione verifica che la raccolta sia corretta.
-28. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
-29. Tipo di **organizzazioni**.
-30. Selezionare **livello di accesso, elenco** > **ListAccounts**. Questa operazione Ottiene i nomi degli account.
-31. Nelle **criteri di revisione**, immettere un nome per il nuovo criterio. Controllo per assicurarsi che immesso le informazioni corrette e quindi fare clic su **Crea criteri**.
-32. Tornare alla scheda precedente e aggiornare la page del browser web. Nella barra di ricerca, cercare i nuovi criteri.
-33. Selezionare **Avanti: revisione**.
-34. Immettere un nome per il nuovo ruolo. Controllo per assicurarsi che immesso le informazioni corrette e quindi fare clic su **Create Role**.
+
+Configurare le autorizzazioni dei costi e Report di utilizzo:
+
+1. Tipo di **Report sull'utilizzo e costi**.
+2. Selezionare **livello di accesso**, **lettura** > **DescribeReportDefinitions**. In questo modo che Gestione costi di leggere ciò che CUR i report vengono definiti e determinare se il prerequisito di definizione del report corrispondono.
+3. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
+
+Configurare l'autorizzazione di oggetti e i bucket di S3:
+
+1. Fare clic su **scegliere un servizio**.
+2. Tipo di _S3_.
+3. Selezionare **livello di accesso**, **elenco** > **ListBucket**. Questa operazione Ottiene l'elenco di oggetti nel Bucket di S3.
+4. Selezionare **livello di accesso**, **lettura** > **GetObject**. Questa azione consente di scaricare i file di fatturazione.
+5. Selezionare **risorse**.
+6. Selezionare **bucket – aggiungere ARN**.
+7. Nelle **nome del Bucket**, immettere il bucket utilizzato per archiviare i file CUR.
+8. Selezionare **oggetto – aggiungere ARN**.
+9. Nelle **nome del Bucket**, immettere il bucket utilizzato per archiviare i file CUR.
+10. Nelle **nome dell'oggetto**, selezionare **qualsiasi**.
+11. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
+
+Configurare le autorizzazioni Esplora costi:
+
+1. Fare clic su **scegliere un servizio**.
+2. Tipo di _costo Service Explorer_.
+3. Selezionare **tutti i costi Explorer Service actions (ce:\*)**. Questa azione verifica che la raccolta sia corretta.
+4. Fare clic su **aggiungere le autorizzazioni aggiuntive**.
+
+Aggiungere l'autorizzazione di organizzazioni:
+
+1. Tipo di **organizzazioni**.
+2. Selezionare **livello di accesso, elenco** > **ListAccounts**. Questa operazione Ottiene i nomi degli account.
+3. Nelle **criteri di revisione**, immettere un nome per il nuovo criterio. Controllo per assicurarsi che immesso le informazioni corrette e quindi fare clic su **Crea criteri**.
+4. Tornare alla scheda precedente e aggiornare la page del browser web. Nella barra di ricerca, cercare i nuovi criteri.
+5. Selezionare **Avanti: revisione**.
+6. Immettere un nome per il nuovo ruolo. Controllo per assicurarsi che immesso le informazioni corrette e quindi fare clic su **Create Role**.
     Si noti il **ARN del ruolo** e il **ID esterno** usati nei passaggi precedenti durante la creazione del ruolo. Si verranno utilizzati in un secondo momento quando si configura il connettore di gestione costi di Azure.
 
 Il codice JSON del criterio dovrebbe essere simile al seguente. Sostituire _bucketname_ con il nome del bucket S3.

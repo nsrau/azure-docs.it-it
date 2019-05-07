@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149794"
+ms.locfileid: "65192379"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Raccolte di immagini condivise fornite:
 
 - Gestire replica globale di immagini.
 - Raggruppamento di immagini per semplificare la gestione e controllo delle versioni.
-- Limiti di scalabilità superiore. Le immagini personalizzate consentono 600 macchine virtuali simultanee, anche se raccolte di immagini condivise consentono 1000 VM simultanee.
-- Immagini a disponibilità elevata usando l'archiviazione con ridondanza della zona. Anche se un data center diventa inattivo, sarà possibile accedere alle immagini in tale area.
+- Rendere a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) le immagini in aree che supportano le zone di disponibilità. ZRS offre una resilienza migliore in caso di errori di zona.
 - La condivisione tra sottoscrizioni e anche tra i tenant, l'uso di RBAC.
 
 Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione. Le immagini condivise possono essere replicate in più aree, per un ridimensionamento più rapido delle distribuzioni.
@@ -92,12 +91,10 @@ Nella tabella seguente sono elencate le aree di origine. Tutte le aree pubbliche
 
 ## <a name="limits"></a>Limiti 
 
-Con le immagini gestite, è possibile avere solo 600 macchine virtuali simultanee per ogni immagine con raccolte di immagini condiviso, questo valore viene aumentato a 1000 VM simultanei per ogni versione dell'immagine.
-
 Sono previsti limiti, per ogni sottoscrizione, per la distribuzione di risorse usando raccolte di immagini condivise:
-- 10 raccolte di immagini condivise, per ogni sottoscrizione per area
-- 200 definizioni di immagini, per ogni sottoscrizione per area
-- 2000 versionidi immagini, per ogni sottoscrizione per area
+- 100 raccolte di immagini condivise, per ogni sottoscrizione per area
+- 1.000 definizioni di immagini, per ogni sottoscrizione per area
+- 10.000 versioni dell'immagine, per ogni sottoscrizione per area
 
 Per altre informazioni, vedere [controllare l'utilizzo di risorse rispetto ai limiti](https://docs.microsoft.com/azure/networking/check-usage-against-limits) per esempi su come controllare l'utilizzo corrente.
  

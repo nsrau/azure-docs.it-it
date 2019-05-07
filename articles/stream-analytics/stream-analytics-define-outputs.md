@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205522"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i tipi di output disponibili per un processo Azure Stream Analitica. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire ulteriormente analitica di business e il data warehousing dei dati.
@@ -228,7 +228,7 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 | Nome tabella |Nome della tabella. Se non esiste, viene creata la tabella. |
 | Chiave di partizione |Il nome della colonna di output che contiene la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione all'interno di una tabella che costituisce la prima parte della chiave primaria di un'entità. È un valore stringa che può avere dimensioni fino a 1 KB. |
 | Chiave di riga |Il nome della colonna di output che contiene la chiave di riga. La chiave di riga è un identificatore univoco per un'entità all'interno di una partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa che può avere dimensioni fino a 1 KB. |
-| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Vedere le [spec operazioni Batch su tabella](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) per altri dettagli su come modificare questa impostazione. |
+| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Vedere le [spec operazioni Batch su tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) per altri dettagli su come modificare questa impostazione. |
 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 [Le code del Bus di servizio](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrono un recapito dei messaggi FIFO a uno o più consumer concorrenti. In genere, i messaggi vengono ricevuti ed elaborati dai ricevitori nell'ordine temporale in cui sono stati aggiunti alla coda. Ogni messaggio viene ricevuto ed elaborato da un solo consumer.

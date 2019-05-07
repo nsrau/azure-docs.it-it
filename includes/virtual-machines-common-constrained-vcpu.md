@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 82cbffb257d85197848b8bca14231e5363d6d45c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 360674514aff79908dcab8c8b93095ca2feb5d51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199177"
 ---
 Alcuni carichi di lavoro di database, ad esempio SQL Server o Oracle, richiedono un utilizzo elevato di memoria, spazio di archiviazione e larghezza di banda di I/O, ma non un numero elevato di core. Molti carichi di lavoro di database non sono a elevato utilizzo di CPU. Azure offre alcune dimensioni di macchina virtuale in cui è possibile limitare il numero di vCPU per ridurre i costi relativi alle licenze software, mantenendo la stessa memoria, archiviazione e larghezza di banda di I/O.
 
@@ -41,7 +41,7 @@ I costi di licenza addebitati per SQL Server o Oracle sono vincolati al nuovo nu
 | Standard_E8-2s_v3   | 2    | Come E8s_v3  |
 | Standard_E16-8s_v3  | 8    | Come E16s_v3 |
 | Standard_E16-4s_v3  | 4    | Come E16s_v3 |
-| Standard_E32-16_v3  | 16   | Come E32s_v3 |
+| Standard_E32-16s_v3 | 16   | Come E32s_v3 |
 | Standard_E32-8s_v3  | 8    | Come E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Come E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Come E64s_v3 |
