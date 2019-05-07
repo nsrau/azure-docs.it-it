@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199150"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -140,6 +140,20 @@ Non è possibile rinominare i dischi gestiti. È tuttavia possibile rinominare u
 **È possibile usare il partizionamento GPT in un disco di Azure?**
 
 Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
+
+## <a name="uploading-to-a-managed-disk"></a>Caricare un disco gestito
+
+**È possibile caricare i dati in un disco gestito esistente?**
+
+No, il caricamento può essere utilizzato solo durante la creazione di un nuovo disco vuoto con il **ReadyToUpload** dello stato.
+
+**È possibile collegare un disco a una macchina virtuale mentre è in uno stato di caricamento?**
+
+ No.
+
+**Posso usare uno snapshot di un disco gestito in uno stato di caricamento?**
+
+ No.
 
 ## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 

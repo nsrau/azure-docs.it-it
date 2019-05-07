@@ -4,6 +4,8 @@
   items:
     - name: Informazioni sugli hub di notifica
       href: notification-hubs-push-notification-overview.md
+    - name: Integrazione con le app per dispositivi mobili del servizio app
+      href: notification-hubs-app-service.md
 - name: Guide introduttive
   items:
     - name: Creare un hub di notifica - Portale di Azure

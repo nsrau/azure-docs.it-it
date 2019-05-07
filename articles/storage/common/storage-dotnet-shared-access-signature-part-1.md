@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001588"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154438"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 
@@ -114,10 +115,10 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Versione dei servizi di archiviazione |`sv=2015-04-05` |Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare. |
 | Ora di inizio |`st=2015-04-29T22%3A18%3A26Z` |Specificata nell'ora UTC. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio. |
 | Scadenza |`se=2015-04-30T02%3A23%3A26Z` |Specificata nell'ora UTC. |
-| Risorsa |`sr=b` |La risorsa è un BLOB. |
+| Resource |`sr=b` |La risorsa è un BLOB. |
 | Autorizzazioni |`sp=rw` |Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w). |
 | Intervallo IP |`sip=168.1.5.60-168.1.5.70` |Intervallo di indirizzi IP da cui verrà accettata una richiesta. |
-| Protocollo |`spr=https` |Sono consentite solo richieste tramite HTTPS. |
+| Protocol |`spr=https` |Sono consentite solo richieste tramite HTTPS. |
 | Firma |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Usata per autorizzare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64. |
 
 ### <a name="account-sas-uri-example"></a>Esempio di URI di firma di accesso condiviso dell'account
