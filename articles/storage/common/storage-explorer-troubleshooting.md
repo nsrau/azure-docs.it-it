@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154200"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
 
@@ -235,7 +235,7 @@ Se per errore è stato associato un URL SAS non valido e non è possibile annull
 
 In generale, i pacchetti seguenti devono essere eseguiti Storage Explorer in Linux:
 
-* [Runtime di .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Per .NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Nota: Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2.0. Se si dispone di una versione più recente di .NET Core installato è necessario applicare patch di Storage Explorer (vedere sotto). Se si esegue Storage Explorer 1.8.0 o maggiore quindi sarà possibile usare per .NET Core 2.2. Le versioni successive a 2.2 non sono state verificate per lavorare in questo momento.
 * `libgnome-keyring-common` e `libgnome-keyring-dev`
 * `libgconf-2-4`
 

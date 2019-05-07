@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 06/13/2018
+ms.date: 05/01/2019
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: 8922d4399f52937710f111c3c8ad4c9af91b6bb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1144115ad349879d097062e44226dd2ffcf9b48e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154180"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Istruzioni T-SQL supportate in Azure SQL Data Warehouse
 Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
@@ -40,7 +40,7 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
-* [Crea funzione di classificazione del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) (anteprima)
+* [CREA FUNZIONE DI CLASSIFICAZIONE DEL CARICO DI LAVORO](/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -50,7 +50,7 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-* [CLASSIFICAZIONE del carico di lavoro di rilascio](/sql/t-sql/statements/drop-workload-classifier-transact-sql) (anteprima)
+* [CLASSIFICAZIONE DEL CARICO DI LAVORO DI RILASCIO](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)

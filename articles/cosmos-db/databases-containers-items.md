@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889393"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153469"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Usare database, contenitori ed elementi
 
@@ -77,7 +77,7 @@ Un contenitore Cosmos Azure ha un set di proprietà definito dal sistema. A seco
 
 | **Proprietà definita dal sistema** | **Sistema generato o configurabile dall'utente** | **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Generata dal sistema | Identificatore univoco di contenitore | Sì | No  | No  | No  | No  |
+|_id | Generata dal sistema | Identificatore univoco di contenitore | Sì | No  | No  | No  | No  |
 |_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
 |_ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Sì | No  | No  | No  | No  |
 |_self | Generata dal sistema | URI indirizzabile del contenitore | Sì | No  | No  | No  | No  |

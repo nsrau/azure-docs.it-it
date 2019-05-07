@@ -14,18 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154708"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
 Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3, nonché delle versioni precedenti.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
+
+## <a name="version-180"></a>Versione 1.8.0
+5/1/2019
+
+### <a name="download-azure-storage-explorer-180"></a>Scaricare Azure Storage Explorer 1.8.0
+- [Azure Storage Explorer 1.8.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.8.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.8.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+
+* La versione di AzCopy integrata è stata aggiornata alla versione 10.1.0.
+* CTRL / Cmd + R può ora essere usato per aggiornare l'editor correntemente attivo. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* La versione dell'API di archiviazione di Azure Stack è stata modificata al 2017-04-17.
+* La gestione della finestra di accesso per Azure Data Lake Store Gen2 ora manterrà la maschera di sincronizzazione in modo simile ad altri strumenti le autorizzazioni POSIX. L'interfaccia utente verrà anche visualizzato un avviso se viene apportata una modifica che determina le autorizzazioni di un utente o gruppo di superare i limiti della maschera. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Il flag per calcolare e impostare l'hash MD5 per i caricamenti di AzCopy, è ora abilitato. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Anteprima funzionalità
+
+* Firmare di flusso di codice di dispositivo in è ora disponibile in anteprima. Per abilitarla, passare a "Anteprima" → "Uso dispositivo Code Flow Accedi". E invita gli utenti che hanno avuto problemi con finestre vuote Accedi per provare questa funzionalità, come potrebbe non risultare una forma più affidabile di accesso.
+* Storage Explorer integrato con AzCopy è attualmente disponibile in anteprima. Per abilitarla, passare a "Anteprima" → "Usare AzCopy per migliorato Blob caricare e scaricare". I trasferimenti di BLOB completati con AzCopy devono essere più veloce e più efficiente.
+
+### <a name="fixes"></a>Correzioni
+
+* La finestra di dialogo di criteri di accesso non è più imposterà una data di scadenza sui criteri di accesso di archiviazione che non hanno una scadenza. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Sono state apportate alcune modifiche alla finestra di dialogo Genera firma di accesso condiviso per assicurarsi che i criteri di accesso archiviati siano usati correttamente durante la generazione di una firma di accesso condiviso. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Quando si cerca di caricare un non - 512 byte allineati file in un Blob di pagine, Storage Explorer ora esporrà un errore più pertinente. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Copia di un contenitore Blob che usa un nome visualizzato non riesce. A questo punto, viene utilizzato il nome effettivo del contenitore Blob. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Tentativo di eseguire determinate operazioni in una cartella di Azure Data Lake Store Gen2 dotato di caratteri unicode nel nome avrà esito negativo. Tutte le azioni dovrebbero funzionare. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Problemi noti
+
+* Quando si esegue un download - AzCopy Blob, l'algoritmo MD5 per i file di grandi dimensioni non è in corso verificato. Ciò è dovuto a un bug nel SDK di archiviazione. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Quando si usa RBAC, Storage Explorer richiede alcune autorizzazioni di livello di gestione per accedere alle risorse di archiviazione. Vedere le [Guida alla risoluzione dei](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) per altre informazioni.
+* Tentativo di accedere ai BLOB di Azure Data Lake Store Gen2 dietro un proxy potrebbe non riuscire.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere il numero 537.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+   * Azure Data Lake Store Gen2
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L'esecuzione di Storage Explorer in Linux richiede alcune dipendenze da installare prima di tutto. Verificare di Storage Explorer [Guida alla risoluzione dei](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) per altre informazioni.
+
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 1.7.0](#version-170)
+* [Versione 1.6.2](#version-162)
+* [Versione 1.6.1](#version-161)
+* [Versione 1.6.0](#version-160)
+* [Versione 1.5.0](#version-150)
+* [Versione 1.4.4](#version-144)
+* [Versione 1.4.3](#version-143)
+* [Versione 1.4.2](#version-142)
+* [Versione 1.4.1](#version-141)
+* [Versione 1.3.0](#version-130)
+* [Versione 1.2.0](#version-120)
+* [Versione 1.1.0](#version-110)
+* [Versione 1.0.0](#version-100)
+* [Versione 0.9.6](#version-096)
+* [Versione 0.9.5](#version-095)
+* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-170"></a>Versione 1.7.0
 3/5/2019
@@ -96,43 +191,6 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 1.6.2](#version-162)
-* [Versione 1.6.1](#version-161)
-* [Versione 1.6.0](#version-160)
-* [Versione 1.5.0](#version-150)
-* [Versione 1.4.4](#version-144)
-* [Versione 1.4.3](#version-143)
-* [Versione 1.4.2](#version-142)
-* [Versione 1.4.1](#version-141)
-* [Versione 1.3.0](#version-130)
-* [Versione 1.2.0](#version-120)
-* [Versione 1.1.0](#version-110)
-* [Versione 1.0.0](#version-100)
-* [Versione 0.9.6](#version-096)
-* [Versione 0.9.5](#version-095)
-* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versione 0.9.2](#version-092)
-* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-162"></a>Versione 1.6.2
 1/9/2019

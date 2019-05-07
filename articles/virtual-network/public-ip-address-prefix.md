@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474437"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154478"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -29,9 +29,6 @@ Un prefisso di indirizzo IP pubblico è un intervallo riservato di indirizzi IP 
 Gli indirizzi IP pubblici vengono assegnati da un pool di indirizzi assegnati a ogni area di Azure. È possibile [scaricare](https://www.microsoft.com/download/details.aspx?id=56519) l'elenco degli intervalli di Azure usati per ogni area. Ad esempio, 40.121.0.0/16 è uno degli oltre 100 intervalli che usa Azure nell'area degli Stati Uniti orientali. L'intervallo include gli indirizzi utilizzabili dei 40.121.0.1 - 40.121.255.254.
 
 È possibile creare un prefisso di indirizzo IP pubblico in un'area di Azure e una sottoscrizione, specificando un nome e il numero di indirizzi che si desiderano includere nel prefisso. Ad esempio, se si crea un prefisso di indirizzo IP pubblico di /28, Azure alloca 16 indirizzi da uno dei relativi intervalli per l'utente. Non si conosce l'intervallo che Azure assegnerà fino a quando non lo si crea, ma gli indirizzi sono contigui. I prefissi di indirizzi IP pubblici prevedono il pagamento di un corrispettivo. Per informazioni dettagliate, consultare [prezzi degli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Il prefisso IP pubblico si trova in anteprima pubblica in aree limitate. È possibile avere [informazioni su cosa significa essere in anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il prefisso IP pubblico è attualmente disponibile in: Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale e Asia sud-orientale. Per un elenco aggiornato delle aree, consultare [aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Perché creare un prefisso di indirizzo IP pubblico?
 
@@ -49,7 +46,7 @@ Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP
 ## <a name="scenarios"></a>Scenari
 È possibile associare le risorse seguenti a un indirizzo IP pubblico statico da un prefisso:
 
-|Risorsa|Scenario|Passaggi|
+|Resource|Scenario|Passaggi|
 |---|---|---|
 |Macchine virtuali| L'associazione di IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si tratta di inserire nell'elenco elementi consentiti gli indirizzi IP di un firewall. È possibile consentire un intero prefisso con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. [Associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Servizi di bilanciamento del carico | L'associazione di indirizzi IP pubblici da un prefisso alla configurazione IP del front-end o la regola in uscita di un Load Balancer garantisce la semplificazione dello spazio di indirizzi IP pubblici di Azure. È possibile semplificare lo scenario preparando le connessioni in uscita in modo che siano originate da un intervallo di indirizzi IP contigui definito dal prefisso IP pubblico. | Per associare gli indirizzi IP da un prefisso a un Load Balancer: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si crea il Load Balancer, selezionare o aggiornare l'indirizzo IP creato nel passaggio 2 precedente come indirizzo IP front-end del Load Balancer. |
@@ -58,6 +55,7 @@ Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP
 ## <a name="constraints"></a>Vincoli
 
 - Non è possibile specificare gli indirizzi IP per il prefisso. Azure alloca gli indirizzi IP per il prefisso, in base alla dimensione specificata.
+- La dimensione predefinita di un prefisso/28 o 16 indirizzi IP pubblici.
 - Una volta creato il prefisso,non è possibile modificare l'intervallo.
 - L'intervallo è solo per gli indirizzi IPv4. L'intervallo non contiene indirizzi IPv6.
 - Solo gli indirizzi IP pubblici statici creati con lo SKU Standard possono essere assegnati dall'intervallo del prefisso. Per altre informazioni sugli indirizzi IP pubblici di SKU, consultare [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

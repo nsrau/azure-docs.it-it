@@ -1,25 +1,28 @@
 ---
 title: Crittografia di archiviazione di Azure per dati inattivi | Microsoft Docs
-description: Archiviazione di Azure protegge i dati mediante crittografia automaticamente la prima persistenza nel cloud. Tutti i dati in archiviazione di Azure, in BLOB, dischi, file, code o tabelle, vengono crittografati e decrittografati utilizzando in modo trasparente la crittografia AES a 256 bit e sia conforme a FIPS 140-2.
+description: Archiviazione di Azure protegge i dati mediante crittografia automaticamente la prima persistenza nel cloud. Tutti i dati in archiviazione di Azure vengono crittografati e decrittografati utilizzando in modo trasparente la crittografia AES a 256 bit e sia conforme a FIPS 140-2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730830"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153079"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di archiviazione di Azure per dati inattivi
 
 Archiviazione di Azure crittografa automaticamente i dati quando si rende persistente nel cloud. Protegge i dati e per aiutare a soddisfare gli impegni di sicurezza e conformità aziendali. I dati in archiviazione di Azure vengono crittografati e decrittografati in modo trasparente con 256 bit [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), algoritmi di crittografia a uno dei blocchi più efficaci e sia conforme a FIPS 140-2. Crittografia di archiviazione di Azure è simile alla crittografia di BitLocker in Windows.
 
-Crittografia di archiviazione di Azure è abilitata per tutti gli account di archiviazione nuovi ed esistenti e non può essere disabilitata. Poiché i dati sono protetti per impostazione predefinita, non devi modificare il codice o applicazioni per sfruttare i vantaggi della crittografia di archiviazione di Azure. Gli account di archiviazione vengono crittografati indipendentemente dal livello di prestazioni (standard o premium) o il modello di distribuzione (classica o Azure Resource Manager). Tutte le opzioni di ridondanza di archiviazione di Azure supportano la crittografia, e tutte le copie di un account di archiviazione vengono crittografate. Vengono crittografate tutte le risorse di archiviazione di Azure, tra cui BLOB, dischi, file, code e tabelle.
+Crittografia di archiviazione di Azure è abilitata per tutti gli account di archiviazione nuovi ed esistenti e non può essere disabilitata. Poiché i dati sono protetti per impostazione predefinita, non devi modificare il codice o applicazioni per sfruttare i vantaggi della crittografia di archiviazione di Azure. 
+
+Gli account di archiviazione vengono crittografati indipendentemente dal livello di prestazioni (standard o premium) o il modello di distribuzione (classica o Azure Resource Manager). Tutte le opzioni di ridondanza di archiviazione di Azure supportano la crittografia, e tutte le copie di un account di archiviazione vengono crittografate. Vengono crittografate tutte le risorse di archiviazione di Azure, tra cui BLOB, dischi, file, code e tabelle. Tutti i metadati dell'oggetto vengono anche crittografati.
 
 Crittografia non influenza le prestazioni di archiviazione di Azure. Non sono previsti costi aggiuntivi per la crittografia di archiviazione di Azure.
 

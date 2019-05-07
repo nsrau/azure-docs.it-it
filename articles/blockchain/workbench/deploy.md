@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154618"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -27,16 +27,16 @@ Per altre informazioni sui componenti di Blockchain Workbench, vedere [Architett
 
 Blockchain Workbench consente di distribuire un libro mastro blockchain insieme a un set di servizi di Azure pertinenti usati frequentemente per compilare un'applicazione basata su blockchain. La distribuzione di Blockchain Workbench comporta il provisioning dei seguenti servizi Azure all'interno di un gruppo di risorse nella sottoscrizione Azure.
 
-* 1 argomento di Griglia di eventi
-* 1 spazio dei nomi del bus di servizio
-* 1 Application Insights
-* 1 database SQL (S0 Standard)
-* 2 Servizi app (Standard)
-* 2 Azure Key Vault
-* 2 account di Archiviazione di Azure (archiviazione con ridondanza locale standard)
-* 2 set di scalabilità di macchine virtuali (per i nodi di convalida e di lavoro)
-* 2 reti virtuali (che includono il bilanciamento del carico, il gruppo di sicurezza di rete e l'indirizzo IP pubblico per ogni rete virtuale)
-* Facoltativo: Monitoraggio di Azure
+* Piano di servizio App (Standard)
+* Application Insights
+* Griglia di eventi
+* Azure Key Vault
+* Bus di servizio
+* Database SQL (Standard S0) + Server logico SQL
+* Account di archiviazione di Azure (Standard LRS)
+* Virtual machine set di scalabilità con capacità pari a 1
+* Gruppo di risorse di rete virtuale (con Load Balancer, gruppo di sicurezza rete, indirizzo IP pubblico, rete virtuale)
+* Facoltativo: Azure Blockchain Service (Basic B0 predefinito)
 
 Di seguito è riportato un esempio di distribuzione creata nel gruppo di risorse **myblockchain**.
 
@@ -44,17 +44,12 @@ Di seguito è riportato un esempio di distribuzione creata nel gruppo di risorse
 
 Il costo di Blockchain Workbench è un'aggregazione del costo dei servizi Azure sottostanti. Per calcolare i prezzi per i servizi di Azure, usare il [Calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> Se si usa una sottoscrizione con limiti di servizio ridotti, ad esempio una sottoscrizione di livello gratuito di Azure, la distribuzione potrebbe non riuscire a causa di una quota insufficiente di core della macchina virtuale. Prima della distribuzione, controllare la quota seguendo le istruzioni nell'articolo [Quote vCPU delle macchine virtuali](../../virtual-machines/windows/quotas.md). La selezione di macchina virtuale predefinita richiede 6 core della macchina virtuale. Il passaggio a una macchina virtuale di dimensioni inferiori, come *DS1 Standard v2* riduce il numero di core a 4.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Azure Blockchain Workbench richiede le registrazioni per l'applicazione e la configurazione di Azure AD. È possibile scegliere di eseguire la [configurazione di Azure AD manualmente](#azure-ad-configuration) prima della distribuzione o eseguire uno script successivamente alla distribuzione. Se si sta ridistribuendo Blockchain Workbench, vedere [Configurazione di Azure AD](#azure-ad-configuration) per verificare la configurazione di Azure AD.
 
 > [!IMPORTANT]
 > Non è necessario distribuire Workbench nello stesso tenant di quello usato per registrare un'applicazione Azure AD. Workbench deve essere distribuito in un tenant in cui sono disponibili autorizzazioni sufficienti per distribuire le risorse. Per altre informazioni sui tenant di Azure AD, vedere [Come ottenere un tenant di Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>Distribuire Blockchain Workbench
 
@@ -82,7 +77,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
     | Tipo di autenticazione | Selezionare questa opzione se si vuole usare una password o una chiave per la connessione alle macchine virtuali. |
     | Password | Password usata per la connessione alle macchine virtuali. |
     | SSH | Usare una chiave pubblica RSA in formato a una riga che inizi con **ssh-rsa** oppure usare il formato PEM a più righe. È possibile generare le chiavi SSH tramite `ssh-keygen` in Linux e OS X oppure usando PuTTYGen in Windows. Per altre informazioni sulle chiavi SSH, vedere [Come usare SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Database password (Password database) / Confirm database password (Conferma password database) | Specificare la password da usare per accedere al database creato nell'ambito della distribuzione. |
+    | Password del database e Blockchain | Specificare la password da usare per accedere al database creato nell'ambito della distribuzione. La password deve soddisfare tre dei quattro requisiti seguenti: lunghezza deve essere compresa tra 12 e 72 caratteri, 1 carattere minuscolo, 1 carattere maiuscolo, 1 numero e 1 carattere speciale non numerico sign(#), identificaz, virgola (,), star(*), eseguire il backup preventivo (\`), fare doppio quote("), quote(') singolo, trattini (-) e semicolumn(;) |
     | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per ottimizzare la disponibilità, questa impostazione deve corrispondere alla **Località**. |
     | Sottoscrizione | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
     | Gruppi di risorse | Creare un nuovo gruppo di risorse selezionando **Crea nuovo** e quindi specificare un nome di gruppo di risorse univoco. |
@@ -94,15 +89,15 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     Per **Crea nuovo**:
 
-    L'opzione *Crea nuovo* crea un set di nodi Ethereum Proof-of Authority (PoA) nella sottoscrizione di un singolo membro. 
+    Il *creare un nuovo* opzione consente di distribuire una contabilità Quorum del servizio di Azure Blockchain con lo sku basic predefinito.
 
     ![Impostazioni avanzate per la nuova rete blockchain](media/deploy/advanced-blockchain-settings-new.png)
 
     | Impostazione | DESCRIZIONE  |
     |---------|--------------|
-    | Monitoraggio | Scegliere se si vuole abilitare Monitoraggio di Azure per il monitoraggio della rete blockchain. |
+    | Azure Blockchain Service piano tariffario | Scegli **base** oppure **Standard** livello di servizio di Blockchain di Azure che viene usato per la Blockchain Workbench |
     | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Note: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
-    | Seleziona macchina virtuale | Scegliere le dimensioni di macchina virtuale preferite per la rete blockchain. Scegliere dimensioni di macchina virtuali inferiori, come *DS1 Standard v2* se si usa una sottoscrizione con limiti di servizio ridotto, ad esempio il livello gratuito di Azure. |
+    | Seleziona macchina virtuale | Selezionare dimensioni della macchina virtuale per la rete di blockchain e le prestazioni di archiviazione preferito. Scegliere dimensioni di macchina virtuali inferiori, come *DS1 Standard v2* se si usa una sottoscrizione con limiti di servizio ridotto, ad esempio il livello gratuito di Azure. |
 
     Per **Usa esistente**:
 
@@ -121,7 +116,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
      |---------|--------------|
      | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con https:// o http:// e termina con un numero di porta. Ad esempio: `http<s>://<network-url>:<port>` |
      | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Note: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
-     | Seleziona macchina virtuale | Scegliere le dimensioni di macchina virtuale preferite per la rete blockchain. |
+     | Seleziona macchina virtuale | Selezionare dimensioni della macchina virtuale per la rete di blockchain e le prestazioni di archiviazione preferito. Scegliere dimensioni di macchina virtuali inferiori, come *DS1 Standard v2* se si usa una sottoscrizione con limiti di servizio ridotto, ad esempio il livello gratuito di Azure. |
 
 9. Selezionare **OK** per completare le impostazioni avanzate.
 

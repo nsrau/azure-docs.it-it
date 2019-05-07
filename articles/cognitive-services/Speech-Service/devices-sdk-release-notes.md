@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711895"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153044"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Dispositivi vocale di servizi cognitivi SDK 1.5.0: Rilascio: maggio 2019
+
+*   Dispositivi Speech SDK è ora disponibile a livello generale e non è più un'anteprima gestita.
+*   Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.5.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+*   Nuova tecnologia di riattivazione word sono stati introdotti miglioramenti significativi di qualità, vedere le modifiche di rilievo.
+*   Nuova pipeline di elaborazione audio per il riconoscimento di estrema campo migliorata.
+
+**Modifiche di rilievo**
+
+*   A causa della nuova tecnologia di word riattivazione tutte le parole di riattivazione devono essere create nuovamente nel nostro portale word migliorato della riattivazione. Per rimuovere completamente le parole chiave vecchie dal dispositivo di disinstallare l'app precedente.
+    - adb disinstallare com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Dispositivi vocale di servizi cognitivi SDK 1.4.0: Rilascio: aprile 2019 
 

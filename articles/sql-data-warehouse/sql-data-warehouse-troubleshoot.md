@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474845"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154257"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 In questo articolo sono elencate le domande frequenti relative alla risoluzione dei problemi.
@@ -57,8 +57,9 @@ In questo articolo sono elencate le domande frequenti relative alla risoluzione 
 ## <a name="polybase"></a>PolyBase
 | Problema                                           | Risoluzione                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Caricamento non riuscito a causa di un elevato numero di righe                | Attualmente PolyBase non supporta un elevato numero di righe.  Ciò significa che se la tabella contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), le tabelle esterne non possono essere usate per caricare i dati.  Il caricamento di un elevato numero di righe è attualmente supportato solo attraverso Azure Data Factory (con BCP), Analisi di flusso di Azure, SSIS, BCP o la classe .NET SQLBulkCopy. Il supporto di un elevato numero di righe in PolyBase verrà aggiunto in una versione futura. |
-| Esito negativo del caricamento bcp della tabella con tipo di dati MAX | Esiste un problema noto che richiede che venga inserito VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX) alla fine della tabella in alcuni scenari.  Provare a spostare le colonne MAX alla fine della tabella. |
+| Esportazioni avrà esito negativo e di tipo TINYINT e data             | Per Parquet e ORC formati di file, i valori di tipo data devono essere compreso tra 1970-01-01 00:00:01 UTC e 2038-01-19 03:14:07. I valori di tipo TINYINT devono essere compreso tra 0 e 127.    |
+| Problema con il tipo DECIMAL Parquet: scrittura da Spark digitare DecimalType(18,4) e l'importazione in una colonna di tipo double o real fornisce "errore: non è possibile eseguire il cast java.base/java.lang.Long java.base/java.lang.Float". | È necessario importare in bigint e dividere 10000 oppure usare il [Databricks] connettore SQL Data Warehouse. |
+| Problema con Parquet tipo DATE: scrittura dal tipo di Spark, data e l'importazione in una colonna di tipo date o datetime offre "errore: non è possibile eseguire il cast java.base/java.lang.Integer parquet.io.api.Binary". | È necessario usare un tipo diverso di Spark (int) e la data di calcolo oppure usare il [Databricks] connettore SQL Data Warehouse. |
 
 ## <a name="differences-from-sql-database"></a>Differenze rispetto al database SQL
 | Problema                                 | Risoluzione                                                   |
@@ -132,3 +133,4 @@ Se non si riesce a trovare una soluzione al problema, ecco alcune altre risorse 
 [Forum su Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

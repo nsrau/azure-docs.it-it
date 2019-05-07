@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814029"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154563"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -31,9 +31,11 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
 | [Test di batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
+| Entità esterne | senza limiti |
 | [Finalità][intents]|500 per ogni applicazione: 499 finalità personalizzate e la finalità _None_ obbligatoria.<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti.|
 | [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [Entità basate su Machine Learning](./luis-concept-entity-types.md):<br> Composita<br>  Gerarchica<br> Semplice|Un limite di 100 entità padre (esclusi gli elementi figlio gerarchici) o 330 entità (inclusi gli elementi figlio gerarchici), indipendentemente dal limite raggiunto dall'utente.<br><br>Un esempio di questa gerarchia è costituito da 30 elementi, ognuno con 10 elementi figlio.  Gli elementi figlio utilizzeranno in totale 300 entità e gli elementi di livello superiore utilizzeranno le restanti 30. |
+| [Entità apprese macchina + ruoli](./luis-concept-entity-types.md):<br> Composita,<br>semplice,<br>ruolo entità|Un limite di 100 entità padre o 330 entità, a seconda di quale limita i riscontri utente prima di tutto. Un ruolo viene conteggiata come un'entità ai fini questo limite. È un esempio è un composita con un semplice entità che ha 2 ruoli: 1 semplice composta + 1 + 2 ruoli = 4 330 entità.|
+| [Anteprima - elenco dinamico di entità](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di circa 1 KB per ogni richiesta dell'endpoint stima query|
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
 | [Elenco di frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
