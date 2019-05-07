@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867604"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149239"
 ---
 # <a name="streaming-endpoints-origin"></a>Endpoint di streaming (origine)
 
@@ -156,7 +156,7 @@ L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccet
 
 È possibile determinare se sono state apportate modifiche DNS in un Endpoint di Streaming (il traffico viene indirizzato alla rete CDN di Azure) usando https://www.digwebinterface.com. Se il risultato include i nomi di dominio azureedge.net nei risultati, il traffico a questo punto che puntano alla rete CDN.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

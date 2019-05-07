@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139201"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolli di Microsoft identity platform
 
@@ -45,7 +45,7 @@ In quasi tutti i flussi di OAuth 2.0 e OpenID Connect, sono coinvolte nello scam
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Ogni app che deve accettare sia personali e account aziendali o dell'istituto di istruzione deve essere registrato tramite il nuovo **registrazioni per l'App (anteprima)** un'esperienza nello sviluppo di [portale di Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) prima che può accedere gli utenti utilizzo di OAuth 2.0 oppure OpenID Connect. Il processo di registrazione app raccoglie e assegna all'app alcuni valori:
+È necessario registrare ogni app che deve accettare sia personali e account aziendali o dell'istituto di istruzione tramite il **registrazioni per l'App** un'esperienza nello sviluppo di [portale di Azure](https://aka.ms/appregistrations) prima che può accedere gli utenti tramite OAuth 2.0 oppure OpenID Connect. Il processo di registrazione app raccoglie e assegna all'app alcuni valori:
 
 * Un **ID applicazione** che identifica l'app in modo univoco
 * Un **URI di reindirizzamento** o un **identificatore di pacchetto** che può essere usato per indirizzare le risposte all'app

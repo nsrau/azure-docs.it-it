@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775898"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137869"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -67,8 +67,18 @@ Quando è necessario suddividere un set di risultati in set più piccoli di reco
 
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.
 
+Gli esempi seguenti illustrano come **ignorare** il primo record 3000 e restituire il **primo** 1000 record dopo quelli ignorata con CLI di Azure e Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se è manca dalla query, la risposta dell'API REST non includerà il **$skipToken**.
+> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se è manca dalla query, la risposta non includerà il **$skipToken**.
 
 Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query) (Query della pagina successiva) nella documentazione dell'API REST.
 

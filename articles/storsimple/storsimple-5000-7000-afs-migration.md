@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309821"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150744"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Eseguire la migrazione dei dati da StorSimple serie 5000/7000 a Sincronizzazione file di Azure
 
@@ -87,7 +87,7 @@ Eseguire la procedura seguente per effettuare la migrazione di condivisione file
     Ignorare questo passaggio e andare al passaggio successivo, se si usa un altro host di Windows Server. Se si usa lo stesso Server di file di Windows per AFS, si verificheranno alcuni minuti di inattività. 
     - **Il tempo di inattività inizia** -eliminare l'endpoint del server che è stato creato nel *passaggio 1F*. 
     - Creare un nuovo endpoint di server con il percorso in cui si desidera che verranno trovati i dati successivamente.
-    - Quando l'endpoint del server viene mostrato come Integro (l'operazione potrebbe richiedere alcuni minuti), si visualizzeranno i dati nella nuova posizione. È ora possibile configurare l'host di Windows Server per rendere disponibili i file da questo nuovo percorso. -**Tempo di inattività finisce**.
+    - Quando l'endpoint del server viene mostrato come Integro (l'operazione potrebbe richiedere alcuni minuti), si visualizzeranno i dati nella nuova posizione. È ora possibile configurare l'host di Windows Server per rendere disponibili i file da questo nuovo percorso. - **Tempo di inattività finisce**.
 5.  Se si usa un altro file Server di Windows per Sincronizzazione file di Azure, non si verificheranno tempi di inattività. 
     - Aggiungere un altro endpoint server con il percorso della risorsa di archiviazione locale che si è pronti a usare come cache anziché il dispositivo StorSimple. 
     - Sarà possibile visualizzare i file nel nuovo server in pochi minuti. Sarà possibile passare dal dispositivo StorSimple al nuovo percorso nell'host in qualsiasi momento.

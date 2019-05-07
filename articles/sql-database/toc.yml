@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: Livelli di servizio DTU
           href: sql-database-service-tiers-dtu.md
+        - name: Livello di elaborazione serverless
+          href: sql-database-serverless.md
         - name: Pagare in anticipo la capacità riservata
           href: sql-database-reserved-capacity.md
         - name: Eseguire la migrazione dal livello di servizio Premium RS

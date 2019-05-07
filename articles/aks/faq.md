@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073940"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -25,7 +25,9 @@ Per un elenco completo delle aree disponibili, vedere [Aree del servizio Azure K
 
 ## <a name="does-aks-support-node-autoscaling"></a>servizio Azure Kubernetes supporta la scalabilità automatica dei nodi?
 
-Sì, la scalabilità automatica è disponibile tramite il [Ridimensionamento automatico di Kubernetes][auto-scaler] a partire da Kubernetes 1.10. Per altre informazioni su come configurare e usare la scalabilità automatica del cluster, vedere [Scalabilità automatica del cluster nel servizio Azure Kubernetes][aks-cluster-autoscale].
+Sì, la scalabilità automatica è disponibile tramite il [Ridimensionamento automatico di Kubernetes][auto-scaler] a partire da Kubernetes 1.10. Per altre informazioni su come configurare e usare la scalabilità automatica del cluster manualmente, vedere [scalabilità automatica di Cluster in AKS][aks-cluster-autoscale].
+
+È inoltre possibile utilizzare il ridimensionamento automatico predefinita del cluster (attualmente in anteprima nel servizio contenitore di AZURE) per gestire la scalabilità dei nodi. Per altre informazioni, vedere [ridimensionare automaticamente un cluster per soddisfare le esigenze dell'applicazione nel servizio contenitore di AZURE][aks-cluster-autoscaler].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>servizio Azure Kubernetes supporta il controllo degli accessi in base al ruolo di Kubernetes?
 
@@ -41,13 +43,17 @@ Attualmente non è possibile. Il server API Kubernetes viene esposto come nome d
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente servizio Azure Kubernetes?
 
-Sì, Azure applica automaticamente le patch di sicurezza ai nodi del cluster con una pianificazione notturna. Tuttavia l'utente è responsabile di garantire che i nodi vengano riavviati come richiesto. Sono disponibili diverse opzioni per eseguire il riavvio dei nodi:
+Azure applica automaticamente le patch di sicurezza per i nodi di Linux nel cluster in una pianificazione notturna. Tuttavia, si è responsabile di garantire che tali Linux nodi vengano riavviati come richiesto. Sono disponibili diverse opzioni per eseguire il riavvio dei nodi:
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
 - Aggiornando il cluster servizio Azure Kubernetes. Gli aggiornamenti del cluster [bloccano e svuotano automaticamente i nodi][cordon-drain], quindi eseguono il backup di ogni nodo con l'immagine Ubuntu più recente e una nuova versione della patch o una versione precedente di Kubernetes. Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
 - Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii del sistema operativo sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento][cordon-drain] come aggiornamento del cluster.
 
-Per altre informazioni sull'utilizzo di Kured, vedere [Apply security and kernel updates to nodes in AKS][node-updates-kured] (Applicare aggiornamenti di sicurezza e del kernel ai nodi di ASK).
+Per altre informazioni sull'utilizzo di Kured, vedere [Apply security and kernel updates to nodes in servizio Azure Kubernetes][node-updates-kured] (Applicare aggiornamenti di sicurezza e del kernel ai nodi di ASK).
+
+### <a name="windows-server-nodes"></a>Nodi di Windows Server
+
+Per i nodi Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), Windows Update automaticamente eseguire e applicare gli aggiornamenti più recenti. A intervalli regolari tutto il ciclo di rilascio di Windows Update e il proprio processo di convalida, è consigliabile eseguire un aggiornamento sul pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea i nodi che eseguono l'immagine più recente di Windows Server e le patch, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?
 
@@ -102,7 +108,9 @@ servizio Azure Kubernetes non è attualmente integrato nell'insieme di credenzia
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in servizio Azure Kubernetes?
 
-Per eseguire i contenitori di Windows Server, è necessario eseguire nodi basati su Windows Server. I nodi basati su server di Windows non sono attualmente disponibili in servizio Azure Kubernetes. È tuttavia possibile usare Virtual Kubelet per pianificare i contenitori di Windows per Istanze di Azure Container e gestirli come parte del cluster del servizio Azure Kubernetes. Per altre informazioni, vedere [Usare Virtual Kubelet con servizio Azure Kubernetes][virtual-kubelet].
+Sì, i contenitori di Windows Server sono disponibili in anteprima. Per eseguire contenitori Windows Server nel servizio contenitore di AZURE, si crea un pool di nodi che esegue Windows Server come sistema operativo guest. Contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, [creare un cluster AKS con un pool di nodi di Windows Server][aks-windows-cli].
+
+Supporto del pool di nodi Server finestra include alcune limitazioni che fanno parte di Windows Server a monte nel progetto di Kubernetes. Per altre informazioni su queste limitazioni, vedere [i contenitori di Windows Server in limitazioni AKS][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>servizio Azure Kubernetes offre un contratto di servizio?
 
@@ -120,6 +128,10 @@ In un contratto di servizio il provider si impegna a rimborsare il cliente per i
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

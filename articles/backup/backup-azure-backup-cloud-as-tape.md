@@ -1,20 +1,18 @@
 ---
 title: Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 description: Informazioni sulla semantica di Backup di Azure, simile all'archiviazione su nastro, che consente di eseguire il backup e il ripristino dei dati in Azure
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646965"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146029"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
@@ -59,8 +57,7 @@ Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripr
 Il numero totale dei punti di ripristino è 56.
 
 > [!NOTE]
-> Il backup di Azure non dispone di una restrizione sul numero di punti di ripristino.
->
+> Usare Backup di Azure è possibile creare fino a 9999 punti di ripristino per ogni istanza protetta. Un'istanza protetta è un computer, un server fisico o virtuale o un carico di lavoro che esegue il backup in Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata

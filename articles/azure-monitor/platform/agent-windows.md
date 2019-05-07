@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777352"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138136"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connettere computer Windows a monitoraggio di Azure
 
@@ -31,16 +31,18 @@ L'agente può essere installato usando uno dei metodi seguenti. La maggior parte
 * Installazione manuale. Il programma di installazione viene eseguito manualmente nel computer mediante la procedura di installazione guidata, dalla riga di comando o distribuito tramite uno strumento di distribuzione software esistente.
 * Configurazione dello stato desiderato (DSC) di Automazione di Azure. Uso di DSC in Automazione di Azure con uno script per i computer Windows già distribuiti nell'ambiente in uso.  
 * Script di PowerShell.
-* Modello di Resource Manager per le macchine virtuali con Windows in esecuzione in locale in Azure Stack.  
+* Modello di Resource Manager per le macchine virtuali con Windows in esecuzione in locale in Azure Stack. 
 
 >[!NOTE]
 >Centro sicurezza di Azure (ASC) dipende da Microsoft Monitoring Agent (detto anche l'agente di Log Analitica Windows) e verranno installati e configurarlo in modo da segnalare per un'area di lavoro di Log Analitica come parte della relativa distribuzione. Centro sicurezza di AZURE include un'opzione di provisioning automatico che consente l'installazione automatica dell'agente di Log Analitica Windows su tutte le macchine virtuali nella sottoscrizione e lo configura per fare riferimento a un'area di lavoro specifico. Per altre informazioni su questa opzione, vedere [abilitare il provisioning automatico dell'agente di Log Analitica](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
+Se è necessario configurare l'agente per fare riferimento a più di un'area di lavoro, questa non può essere eseguita durante la configurazione iniziale, solo in un secondo momento per aggiornare le impostazioni dal Pannello di controllo o da PowerShell come descritto in [aggiunta o rimozione di un'area di lavoro](agent-manage.md#adding-or-removing-a-workspace).  
+
 Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
-Prima di installare l'agente di Log Analytics per Windows, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics.  Queste informazioni sono necessarie durante l'installazione da ogni metodo di installazione per configurare correttamente l'agente e verificare che possa comunicare correttamente con monitoraggio di Azure in Azure commercial e US Government cloud.  
+Prima di installare l'agente di Log Analytics per Windows, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics.  Queste informazioni sono necessarie durante l'installazione da ogni metodo di installazione per configurare correttamente l'agente e verificare che possa comunicare correttamente con monitoraggio di Azure in Azure commercial e US Government cloud. 
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco delle aree di lavoro di Log Analytics selezionare quella che si intende configurare per l'uso come riferimento da parte dell'agente.

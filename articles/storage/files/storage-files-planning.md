@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073364"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -111,20 +111,16 @@ Dimensioni della condivisione possono essere aumentata in qualsiasi momento, ma 
 
 Nella tabella seguente illustra alcuni esempi di queste formule per le dimensioni di condivisione con provisioning:
 
-(Dimensioni identificato da un * sono in anteprima pubblica limitata)
-
 |Capacità (GiB) | Operazioni di I/O al secondo di base | Burst di IOPS | Traffico in uscita (MiB/s) | Traffico in ingresso (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Fino a 300     | 66   | 44   |
 |500         | 500     | Massimo di 1.500   | 90   | 60   |
 |1.024       | 1.024   | Fino a 3.072   | 122   | 81   |
 |5120       | 5120   | Fino a 15,360  | 368   | 245   |
-|10,240 *     | 10,240  | Fino a 30.720  | 675 | 450   |
-|33,792 *     | 33,792  | Fino a 100.000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Fino a 100.000 | 3.132 | 2,088   |
-|102,400 *    | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
-
-Le dimensioni di condivisione dei file fino a 5 TiB sono attualmente in anteprima pubblica, mentre le dimensioni fino a 100 TiB sono in anteprima pubblica limitata, per richiedere l'accesso all'anteprima pubblica limitata completo [questo sondaggio.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Fino a 30.720  | 675 | 450   |
+|33,792      | 33,792  | Fino a 100.000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Fino a 100.000 | 3.132 | 2,088   |
+|102,400     | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Burst
 
@@ -184,7 +180,7 @@ Nella scelta dell'opzione di replica da usare, tenere presenti queste consideraz
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
 
-Oggi, la dimensione massima per una condivisione file di Azure è 5 TiB (100 TiB per file premium condividono anteprima pubblica limitata). A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata.
+Oggi, la dimensione massima per una condivisione file di Azure è 5 TiB (100 TiB per condivisioni file premium, che sono in anteprima pubblica). A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata.
 
 È possibile sincronizzare più condivisioni file di Azure in un singolo file server Windows con Sincronizzazione file di Azure. In questo modo, è possibile assicurarsi che le condivisioni file meno recenti e di grandi dimensioni presenti in locale possano essere inserite in Sincronizzazione file di Azure. Per altre informazioni, vedere [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md).
 

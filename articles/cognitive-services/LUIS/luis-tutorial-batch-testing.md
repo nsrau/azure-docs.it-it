@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146151"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -28,7 +28,7 @@ Requisiti per il test in batch:
 
 * Numero massimo di 1000 espressioni per ogni test. 
 * Assenza di duplicati. 
-* Tipi di entità consentiti: solo entità apprese in modo automatico semplici, gerarchiche (solo elemento padre) e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
+* Tipi di entità è consentiti: solo le entità apprese lavorati di semplice e composta. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
 Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* usare le espressioni di esempio già aggiunte a una finalità. 
 
@@ -40,7 +40,7 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 > * Creare un file di test in batch 
 > * Eseguire un test in batch
 > * Esaminare i risultati del test
-> * Correggi errori 
+> * Correggere gli errori 
 > * Eseguire nuovamente il test in batch
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -83,7 +83,7 @@ Seguire questa procedura:
 
 5. Assegnare un nome al set di dati `intents only` e selezionare **Done** (Fatto).
 
-    ![Seleziona file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+    ![Selezionare il file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Selezionare il pulsante **Run** (Esegui). 
 
@@ -95,7 +95,7 @@ Seguire questa procedura:
 
 ## <a name="review-batch-results"></a>Esaminare i risultati del batch
 
-Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. L'impostazione predefinita del filtro è sulla prima finalità dell'elenco. Il filtro contiene tutte le finalità e solo le entità semplici, gerarchiche (solo elemento padre) e composite. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
+Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. L'impostazione predefinita del filtro è sulla prima finalità dell'elenco. Il filtro contiene tutti gli Intent e tutte le entità solo semplice e composta. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
 
 Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati. 
 
@@ -169,7 +169,7 @@ Per verificare che le espressioni del test in batch siano stimate correttamente 
 
 ## <a name="create-batch-file-with-entities"></a>Creare file di batch con entità 
 
-Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. Vengono usate solo le entità apprese in modo automatico, ovvero di tipo semplice, gerarchico, (solo elemento padre) e composite. Non aggiungere entità non apprese in modo automatico perché si trovano sempre tramite espressioni regolari o corrispondenze di testo esplicite.
+Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. Vengono usate solo le entità apprese macchina: entità semplice e composta. Non aggiungere entità non apprese in modo automatico perché si trovano sempre tramite espressioni regolari o corrispondenze di testo esplicite.
 
 La variazione delle entità per il numero di parole totali ([token](luis-glossary.md#token)) può influire sulla qualità della stima. Verificare che i dati di training specificati per la finalità con espressioni etichettate includano una vasta gamma di lunghezze di entità. 
 
@@ -205,11 +205,11 @@ Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto
 
 ## <a name="review-entity-batch-results"></a>Esaminare i risultati del batch di entità
 
-Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso nel filtro a destra per trovare le stime di entità con errori. 
+Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso il filtro a destra per trovare le stime di entità con errori. 
 
 1. Selezionare l'entità **Job** nel filtro.
 
-    ![Stime di entità con errori nel filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Stime di entità di errore nel filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Il grafico viene modificato per visualizzare le stime di entità. 
 

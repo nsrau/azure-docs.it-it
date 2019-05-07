@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922760"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138034"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -184,8 +184,8 @@ Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare
 
 * D: Cosa accade se dispone di una risorsa controllata in due regole di azione separata? È possibile ottenere una o due notifiche? Ad esempio 'VM2' in questo scenario:
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     R. Per ogni avviso su 'VM1' e 'VM3', gruppo di azione 'AG1' verrà attivato una sola volta. Per ogni avviso in VM '2', gruppo di azione 'AG1' viene generato due volte (**regole di azione non deduplicare azioni**). 
 
@@ -198,9 +198,10 @@ Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare
 
 * D: Cosa accade se si dispone di una regola di avviso e una regola di azione definita per la stessa risorsa, la chiamata a gruppi di azioni diverse? Ad esempio, 'VM1' in questo scenario:
 
-     regola di avviso 'rule1' su 'VM1' con regola azione 'AG2' del gruppo di azione 'AR1' definita per 'VM1' con 'AG1', gruppo di azioni  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    R. Per ogni avviso in VM '1', gruppo di azione 'AG1' verrà attivato una sola volta. Ogni regola di avviso 'rule1' attivazione, viene inoltre attivata inoltre 'AG2'. (**azione gruppi definiti all'interno di regole di azione e le regole di avviso funzionano in modo indipendente, con alcuna deduplicazione**) 
+    R. Per ogni avviso in VM '1', gruppo di azione 'AG1' verrà attivato una sola volta. Ogni regola di avviso 'rule1' attivazione, viene inoltre attivata inoltre 'AG2'. **I gruppi di azioni definite all'interno delle regole di azione e le regole di avviso funzionano in modo indipendente, con alcuna deduplicazione**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

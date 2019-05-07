@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728586"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143282"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quanto costa partecipare all'anteprima?
 
-Al momento non sono previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima di Mesh. Tuttavia, si consiglia di eliminare le risorse si distribuisce e lasciarli non in esecuzione a meno che non si esegue attivamente il test li.
+Non sono attualmente previsti addebiti per la distribuzione di applicazioni o contenitori per l'anteprima di rete. Guarda per gli aggiornamenti nel mese di maggio per l'abilitazione per la fatturazione. Tuttavia, si consiglia di eliminare le risorse si distribuisce e lasciarli non in esecuzione a meno che non si esegue attivamente il test li.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>È previsto un limite di quota per il numero di core e la RAM?
 
@@ -88,10 +88,15 @@ Se le attività di sviluppo vengono eseguite in un computer Windows 10 con aggio
 Per distribuire i servizi, possono essere usate le immagini del sistema operativo contenitore seguenti:
 
 - Windows: windowsservercore e nanoserver
-    - Windows Server versione 1709
-    - Windows Server versione 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Nessuna limitazione nota
+
+> [!NOTE]
+> Strumenti per la rete Mesh di Visual Studio non supporta ancora la distribuzione in contenitori 1809 e Windows Server 2019.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>I tipi di applicazioni è possibile distribuire? 
 
@@ -138,6 +143,10 @@ Il problema verrà risolto anche se l'app è già distribuita localmente in uno 
 Più applicazioni non possono essere distribuite in un cluster con un solo nodo. Per attenuare il problema:
 - Usare un cluster con cinque nodi durante la distribuzione di più app in un cluster locale.
 - Rimuovere le app attualmente non in fase di test.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Strumenti VS ha supporto limitato per i contenitori Windows
+
+Gli strumenti di Visual Studio supportano solo la distribuzione di contenitori di Windows con una versione del sistema operativo base di Windows Server 1709 e 1803 oggi stesso. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lacune di funzionalità e altri problemi noti
 
