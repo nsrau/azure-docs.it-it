@@ -107,7 +107,7 @@ Sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **AzureDataExplorerTable** | Sì |
-| tabella | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
+| table | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
 
 **Esempio di proprietà del set di dati**
 
