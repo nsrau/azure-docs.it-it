@@ -1,0 +1,43 @@
+- name: Documentazione di Riconoscimento modulo
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Riconoscimento modulo
+      href: overview.md
+- name: Guide introduttive
+  expaned: true
+  items:
+    - name: Eseguire il training del modello ed estrarre i dati
+      items:
+        - name: Utilizzo dell'API REST
+          items:
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
+- name: Guide alle procedure
+  items:
+    - name: Usare i contenitori
+      items:
+        - name: Installare ed eseguire i contenitori
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: form-recognizer-container-howto.md
+        - name: Configurare i contenitori
+          href: form-recognizer-container-configuration.md
+          displayName: 'docker, container, run, billing, apikey, logging'
+- name: riferimento
+  items:
+    - name: API di Riconoscimento modulo
+      href: 'https://aka.ms/form-recognizer/api'
+- name: Risorse
+  items:
+    - name: Prezzi e limiti
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+    - name: UserVoice
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
+    - name: Stack Overflow
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Disponibilità internazionale
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'

@@ -1,0 +1,54 @@
+- name: Documentazione di Riconoscimento input penna
+  href: index.yml
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Informazioni sull'API di Riconoscimento input penna
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: API REST
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: JavaScript
+          href: quickstarts/javascript.md
+- name: Concetti
+  items:
+    - name: Inviare dati input penna all'API di Riconoscimento input penna
+      href: concepts/send-ink-data.md
+- name: Esempi
+  items:
+    - name: 'C# e piattaforma UWP (Universal Windows Platform)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
+    - name: 'C# e WPF (Windows Presentation Foundation)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
+    - name: App Javascript per Web browser
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
+    - name: App Java e per dispositivi mobili Android
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
+    - name: App Swift e per dispositivi mobili iOS
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
+- name: riferimento
+  items:
+    - name: Informazioni di riferimento sulle API REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Interfaccia della riga di comando di Azure
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Supporto per le lingue
+      href: language-support.md
+    - name: Regioni
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+- name: Risorse
+  items:
+    - name: Prezzi e limiti
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Privacy e cookie
+      href: 'https://privacy.microsoft.com/privacystatement'

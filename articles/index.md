@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1e1fdc43caf01ea33ce7587c1612ad416aed6d3d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074311"
+ms.locfileid: "65149352"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1026,7 +1026,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         </li>
                                         <li>
                                             <a href="/azure/open-datasets">
-                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <img src="media/index/open-data.svg" alt="" />
                                                 <p>Set di dati Open</p>
                                             </a>
                                         </li>
@@ -1269,7 +1269,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         </li>
                                         <li>
                                         <a href="/azure/open-datasets">
-                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <img src="media/index/open-data.svg" alt="" />
                                             <p>Set di dati Open</p>
                                         </a>
                                         </li>
@@ -3694,7 +3694,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3892,7 +3892,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

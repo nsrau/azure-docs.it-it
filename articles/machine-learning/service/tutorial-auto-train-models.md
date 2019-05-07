@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925748"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035467"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -54,16 +54,16 @@ Passare a [Configurazione dell'ambiente di sviluppo](#start) per leggere la proc
 
 Ottenere tutti questi prerequisiti da una delle sezioni riportate di seguito.
 
-* Usare [Azure Notebooks](#azure)
+* Usare un [server notebook cloud nell'area di lavoro](#azure) 
 * Usare il [server notebook personale](#server)
 
-### <a name="azure"></a>Usare Azure Notebooks: notebook di Jupyter gratuiti nel cloud
+### <a name="azure"></a>Usare un server notebook cloud nell'area di lavoro
 
-Iniziare a usare Azure Notebooks è molto semplice. [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) è già installato e configurato in [Azure Notebooks](https://notebooks.azure.com/). L'installazione e gli aggiornamenti futuri vengono gestiti automaticamente tramite i servizi di Azure.
-
-Dopo aver completato i passaggi seguenti, eseguire il notebook **tutorials/regression-part2-automated-ml.ipynb** nel progetto **Introduzione**.
+Iniziare a usare un server notebook basato sul cloud è semplice. Al termine della creazione di questa risorsa cloud, [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) è già installato e configurato.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Dopo aver avviato la pagina Web del notebook, eseguire il notebook **tutorials/regression-part2-automated-ml.ipynb**.
 
 ### <a name="server"></a>Usare il server notebook Jupyter personale
 

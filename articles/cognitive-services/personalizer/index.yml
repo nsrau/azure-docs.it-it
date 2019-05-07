@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Personalizza esperienze
+metadata:
+  document_id: null
+  title: 'Personalizza esperienze - Esercitazioni, guide introduttive, informazioni di riferimento sulle API'
+  description: 'Informazioni su come usare il servizio Personalizza esperienze per consentire all''applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.'
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: 'Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>Informazioni sul funzionamento di Personalizza esperienze e su come usarlo.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Informazioni su Personalizza esperienze
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: <p>Informazioni sull'utilizzo del ciclo di feedback di Personalizza esperienze con le API di Classifica e Ricompensa.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Funzionamento di Personalizza esperienze
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>Implementare la personalizzazione in modo che generi fiducia nell'azienda e nel servizio.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Etica e responsabilità
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: '<p><a href="https://aka.ms/personalizer-rest-api-docs"> API di Personalizza esperienze</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Interfaccia della riga di comando di Azure</a></p>'

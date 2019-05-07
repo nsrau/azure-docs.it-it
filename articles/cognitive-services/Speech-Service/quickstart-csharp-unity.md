@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Unity - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Unity - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione di riconoscimento vocale con Unity e Speech SDK per Unity (beta). Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872569"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020946"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Unity (beta)
 
@@ -27,14 +27,15 @@ Se non si ha familiarità con Unity, è consigliabile esaminare il [manuale dell
 
 > [!NOTE]
 > Speech SDK per Unity è attualmente in versione beta.
-> Supporta Windows x86 e x64 (applicazione desktop autonoma o piattaforma UWP) e Android (ARM32/64 e x86).
+> Supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64) e Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo progetto, saranno necessari:
 
-* [Unity 2018.3 o versione successiva](https://store.unity.com/)
+* [Unity 2018.3 o versioni successive](https://store.unity.com/) con [Unity 2019.1 che aggiunge il supporto per la piattaforma UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * Per il supporto di ARM64, installare gli [strumenti di compilazione facoltativi per ARM64 e Windows 10 SDK per ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Una chiave di sottoscrizione per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 * Accesso al microfono del computer
 

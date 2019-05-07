@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/19/2019
+  ms.date: 02/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -55,8 +55,8 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora'
-          - html: '<a href="https://aka.ms/data-prep-sdk">Preparazione dei dati</a> - SDK Python: preparazione e trasformazione dei dati'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: raccolta di dati nei servizi Web distribuiti'
+          - html: <a href="../algorithm-module-reference/module-reference.md">Informazioni di riferimento su algoritmi e moduli</a> per l'interfaccia visiva
   - title: Altre tecnologie di Azure Machine Learning
     items:
       - type: list
