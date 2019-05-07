@@ -57,7 +57,7 @@ Per il servizio collegato di Amazon Redshift sono supportate le proprietà segue
 | server |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | port |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No, il valore predefinito è 5439 |
 | database |Nome del database Amazon Redshift. |Sì |
-| Nome utente |Nome dell'utente che ha accesso al database. |Sì |
+| username |Nome dell'utente che ha accesso al database. |Sì |
 | password |La password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -210,17 +210,17 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | Tipo di dati di Amazon Redshift | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |string |
-| CHAR |string |
+| BOOLEAN |String |
+| CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXT |string |
+| TEXT |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |string |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
