@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998537"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148111"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio (anteprima)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendere le funzionalità estese non in linea per i dispositivi IoT Edge, moduli e dispositivi figlio
 
 Azure IoT Edge supporta operazioni offline per periodi prolungati nei dispositivi IoT Edge e consente operazioni offline anche nei dispositivi figlio non Edge. Se un dispositivo IoT Edge ha avuto la possibilità di connettersi una volta all'hub IoT, tale dispositivo e tutti i dispositivi figlio possono continuare a funzionare con una connessione Internet intermittente o senza connessione. 
 
->[!NOTE]
->Il supporto della modalità offline per IoT Edge è disponibile in [versione di anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -61,24 +59,49 @@ Per estendere le funzionalità offline per periodi prolungati ai dispositivi IoT
 
 ### <a name="assign-child-devices"></a>Assegnare i dispositivi figlio
 
-I dispositivi figlio possono essere qualsiasi dispositivo non Edge registrato nello stesso hub IoT. È possibile gestire la relazione padre-figlio al momento della creazione di un nuovo dispositivo o dalla pagina dei dettagli del dispositivo del dispositivo padre IoT Edge o del dispositivo IoT figlio. 
+I dispositivi figlio possono essere qualsiasi dispositivo non Edge registrato nello stesso hub IoT. I dispositivi padre possono avere più dispositivi figlio, ma un dispositivo figlio può avere un solo padre. Sono disponibili tre opzioni per impostare i dispositivi figlio in un dispositivo perimetrale:
+
+#### <a name="option-1-iot-hub-portal"></a>Opzione 1: Portale dell'Hub IoT
+
+ È possibile gestire la relazione padre-figlio al momento della creazione di un nuovo dispositivo o dalla pagina dei dettagli del dispositivo del dispositivo padre IoT Edge o del dispositivo IoT figlio. 
 
    ![Gestire i dispositivi figlio dalla pagina dei dettagli del dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-I dispositivi padre possono avere più dispositivi figlio, ma un dispositivo figlio può avere un solo padre.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opzione 2: Usare il `az` lo strumento da riga di comando
+
+Usando il [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con [estensione IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o versione successiva), è possibile gestire relazioni padre-figlio con il [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) comandi secondari. Nell'esempio seguente, si esegue una query per assegnare i dispositivi nell'hub tutti non IoT Edge come dispositivi figlio di un dispositivo IoT Edge. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+È possibile modificare il [query](../iot-hub/iot-hub-devguide-query-language.md) per selezionare un sottoinsieme diverso di dispositivi. Se si specifica un ampio set di dispositivi, il comando potrebbe richiedere qualche secondo.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opzione 3: Usare IoT Hub SDK per servizi 
+
+Infine, è possibile gestire relazioni padre-figlio in modo programmatico utilizzando C#, Java o Node. js IoT Hub Service SDK. Di seguito è riportato un [esempio di assegnazione di un dispositivo figlio](https://aka.ms/set-child-iot-device-c-sharp) usando il C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Specificare i server DNS 
 
-Per migliorare l'affidabilità, si consiglia di specificare gli indirizzi server DNS usati nell'ambiente. In Linux, ad esempio, aggiornare **/etc/docker/daemon.json** (è possibile che sia necessario creare il file) in modo da includere:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Se si usa un server DNS locale, sostituire 1.1.1.1 con l'indirizzo IP del server DNS locale. Riavviare il servizio Docker per rendere effettive le modifiche.
-
+Migliorare l'affidabilità, è consigliabile che specificare gli indirizzi di server DNS usati nell'ambiente. Vedere le [due opzioni per eseguire questa operazione nell'articolo sulla risoluzione dei problemi](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Impostazioni facoltative per la modalità offline
 
@@ -86,7 +109,7 @@ Se si prevede di raccogliere tutti i messaggi generati dai dispositivi durante l
 
 ### <a name="time-to-live"></a>Durata (TTL)
 
-L'impostazione della durata (TTL) è la quantità di tempo (in secondi) di attesa per il recapito di un messaggio prima che scada. Il valore predefinito è 7200 secondi (due ore). 
+L'impostazione della durata (TTL) è la quantità di tempo (in secondi) di attesa per il recapito di un messaggio prima che scada. Il valore predefinito è 7200 secondi (due ore). Il valore massimo è limitato solo dal valore massimo di una variabile integer, ovvero circa 2 miliardi. 
 
 Questa impostazione è una proprietà desiderata dell'hub di IoT Edge, che viene archiviata nel modulo gemello. È possibile configurarla nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge** oppure direttamente nel manifesto della distribuzione. 
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870448"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145036"
 ---
-# <a name="status-monitor-v2"></a>Stato monitoraggio v2
+# <a name="status-monitor-v2"></a>Status Monitor v2
 
 Stato monitoraggio v2 è pubblicato in un modulo di PowerShell la [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) e le sostituzioni per [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). Questo modulo viene fornita senza codice di strumentazione di applicazioni web .NET ospitate in IIS.
 I dati di telemetria verranno inviati al portale di Azure in cui è possibile [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) all'applicazione.
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Come verificare l'abilitazione è riuscita?
 
    Non abbiamo un cmdlet per verificare che abilitazione ha avuto esito positivo. È consigliabile usare [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per osservarne rapidamente se l'applicazione invia i dati di telemetria.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Visualizzare i dati di telemetria:
+
+* [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
+* [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
+* Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
+* [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+
+Aggiungere altri dati di telemetria:
+
+* [Creare test web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
+* [Aggiungere dati di telemetria client web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina web e per consentire di inserire chiamate di traccia.
+* [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo che è possibile inserire una traccia e registrare le chiamate
+

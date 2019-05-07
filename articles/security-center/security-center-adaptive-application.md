@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143435"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -154,6 +154,22 @@ L'elenco contiene:
 
 Centro sicurezza di Azure consente di definire criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per gruppi non consigliati di macchine virtuali. Per configurare i criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per tali gruppi, seguire gli stessi principi delineati in precedenza.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Spostare una macchina virtuale da un gruppo a un'altra
+
+ Quando si sposta una macchina virtuale da un gruppo a un altro, i criteri di controllo dell'applicazione applicato le modifiche alle impostazioni del gruppo spostato in. È anche possibile spostare una macchina virtuale da un gruppo configurato per un gruppo non configurate, con conseguente rimozione dei criteri di controllo qualsiasi applicazione in precedenza è stato applicato alla macchina virtuale.
+
+ 1. Dal **controlli applicazione adattivi** pagina, dalle **configurata** scheda, scegliere il gruppo a cui appartiene la macchina virtuale da spostare attualmente.
+1. Fare clic su **configurate macchine virtuali e computer**.
+1. Fare clic sui tre puntini nella riga della macchina virtuale da spostare e fare clic su **spostare**. Il **spostamento computer al gruppo diverso** verrà visualizzata la finestra.
+
+    ![Protezione](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Selezionare il gruppo per spostare la macchina virtuale e fare clic su **Computer spostare**, fare clic su **salvare**.
+
+    ![Protezione](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Assicurarsi di fare clic su **salvare** dopo aver fatto clic **spostare Computer**. Se non si sceglie **salvare**, quindi il computer non verrà spostato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato descritto come usare controllo delle applicazioni adattivo nel Centro sicurezza di Azure a elenco elementi consentiti le applicazioni in esecuzione in Azure e macchine virtuali Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:

@@ -2,18 +2,19 @@
 title: 'Esercitazione: Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico - Archiviazione di Azure'
 description: Informazioni su come configurare un dominio personalizzato per l'hosting di siti Web statici.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145051"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Esercitazione: Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico
 

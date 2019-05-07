@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266206"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137872"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Per permettere agli utenti di acconsentire esplicitamente all'app beta, impostar
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Per impostazione predefinita, gli slot di nuovo vengono assegnati a una regola di routing di `0%`, visualizzati in grigio. Impostando questo valore in modo esplicito su `0%` (mostrati in testo di colore nero), gli utenti possono accedere manualmente lo slot di staging usando il `x-ms-routing-name` parametro di query, ma non verranno indirizzati allo slot automaticamente perché la percentuale di routing è impostata su 0. Si tratta di uno scenario avanzato in cui è possibile "nascondere" lo slot di staging al pubblico, consentendo ai team interni testare le modifiche nello slot.
 
 <a name="Delete"></a>
 

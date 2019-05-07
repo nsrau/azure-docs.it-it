@@ -2,18 +2,19 @@
 title: Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud in Azure | Microsoft Docs
 description: Usare gli strumenti di diagnostica, le metriche e gli avvisi per risolvere i problemi e monitorare un'applicazione cloud.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259990"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148229"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -105,7 +106,7 @@ Quando il log si apre, è possibile visualizzare gli eventi di archiviazione. Co
 
 ![Analizzatore messaggi di Microsoft: visualizzazione degli eventi](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un altro strumento che può essere usato per interagire con gli account di archiviazione, includendo il contenitore **$logs** e i registri in esso contenuti.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un altro strumento che può essere usato per interagire con gli account di archiviazione, includendo il contenitore **$logs** e i log in esso contenuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875595"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147934"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro della funzionalità del Centro sicurezza (luglio 2019)
 
@@ -155,7 +155,7 @@ Questa funzionalità è stata disponibile in anteprima e verrà ritirata.
 
 ### <a name="edit-security-configurations---new-experience"></a>Modificare le configurazioni di sicurezza - nuova esperienza
 
-Il Centro sicurezza supporterà il [agente in guest](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) nel prossimo futuro, consentendo un set di funzionalità molto più ampio, incluso il supporto per l'integrazione con la configurazione di guest con i criteri di Azure (nel guest e altri sistemi operativi criteri). Ciò fornirà anche la possibilità di controllare su larga scala e applicare automaticamente le nuove risorse.
+Il Centro sicurezza supporta il [agente Guest di configurazione](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) nel prossimo futuro, consentendo un set di funzionalità molto più ampio, incluso il supporto per l'integrazione con la configurazione di guest con i criteri di Azure (e altri sistemi operativi criteri nel guest). Ciò fornirà anche la possibilità di controllare su larga scala e applicare automaticamente le nuove risorse.
 
 ## Sicurezza e controllo dashboard (originariamente usato nel portale di OMS) per le aree di lavoro di Log Analitica<a name="menu_securityomsdashboard"></a>
 

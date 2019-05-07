@@ -1,31 +1,30 @@
 ---
-title: Confronto tra l'endpoint di piattaforma (v2.0) di Microsoft identity con l'endpoint v1.0 di Azure AD | Microsoft Docs
-description: Conoscere le differenze tra l'endpoint di Microsoft identity platform (v2.0) e l'endpoint v1.0 di Azure Active Directory (Azure AD).
+title: Il motivo per cui aggiornare alla piattaforma delle identità di Microsoft (v2.0) | Azure
+description: Conoscere le differenze tra l'endpoint di Microsoft identity platform (v2.0) e l'endpoint v1.0 di Azure Active Directory (Azure AD) e Scopri i vantaggi dell'aggiornamento alla versione 2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138775"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Confronto tra l'endpoint di Microsoft identity platform ed endpoint v1.0 di Azure AD
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Il motivo per cui aggiornare alla piattaforma delle identità di Microsoft (v2.0)?
 
 Quando si sviluppa una nuova applicazione, è importante conoscere le differenze tra gli endpoint di Azure Active Directory (v1.0) e la piattaforma delle identità di Microsoft (v2.0). Questo articolo illustra le differenze principali tra gli endpoint e alcune limitazioni esistenti per la piattaforma delle identità Microsoft.
 
@@ -56,7 +55,7 @@ Le autorizzazioni impostate direttamente nella registrazione dell'applicazione s
 
 * L'app deve conoscere in anticipo tutte le risorse a cui potrebbe dover accedere. Era difficile creare app che potessero accedere a un numero arbitrario di risorse.
 
-Con l'endpoint di piattaforma delle identità di Microsoft, è possibile ignorare le autorizzazioni statiche definite nelle informazioni di registrazione di app nelle autorizzazioni di richiesta e portale di Azure in modo incrementale, invece, il che significa che richiede un set di autorizzazioni iniziali minime bare e più conseguiti nel tempo se il cliente Usa le funzionalità aggiuntive di app. A tale scopo è possibile specificare gli ambiti necessari per l'app in qualsiasi momento, inclusi i nuovi ambiti nel parametro `scope` quando si richiede un token di accesso, senza doverli definire in precedenza nelle informazioni di registrazione dell'applicazione. Se l'utente non ha ancora fornito il consenso per i nuovi ambiti aggiunti alla richiesta, gli verrà chiesto di farlo solo per le nuove autorizzazioni. Per altre informazioni, leggere l'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md).
+Con l'endpoint di piattaforma delle identità di Microsoft, è possibile ignorare le autorizzazioni statiche definite nelle informazioni di registrazione di app nelle autorizzazioni di richiesta e portale di Azure in modo incrementale, invece, il che significa che richiede un set di autorizzazioni iniziali minime bare e in crescita più nel corso del tempo i clienti Usa le funzionalità aggiuntive di app. A tale scopo è possibile specificare gli ambiti necessari per l'app in qualsiasi momento, inclusi i nuovi ambiti nel parametro `scope` quando si richiede un token di accesso, senza doverli definire in precedenza nelle informazioni di registrazione dell'applicazione. Se l'utente non ha ancora fornito il consenso per i nuovi ambiti aggiunti alla richiesta, gli verrà chiesto di farlo solo per le nuove autorizzazioni. Per altre informazioni, leggere l'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md).
 
 Consentendo a un'app di richiedere le autorizzazioni in modo dinamico tramite il parametro `scope`, gli sviluppatori hanno il controllo completo dell'esperienza dell'utente. È anche possibile scegliere di agire d'anticipo chiedendo il consenso per tutte le autorizzazioni in un'unica richiesta iniziale. Se l'app richiede un numero elevato di autorizzazioni, è possibile raccogliere tali autorizzazioni dall'utente in modo incrementale, man mano che determinate funzionalità dell'app vengono usate.
 
@@ -69,7 +68,7 @@ Per le app che usano l'endpoint v1.0, un'app può comportarsi come una **risorsa
 * Identificatore della risorsa o `AppID URI`: `https://graph.windows.net/`
 * Ambiti o `oAuth2Permissions`: `Directory.Read`, `Directory.Write` e così via.
 
-Ciò vale per l'endpoint di piattaforma di identità Microsoft. Un'app può comunque comportarsi come una risorsa, definire gli ambiti ed essere identificata da un URI. Le app client possono richiedere ancora l'accesso a questi ambiti, tuttavia, è stata modificata la modalità con cui un client esegue la richiesta delle autorizzazioni.
+Ciò vale per l'endpoint di piattaforma di identità Microsoft. Un'app può comunque comportarsi come una risorsa, definire gli ambiti ed essere identificata da un URI. Le app client possono richiedere ancora l'accesso a questi ambiti, Tuttavia, il modo che un client richiede tali autorizzazioni sono state modificate.
 
 Per l'endpoint v1.0, l'aspetto di una richiesta di autorizzazione OAuth 2.0 per Azure AD è simile al seguente:
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. Usando il parametro di ambito in questo modo consente all'endpoint di piattaforma Microsoft identity sia più conforme alla specifica di OAuth 2.0 e maggiormente in linea con pratiche comuni del settore. Consente inoltre alle app di usare il [consenso incrementale](#incremental-and-dynamic-consent): richiedere le autorizzazioni solo quando l'applicazione ne ha bisogno anziché in anticipo.
+Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. Usando il parametro di ambito in questo modo consente all'endpoint di piattaforma Microsoft identity sia più conforme alla specifica di OAuth 2.0 e maggiormente in linea con pratiche comuni del settore. Consente inoltre alle app di eseguire operazioni [consenso incrementale](#incremental-and-dynamic-consent) : solo la richiesta di autorizzazioni richiesto dall'applicazione anziché in anticipo.
 
 ## <a name="well-known-scopes"></a>Ambiti conosciuti
 
@@ -99,7 +98,7 @@ Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richi
 
 Le app usando l'endpoint di piattaforma di identità Microsoft possono richiedere l'uso di una nuova autorizzazione nota per le app - il `offline_access` ambito. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'ambito `offline_access` viene visualizzato all'utente in finestre di dialogo di consenso, come **Accedi ai dati personali in qualsiasi momento**, che l'utente deve accettare. La richiesta di `offline_access` autorizzazioni consentirà all'app web di ricevere token di aggiornamento di OAuth 2.0 dall'endpoint di piattaforma di Microsoft identity. I token di aggiornamento hanno una lunga durata e possono essere scambiati con i nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
 
-Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Ciò significa che, quando si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione OAuth 2.0, si riceve solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimane valido per un breve periodo di tempo, in genere un'ora, poi scade. A questo punto, l'app deve reindirizzare l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento l'utente può o meno dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
+Se l'app non richiede il `offline_access` ambito, non riceverà i token di aggiornamento. Ciò significa che, quando si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione OAuth 2.0, si riceve solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimane valido per un breve periodo di tempo, in genere un'ora, poi scade. A questo punto, l'app deve reindirizzare l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento l'utente può o meno dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
 Per altre informazioni su OAuth 2.0 `refresh_tokens`, e `access_tokens`, consultare il [riferimento al protocollo di Microsoft identity platform](active-directory-v2-protocols.md).
 
@@ -109,8 +108,8 @@ In passato, il flusso più semplice di OpenID Connect Accedi con la piattaforma 
 
 Le informazioni a cui l'app ha accesso tramite l'ambito `openid` sono ora limitate. L'ambito `openid` consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente. Per ottenere dati personali sull'utente nell'app, questa deve richiedere autorizzazioni aggiuntive all'utente. Due nuovi ambiti, `email` e `profile`, consentiranno di richiedere autorizzazioni aggiuntive.
 
-* L'ambito `email` consente all'app di accedere all'indirizzo di posta elettronica primario dell'utente tramite l'attestazione `email` nell'id_token, ammesso che l'utente abbia un indirizzo e-mail utilizzabile. 
-* L'ambito `profile` concede all'app l'accesso a tutte le altre informazioni di base sull'utente, quali nome, nome utente preferito, ID oggetto e così via nell'id_token.
+* L'ambito `email` consente all'app di accedere all'indirizzo di posta elettronica primario dell'utente tramite l'attestazione `email` nell'id_token, ammesso che l'utente abbia un indirizzo e-mail utilizzabile.
+* Il `profile` ambito consente all'app l'accesso a tutte le altre informazioni di base sull'utente, ad esempio il nome, nome utente preferito, ID oggetto e così via, nel token ID.
 
 Questi ambiti permettono di creare il codice dell'app in modo che la divulgazione delle informazioni sia minima ed è possibile chiedere all'utente solo il set di informazioni di cui l'app ha bisogno per svolgere le sue funzioni. Per altre informazioni su questi ambiti, vedere [riferimento all'ambito di Microsoft identity platform](v2-permissions-and-consent.md).
 
@@ -124,7 +123,7 @@ Esistono alcune limitazioni da tenere presenti quando si usa una piattaforma del
 
 Quando si compilano applicazioni che si integrano con la piattaforma delle identità Microsoft, è necessario decidere se i Microsoft identity platform endpoint e protocolli di autenticazione soddisfano le proprie esigenze. L'endpoint v1.0 e la piattaforma è ancora completamente supportato e, in alcuni aspetti, include più funzionalità rispetto a piattaforma delle identità Microsoft. Tuttavia, piattaforma delle identità di Microsoft [introduce vantaggi significativi](azure-ad-endpoint-comparison.md) per gli sviluppatori.
 
-Di seguito sono riportati alcuni consigli per gli sviluppatori, opportunamente semplificati:
+Ecco ora un Consiglio semplificato per gli sviluppatori:
 
 * Se è preferibile o necessario supportare gli account Microsoft personali nell'applicazione o si sta scrivendo una nuova applicazione, usare piattaforma delle identità Microsoft. È necessario tuttavia conoscere i limiti illustrati in questo articolo.
 * Se si esegue la migrazione o aggiornamento di un'applicazione basata su SAML, è possibile usare una piattaforma delle identità Microsoft. Al contrario, vedere il [Guida v1.0 di Azure AD](v1-overview.md).
@@ -133,7 +132,7 @@ L'endpoint di piattaforma Microsoft identity si evolverà per eliminare le restr
 
 ### <a name="restrictions-on-app-registrations"></a>Restrizioni relative alle registrazioni di app
 
-Per ogni app che si vuole integrare con l'endpoint di piattaforma Microsoft identity, è possibile creare una registrazione dell'app nel nuovo [ **registrazioni per l'App** esperienza](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) nel portale di Azure. Le App dell'account Microsoft esistenti non sono compatibili con il portale di anteprima, ma sono tutte le app di Azure AD, indipendentemente dalla posizione e il momento sono stati registrati.
+Per ogni app che si vuole integrare con l'endpoint di piattaforma Microsoft identity, è possibile creare una registrazione dell'app nel nuovo [ **registrazioni per l'App** esperienza](https://aka.ms/appregistrations) nel portale di Azure. Le App dell'account Microsoft esistenti non sono compatibili con il portale, ma sono tutte le app di Azure AD, indipendentemente dalla posizione e il momento sono stati registrati.
 
 Le Registrazioni app che supportano gli account aziendali e dell'istituto di istruzione e gli account personali sono soggette alle condizioni seguenti:
 
@@ -168,9 +167,9 @@ Se si vuole un'app con gli URL di reindirizzamento `login-east.contoso.com` e `l
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-Gli ultimi due URL possono essere aggiunti perché si tratta di sottodomini del primo URL di reindirizzamento, ovvero contoso.com. Questa limitazione verrà rimossa in una versione futura.
+È possibile aggiungere gli ultimi due perché si tratta di sottodomini del primo URL di reindirizzamento, contoso.com.
 
-Si noti inoltre che è possibile avere solo 20 URL di risposta per una determinata applicazione: questo limite si applica a tutti i tipi di app che la registrazione supporta, ovvero applicazione a pagina singola, client nativo, app Web e servizi.  
+È possibile avere solo 20 URL di risposta per una determinata applicazione: questo limite si applica a tutti i tipi di app che la registrazione supporta (applicazioni a pagina singola (SPA), client native, app web e servizio).  
 
 Per informazioni su come registrare un'app per l'uso con la piattaforma Microsoft identity, vedere [registrare un'app usando la nuova esperienza di registrazioni per l'App](quickstart-register-app.md).
 
@@ -178,8 +177,8 @@ Per informazioni su come registrare un'app per l'uso con la piattaforma Microsof
 
 Supporto delle librerie per l'endpoint di piattaforma di identità Microsoft è attualmente limitato. Se si desidera usare l'endpoint di piattaforma Microsoft identity in un'applicazione di produzione, sono disponibili queste opzioni:
 
-* Se si compila un'applicazione Web è possibile usare il middleware lato server disponibile a livello generale per eseguire operazioni di accesso e convalida dei token. Sono inclusi il middleware OpenID Connect OWIN per ASP.NET e il plug-in Passport per NodeJS. Per esempi di codice che usano il middleware di Microsoft, vedere la [piattaforma delle identità Microsoft introduttiva](v2-overview.md#getting-started) sezione.
-* Se si compila un'applicazione desktop o portatile, è possibile usare una delle librerie di autenticazione Microsoft (MSAL) di anteprima. Queste librerie sono disponibili in anteprima supportata di produzione ed è quindi consigliabile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](reference-v2-libraries.md).
+* Se si sta creando un'applicazione web, è possibile usare il middleware lato server disponibile a livello generale per l'accesso e la convalida dei token. Sono inclusi il middleware OpenID Connect OWIN per ASP.NET e il plug-in Passport per NodeJS. Per esempi di codice che usano il middleware di Microsoft, vedere la [piattaforma delle identità Microsoft introduttiva](v2-overview.md#getting-started) sezione.
+* Se si sta creando un'applicazione desktop o per dispositivi mobili, è possibile usare uno di Microsoft Authentication Library (MSAL). Queste librerie sono disponibili a livello generale o in una versione di anteprima supportata di produzione, pertanto è consigliabile usarle nelle applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](reference-v2-libraries.md).
 * Per le piattaforme non coperte da librerie Microsoft, è possibile integrare con l'endpoint di Microsoft identity platform direttamente inviando e ricevendo messaggi di protocollo nel codice dell'applicazione. I protocolli OAuth e OpenID Connect [vengono documentati in modo esplicito](active-directory-v2-protocols.md) che consentono di eseguire tale integrazione.
 * Infine, è possibile usare librerie di OpenID Connect e OAuth open source per l'integrazione con l'endpoint di piattaforma di identità Microsoft. L'endpoint di Microsoft identity platform deve essere compatibile con molte librerie di protocollo open source senza modifiche. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [librerie di autenticazione e della piattaforma di identità Microsoft](reference-v2-libraries.md)e l'elenco delle librerie client open source e gli esempi che sono stati testati con l'endpoint di piattaforma di identità Microsoft.
 * Per riferimento, il `.well-known` endpoint per l'endpoint comune di Microsoft identity platform è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.  
@@ -196,4 +195,4 @@ Per comprendere meglio l'ambito della funzionalità del protocollo supportata ne
 
 #### <a name="saml-restrictions"></a>Restrizioni relative a SAML
 
-Se si usa Active Directory Authentication Library (ADAL) in applicazioni Windows, è possibile che si debba ricorrere all'autenticazione integrata di Windows, che sfrutta la concessione per l'asserzione SAML (Security Assertion Markup Language). Tale concessione consente agli utenti dei tenant di Azure AD federati di eseguire automaticamente l'autenticazione all'istanza di Active Directory locale senza immettere le credenziali. L'autorizzazione all'asserzione SAML non è supportata nell'endpoint della piattaforma Microsoft identity.
+Se si usa Active Directory Authentication Library (ADAL) in applicazioni di Windows, si potrebbero aver sfruttato dell'autenticazione integrata di Windows, che usa la concessione di asserzione Security Assertion Markup Language (SAML). Tale concessione consente agli utenti dei tenant di Azure AD federati di eseguire automaticamente l'autenticazione all'istanza di Active Directory locale senza immettere le credenziali. L'autorizzazione all'asserzione SAML non è supportata nell'endpoint della piattaforma Microsoft identity.

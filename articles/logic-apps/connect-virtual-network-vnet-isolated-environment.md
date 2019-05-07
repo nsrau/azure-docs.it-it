@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511147"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150662"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
-
-> [!NOTE]
-> Questa funzionalità è disponibile in [ *versione di anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Per gli scenari in cui le app per la logica e gli account di integrazione devono accedere a una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md), creare un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un'istanza di ISE è un ambiente privato e isolato che Usa archiviazione dedicata e altre risorse che vengono mantenuti separati dal servizio App per la logica "globale" o pubblico. Questa separazione riduce anche qualsiasi impatto che altri tenant di Azure possono avere sulle prestazioni delle app create. L'ISE è *collegato* alla rete virtuale di Azure, che quindi distribuisce il servizio App per la logica nella rete virtuale. Quando si crea un'app per la logica o un account di integrazione, selezionare questo ISE come posizione per l'app o l'account. L'app per la logica o l'account di integrazione può quindi accedere direttamente alle risorse, ad esempio alle macchine virtuali (VM), ai server, ai sistemi e ai servizi della rete virtuale in uso.
 
@@ -101,13 +98,11 @@ Per controllare il traffico tra subnet della rete virtuale in cui si distribuisc
 Per creare un ambiente del servizio di integrazione (ISE), seguire questa procedura:
 
 1. Scegliere [Crea una risorsa](https://portal.azure.com) dal menu principale di Azure nel **portale di Azure**.
+Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come filtro.
 
    ![Create new resource (Crea nuova risorsa)](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come filtro.
-Nell'elenco dei risultati, selezionare **ambiente del servizio di integrazione (anteprima)**, quindi scegliere **Creare**.
-
-   ![Selezionare "Ambiente del servizio di integrazione"](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. Nel riquadro di creazione ambiente del servizio di integrazione, scegliere **Create**.
 
    ![Scegliere "Creare"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ Nell'elenco dei risultati, selezionare **ambiente del servizio di integrazione (
    | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
    | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome da assegnare all'ambiente |
    | **Posizione** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
-   | **Capacità aggiuntiva** | Sì | 0, 1, 2, 3 | Il numero di unità di elaborazione da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere capacità](#add-capacity). |
-   | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non è disponibile una rete, è possibile crearne una qui. <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. Tuttavia, prima di creare questa relazione, assicurarsi che è già stato impostato il controllo di accesso basato sui ruoli in una rete virtuale per le App per la logica di Azure. |
+   | **Capacità aggiuntiva** | Sì | da 0 a 10 | Il numero di unità di elaborazione aggiuntivi da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [capacità di aggiungere ISE](#add-capacity). |
+   | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si dispone di una rete [creare una rete virtuale di Azure prima di tutto](../virtual-network/quick-create-portal.md). <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
    | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ Nell'elenco dei risultati, selezionare **ambiente del servizio di integrazione (
 
    1. Ripetere questi passaggi per altre tre subnet.
 
+      > [!NOTE]
+      > Se si prova a creare subnet non sono valide, il portale di Azure viene visualizzato un messaggio, ma non blocca lo stato di avanzamento.
+
 1. Dopo l'avvenuta convalida da parte di Azure delle informazioni dell'ISE, scegliere **Crea**, ad esempio:
 
    ![Al termine della convalida, scegliere "Crea"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ Nell'elenco dei risultati, selezionare **ambiente del servizio di integrazione (
 
    ![Distribuzione completata](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   In caso contrario, seguire le istruzioni del portale di Azure per la risoluzione dei problemi di distribuzione.
+
    > [!NOTE]
-   > Se si verifica un errore di distribuzione o si elimina l'ISE, Azure *potrebbe* richiedere fino a un'ora prima di rilasciare le subnet. Pertanto, potrebbe essere necessario attendere prima di riusare tali subnet in un altro ISE.
+   > Se si verifica un errore di distribuzione o si elimina l'ISE, Azure potrebbe richiedere fino a un'ora prima di rilasciare le subnet. Questo ritardo, significa che potrebbe essere necessario attendere prima di riusare tali subnet in ISE un altro. 
+   >
+   > Se si elimina la rete virtuale, Azure richiede in genere fino a due ore prima di rilasciare backup le subnet, ma questa operazione potrebbe richiedere più tempo. 
+   > Quando si eliminano le reti virtuali, assicurarsi che nessuna risorsa è ancora connessi. Visualizzare [Elimina rete virtuale](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Per visualizzare l'ambiente, scegliere **Vai alla risorsa** se Azure non mostra automaticamente l'ambiente al termine della distribuzione.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>Aggiungere la capacità
-
-L'unità di base di ISE ha corretto la capacità, pertanto se è necessaria una velocità effettiva maggiore, è possibile aggiungere altre unità di scala. È possibile la scalabilità automatica basato sulle metriche delle prestazioni o su un numero di unità di elaborazione. Se si sceglie la scalabilità automatica basata sulle metriche, è possibile scegliere tra diversi criteri e specificare le condizioni di soglia per soddisfare i relativi criteri.
-
-1. Nel portale di Azure, individuare l'ISE.
-
-1. Per visualizzare le metriche delle prestazioni per l'ISE, nel menu principale di ISE, scegliere **Panoramica**.
-
-1. Per configurare la scalabilità automatica, in **le impostazioni**, selezionare **scalare in orizzontale**. Nel **Configure** scheda, scegliere **Abilita scalabilità automatica**.
-
-1. Nel **predefinito** keychains uno **scalabilità basata su una metrica** oppure **scala a un numero di istanze specifico**.
-
-1. Se si sceglie basati sull'istanza, immettere il numero di unità di elaborazione compreso tra 0 e 3 (inclusi). In caso contrario, per basate sulle metriche, seguire questi passaggi:
-
-   1. Nel **predefinite** keychains **aggiungere una regola**.
-
-   1. Nel **regole di scalabilità** riquadro impostato i criteri e l'azione da intraprendere quando la regola attiva.
-
-   1. Al termine, scegliere **Add**.
-
-1. Al termine, ricordarsi di salvare le modifiche.
+Per altre informazioni sulla creazione di subnet, vedere [aggiungere una subnet di rete virtuale](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ Per creare un account di integrazione che usa un ISE, seguire la procedura ripor
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Supporto
+<a name="add-capacity"></a>
 
-* In caso di domande, visitare il <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">forum di App per la logica di Azure</a>.
-* Per votare o inviare idee relative alle funzionalità, visitare il <a href="https://aka.ms/logicapps-wish" target="_blank">sito dei commenti e suggerimenti degli utenti di App per la logica</a>.
+## <a name="add-ise-capacity"></a>Aggiungere capacità ISE
+
+L'unità di base di ISE ha corretto la capacità, pertanto se è necessaria una velocità effettiva maggiore, è possibile aggiungere altre unità di scala. È possibile la scalabilità automatica basate sulle metriche delle prestazioni o basato su un numero di unità di elaborazione aggiuntivi. Se si sceglie la scalabilità automatica basata sulle metriche, è possibile scegliere tra diversi criteri e specificare le condizioni di soglia per soddisfare i relativi criteri.
+
+1. Nel portale di Azure, individuare l'ISE.
+
+1. Per esaminare le metriche di utilizzo e sulle prestazioni per l'ISE, nel menu principale di ISE, selezionare **Panoramica**.
+
+   ![Visualizzare l'utilizzo per ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. Per configurare la scalabilità automatica, in **le impostazioni**, selezionare **scalare in orizzontale**. Nel **Configure** scheda, scegliere **Abilita scalabilità automatica**.
+
+   ![Attivare la scalabilità automatica](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. Per la **nome dell'impostazione di scalabilità automatica**, specificare un nome per l'impostazione.
+
+1. Nel **predefinito** keychains uno **scalabilità basata su una metrica** oppure **scala a un numero di istanze specifico**.
+
+   * Se si sceglie basati sull'istanza, immettere il numero di unità di elaborazione, inclusi tra 0 e 10.
+
+   * Se si sceglie basate sulle metriche, seguire questa procedura:
+
+     1. Nel **regole** keychains **aggiungere una regola**.
+
+     1. Nel **regole di scalabilità** riquadro impostato i criteri e l'azione da intraprendere quando la regola attiva.
+
+     1. Al termine, scegliere **Add**.
+
+1. Quando hai finito con le impostazioni di scalabilità automatica, salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141166"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa sottoscrizione e nella stessa area con un singolo gateway. 
@@ -176,30 +176,9 @@ I file di log sono di fondamentale importanza per la risoluzione dei problemi.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Log eventi
 
 I log di Gateway di gestione dati e PowerBIGateway sono reperibili in **Registri applicazioni e servizi**.
-
-
-## <a name="telemetry"></a>Telemetria
-La telemetria può essere usata per il monitoraggio e la risoluzione dei problemi. Per impostazione predefinita
-
-**Per attivare la telemetria**
-
-1.  Verificare la directory del client gateway dati locale nel computer. In genere è **%unitàsistema%\Programmi\Gateway dati locale**. In alternativa, è possibile aprire una console dei servizi e selezionare Percorso dell'eseguibile: una proprietà del servizio gateway dati locale.
-2.  Nel file Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config nella directory del client modificare l'impostazione SendTelemetry su true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Salvare le modifiche e riavviare il servizio di Windows: servizio gateway dati locale.
-
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md).   

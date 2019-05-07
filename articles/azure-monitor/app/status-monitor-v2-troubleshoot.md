@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870748"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145116"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Risoluzione dei problemi di stato monitoraggio v2
 
@@ -200,3 +200,9 @@ Se il monitoraggio funziona, almeno 12 DLL deve essere caricata.
 4. Provare a passare all'app.
 5. Dopo che l'app al termine del caricamento, tornare a PerfView e fare clic su "Interrompi raccolta"
 
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Revisione del nostro [riferimento all'API](status-monitor-v2-overview.md#powershell-api-reference) per trovare un parametro, potrebbe aver ignorato.
+- Se si riscontra un problema non elencato qui, è possibile contattarci [qui](https://github.com/Microsoft/ApplicationInsights-Home/issues).

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867709"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150690"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da un testo utterance con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -48,7 +48,7 @@ I dati principali sono dati dal **nome della finalità** con il punteggio superi
 
 |Oggetto dati|Tipo di dati|Posizione dei dati|Value|
 |--|--|--|--|
-|Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
+|Finalità|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se il chatbot o l'app chiamante LUIS prende una decisione in base a più di un punteggio di finalità, restituire i punteggi delle finalità impostando il parametro querystring, `verbose=true`. La risposta dell'endpoint è:
 
@@ -77,8 +77,8 @@ Le finalità vengono ordinate dal punteggio più alto al più basso.
 
 |Oggetto dati|Tipo di dati|Posizione dei dati|Value|Score|
 |--|--|--|--|:--|
-|Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Finalità|string|intents[0].intent|"None"|0,0168218873|
+|Finalità|String|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Finalità|String|intents[0].intent|"None"|0,0168218873|
 
 Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, ad esempio `Utilties` o `Communication` e la finalità:
 
@@ -108,9 +108,9 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 
 |Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
 |--|--|--|--|--|
-|Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
-||Finalità|string|intents[2].intent|"None"|
+|Servizi pubblici|Finalità|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicazione|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
+||Finalità|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dati da entità
@@ -172,34 +172,6 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 |--|--|--|
 |Entità semplice|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Dati entità gerarchica
-
-**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
-
-Le entità [gerarchiche](luis-concept-entity-types.md) sono apprese in modo automatico e possono includere una parola o una frase. Gli elementi figlio vengono identificati in base al contesto. Se si cerca una relazione padre-figlio con corrispondenza di testo esatta, usare un'entità [List](#list-entity-data) (elenco).
-
-`book 2 tickets to paris`
-
-Nell'espressione precedente `paris` viene etichettata come elemento figlio `Location::ToLocation` dell'entità gerarchica `Location`.
-
-I dati restituiti dall'endpoint includono il nome dell'entità e il nome dell'elemento figlio, il testo individuato nell'espressione, la posizione del testo individuato e il punteggio:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Oggetto dati|Padre|Figlio|Value|
-|--|--|--|--|
-|Entità gerarchica|Località|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>Dati entità composita
 Le entità [composite](luis-concept-entity-types.md) vengono apprese in modo automatico e possono includere una parola o una frase. Ad esempio, considerare un'entità composita di `number` e `Location::ToLocation` predefiniti con l'espressione seguente:
 
@@ -212,53 +184,54 @@ Si noti che tra `2`, il numero, `paris` e ToLocation sono presenti delle parole 
 Le entità composite vengono restituite in una matrice `compositeEntities` e tutte le entità nell'entità composita vengono restituite nella matrice `entities`:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Oggetto dati|Nome dell'entità|Value|
 |--|--|--|
 |Entità predefinita - numero|"builtin.number"|"2"|
-|Entità gerarchica - posizione|"Location::ToLocation"|"paris"|
+|Entità predefiniti - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
@@ -268,8 +241,8 @@ Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo varia
 
 |Elemento elenco|Sinonimi elenco|
 |---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Parigi|cdg, roissy, ory, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

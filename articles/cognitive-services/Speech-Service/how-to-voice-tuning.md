@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025845"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147999"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ottimizzare l'output di sintesi vocale
 
@@ -43,7 +43,7 @@ Prima di iniziare l'output di sintesi vocale con lo strumento di ottimizzazione 
    * Individuare e selezionare **tutte le sottoscrizioni**.  
    * Selezionare **Connect existing subscription** (Connetti sottoscrizione esistente).  
      ![Connettere una sottoscrizione esistente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Immettere la chiave di sottoscrizione di Azure servizi di riconoscimento vocale dal portale di Azure e quindi selezionare **Add**. Le chiavi di sottoscrizione sono disponibili nel portale di Azure nel riquadro di gestione delle risorse.  È anche possibile leggere le chiavi dall'elenco delle sottoscrizioni nel portale di ottimizzazione vocali.
+   * Immettere la chiave di sottoscrizione di servizi di riconoscimento vocale di Azure e quindi selezionare **Add**. Le chiavi di sottoscrizione sono disponibili nel portale di personalizzazione di riconoscimento vocale dal [pagina di sottoscrizione](https://go.microsoft.com/fwlink/?linkid=2090458). È anche possibile leggere le chiavi nel riquadro di gestione delle risorse nel [portale di Azure](https://portal.azure.com/). 
    * Se hai più sottoscrizioni di servizi di riconoscimento vocale che si intende usare, ripetere questi passaggi per ogni sottoscrizione.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personalizzare l'output di sintesi vocale

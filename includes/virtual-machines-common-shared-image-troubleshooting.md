@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418652"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149642"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-Debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
@@ -37,7 +37,7 @@ Possibili cause:
 
 *Il nome della definizione dell'immagine non è valido.*
 
-I caratteri consentiti per le definizioni delle immagini sono lettere maiuscole o minuscole, numeri, trattini e punti. Modificare il nome della definizione dell'immagine e riprovare.
+Caratteri consentiti per la definizione dell'immagine sono periodi, cifre, punti, trattini e lettere maiuscole o minuscole. Modificare il nome della definizione dell'immagine e riprovare.
 
 *Le proprietà obbligatorie per la creazione di una definizione dell'immagine non sono popolate.*
 
@@ -62,20 +62,7 @@ Controllare se l'immagine di origine esiste e si trova nella stessa area della v
 
 Assicurarsi che lo stato provisioning dell'immagine gestita di origine sia **Riuscito**.
 
-*L'area di origine non è ancora supportata.*
-
-Usare la tabella seguente per verificare se l'area di origine desiderata è supportata:
-<br>
-
-| Area di creazione della raccolta o "area di origine"   | Area per la replica della versione o "area di destinazione" |
-|----------------------------------------|-------------------------------------------|
-| Stati Uniti centro-occidentali                        | Tutte le aree del cloud pubblico di Azure            |
-| Stati Uniti centro-meridionali                       |                                           |
-| Stati Uniti orientali 2                              |                                           |
-| Asia sud-orientale                         |                                           |
-| Europa occidentale                            |                                           |
-
-<br>
+*Elenco delle aree di destinazione non include l'area di origine.*
 
 L'elenco delle aree di destinazione deve includere l'area di origine della versione dell'immagine. Assicurarsi che l'area di origine sia stata inclusa nell'elenco delle aree di destinazione in cui si vuole che Azure replichi la versione dell'immagine.
 
@@ -101,7 +88,7 @@ Verificare che il valore di **OSType** della versione dell'immagine da cui si st
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-La condivisione delle risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine viene abilitata tramite [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+La condivisione della raccolta di immagini condivise, definizione dell'immagine e le risorse della versione immagine tra le sottoscrizioni attivata mediante [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 

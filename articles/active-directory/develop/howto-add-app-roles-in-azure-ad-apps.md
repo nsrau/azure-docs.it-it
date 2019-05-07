@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410349"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138347"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -51,7 +51,9 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 1. Modificare il manifesto dell'app individuando l'impostazione `appRoles` e aggiungendo tutti i ruoli applicazione desiderati.
 
      > [!NOTE]
-     > Ogni definizione di ruolo presente nel manifesto deve avere un **GUID** valido diverso per la proprietà "Id". La proprietà `"value"` di ogni ruolo deve corrispondere esattamente alle stringhe usate nel codice dell'applicazione.
+     > Ogni definizione di ruolo app nel manifesto deve avere un GUID valido diverso per il `id` proprietà. 
+     > 
+     > Il `value` proprietà di ogni definizione di ruolo app deve corrispondere esattamente a quelle utilizzate nel codice dell'applicazione. Il `value` proprietà non può contenere spazi. In caso affermativo, si riceverà un errore quando si salva il manifesto.
      
 1. Salvare il manifesto.
 

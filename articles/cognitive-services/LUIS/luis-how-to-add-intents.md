@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097045"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148158"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
@@ -42,16 +42,25 @@ Le espressioni di esempio sono campioni di testo con domande o commenti degli ut
 
     LUIS converte tutte le espressioni in lettere minuscole e aggiunge spazi prima e dopo i token come i trattini.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle finalità 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Un'espressione in una finalità potrebbe presentare una discrepanza nella stima delle finalità tra la finalità selezionata e il punteggio della stima. LUIS indica questa discrepanza con una casella rossa intorno alla **finalità etichettata** sulla riga dell'espressione di esempio. 
+## <a name="intent-prediction-errors"></a>Errori di previsione preventivo 
 
-![Screenshot della pagina dei dettagli delle finalità, con errori di discrepanza nella stima delle espressioni](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Utterance un esempio in un intent potrebbe essere un errore di stima intent tra l'intento in che utterance l'esempio è attualmente disponibile e lo scopo di stima determinato durante il training. 
 
-Selezionare **Eseguire il training** nella barra di spostamento superiore. La discrepanza di stima è adesso assente.
+Per trovare errori di previsione utterance e correggere gli errori, usare il **filtro** dell'opzione **valutazione** opzioni non corretta e Unclear combinato con il **visualizzazione** opzione di **Visualizzazione dettagliata**. 
 
-> [!Note]
-> Se una riga rossa sotto una parola o frase in utterance l'esempio, un' [errore di previsione entità](luis-how-to-add-example-utterances.md#entity-status-predictions) si è verificato. È necessario correggere l'errore. 
+![Per trovare errori di previsione utterance e risolvere il problema, utilizzare l'opzione di filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Quando vengono applicati i filtri e la visualizzazione e non esistono espressioni di esempio con errori, l'esempio utterance sono elencate le espressioni e i problemi.
+
+![! [Quando vengono applicati i filtri e la visualizzazione e non esistono espressioni di esempio con errori, l'esempio utterance elenco Mostra le espressioni e i problemi.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Ogni riga Mostra punteggio della stima del training corrente per il utterance di esempio, il punteggio dell'applicazione rivale più vicino, che è la differenza tra queste due punteggi. 
+
+### <a name="fixing-intents"></a>Correzione di Intent
+
+Per informazioni su come correggere gli errori di stima preventivi, usare il [Dashboard di riepilogo](luis-how-to-use-dashboard.md). Dashboard di riepilogo fornisce analisi per il training ultimo della versione attiva e offre suggerimenti principali derivanti per correggere il modello.  
 
 ## <a name="add-a-custom-entity"></a>Aggiungere un'entità personalizzata
 

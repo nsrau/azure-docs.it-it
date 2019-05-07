@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Usare un provider di identità SAML 2.0 per l'accesso Single Sign On | Microsoft Docs"
+title: 'Azure AD Connect: Usare un Provider di identità 2.0 SAML per Single Sign-On - Azure'
 description: Questo documento descrive l'uso di un IdP conforme a SAML 2.0 per l'accesso Single Sign-On.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350933"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138330"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
@@ -41,7 +41,7 @@ Microsoft supporta questa esperienza di accesso come integrazione di un servizio
 >     - Client di posta elettronica di Windows 8 e Windows 8.1
 >     - Client di posta elettronica di Windows 10
 
-Tutti gli altri client non sono disponibili in questo scenario di accesso con il provider di identità SAML 2.0. Il client desktop Lync 2010 non può ad esempio accedere al servizio con il provider di identità SAML 2.0 configurato per l'accesso Single Sign-On.
+Tutti gli altri client non sono disponibili in questo scenario di accesso con il provider di identità SAML 2.0. Ad esempio, il client desktop Lync 2010 non è in grado di accedere al servizio con il Provider di identità SAML 2.0 configurato per l'accesso single sign-on.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Requisiti del protocollo SAML 2.0 in Azure AD
 Questo documento contiene informazioni dettagliate sui requisiti relativi al protocollo e alla formattazione dei messaggi che il provider di identità SAML 2.0 deve implementare per configurare la federazione con Azure AD e consentire l'accesso a uno o più servizi cloud Microsoft (ad esempio Office 365). La relying party SAML 2.0 (SP-STS) per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
@@ -71,8 +71,8 @@ Nel messaggio di risposta SAML, il nodo Signature contiene informazioni sulla fi
 I binding sono i parametri di comunicazione correlati al trasporto richiesti. Ai binding si applicano i requisiti seguenti
 
 1. Il trasporto richiesto è HTTPS.
-2.  Azure AD richiede HTTP POST per l'invio dei token durante l'accesso
-3.  Azure AD usa HTTP POST per la richiesta di autenticazione al provider di identità e REDIRECT per il messaggio di disconnessione al provider di identità.
+2.  Azure AD richiederà HTTP POST per l'invio dei token durante l'accesso.
+3.  Azure AD utilizzerà HTTP POST per la richiesta di autenticazione al provider di identità e REDIRECT per il messaggio al provider di identità di disconnessione.
 
 ## <a name="required-attributes"></a>Attributi richiesti
 Questa tabella mostra i requisiti per gli attributi specifici nel messaggio SAML 2.0.
@@ -258,7 +258,7 @@ Microsoft offre uno strumento che è possibile usare per testare il provider di 
 2.  Fare clic sul pulsante per l'installazione per avviare il download e l'installazione dello strumento.
 3.  Selezionare "I can't set up federation with Office 365, Azure, or other services that use Azure Active Directory" (Impossibile configurare la federazione con Office 365, Azure o altri servizi che usano Azure Active Directory).
 4.  Una volta scaricato ed eseguito lo strumento, verrà visualizzata la finestra di diagnostica della connettività. Lo strumento fornisce informazioni dettagliate per testare la connessione della federazione.
-5.  Connectivity Analyzer apre l'IdP SAML 2.0 per consentire di eseguire l'accesso. Immettere le credenziali per l'entità utente che si sta testando: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  L'analizzatore di connettività aprirà l'IDP SAML 2.0 per è possibile accedere, immettere le credenziali per l'entità che si sta testando utente: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Nella finestra di accesso per il test della federazione, immettere un nome account e una password per il tenant di Azure AD configurato per la federazione con il provider di identità SAML 2.0. Lo strumento tenterà di accedere usando queste credenziali e fornirà come output informazioni dettagliate sui risultati dei test eseguiti durante il tentativo di accesso.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Questa finestra mostra il risultato di un test non riuscito. Facendo clic sul collegamento per la visualizzazione dei risultati dettagliati verranno visualizzate le informazioni relative ai risultati di ogni test eseguito. È anche possibile salvare i risultati su disco per condividerli.
@@ -271,7 +271,7 @@ La verifica manuale prevede passaggi aggiuntivi che è possibile eseguire per as
 Per verificare che l'accesso Single Sign-On sia stato configurato correttamente, completare i passaggi seguenti:
 
 
-1. In un computer aggiunto al dominio, accedere al servizio cloud usando lo stesso nome di accesso usato per le credenziali aziendali.
+1. In un computer aggiunto al dominio, accedi al servizio cloud usando lo stesso nome di accesso usato per le credenziali aziendali.
 2.  Fare clic all'interno della casella della password. Se l'accesso Single Sign-On è configurato, la casella della password sarà ombreggiata e verrà visualizzato il messaggio seguente: "È necessario effettuare l'accesso all'&lt;azienda&gt;".
 3.  Fare clic su Accedi nel collegamento dell'&lt;azienda&gt;. Se è possibile eseguire l'accesso, la configurazione di Single Sign-On è corretta.
 

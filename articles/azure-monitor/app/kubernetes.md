@@ -1,24 +1,24 @@
 ---
-title: Monitoraggio di Azure - Application Insights per Kubernetes con servizio mesh Istio | Microsoft Docs
-description: Application Insights per Kubernetes è una soluzione di monitoraggio che consente di raccogliere dati di telemetria di Application Insights relativi a richieste in ingresso e in uscita da e verso i POD in esecuzione nel cluster Kubernetes usando tecnologia di mesh del servizio denominata Istio.
+title: Monitoraggio di Azure - monitoraggio per Kubernetes App ospitate Zero applicazioni di strumentazione | Microsoft Docs
+description: Monitoraggio per le app di Kubernetes ospitato zero applicazioni di strumentazione sono una soluzione di monitoraggio che consente di raccogliere dati di telemetria di Application Insights relativi a richieste in ingresso e in uscita da e verso i POD in esecuzione nel cluster Kubernetes da utilizzando la tecnologia mesh del servizio chiamato Istio.
 services: application-insights
-author: tokaplan
+author: rishabjolly
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: alkaplan
-ms.openlocfilehash: f3b278c2678542ec127c1c644cc0267622ca39fa
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: rijolly
+ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870688"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149885"
 ---
-# <a name="application-insights-for-kubernetes-with-service-mesh"></a>Application Insights per Kubernetes con rete mesh di servizi
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato l'App
 
 > [!IMPORTANT]
-> Application Insights per Kubernetes tramite rete mesh di servizi è attualmente in anteprima pubblica.
+> Questa funzionalità è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -36,7 +36,7 @@ Monitoraggio di Azure sfrutta ora tech mesh del servizio nel cluster Kubernetes 
 
 ## <a name="capabilities"></a>Capabilities
 
-Con Application Insights per l'app di Kubernetes ospitato, sarà possibile usare:
+Con zero applicazione di strumentazione di monitoraggio per Kubernetes App ospitate, sarà possibile usare:
 
 - [Mappa delle applicazioni](../../azure-monitor/app/app-map.md)
 - [Metriche di Live Stream](../../azure-monitor/app/live-stream.md)
@@ -71,9 +71,9 @@ Le applicazioni in esecuzione all'esterno di rete mesh di servizi non sono inter
 - Distribuire l'applicazione *-app-spazio dei nomi my* dello spazio dei nomi. Se l'applicazione è già stata distribuita e aver eseguito il metodo di inserimento automatico sidecar descritto in precedenza, è necessario ricreare i POD per garantire che istio inserisce il sidecar; avviare un aggiornamento in sequenza o eliminare singole POD e attenderne la ricreazione.
 - Verificare che l'applicazione è conforme [Istio requisiti](https://istio.io/docs/setup/kubernetes/prepare/requirements/).
 
-### <a name="deploy-application-insights-for-kubernetes"></a>Distribuzione di Application Insights per Kubernetes
+### <a name="deploy-zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Distribuzione zero applicazione di strumentazione di monitoraggio per Kubernetes App ospitate
 
-1. Scaricare ed estrarre un' [ *Application Insights per Kubernetes* rilasciare](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
+1. Scaricare ed estrarre un' [ *scheda di Application Insights* rilasciare](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
 2. Passare a */src/kubernetes/* all'interno della cartella di rilascio.
 3. Modifica *application-insights-istio-mixer-adapter-deployment.yaml*
     - modificare il valore della *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* variabile di ambiente per contenere la chiave di strumentazione della risorsa di Application Insights nel portale di Azure per contenere i dati di telemetria.
@@ -84,9 +84,9 @@ Le applicazioni in esecuzione all'esterno di rete mesh di servizi non sono inter
    kubectl apply -f .
    ```
 
-### <a name="verify-application-insights-for-kubernetes-deployment"></a>Verificare di Application Insights per la distribuzione di Kubernetes
+### <a name="verify-deployment"></a>Verificare la distribuzione
 
-- Assicurarsi che Application Insights per adapter di Kubernetes distribuito:
+- Assicurarsi che l'adapter di Application Insights è stato distribuito:
 
   ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
@@ -113,7 +113,7 @@ Di seguito il flusso di risoluzione dei problemi da utilizzare quando i dati di 
    ```
    Verificare che sia presente un contenitore denominato *istio proxy* in esecuzione nel pod.
 
-5. Vista *Application Insights per Kubernetes* le tracce dell'adapter.
+5. Visualizzare le tracce dell'adapter Application Insights.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"

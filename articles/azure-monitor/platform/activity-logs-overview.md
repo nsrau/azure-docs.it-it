@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995660"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138232"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -63,6 +63,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 * Analizzarlo in Power BI usando il [ **pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvarlo in un **account di archiviazione** per fini di archiviazione o di ispezione manuale](../../azure-monitor/platform/archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni usando il **profilo di log**.
 * Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
+* Visualizza i [cronologia modifiche](#view-change-history) per determinati eventi
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Eseguire query sul log attività nel portale di Azure
 
@@ -183,6 +184,20 @@ Per la documentazione completa relativa alla creazione di un profilo di monitora
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Visualizzare la cronologia modifiche
+
+Quando si rivede il Log attività, può essere utile per vedere cosa è successo modifiche durante tale ora dell'evento. È possibile visualizzare queste informazioni con la cronologia delle modifiche.
+
+Passare al Log attività usando il menu sul lato sinistro del portale. Selezionare un evento dal Log attività di cui si desidera cercare dettagli della gestione. Selezionare il **cronologia revisioni (anteprima)** scheda per visualizzare qualsiasi associato all'evento di modifiche.
+
+![Modificare l'elenco di cronologia di un evento](./media/activity-logs-overview/change-history-event.png)
+
+Se sono state apportate modifiche associate all'evento, si verrà visualizzato un elenco di modifiche che è possibile selezionare. Verrà visualizzato il **cronologia revisioni (anteprima)** pagina. In questa pagina visualizzare le modifiche alla risorsa. Come può notare nell'esempio seguente, siamo in grado di vedere non solo che la macchina virtuale modificati dimensioni, ma ciò che le dimensioni VM precedente erano prima della modifica e ciò che è stata modificata in.
+
+![Pagina Cronologia Cambia visualizzazione delle differenze](./media/activity-logs-overview/change-history-event-details.png)
+
+Per altre informazioni sulla cronologia delle modifiche, vedere [ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Fasi successive
 

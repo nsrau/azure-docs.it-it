@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450819"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147455"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
@@ -135,7 +135,7 @@ Per accedere allo stato dei servizi, è possibile passare agli URL seguenti:
 Per avviare il processo di analisi di flusso, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è quello scelto per la soluzione scelto quando è stato eseguito lo script **start.cmd**.
+1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è il nome della soluzione scelto quando è stato eseguito lo script **start.cmd**.
 1. Fare clic su **Processo di Analisi di flusso** nell'elenco delle risorse.
 1. Nella pagina di **panoramica** del processo di Analisi di flusso fare clic sul pulsante **Avvia**. Fare clic su **Avvia** per avviare il processo.
 

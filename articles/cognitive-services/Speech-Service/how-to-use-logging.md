@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148036"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione in Speech SDK
 
-La registrazione al file è una funzionalità facoltativa per il SDK di riconoscimento vocale. Durante lo sviluppo la registrazione fornisce informazioni aggiuntive e la diagnostica di componenti di base di Speeck SDK. Può essere abilitato impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione di riconoscimento vocale per il percorso e nome del file di log. La registrazione verrà attivata a livello globale dopo aver creato un sistema di riconoscimento da tale configurazione e non può essere disabilitata in un secondo momento. È possibile modificare il nome di un file di log durante un'esecuzione della sessione di registrazione.
+La registrazione al file è una funzionalità facoltativa per il SDK di riconoscimento vocale. Durante lo sviluppo la registrazione fornisce informazioni aggiuntive e la diagnostica di componenti di base del SDK Speech. Può essere abilitato impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione di riconoscimento vocale per il percorso e nome del file di log. La registrazione verrà attivata a livello globale dopo aver creato un sistema di riconoscimento da tale configurazione e non può essere disabilitata in un secondo momento. È possibile modificare il nome di un file di log durante un'esecuzione della sessione di registrazione.
 
 > [!NOTE]
 > La registrazione è disponibile nel SDK di riconoscimento vocale supportati tutti i linguaggi di programmazione, fatta eccezione per JavaScript.

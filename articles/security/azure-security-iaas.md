@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586535"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145210"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
+Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
+
+Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Poiché le opinioni e le tecnologie possono cambiare nel tempo, questo articolo verrà aggiornato regolarmente per riflettere tali variazioni.
 
 Nella maggior parte degli scenari Infrastructure as a Service (IaaS) le [macchine virtuali (VM) di Azure](https://docs.microsoft.com/azure/virtual-machines/) rappresentano il carico di lavoro principale per le organizzazioni che usano il cloud computing. Questo è evidente negli [scenari ibridi](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) in cui le organizzazioni vogliono eseguire lentamente la migrazione dei carichi di lavoro nel cloud. In questi scenari seguire la [considerazioni generali sulla sicurezza per IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) e applicare le procedure consigliate di sicurezza a tutte le VM.
 
+## <a name="shared-responsibility"></a>Responsabilità condivisa
 Le responsabilità di sicurezza dell'utente dipendono dal tipo di servizio cloud. Il grafico seguente mostra un riepilogo delle responsabilità di Microsoft e dell'utente:
 
 ![Aree di responsabilità](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 I requisiti di sicurezza variano in base a diversi fattori, tra cui tipi diversi di carichi di lavoro. Nessuna di queste procedure consigliate è di per sé sufficiente a proteggere i sistemi. Nel campo della sicurezza, è più che mai necessario scegliere le opzioni appropriate e fare in modo che le varie soluzioni si completino a vicenda.
 
-Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
-
-Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Poiché le opinioni e le tecnologie possono cambiare nel tempo, questo articolo verrà aggiornato regolarmente per riflettere tali variazioni.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Proteggere le VM tramite l'autenticazione e il controllo di accesso
 Il primo passo per proteggere le VM consiste nel garantire che solo gli utenti autorizzati possano configurare nuove VM e accedervi.
+
+> [!NOTE]
+> Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile integrare con autenticazione di Azure AD. Quando si usa [autenticazione di Azure AD per le macchine virtuali Linux](../virtual-machines/linux/login-using-aad.md), controllare centralmente e applicare i criteri che consentono o negano l'accesso alle macchine virtuali.
+>
+>
 
 **Procedura consigliata**: controllare l'accesso alla macchina virtuale.   
 **Dettagli**: usare i [criteri di Azure](../azure-policy/azure-policy-introduction.md) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
@@ -102,6 +107,9 @@ Se si usa Windows Update, lasciare abilitata l'impostazione automatica di Window
 **Procedura consigliata**: ridistribuire periodicamente le VM per forzare una versione aggiornata del sistema operativo.   
 **Dettagli**: definire la VM con un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in modo che sia possibile ridistribuirla facilmente. La scelta di un modello offre l'opportunità di avere una VM sicura e con patch applicate quando serve.
 
+**Procedura consigliata**: Consente di applicare rapidamente gli aggiornamenti della sicurezza per le macchine virtuali.   
+**Dettagli**: Abilita Centro sicurezza di Azure (livello gratuito o Standard) a [identificare gli aggiornamenti della sicurezza mancanti e applicarle](../security-center/security-center-apply-system-updates.md).
+
 **Procedura consigliata**: installare gli aggiornamenti della sicurezza più recenti.   
 **Dettagli**: I lab e i sistemi esterni sono tra i primi carichi di lavoro che i clienti spostano in Azure. Se le VM di Azure ospitano applicazioni o servizi che devono essere accessibili da Internet, è importante fare attenzione all'applicazione di patch. Non limitarsi all'applicazione di patch relative al sistema operativo. Anche le vulnerabilità senza patch delle applicazioni di partner possono causare problemi facilmente evitabili con una buona gestione delle patch.
 
@@ -165,6 +173,18 @@ Quando si applica Crittografia dischi di Azure, è possibile soddisfare le esige
 
 - Le VM IaaS inattive sono protette con la tecnologia di crittografia standard, per soddisfare i requisiti di sicurezza e conformità dell'organizzazione.
 - Le VM IaaS vengono avviate con chiavi e criteri controllati dai clienti ed è possibile controllarne l'utilizzo nell'insieme di credenziali delle chiavi.
+
+## <a name="restrict-direct-internet-connectivity"></a>Limitare la connettività internet diretta
+Monitorare e limitare la connettività internet diretta della macchina virtuale. Gli utenti malintenzionati costantemente analizza gli intervalli IP di cloud pubblico per le porte di gestione aperte e tentano attacchi "semplici", ad esempio le password più comuni e le vulnerabilità senza patch installate note. Nella tabella seguente sono elencate le procedure consigliate per la protezione da questi attacchi:
+
+**Procedura consigliata**: Evitare l'esposizione accidentale per routing e sicurezza di rete.   
+**Dettagli**: Usare RBAC per garantire che solo il gruppo di rete centrale dispone dell'autorizzazione per le risorse di rete.
+
+**Procedura consigliata**: Identificare e correggere esposto le macchine virtuali che consentono l'accesso da "qualsiasi" indirizzo IP di origine.   
+**Dettagli**: Usare il Centro sicurezza Azure. Il Centro sicurezza consiglierà di limitare l'accesso tramite endpoint con connessione internet se uno dei gruppi di sicurezza di rete contiene una o più regole in ingresso che consentono l'accesso da "qualsiasi" indirizzo IP di origine. Centro sicurezza consiglierà di modificare queste regole in ingresso devono [limitare l'accesso](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
+
+**Procedura consigliata**: Limitare le porte di gestione (RDP, SSH).   
+**Dettagli**: [Macchina virtuale l'accesso Just-in-time (JIT)](../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi tempo stesso offrendo un facile accesso per connettersi alle VM quando necessario. Quando JIT è abilitato, Centro sicurezza protegge il traffico in ingresso alle macchine virtuali di Azure tramite la creazione di una regola di gruppo di sicurezza di rete. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione JIT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](security-best-practices-and-patterns.md).

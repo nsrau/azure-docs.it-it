@@ -2,19 +2,20 @@
 title: Inviare gli eventi di archiviazione BLOB di Azure a un endpoint Web - Interfaccia della riga di comando di Azure | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB. Inviare gli eventi a un webhook. Gestire gli eventi in un'applicazione Web.
 services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d92614556fdc6822f749002d2e5a8fc92946d0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141118"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Avvio rapido: Instradare gli eventi di archiviazione a un endpoint Web con l'interfaccia della riga di comando di Azure
 

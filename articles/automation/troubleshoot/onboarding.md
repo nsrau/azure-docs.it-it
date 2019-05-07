@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145158"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -78,6 +78,36 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
 Controllare le notifiche nell'angolo in alto a destra del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **distribuzioni** sotto **impostazioni** per visualizzare la non riuscita distribuzione. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Scenario: Errori durante il tentativo di scollegare un'area di lavoro
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di scollegare un'area di lavoro, viene visualizzato l'errore seguente:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore si verifica quando si dispone ancora di soluzioni attive nell'area di lavoro di Log Analitica che dipendono l'Account di automazione e analisi del Log dell'area di lavoro da collegare.
+
+### <a name="resolution"></a>Risoluzione
+
+Per risolvere questo problema è necessario rimuovere le soluzioni seguenti dall'area di lavoro se li si stia usando:
+
+* Gestione degli aggiornamenti
+* Change Tracking
+* Avviare/arrestare VM durante gli orari di minore attività
+
+Dopo aver rimosso le soluzioni è possibile scollegare l'area di lavoro. È importante pulire eventuali elementi da tali soluzioni anche dall'area di lavoro e Account di automazione esistente.  
+
+* Gestione degli aggiornamenti
+  * Rimuovere le distribuzioni di aggiornamenti (pianificazioni) dall'Account di automazione
+* Avviare/arrestare VM durante gli orari di minore attività
+  * Rimuovere i blocchi nei componenti della soluzione nell'Account di automazione **le impostazioni** > **blocchi**.
+  * Per altri passaggi rimuovere l'avviare/arrestare VM durante la soluzione di orari di minore attività, vedere [rimuovere la macchina virtuale di avvio/arresto durante orari di minore attività](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 

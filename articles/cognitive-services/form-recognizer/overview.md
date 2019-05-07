@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: df3db534550e709e40cc94d5f951056d93a1003e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a120a59a58eb8d7a017cce0dd85c21038bdcf51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025430"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143225"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -73,13 +73,7 @@ Esplorare il [documento Informazioni di riferimento sulle API del servizio REST]
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 
-Il servizio viene offerto come [anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) di un servizio di Azure in base alle [condizioni dei Servizi online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Si manterrà la proprietà dei dati che verranno usati solo per fornire i Servizi online come illustrato nel contratto:
-
-### <a name="processing-of-customer-data-ownership"></a>Elaborazione dei dati dei clienti; proprietà
-
-I Dati del Cliente verranno usati o altrimenti elaborati solo per fornire i Servizi online al cliente, incluse le finalità compatibili con la fornitura di tali servizi. Microsoft non userà o elaborerà altrimenti i Dati del Cliente e non deriverà informazioni da tali dati per finalità promozionali o finalità analoghe di tipo commerciale. Tra le parti, il Cliente conserva ogni diritto, titolo e interesse in e per i Dati del Cliente. Microsoft non acquisisce alcun diritto sui Dati del Cliente, diverso dai diritti che il Cliente concede a Microsoft per fornire i Servizi online al Cliente.
-
-Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Riconoscimento modulo devono conoscere i criteri di Microsoft sui dati dei clienti. Per altre informazioni, vedere la [pagina sui Servizi cognitivi](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) nel Centro protezione di Microsoft.
+Il servizio viene offerto come [anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) di un servizio di Azure in base alle [condizioni dei Servizi online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Riconoscimento modulo devono conoscere i criteri di Microsoft sui dati dei clienti. Per altre informazioni, vedere la [pagina sui Servizi cognitivi](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) nel Centro protezione di Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

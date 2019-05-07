@@ -4,14 +4,14 @@ description: Informazioni sulla sintassi SQL, sui concetti relativi ai database 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054127"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148942"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -139,14 +139,14 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente restituisce tutti i nomi specificati dei figli della famiglia di prodotti il cui `id` corrisponde a `WakefieldFamily`, ordinato per livello.
+La query seguente restituisce tutti i nomi specificati dei figli della famiglia di prodotti il cui `id` corrisponde a `WakefieldFamily`, ordinato per città di residenza.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 I risultati sono:
@@ -314,6 +314,70 @@ I risultati sono:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>Parola chiave DISTINCT
+
+La parola chiave DISTINCT elimina i duplicati nella proiezione della query.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+In questo esempio, la query proietta i valori per ogni cognome.
+
+I risultati sono:
+
+```json
+[
+    "Andersen"
+]
+```
+
+È inoltre possibile proiettare oggetti univoci. In questo caso, il campo lastName non esiste in uno dei due documenti, in modo che la query restituisce un oggetto vuoto.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+I risultati sono:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+È anche utilizzabile DISTINCT nella proiezione in una sottoquery:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Questa query proietta una matrice che contiene givenName ogni elemento figlio con i duplicati rimossi. Questa matrice viene usato l'alias ChildNames e proiettati nelle query esterna.
+
+I risultati sono:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Aliasing
 
 È possibile in modo esplicito alias valori nelle query. Se una query avesse due proprietà con lo stesso nome, utilizzare l'aliasing per rinominare una o entrambe le proprietà in modo che si sta evitare ambiguità nel risultato proiettato.
@@ -380,7 +444,7 @@ I risultati sono:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -448,7 +512,7 @@ Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L
 |Bit per bit    | \|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) |
 |Logico    | AND, OR, NOT      |
 |Confronto | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\| (concatenazione) |
+|String     |  \|\| (concatenazione) |
 
 Le seguenti query di usano gli operatori binari:
 
@@ -599,7 +663,7 @@ Uso di?? operatore per verificare se una proprietà in un elemento quando si ese
 
 ## <a id="TopKeyword"></a>Operatore TOP
 
-La parola chiave TOP restituisce il primo `N` numero dei risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la clausola ORDER BY per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di questi due clausole è l'unico modo per indicare in modo prevedibile che le righe principali influisce. 
+La parola chiave TOP restituisce il primo `N` numero dei risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la clausola ORDER BY per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di questi due clausole è l'unico modo per indicare in modo prevedibile che le righe principali influisce.
 
 È possibile utilizzare TOP con un valore costante, come nell'esempio seguente, o con un valore della variabile usando le query con parametri. Per altre informazioni, vedere la [le query con parametri](#parameterized-queries) sezione.
 
@@ -679,6 +743,65 @@ I risultati sono:
       }
     ]
 ```
+
+Inoltre, è possibile ordinare dal più proprietà. Una query che Ordina dal più proprietà richiede un [indice composto](index-policy.md#composite-indexes). Considerare la query seguente:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Questa query recupera la famiglia `id` in ordine crescente del nome della città. Se più elementi hanno lo stesso nome di città, la query verrà ordinare in base il `creationDate` in ordine decrescente.
+
+## <a id="OffsetLimitClause"></a>Clausola OFFSET limite
+
+LIMITE di OFFSET è una clausola facoltativa per ignorare quindi richiedere un numero di valori dalla query. Il numero OFFSET e il conteggio di limite sono necessari nella clausola OFFSET limite.
+
+Quando il limite di OFFSET viene utilizzato in combinazione con una clausola ORDER BY, il set di risultati viene generato eseguendo skip e accettano i valori ordinati. Se non esiste una clausola ORDER BY viene utilizzata, si verificherà in un ordine deterministico dei valori.
+
+Ad esempio, ecco una query che ignora il primo valore e restituisce il secondo valore (in ordine di nome della città di residenza):
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+I risultati sono:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Ecco una query che ignora il primo valore e restituisce il secondo valore (senza ordinamento):
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+I risultati sono:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Espressioni scalari
 
 La clausola SELECT supporta espressioni scalari, ad esempio le costanti, espressioni aritmetiche e le espressioni logiche. La query seguente usa un'espressione scalare:
@@ -1018,7 +1141,7 @@ Nell'esempio seguente registra una funzione definita dall'utente in un contenito
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

@@ -1,20 +1,20 @@
 ---
-title: Connettersi con il client web di anteprima di Desktop virtuale Windows - Azure
-description: Come connettersi al client web di Windows Virtual Desktop Preview HTML5.
+title: Connettersi a Windows Virtual Desktop Preview da un web browser - Azure
+description: Come per la connessione all'anteprima di Desktop virtuale Windows da un web browser.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142457"
 ---
-# <a name="connect-with-the-web-client"></a>Connettersi con il client Web
+# <a name="connect-from-a-web-browser"></a>Connettersi da un web browser
 
 Il client web consente di accedere alle risorse di anteprima di Desktop virtuale Windows da un browser web senza il processo di installazione di lunga durata.
 
