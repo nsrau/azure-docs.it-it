@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072994"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, è necessario quanto segue: 
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -53,12 +53,12 @@ API di creazione per le App in pacchetto:
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Contenitore| Minima | Consigliati | TPS<br>(Minimum, Maximum)|
+|Contenitore| Minima | Consigliato | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20,40|
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
-* Programmi di transazione - transazioni al secondo
+* TPS - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
@@ -109,7 +109,7 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Con training|Get, Post|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Gestione temporanea|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
+|Staging|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
 |Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
 |{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
@@ -218,7 +218,7 @@ In caso di esito positivo, la risposta è un file di pacchetto LUIS. Salvare il 
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{BILLING_ENDPOINT} | Il valore dell'endpoint fatturazione è disponibile nel portale di Azure `Cognitive Services` pagina Panoramica. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -269,10 +269,10 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Parametro di query|Type|Scopo|
+|Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
 |`q`|string|Espressione dell'utente.|
-|`timezoneOffset`|numero|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
+|`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|
@@ -337,19 +337,28 @@ Il contenitore di LUIS invia informazioni ad Azure di fatturazione, usando un _s
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Dipendenze non supportate
+## <a name="supported-dependencies-for-latest-container"></a>Le dipendenze per è supportato `latest` contenitore
+
+Il contenitore più recente, rilasciato in 2019 / / compilazione, supporterà:
+
+* Controllo ortografico Bing: le richieste all'endpoint di stima di query con il `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` parametri della stringa di query. Usare la [ortografico Bing v7 esercitazione](luis-tutorial-bing-spellcheck.md) per altre informazioni. Se questa funzionalità viene usata, il contenitore invia il utterance alla risorsa di V7 di controllo ortografico Bing.
+* [Nuovi domini predefiniti](luis-reference-prebuilt-domains.md): questi domini centrato sulle aziende includono entità, espressioni di esempio e i modelli. Estendere i domini per uso personale. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Non supportate delle dipendenze per `latest` contenitore
+
+Se l'app LUIS ha supportato le dipendenze, non sarà in grado [esportazione per il contenitore](#export-packaged-app-from-luis) finché non si rimuove la funzionalità non supportate. Quando si prova a esportare per il contenitore, il portale del servizio LUIS indica le funzionalità non supportate, che è necessario rimuovere.
 
 È possibile usare un'applicazione LUIS se **non include** le dipendenze seguenti:
 
 Configurazioni dell'app non supportate|Dettagli|
 |--|--|
-|Impostazioni cultura del contenitore non supportate| Tedesco (de-DE)<br>Olandese (nl-NL)<br>Giapponese (ja-JP)<br>|
-|Domini non supportati|Domini predefiniti, incluse finalità ed entità dei domini predefiniti|
+|Impostazioni cultura del contenitore non supportate| Olandese (nl-NL)<br>Giapponese (ja-JP)<br>Tedesco è supportato solo con il [1.0.1 tokenizer o versione successiva](luis-language-support.md#custom-tokenizer-versions).|
 |Entità non supportate per tutte le impostazioni cultura|Entità [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) predefinita per tutte le impostazioni cultura|
 |Entità non supportate per le impostazioni cultura Inglese (en-US)|Entità [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) predefinite|
 |Priming del riconoscimento vocale|Le dipendenze esterne non sono supportate nel contenitore.|
 |Analisi del sentiment|Le dipendenze esterne non sono supportate nel contenitore.|
-|Controllo ortografico Bing|Le dipendenze esterne non sono supportate nel contenitore.|
 
 ## <a name="summary"></a>Riepilogo
 

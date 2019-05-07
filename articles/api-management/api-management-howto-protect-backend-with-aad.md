@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141083"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -44,7 +44,7 @@ Ecco una rapida panoramica dei passaggi:
 
 Per proteggere un'API con Azure AD, il primo passaggio consiste nel registrare un'applicazione in Azure AD che rappresenta l'API. 
 
-1. Passare al tenant di Azure AD e quindi a **Registrazioni per l'app**.
+1. Passare al tenant di Azure AD e quindi passare a **registrazioni per l'App (Legacy)**.
 
 2. Selezionare **Registrazione nuova applicazione**. 
 
@@ -62,7 +62,7 @@ Dopo aver creato l'applicazione, prendere nota dell'**ID applicazione**, che ver
 
 Ogni applicazione client che chiama l'API deve anche essere registrata come applicazione in Azure AD. In questo caso, l'applicazione client di esempio è la console per sviluppatori nel portale per sviluppatori di Gestione API. Ecco come registrare un'altra applicazione in Azure AD per rappresentare la console per sviluppatori.
 
-1. Selezionare **Registrazione nuova applicazione**. 
+1. Mentre nelle **registrazioni per l'App (Legacy)**, selezionare **registrazione nuova applicazione**. 
 
 2. Specificare un nome per l'applicazione. In questo esempio il nome è `client-app`.
 
@@ -86,7 +86,7 @@ Prendere nota del valore della chiave.
 
 Ora che sono state registrate due applicazioni per rappresentare l'API e la console per sviluppatori, è necessario concedere le autorizzazioni per consentire all'app client di chiamare l'app back-end.  
 
-1. Passare a **Registrazioni per l'app**. 
+1. Passare a **registrazioni per l'applicazione (Legacy)**. 
 
 2. Selezionare `client-app` e passare a **Impostazioni**.
 

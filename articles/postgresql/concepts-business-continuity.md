@@ -1,19 +1,19 @@
 ---
-title: Panoramica della continuità aziendale con Database di Azure per PostgreSQL
+title: Panoramica della continuità aziendale con Database di Azure per PostgreSQL - Server singolo
 description: Panoramica della continuità aziendale con Database di Azure per PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456275"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068921"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Panoramica della continuità aziendale con Database di Azure per PostgreSQL
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con Database di Azure per PostgreSQL - Server singolo
 
 Questa panoramica descrive le funzionalità offerte da Database di Azure per PostgreSQL per la continuità aziendale e il ripristino di emergenza. Informazioni sulle opzioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. Informazioni sulle operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
 

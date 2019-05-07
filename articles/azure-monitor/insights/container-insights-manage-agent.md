@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071789"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Come gestire l'agente di Monitoraggio di Azure per i contenitori
 Monitoraggio di Azure per i contenitori usa una versione con contenitori dell'agente di Log Analytics per Linux. Dopo la distribuzione iniziale, esistono attività di routine o facoltative che può essere necessario eseguire durante il ciclo di vita dell'agente. Questo articolo contiene informazioni dettagliate su come aggiornare l'agente manualmente e disabilitare la raccolta di variabili di ambiente da un contenitore specifico. 
@@ -35,7 +35,7 @@ Il processo per aggiornare l'agente è costituito da due semplici passaggi. Il p
 >Mentre si esegue questa attività di manutenzione, i nodi del cluster non inoltrano i dati raccolti e le viste Prestazioni non mostreranno i dati tra la rimozione dell'agente e l'installazione della nuova versione. 
 >
 
-Per installare la nuova versione dell'agente, seguire i passaggi descritti nell'articolo [Eseguire l'onboarding del monitoraggio](container-insights-onboard.md?#enable-using-azure-cli) usando l'interfaccia della riga di comando di Azure per completare questo processo.  
+Per installare la nuova versione dell'agente, seguire i passaggi descritti nel [abilitare il monitoraggio con Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli)per completare questo processo.  
 
 Dopo aver riabilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità aggiornate per il cluster. Per verificare che l'aggiornamento dell'agente sia stato completato, eseguire il comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 

@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070862"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
-Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di Azure Container.
+Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di Azure Container. Vedere anche [domande frequenti](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Convenzioni di denominazione
 
@@ -46,11 +46,7 @@ Se si specifica un'immagine non supportata da Istanze di Azure Container, viene 
 }
 ```
 
-Questo errore viene spesso rilevato durante la distribuzione di immagini Windows basate su una versione Canale semestrale di Windows. Ad esempio, le versioni Windows 1709 e 1803 sono versioni Canale semestrale di Windows e generano questo errore al momento della distribuzione.
-
-Istanze di Azure Container supporta attualmente le immagini di Windows che si basano solo sulla versione **Long-Term Servicing Channel (LTSC) di Windows Server 2016**. Per attenuare questo problema durante la distribuzione di contenitori Windows, distribuire sempre immagini basate sul Windows Server 2016 (LTSC). Le immagini basate su Windows Server 2019 (LTSC) non sono supportate.
-
-Per informazioni dettagliate sulle versioni Long-Term Servicing Channel e Canale semestrale di Windows, vedere [Panoramica del Canale semestrale di Windows Server][windows-sac-overview].
+Questo errore si verifica più spesso quando le immagini di distribuzione Windows che si basano su canale semestrale versione 1709 o 1803, che non sono supportati. Per immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ I due principali fattori che contribuiscono al tempo di avvio di un contenitore 
 * [Dimensioni dell'immagine](#image-size)
 * [Posizione dell'immagine](#image-location)
 
-Per le immagini Windows sono necessarie [altre considerazioni](#cached-windows-images).
+Per le immagini Windows sono necessarie [altre considerazioni](#cached-images).
 
 ### <a name="image-size"></a>Dimensioni dell'immagine
 
@@ -176,14 +172,12 @@ Il modo migliore per limitare le dimensioni delle immagini è quello di evitare 
 
 Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio del contenitore è quello di ospitare l'immagine del contenitore in [Registro Azure Container](/azure/container-registry/) nella stessa area in cui si intende distribuire le istanze del contenitore. Ciò consente di ridurre il percorso dell'immagine del contenitore attraverso la rete e quindi di limitare notevolmente il tempo di download.
 
-### <a name="cached-windows-images"></a>Immagini di Windows memorizzate nella cache
+### <a name="cached-images"></a>Immagini memorizzate nella cache
 
-Istanze di contenitore di Azure Usa un meccanismo di memorizzazione nella cache per ridurre il tempo di avvio di contenitore per le immagini basate su immagini di Windows e Linux comuni. Per un elenco dettagliato delle immagini memorizzate nella cache e tag, usare il [elencare le immagini memorizzate nella cache] [ list-cached-images] API.
+Istanze di contenitore di Azure Usa un meccanismo di memorizzazione nella cache per ridurre il tempo di avvio di contenitore per le immagini basate su common [le immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), tra cui `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Comunemente usato, ad esempio le immagini Linux `ubuntu:1604` e `alpine:3.6` vengono inoltre memorizzate nella cache. Per un elenco aggiornato delle immagini memorizzate nella cache e i tag, usare il [elencare le immagini memorizzate nella cache] [ list-cached-images] API.
 
-Per garantire il tempo di avvio dei contenitori Windows più veloce, usare una delle **tre più recenti** versioni delle **due immagini** seguenti come immagine di base:
-
-* [Componenti di base di Windows Server 2016] [ docker-hub-windows-core] (termine LTSC solo)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Uso di immagini basate su Windows Server 2019 in istanze di contenitore di Azure è disponibile in anteprima.
 
 ### <a name="windows-containers-slow-network-readiness"></a>La rete diventa disponibile lentamente per i contenitori Windows
 

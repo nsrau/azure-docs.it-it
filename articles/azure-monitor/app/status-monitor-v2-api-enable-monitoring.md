@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e2d964316e83138711547fb18fc5d04c56b4002f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17798c78b167821f5f30a11996ac90cf67fb0179
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870523"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144956"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>API v2 di Status Monitor: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
@@ -150,3 +150,20 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
+## <a name="next-steps"></a>Passaggi successivi
+
+  Visualizzare i dati di telemetria:
+ - [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
+- [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
+- Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
+- [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ Aggiungere altri dati di telemetria:
+ - [Creare test web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
+- [Aggiungere dati di telemetria client web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina web e per consentire di inserire chiamate di traccia.
+- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo che è possibile inserire una traccia e registrare le chiamate
+ 
+ Altri vantaggi v2 Status Monitor:
+ - Usare la Guida alla [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) v2 Status Monitor.
+ - [Ottenere la configurazione](status-monitor-v2-api-get-config.md) per confermare che le impostazioni sono state registrate correttamente.
+ - [Ottenere lo stato](status-monitor-v2-api-get-status.md) per controllare il monitoraggio.

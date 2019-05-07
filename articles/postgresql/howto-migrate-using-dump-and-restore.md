@@ -1,17 +1,17 @@
 ---
-title: Come creare un file di dump ed eseguire il ripristino in Database di Azure per PostgreSQL
-description: Descrive come estrarre un database PostgreSQL in un file di dump ed eseguire il ripristino da un file creato da pg_dump in Database di Azure per PostgreSQL.
+title: Come eseguire Dump e ripristino nel Database di Azure per PostgreSQL - Server singolo
+description: Viene descritto come estrarre un database PostgreSQL in un file di dump e ripristino da un file creato da pg_dump in Database di Azure per PostgreSQL - singolo Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066969"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
 È possibile usare [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di dump e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) per ripristinare il database PostgreSQL da un file di archivio creato da pg_dump.

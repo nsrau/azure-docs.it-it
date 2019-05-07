@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468381"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142870"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Estensione della macchina virtuale di Azure Monitor per Windows
 
@@ -32,7 +32,10 @@ Log di monitoraggio di Azure fornisce funzionalità di monitoraggio tra asset lo
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione dell'agente di Log Analytics per Windows può essere eseguita in Windows Server versioni 2008 R2, 2012, 2012 R2 e 2016.
+L'estensione agente di Log Analitica per Windows supporta seguenti versioni del sistema operativo Windows:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, versione 1709 e 1803
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
@@ -43,7 +46,7 @@ L'estensione dell'agente di Log Analytics per Windows richiede che la macchina v
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Analytics. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro Log Analytics di destinazione. Questi valori sono disponibili nelle impostazioni dell'area di lavoro nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
+Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Analytics. L'estensione richiede l'ID area di lavoro e la chiave dell'area di lavoro nell'area di lavoro di Log Analitica di destinazione. Questi valori sono disponibili nelle impostazioni dell'area di lavoro nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
 
 ```json
 {
@@ -84,6 +87,9 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Ana
 ## <a name="template-deployment"></a>Distribuzione del modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON presentato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione dell'agente di Log Analytics durante la distribuzione di un modello di Azure Resource Manager. Un esempio di modello che include l'estensione macchina virtuale dell'agente di Log Analytics è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>Il modello non supporta specificato più di un ID area di lavoro e una chiave dell'area di lavoro quando si desidera configurare l'agente per fare riferimento a più aree di lavoro. Per configurare l'agente invii report a più aree di lavoro, vedere [aggiunta o rimozione di un'area di lavoro](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources) (Impostare il nome e il tipo per le risorse figlio). 
 

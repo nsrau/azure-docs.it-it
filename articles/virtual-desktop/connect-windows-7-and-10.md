@@ -1,20 +1,20 @@
 ---
-title: Connettersi all'anteprima del Desktop virtuale Windows con Windows 7 e Windows 10 - Azure
-description: Come connettersi al servizio di anteprima di Desktop virtuale Windows con Windows 7 o Windows 10.
+title: Connettersi all'anteprima del Desktop virtuale Windows da Windows 10 o Windows 7 - Azure
+description: Come per la connessione all'anteprima di Desktop virtuale Windows da Windows 10 o Windows 7.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328851"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145995"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Connettersi con Windows 7 e Windows 10
+# <a name="connect-from-windows-10-or-windows-7"></a>Connettersi da Windows 10 o Windows 7
 
 > Si applica a: Windows 7 e Windows 10.
 
@@ -25,11 +25,11 @@ ms.locfileid: "60328851"
 
 ## <a name="install-the-client"></a>Installazione del client
 
-[Scaricare](https://go.microsoft.com/fwlink/?linkid=2068602) e installare il client al computer locale. Ciò richiede diritti di amministratore.
+[Scaricare](https://go.microsoft.com/fwlink/?linkid=2068602) e installare il client al computer locale. L'installazione richiede diritti di amministratore.
 
 ## <a name="subscribe-to-a-feed"></a>Sottoscrivere un feed
 
-Ottiene l'elenco delle risorse disponibili per l'utente dal proprio computer locale tramite la sottoscrizione al feed specificato dall'amministratore.
+Ottiene l'elenco di risorse gestite disponibili all'utente tramite la sottoscrizione al feed specificato dall'amministratore. La sottoscrizione rende le risorse disponibili nel PC locale.
 
 Per sottoscrivere un feed:
 
@@ -44,6 +44,33 @@ Dopo l'autenticazione, viene visualizzato un elenco di risorse disponibili.
 - Dalla pagina principale del client, fare doppio clic su una risorsa di per avviarla.
 - Avviare una risorsa, come si farebbe normalmente le altre App dal Menu Start.
   - È anche possibile cercare le app nella barra di ricerca.
+
+Dopo aver sottoscritto un feed, il contenuto del feed viene aggiornato automaticamente a intervalli regolari. Risorse possono essere aggiunto, modificate o rimosso in base alle modifiche apportate dall'amministratore.
+
+## <a name="view-the-details-of-a-feed"></a>Visualizzare i dettagli di un feed
+
+Dopo la sottoscrizione, è possibile visualizzare informazioni aggiuntive relative al feed accedendo il riquadro dei dettagli.
+
+1. Pagina principale del client, selezionare i puntini di sospensione (**...** ) a destra del nome del feed.
+1. Nel menu a discesa, selezionare **dettagli**.
+1. Il riquadro dei dettagli viene visualizzato a destra del client.
+
+Il riquadro dei dettagli contiene informazioni utili relative al feed:
+
+- L'URL e il nome utente utilizzato per la sottoscrizione
+- Il numero di applicazioni e desktop
+- La data/ora dell'ultimo aggiornamento
+- Lo stato dell'ultimo aggiornamento
+
+Se necessario, è possibile avviare un aggiornamento manuale facendo clic sulla **aggiornale**.
+
+## <a name="unsubscribe-from-a-feed"></a>Annullare la sottoscrizione da un feed
+
+In questa sezione viene illustrato come annullare la sottoscrizione da un feed. È possibile annullare la sottoscrizione per riattivare la sottoscrizione con un account diverso o rimuovere le risorse dal sistema.
+
+1. Pagina principale del client, selezionare i puntini di sospensione (**...** ) a destra del nome del feed.
+1. Nel menu a discesa, selezionare **Unsubscribe**.
+1. Esaminare e selezionare **continuazione** dalla finestra di dialogo.
 
 ## <a name="update-the-client"></a>Aggiornare il client
 

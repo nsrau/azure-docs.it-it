@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: d12226daa7353c01ee462ea31c5cbf011ba28409
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726081"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072594"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali nel portale di Azure
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
-Per distribuire rapidamente i carichi di lavoro in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. In uno scenario di ridimensionamento non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes con nodi virtuali abilitati.
+Per distribuire rapidamente i carichi di lavoro in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. In uno scenario di ridimensionamento non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. I nodi virtuali sono supportati solo con i nodi e i POD di Linux.
 
-> [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
->
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes con nodi virtuali abilitati.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
 
 * Australia orientale (australiaeast)
+* Stati Uniti centrali (centralus)
 * Stati Uniti orientali (eastus)
+* Stati Uniti orientali 2 (eastus2)
+* Giappone orientale (japaneast)
+* Europa settentrionale (northeurope)
+* Asia sud-orientale (southeastasia)
 * Stati Uniti centrali (westcentralus)
 * Europa occidentale (westeurope)
 * Stati Uniti occidentali (westus)
+* Stati Uniti occidentali 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitazioni note
 Funzionalità di nodi virtuali è dipende in larga misura dal set di funzionalità di ACI. Gli scenari seguenti non sono ancora supportati con i nodi virtuali
@@ -177,7 +180,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Al pod viene assegnato un indirizzo IP interno della subnet di rete virtuale di Azure delegata per l'uso con nodi virtuali.
 
 > [!NOTE]
-> Se si usano immagini archiviate nel Registro Azure Container, [configurare e usare un segreto Kubernetes][acr-aks-secrets]. Una limitazione corrente dell'anteprima dei nodi virtuali è costituita dall'impossibilità di usare l'autenticazione dell'entità servizio di Azure AD. Se non si usa un segreto, i pod pianificati nei nodi virtuali non si avviano e segnalano l'errore `HTTP response status code 400 error code "InaccessibleImage"`.
+> Se si usano immagini archiviate nel Registro Azure Container, [configurare e usare un segreto Kubernetes][acr-aks-secrets]. Una limitazione corrente di nodi virtuali è che è possibile utilizzare Azure integrato autenticazione dell'entità servizio Active Directory. Se non si usa un segreto, i pod pianificati nei nodi virtuali non si avviano e segnalano l'errore `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testare il pod del nodo virtuale
 

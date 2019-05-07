@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074192"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -30,6 +30,8 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 **Indicazioni sulle procedure consigliate**. Limitare l'accesso a nodi specifici per le applicazioni a elevato utilizzo di risorse, come i controller di ingresso. Mantenere le risorse dei nodi disponibili per i carichi di lavoro che le richiedono e non consentire la pianificazione di altri carichi di lavoro sui nodi.
 
 Quando si crea il cluster servizio Azure Kubernetes, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
+
+Viene fornito il supporto per i diversi nodi con più pool di nodi. Un cluster AKS fornisce uno o più pool di nodi. Supporto per più pool di nodi nel servizio contenitore di AZURE è attualmente in anteprima.
 
 L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per limitare i carichi di lavoro che possono essere eseguiti sui nodi.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Quando questo pod viene distribuito, ad esempio usando `kubectl apply -f gpu-tol
 Quando si applicano i taint, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire le tolleranze richieste nelle proprie distribuzioni.
 
 Per altre informazioni su taint e tolleranze, vedere l'articolo sull'[applicazione di taint e tolleranze][k8s-taints-tolerations].
+
+Per altre informazioni su come usare più pool di nodi nel servizio contenitore di AZURE, vedere [creare e gestire più pool di nodi per un cluster di AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento di taints e tolerations nel servizio contenitore di AZURE
 
@@ -195,3 +199,4 @@ Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianifi
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

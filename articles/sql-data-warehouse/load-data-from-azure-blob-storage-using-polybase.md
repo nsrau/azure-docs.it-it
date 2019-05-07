@@ -2,20 +2,20 @@
 title: 'Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse | Microsoft Docs'
 description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York da un archivio BLOB di Azure pubblico a SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61079001"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143651"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse
 
@@ -561,6 +561,49 @@ Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/stat
 
     ![Visualizzare le tabelle caricate](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Eseguire l'autenticazione usando identità gestite da caricare (facoltativo)
+Il caricamento con PolyBase e l'autenticazione tramite identità gestite è il meccanismo più sicuro e consente di sfruttare gli endpoint di servizio di rete virtuale con archiviazione di Azure. 
+
+### <a name="prerequisites"></a>Prerequisiti
+1.  Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+#### <a name="steps"></a>Passaggi
+1. In PowerShell **registrare il server di database SQL** con Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Creare **un account di archiviazione per utilizzo generico v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare **collaboratore ai dati Blob di archiviazione** dei ruoli RBAC al server di Database SQL.
+
+   > [!NOTE] 
+   > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Connettività di Polybase all'account di archiviazione di Azure:**
+    
+   1. Creare le credenziali con ambito database con **identità = 'Identità del servizio gestito'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+       > - Nome dell'identità deve essere **'Identità del servizio gestito'** per la connettività di PolyBase lavorare con account di archiviazione di Azure.
+    
+   1. Creare l'origine dati esterna che specifica la credenziale con ambito Database con l'identità del servizio gestito.
+        
+   1. Eseguire le query come di consueto usando le [tabelle esterne](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Vedere quanto segue [documentazione] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) se si desidera configurare gli endpoint di servizio di rete virtuale per SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

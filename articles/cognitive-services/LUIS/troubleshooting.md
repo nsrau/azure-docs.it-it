@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072785"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -282,27 +282,19 @@ Usare il sample di LUIS per [trovare l'area](https://github.com/Azure-Samples/co
 
 Sì, è possibile usare il [contenitore](luis-container-howto.md) LUIS per questi scenari se si dispone della connettività necessaria per misurare l'utilizzo. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>In occasione della conferenza Build 2018, è stata menzionata una funzionalità o una dimostrazione di LUIS. Di quale caratteristica si trattava?
+## <a name="migrating-to-the-next-version"></a>Eseguire la migrazione alla versione successiva
 
-In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzionalità:
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Come eseguire la migrazione per visualizzare in anteprima V3 API? 
 
-|NOME|Content|
-|--|--|
-|Miglioramenti|Entità [Espressione regolare](luis-concept-data-extraction.md##regular-expression-entity-data) ed entità [Frase chiave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
-|Modelli|Modelli [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>Concetto dell'entità [Patterns.Any](luis-concept-entity-types.md), incluso un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per le eccezioni<br>Concetto [Ruoli](luis-concept-roles.md)|
-|Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del priming del riconoscimento vocale in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
-|Strumento Dispatch|Parte di [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), lo [strumento](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) a riga di comando Dispatch permette di combinare più app LUIS e QnA Maker in una singola app LUIS per migliorare il riconoscimento delle finalità in un bot
+Vedere [API v2 a v3 migrazione manuale per le app LUIS](luis-migration-api-v3.md)
 
-Sono state incluse altre [route API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) di creazione.
+## <a name="build-2019-conference-announcements"></a>Annunci di conferenza build 2019
 
-Video:
-* [Azure Friday all'evento Build 2018: Servizi cognitivi - Linguaggio (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Novità del servizio Language Understanding](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Sessione di Build 2018: bot intelligenti, funzionalità vocali e procedure consigliate per la comprensione del linguaggio naturale](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - Aggiornamenti su Language Understanding (LUIS)](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+Le funzionalità seguenti sono state rilasciate in occasione della conferenza Build 2019:
 
-Progetti:
-* Demo del [bot Contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) - Codice sorgente su GitHub
+* [Anteprima della Guida alla migrazione di API V3](luis-migration-api-v3.md)
+* [Dashboard di analitica migliorata](luis-how-to-use-dashboard.md)
+* [Migliorati i domini predefiniti](luis-reference-prebuilt-domains.md) funzionano con API V3 e V2
 
 ## <a name="next-steps"></a>Passaggi successivi
 

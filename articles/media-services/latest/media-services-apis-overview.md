@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147885"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
 
@@ -88,7 +88,7 @@ Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 
 Vedere [filtro, ordinamento, paging delle entità di servizi multimediali di Azure](entities-overview.md)
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

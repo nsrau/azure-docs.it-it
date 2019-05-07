@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388744"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073456"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Ripristino accelerato del database (anteprima)
+# <a name="accelerated-database-recovery"></a>Ripristino accelerato del Database
 
 Il **ripristino accelerato del database (Accelerated Database Recovery, ADR)** è una nuova funzionalità del motore di database SQL che migliora notevolmente la disponibilità dei database, specialmente in presenza di transazioni a esecuzione prolungata, grazie alla riprogettazione del processo di ripristino del motore di database SQL. Il ripristino accelerato del database (ADR) è attualmente disponibile per i database singoli e i database in pool di database SQL di Azure e i database in Azure SQL Data Warehouse. I vantaggi principali del ripristino accelerato del database (ADR) sono:
 
@@ -65,7 +65,7 @@ Il ripristino accelerato del database (ADR) risolve i problemi descritti sopra r
 - Renderlo costante in termini di tempo o istantaneo senza la necessità di dover analizzare il log da o fino alla transazione attiva meno recente. Con ADR, il log delle transazioni viene elaborato solo dall'ultimo checkpoint valido (o numero di sequenza del file del Log (LSN) della pagina dirty meno recente). Di conseguenza, il tempo di ripristino non viene influenzato dalle transazioni a esecuzione prolungata.
 - Ridurre al minimo lo spazio del log delle transazioni necessario poiché non è più necessario elaborare il log per l'intera transazione. Di conseguenza, il log delle transazioni può essere troncato in modo aggressivo quando vengono eseguiti checkpoint e backup.
 
-A livello generale, il ripristino accelerato del database (ADR) esegue un ripristino rapido tramite il controllo delle versioni di tutte le modifiche del database fisico e solo annullando le operazioni logiche, che sono limitate e possono essere annullate quasi istantaneamente. Tutte le transazioni attive al momento dell'arresto anomalo vengono contrassegnate come interrotte e, pertanto, tutte le versioni generate da queste transazioni possono essere ignorate dalle query utente simultanee.
+A livello generale, ADR consente di ottenere il recupero rapido del database dal controllo delle versioni di tutte le modifiche di database fisico e sole annullare le operazioni logiche, che sono limitati e possono essere annullate quasi istantaneamente. Tutte le transazioni attive al momento dell'arresto anomalo vengono contrassegnate come interrotte e, pertanto, tutte le versioni generate da queste transazioni possono essere ignorate dalle query utente simultanee.
 
 Il processo di ripristino accelerato del database (ADR) prevede le stesse tre fasi del processo di ripristino corrente. Il funzionamento delle tre fasi del ripristino accelerato del database (ADR) è illustrato nella figura seguente e descritto nel dettaglio di seguito.
 
@@ -128,6 +128,3 @@ L'abilitazione del ripristino accelerato del database (ADR) è consigliata ai ti
 - Clienti con casi in cui le transazioni attive causano un aumento significativo delle dimensioni del log delle transazioni.  
 - Clienti che hanno sperimentato lunghi periodi di non disponibilità del database a causa di ripristini di SQL Server che richiedono molto tempo, ad esempio un riavvio imprevisto di SQL Server o un rollback manuale delle transazioni.
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Per abilitare il ripristino accelerato del database (ADR) in fase di anteprima
-
-Durante il periodo di anteprima di questa funzionalità, inviare un messaggio di posta elettronica a [adr@microsoft.com](mailto:adr@microsoft.com) per altre informazioni e per provare a usare il ripristino accelerato del database (ADR). Nell'e-mail, includere il nome del server di database SQL (per i database singoli e i database in pool nel database SQL, e i database nel Data Warehouse di Azure). Poiché si tratta di una funzionalità di anteprima, è consigliabile che il server di test non sia un server di produzione.

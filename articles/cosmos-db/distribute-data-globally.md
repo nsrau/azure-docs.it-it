@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 70ead36e20861026e08e864f438071948c526844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889057"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070797"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Informazioni sulla distribuzione globale con Azure Cosmos DB - panoramica
 
@@ -51,6 +51,6 @@ Altre informazioni sulla distribuzione globale sono disponibili negli articoli s
 
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 * [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
-* [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Creare criteri personalizzati per la risoluzione dei conflitti per gli account API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

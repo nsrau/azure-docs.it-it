@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143361"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub IoT in un ambiente Time Series Insights
 
@@ -42,7 +42,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. Nel menu in **Impostazioni**, selezionare **Endpoint predefiniti** e quindi selezionare l'endpoint **Eventi**.
 
-   ![Nella pagina Endpoint predefiniti selezionare il pulsante Eventi.][1]
+   [![Nella pagina di compilazione-in endpoint, selezionare il pulsante eventi](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
 1. In **Gruppi di consumer** immettere un nome univoco per il gruppo di consumer. Usare questo stesso nome al momento di creare una nuova origine evento nell'ambiente Time Series Insights.
 
@@ -56,7 +56,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. In **Topologia dell'ambiente** selezionare **Origini eventi** e fare clic su **Aggiungi**.
 
-   ![Selezionare le origini eventi e quindi selezionare il pulsante Aggiungi.][2]
+   [![Selezionare le origini evento e quindi selezionare il pulsante Aggiungi](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
 
 1. Nel riquadro **Nuova origine evento** per univoco per **Nome dell'origine evento** immettere un nome univoco per questo ambiente Time Series Insights, ad esempio **event-stream**.
 
@@ -67,11 +67,11 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
    * Se per una delle sottoscrizioni disponibili esiste già un hub IoT, scegliere **Usare l'hub IoT dalle sottoscrizioni disponibili**. Questa opzione è l'approccio più semplice.
    * Scegliere **Specificare le impostazioni dell'hub IoT manualmente** se l'hub IoT è esterno alle sottoscrizioni o per scegliere opzioni avanzate.
 
-   ![Selezionare le opzioni nel riquadro Nuova origine evento.][3]
+   [![Selezionare le opzioni nel riquadro nuova origine evento](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
 1. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Usare l'hub IoT dalle sottoscrizioni disponibili**:
 
-   ![Riquadro Nuova origine evento - Proprietà da impostare nell'opzione Usare l'hub IoT dalle sottoscrizioni disponibili][4]
+   [![Nuovo riquadro dell'origine evento - proprietà da impostare nell'IoT Hub Usa dall'opzione sottoscrizioni disponibili](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
    | Proprietà | DESCRIZIONE |
    | --- | --- |
@@ -100,7 +100,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. Selezionare **Create**.
 
-   ![Il pulsante Crea][5]
+   [![Il pulsante Crea](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
 
 1. Dopo la creazione dell'origine evento, Time Series Insights inizia automaticamente a trasmettere i dati nell'ambiente.
 
@@ -111,10 +111,3 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 * [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
 
 * Accedere all'ambiente in [Time Series Insights Explorer](https://insights.timeseries.azure.com).
-
-<!-- Images -->
-[1]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png
-[2]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png
-[3]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png
-[4]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png
-[5]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png

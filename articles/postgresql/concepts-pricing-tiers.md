@@ -1,19 +1,19 @@
 ---
-title: Piani tariffari di Database di Azure per PostgreSQL
-description: Questo articolo descrive i piani tariffari di Database di Azure per PostgreSQL.
+title: Piani tariffari di Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive i piani tariffari per il Database di Azure per PostgreSQL - singolo Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073189"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari in Database di Azure per PostgreSQL - Server singolo
 
 È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
 

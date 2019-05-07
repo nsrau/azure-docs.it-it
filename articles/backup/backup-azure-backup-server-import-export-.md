@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648045"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143341"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
@@ -98,7 +98,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparare le unità SATA e inviarle al data center di Azure
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
+*\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 

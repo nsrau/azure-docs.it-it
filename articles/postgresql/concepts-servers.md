@@ -1,23 +1,23 @@
 ---
-title: Concetti relativi ai server in Database di Azure per PostgreSQL
-description: Questo articolo presenta alcune considerazioni e linee guida per la configurazione e la gestione di server di Database di Azure per PostgreSQL.
+title: Concetti relativi ai server nel Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo fornisce considerazioni e linee guida per la configurazione e gestione dei Database di Azure per PostgreSQL - singolo Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422100"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067165"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Server di Database di Azure per PostgreSQL
-Questo articolo presenta alcune considerazioni e diverse linee guida per l'uso di server di Database di Azure per PostgreSQL.
+# <a name="azure-database-for-postgresql---single-server"></a>Database di Azure per PostgreSQL - Server singolo
+Questo articolo fornisce considerazioni e linee guida per l'uso di Database di Azure per PostgreSQL - singolo Server.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Che cos'è un database di Azure per il server PostgreSQL?
-Un database di Azure per il server PostgreSQL funge da punto di gestione centrale per più database. È lo stesso costrutto di server PostgreSQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il servizio PostgreSQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
+Un server nel Database di Azure per PostgreSQL - opzione di distribuzione Server singolo è un punto amministrativo centrale per più database. È lo stesso costrutto di server PostgreSQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il servizio PostgreSQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
 
 Un database di Azure per il server PostgreSQL:
 

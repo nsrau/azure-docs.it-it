@@ -4,14 +4,14 @@ description: Informazioni su come configurare e modificare i criteri per l'indic
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068596"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Qualsiasi criterio di indicizzazione ha includere il percorso radice `/*` come u
 - Per i percorsi con caratteri normali che comprendono: caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/ path /?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/\"percorso-abc\"/?"). Se si prevede che i caratteri speciali nel proprio percorso, è possibile eseguire l'escape di ogni percorso per motivi di sicurezza. A livello funzionale non effettua alcuna differenza se l'escape di ogni percorso di Vs solo quelli che hanno caratteri speciali.
 
 Visualizzare [in questa sezione](how-to-manage-indexing-policy.md#indexing-policy-examples) per esempi di criteri di indicizzazione.
+
+## <a name="composite-indexes"></a>Indici composti
+
+Esegue una query che `ORDER BY` due o più proprietà richiedono un indice composto. Attualmente, gli indici composti solo da parte Multi `ORDER BY` le query. Per impostazione predefinita, nessun indici composti sono definiti in modo che è necessario [aggiungere indici composti](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) in base alle esigenze.
+
+Quando si definisce un indice composto, specificare:
+
+- Due o più percorsi delle proprietà. La sequenza in cui proprietà sono percorsi definito è rilevante.
+- L'ordinamento (crescente o decrescente).
+
+Quando si usano indici composti, vengono usate le considerazioni seguenti:
+
+- Se i percorsi di indice composto non corrisponde alla sequenza delle proprietà nella clausola ORDER BY, l'indice composto non supporta la query
+
+- L'ordine dei percorsi di indice composto (crescente o decrescente) deve inoltre corrispondere all'ordine nella clausola ORDER BY.
+
+- Indice composto supporta anche una clausola ORDER BY con ordine inverso in tutti i percorsi.
+
+Si consideri l'esempio seguente in cui un indice composto è definito nella proprietà a, b e c:
+
+| **Indice composto**     | **Esempio `ORDER BY` Query**      | **Supportate in base all'indice?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+È necessario personalizzare i criteri di indicizzazione in modo che è possibile rendere disponibile tutte le necessarie `ORDER BY` le query.
 
 ## <a name="modifying-the-indexing-policy"></a>Modifica dei criteri di indicizzazione
 

@@ -4,14 +4,14 @@ description: Informazioni sull'indicizzazione in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051871"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068648"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>L'indicizzazione in Azure Cosmos DB - Panoramica
 
@@ -66,19 +66,41 @@ Azure Cosmos DB supporta attualmente due tipi di indici:
 
 Il **intervallo** tipologia di indice viene usato per:
 
-- query di uguaglianza: `SELECT * FROM container c WHERE c.property = 'value'`
-- query di intervallo: `SELECT * FROM container c WHERE c.property > 'value'` (adatto `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` query: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` query: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- query di uguaglianza: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Query di intervallo: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (adatto `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` query:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` query: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Gli indici di intervallo possono essere utilizzati con valori scalari (stringa o numero).
 
 Il **spaziali** tipologia di indice viene usato per:
 
-- query di distanza geospaziali: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- geospaziali all'interno di query: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- query di distanza geospaziali: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- geospaziali all'interno di query: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Gli indici spaziali sono utilizzabili in formato corretto [GeoJSON](geospatial.md) oggetti. Punti, oggetti linestring e poligoni sono attualmente supportati.
+
+Il **composito** tipologia di indice viene usato per:
+
+- `ORDER BY` query su più proprietà: 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Esecuzione di query con indici
 
@@ -89,7 +111,7 @@ Ad esempio, si consideri la seguente query: `SELECT location FROM location IN co
 ![Corrispondenza di un percorso specifico all'interno di una struttura ad albero](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Un' `ORDER BY` clausola *sempre* necessita di un intervallo di indice e avrà esito negativo se il percorso fa riferimento non lo possiede.
+> Un' `ORDER BY` clausola che ordina in base a una singola proprietà *sempre* necessita di un intervallo di indicizzare e avrà esito negativo se il percorso fa riferimento non lo possiede. Analogamente, un multiplo `ORDER BY` query *sempre* necessita di un indice composto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

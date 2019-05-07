@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466735"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074027"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -34,9 +34,11 @@ Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP 
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
-I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Esegui una distribuzione Ubuntu Linux ottimizzata tramite il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. Eseguire una distribuzione Ubuntu ottimizzata tramite il runtime del contenitore Moby i nodi Linux. Nodi di Windows Server, attualmente in anteprima nel servizio contenitore di AZURE, Esegui un 2019 Server Windows con ottimizzazione per la versione e anche usano il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
 
-La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi durante la notte. Se un aggiornamento della sicurezza del sistema operativo richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi oppure usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured, eseguito come [DaemonSet][aks-daemonsets], esegue il monitoraggio di ogni nodo per verificare la presenza di un file che indica che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
+La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo a nodi Linux ogni notte. Se un aggiornamento della sicurezza del sistema operativo Linux è necessario riavviare il computer host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi Linux, o un approccio comune consiste nell'usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured, eseguito come [DaemonSet][aks-daemonsets], esegue il monitoraggio di ogni nodo per verificare la presenza di un file che indica che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
+
+Per i nodi Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), Windows Update automaticamente eseguire e applicare gli aggiornamenti più recenti. A intervalli regolari tutto il ciclo di rilascio di Windows Update e il proprio processo di convalida, è consigliabile eseguire un aggiornamento sul pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea i nodi che eseguono l'immagine più recente di Windows Server e le patch, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
 
 I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno.
 
@@ -50,12 +52,12 @@ Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azu
 
 ### <a name="cordon-and-drain"></a>Blocco e svuotamento
 
-Durante il processo di aggiornamento, i nodi del servizio Azure Kubernetes vengono bloccati singolarmente dal cluster in modo che non vi vengano pianificati nuovi pod. I nodi vengono quindi svuotati e aggiornati nel modo seguente:
+Durante il processo di aggiornamento, i nodi AKS vengono singolarmente contrassegnati come non pianificabili dal cluster in modo che non sono pianificati nuovi POD su di essi. I nodi vengono quindi svuotati e aggiornati nel modo seguente:
 
-- I pod esistenti vengono normalmente terminati e pianificati nei nodi rimanenti.
-- Il nodo viene riavviato, il processo di aggiornamento viene completato e il nodo viene quindi aggiunto nuovamente al cluster del servizio Azure Kubernetes.
-- Viene di nuovo pianificata l'esecuzione dei pod nei nodi.
-- Il nodo successivo nel cluster viene bloccato e svuotato con lo stesso processo fino a quando non vengono aggiornati tutti i nodi.
+- Un nuovo nodo viene distribuito nel pool di nodi. Questo nodo viene eseguito l'immagine del sistema operativo più recente e le patch.
+- Uno dei nodi esistenti specificato per l'aggiornamento. I POD in questo nodo sono normalmente terminati e pianificati su altri nodi nel pool di nodi.
+- Questo nodo esistente viene eliminato dal cluster AKS.
+- Il nodo successivo nel cluster è contrassegnati come non pianificabili e svuotati usando lo stesso processo fino a quando tutti i nodi sono stati sostituiti correttamente come parte del processo di aggiornamento.
 
 Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

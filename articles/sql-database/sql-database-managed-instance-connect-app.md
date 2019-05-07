@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701309"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142716"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -146,7 +146,8 @@ Se si desidera connettersi all'istanza gestita, è consigliabili usare le versio
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLEDB| 18.0.2.0 |
-|SSMS| 17.8.1 o [superiore](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| versioni 18.0 o [superiore](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o versione successiva |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

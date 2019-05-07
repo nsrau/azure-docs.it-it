@@ -1,40 +1,40 @@
 ---
 title: Sicurezza database - Azure Cosmos DB
 description: Informazioni su come Azure Cosmos DB garantisca la protezione del database e la sicurezza dei dati.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.author: rimman
-ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: 5007e19e8e9bb9baf59dc0bfb70150d98115c8f6
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889537"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070773"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Panoramica sulla sicurezza in Azure Cosmos DB
 
 Questo articolo illustra le procedure consigliate per la sicurezza del database e le funzionalità principali offerte da Azure Cosmos DB per prevenire, rilevare e rispondere alle violazioni del database.
- 
-## <a name="whats-new-in-azure-cosmos-db-security"></a>Novità della sicurezza di Azure Cosmos DB
+
+## <a name="whats-new-in-azure-cosmos-db-security"></a>Nuove funzionalità di sicurezza di Azure Cosmos DB
 
 La crittografia dei dati inattivi è ora disponibile per i documenti e i backup archiviati nel database Azure Cosmos in tutte le aree di Azure. La crittografia di dati inattivi viene applicata automaticamente sai per i clienti nuovi che per quelli esistenti in queste aree. Non è necessario eseguire alcuna configurazione e latenza, velocità effettiva, disponibilità e funzionalità sono eccezionali come prima, con il vantaggio che i dati sono sicuri e protetti con la crittografia di dati inattivi.
 
-## <a name="how-do-i-secure-my-database"></a>Come proteggere il database 
+## <a name="how-do-i-secure-my-database"></a>Come proteggere il database
 
 La sicurezza dei dati è una responsabilità condivisa tra l'utente, il cliente e il provider di database. A seconda del provider di database scelto, l'entità della responsabilità di ognuno può variare. Se si sceglie una soluzione locale, è necessario garantire tutto ciò che è indispensabile, dalla protezione degli endpoint alla sicurezza fisica dell'hardware, il che non è semplice. Se si sceglie un provider di database cloud PaaS, ad esempio Azure Cosmos DB, l'ambito di interesse si riduce considerevolmente. L'immagine seguente, tratta dal white paper di Microsoft [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility) (Responsabilità condivise per il cloud computing), illustra come la responsabilità diminuisca con un provider PaaS, ad esempio Azure Cosmos DB.
 
 ![Responsabilità del provider di database e del cliente](./media/database-security/nosql-database-security-responsibilities.png)
 
-Il diagramma precedente illustra i componenti della sicurezza cloud generali, ma è opportuno stabilire quali sono gli elementi specifici da tenere in considerazione per la soluzione di database e come è possibile confrontare le diverse soluzioni. 
+Il diagramma precedente illustra i componenti della sicurezza cloud generali, ma è opportuno stabilire quali sono gli elementi specifici da tenere in considerazione per la soluzione di database e come è possibile confrontare le diverse soluzioni.
 
 È consigliabile usare l'elenco di controllo dei requisiti seguente per confrontare i sistemi di database:
 
 - Sicurezza di rete e impostazioni del firewall
 - Autenticazione utente e controlli utente con granularità fine
 - Possibilità di replicare i dati a livello globale per gli errori locali
-- Possibilità di eseguire failover da un data center a un altro
+- Possibilità di eseguire il failover da un data center a un altro
 - Replica di dati locali all'interno di un data center
 - Backup automatici dei dati
 - Ripristino dei dati eliminati dai backup
@@ -46,11 +46,12 @@ Il diagramma precedente illustra i componenti della sicurezza cloud generali, ma
 - Certificazioni
 
 E, anche se può sembrare ovvio, le recenti [violazioni di database su larga scala](https://thehackernews.com/2017/01/mongodb-database-security.html) rendono molto importanti i semplici requisiti seguenti:
-- Mantenere aggiornati i server con patch applicate
+
+- Server con patch che siano sempre aggiornate
 - Crittografia SSL/HTTPS predefinita
 - Account amministrativi con password complesse
 
-## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Protezione del database con Azure Cosmos DB
+## <a name="how-does-azure-cosmos-db-secure-my-database"></a>In che modo Azure Cosmos DB protette del database
 
 Dall'elenco precedente risulta che Azure Cosmos DB soddisfa ogni singolo requisito di sicurezza.
 
@@ -61,31 +62,29 @@ La tabella seguente li illustra in dettaglio.
 |Sicurezza di rete|L'uso di un firewall IP è il primo livello di protezione per il database. Azure Cosmos DB supporta ora controlli di accesso IP basati su criteri per il supporto del firewall in ingresso. I controlli degli accessi in base all'IP sono simili alle regole del firewall usate dai sistemi di database tradizionali, ma vengono espansi in modo che un account di database Azure Cosmos DB sia accessibile solo da un set approvato di computer o di servizi cloud. <br><br>Azure Cosmos DB consente di abilitare un indirizzo IP specifico (168.61.48.0), un intervallo di IP (168.61.48.0/8) e combinazioni di IP e intervalli. <br><br>Tutte le richieste che hanno origine da computer non compresi in questo elenco di elementi consentiti vengono bloccate da Azure Cosmos DB. Le richieste provenienti da computer e servizi cloud approvati devono quindi completare il processo di autenticazione per ottenere il controllo di accesso alle risorse.<br><br>Per altre informazioni, vedere [Azure Cosmos DB firewall support](firewall-support.md) (Supporto del firewall di Azure Cosmos DB).|
 |Authorization|Azure Cosmos DB usa HMAC (Hash Message Authentication Code) per l'autorizzazione. <br><br>Per ogni richiesta viene generato un hash usando la chiave dell'account privata e il successivo hash con codifica Base 64 viene inviato con ogni chiamata ad Azure Cosmos DB. Per convalidare la richiesta, il servizio Azure Cosmos DB usa la chiave privata e le proprietà corrette per generare un hash, quindi confronta il valore con quello della richiesta. Se i due valori corrispondono, l'operazione viene autorizzata e la richiesta viene elaborata. In caso contrario, si verifica un errore di autorizzazione e la richiesta viene rifiutata.<br><br>È possibile usare una [chiave master](secure-access-to-data.md#master-keys) o un [token della risorsa](secure-access-to-data.md#resource-tokens) che consente l'accesso con granularità fine a una risorsa, ad esempio un documento.<br><br>Per altre informazioni, vedere [Protezione dell'accesso alle risorse in Azure Cosmos DB](secure-access-to-data.md).|
 |Utenti e autorizzazioni|Usando la chiave master per l'account, è possibile creare risorse utente e risorse autorizzazione per ogni database. Un token della risorsa viene associato a un'autorizzazione in un database e determina se l'utente ha accesso (lettura/scrittura, sola lettura o nessun accesso) a una risorsa dell'applicazione nel database. Le risorse dell'applicazione includono contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente. Il token della risorsa viene quindi usato durante l'autenticazione per concedere o negare l'accesso alla risorsa.<br><br>Per altre informazioni, vedere [Protezione dell'accesso alle risorse in Azure Cosmos DB](secure-access-to-data.md).|
-|Integrazione di Active Directory (controllo degli accessi in base al ruolo)| È anche possibile concedere l'accesso all'account del database usando Controllo di accesso (IAM) nel portale di Azure, come mostrato nella schermata sotto a questa tabella. IAM fornisce il controllo degli accessi in base al ruolo e si integra con Active Directory. È possibile usare ruoli predefiniti o ruoli personalizzati per persone e gruppi, come illustrato nell'immagine seguente.|
+|Integrazione di Active Directory (controllo degli accessi in base al ruolo)| È anche possibile fornire o limitare l'accesso per l'account Cosmos, database, contenitore e offerte (velocità effettiva) usando il controllo di accesso (IAM) nel portale di Azure. IAM fornisce il controllo degli accessi in base al ruolo e si integra con Active Directory. È possibile usare ruoli predefiniti o ruoli personalizzati per utenti singoli e gruppi. Visualizzare [integrazione di Active Directory](role-based-access-control.md) per altre informazioni.|
 |Replica globale|Azure Cosmos DB offre la distribuzione globale chiavi in mano, che consente di replicare i dati in qualsiasi data center di Azure nel mondo, semplicemente facendo clic su un pulsante. La replica globale offre una scalabilità globale e l'accesso a bassa latenza ai dati ovunque nel mondo.<br><br>Nell'ambito della sicurezza, la replica globale assicura la protezione dei dati da errori a livello di area.<br><br>Per altre informazioni, vedere [Distribuire i dati a livello globale](distribute-data-globally.md).|
 |Failover a livello di area|Se i dati sono stati replicati in più di un data center, Azure Cosmos DB esegue il rollover automatico delle operazioni, nel caso in cui un data center di un'area specifica passi alla modalità offline. È possibile creare un elenco con priorità di aree di failover usando le aree in cui i dati vengono replicati. <br><br>Per altre informazioni, vedere [Failover a livello di area in Azure Cosmos DB](high-availability.md).|
-|Replica locale|Anche in un singolo data center, Azure Cosmos DB replica automaticamente i dati per la disponibilità elevata consentendo di scegliere i [livelli di coerenza](consistency-levels.md). In questo modo viene garantito un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/cosmos-db) con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree.|
-|Backup online automatizzati|I backup dei database Azure Cosmos DB vengono eseguiti periodicamente e salvati in un archivio con ridondanza geografica. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).|
+|Replica locale|Anche in un singolo data center, Azure Cosmos DB replica automaticamente i dati per la disponibilità elevata consentendo di scegliere i [livelli di coerenza](consistency-levels.md). Questa replica garantisce del 99,99% [contratto di servizio disponibilità](https://azure.microsoft.com/support/legal/sla/cosmos-db) per tutti gli account in una singola area e tutti gli account in più aree con coerenza Media e lettura del 99,999% la disponibilità per tutti gli account di database in più aree.|
+|Backup online automatizzati|Database Azure Cosmos DB sono regolarmente il backup e archiviati in un archivio con ridondanza geografica. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md).|
 |Ripristinare i data eliminati|I backup online automatizzati possono essere usati per recuperare i dati eliminati per errore fino a circa 30 giorni dopo l'evento. <br><br>Per altre informazioni, vedere [Backup online automatico e ripristino con Azure Cosmos DB](online-backup-and-restore.md)|
 |Proteggere e isolare i dati sensibili|Tutti i dati nelle aree elencate nelle novità ora vengono crittografati.<br><br>I dati personali e altri dati riservati possono essere isolati in contenitori specifici e l'accesso in lettura/scrittura o in sola lettura può essere limitato a utenti specifici.|
 |Monitorare gli attacchi|Usando [la registrazione di controllo e i log attività](logging.md), è possibile monitorare l'account per identificare attività normali e anomale. È possibile visualizzare quali operazioni sono state eseguite sulle risorse, chi ha avviato l'operazione, quando si è verificata l'operazione, lo stato dell'operazione e molto altro come mostrato nella schermata sotto a questa tabella.|
 |Rispondere agli attacchi|Dopo avere contattato il supporto di Azure per segnalare un potenziale attacco, viene avviato un processo di risposta all'evento imprevisto in 5 fasi. L'obiettivo del processo in 5 fasi è quello di ripristinare la normale sicurezza del servizio e le normali operazioni il più rapidamente possibile dopo il rilevamento di un problema e l'avvio di un indagine.<br><br>Per altre informazioni, vedere [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper) (Risposta della sicurezza di Microsoft Azure nel cloud).|
 |Definizione del geo-fencing|Azure Cosmos DB assicura la governance dei dati per le aree sovrane, ad esempio Germania, Cina, US Gov.|
 |Strutture protette|I dati in Azure Cosmos DB vengono archiviati in unità SSD nei data center protetti di Azure.<br><br>Per altre informazioni, vedere [Data center globali Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|Crittografia HTTPS/SSL/TLS|Tutte le interazioni Azure Cosmos DB da client a servizio supportano SSL/TLS 1.2. Anche a tutte le repliche all'interno di data center e tra data center viene applicato SSL/TLS 1.2.|
+|Crittografia HTTPS/SSL/TLS|Tutte le interazioni Azure Cosmos DB da client a servizio supportano SSL/TLS 1.2. Inoltre, tutti tra più Data Center e tra Data Center repliche vengono applicato SSL/TLS 1.2.|
 |Crittografia di dati inattivi|Tutti i dati archiviati in Azure Cosmos DB vengono crittografati quando sono inattivi. Per altre informazioni, vedere [Crittografia dei dati inattivi in Azure Cosmos DB](./database-encryption-at-rest.md)|
 |Server con patch|Essendo un database gestito, Azure Cosmos DB elimina la necessità di gestire e applicare patch ai server perché queste operazioni vengono eseguite automaticamente.|
 |Account amministrativi con password complesse|Può sembrare strano vedere citato questo requisito, ma a differenza di quanto accade con alcuni concorrenti, è impossibile avere un account amministrativo senza password in Azure Cosmos DB.<br><br> La sicurezza usa SSL e l'autenticazione basata su segreti HMAC è supportata per impostazione predefinita.|
-|Certificazioni di sicurezza e protezione dei dati|Per l'elenco più aggiornato delle certificazioni, vedere le informazioni generali nel [sito per la conformità di Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) e il [documento sulla conformità di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) più recente, che include tutte le certificazioni (cercare Cosmos). Per informazioni più specifiche, vedere il post del 25 aprile 2018 [Azure #CosmosDB: secure, private, compliant](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) (Azure Cosmos DB: sicuro, privato e conforme), che include SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High e molti altri.
-
-La schermata seguente mostra l'integrazione di Active Directory (RBAC) tramite il controllo di accesso (IAM) nel portale di Azure: ![Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+|Certificazioni di sicurezza e protezione dei dati| Per l'elenco più aggiornato delle certificazioni vedere complessiva [sito di conformità di Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) , nonché la versione più recente [documento conformità Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) con tutte le certificazioni (cercare Cosmos). Per una più mirato, leggere il post di 25 aprile 2018, vedere [Azure #CosmosDB: Protetto, privato e conforme, che include Qualcomm 1 o 2 Type 2, HITRUST, PCI DSS livello 1, ISO 27001, HIPAA, FedRAMP High e molti altri.
 
 La schermata seguente mostra come è possibile usare la registrazione di controllo e i log attività per monitorare l'account: ![Log attività per Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle chiavi master e sui token delle risorse, vedere [Protezione dell'accesso ai dati in Azure Cosmos DB](secure-access-to-data.md).
+Per altre informazioni sulle chiavi master e i token delle risorse, vedere [protezione dell'accesso ai dati di Azure Cosmos DB](secure-access-to-data.md).
 
-Per altri dettagli sulla registrazione di controllo, vedere l'articolo relativo alla [registrazione diagnostica di Azure Cosmos DB](logging.md).
+Per altre informazioni sulla registrazione di controllo, vedere [la registrazione diagnostica di Azure Cosmos DB](logging.md).
 
-Per altre informazioni sulle certificazioni Microsoft, vedere il [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/).
+Per altre informazioni sulle certificazioni Microsoft, vedere [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/).

@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720335"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142531"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -29,7 +29,7 @@ Rilevamento delle modifiche e dettagli sono utili per gli scenari di esempio seg
 - Mantenere un Database di gestione, noto come un database CMDB, aggiornato. Anziché aggiornare tutte le risorse e i relativi set di proprietà completo in base a una frequenza pianificata, ottenere solo le modifiche apportate.
 - Informazioni su quali altre proprietà sono stati modificati quando una risorsa modificato lo stato di conformità. Valutazione di queste proprietà aggiuntive può offrire informazioni dettagliate sulle altre proprietà che potrebbero dover essere gestito tramite una definizione di criteri di Azure.
 
-Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) Log attività di Azure oppure [cronologia delle modifiche](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Dettagli di modifica nella risorsa Graph sono per le proprietà di Resource Manager. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere l'automazione di Azure [rilevamento modifiche](../../../automation/automation-change-tracking.md) o criteri di Azure [configurazione Guest per macchine virtuali](../../policy/concepts/guest-configuration.md).

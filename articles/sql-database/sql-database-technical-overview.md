@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580686"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073608"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Che cos'è servizio di Database SQL di Azure
 
@@ -54,7 +54,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
-- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio con iperscalabilità](sql-database-service-tier-hyperscale.md) (anteprima) per il database singolo consente di ridimensionare fino a 100 TB, con funzionalità di backup e ripristino rapidi.
+- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio su scala molto vasta](sql-database-service-tier-hyperscale.md) per singolo database è possibile ridimensionare fino a 100 TB, con operazioni di backup e ripristino di funzionalità.
 - Con i pool elastici, è possibile creare nuovi database o spostare i database singoli in un pool di risorse per ottimizzare l'uso delle risorse, risparmiare denaro e avere la possibilità di [ridimensionare le risorse dei pool elastici](sql-database-elastic-pool-scale.md) aumentando e riducendo le prestazioni in modo dinamico.
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. In un'istanza gestita i database dell'istanza condividono un set di risorse e la possibilità di [ridimensionare le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) aumentando e riducendo le prestazioni in modo dinamico.
 
@@ -69,8 +69,7 @@ Il database SQL offre due modelli di acquisto:
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 - Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database Hyperscale ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 

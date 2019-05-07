@@ -1,7 +1,7 @@
 ---
-title: Dashboard dell'app
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informazioni sulla dashboard dell'applicazione, uno strumento di visualizzazione di report che consente di monitorare le app in un solo momento.
+title: Dashboard - Language Understanding Intelligent Service
+titleSuffix: Azure Cognitive Services
+description: Risolvere gli Intent con il dashboard di riepilogo di analitica, uno strumento di creazione di report visualizzato.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,68 +9,166 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072537"
 ---
-# <a name="model-and-usage-statistics-in-the-dashboard"></a>Modello e statistiche dell'utilizzo nella dashboard
-La dashboard dell'app consente di monitorare l'applicazione in un solo momento. La **Dashboard** viene visualizzata quando viene aperta un'app tramite la selezione del nome dell'applicazione nella pagina **App personali**, quindi della **Dashboard** nel riquadro superiore. 
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il Dashboard per migliorare l'app
 
-> [!CAUTION]
-> Per ottenere le metriche più aggiornate per LUIS, è necessario:
-> * Usare una [chiave di endpoint](luis-how-to-azure-subscription.md) di LUIS creata in Azure;
-> * Usare la chiave di endpoint di LUIS per tutte le richieste di endpoint incluse le [API](https://aka.ms/luis-endpoint-apis) LUIS e i bot e
-> * Usare diverse chiavi di endpoint per ogni app LUIS. Non usare una singola chiave di endpoint per tutte le app. La chiave di endpoint viene rilevata a livello di chiave, non a livello di app.  
+Trovare e risolvere i problemi con finalità dell'app sottoposto a training, quando si usa espressioni di esempio. Dashboard di riepilogo Visualizza informazioni sull'app complessiva, con le evidenziazioni di Intent che dovrebbe essere risolto. 
 
-La pagina **Dashboard** offre una panoramica dell'app LUIS includendo lo stato attuale del modello, nonché l'utilizzo dell'[endpoint](luis-glossary.md#endpoint) nel corso del tempo. 
-  
-## <a name="app-status"></a>Stato dell'app
-Nella dashboard vengono visualizzati il training dell'applicazione e lo stato della pubblicazione, incluse la data e l'ora dell'ultimo training e dell'ultima pubblicazione dell'app.  
+Esaminare l'analisi è un processo iterativo e ripetuto durante la modifica e migliorare il modello di Dashboard.
 
-![Dashboard - Stato dell'applicazione](./media/luis-how-to-use-dashboard/app-state.png)
+Questa pagina non avrà analysis rilevanti per le app che non dispongono di eventuali espressioni di esempio in Intent, noto come _pattern sola_ app. 
 
-## <a name="model-data-statistics"></a>Statistiche dei dati del modello
-La dashboard consente di visualizzare il numero totale di finalità, entità ed espressioni etichettate esistenti nell'app. 
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Problemi che possono essere corretti dal dashboard?
 
-![Statistiche dei dati dell'app](./media/luis-how-to-use-dashboard/app-model-count.png)
+I tre problemi risolti nel dashboard sono:
 
-## <a name="endpoint-hits"></a>Riscontri di endpoint
-Nella dashboard vengono visualizzate le tutte le occorrenze di endpoint ricevute dall'app LUIS, consentendo di visualizzare i riscontri per uno specifico periodo. Il totale dei riscontri visualizzati è la somma dei riscontri di endpoint che usano una [chiave di endpoint](./luis-concept-keys.md#endpoint-key) e di quelli che usano una [chiave di creazione](./luis-concept-keys.md#authoring-key).
+|Problema|Colore del grafico|Spiegazione|
+|--|--|--|
+|Sbilanciamento delle classi di dati|-|Ciò si verifica quando la quantità di espressioni di esempio varia in modo significativo. Tutti gli Intent dovranno disporre _approssimativamente_ lo stesso numero di espressioni di esempio - eccetto l'intento None. Nell'app, è necessario solo il 10%, 15% della quantità totale di espressioni.<br><br> Se i dati sono sbilanciati, ma la precisione della finalità è sopra una determinata soglia, tale squilibrio non viene segnalato come un problema.<br><br>**Iniziare con questo problema, potrebbe essere la causa radice dei problemi di altri.**|
+|Stime chiara|Arancione|Ciò si verifica quando lo scopo principale e i punteggi dell'intento successivo sono sufficientemente vicine che essi possono riflettere sui corsi di formazione successivo a causa dell'errore [campionamento negativo](luis-how-to-train.md#train-with-all-data) o altre espressioni di esempio aggiunti alla finalità. |
+|Stime non corrette|Rosso|Ciò si verifica quando un utterance di esempio non stimato per la finalità con etichetta (l'intento è in).|
 
-![Riscontri di endpoint](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+Le stime corrette sono rappresentate con il colore blu.
 
-> [!NOTE] 
-> Il numero di passaggi di endpoint più recente è visualizzabile nella panoramica di servizio di LUIS del portale di Azure. 
- 
-### <a name="total-endpoint-hits"></a>Totale dei riscontri di endpoint
-Totale dei riscontri di endpoint ricevuti nell'app dal momento della creazione di quest'ultima fino alla data attuale.
+Dashboard di riepilogo Mostra questi problemi e indica quale Intent sono interessati e suggerisce cosa deve fare per migliorare l'app. 
 
-### <a name="endpoint-hits-per-period"></a>Riscontri di endpoint per singolo periodo
-Il numero di riscontri ricevuti in un periodo precedente, con visualizzazione giornaliera. I punti tra le date di inizio e di fine rappresentano i giorni che rientrano in questo periodo. Passare il puntatore del mouse su ogni punto per visualizzare il numero di passaggi di ciascun giorno nel periodo specificato. 
+## <a name="before-app-is-trained"></a>Prima viene eseguito il training di app 
 
-Per selezionare un periodo da visualizzare nel grafico è necessario:
- 
-1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco dei periodi. È possibile selezionare periodi che vanno da una settimana a un anno. 
+Prima di eseguire il training dell'app, dashboard di riepilogo non contiene suggerimenti per correzioni. Il training dell'app per visualizzare questi suggerimenti.  
 
-    ![Riscontri di endpoint per periodo](./media/luis-how-to-use-dashboard/timerange.png)
+## <a name="check-your-publishing-status"></a>Controllare lo stato della pubblicazione
 
-2. Selezionare un periodo dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.
+Il **lo stato di pubblicazione** scheda contiene informazioni su Attiva versione di ultima pubblicazione. 
 
-### <a name="key-usage"></a>Uso della chiave
-Numero di riscontri usati dalla chiave endpoint dell'applicazione. Per altre informazioni sulle chiavi endpoint, vedi [Chiavi in LUIS](luis-concept-keys.md). 
-  
-## <a name="intent-breakdown"></a>Scomposizione della finalità
-La **Scomposizione delle finalità** consente di visualizzare una suddivisione delle finalità sulla base di espressioni o riscontri di endpoint etichettate/i. Questo grafico di riepilogo mostra l'importanza relativa di ogni finalità nell'app. Quando si passa il puntatore del mouse su una sezione, vengono visualizzati il nome della finalità e la percentuale che rappresenta rispetto al totale delle espressioni/dei riscontri di endpoint etichettate/i. 
+Verificare che la versione attiva è la versione che si desidera correggere. 
 
-![Scomposizione della finalità](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![Servizi esterni dell'app Mostra dashboard di riepilogo, pubblicato le aree e aggregati riscontri endpoint.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-## <a name="entity-breakdown"></a>Scomposizione delle entità
-La dashboard consente di visualizzare una suddivisione delle entità sulla base di espressioni o riscontri di endpoint etichettate/i. Questo grafico di riepilogo mostra l'importanza relativa di ogni entità nell'app. Quando si passa il puntatore del mouse su una sezione, vengono visualizzati il nome dell'entità e la percentuale in espressioni/riscontri di endpoint etichettate/i. 
+Questo inoltre Mostra tutti i servizi esterni, aree pubblicate e aggregati riscontri endpoint. 
 
-![Scomposizione delle entità](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+## <a name="review-training-evaluation"></a>Esaminare la valutazione di training
 
+Il **valutazione Training** scheda contiene il riepilogo aggregato di accuratezza complessiva dell'app per area. Il punteggio indica la qualità intent. 
+
+![La scheda di valutazione di Training contiene la prima area delle informazioni sull'accuratezza complessiva dell'app.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+
+Il grafico indica l'Intent stimati correttamente e le aree problematiche con colori diversi. Come si migliora l'app con i suggerimenti, in questo modo aumentano punteggio. 
+
+Le correzioni suggerite sono separate dal tipo di problema e sono i più importanti per l'app. Se si desidera esaminare e risolvere i problemi per finalità, usare il **[Intent con errori](#intents-with-errors)** scheda nella parte inferiore della pagina. 
+
+Ogni area problematica ha Intent che devono essere corrette. Quando si seleziona il nome della finalità, il **finalità** verrà visualizzata la pagina con un filtro applicato per le espressioni. Questo filtro consente di concentrare le espressioni che causano il problema.
+
+### <a name="compare-changes-across-versions"></a>Confrontare le modifiche apportate tra le versioni
+
+Creare una nuova versione prima di apportare modifiche all'app. Nella nuova versione, apportare le modifiche suggerite per espressioni di esempio dell'intento, quindi eseguire nuovamente il training. Nella pagina del Dashboard **valutazione Training** schede, utilizzare il **Show modifiche dalla versione sottoposto a training** per confrontare le modifiche. 
+
+![Confrontare le modifiche apportate tra le versioni](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Correggere versione aggiungendo o modifica di espressioni di esempio e di ripetizione del training
+
+Il metodo principale di correggere l'app sarà quello di aggiungere o modificare espressioni di esempio e ripetere il training. È necessario attenersi alle linee guida per le espressioni nuove o modificate [variato utterances](luis-concept-utterance.md).
+
+Aggiunta di espressioni di esempio deve essere eseguita da un utente che ha:
+
+* ha un elevato livello di individuazione delle espressioni in diverse finalità
+* sa come espressioni in un solo intent potrebbero essere confusi con un altro scopo
+* è in grado di stabilire se due finalità, che vengono frequentemente confuse tra loro, devono essere compressi in un unico intento, e diversi dati estratti con entità
+
+### <a name="patterns-and-phrase-lists"></a>Modelli ed elenchi di frase
+
+Non indica quando usare la pagina di analitica [pattern](luis-concept-patterns.md) o [una frase elenchi](luis-concept-feature.md). Se sono state aggiunte, utili per le stime non corrette o poco chiara, ma sono inefficaci con lo sbilanciamento delle classi di dati. 
+
+### <a name="review-data-imbalance"></a>Sbilanciamento delle classi di revisione dei dati
+
+Iniziare con questo problema, potrebbe essere la causa radice dei problemi di altri.
+
+Il **lo sbilanciamento delle classi di dati** preventivo elenco Mostra gli Intent che richiedono altre espressioni per correggere lo sbilanciamento di dati. 
+
+**Per risolvere questo problema**:
+
+* Aggiungere altre espressioni alla finalità, quindi eseguire nuovamente il training. 
+
+Non aggiungere espressioni a None preventivo a meno che non che viene suggerito nel dashboard di riepilogo.
+
+> [!Tip]
+> Utilizzare la terza sezione nella pagina **Utterances per finalità** con il **Utterances (numero)** impostazione, come una guida visiva rapida dei quali gli Intent necessario altre espressioni.  
+    ![Usare 'Utterances (numero)' per trovare gli Intent con lo sbilanciamento delle classi di dati.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+
+### <a name="review-incorrect-predictions"></a>Esaminare le stime non corrette
+
+Il **stima corretta** preventivo elenco Mostra gli Intent con espressioni, che vengono usati come esempi per uno scopo specifico, ma vengono stimate per finalità diverse. 
+
+**Per risolvere questo problema**:
+
+* Modificare espressioni per essere più specifici per le finalità e training.
+* Combinare gli Intent se utterances sono troppo strettamente allineato e ripetere il training.
+
+### <a name="review-unclear-predictions"></a>Esaminare le stime chiara
+
+Il **stima chiaro** Intent con espressioni con i punteggi di stima che non sono sufficientemente modo dal loro applicazione rivale richiede più vicino, che lo scopo principale per il utterance può cambiare ai corsi di formazione successivo a causa dell'errore sono elencate preventivo [ campionamento negativo](luis-how-to-train.md#train-with-all-data).
+
+**Per risolvere questo problema**;
+
+* Modificare espressioni per essere più specifici per le finalità e training.
+* Combinare gli Intent se utterances sono troppo strettamente allineato e ripetere il training.
+
+## <a name="utterances-per-intent"></a>Espressioni per finalità
+
+Questa scheda Mostra l'integrità complessiva di app per le finalità. Come si correggono gli Intent e ripetizione del training, continuare a visualizzare questa scheda per i problemi rapidamente.
+
+Il grafico seguente mostra un'app ben bilanciata quasi senza problemi da risolvere.
+
+![Il grafico seguente mostra un'app ben bilanciata quasi senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+
+Il grafico seguente mostra un'app in modo inadeguato bilanciata con molti problemi da risolvere.
+
+![Il grafico seguente mostra un'app ben bilanciata quasi senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+
+Passare il mouse sulla barra dell'intento ogni per ottenere informazioni sull'intento. 
+
+![Il grafico seguente mostra un'app ben bilanciata quasi senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+
+Usare la **per ordinare** funzionalità per disporre l'Intent per tipo di problema in modo che sia possibile concentrare la finalità più problematiche con cui il problema. 
+
+## <a name="intents-with-errors"></a>Intent con errori
+
+Questa scheda consente di esaminare i problemi per uno scopo specifico. La visualizzazione predefinita di questa scheda è la finalità più problematiche in modo che si conosce la posizione in cui concentrare l'attenzione.
+
+![La finalità con carta errori consente rivedere i problemi per uno scopo specifico. La scheda viene filtrata per gli scopi più problematici, per impostazione predefinita, in modo che si conosce la posizione in cui concentrare l'attenzione.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+
+Grafico ad anello superiore mostra i problemi con l'intento tra i tipi di problemi di tre. Se sono presenti problemi nei tipi di tre problema, ogni tipo ha un proprio grafico riportato di seguito, insieme a eventuali Intent rivale. 
+
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtro Intent dal problema e la percentuale
+
+In questa sezione della scheda consente di trovare espressioni di esempio che è in diminuzione di fuori della soglia di errore. È opportuno che le stime corrette per essere significativo. Tale percentuale è basata sul cliente e business. 
+
+Determinare le percentuali di soglia che si è pronti per la tua azienda. 
+
+Il filtro consente di trovare gli Intent problema specifico:
+
+|Filtro|Percentuale suggerita|Scopo|
+|--|--|--|
+|Intent più problematici|-|**Iniziare da qui** -correzione le espressioni in questa finalità migliorerà l'app più di altre correzioni.|
+|Stime corrette riportato di seguito|60%|Questa è la percentuale di espressioni nell'intenzione selezionato siano corretti, ma hanno un punteggio di confidenza di sotto della soglia. |
+|Stime chiara precedente|15%|Questa è la percentuale di espressioni nell'intenzione selezionato che sono confuso con l'intento rivale più vicino.|
+|Stime inesatte precedente|15%|Questa è la percentuale di espressioni nell'intenzione selezionato che sono stimati in modo non corretto. |
+
+### <a name="correct-prediction-threshold"></a>Soglia di stima corretta
+
+Che cos'è un punteggio di confidenza stima sicuri all'utente? All'inizio dello sviluppo di app, il 60% potrebbe essere la destinazione. Usare la **correggere le stime seguenti** con la percentuale del 60% per trovare eventuali espressioni nell'intenzione selezionate che devono essere corrette.
+
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Soglia di stima non chiara o non corrette
+
+Questi due filtri consentono di trovare utterances nell'intenzione oltre la soglia selezionata. È possibile considerare queste due percentuali sotto forma di percentuali di errore. Se si ha familiarità con una frequenza degli errori di 10-15% per le stime, impostare la soglia di filtro al 15% per trovare tutte le espressioni sopra questo valore. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Gestire le risorse di Azure](luis-how-to-azure-subscription.md)

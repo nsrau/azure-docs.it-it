@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582822"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069049"
 ---
 # <a name="azure-container-registry-skus"></a>SKU di Registro Azure Container
 
@@ -22,7 +22,7 @@ Registro Azure Container è disponibile su più livelli di servizio, noti come S
 | --- | :-------: | ----------- |
 | **Basic** | Sì | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro Azure Container. I registri Basic dispongono delle stesse funzionalità a livello di codice Standard e Premium (ad esempio Azure Active Directory [l'integrazione dell'autenticazione](container-registry-authentication.md#individual-login-with-azure-ad), [l'eliminazione di immagine][container-registry-delete], e [webhooks][container-registry-webhook]). Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
 | **Standard** | Sì | I registri standard offrono le stesse funzionalità del livello base, con risorse di archiviazione incluse e velocità effettiva di immagine maggiori. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
-| **Premium** | Sì | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre a una velocità effettiva di immagine, il livello Premium aggiunge funzionalità, tra cui [replica geografica] [ container-registry-geo-replication] per la gestione di un singolo registro in più aree, [trust (anteprima)delcontenuto](container-registry-content-trust.md) per la firma di tag di immagine, e [firewall e reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al Registro di sistema. |
+| **Premium** | Sì | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre a una velocità effettiva di immagine, il livello Premium aggiunge funzionalità, tra cui [replica geografica] [ container-registry-geo-replication] per la gestione di un singolo registro in più aree, [attendibilità del contenuto](container-registry-content-trust.md) per la firma di tag di immagine, e [firewall e reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al Registro di sistema. |
 |  Classico (*non è disponibile dopo aprile 2019*) | No  | Lo SKU ha abilitato la versione iniziale del servizio Registro Azure Container in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro Azure Container di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. |
 
 > [!IMPORTANT]

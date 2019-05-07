@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068758"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
 
@@ -111,9 +111,9 @@ La tabella seguente riepiloga gli errori noti che è possibile si verifichino du
 
 | messaggi di errore  | Azione |  
 | ---- | --- |  
-| Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Attendere almeno 10/15 minuti perché vengano visualizzati i dati per il cluster. |   
-| Messaggio di errore `Error retrieving data` | Durante l'installazione del servizio Kubenetes di Azure per il monitoraggio dell'integrità e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata o persa. Verificare se l'area di lavoro è disponibile rivedendo le informazioni su come [gestire l'accesso](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). Se l'area di lavoro è mancante, è necessario ripetere il caricamento del cluster con Monitoraggio di Azure per i contenitori. Per ripetere il caricamento, è necessario [disabilitare](container-insights-optout.md) il monitoraggio per il cluster e [abilitare](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) di nuovo Monitoraggio di Azure per i contenitori. |  
-| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando si esegue il caricamento usando `az aks cli`, molto raramente Monitoraggio di Azure per i contenitori potrebbe non essere caricato correttamente. Controllare se la soluzione è caricata. A tale scopo, passare all'area di lavoro Log Analytics e verificare se la soluzione è disponibile selezionando **Soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
+| Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Consentire almeno 10 a 15 minuti per i dati da visualizzare per il cluster. |   
+| Messaggio di errore `Error retrieving data` | Durante l'installazione del servizio Kubenetes di Azure per il monitoraggio dell'integrità e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro Azure Log Analytics. Un'area di lavoro Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro Log Analytics è stata eliminata o persa. Verificare se l'area di lavoro è disponibile rivedendo le informazioni su come [gestire l'accesso](../platform/manage-access.md#view-workspace-details). Se l'area di lavoro è manca, è necessario riattivare il monitoraggio del cluster con monitoraggio di Azure per contenitori. Per abilitare nuovamente, dovrà [disabilitare](container-insights-optout.md) di monitoraggio per il cluster e [abilitare](container-insights-enable-new-cluster.md) monitoraggio di Azure per contenitori nuovamente. |  
+| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando servizio Azure Kubernetes | Quando attivare il monitoraggio tramite `az aks cli`, monitoraggio di Azure per i contenitori potrebbero non essere correttamente eseguito l'onboarding. Controllare se la soluzione è caricata. A tale scopo, passare all'area di lavoro Log Analytics e verificare se la soluzione è disponibile selezionando **Soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](container-insights-onboard.md) |  
 
 Per eseguire la diagnosi del problema, è disponibile uno script di risoluzione dei problemi [qui](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

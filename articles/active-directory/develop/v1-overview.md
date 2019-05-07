@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla versione 1.0 | Azure
+title: Azure Active Directory per la panoramica di sviluppatori (v1.0)
 description: Questo articolo offre una panoramica dell'accesso degli account Microsoft aziendali e dell'istituto di istruzione tramite la piattaforma e l'endpoint v1.0 di Azure Active Directory.
 services: active-directory
 author: CelesteDG
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd39ee1dc22fb6143a8d098276172c453388170b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af95d979e90f25c013f5112322d830232199a4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297174"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067654"
 ---
-# <a name="about-v10"></a>Informazioni sulla versione 1.0
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory per la panoramica di sviluppatori (v1.0)
 
 Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità che consente agli sviluppatori di creare app che permettono l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Azure AD supporta gli sviluppatori che creano app line-of-business (LOB) a singolo tenant e gli sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, Azure AD consente alle app di chiamare anche API Microsoft come [Microsoft Graph](https://docs.microsoft.com/graph/overview) e API personalizzate create sulla piattaforma di Azure AD. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore, come OAuth2.0 e OpenID Connect.
 

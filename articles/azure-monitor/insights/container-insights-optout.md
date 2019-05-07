@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 2493866f2926f29e673a7825dbd3c4a2d0e41808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494941"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071810"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
@@ -32,7 +32,7 @@ Usare il comando [az servizio Azure Kubernetes disable-addons](https://docs.micr
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Per riabilitare il monitoraggio per il cluster, vedere [Abilitare il monitoraggio usando l'interfaccia della riga di comando di Azure](container-insights-onboard.md#enable-using-azure-cli).
+Per riabilitare il monitoraggio per il cluster, vedere [Abilitare il monitoraggio usando l'interfaccia della riga di comando di Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per interrompere il monitoraggio, mentre l'altro contiene i valori dei parametri da configurare per specificare l'ID risorsa del cluster AKS e il gruppo di risorse in cui è distribuito il cluster. 

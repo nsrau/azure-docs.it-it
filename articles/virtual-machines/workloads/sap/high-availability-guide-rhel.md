@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925791"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143001"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede l'archiviazione c
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
 
+> [!IMPORTANT]
+> Clustering di multi-SID di SAP ASCS/ERS con Red Hat Linux come sistema operativo guest nelle macchine virtuali di Azure viene **non è supportato**. Multi-SID di clustering vengono descritti l'installazione di più istanze di SAP ASCS/ERS con SID diverso in un cluster Pacemaker.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configurazione front-end
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 * Porta probe
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -145,7 +149,7 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    1. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
    1. Nome utente, password amministratore o chiave SSH  
-      Verrà creato un nuovo utente con cui è possibile accedere alla macchina
+      Viene creato un nuovo utente che può essere usato per accedere alla macchina.
    1. Subnet ID  
    Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
 
@@ -194,7 +198,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
       1. TCP 32**00** per ASCS
-         1. Aprire il servizio di bilanciamento del carico, selezionare Regole di bilanciamento del carico e fare clic su Aggiungi
+         1. Aprire il servizio di bilanciamento del carico, selezionare le regole di bilanciamento del carico e fare clic su Aggiungi
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-3200**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-ascs-frontend**
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
@@ -457,7 +461,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[A]**  Configurare keep-alive
 
-   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
+   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni del sistema Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
 
    Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
@@ -527,7 +531,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Se si esegue l'aggiornamento da una versione precedente e passare a server di Accodamento 2, vedere la nota sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Se si esegue l'aggiornamento da una versione precedente e passare a server di Accodamento 2, vedere SAP nota [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 

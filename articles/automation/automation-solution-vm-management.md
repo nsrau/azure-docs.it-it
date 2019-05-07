@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306449"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146033"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -46,6 +46,50 @@ La soluzione corrente presenta le limitazioni di seguito:
 I runbook per questa soluzione funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 
 È consigliabile usare un Account di automazione separato per la soluzione avvio/arresto della macchina virtuale. Infatti, le versioni dei moduli di Azure vengono aggiornate frequentemente e potrebbero cambiare i relativi parametri. La soluzione avvio/arresto della macchina virtuale non viene aggiornata la stessa cadenza in modo che potrebbe non funzionare con le versioni più recenti dei cmdlet che lo usa. È consigliabile testare gli aggiornamenti di modulo in un Account di automazione di test prima di importarli nell'Account di automazione di produzione.
+
+### <a name="permissions-needed-to-deploy"></a>Autorizzazioni necessarie per la distribuzione
+
+Sono disponibili determinate autorizzazioni che un utente deve disporre per distribuire l'avviare/arrestare VM durante la disattivazione soluzione ore. Queste autorizzazioni sono diverse se si usa un'area di lavoro Log Analitica e Account di automazione creato in precedenza oppure crearne di nuovi durante la distribuzione.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Account preesistenti Account di automazione e Log Analitica
+
+Per distribuire avviare/arrestare VM durante la disattivazione soluzione ore a un Account di automazione e Log Analitica l'utente che distribuisce la soluzione richiede le seguenti autorizzazioni nel **gruppo di risorse**. Per altre informazioni sui ruoli, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
+
+| Autorizzazione | `Scope`|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/variables/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/schedules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/runbooks/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/connections/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/certificates/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/modules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/modules/read | Gruppo di risorse |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/jobs/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/jobs/read | Gruppo di risorse |
+| Microsoft.OperationsManagement/solutions/write | Gruppo di risorse |
+| Microsoft.OperationalInsights/workspaces/* | Gruppo di risorse |
+| Microsoft.Insights/diagnosticSettings/write | Gruppo di risorse |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Gruppo di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Gruppo di risorse |
+| Microsoft.Resources/deployments/* | Gruppo di risorse |
+
+### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nuovo Account di automazione e una nuova area di lavoro di Log Analitica
+
+Per avviare/arrestare VM durante gli orari di minore di distribuire soluzioni per un nuovo Account di automazione e Log Analitica dell'area di lavoro l'utente che distribuisce la soluzione deve disporre di autorizzazioni definiti nella sezione precedente, nonché le autorizzazioni seguenti:
+
+- CO-amministratore nella sottoscrizione: questo è necessario creare l'Account runas classico
+- Far parte del **sviluppatore di applicazioni** ruolo. Per altre informazioni su come configurare gli account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](manage-runas-account.md#permissions).
+
+| Autorizzazione |`Scope`|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | Sottoscrizione |
+| Microsoft.Authorization/roleAssignments/write | Sottoscrizione |
+| Microsoft.Automation/automationAccounts/connections/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/certificates/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
+| Microsoft.OperationalInsights/workspaces/write | Gruppo di risorse |
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
@@ -292,8 +336,8 @@ La tabella seguente contiene esempi di ricerche nei log per i record dei process
 
 |Query | DESCRIZIONE|
 |----------|----------|
-|Trova i processi completati per il runbook ScheduledStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Trova i processi completati per il runbook SequencedStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|Trova i processi completati per il runbook ScheduledStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Trova i processi completati per il runbook SequencedStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>Visualizzazione della soluzione
 

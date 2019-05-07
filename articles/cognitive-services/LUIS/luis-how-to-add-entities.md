@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196142"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148718"
 ---
 # <a name="create-entities-without-utterances"></a>Creare entità senza espressioni
 
@@ -66,29 +66,6 @@ Un'entità di espressione regolare viene usata per estrarre dati dall'espression
 
     Questa espressione regolare corrisponde al carattere letterale `hrf-`, quindi 6 cifre per rappresentare un form numero per un modulo di gestione delle risorse umane.
 
-## <a name="add-hierarchical-entities"></a>Aggiungere entità gerarchiche
-
-Un'entità gerarchica è una categoria di entità con apprendimento su base contestuale e correlate per concetto. Nell'esempio seguente, l'entità contiene ubicazioni di origine e destinazione. 
-
-Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
-
-Per aggiungere entità gerarchiche, seguire questa procedura: 
-
-1. Nel pannello di spostamento a sinistra dell'app selezionare **Entities** (Entità) e quindi selezionare **Create new entity** (Crea nuova entità).
-
-1. Nella finestra di dialogo popup digitare `Location` nella casella **Entity name** (Nome entità) e quindi selezionare **Hierarchical** (Gerarchica) nell'elenco **Entity type** (Tipo di entità).
-
-    ![Aggiungere un'entità gerarchica](./media/add-entities/hier-location-entity-creation.png)
-
-1. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare `Origin` nella casella **Child #1** (Figlio n. 1). 
-
-1. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare `Destination` nella casella **Child #2** (Figlio n. 2). Selezionare **Operazione completata**.
-
-    >[!CAUTION]
-    >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
-
-    Dopo avere creato questa entità, passare a tutte le finalità con espressioni di esempio contenenti l'entità. Selezionare il testo nell'espressione di esempio e contrassegnarlo come entità. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Aggiungere le entità composte da raggruppare in una relazione padre-figlio
@@ -137,9 +114,7 @@ Nell'espressione `Where is Request relocation from employee new to the company o
 
 Un ruolo è un sottotipo denominato in base al contesto. È disponibile in tutte le entità incluse le entità predefinite e non-machine-appreso. 
 
-Usando lo stesso esempio dell'entità gerarchica delle città di origine e di destinazione, la differenza è che viene denominato Origin un ruolo invece di un elemento figlio gerarchico. 
-
-La sintassi per un ruolo è **{Entityname:Rolename}** dove il nome dell'entità è seguito da due punti e quindi dal nome del ruolo. Ad esempio: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintassi per un ruolo viene **`{Entityname:Rolename}`** dove il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 

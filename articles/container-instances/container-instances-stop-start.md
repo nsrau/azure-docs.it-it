@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070822"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arresta o Avvia i contenitori in istanze di contenitore di Azure manualmente
 
@@ -24,7 +24,7 @@ Arrestare manualmente, ad esempio, un gruppo di contenitori in esecuzione - usan
 
 *Quando un gruppo contenitore passa allo stato Stopped, termina e viene riciclato tutti i contenitori nel gruppo. Lo stato del contenitore non vengono mantenuti.*
 
-Sebbene i contenitori in un gruppo contenitore arrestato vengono riciclati, la [risorse](container-instances-container-groups.md#resource-allocation) rimangono allocati per l'uso. Pertanto, la fatturazione continua per un gruppo contenitore arrestato.
+Quando i contenitori vengono riciclati, la [risorse](container-instances-container-groups.md#resource-allocation) vengono deallocate e la fatturazione viene arrestata per il gruppo di contenitori.
 
 L'azione di interruzione non ha alcun effetto se il gruppo di contenitori è già terminata (è nello stato Succeeded o Failed). Ad esempio, un gruppo di contenitori con attività contenitore eseguire una volta che è stato eseguito correttamente termina nello stato riuscito. È stato effettuato un tentativo di arrestare il gruppo nel cui stato di non modificare lo stato. 
 

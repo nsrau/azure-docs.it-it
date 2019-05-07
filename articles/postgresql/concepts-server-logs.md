@@ -1,19 +1,19 @@
 ---
-title: Log server nel database di Azure per PostgreSQL
-description: Questo articolo descrive come Database di Azure per PostgreSQL genera log degli errori e delle query e come viene configurata la conservazione dei log.
+title: Registri server nel Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive i Database di Azure per PostgreSQL - singolo Server genera query e i log degli errori e la configurazione di conservazione dei log.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871540"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067403"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Log di server in Database di Azure per PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registri server nel Database di Azure per PostgreSQL - Server singolo
 Il database di Azure per PostgreSQL genera log di query e registri errori. I log di query e degli errori possono essere usati per individuare e risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. L'accesso ai log delle transazioni non è incluso. 
 
 ## <a name="configure-logging"></a>Configurare la registrazione 
