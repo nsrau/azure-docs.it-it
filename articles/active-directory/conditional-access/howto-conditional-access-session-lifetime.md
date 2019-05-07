@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190212"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione della sessione di autenticazione con l'accesso condizionale
 
@@ -53,7 +53,7 @@ L'impostazione predefinita Azure AD per la persistenza della sessione del browse
 Accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza premium. Per altre informazioni sull'argomento, vedere [Cos'è l'accesso condizionale in Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
 
 > [!WARNING]
-> Se si usa la [durata dei token configurabili](../develop/active-directory-configurable-token-lifetimes.md) funzionalità attualmente in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utente o un'app: uno con questa funzionalità e un'altra con funzionalità di durata dei token configurabili. Microsoft prevede di disattivare la funzionalità di durata dei token configurabili dell'1 novembre e sostituirla con la funzionalità di gestione sessione di autenticazione di accesso condizionale.  
+> Se si usa la [durata dei token configurabili](../develop/active-directory-configurable-token-lifetimes.md) funzionalità attualmente in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utente o un'app: uno con questa funzionalità e un'altra con funzionalità di durata dei token configurabili. Microsoft prevede di ritirare la funzionalità di durata dei token configurabili in 15 ottobre e sostituirla con la funzionalità di gestione sessione di autenticazione di accesso condizionale.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Criterio 1: Controllo della frequenza di accesso
 

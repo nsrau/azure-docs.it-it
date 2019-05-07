@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9f1195927acee143a34ec6c74f3ad301194fbc84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6b9996716621137945b5aeb2f0699bf1bddba4a6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722978"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65189990"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -135,17 +135,15 @@ Prima di annullare la registrazione del server nel servizio di sincronizzazione 
 Questa operazione può essere eseguita anche con un semplice script di PowerShell:
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Connect-AzAccount
 
-$accountInfo = Connect-AzAccount
-Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$storageSyncServiceName = "<your-storage-sync-service>"
+$resourceGroup = "<your-resource-group>"
 
-$StorageSyncService = "<your-storage-sync-service>"
-
-Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
-    $SyncGroup = $_; 
-    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $storageSyncServiceName | ForEach-Object { 
+    $syncGroup = $_; 
+    Get-AzStorageSyncServerEndpoint -ParentObject $syncGroup | Where-Object { $_.ServerEndpointName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -InputObject $_ 
     } 
 }
 ```

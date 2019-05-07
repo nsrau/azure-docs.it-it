@@ -8,48 +8,48 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714071"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190342"
 ---
 # <a name="time-series-model"></a>Modello Time Series
 
 Questo articolo descrive il componente Modello serie temporale di Anteprima di Time Series Insights. Illustra il modello, le funzionalità e come iniziare a compilare e aggiornare un modello personalizzato.
 
-I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La scopo principale del modello di serie temporale è quello di semplificare la ricerca e l'analisi dei dati IoT. Raggiunge questo obiettivo consentendo la cura, la manutenzione e l'arricchimento dei dati della serie temporale per preparare set di dati di livello consumer. 
+I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La scopo principale del modello di serie temporale è quello di semplificare la ricerca e l'analisi dei dati IoT. Raggiunge questo obiettivo consentendo la cura, la manutenzione e l'arricchimento dei dati della serie temporale per preparare set di dati di livello consumer.
 
 I modelli di serie temporale svolgono un ruolo fondamentale nelle query e nella navigazione perché contestualizzano le entità dispositivo e non dispositivo. I dati resi persistenti nel modello di serie temporale possono essere usati per i calcoli delle query delle serie temporali sfruttando le formule archiviate al loro interno.
 
-![tsm][1]
+[![Panoramica del modello di serie ora](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
 Allo scopo di semplificare e agevolare la gestione della contestualizzazione delle serie temporali, il modello di serie temporale abilita le funzionalità seguenti in Anteprima di Time Series Insights. Consente di:
 
 * Creare e gestire formule o calcoli, trasformare i dati sfruttando le funzioni scalari, le operazioni di aggregazione e così via.
-
 * Definire relazioni padre-figlio per abilitare l'esplorazione e fare riferimento e fornire contesto ai dati di telemetria delle serie temporali.
-
 * Definire le proprietà associate al componente istanze dei *campi di istanza* e usarle per creare gerarchie.
 
-## <a name="times-series-model-key-components"></a>Componenti principali del modello di serie temporale
+## <a name="entity-components"></a>Componenti di entità
 
-Il modello di serie temporale include tre componenti principali:
+I modelli Time Series dispone di tre componenti principali:
 
-* *Tipi* di modelli serie temporale
-* *Gerarchie* di modelli serie temporale
-* *Istanze* di modello serie temporale
+* <a href="#time-series-model-types">Tipi di modello di serie ora</a>
+* <a href="#time-series-model-hierarchies">Gerarchie del modello di serie temporali</a>
+* <a href="#time-series-model-instances">Istanze di un modello di serie ora</a>
+
+Questi componenti vengono combinati per specificare un modello Time Series e organizzare i dati di Azure Time Series Insights.
 
 ## <a name="time-series-model-types"></a>Tipi di modelli serie temporale
 
 I *tipi* di modello serie temporale consentono di definire variabili o formule per eseguire calcoli. I tipi sono associati a una specifica istanza di Time Series Insights. Un tipo può avere una o più variabili. Un'istanza di Time Series Insights, ad esempio, potrebbe essere di tipo *Temperature Sensor*, che è costituito dalle variabili *avg temperature*, *min temperature* e *max temperature*. Viene creato un tipo predefinito quando inizia il flusso dei dati in Time Series Insights. Il tipo predefinito può essere recuperato e aggiornato dalle impostazioni del modello. I tipi predefiniti hanno una variabile che conta il numero di eventi.
 
-## <a name="time-series-model-type-json-example"></a>Esempio JSON di tipo di modello serie temporale
+### <a name="time-series-model-type-json-example"></a>Esempio JSON di tipo di modello serie temporale
 
 Esempio:
 
@@ -76,32 +76,20 @@ Esempio:
 
 Per altre informazioni sui tipi di modello serie temporale, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-## <a name="variables"></a>Variabili
+### <a name="variables"></a>Variabili
 
 I tipi di Time Series Insights hanno variabili, denominate calcoli sui valori degli eventi. Le definizioni delle variabili di Time Series Insights contengono regole relative alle formule e ai calcoli. Le definizioni delle variabili includono *tipologia*, *valore*, *filtro*, *riduzione* e *limiti*. Le variabili vengono archiviate nella definizione del tipo nel modello serie temporale e possono essere fornite inline tramite le API di query per eseguire l'override della definizione archiviata.
 
 La matrice seguente funge da legenda per le definizioni delle variabili:
 
-![tabella][2]
+[![Tabella dei tipi di definizione di variabile](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-### <a name="variable-kind"></a>Tipologia di variabile
-
-Sono supportate le tipologie di variabile seguenti:
-
-* *Numerica*
-* *Aggregata*
-
-### <a name="variable-filter"></a>Filtro di variabile
-
-I filtri di variabile specificano una clausola di filtro facoltativa per limitare il numero di righe da tenere in considerazione per il calcolo in base alle condizioni.
-
-### <a name="variable-value"></a>Valore di variabile
-
-I valori delle variabili vengono e devono essere usati nel calcolo. Si tratta della colonna negli eventi a cui fare riferimento.
-
-### <a name="variable-aggregation"></a>Aggregazione di variabile
-
-La funzione di aggregazione della variabile consente parte del calcolo. Time Series Insights supporta le normali aggregazioni (specificamente *min*, *max*, *avg*, *sum* e *count*).
+| Definizione | DESCRIZIONE |
+| --- | ---|
+| Tipologia di variabile |  *Numerico* e *aggregazione* sono supportati tipi |
+| Filtro di variabile | I filtri di variabile specificano una clausola di filtro facoltativa per limitare il numero di righe da tenere in considerazione per il calcolo in base alle condizioni. |
+| Valore di variabile | I valori delle variabili vengono e devono essere usati nel calcolo. Il campo pertinente per fare riferimento a per il punto dati in questione. |
+| Aggregazione di variabile | La funzione di aggregazione della variabile consente parte del calcolo. Time Series Insights supporta le normali aggregazioni (specificamente *min*, *max*, *avg*, *sum* e *count*). |
 
 ## <a name="time-series-model-hierarchies"></a>Gerarchie di modelli serie temporale
 
@@ -146,7 +134,7 @@ A seconda dei *campi di istanza*, vengono visualizzati gli attributi e i valori 
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | Non è impostato nessun "building", "floor" o "room" |
 
-Nell'esempio precedente ID1 e ID4 vengono visualizzati come parte della gerarchia H1 nell'explorer di Azure Time Series Insights, mentre gli altri ID vengono classificati come *istanze senza padre* poiché non sono conformi alla gerarchia di dati specificata.
+Nell'esempio precedente, **ID1** e **ID4** Mostra come parte della gerarchia H1 in soluzioni Azure Time Series Insights, mentre il resto sono classificati nella *istanze senza padre* perché non sono conformi alla gerarchia di dati specificato.
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 
@@ -156,9 +144,9 @@ Le istanze vengono definite da *typeId*, *timeSeriesId*, *name*, *description*, 
 
 Gli elementi *instanceFields* sono proprietà di un'istanza e dei dati statici che definiscono un'istanza. Definiscono i valori delle proprietà non di gerarchia o di gerarchia, supportando anche l'indicizzazione per eseguire operazioni di ricerca.
 
-La proprietà *name* è facoltativa e fa distinzione tra maiuscole e minuscole. Se *name* è non disponibile, per impostazione predefinita sarà l'ID serie temporale. Se viene specificata una proprietà *name*, l'ID serie temporale sarà comunque disponibile nel Well (la griglia sotto i grafici nell'explorer). 
+Il *nome* proprietà è facoltativa e tra maiuscole e minuscole. Se *name* è non disponibile, per impostazione predefinita sarà l'ID serie temporale. Se viene specificata una proprietà *name*, l'ID serie temporale sarà comunque disponibile nel Well (la griglia sotto i grafici nell'explorer).
 
-## <a name="time-series-model-instance-json-example"></a>Esempio JSON di istanza di modello serie temporale
+### <a name="time-series-model-instance-json-example"></a>Esempio JSON di istanza di modello serie temporale
 
 Esempio:
 
@@ -180,7 +168,7 @@ Esempio:
 
 Per altre informazioni sulle istanze di modello serie temporale, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
-## <a name="time-series-model-settings-example"></a>Esempio di impostazioni del modello serie temporale
+### <a name="time-series-model-settings-example"></a>Esempio di impostazioni del modello serie temporale
 
 Esempio:
 
@@ -206,7 +194,3 @@ Per altre informazioni sulle impostazioni del modello serie temporale, vedere la
 - Vedere [Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
 
 - Vedere il nuovo [modello serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
-
-<!-- Images -->
-[1]: media/v2-update-tsm/tsm.png
-[2]: media/v2-update-tsm/table.png

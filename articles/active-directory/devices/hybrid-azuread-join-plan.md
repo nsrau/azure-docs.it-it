@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351996"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190499"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -41,7 +41,7 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Minima richiesta per i livelli di funzionalità foresta e dominio funzionale per il join di Windows 10 ad Azure AD ibrido è Windows Server 2008 R2. In versioni precedenti, l'utente potrebbe non ottenere un Token di aggiornamento primario durante l'accesso di Windows a causa di problemi LSA.
+> Minima richiesta per i livelli di funzionalità foresta e dominio funzionale per il join di Windows 10 ad Azure AD ibrido è Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
@@ -121,6 +121,9 @@ Se l'ambiente include domini gestiti, l'aggiunta ad Azure AD ibrido supporta:
 
 - Autenticazione pass-through
 - Sincronizzazione dell'hash delle password
+
+> [!NOTE]
+> Azure AD non supporta i certificati o smart card nei domini gestiti.
 
 A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. Per altre informazioni, vedere:
 

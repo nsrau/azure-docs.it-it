@@ -5,19 +5,19 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: include
-ms.date: 07/18/2018
+ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b480f9720cabddbba9e9c35c12ca1f8dda7ab5ab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129101"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190018"
 ---
-| Risorsa | Destinazione | Limite rigido |
+| Resource | Destinazione | Limite rigido |
 |----------|--------------|------------|
-| Servizi di sincronizzazione archiviazione per area | 15 servizi di sincronizzazione archiviazione | Sì |
+| Servizi di sincronizzazione archiviazione per area | 20 servizi di sincronizzazione archiviazione | Sì |
 | Gruppi di sincronizzazione per servizio di sincronizzazione archiviazione | 100 gruppi di sincronizzazione | Sì |
 | Server registrati per servizio di sincronizzazione archiviazione | 99 server | Sì |
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Sì |

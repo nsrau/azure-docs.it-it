@@ -2,18 +2,17 @@
 title: Aggiornare un cluster del servizio Azure Kubernetes
 description: Informazioni su come aggiornare un cluster del servizio Azure Kubernetes
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 02/12/2019
+ms.author: iainfou
 ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61028441"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072724"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -27,7 +26,7 @@ Questo articolo richiede che sia in esecuzione l'interfaccia della riga di coman
 
 Per verificare quali versioni di Kubernetes sono disponibili per il cluster, usare il comando [az aks get-upgrades][az-aks-get-upgrades]. L'esempio seguente verifica se sono disponibili aggiornamenti per il cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
@@ -48,7 +47,7 @@ default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
 
 Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, il servizio Azure Kubernetes aggiunge un nuovo nodo al cluster e quindi [blocca e svuota][kubernetes-drain] attentamente un nodo alla volta per ridurre al minimo le interruzioni delle applicazioni in esecuzione. Nell'esempio seguente un cluster viene aggiornato alla versione *1.11.6*:
 
-```azurecli
+```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
 ```
 
@@ -56,7 +55,7 @@ Per aggiornare il cluster sono necessari alcuni minuti, a seconda del numero di 
 
 Per verificare che l'aggiornamento sia stato completato correttamente, usare il comando [az aks show][az-aks-show]:
 
-```azurecli
+```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
@@ -65,7 +64,7 @@ L'output di esempio seguente mostra che ora nel cluster viene eseguita la versio
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  chinaeast2      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.chinaeast2.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -80,7 +79,7 @@ Questo articolo ha illustrato come aggiornare un cluster esistente del servizio 
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[az-aks-show]: /cli/azure/aks#az-aks-show

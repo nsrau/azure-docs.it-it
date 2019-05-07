@@ -2,22 +2,22 @@
 title: Prestazioni dei file di Azure Guida risoluzione dei problemi
 description: Problemi di prestazioni con le condivisioni file di Azure premium (anteprima) e soluzioni alternative associate noti.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577916"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190044"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni di file di Azure
 
-Questo articolo elenca alcuni problemi comuni correlati alle condivisioni file di Microsoft Azure premium (anteprima). Possibili cause e soluzioni alternative fornisce quando si verificano questi problemi.
+Questo articolo elenca alcuni problemi comuni correlati a condivisioni file di Azure premium (anteprima). Possibili cause e soluzioni alternative fornisce quando si verificano questi problemi.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Una latenza elevata, bassa velocità effettiva e problemi generali relativi alle prestazioni
 
@@ -27,7 +27,7 @@ La quota predefinita su una condivisione è 100 GiB, che offre IOPS della linea 
 
 Per verificare se la condivisione è limitata, è possibile sfruttare le metriche di Azure nel portale.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **tutti i servizi** e quindi cercare **metriche**.
 
@@ -80,7 +80,7 @@ Il macchina virtuale client potrebbe trovarsi in un'area diversa rispetto alla c
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client non è possibile ottenere la velocità effettiva massima supportata dalla rete
 
-Una delle possibili cause di questo oggetto è una mancanza fo SMB multicanale supporto. File premium attualmente supportano solo singolo canale, pertanto non c'è una sola connessione dal client della macchina virtuale al server. Questa singola connessione è stata associata a un singolo core nella macchina virtuale, il client in modo che è associata la massima velocità effettiva ottenibile da una macchina virtuale da un singolo core.
+Una delle possibili cause di questo oggetto è una mancanza fo SMB multicanale supporto. Condivisioni file di Azure attualmente supportano solo singolo canale, pertanto non c'è una sola connessione dal client della macchina virtuale al server. Questa singola connessione è stata associata a un singolo core nella macchina virtuale, il client in modo che è associata la massima velocità effettiva ottenibile da una macchina virtuale da un singolo core.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
@@ -137,7 +137,7 @@ Applicazione client supera spesso la linea di base di IOPS. Attualmente, non è 
 
 ### <a name="cause"></a>Causa
 
-Se il numero di chiamate DirectoryOpen/DirectoryClose è tra le prime chiamate alle API e non si prevede che il client esegua che molte chiamate, potrebbe essere un problema con l'antivirus installato nella VM client di Azure.
+Se il numero di chiamate DirectoryOpen/DirectoryClose è tra le prime chiamate alle API e non si prevede che il client esegua che molte chiamate, potrebbe essere un problema con l'antivirus installato nel client Azure della macchina virtuale.
 
 ### <a name="workaround"></a>Soluzione alternativa
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192906"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190290"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Windows con rete accelerata
 
@@ -230,7 +230,7 @@ Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilit
 Prima di tutto, arrestare/deallocare la macchina virtuale oppure, nel caso di un set di disponibilità, tutte le macchine virtuali nel set:
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +239,18 @@ Importante: se la macchina virtuale è stata creata singolarmente, senza un set 
 Dopo l'arresto, abilitare Rete accelerata nella scheda di rete della macchina virtuale:
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 Riavviare la macchina virtuale oppure, se in un set di disponibilità, tutte le macchine virtuali nel set e verificare che la rete accelerata sia abilitata:
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

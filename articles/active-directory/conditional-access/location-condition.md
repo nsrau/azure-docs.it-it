@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917673"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190191"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -56,7 +56,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
 - **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 località in ebraico, ciascuna configurata con intervalli di indirizzi IP di 12000.
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 posizioni specifiche, ciascuna configurata con intervalli di indirizzi IP di 12000.
 
 Criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Località denominate attualmente non consentire gli intervalli IPv6 da configurare. Questa limitazione comporta le situazioni seguenti:
 

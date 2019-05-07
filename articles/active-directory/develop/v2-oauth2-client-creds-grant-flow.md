@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190826"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Piattaforma delle identità Microsoft e il flusso di credenziali client OAuth 2.0
 
@@ -249,6 +249,10 @@ La risposta di errore è simile alla seguente:
 | `timestamp` | Data/ora in cui si è verificato l'errore. |
 | `trace_id` | Identificatore univoco per la richiesta utile per la diagnostica. |
 | `correlation_id` | Identificatore univoco per la richiesta utile per la diagnostica dei componenti. |
+
+> [!NOTE]
+> Affinché l'applicazione sia in grado di ricevere il token v2 è possibile aggiornare il file manifesto dell'applicazione dal portale di azure. È possibile aggiungere l'attributo `accessTokenAcceptedVersion` e impostare il valore su 2 come `"accessTokenAcceptedVersion": 2`. Vedere l'articolo [manifesto dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) per comprendere meglio lo stesso. Per impostazione predefinita l'applicazione attualmente riceve un token di v1. Se questo non è definito nel manifesto dell'applicazione o un'API Web, è il valore per questo attributo nel manifesto del valore predefinito è 1 e pertanto l'applicazione riceverà il token v1.  
+
 
 ## <a name="use-a-token"></a>Usare di un token
 

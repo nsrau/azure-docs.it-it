@@ -1,9 +1,9 @@
 ---
-title: Procedure consigliate per la sicurezza del database di Azure | Microsoft Docs
+title: Le procedure consigliate - Microsoft Azure del database
 description: Questo articolo fornisce un set di procedure consigliate per la sicurezza del database di Azure.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587538"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187752"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
+Questo articolo descrive le procedure consigliate per la sicurezza del database.
+
+Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Le opinioni e le tecnologie cambiano nel tempo e questo articolo viene aggiornato regolarmente per riflettere tali modifiche.
+
+## <a name="secure-databases"></a>Database sicuri
 La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
-
-In questo articolo viene illustrata una raccolta di procedure consigliate per la sicurezza del database di Azure, derivate dalla nostra esperienza con la sicurezza dei database di Azure e dalle esperienze di altri clienti.
-
-Per ogni procedura consigliata verrà illustrato:
-
--   Qual è la procedura consigliata
--   Il motivo per cui si vuole abilitare tale procedura consigliata
--   Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
--   Come imparare ad abilitare la procedura consigliata
-
-Il presente articolo sulle procedure consigliate per la sicurezza del database di Azure si basa su un parere condiviso, nonché sulle capacità e sui set di funzionalità della piattaforma di Azure esistenti al momento della scrittura. Le opinioni e le tecnologie cambiano nel tempo e questo articolo verrà aggiornato regolarmente per riflettere tali modifiche.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Usare le regole del firewall per limitare l'accesso al database
 Il database SQL di Microsoft Azure assicura un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per garantire la sicurezza, il database SQL controlla l'accesso tramite:

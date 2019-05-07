@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190199"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 
@@ -165,7 +165,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK risolvono automatica
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
+1. Assicurarsi che tutte le applicazioni utilizzano lo stesso Client ID o ID applicazione.
 2. Verificare che tutte le applicazioni condividano lo stesso certificato di firma di Apple per poter condividere i portachiavi.
 3. Richiedere lo stesso diritto per i portachiavi per ogni applicazione.
 4. Indicare agli SDK il portachiavi condiviso da usare.

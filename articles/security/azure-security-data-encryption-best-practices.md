@@ -1,10 +1,10 @@
 ---
-title: Procedure consigliate per la sicurezza dei dati e la crittografia | Documentazione Microsoft
+title: Sicurezza dei dati e la crittografia procedure consigliate - Microsoft Azure
 description: Questo articolo presenta una serie di procedure consigliate per la sicurezza dei dati e la crittografia usando le funzionalità integrate di Azure.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125120"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190717"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la sicurezza dei dati e la crittografia in Azure
+# <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la protezione dei dati di Azure e crittografia
+Questo articolo descrive le procedure consigliate per la protezione dei dati e la crittografia.
 
+Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Le opinioni e le tecnologie cambiano nel tempo e questo articolo viene aggiornato regolarmente per riflettere tali modifiche.
+
+## <a name="protect-data"></a>Proteggere i dati
 Per facilitare la protezione dei dati nel cloud, tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. Le procedure consigliate per la crittografia e la protezione dei dati di Azure sono correlate agli stati seguenti dei dati:
 
 - Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica nei supporti fisici, siano essi dischi magnetici o dischi ottici.
 - In transito: quando vengono trasferiti tra componenti, posizioni o programmi, i dati vengono considerati in transito. Esempi di questo stato sono il trasferimento in rete, attraverso un bus di servizio, da locale a cloud e viceversa e incluse le connessioni ibride come ExpressRoute, o durante un processo di input/output.
-
-In questo articolo verrà illustrato un insieme di procedure consigliate per la crittografia e la sicurezza dei dati di Azure, derivate dalla nostra esperienza con la sicurezza dei dati e la crittografia in Azure e dalle esperienze di altri clienti.
-
-Per ogni procedura consigliata verrà illustrato:
-
-* Qual è la procedura consigliata
-* Il motivo per cui si vuole abilitare tale procedura consigliata
-* Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
-* Alternative possibili alla procedura consigliata
-* Come imparare ad abilitare la procedura consigliata
-
-Il presente articolo sulle procedure consigliate per la sicurezza dei dati e la crittografia in Azure si basa su un parere condiviso, nonché sulle capacità e sui set di funzionalità della piattaforma Azure esistenti al momento della scrittura. Le opinioni e le tecnologie cambiano nel tempo e questo articolo verrà aggiornato regolarmente per riflettere tali modifiche.
 
 ## <a name="choose-a-key-management-solution"></a>Scegliere una soluzione di gestione delle chiavi
 
@@ -95,7 +87,7 @@ Poiché la maggior parte degli attacchi prende di mira l'utente finale, l'endpoi
 
 Archiviazione di Azure e Database SQL di Azure applicano la crittografia dei dati inattivi per impostazione predefinita e molti servizi offrono la crittografia come opzione. È possibile usare Azure Key Vault per mantenere il controllo delle chiavi che accedono e ai dati e li crittografano. Per altre informazioni, vedere [Supporto per il modello di crittografia dei provider di risorse di Azure](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Procedure consigliate**: usare la crittografia per ridurre i rischi correlati all'accesso non autorizzato ai dati.
+**Procedure consigliate**: usare la crittografia per ridurre i rischi correlati all'accesso non autorizzato ai dati.   
 **Dettagli**: crittografare le unità prima di scrivere dati sensibili.
 
 Le organizzazioni che non applicano la crittografia dei dati sono più esposte a problemi di riservatezza dei dati. Utenti non autorizzati, ad esempio, potrebbero rubare dati negli account compromessi o ottenere l'accesso non autorizzato ai dati codificati in ClearFormat. Le aziende devono anche dimostrare di operare in modo conforme e di implementare i controlli di sicurezza appropriati per aumentare la sicurezza dei dati e per rispettare normative di settore.
@@ -118,7 +110,7 @@ Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gatewa
 **Dettagli**: usare [ExpressRoute](../expressroute/expressroute-introduction.md). Se si decide di usare ExpressRoute, è possibile anche crittografare i dati a livello di applicazione usando [SSL/TLS](https://support.microsoft.com/kb/257591) o altri protocolli per una maggiore protezione.
 
 **Procedura consigliata**: interagire con Archiviazione di Azure tramite il portale di Azure.   
-**Dettagli**: tutte le transazioni avvengono via HTTPS. È possibile usare anche l'[API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) su HTTPS per interagire con [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) e il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/).
+**Dettagli**: tutte le transazioni avvengono via HTTPS. È anche possibile usare [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) tramite HTTPS per interagire con [archiviazione di Azure](https://azure.microsoft.com/services/storage/).
 
 Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli [attacchi man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) e hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
 

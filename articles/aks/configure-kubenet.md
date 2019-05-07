@@ -9,11 +9,11 @@ ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073977"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 

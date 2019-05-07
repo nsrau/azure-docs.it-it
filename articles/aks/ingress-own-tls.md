@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
 ms.openlocfilehash: e20f881d740c5d5b73c23c933ceb3d6f19e78ef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465972"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073831"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS nel servizio Azure Kubernetes
 

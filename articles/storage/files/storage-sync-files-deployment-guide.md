@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2213cf30384f7069b3862ddd61aceae1bd46d82d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190006"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -21,28 +21,30 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
 È consigliabile leggere [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md) e [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) prima di completare i passaggi descritti in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Un account di archiviazione di Azure e una condivisione file di Azure nella stessa area in cui si vuole distribuire Sincronizzazione file di Azure. Per altre informazioni, vedere:
+* Un file di Azure condividono nella stessa area che si vuole distribuire sincronizzazione File di Azure. Per altre informazioni, vedere:
     - [Aree di disponibilità](storage-sync-files-planning.md#region-availability) per Sincronizzazione file di Azure.
-    - [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per una descrizione dettagliata della procedura per la creazione di un account di archiviazione.
     - [Creare una condivisione file](storage-how-to-create-file-share.md) per una descrizione dettagliata della procedura per la creazione di una condivisione file.
 * Almeno un'istanza supportata di Windows Server o di cluster Windows Server da sincronizzare con Sincronizzazione file di Azure. Per altre informazioni sulle versioni supportate di Windows Server, vedere [Interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* Verificare che sia installato PowerShell 5.1 in Windows Server. Se si usa Windows Server 2012 R2, assicurarsi che sia in esecuzione almeno PowerShell 5.1.\*. È possibile ignorare senza problemi questo controllo in Windows Server 2016, perché PowerShell 5.1 è la versione predefinita. In Windows Server 2012 R2 è possibile verificare se è in esecuzione PowerShell 5.1.\* esaminando il valore della proprietà **PSVersion** dell'oggetto **$PSVersionTable**:
+* Il modulo PowerShell di Az può essere usato con PowerShell 5.1 o con PowerShell 6 o versione successiva. È possibile usare il modulo PowerShell di Az per sincronizzazione File di Azure in qualsiasi sistema supportata, compresi i sistemi non Windows, tuttavia, il cmdlet di registrazione del server venga sempre essere eseguito direttamente nell'istanza del Server di Windows che si sta registrando. In Windows Server 2012 R2, è possibile verificare che sia in esecuzione almeno PowerShell 5.1. \* esaminando il valore della **PSVersion** proprietà della **$PSVersionTable** oggetto:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Se il valore di PSVersion è minore di 5.1.\*, come nella maggior parte delle installazioni recenti di Windows Server 2012 R2, è possibile eseguire facilmente l'aggiornamento scaricando e installando [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Il pacchetto appropriato da scaricare e installare per Windows Server 2012 R2 è **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    Se il valore di PSVersion è minore di 5.1.\*, come nella maggior parte delle installazioni recenti di Windows Server 2012 R2, è possibile eseguire facilmente l'aggiornamento scaricando e installando [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Il pacchetto appropriato da scaricare e installare per Windows Server 2012 R2 è **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
-    > [!Note]  
-    > Sincronizzazione file di Azure non supporta ancora PowerShell 6 e versioni successive in Windows Server 2012 R2 o Windows Server 2016.
-* Moduli di PowerShell Az e AzureRM.
-    - È possibile installare il modulo Az seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-    - Il modulo AzureRM di PowerShell può essere installato eseguendo il cmdlet di PowerShell seguente:
-    
-        ```powershell
-        Install-Module AzureRM
-        ```
+    PowerShell 6 o versione successiva può essere utilizzato con qualsiasi sistema supportato e può essere scaricato tramite il [pagina GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+
+    > [!Important]  
+    > Se si prevede di usare l'interfaccia utente registrazione Server, anziché la registrazione direttamente da PowerShell, è necessario usare PowerShell 5.1.
+
+* Se si è scelto di usare PowerShell 5.1, assicurarsi che in viene installato almeno .NET 4.7.2. Altre informazioni sulle [versioni di .NET Framework e le dipendenze](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) nel sistema.
+* Il modulo PowerShell di Az, che può essere installato seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+* Il modulo Az.StorageSync, che è attualmente installato indipendentemente da modulo Az:
+
+    ```PowerShell
+    Install-Module Az.StorageSync -AllowClobber
+    ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparare Windows Server per l'uso con Sincronizzazione file di Azure
 Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo server in un cluster di failover, disabilitare **Sicurezza avanzata di Internet Explorer**. Questa operazione è necessaria solo per la registrazione iniziale del server e l'opzione può essere riabilitata dopo che il server è stato registrato.
@@ -97,26 +99,9 @@ Al termine, selezionare **Crea** per distribuire il servizio di sincronizzazione
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Prima di interagire con i cmdlet di gestione di Sincronizzazione file di Azure, è necessario importare una DLL e creare un contesto di gestione di Sincronizzazione file di Azure. Ciò è necessario poiché i cmdlet di gestione di Sincronizzazione file di Azure non fanno ancora parte del modulo di Azure PowerShell.
 
-> [!Note]  
-> Il pacchetto StorageSync.Management.PowerShell.Cmdlets.dll, che contiene i cmdlet di gestione di Sincronizzazione file di Azure, contiene (intenzionalmente) un cmdlet con un verbo non approvato (`Login`). Il nome `Login-AzureStorageSync` è stato scelto in modo che corrisponda all'alias del cmdlet `Login-AzAccount` nel modulo di Azure PowerShell. Questo messaggio di errore e il cmdlet verranno rimossi e l'agente di Sincronizzazione file di Azure viene aggiunto al modulo di Azure PowerShell.
 
 ```powershell
-$acctInfo = Login-AzAccount
-
-# The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
-# agent to a non-standard location, please update this path.
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
-
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+Connect-AzAccount
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -148,21 +133,8 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
-    -SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-```
-
-Dopo aver creato il contesto di Sincronizzazione file di Azure con il cmdlet `Login-AzureRmStorageSync`, è possibile creare il servizio di sincronizzazione archiviazione. Assicurarsi di sostituire `<my-storage-sync-service>` con il nome desiderato per il servizio di sincronizzazione archiviazione.
-
-```powershell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+$storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
 ---
@@ -193,31 +165,29 @@ Eseguire il codice di PowerShell seguente per scaricare la versione appropriata 
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+if ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
     Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+        -Uri https://aka.ms/afs/agent/Server2019 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
     Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
+        -Uri https://aka.ms/afs/agent/Server2016 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://aka.ms/afs/agent/Server2012R2 `
+        -OutFile "StorageSyncAgent.msi" 
+} else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019")
 }
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
 
 # Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
 # Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 
 # Note that this cmdlet will need to be run in a new session based on the above comment.
 # You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
+Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
 
 ---
@@ -243,7 +213,7 @@ Dopo avere selezionato le informazioni appropriate, fare clic su **Registra** pe
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
-$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
 
 ---
@@ -273,7 +243,7 @@ Per creare il gruppo di sincronizzazione, eseguire il comando di PowerShell segu
 
 ```powershell
 $syncGroupName = "<my-sync-group>"
-New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+$syncGroup = New-AzStorageSyncGroup -ParentObject $storageSync -Name $syncGroupName
 ```
 
 Dopo aver creato correttamente il gruppo di sincronizzazione, è possibile creare l'endpoint cloud. Assicurarsi di sostituire `<my-storage-account>` e `<my-file-share>` con i valori previsti.
@@ -306,11 +276,11 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzureRmStorageSyncCloudEndpoint `
-    -StorageSyncServiceName $storageSyncName `
-    -SyncGroupName $syncGroupName ` 
+New-AzStorageSyncCloudEndpoint `
+    -Name $fileShare.Name `
+    -ParentObject $syncGroup `
     -StorageAccountResourceId $storageAccount.Id `
-    -StorageAccountShareName $fileShare.Name
+    -AzureFileShareName $fileShare.Name
 ```
 
 ---
@@ -349,20 +319,19 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $storageSyncName `
-        -SyncGroupName $syncGroupName `
-        -ServerId $registeredServer.Id `
+    New-AzStorageSyncServerEndpoint `
+        -Name $registeredServer.FriendlyName `
+        -SyncGroup $syncGroup `
+        -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
-        -CloudTiering $true `
+        -CloudTiering `
         -VolumeFreeSpacePercent $volumeFreeSpacePercentage
-}
-else {
+} else {
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $storageSyncName `
-        -SyncGroupName $syncGroupName `
-        -ServerId $registeredServer.Id `
+    New-AzStorageSyncServerEndpoint `
+        -Name $registeredServer.FriendlyName `
+        -SyncGroup $syncGroup `
+        -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath 
 }
 ```

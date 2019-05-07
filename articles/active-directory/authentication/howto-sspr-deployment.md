@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357997"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190354"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -32,6 +32,10 @@ Per garantire un'implementazione semplice della funzionalità di reimpostazione 
    * Sono stati forniti loro gli URL necessari per la registrazione e la reimpostazione?
       * Registrazione: https://aka.ms/ssprsetup
       * Reimpostazione: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Utilizzo della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" in strumenti di amministrazione Active Directory in locale come Active Directory Users e computer o il centro di amministrazione di Active Directory non è supportato. Quando si modifica una password locale non selezionare questa opzione. 
+
 1. Provvedere alla formazione degli utenti.
    * Le sezioni seguenti di questo documento contengono comunicazioni di esempio, i portali delle password e le procedure di implementazione della registrazione e di inserimento dei dati di autenticazione.
    * Il gruppo che si occupa dei prodotti Azure Active Directory ha creato un [piano di distribuzione dettagliato](https://aka.ms/SSPRDeploymentPlan) che le organizzazioni possono usare in parallelo con la documentazione di questo sito per delineare un caso aziendale e un piano per la distribuzione della funzionalità di reimpostazione della password self-service.
