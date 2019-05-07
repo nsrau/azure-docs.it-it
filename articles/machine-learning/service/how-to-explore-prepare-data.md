@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028831"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204982"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Esplorare e preparare i dati con la classe di set di dati (anteprima)
 
@@ -44,7 +44,7 @@ Per esplorare e preparare i dati, è necessario:
 Richiedere un campione di dati per ottenere le informazioni iniziali l'architettura dei dati e il contenuto. A questo punto, il [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) metodo dalla classe di set di dati supporta le strategie di campionamento Top N casuale semplice e Stratified.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|FURTO|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|FURTO|...
 
-
 ## <a name="explore-with-summary-statistics"></a>Esplorare le statistiche summary
 
  Rilevamento di anomalie, i valori mancanti, o conteggi degli errori con il [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) (metodo). Questa funzione recupera il profilo e le statistiche di riepilogo dei dati, che a sua volta consentono di determinano le operazioni di preparazione dei dati necessari da applicare.
@@ -152,7 +151,7 @@ Dal profilo del set di dati generato nella sezione precedente, è possibile vede
 Innanzitutto, ottenere l'ultima definizione del set di dati con [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) e ridurre la quantità di dati con [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), pertanto è visualizzare solo le colonne che si desidera all'indirizzo.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ Come illustrato nella tabella di output seguente, la latitudine manca è stata a
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Aggiornare la definizione del set di dati, con [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) per mantenere la procedura di trasformazione eseguita.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 Spesso, i dati ci impegniamo con durante la pulizia e preparazione dei dati è solo un subset dei dati totali che è necessario per la produzione. Di conseguenza, alcuni dei presupposti che rendiamo come parte del nostro pulizia potrebbe risultare su false. Ad esempio, in un set di dati che vengono aggiornati continuamente, una colonna che originalmente conteneva solo i numeri all'interno di un determinato intervallo potrebbe contenere una vasta gamma di valori nelle esecuzioni successive. Questi errori spesso causano pipeline interrotte o i dati errati.
 
-I set di dati supporta la creazione di asserzioni nei dati, vengono valutati quando si esegue la pipeline. Queste asserzioni farci di verificare che l'ipotesi sui dati continuino a essere accurato e, se non, per gestire gli errori di conseguenza.
+Supporto di set di dati creando asserzioni sui dati, che vengono valutati quando si esegue la pipeline. Queste asserzioni farci di verificare che l'ipotesi sui dati continuino a essere accurato e, se non, per gestire gli errori di conseguenza.
 
 Ad esempio, se si desidera vincolare `Latitude` e `Longitude` i valori nel set di dati a intervalli numerici specifici, il [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) metodo garantisce questo è sempre così.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 Uno degli strumenti più avanzati per i set di dati è la possibilità di derivare le colonne con esempi di risultati desiderati. Ciò consente di fornire un esempio, il SDK in modo che può generare codice per ottenere le trasformazioni desiderate.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ Il codice seguente vengono forniti due esempi di output desiderato ("2016-04-04-
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ Quando si raccolgono dati da diverse origini possono verificarsi variazioni di o
 Ad esempio, la colonna `inspections.business.city` contiene varie forme del nome di città "San Francisco".
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

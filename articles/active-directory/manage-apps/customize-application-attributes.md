@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191503"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 Microsoft Azure AD offre supporto per il provisioning utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, G Suite e ad altri utenti. Se si abilita il provisioning utenti per un'applicazione SaaS di terze parti, il portale di Azure controlla i relativi valori di attributo tramite i mapping degli attributi.
@@ -149,6 +149,8 @@ Se si seleziona questa opzione Forza una risincronizzazione forzata di tutti gli
 * L'aggiornamento dei mapping degli attributi influisce negativamente sulle prestazioni di un ciclo di sincronizzazione. Un aggiornamento della configurazione del mapping degli attributi richiede la rivalutazione di tutti gli oggetti gestiti. 
 
 * Una procedura consigliata è di mantenere il numero di modifiche consecutive ai mapping degli attributi come minimo.
+
+* Aggiunta di un attributo di foto da sottoporre a provisioning per un'app non è attualmente supportata perché non è possibile specificare il formato per eseguire la sincronizzazione foto. È possibile richiedere la funzionalità in [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

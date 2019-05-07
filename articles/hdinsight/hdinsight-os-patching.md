@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722289"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203649"
 ---
 # <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722289"
 Le macchine virtuali in un cluster HDInsight devono essere riavviate di tanto in tanto in modo che sia possibile installare le patch di sicurezza importanti. 
 
 Tramite l'azione di script descritta in questo articolo, è possibile modificare la pianificazione dell'applicazione delle patch al sistema operativo come segue:
-1. Abilitare o disabilitare il riavvio automatico
-2. Impostare la frequenza di riavvio (giorni tra i riavvii)
-3. Impostare il giorno della settimana in cui eseguire un riavvio
+1. Installare gli aggiornamenti del sistema operativo completi o solo gli aggiornamenti della sicurezza
+2. Riavviare la macchina virtuale
 
 > [!NOTE]  
-> Questa azione di script funziona solo con i cluster HDInsight basati su Linux creati dopo il 1° agosto 2016. I patch verranno applicati solo al riavvio delle macchine virtuali. 
+> Questa azione di script funziona solo con i cluster HDInsight basati su Linux creati dopo il 1° agosto 2016. I patch verranno applicati solo al riavvio delle macchine virtuali. Questo script non verrà applicata automaticamente gli aggiornamenti per tutti i cicli di aggiornamento futuro. Eseguire lo script che ogni nuovo aggiornamento desidera essere applicati per installare gli aggiornamenti e riavviare la macchina virtuale.
 
 ## <a name="how-to-use-the-script"></a>Come usare lo script 
 
 L'uso di questo script richiede le informazioni seguenti:
-1. Il percorso dello script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa l'URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster.
+1. Il percorso dello script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight usa l'URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster.
   
-2. I tipi di nodo di cluster che vengono applicati allo script: nodo head, nodo del ruolo di lavoro, zookeeper. Questo script deve essere applicato a tutti i tipi di nodo del cluster. Se non viene applicato a un tipo di nodo, le macchine virtuali per quel tipo di nodo continueranno a usare la pianificazione per l'applicazione di patch precedente.
+2. I tipi di nodo di cluster che vengono applicati allo script: nodo head, nodo del ruolo di lavoro, zookeeper. Questo script deve essere applicato a tutti i tipi di nodo del cluster. Se non viene applicato a un tipo di nodo, quindi le macchine virtuali per quel tipo di nodo non verrà aggiornate.
 
 
-3.  Parametro: Questo script accetta tre parametri numerici:
+3.  Parametro: Questo script accetta un parametro numerico:
 
     | Parametro | Definizione |
     | --- | --- |
-    | Abilitare/disabilitare il riavvio automatico |0 o 1. Il valore 0 disabilita il riavvio automatico, mentre 1 consente il riavvio automatico. |
-    | Frequenza |da 7 a 90 (incluso). Il numero di giorni di attesa prima di riavviare le macchine virtuali per le patch che richiedono un riavvio. |
-    | Giorno della settimana |da 1 a 7 (incluso). Il valore 1 indica che il riavvio deve essere eseguito il lunedì e 7 indica la domenica. Ad esempio usando i parametri di 1 60 2 si produce un riavvio automatico ogni 60 giorni (al massimo) il martedì. |
-    | Persistenza |Quando si applica un'azione di script a un cluster esistente, è possibile contrassegnare lo script come persistente. Gli script persistenti vengono applicati quando vengono aggiunti nuovi nodi del ruolo di lavoro al cluster tramite operazioni di ridimensionamento. |
+    | Installare il sistema operativo completo. gli aggiornamenti/installare solo gli aggiornamenti della sicurezza |0 o 1. Il valore 0 consente di installare gli aggiornamenti della sicurezza solo mentre 1 consente di installare gli aggiornamenti del sistema operativo completi. Se non viene specificato alcun parametro, che il valore predefinito è 0. |
 
 > [!NOTE]  
 > Quando si applica a un cluster esistente, è necessario contrassegnare questo script come persistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno la pianificazione dell'applicazione di patch predefinita.  Se si applica lo script come parte del processo di creazione del cluster, viene mantenuto automaticamente.

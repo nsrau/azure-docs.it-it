@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61359093"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200749"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Il Centro sicurezza di Azure per gli avvisi di sicurezza IoT
 
@@ -37,7 +37,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Avvisi predefiniti per i dispositivi IoT
 
-| Gravità | NOME                                                   | origine dati | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Severity | NOME                                                   | origine dati | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Eseguito correttamente l'accesso locale                                 | Agente       | Rilevato accesso riuscita del dispositivo locale                                                                                                                                                                                                                                                                                                                                                                                         |
 | Alto     | Forza bruta                                  | Agente       | Rilevate più tentativi di accesso non riuscito, seguita da un account di accesso ha esito positivo. Si è verificato un attacco di forza bruta nel dispositivo.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +81,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Avvisi predefiniti per l'IoT Hub
 
-| Gravità | NOME                                                                         | DESCRIZIONE                                                                                                                                                                                                                                                                                                                            |
+| Severity | NOME                                                                         | DESCRIZIONE                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Media   | Nuovo certificato aggiunto a un IoT Hub                                    |Nuovo certificato aggiunto a un hub IoT. Se questa aggiunta non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                    |
 | Media   | Certificato è stato eliminato da un IoT Hub                                    | Certificato è stato eliminato da un hub IoT. Se questa azione non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                |

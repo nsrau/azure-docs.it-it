@@ -1,21 +1,21 @@
 ---
-title: Raccomandazioni per le prestazioni nel Database di Azure per PostgreSQL
-description: Questo articolo descrive la funzionalità di raccomandazione per le prestazioni nel Database di Azure per PostgreSQL.
+title: Raccomandazioni sulle prestazioni nel Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive la funzionalità di raccomandazione per le prestazioni nel Database di Azure per PostgreSQL - singolo Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068833"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Raccomandazioni per le prestazioni nel Database di Azure per PostgreSQL
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Raccomandazioni sulle prestazioni nel Database di Azure per PostgreSQL - Server singolo
 
-**Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
+**Si applica a:** Database di Azure per PostgreSQL - singolo Server 9.6 e 10
 
 La funzionalità suggerimenti relativi alle prestazioni analizza i database per creare i suggerimenti personalizzati per migliorare le prestazioni. Per produrre i suggerimenti, l'analisi vengono esaminati vari dalle caratteristiche del database incluso lo schema. Abilitare [Query Store](concepts-query-store.md) sul server per sfruttare appieno la funzionalità di raccomandazioni per le prestazioni. Dopo avere implementato qualsiasi raccomandazione per le prestazioni, è consigliabile testare le prestazioni per valutare l'impatto di tali modifiche. 
 

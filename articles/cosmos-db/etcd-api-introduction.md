@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 30d18e1e23767ce3a179221714e001574f8e9778
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075491"
+ms.locfileid: "65205796"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduzione a etcd di Azure Cosmos DB API (anteprima)
 
@@ -23,7 +23,7 @@ Azure Cosmos DB è servizio di database multimodello distribuito a livello globa
 Etcd API in Azure Cosmos DB consente di usare Azure Cosmos DB come archivio di back-end per [Azure Kubernetes](../aks/index.yml). etcd API in Azure Cosmos DB è attualmente in anteprima. Azure Cosmos DB implementa il protocollo di trasmissione etcd. Con etcd API in Azure Cosmos DB, gli sviluppatori avranno automaticamente altamente affidabili [disponibili](high-availability.md), [distribuito a livello globale](distribute-data-globally.md) Kubernetes. Questa API consente agli sviluppatori di scalare la gestione dello stato di Kubernetes in un servizio PaaS nativo cloud completamente gestito. 
 
 > [!NOTE]
-> A differenza di altre API in Azure Cosmos DB, è possibile eseguire il provisioning di un account di API etcd tramite il portale di Azure, SDK o della riga di comando. È possibile eseguire il provisioning di un account di API etcd distribuendo il modello di Resource Manager di sola lettura. Per informazioni dettagliate, vedere [come eseguire il provisioning Azure Kubernetes con Azure Cosmos DB](bootstrap-kubernetes-cluster.md) articolo.  
+> A differenza di altre API in Azure Cosmos DB, è possibile eseguire il provisioning di un account di API etcd tramite il portale di Azure, SDK o della riga di comando. È possibile eseguire il provisioning di un account di API etcd distribuendo il modello di Resource Manager di sola lettura. Per informazioni dettagliate, vedere [come eseguire il provisioning Azure Kubernetes con Azure Cosmos DB](bootstrap-kubernetes-cluster.md) articolo. Azure Cosmos DB etcd API è attualmente in anteprima limitata. È possibile [iscrizione all'anteprima](https://aka.ms/cosmosetcdapi-signup), completando il modulo di iscrizione.
 
 ## <a name="wire-level-compatibility"></a>Compatibilità a livello di rete
 

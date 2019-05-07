@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029146"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205008"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Confrontare i dati e garantire la riproducibilità gli snapshot (anteprima)
 
-In questo articolo descrive come creare e gestire gli snapshot delle [set di dati di Azure Machine Learning](how-to-create-register-datasets.md) (set di dati) in modo che è possibile acquisire o confrontare i dati nel corso del tempo. I set di dati rendono più semplice accedere e usare i dati nel cloud in vari scenari. 
+In questo articolo descrive come creare e gestire gli snapshot delle [set di dati di Azure Machine Learning](how-to-create-register-datasets.md) (set di dati) in modo che è possibile acquisire o confrontare i dati nel corso del tempo. I set di dati rendono più semplice accedere e usare i dati nel cloud in vari scenari.
 
-**Set di dati snapshot** archiviare un profilo (statistiche summary) dei dati al momento della creazione. È possibile scegliere anche archiviare una copia dei dati nello snapshot per permetterne la riproduzione. 
+**Set di dati snapshot** archiviare un profilo (statistiche summary) dei dati al momento della creazione. È possibile scegliere anche archiviare una copia dei dati nello snapshot per permetterne la riproduzione.
 
 >[!Important]
 > Gli snapshot comportano costi di archiviazione. L'archiviazione di una copia dei dati nello snapshot richiede anche più spazio di archiviazione. Uso [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) quando non sono più necessari.
@@ -29,9 +29,9 @@ In questo articolo descrive come creare e gestire gli snapshot delle [set di dat
 
 Esistono tre utilizzi principali per gli snapshot:
 
-+ **Convalida del modello**: Confrontare il profilo dei dati di snapshot differenti tra le esecuzioni di training o con dati di produzione. 
++ **Convalida del modello**: Confrontare il profilo dei dati di snapshot differenti tra le esecuzioni di training o con dati di produzione.
 
-+ **Modellare la riproducibilità**: Riprodurre i risultati tramite la chiamata di uno snapshot che include i dati durante il training. 
++ **Modellare la riproducibilità**: Riprodurre i risultati tramite la chiamata di uno snapshot che include i dati durante il training.
 
 + **Tenere traccia dei dati nel corso del tempo**: Vedere come il set di dati si è evoluta da [confronto tra i profili](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Per creare gli snapshot di set di dati, è necessario Azure Machine Learning Dat
 
 ## <a name="create-dataset-snapshots"></a>Creazione di set di dati snapshot
 
-Per creare uno snapshot di un set di dati, usare [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) dal SDK di Azure Machine Learning. 
+Per creare uno snapshot di un set di dati, usare [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) dal SDK di Azure Machine Learning.
 
 Per impostazione predefinita, lo snapshot consente di archiviare il profilo (statistiche summary) dei dati con la versione più recente [definizione del set di dati](how-to-manage-dataset-definitions.md) applicato. Una definizione di set di dati contiene un record di tutti i passaggi di trasformazione definita per i dati. È un ottimo modo per il funzionamento di preparazione dei dati riproducibile.
 
-Facoltativamente, è possibile anche includere una copia dei dati nello snapshot aggiungendo `create_data_snapshot = True`.  Questi dati possono essere utili per permetterne la riproduzione. 
+Facoltativamente, è possibile anche includere una copia dei dati nello snapshot aggiungendo `create_data_snapshot = True`.  Questi dati possono essere utili per permetterne la riproduzione.
 
 Questo esempio viene usato [campionare i dati crime](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) e un set di dati denominato `dataset_crime` creato usando l'articolo ["registratore di cassa e Crea set di dati"](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Poiché gli snapshot vengono creati in modo asincrono, usare il [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) metodo per monitorare il processo.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Uso [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azurem
 
 Per recuperare uno snapshot esistente, usare [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Per ottenere un elenco degli snapshot di un determinato set di dati salvato, utilizzare [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Per ottenere un elenco degli snapshot di un determinato set di dati salvato, utilizzare [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ Distretto|FieldType.INTEGER|5|24|10,0|0.0|10,0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|2
 Corsia|FieldType.INTEGER|1|48|10,0|0.0|10,0|0.0|0.0|0.0|1|5|1|9|22,5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Area della community|FieldType.INTEGER|4|77|10,0|0.0|10,0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>Ottenere i dati dallo snapshot
 
 Per ottenere una copia dei dati salvati in uno snapshot di set di dati, generare un DataFrame di pandas con i [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) (metodo).
 
-Questo metodo ha esito negativo se non è stata richiesta una copia dei dati durante la creazione di snapshot. 
+Questo metodo ha esito negativo se non è stata richiesta una copia dei dati durante la creazione di snapshot.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA SU $ 300|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|FURTO|DALLA CREAZIONE|RESIDENZA|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA $300 E IN|RESIDENZA|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

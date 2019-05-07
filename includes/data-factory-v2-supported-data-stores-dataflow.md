@@ -2,16 +2,16 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f9dc0bac4347a64feb4c50fd8f123c1debe3981
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7b54b6b369e15ca0a712efefec5c7817e88d9065
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866482"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199182"
 ---
-| Categoria | Archivio dati | Supportato come origine | Supportato come sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal [runtime di integrazione self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supportato da [flusso di dati](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | Archivio dati | Supportato come origine | Supportato come sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal [runtime di integrazione self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supportato da [flusso di dati](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Archiviazione BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Formati supportati: Testo delimitato, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
@@ -77,7 +77,7 @@ ms.locfileid: "64866482"
 | &nbsp; |[Jira (anteprima)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Magento (anteprima)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Marketo (anteprima)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Office 365 (anteprima)](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
+| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Eloqua (anteprima)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Responsys (anteprima)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Service Cloud (anteprima)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  ||

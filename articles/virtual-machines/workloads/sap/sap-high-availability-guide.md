@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204931"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver
 
@@ -283,7 +283,7 @@ _**Figura 2:** Configurazione di Windows Server Failover Clustering in Azure sen
 2. Eseguire SIOS DataKeeper Cluster Edition in entrambi i nodi delle macchine virtuali.
 3. Configurare SIOS DataKeeper Cluster Edition per eseguire il mirroring del contenuto del volume collegato del disco aggiuntivo dalla macchina virtuale di origine al volume collegato del disco aggiuntivo della macchina virtuale di destinazione. SIOS DataKeeper astrae i volumi locali di origine e di destinazione e quindi li presenta a Windows Server Failover Clustering come un disco condiviso.
 
-Altre informazioni su [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Altre informazioni su [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figura 3: Configurazione di Windows Server Failover Clustering in Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
 
@@ -742,7 +742,7 @@ Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiar
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
    * NOME
-   * Porta
+   * Port
    * Porta back-end
 
    Ad esempio, per sostituire il numero di istanza di ASCS predefinito 00 con 31, è necessario apportare le modifiche per tutte le porte elencate nella tabella 1.

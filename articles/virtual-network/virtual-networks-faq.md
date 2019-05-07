@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148514"
+ms.locfileid: "65205711"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -67,7 +67,7 @@ Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere [C
 Sì. Vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) per informazioni dettagliate. Gli spazi degli indirizzi della subnet non possono sovrapporsi.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
-Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l'ultimo indirizzo IP di ciascuna subnet sono riservati per motivi di conformità al protocollo, insieme agli indirizzi x.x.x.1-x.x.x.3 di ogni subnet, che vengono usati per i servizi di Azure.
+Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Il primo e l'ultimo indirizzo IP di ciascuna subnet sono riservati per motivi di conformità al protocollo, insieme agli indirizzi x.x.x.1-x.x.x.3 di ogni subnet, che vengono usati per i servizi di Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quanto piccole o grandi possono essere le reti virtuali e le subnet?
 La subnet più piccola supportata è /29 e la più grande è /8 (in base alle definizioni di subnet CIDR).
@@ -231,7 +231,7 @@ Sì. Altre informazioni:
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>È possibile creare una connessione di peering per una rete virtuale in un'area diversa?
-Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti virtuali in aree diverse. Il peering di reti virtuali globale è disponibile in tutte le aree pubbliche di Azure e nelle aree cloud cinesi. Non è possibile eseguire il peering globale da aree pubbliche di Azure nelle aree cloud nazionali. Il peering globale non è attualmente disponibile nei cloud per enti pubblici.
+Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti virtuali in aree diverse. Peering reti virtuali globale è disponibile in tutte le aree pubbliche di Azure, aree del cloud della Cina e aree del cloud per enti pubblici. È a livello globale non è possibile eseguire il peering da aree pubbliche di Azure per aree del cloud nazionale.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quali sono i vincoli relativi al Peering reti virtuali e servizi di bilanciamento del carico?
 Se le due reti virtuali sono in aree diverse (Peering reti virtuali globale), è possibile connettersi alle risorse che usano Load Balancer Basic. È possibile connettersi alle risorse che usano Load Balancer Standard.
@@ -241,7 +241,6 @@ Le seguenti risorse usano base i bilanciamenti del carico che significa che non 
 - Cache Redis 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - Gestione API
 - Active Directory Domain Service (ADDS)

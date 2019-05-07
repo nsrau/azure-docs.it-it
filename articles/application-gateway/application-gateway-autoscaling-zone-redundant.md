@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148893"
+ms.locfileid: "65202905"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona 
 
@@ -22,6 +22,8 @@ Il nuovo SKU di versione 2 include i miglioramenti seguenti:
 
 - **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF nello SKU con ridimensionamento automatico possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Questo SKU offre elasticità true. In Standard_v2 e WAF_v2 SKU, il Gateway applicazione può operare sia fisso della capacità (disabilitata la scalabilità automatica) sia in modalità di scalabilità automatica abilitata. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. Modalità la scalabilità automatica è utile nelle applicazioni che osserva varianza nel traffico dell'applicazione.
 - **Ridondanza della zona**: Un Gateway applicazione o distribuzione di Web Application firewall può estendersi su più zone di disponibilità, eliminando la necessità di effettuare il provisioning di istanze del Gateway applicazione separate in ogni zona con gestione traffico. È possibile scegliere una o più zone in cui sono distribuite istanze del Gateway applicazione, che rende più resiliente a errori della zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
+
+  Ridondanza di zona è disponibile solo in cui sono disponibili aree di Azure. Nelle altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [quali sono le zone di disponibilità in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Indirizzo VIP statico**: Applicazione gateway v2 SKU supporta l'indirizzo VIP statico il tipo in modo esclusivo. Ciò garantisce che l'indirizzo VIP associato al gateway applicazione non subisca modifiche per il ciclo di vita della distribuzione, anche dopo un riavvio.
 - **Intestazione riscrittura**: Il Gateway applicazione consente di aggiungere, rimuovere o aggiornare le intestazioni della richiesta e risposta HTTP con SKU v2. Per altre informazioni, vedere [intestazioni riscrivere HTTP con il Gateway applicazione](rewrite-http-headers.md)
 - **Integrazione di Key Vault (anteprima)**: Versione 2 di Gateway applicazione supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati di listener di traccia abilitato per HTTPS. Per altre informazioni, vedere [terminazione SSL con certificati Key Vault](key-vault-certs.md).

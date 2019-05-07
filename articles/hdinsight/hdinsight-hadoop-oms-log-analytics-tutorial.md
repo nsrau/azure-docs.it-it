@@ -1,6 +1,6 @@
 ---
 title: Usare monitoraggio di Azure Registra per monitorare i cluster HDInsight di Azure
-description: Informazioni su come usare i log di monitoraggio di Azure di Azure per monitorare i processi in esecuzione in un cluster HDInsight.
+description: Informazioni su come usare i log di monitoraggio di Azure per monitorare i processi in esecuzione in un cluster HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c37ff3c62817d238a94d5bbeae90c67663a6029
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689851"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203670"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare monitoraggio di Azure Registra per monitorare i cluster HDInsight
 

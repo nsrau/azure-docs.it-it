@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031406"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192284"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -94,3 +94,27 @@ Le operazioni del cluster sono limitate quando si verificano operazioni di aggio
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>È possibile spostare il cluster a un'altra sottoscrizione o la sottoscrizione con il cluster in un nuovo tenant?
 
 Se sono stati spostati cluster servizio contenitore di AZURE a un'altra sottoscrizione o del cluster proprietario di sottoscrizione in un nuovo tenant, il cluster perderà la funzionalità a causa di diritti di identità del servizio e le assegnazioni di ruolo non confermata. **Servizio contenitore di AZURE non supporta cluster lo spostamento tra sottoscrizioni o i tenant** a causa di questo vincolo.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Si verificano errori durante il tentativo di utilizzare funzionalità che richiedono set di scalabilità di macchine virtuali
+
+*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks-vmss-abilitazione*
+
+È possibile ricevere errori che indicano che il cluster AKS non è presente in un set di scalabilità di macchine virtuali, come nell'esempio seguente:
+
+**AgentPool 'agentpool' è impostata come abilitata la scalabilità automatica, ma non nel set di scalabilità di macchine virtuali**
+
+Usare le funzionalità, ad esempio il ridimensionamento automatico del cluster o più nodi di pool, necessario creare i cluster servizio contenitore di AZURE che usano set di scalabilità di macchine virtuali. Se si prova a usare le funzionalità che dipendono da set di scalabilità di macchine virtuali e la destinazione è un cluster AKS scala regolare, macchina virtuale non vengono restituiti errori. Supporto di set di scalabilità di macchine virtuali è attualmente in anteprima nel servizio contenitore di AZURE.
+
+Seguire le *prima di iniziare* passaggi nel documento appropriato per registrare correttamente per la scalabilità di macchine virtuali del set di funzionalità di anteprima e creare un cluster del servizio contenitore di AZURE:
+
+* [Usare la scalabilità automatica di cluster](cluster-autoscaler.md)
+* [Creare e usare più pool di nodi](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Le restrizioni di denominazione vengono applicati per i parametri e le risorse AKS?
+
+*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks--regole di denominazione*
+
+Restrizioni di denominazione vengono implementate dal servizio contenitore di AZURE e dalla piattaforma Azure. Se un nome di risorsa o un parametro si distacca da una di queste restrizioni, viene restituito un errore che chiede che è fornire un input diverso. Applicano le convenzioni di denominazione comuni seguenti:
+
+* Il servizio contenitore di AZURE *MC _* nome gruppo di risorse combina nome gruppo di risorse e il nome di risorsa. La sintassi di autogenerato `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o il nome del cluster servizio contenitore di AZURE.
+* Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non possono contenere caratteri speciali, ad esempio un punto (.).

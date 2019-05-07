@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148914"
+ms.locfileid: "65205475"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -71,7 +71,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
     * Streaming Locator sostituisce Locator.
     * Live Event sostituisce Channel.<br/>La fatturazione degli eventi live si basa sui contatori dei canali live. Per altre informazioni, vedere [fatturazione](live-event-states-billing.md) e [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output sostituisce Program.
-* Le entità Live Output non devono essere necessariamente avviate in modo esplicito, ma vengono avviate alla creazione e arrestate durante l'eliminazione. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
+* Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
 *  Per ottenere informazioni su un processo, è necessario conoscere il nome di trasformazione in cui è stato creato il processo. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Gap di funzionalità rispetto alle API v2

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916391"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205385"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -274,7 +274,7 @@ Se il test deve eseguire l'accesso con OAuth, procedere come indicato di seguito
 
 ## <a name="performance-tests"></a>Test delle prestazioni
 > [!NOTE]  
-> Servizio di test di carico basati sul cloud è deprecato. Sono disponibili altre informazioni sulla deprecazione, la disponibilità del servizio e servizi alternativi [qui](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> Servizio di test di carico basati sul cloud è deprecato. Sono disponibili altre informazioni sulla deprecazione, la disponibilità del servizio e servizi alternativi [qui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 È possibile eseguire un test di carico nel sito Web. Analogamente al test di disponibilità, è possibile inviare semplici richieste o richieste in più passaggi da diversi punti in tutto il mondo. A differenza dei test di disponibilità, vengono inviate molte richieste, simulando più utenti simultanei.
 

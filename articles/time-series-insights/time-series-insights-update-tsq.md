@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722166"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205023"
 ---
 # <a name="data-querying"></a>Esecuzione di query sui dati
 
@@ -35,9 +35,9 @@ Il [linguaggio TSX (Time Series Expression)](https://docs.microsoft.com/rest/api
 
 Sono supportate le API principali seguenti.
 
-![tsq][1]
+[![Panoramica delle Query di serie ora](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>API di ambiente
+## <a name="environment-apis"></a>API di ambiente
 
 Sono disponibili le API di ambiente seguenti.
 
@@ -45,7 +45,7 @@ Sono disponibili le API di ambiente seguenti.
 * [API Get Environment Availability](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): restituisce la distribuzione del numero di eventi rispetto al timestamp di eventi `$ts`. Tale API consente di stabilire se sono presenti eventi nel timestamp restituendo il numero di eventi, se presenti.
 * [API Get Event Schema](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): restituisce i metadati dello schema di eventi per un intervallo di ricerca specificato. Tale API consente di recuperare tutti i metadati e le proprietà disponibili nello schema per l'intervallo di ricerca specificato.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)
+## <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)
 
 Sono disponibili le API TSM-Q (Time Series Model-Query) seguenti.
 
@@ -54,7 +54,7 @@ Sono disponibili le API TSM-Q (Time Series Model-Query) seguenti.
 * [API Hierarchies](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): abilita le operazioni CRUD sulle gerarchie di serie temporali e sui percorsi di campo associati.
 * [API Instances](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): abilita le operazioni CRUD sulle istanze di serie temporali e sui campi delle istanze associate.
 
-### <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
+## <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
 
 Sono disponibili le API TSQ (Time Series Query) seguenti.
 
@@ -80,6 +80,3 @@ Sono disponibili le API TSQ (Time Series Query) seguenti.
 - Leggere la versione di anteprima di tempo Series Insights [modellazione dei dati](./time-series-insights-update-tsm.md) articolo.
 
 - Scopri [procedure consigliate quando si sceglie un ID di serie ora](./time-series-insights-update-how-to-id.md).
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

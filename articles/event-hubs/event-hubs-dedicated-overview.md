@@ -15,79 +15,106 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e8a2d8321a42e8b3d090c1ce1fdb3fd9a7ee3714
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138669"
+ms.locfileid: "65203939"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
-I cluster di Azure hub eventi offrono distribuzioni a tenant singolo per i clienti con le esigenze più complesse di streaming. Questa offerta a tenant singolo ha un contratto di servizio del 99,99% garantite. È disponibile solo in Dedicated piano tariffario.
+*Cluster di hub eventi* offre distribuzioni a tenant singolo per i clienti con le esigenze più complesse di streaming. Questa offerta a tenant singolo ha un contratto di servizio del 99,99% garantite ed è disponibile solo nei nostri Dedicated piano tariffario. Un cluster di hub eventi può inserire milioni di eventi al secondo con una capacità garantita e latenza a frazioni di secondo. Gli spazi dei nomi e hub eventi creato all'interno del cluster dedicato includono tutte le funzionalità dell'offerta Standard e così via, ma senza limiti di ingresso. Contiene inoltre il famoso [acquisizione di hub eventi](event-hubs-capture-overview.md) funzionalità senza costi aggiuntivi, consentendo di automaticamente batch e log nei flussi di dati da archiviazione di Azure o Azure Data Lake. 
 
-Un cluster di hub eventi può inserire milioni di eventi al secondo con una capacità garantita e latenza a frazioni di secondo. Gli spazi dei nomi e hub eventi creato all'interno del cluster dedicato includono tutte le funzionalità dell'offerta Standard e così via, ma senza limiti di ingresso. Include anche il [acquisizione di hub eventi](event-hubs-capture-overview.md) funzionalità senza costi aggiuntivi. È possibile usarlo automaticamente batch e log nei flussi di dati da archiviazione di Azure o Azure Data Lake.
+I cluster vengono effettuato il provisioning e addebitati dal **unità di capacità (CUs)**, una quantità di pre-allocata risorse di CPU e memoria. È possibile acquistare 1, 2, 4, 8, 12, 16 o 20 unità di capacità per ogni cluster. Quanto è possibile inserire e per unità di capacità di flusso dipende da vari fattori, ad esempio il numero di producer e consumer, forma, payload di dati in uscita frequenza (vedere i risultati benchmark sotto per altri dettagli). 
 
-Cluster dedicati vengono effettuato il provisioning e addebitato dall'unità di capacità (CUs). Unità di capacità sono una quantità di risorse di CPU e memoria preallocata. È possibile acquistare 1, 2, 4, 8, 12, 16 o 20 unità di capacità per ogni cluster. Quanto è in grado di inserire e flusso per unità di capacità dipende da fattori quali il numero di producer e consumer, la forma di payload e la frequenza in uscita.
+> [!NOTE]
+> Tutti i cluster di hub eventi sono abilitati per Kafka per impostazione predefinita e supportano gli endpoint di Kafka che possono essere utilizzati da esistente applicazioni basate su Kafka. Con Kafka è abilitato nel cluster non influisce sui casi d'uso di non-Kafka; non vi è alcuna opzione o necessità di disabilitare il in un cluster Kafka.
 
-Per altre informazioni, vedere la tabella con i risultati benchmark.
+## <a name="why-dedicated"></a>Il motivo per cui dedicato?
 
-## <a name="why-use-event-hubs-dedicated"></a>Perché usare hub eventi dedicato?
-
-Hub eventi dedicato offre tre vantaggi per i clienti che necessitano di capacità a livello aziendale.
+Dedicato di hub eventi offre tre vantaggi significativi per i clienti che necessitano di capacità a livello aziendale:
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>Singolo tenancy garanzie di capacità per migliorare le prestazioni
 
-Un cluster dedicato garanzie di capacità su scala completa. Può inserire un massimo di gigabyte di dati in streaming con latenza di archiviazione e le frazioni di secondo completamente durevole per adattarlo a picchi di traffico.
+Un cluster dedicato garanzie di capacità su scala completa e in ingresso fino a gigabyte di dati in streaming con latenza di archiviazione e frazioni di secondo completamente durevole qualsiasi incrementarne l'utilizzo del traffico. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Accesso alle funzionalità inclusivo ed esclusivo 
-L'offerta dedicata include funzionalità quali l'acquisizione senza costi aggiuntivi. Offre anche accesso esclusivo a funzionalità presto disponibili, ad esempio BYOK. Il servizio gestisce inoltre il bilanciamento del carico del sistema operativo degli aggiornamenti, patch di sicurezza e partizionamento. Con queste funzionalità, è possibile dedicare meno tempo nella manutenzione dell'infrastruttura e all'ora più sullo sviluppo di funzionalità lato client.
+L'offerta dedicato comprende funzionalità come acquisire in alcun costo aggiuntivo, nonché accesso esclusivo a funzionalità presto disponibili, ad esempio BYOK. Il servizio gestisce inoltre il bilanciamento del carico, del sistema operativo degli aggiornamenti, patch di sicurezza e il partizionamento per il cliente, in modo che è possibile dedicare meno tempo nella manutenzione dell'infrastruttura e all'ora più sullo sviluppo di funzionalità lato client.  
 
 #### <a name="cost-savings"></a>Risparmi sui costi
-Con volumi di traffico in ingresso elevata, un cluster i costi significativamente inferiore all'ora rispetto ai casi si acquistare una quantità confrontabile di unità elaborate (tu predeterminate) nell'offerta Standard. È un volume elevato > 100 unità elaborate.
+Con volumi di traffico in ingresso ad alta (> 100 unità elaborate), un cluster i costi significativamente inferiore all'ora rispetto all'acquisto di una quantità confrontabile di unità di velocità effettiva nell'offerta Standard.
 
 
-## <a name="event-hubs-standard-vs-dedicated"></a>Visual Studio Standard di hub eventi. Dedicato
+## <a name="event-hubs-dedicated-quotas-and-limits"></a>Dedicato di hub eventi, limiti e quote
 
-La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. L'offerta dedicato di hub eventi viene fatturato in base a un prezzo mensile fisso, rispetto ai prezzi di utilizzo per la maggior parte delle funzionalità del livello Standard. Il livello dedicato offre tutte le funzionalità del piano Standard, ma con capacità su scala aziendale per i clienti con carichi di lavoro intensi.
+L'offerta dedicato di hub eventi viene fatturato a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello dedicato offre tutte le funzionalità del piano Standard, ma con capacità su scala aziendale e i limiti per i clienti con carichi di lavoro intensi. 
 
 | Funzionalità | Standard | Dedicato |
 | --- |:---:|:---:|
+| Larghezza di banda | 20 unità elaborate (fino a 40 unità elaborate) | 20 unità di capacità |
+| Spazi dei nomi |  1 | 50 per ogni unità di capacità |
+| Hub eventi |  10 | Nessun limite |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
-| Unità di velocità effettiva (in entrata 1 MB/secondo, in uscita di 2 MB/secondo) | Pagamento per ogni ora | Incluso |
-| Dimensioni dei messaggi | 1 MB | 1 MB |
-| Partitions | 40 per ogni spazio dei nomi | 2.000 unità di capacità |
-| Gruppi di consumer | 20 per hub eventi | 1.000 per hub eventi |
-| Larghezza di banda massima | 20 unità elaborate (fino a 40 unità elaborate) | 20 unità di capacità |
-| Connessioni negoziate | 1.000 incluse | 100.000 incluse |
-| Conservazione di messaggi | Un giorno incluso | Fino a sette giorni incluso |
+| Dimensioni del messaggio | 1 milione di byte | 1 milione di byte |
+| Partitions | 40 per ogni spazio dei nomi | 2000 per unità di capacità, 1024 per hub eventi |
+| Gruppi di consumer | 20 per Hub eventi | Nessun limite per ogni unità di capacità, 1000 per hub eventi |
+| Connessioni negoziate | 1.000 incluse | 100 K incluse |
+| Conservazione dei messaggi | 7 giorni, incluso per ogni unità Elaborata 84 GB | 90 giorni, 10 TB, incluse per ogni unità di capacità |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
-## <a name="what-can-i-achieve-with-a-cluster"></a>Ciò che è possibile ottenere con un cluster?
+## <a name="how-to-onboard"></a>Modalità di esecuzione dell'onboarding
 
-Per un cluster di hub eventi, quanto più possibile di inserimento e flusso dipende di Producer, gli utenti, la frequenza in corrispondenza del quale inserire ed elaborare e molto altro ancora.
+L'esperienza self-service per l'onboarding a dedicata è disponibile in anteprima, tramite il quale è possibile creare 1 CU cluster nelle aree seguenti:
+  - Canada centrale
+  - Europa occidentale
+  - Stati Uniti centrali
+  - Stati Uniti orientali
+  - Stati Uniti orientali 2
+  - Stati Uniti centro-settentrionali
+  - Stati Uniti occidentali
 
-Nella tabella seguente mostra i risultati benchmark che sono stati ottenuti durante il test.
+Si sta attivamente aggiungendo nuove aree geografiche, ma nel frattempo se l'area preferita non è presente nell'elenco, inviare una richiesta di supporto per la [team di hub eventi](https://ms.portal.azure.com/#create/Microsoft.Support) sotto *tecniche > hub eventi > Quota > richiesta per Dedicato SKU*. Il piano Dedicato è unico nel suo genere perché consente di usufruire di più onboarding pratico dal team di produzione di Hub eventi per ottenere la distribuzione flessibile desiderata. 
+
+## <a name="faqs"></a>Domande frequenti
+
+#### <a name="what-can-i-achieve-with-a-cluster"></a>Ciò che è possibile ottenere con un cluster?
+
+Per un cluster di hub eventi, quanto più possibile di inserimento e flusso dipende vari fattori, ad esempio il producer, consumer, la frequenza con cui sono l'inserimento e l'elaborazione e molto altro ancora. 
+
+La tabella seguente mostra i risultati dei benchmark ottenuti durante i test:
 
 | Forma del payload | Destinatari | Larghezza di banda in ingresso| Messaggi in ingresso | Larghezza di banda in uscita | Messaggi in uscita | Unità elaborate totali | Unità elaborate per unità di capacità |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400.000 messaggi/sec | 800 MB/sec | 800.000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
-| Batch di 10 x 10 KB | 2 | 666 MB/sec | 66,600 messaggi/sec | 1,33 GB/sec | 133,000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
-| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34.000 messaggi/sec | 1,05 GB/sec | 34.000 messaggi/sec | 1.000 unità elaborate | 250 unità elaborate |
+| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400000 messaggi/sec | 800 MB/sec | 800000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
+| Batch di 10 x 10 KB | 2 | 666 MB/sec | 666000 messaggi/sec | 1,33 GB/sec | 133000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
+| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34000 messaggi/sec | 1,05 GB/sec | 34000 messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
 
-Il test, sono stati usati i criteri seguenti:
+Nei test sono stati usati i criteri seguenti:
 
-- È stato usato un cluster di hub eventi dedicato a livelli con quattro unità di capacità.
-- L'hub eventi usato per l'inserimento aveva 200 partizioni.
-- Due applicazioni destinatario ha ricevuti i dati che è stati inseriti. I dati vengono ricevuti da tutte le partizioni.
+- È stato usato un cluster di hub eventi dedicato a livelli con quattro unità di capacità (CUs). 
+- L'hub eventi usato per l'inserimento aveva 200 partizioni. 
+- I dati inseriti da tutte le partizioni vengono ricevuti da due applicazioni riceventi.
 
-## <a name="use-event-hubs-dedicated"></a>Usare hub eventi dedicato
+#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Come si crea un cluster di dimensioni superiori a 1 unità di capacità?
 
-Usare hub eventi dedicato, [contattare il supporto per la fatturazione](https://ms.portal.azure.com/#create/Microsoft.Support) o il rappresentante Microsoft. È possibile aumentare o ridurre la capacità nel corso del mese in base alle esigenze specifiche, aggiungendo o rimuovendo le unità di capacità. Il team del prodotto di hub eventi consente di ottenere la distribuzione flessibile ottimale.
+Nella versione di anteprima dell'esperienza di Self-Service, è possibile richiedere per aumentare le prestazioni del cluster dopo aver creato il cluster. Dopo aver creato un cluster di aggiornamento Cumulativo 1, contattare il supporto di hub eventi compilando una [richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) sotto *Technical > Quota > richiesta scalabilità verticale o ridimensionare un Cluster verso il basso dedicato*. Nella versione disponibile a livello generale, sarà possibile ridimensionare un cluster direttamente tramite il portale. 
+
+#### <a name="can-i-scale-down-my-cluster"></a>È possibile ridurre il cluster?
+
+Dopo la creazione del cluster vengono fatturati per un minimo di 4 ore di utilizzo. Nella versione di anteprima dell'esperienza di Self-Service, è possibile inviare un [richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) al team di hub eventi in *Technical > Quota > richiesta scalabilità verticale o ridimensionare un Cluster verso il basso dedicato*. Potrebbero occorrere fino a 7 giorni per completare la richiesta di ridimensionamento verso il basso il cluster. 
+
+#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Come si integrano ripristino di emergenza geografico con il cluster?
+
+È possibile associazione geografica uno spazio dei nomi in un cluster dedicato a livelli con un altro spazio dei nomi in un cluster dedicato a livelli. Ti consigliamo di non associazione uno spazio dei nomi di livello dedicato con uno spazio dei nomi nel nostro Standard offerta, poiché il limite di velocità effettiva sarà incompatibile che generano errori. 
+
+
+#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>È possibile eseguire la migrazione personali Standard degli spazi dei nomi che appartengono a un cluster dedicato a livelli?
+Attualmente Supportiamo un processo automatizzato di migrazione per la migrazione dei dati di hub di eventi da uno spazio dei nomi Standard a un dedicata uno. Per eseguire la migrazione a un cluster dedicato a livelli, è consigliabile svuotamento delle eventuali sinistra dei messaggi di hub di eventi di livello Standard e sostituendo gli endpoint di connessione con quello dello spazio dei nomi dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Contattare il rappresentante di vendita Microsoft o il supporto tecnico Microsoft per ottenere ulteriori informazioni sulla capacità di hub eventi dedicato. Per altre informazioni sui livelli di prezzi di hub eventi, usare i collegamenti seguenti:
+Per informazioni aggiuntive sul livello Dedicato di Hub eventi, contattare il rappresentante di vendita Microsoft o il Supporto tecnico Microsoft. Per altre informazioni sui piani tariffari di Hub eventi, visitare i collegamenti seguenti:
 
-- [Tariffe di Hub eventi dedicato](https://azure.microsoft.com/pricing/details/event-hubs/). È anche possibile contattare il rappresentante di vendita Microsoft o il supporto tecnico Microsoft per ottenere ulteriori informazioni sulla capacità di hub eventi dedicato.
+- [Tariffe di Hub eventi dedicato](https://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni aggiuntive sulla capacità di Hub eventi dedicato, contattare il rappresentante di vendita Microsoft o il Supporto tecnico Microsoft.
 - Le [Domande frequenti si Hub eventi](event-hubs-faq.md) contengono informazioni sui prezzi e risposte ad alcune domande frequenti sugli Hub eventi.

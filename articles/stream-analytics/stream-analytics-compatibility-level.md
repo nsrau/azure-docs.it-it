@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/2/2019
+ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771690"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205466"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -25,8 +25,8 @@ Il livello di compatibilità controlla il comportamento di runtime di un process
 
 Azure Analitica Stream supporta attualmente tre livelli di compatibilità:
 
-* 1.0 - livello predefinito
-* 1.1 - comportamento di versione corrente
+* 1.0 - comportamento precedente
+* 1.1 - comportamento predefinito
 * 1.2 (anteprima): il comportamento più recente con i miglioramenti più recenti nella valutazione
 
 Il livello di compatibilità originale 1.0 è stato introdotto durante la disponibilità generale di Azure Stream Analitica diversi anni fa.
@@ -49,7 +49,7 @@ Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 
 Quando si aggiorna il livello di compatibilità, il servizio di compilazione Transact-SQL convalida il processo con la sintassi corrispondente al livello di compatibilità selezionato.
 
-## <a name="compatibility-level-12"></a>Livello di compatibilità 1.2
+## <a name="compatibility-level-12-preview"></a>Livello di compatibilità 1.2 (anteprima)
 
 Nel livello di compatibilità 1.2 vengono introdotte le modifiche principali seguenti:
 

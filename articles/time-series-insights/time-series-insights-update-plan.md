@@ -8,47 +8,50 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0472f53d11ec4c990fcf6face633444fe66ba937
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3fab86b2b2f0ad892e02cd089dbd7c45ce601d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205764"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
 Questo articolo descrive le procedure consigliate per pianificare e iniziare a usare rapidamente l'anteprima di Azure Time Series Insights.
 
+> [!NOTE]
+> Visualizzare [pianificare l'ambiente di versione GA di Azure ora Series Insights](time-series-insights-environment-planning.md), per le procedure consigliate pianificare un'istanza di Time Series Insights disponibilità generale.
+
 ## <a name="best-practices-for-planning-and-preparation"></a>Procedure consigliate per la pianificazione e preparazione
 
 Per iniziare a usare Time Series Insights, è consigliabile conoscere:
 
-* I vantaggi del provisioning di un ambiente di anteprima di Time Series Insights.
-* Le proprietà di Timestamp e ID di Time Series.
-* Che cos'è il nuovo modello Time Series e come crearne uno personalizzato.
-* Come inviare in modo efficiente gli eventi in formato JSON. 
-* Opzioni di ripristino di emergenza aziendale di Time Series Insights.
+* Che cosa si ottiene quando si [effettuare il provisioning di un ambiente di versione di anteprima di tempo Series Insights](#the-preview-environment).
+* Che cosa le [sono proprietà ID serie ora e Timestamp](#configure-time-series-ids-and-timestamp-properties).
+* Il nuovo [modello Time Series è](#understand-the-time-series-model)e su come crearne una personalizzata.
+* Saper [inviare eventi in modo efficiente in JSON](#shape-your-events).
+* Time Series Insights [opzioni di ripristino di emergenza business](#business-disaster-recovery).
 
-Time Series Insights usa un modello business con pagamento in base al consumo. Per altre informazioni sui costi e la capacità, vedere [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/) (Prezzi di Time Series Insights).
+Azure Time Series Insights Usa un modello con pagamento a consumo. Per altre informazioni sui costi e la capacità, vedere [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/) (Prezzi di Time Series Insights).
 
-## <a name="the-time-series-insights-preview-environment"></a>Ambiente di anteprima di Time Series Insights
+## <a name="the-preview-environment"></a>L'ambiente di anteprima
 
 Quando si esegue il provisioning di un ambiente di anteprima di Time Series Insights, vengono create due risorse di Azure:
 
-* Ambiente di anteprima di Time Series Insights
-* Account di Archiviazione di Azure (uso generico V1)
+* Un ambiente Anteprima di Azure Time Series Insights
+* Un account di archiviazione di Azure per utilizzo generico V1
 
 Per iniziare, sono necessari altri tre elementi:
- 
-- Un [Modello Time Series](./time-series-insights-update-tsm.md) 
-- Un [origine evento connessa a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md) 
-- [Eventi che passino nell'origine evento](./time-series-insights-send-events.md) e che siano entrambi mappati al modello e abbiano un formato JSON valido 
 
-## <a name="configure-your-time-series-ids-and-timestamp-properties"></a>Configurare le proprietà di Timestamp e ID di Time Series
+* Oggetto [modello Time Series](./time-series-insights-update-tsm.md).
+* Un' [origine evento connessa a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Gli eventi che passano nell'origine evento](./time-series-insights-send-events.md) che sono entrambi mappati al modello e sono in formato JSON valido.
 
-Per creare un nuovo ambiente Time Series Insights, selezionare un ID Time Series. Tale operazione funge da partizione logica per i dati. Come accennato, assicurarsi di disporre dell'ID Time Series a portata di mano.
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurare le proprietà ID serie ora e Timestamp
+
+Per creare un nuovo ambiente Time Series Insights, selezionare una **ID serie ora**. Tale operazione funge da partizione logica per i dati. Come accennato, assicurarsi di disporre dell'ID Time Series a portata di mano.
 
 > [!IMPORTANT]
 > Gli ID Time Series sono *immutabili* e *non possono essere modificati in un secondo momento*. Verificare ognuno di essi prima della selezione finale e del primo uso.
@@ -60,7 +63,7 @@ Anche la proprietà Timestamp è importante. È possibile definire questa propri
 > [!TIP]
 > Verificare i requisiti di formattazione e analisi per le origini evento.
 
-Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, leggere [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) (Procedura di aggiunta di origini evento nell'hub IoT). 
+Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, leggere [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) (Procedura di aggiunta di origini evento nell'hub IoT).
 
 ## <a name="understand-the-time-series-model"></a>Comprendere il modello Time Series
 
@@ -68,7 +71,7 @@ Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodament
 
 Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md) (Usare il modello Time Series).
 
-Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo). 
+Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo).
 
 ## <a name="shape-your-events"></a>Dare forma agli eventi
 
@@ -77,39 +80,11 @@ Per molti clienti, il modello Time Series esegue il mapping a un modello di riso
 Una buona norma:
 
 * Archiviare i metadati del modello Time Series
-* Modalità Time Series, campi di istanza ed eventi includono solo le informazioni necessarie, ad esempio:
-  * ID Time Series
-  * Timestamp
+* Modalità di serie temporale, i campi di istanza e gli eventi includono solo le informazioni necessarie, ad esempio un **ID serie tempo** oppure **Timestamp**.
 
 Per altre informazioni, vedere [Shape events](./time-series-insights-send-events.md#json) (Dare forma agli eventi).
 
-## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
-
-Time Series Insights è un servizio a disponibilità elevata che usa ridondanze a livello di area di Azure. Per usare queste funzionalità intrinseche non è necessaria alcuna configurazione. La piattaforma Microsoft Azure offre anche numerose funzionalità che facilitano la compilazione di soluzioni con funzionalità di ripristino di emergenza o disponibilità tra aree. Per offrire una disponibilità elevata globale tra le aree per dispositivi o utenti, sfruttare le funzionalità di ripristino di emergenza di Azure. 
-
-Per informazioni sulle funzionalità integrate in Azure per la continuità aziendale e il ripristino di emergenza, vedere l'articolo [Azure business continuity technical guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance) (Indicazioni tecniche sulla continuità aziendale di Azure). Per informazioni sull'architettura nelle strategie per consentire alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza, vedere il documento [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](https://docs.microsoft.com/azure/architecture/resiliency/index).
-
-> [!NOTE]
-> Time Series Insights non dispone di continuità aziendale e ripristino di emergenza incorporati. Per impostazione predefinita, Archiviazione di Azure, l'hub IoT di Azure e gli hub eventi di Azure dispongono del ripristino integrato.
-
-Per altre informazioni, leggere:
-
-* [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) (Ridondanza di Archiviazione di Azure)
-* [IoT Hub high-availability disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr) (Disponibilità elevata e ripristino di emergenza dell'hub IoT)
-* [Event Hub policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr) (Criteri dell'Hub eventi)
-
-Gli utenti che richiedono continuità aziendale e ripristino di emergenza possono implementare una strategia di ripristino. Creare un secondo ambiente Time Series Insights in un'area di Azure di backup. Inviare eventi all'ambiente secondario dall'origine evento primaria. Usare un secondo gruppo di consumer dedicato e le linee guida BCDR dell'origine evento.
-
-Seguire questi passaggi per creare e usare un ambiente Time Series Insights secondario.
-
-1. Creare un ambiente in una seconda area. Per altre informazioni, vedere [Ambienti Time Series Insights](./time-series-insights-get-started.md).
-1. Creare un secondo gruppo di consumer dedicato per l'origine evento. Connettere tale origine eventi al nuovo ambiente. Assicurarsi di designare il secondo gruppo di consumer dedicato. Per altre informazioni, vedere la [documentazione dell'hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md) o la [documentazione dell'Hub eventi](./time-series-insights-data-access.md).
-1. Se l'area primaria viene compromessa durante un evento imprevisto di emergenza, reindirizzare le operazioni verso l'ambiente di backup di Time Series Insights.
-
-> [!IMPORTANT]
-> * Si noti che, in caso di failover, è possibile che si verifichi un ritardo.
-> * Il failover può causare anche un picco temporaneo nell'elaborazione dei messaggi quando le operazioni vengono reindirizzate.
-> * Per altre informazioni, vedere [Mitigate latency in Time Series Insights](./time-series-insights-environment-mitigate-latency.md) (Mitigare la latenza in Time Series Insights).
+[!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

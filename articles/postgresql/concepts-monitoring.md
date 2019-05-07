@@ -1,19 +1,19 @@
 ---
-title: Monitorare e ottimizzare in Database di Azure per PostgreSQL
-description: Questo articolo descrive le funzionalità di monitoraggio e ottimizzazione in Database di Azure per PostgreSQL.
+title: Monitorare e ottimizzare nel Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive le funzionalità di monitoraggio e ottimizzazione nel Database di Azure per PostgreSQL - singolo Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069002"
 ---
-# <a name="monitor-and-tune"></a>Monitorare e ottimizzare
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare i Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
 
 ## <a name="metrics"></a>Metriche

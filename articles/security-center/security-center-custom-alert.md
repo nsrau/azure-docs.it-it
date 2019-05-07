@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192630"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
 Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
 
 > [!NOTE]
-> Avvisi personalizzati verranno ritirati a breve, leggere altre alternativi servizi riportato di seguito.
+> Avvisi personalizzati verranno ritirati il 30 giugno 2019.
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Le regole di ritiro di avviso personalizzate nel Centro sicurezza di Azure
 
 L'esperienza avvisi personalizzati verrà ritirata il 30 giugno 2019, a causa di ritiro dell'infrastruttura sottostante di che cui si basa. Nell'intervallo di tempo fino a elementi deprecati, gli utenti saranno in grado di modificare le regole di avviso personalizzate esistenti ma non sarà in grado di aggiungere quelli nuovi.
-Gli utenti è consigliabile abilitare [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) con onboarding di un solo clic per eseguire la migrazione degli avvisi esistenti e crearne uno nuovo o in alternativa creare nuovamente gli avvisi di monitoraggio di Azure automaticamente gli avvisi del log.
+Gli utenti sono invitati a uno:
+- Abilitare [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) con un solo clic onboarding automaticamente la migrazione degli avvisi esistenti e crearne uno nuovo
+- Ricreare gli avvisi con avvisi di log di monitoraggio di Azure
                                      
 Per mantenere gli avvisi esistenti e ne esegue la migrazione a Azure Sentinel, please [avviare Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Come primo passaggio, selezionare l'area di lavoro in cui sono archiviati gli avvisi personalizzati e quindi selezionare la voce di menu 'Analitica' per eseguire la migrazione automatica degli avvisi.
 

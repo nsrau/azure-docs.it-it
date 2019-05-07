@@ -1,19 +1,19 @@
 ---
-title: Eseguire il backup e il ripristino in Database di Azure per PostgreSQL
-description: Informazioni su backup automatici e ripristino del server Database di Azure per PostgreSQL.
+title: Backup e ripristino nel Database di Azure per PostgreSQL - Server singolo
+description: Informazioni sui backup automatici e ripristino Database di Azure per PostgreSQL server - Server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456258"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068863"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Eseguire il backup e il ripristino in Database di Azure per PostgreSQL
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel Database di Azure per PostgreSQL - Server singolo
 
 Database di Azure per PostgreSQL crea automaticamente backup del server e li archivia in un archivio con ridondanza locale o geografica configurato dall'utente. I backup possono essere usati per ripristinare il server a un momento specifico. Il backup e il ripristino sono una parte essenziale di qualsiasi strategia di continuità aziendale, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale.
 
